@@ -1,2 +1,4 @@
 .ipynb_checkpoints/*
 .vscode/*
+node_modules/*
+data/output/*
