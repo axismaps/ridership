@@ -1,0 +1,20 @@
+{
+  "name": "ridership",
+  "version": "1.0.0",
+  "description": "Ridership Visualization",
+  "main": "index.js",
+  "scripts": {
+    "data:clean": "python bin/ntd.py",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axismaps/ridership.git"
+  },
+  "author": "Axis Maps",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/axismaps/ridership/issues"
+  },
+  "homepage": "https://github.com/axismaps/ridership#readme"
+}
