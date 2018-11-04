@@ -1,4 +1,6 @@
 .ipynb_checkpoints/*
 .vscode/*
 node_modules/*
-data/output/*
+data/output/*.geojson
+data/output/*.mbtiles*
+*.pyc

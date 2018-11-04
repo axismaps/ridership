@@ -1,4 +1,5 @@
 import pandas as pd
+from meta import clean_ta
 
 # Load the excel data:
 TA = pd.read_excel('data/meta/Transit_Agencies_for_Visualization.xlsx',
@@ -10,9 +11,6 @@ NTD21_RAW = pd.read_excel('data/ntd/TS2.1TimeSeriesOpExpSvcModeTOS_3.xlsx',
                           sheet_name='UPT')
 
 print 'Data successfully loaded from Excel'
-
-# Remove missing NTD ID's
-TA = TA.dropna(how='all')
 
 ntd21 = {}
 ntd22 = {}
@@ -31,11 +29,6 @@ ntd21['bus'] = filterByMode(NTD21_RAW, BUS_MODES)
 RAIL_MODES = ['CC', 'CR', 'HR', 'LR', 'MG', 'SR', 'YR']
 ntd21['rail'] = filterByMode(NTD21_RAW, RAIL_MODES)
 
-# Combine project ID's
-TA['Project ID'] = TA['Project ID'].combine_first(
-    TA['"Other" primary Project ID']
-).astype('int32')
-
 # Drop unused columns
 col22 = ['Last Report Year', 'Legacy NTD ID', 'Agency Name', 'Agency Status',
          'Reporter Type', 'City', 'State', 'Census Year', 'Primary UZA Name',
@@ -44,8 +37,9 @@ col21 = ['Last Report Year', 'Legacy NTD ID', 'Agency Name', 'Agency Status',
          'Reporter Type', 'City', 'State', 'Census Year', 'UZA Name', 'Mode', 'Service',
          'Mode Status', 'UZA', 'UZA Area SQ Miles', 'UZA Population', '2017 Status']
 
-ta_clean = TA.drop(columns=['ShowIndividual', '"Other" primary Project ID', 'Primary UZA',
-                            'UZA Name', 'Agency Name', 'Reporter Acronym'])
+TA_DROP = ['ShowIndividual', '"Other" primary Project ID', 'Primary UZA',
+           'UZA Name', 'Agency Name', 'Reporter Acronym']
+ta_clean = clean_ta(TA, TA_DROP)
 
 datasets = {}
 
