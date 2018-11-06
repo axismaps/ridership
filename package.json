@@ -4,6 +4,8 @@
   "description": "Ridership Visualization",
   "main": "index.js",
   "scripts": {
+    "dev": "node_modules/.bin/webpack-dev-server --hot --inline",
+    "build": "node_modules/.bin/webpack -p --config webpack.config.prod.js",
     "data": "npm run data:clean && npm run data:meta && npm run data:tracts",
     "data:clean": "python bin/ntd.py",
     "data:meta": "python bin/meta.py",
@@ -20,8 +22,41 @@
   "bugs": {
     "url": "https://github.com/axismaps/ridership/issues"
   },
+  "engines": {
+    "node": "7.10.1"
+  },
   "homepage": "https://github.com/axismaps/ridership#readme",
   "devDependencies": {
-    "mapshaper": "^0.4.99"
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "babel-loader": "^8.0.4",
+    "babel-polyfill": "^6.26.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^1.0.1",
+    "documentation": "^8.1.2",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-loader": "2.1.0",
+    "eslint-plugin-html": "^4.0.6",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.27.1",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
+    "mapshaper": "^0.4.99",
+    "mini-css-extract-plugin": "^0.4.4",
+    "node-sass": "^4.10.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "d3": "^5.7.0",
+    "d3-selection-multi": "^1.0.1"
   }
 }

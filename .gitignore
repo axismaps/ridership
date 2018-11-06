@@ -5,3 +5,4 @@ data/output/*.geojson
 data/output/*.mbtiles*
 *.pyc
 ~$*
+dist

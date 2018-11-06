@@ -1,0 +1,16 @@
+{ 
+  "extends": ["airbnb"],
+  "plugins": ["jest"],
+  "globals": {
+    "d3": false,
+    "window": false
+  },
+  "env": {
+    "jest/globals": true
+  },
+  "rules": {
+    "max-lines": "warn",
+    "no-console":"off",
+    "no-unused-vars": "warn"
+  }
+}
