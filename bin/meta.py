@@ -53,7 +53,7 @@ def main():
     geo = merge[['GEOID', 'NAME', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy']]
     geo = geo.groupby('GEOID').first()
     geo.to_csv('data/output/msa.csv', index_label='msaid',
-        header=['name', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy'])
+               header=['name', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy'])
 
 if __name__ == "__main__":
     main()
