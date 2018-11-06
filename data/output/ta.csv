@@ -1,555 +1,555 @@
-id,Project ID,UZA Name,NTD ID,Agency Name,Reporter Acronym,name_match,CBSAFP,GEOID,NAME,centroid
-0,1,"New York-Newark, NY-NJ-CT",,New York City Transit,NYC Transit,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-1,1,"New York-Newark, NY-NJ-CT",20008.0,MTA New York City Transit,NYCT,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-2,2,"New York-Newark, NY-NJ-CT",20080.0,New Jersey Transit Corporation,NJ TRANSIT,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-3,1,"New York-Newark, NY-NJ-CT",20188.0,MTA Bus Company,MTABUS,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-4,3,"New York-Newark, NY-NJ-CT",20100.0,MTA Long Island Rail Road,MTA LIRR,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-5,4,"New York-Newark, NY-NJ-CT",20098.0,Port Authority Trans-Hudson Corporation,PATH,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-6,5,"New York-Newark, NY-NJ-CT",20078.0,MTA Metro-North Railroad,MTA MNR,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-7,6,"New York-Newark, NY-NJ-CT",20076.0,Westchester County Bee-Line System,Westchester County Bee-Line System,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-8,7,"New York-Newark, NY-NJ-CT",20206.0,Nassau Inter County Express,Nassau Inter County Express,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-9,8,"New York-Newark, NY-NJ-CT",20082.0,New York City Department of Transportation,NYCDOT,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-10,9,"New York-Newark, NY-NJ-CT",,,New York City Other,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-11,9,"New York-Newark, NY-NJ-CT",20099.0,Staten Island Railway,SIRTOA,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-12,9,"New York-Newark, NY-NJ-CT",20190.0,NY Waterway,Port Imperial Ferry Corporation,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-13,9,"New York-Newark, NY-NJ-CT",20166.0,Orange-Newark-Elizabeth,Coach USA,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-14,9,"New York-Newark, NY-NJ-CT",20072.0,Suffolk County DPW - Transportation,ST,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-15,9,"New York-Newark, NY-NJ-CT",20126.0,Hudson Transit Lines,Short Line,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-16,9,"New York-Newark, NY-NJ-CT",20219.0,A&C Bus Corporation & Montgomery & Westside Owners Association,,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-17,9,"New York-Newark, NY-NJ-CT",20122.0,Academy Lines,,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-18,9,"New York-Newark, NY-NJ-CT",20128.0,Suburban Transit Corporation,Coach USA,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-19,9,"New York-Newark, NY-NJ-CT",20084.0,Transport of Rockland,TOR,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-20,9,"New York-Newark, NY-NJ-CT",20149.0,Rockland Coaches,,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-21,9,"New York-Newark, NY-NJ-CT",20161.0,DeCamp Bus Lines,,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-22,9,"New York-Newark, NY-NJ-CT",22930.0,NYC Economic Development Corporation,NYCEDC,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-23,9,"New York-Newark, NY-NJ-CT",20189.0,BillyBey Ferry Company,,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-24,9,"New York-Newark, NY-NJ-CT",20163.0,Lakeland Bus Lines,,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-25,9,"New York-Newark, NY-NJ-CT",20169.0,Trans-Bridge Lines,,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-26,9,"New York-Newark, NY-NJ-CT",20175.0,Private Transportation Corporation,,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-27,9,"New York-Newark, NY-NJ-CT",20217.0,Hampton Jitney,,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-28,9,"New York-Newark, NY-NJ-CT",20220.0,Broadway Bus Corporation,,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-29,9,"New York-Newark, NY-NJ-CT",20165.0,Olympia Trails Bus Company,Coach USA,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-30,9,"New York-Newark, NY-NJ-CT",20177.0,Adirondack Transit Lines,Adirondack Trailways,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-31,9,"New York-Newark, NY-NJ-CT",20135.0,Monsey New Square Trails Corporation,,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-32,9,"New York-Newark, NY-NJ-CT",20160.0,Community Transit,Community Transit,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-33,9,"New York-Newark, NY-NJ-CT",20209.0,Somerset County Transportation,SCT,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-34,9,"New York-Newark, NY-NJ-CT",20006.0,Long Beach Bus,Long Beach Bus,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-35,9,"New York-Newark, NY-NJ-CT",20196.0,Middlesex County Area Transit,MCAT,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-36,9,"New York-Newark, NY-NJ-CT",20192.0,Bergen County Community Transportation,BCCT,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-37,9,"New York-Newark, NY-NJ-CT",20197.0,EZ Ride,EZ Ride,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-38,9,"New York-Newark, NY-NJ-CT",20222.0,Saddle River Trail,STR,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-39,9,"New York-Newark, NY-NJ-CT",20071.0,Huntington Area Rapid Transit,HART,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-40,9,"New York-Newark, NY-NJ-CT",20096.0,Putnam County Transit,PART,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-41,9,"New York-Newark, NY-NJ-CT",20212.0,County of Hunterdon,HCLink,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-42,9,"New York-Newark, NY-NJ-CT",20202.0,Essex County Division of Training and Employment,ECDTE,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-43,9,"New York-Newark, NY-NJ-CT",20085.0,Clarkstown Mini-Trans,,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-44,9,"New York-Newark, NY-NJ-CT",20210.0,County of Morris,MAPS,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-45,9,"New York-Newark, NY-NJ-CT",20176.0,Kaser Bus Service,Kaser,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-46,9,"New York-Newark, NY-NJ-CT",20089.0,Village of Spring Valley Bus,Spring Valley Jitney,New York,35620,35620,"New York-Newark-Jersey City, NY-NJ-PA",POINT (-74.0865217112616 40.9205558186318)
-47,10,"Los Angeles-Long Beach-Anaheim, CA",90154.0,Los Angeles County Metropolitan Transportation Authority,LA Metro,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-48,11,"Los Angeles-Long Beach-Anaheim, CA",90036.0,Orange County Transportation Authority,OCTA,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-49,12,"Los Angeles-Long Beach-Anaheim, CA",90023.0,Long Beach Transit,LBT,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-50,13,"Los Angeles-Long Beach-Anaheim, CA",90147.0,City of Los Angeles Department of Transportation,LADOT,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-51,14,"Los Angeles-Long Beach-Anaheim, CA",90151.0,Southern California Regional Rail Authority,Metrolink,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-52,15,"Los Angeles-Long Beach-Anaheim, CA",90146.0,Foothill Transit,Foothill Transit,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-53,16,"Los Angeles-Long Beach-Anaheim, CA",90008.0,Santa Monica's Big Blue Bus,Big Blue Bus,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-54,17,"Los Angeles-Long Beach-Anaheim, CA",90211.0,Anaheim Transportation Network,ATN,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-55,18,"Los Angeles-Long Beach-Anaheim, CA",,,Los Angeles Other,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-56,18,"Los Angeles-Long Beach-Anaheim, CA",90041.0,Montebello Bus Lines,MBL,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-57,18,"Los Angeles-Long Beach-Anaheim, CA",90039.0,Culver City Municipal Bus Lines,Culver CityBus,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-58,18,"Los Angeles-Long Beach-Anaheim, CA",90157.0,Access Services,AS,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-59,18,"Los Angeles-Long Beach-Anaheim, CA",90010.0,Torrance Transit System,TTS,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-60,18,"Los Angeles-Long Beach-Anaheim, CA",90042.0,City of Gardena Transportation Department,GTrans,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-61,18,"Los Angeles-Long Beach-Anaheim, CA",99423.0,City of Glendale,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-62,18,"Los Angeles-Long Beach-Anaheim, CA",99424.0,City of Pasadena,ARTS,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-63,18,"Los Angeles-Long Beach-Anaheim, CA",90022.0,Norwalk Transit System,NTS,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-64,18,"Los Angeles-Long Beach-Anaheim, CA",90271.0,LA County DPW - East L.A.,LACDPW,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-65,18,"Los Angeles-Long Beach-Anaheim, CA",90265.0,City of El Monte Transportation Division,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-66,18,"Los Angeles-Long Beach-Anaheim, CA",90043.0,City of Commerce Municipal Buslines,CBL,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-67,18,"Los Angeles-Long Beach-Anaheim, CA",90247.0,City of Alhambra,ALH,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-68,18,"Los Angeles-Long Beach-Anaheim, CA",90291.0,City of South Gate,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-69,18,"Los Angeles-Long Beach-Anaheim, CA",90214.0,City of Redondo Beach - Beach Cities Transit,BCT,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-70,18,"Los Angeles-Long Beach-Anaheim, CA",90258.0,City of Carson,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-71,18,"Los Angeles-Long Beach-Anaheim, CA",90286.0,City of Monterey Park,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-72,18,"Los Angeles-Long Beach-Anaheim, CA",90276.0,LA County DPW - South Whittier,LACDPW,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-73,18,"Los Angeles-Long Beach-Anaheim, CA",90256.0,City of Burbank,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-74,18,"Los Angeles-Long Beach-Anaheim, CA",90273.0,LA County DPW - Florence-Firestone,LACDPW,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-75,18,"Los Angeles-Long Beach-Anaheim, CA",90281.0,City of Lynwood,COL,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-76,18,"Los Angeles-Long Beach-Anaheim, CA",90264.0,City of Duarte,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-77,18,"Los Angeles-Long Beach-Anaheim, CA",90263.0,City of Downey,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-78,18,"Los Angeles-Long Beach-Anaheim, CA",90253.0,City of Bell Gardens,BG,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-79,18,"Los Angeles-Long Beach-Anaheim, CA",99425.0,Pomona Valley Transportation Authority,PVTA,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-80,18,"Los Angeles-Long Beach-Anaheim, CA",90287.0,Palos Verdes Peninsula Transit Authority,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-81,18,"Los Angeles-Long Beach-Anaheim, CA",90259.0,City of Cerritos,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-82,18,"Los Angeles-Long Beach-Anaheim, CA",90262.0,City of Cudahy,COC,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-83,18,"Los Angeles-Long Beach-Anaheim, CA",90251.0,"City of Baldwin Park, Baldwin Park Transit",,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-84,18,"Los Angeles-Long Beach-Anaheim, CA",90257.0,City of Calabasas,COC,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-85,18,"Los Angeles-Long Beach-Anaheim, CA",90294.0,City of West Hollywood,WEHO,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-86,18,"Los Angeles-Long Beach-Anaheim, CA",90260.0,Compton Renaissance Transit Service,CRT,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-87,18,"Los Angeles-Long Beach-Anaheim, CA",90289.0,City of Rosemead,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-88,18,"Los Angeles-Long Beach-Anaheim, CA",90254.0,City of Bellflower,BLF,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-89,18,"Los Angeles-Long Beach-Anaheim, CA",90284.0,City of Maywood,COM,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-90,18,"Los Angeles-Long Beach-Anaheim, CA",90269.0,LA County DPW - Athens Shuttle Service,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-91,18,"Los Angeles-Long Beach-Anaheim, CA",90293.0,City of West Covina,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-92,18,"Los Angeles-Long Beach-Anaheim, CA",90275.0,LA County DPW - Lennox Shuttle,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-93,18,"Los Angeles-Long Beach-Anaheim, CA",90295.0,City of Whittier,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-94,18,"Los Angeles-Long Beach-Anaheim, CA",90044.0,City of Arcadia Transit,Arcadia Transit,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-95,18,"Los Angeles-Long Beach-Anaheim, CA",90280.0,City of Lawndale,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-96,18,"Los Angeles-Long Beach-Anaheim, CA",90278.0,Los Angeles County Dept. of Public Works - Willowbrook Shuttle,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-97,18,"Los Angeles-Long Beach-Anaheim, CA",90249.0,City of Avalon,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-98,18,"Los Angeles-Long Beach-Anaheim, CA",90266.0,City of Glendora,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-99,18,"Los Angeles-Long Beach-Anaheim, CA",90272.0,Los Angeles County DPW - East Valinda,LACDPW,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-100,18,"Los Angeles-Long Beach-Anaheim, CA",90268.0,City of Inglewood,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-101,18,"Los Angeles-Long Beach-Anaheim, CA",90252.0,City of Bell,Bell,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-102,18,"Los Angeles-Long Beach-Anaheim, CA",90024.0,City of La Mirada Transit,LMT,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-103,18,"Los Angeles-Long Beach-Anaheim, CA",90270.0,LA County DPW - Avocado Heights,LACDPW,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-104,18,"Los Angeles-Long Beach-Anaheim, CA",90285.0,City of Monrovia,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-105,18,"Los Angeles-Long Beach-Anaheim, CA",90277.0,LA County DPW - Whittier,LACDPW,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-106,18,"Los Angeles-Long Beach-Anaheim, CA",90296.0,Claremont Dial-a-Ride,CLDAR,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-107,18,"Los Angeles-Long Beach-Anaheim, CA",90250.0,City of Azusa,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-108,18,"Los Angeles-Long Beach-Anaheim, CA",90283.0,City of Manhattan Beach Dial A Ride,CMB DAR,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-109,18,"Los Angeles-Long Beach-Anaheim, CA",90301.0,City of Lakewood - DASH Transit,DASH,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-110,18,"Los Angeles-Long Beach-Anaheim, CA",90261.0,City of Covina,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-111,18,"Los Angeles-Long Beach-Anaheim, CA",90255.0,City of Beverly Hills,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-112,18,"Los Angeles-Long Beach-Anaheim, CA",90292.0,City of South Pasadena,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-113,18,"Los Angeles-Long Beach-Anaheim, CA",90246.0,City of Agoura Hills,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-114,18,"Los Angeles-Long Beach-Anaheim, CA",90288.0,City of Pico Rivera,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-115,18,"Los Angeles-Long Beach-Anaheim, CA",90279.0,LA County DPW - Willowbrook et al.,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-116,18,"Los Angeles-Long Beach-Anaheim, CA",90290.0,City of Santa Fe Springs,SFS,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-117,18,"Los Angeles-Long Beach-Anaheim, CA",90300.0,City of Artesia,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-118,18,"Los Angeles-Long Beach-Anaheim, CA",90282.0,City of Malibu,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-119,18,"Los Angeles-Long Beach-Anaheim, CA",90274.0,LA County DPW - King Medical Center Shuttle Service,,Los Angeles,31080,31080,"Los Angeles-Long Beach-Anaheim, CA",POINT (-118.1496481547818 34.22061387970025)
-120,19,"Chicago, IL-IN",50066.0,Chicago Transit Authority,CTA,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-121,20,"Chicago, IL-IN",50118.0,Metra Rail,Metra,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-122,21,"Chicago, IL-IN",,PACE,PACE,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-123,21,"Chicago, IL-IN",50113.0,Pace - Suburban Bus Division,PACE,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-124,21,"Chicago, IL-IN",50182.0,"Pace-Suburban Bus Division, ADA Paratransit Services",PACE,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-125,22,"Chicago, IL-IN",,,Chicago Other,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-126,22,"Chicago, IL-IN",50104.0,Northern Indiana Commuter Transportation District,NICTD,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-127,22,"Chicago, IL-IN",50045.0,Gary Public Transportation Corporation,GPTC,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-128,22,"Chicago, IL-IN",50521.0,Chicago Water Taxi,CWT,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-129,22,"Chicago, IL-IN",50183.0,City of Valparaiso,,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-130,22,"Chicago, IL-IN",50042.0,East Chicago Transit,ECT,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-131,22,"Chicago, IL-IN",50131.0,Opportunity Enterprises,OE,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-132,22,"Chicago, IL-IN",50167.0,South Lake County Community Services,SLCCS,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-133,22,"Chicago, IL-IN",50103.0,North Township of Lake County Dial-A-Ride,,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-134,22,"Chicago, IL-IN",50179.0,Porter County Aging and Community Services,PCACS,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-135,22,"Chicago, IL-IN",50185.0,Northwestern Indiana Regional Planning Commission,NIRPC,Chicago,16980,16980,"Chicago-Naperville-Elgin, IL-IN-WI",POINT (-87.96271609572413 41.7026577013949)
-136,23,"Miami, FL",40034.0,Miami-Dade Transit,Miami-Dade Transit,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-137,23,"Miami, FL",40034.0,Miami-Dade Transit,Miami-Dade Transit,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-138,24,"Miami, FL",40029.0,Broward County Transit Division,Broward County Transit Division,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-139,24,"Miami, FL",40029.0,Broward County Transit Division,Broward County Transit Division,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-140,25,"Miami, FL",40037.0,"Board of County Commissioners, Palm Beach County, PalmTran",PalmTran,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-141,25,"Miami, FL",40037.0,"Board of County Commissioners, Palm Beach County, PalmTran",PalmTran,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-142,26,"Miami, FL",40077.0,South Florida Regional Transportation Authority,TRI-Rail,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-143,26,"Miami, FL",40077.0,South Florida Regional Transportation Authority,TRI-Rail,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-144,27,"Miami, FL",,,Miami Other,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-145,27,"Miami, FL",,,Miami Other,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-146,27,"Miami, FL",40152.0,Miami Lakes - vRide,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-147,27,"Miami, FL",40152.0,Miami Lakes - vRide,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-148,27,"Miami, FL",40254.0,City of Lauderhill,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-149,27,"Miami, FL",40254.0,City of Lauderhill,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-150,27,"Miami, FL",44929.0,City of Fort Lauderdale,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-151,27,"Miami, FL",44929.0,City of Fort Lauderdale,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-152,27,"Miami, FL",40249.0,City of Hallandale Beach,COHB,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-153,27,"Miami, FL",40249.0,City of Hallandale Beach,COHB,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-154,27,"Miami, FL",40262.0,Town of Davie,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-155,27,"Miami, FL",40262.0,Town of Davie,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-156,27,"Miami, FL",40251.0,City of Pembroke Pines,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-157,27,"Miami, FL",40251.0,City of Pembroke Pines,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-158,27,"Miami, FL",40241.0,City of Miramar - Public Works Department,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-159,27,"Miami, FL",40241.0,City of Miramar - Public Works Department,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-160,27,"Miami, FL",40238.0,City of Coconut Creek,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-161,27,"Miami, FL",40238.0,City of Coconut Creek,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-162,27,"Miami, FL",40256.0,City of Margate,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-163,27,"Miami, FL",40256.0,City of Margate,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-164,27,"Miami, FL",40257.0,City of Pompano Beach,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-165,27,"Miami, FL",40257.0,City of Pompano Beach,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-166,27,"Miami, FL",40250.0,City of Lauderdale Lakes,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-167,27,"Miami, FL",40250.0,City of Lauderdale Lakes,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-168,27,"Miami, FL",40253.0,City of Coral Springs,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-169,27,"Miami, FL",40253.0,City of Coral Springs,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-170,27,"Miami, FL",40255.0,City of Hollywood,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-171,27,"Miami, FL",40255.0,City of Hollywood,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-172,27,"Miami, FL",40239.0,City of Deerfield Beach/ North East Focal Point Senior Center,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-173,27,"Miami, FL",40239.0,City of Deerfield Beach/ North East Focal Point Senior Center,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-174,27,"Miami, FL",44932.0,City of Tamarac,COT,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-175,27,"Miami, FL",44932.0,City of Tamarac,COT,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-176,27,"Miami, FL",40261.0,City of Dania Beach,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-177,27,"Miami, FL",40261.0,City of Dania Beach,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-178,27,"Miami, FL",40260.0,Town of Lauderdale-By-The-Sea,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-179,27,"Miami, FL",40260.0,Town of Lauderdale-By-The-Sea,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-180,27,"Miami, FL",40248.0,Town of Hillsboro Beach,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-181,27,"Miami, FL",40248.0,Town of Hillsboro Beach,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-182,27,"Miami, FL",40240.0,City of Lighthouse Point,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-183,27,"Miami, FL",40240.0,City of Lighthouse Point,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-184,27,"Miami, FL",40263.0,City of West Park,,Miami,33100,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",POINT (-80.50589817430131 26.15727454778179)
-185,27,"Miami, FL",40263.0,City of West Park,,Miami,33060,33060,"Miami, OK",POINT (-94.81044668550187 36.83552296414012)
-186,28,"Philadelphia, PA-NJ-DE-MD",30019.0,Southeastern Pennsylvania Transportation Authority,SEPTA,Philadelphia,37980,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",POINT (-75.30198512536879 39.90558786834772)
-187,29,"Philadelphia, PA-NJ-DE-MD",20075.0,Port Authority Transit Corporation,PATCO,Philadelphia,37980,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",POINT (-75.30198512536879 39.90558786834772)
-188,30,"Philadelphia, PA-NJ-DE-MD",30075.0,Delaware Transit Corporation,DART First State,Philadelphia,37980,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",POINT (-75.30198512536879 39.90558786834772)
-189,31,"Philadelphia, PA-NJ-DE-MD",,,Philadelphia Other,Philadelphia,37980,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",POINT (-75.30198512536879 39.90558786834772)
-190,31,"Philadelphia, PA-NJ-DE-MD",30057.0,Pennsylvania Department of Transportation,PENNDOT,Philadelphia,37980,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",POINT (-75.30198512536879 39.90558786834772)
-191,31,"Philadelphia, PA-NJ-DE-MD",20204.0,Senior Citizens United Community Services of Camden County,SCUCS,Philadelphia,37980,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",POINT (-75.30198512536879 39.90558786834772)
-192,31,"Philadelphia, PA-NJ-DE-MD",30108.0,Cecil County Government - SSCT,,Philadelphia,37980,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",POINT (-75.30198512536879 39.90558786834772)
-193,31,"Philadelphia, PA-NJ-DE-MD",20208.0,County of Burlington,BurLink,Philadelphia,37980,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",POINT (-75.30198512536879 39.90558786834772)
-194,31,"Philadelphia, PA-NJ-DE-MD",20201.0,County of Cumberland,CCET,Philadelphia,37980,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",POINT (-75.30198512536879 39.90558786834772)
-195,31,"Philadelphia, PA-NJ-DE-MD",20195.0,Gloucester County Division of Transportation Services,DTS,Philadelphia,37980,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",POINT (-75.30198512536879 39.90558786834772)
-196,32,"Dallas-Fort Worth-Arlington, TX",60056.0,Dallas Area Rapid Transit,DART,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-197,33,"Dallas-Fort Worth-Arlington, TX",60007.0,Fort Worth Transportation Authority,FWTA,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-198,34,"Dallas-Fort Worth-Arlington, TX",,,Dallas-Fort Worth Other,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-199,34,"Dallas-Fort Worth-Arlington, TX",60133.0,McKinney Avenue Transit Authority,MATA,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-200,34,"Dallas-Fort Worth-Arlington, TX",60084.0,Ft.Worth - vRide,,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-201,34,"Dallas-Fort Worth-Arlington, TX",60114.0,STAR Transit,STAR,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-202,34,"Dallas-Fort Worth-Arlington, TX",60041.0,Handitran Special Transit Division - City of Arlington,Handitran,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-203,34,"Dallas-Fort Worth-Arlington, TX",60115.0,Public Transit Services,PTS,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-204,34,"Dallas-Fort Worth-Arlington, TX",60260.0,Community Services,CSI,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-205,34,"Dallas-Fort Worth-Arlington, TX",60068.0,City of Grand Prairie Transportation Services Department,Grand Connection,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-206,34,"Dallas-Fort Worth-Arlington, TX",60113.0,City of Cleburne,City/County Trans.,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-207,34,"Dallas-Fort Worth-Arlington, TX",60070.0,City of Mesquite,,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-208,34,"Dallas-Fort Worth-Arlington, TX",60117.0,North Central Texas Council of Governments,NCTCOG,Dallas,19100,19100,"Dallas-Fort Worth-Arlington, TX",POINT (-97.02520967925676 32.81815115755703)
-209,35,"Houston, TX",60008.0,"Metropolitan Transit Authority of Harris County, Texas",Houston Metro,Houston,26420,26420,"Houston-The Woodlands-Sugar Land, TX",POINT (-95.40067321752298 29.78728956319982)
-210,36,"Houston, TX",,,Houston Other,Houston,26420,26420,"Houston-The Woodlands-Sugar Land, TX",POINT (-95.40067321752298 29.78728956319982)
-211,36,"Houston, TX",60103.0,Fort Bend County Public Transportation,Fort Bend Transit,Houston,26420,26420,"Houston-The Woodlands-Sugar Land, TX",POINT (-95.40067321752298 29.78728956319982)
-212,36,"Houston, TX",60108.0,"Harris County Community Services Department, Office of Transit Services",Harris County Transit,Houston,26420,26420,"Houston-The Woodlands-Sugar Land, TX",POINT (-95.40067321752298 29.78728956319982)
-213,36,"Houston, TX",60121.0,Greater Southeast Management District,GSMD,Houston,26420,26420,"Houston-The Woodlands-Sugar Land, TX",POINT (-95.40067321752298 29.78728956319982)
-214,36,"Houston, TX",60119.0,Harris County Improvement District 1,HCID1,Houston,26420,26420,"Houston-The Woodlands-Sugar Land, TX",POINT (-95.40067321752298 29.78728956319982)
-215,36,"Houston, TX",60126.0,Harris County Improvement District 3,UKMD,Houston,26420,26420,"Houston-The Woodlands-Sugar Land, TX",POINT (-95.40067321752298 29.78728956319982)
-216,36,"Houston, TX",66270.0,Midtown Management District,,Houston,26420,26420,"Houston-The Woodlands-Sugar Land, TX",POINT (-95.40067321752298 29.78728956319982)
-217,36,"Houston, TX",60120.0,Westchase District,westchase district,Houston,26420,26420,"Houston-The Woodlands-Sugar Land, TX",POINT (-95.40067321752298 29.78728956319982)
-218,37,"Washington, DC-VA-MD",30030.0,Washington Metropolitan Area Transit Authority,WMATA,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-219,37,"Washington, DC-VA-MD",30030.0,Washington Metropolitan Area Transit Authority,WMATA,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-220,37,"Washington, DC-VA-MD",30030.0,Washington Metropolitan Area Transit Authority,WMATA,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-221,38,"Washington, DC-VA-MD",30051.0,Ride-On Montgomery County Transit,Ride-On Montgomery County Transit,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-222,38,"Washington, DC-VA-MD",30051.0,Ride-On Montgomery County Transit,Ride-On Montgomery County Transit,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-223,38,"Washington, DC-VA-MD",30051.0,Ride-On Montgomery County Transit,Ride-On Montgomery County Transit,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-224,39,"Washington, DC-VA-MD",30068.0,Fairfax Connector Bus System,Fairfax Connector,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-225,39,"Washington, DC-VA-MD",30068.0,Fairfax Connector Bus System,Fairfax Connector,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-226,39,"Washington, DC-VA-MD",30068.0,Fairfax Connector Bus System,Fairfax Connector,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-227,40,"Washington, DC-VA-MD",30112.0,DDOT,DDOT,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-228,40,"Washington, DC-VA-MD",30112.0,DDOT,DDOT,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-229,40,"Washington, DC-VA-MD",30112.0,DDOT,DDOT,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-230,41,"Washington, DC-VA-MD",,,"Washington, DC Other",Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-231,41,"Washington, DC-VA-MD",,,"Washington, DC Other",Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-232,41,"Washington, DC-VA-MD",,,"Washington, DC Other",Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-233,41,"Washington, DC-VA-MD",30073.0,Virginia Railway Express,VRE,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-234,41,"Washington, DC-VA-MD",30073.0,Virginia Railway Express,VRE,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-235,41,"Washington, DC-VA-MD",30073.0,Virginia Railway Express,VRE,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-236,41,"Washington, DC-VA-MD",30070.0,Potomac and Rappahannock Transportation Commission,PRTC,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-237,41,"Washington, DC-VA-MD",30070.0,Potomac and Rappahannock Transportation Commission,PRTC,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-238,41,"Washington, DC-VA-MD",30070.0,Potomac and Rappahannock Transportation Commission,PRTC,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-239,41,"Washington, DC-VA-MD",30080.0,Arlington Transit - Arlington County,ART,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-240,41,"Washington, DC-VA-MD",30080.0,Arlington Transit - Arlington County,ART,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-241,41,"Washington, DC-VA-MD",30080.0,Arlington Transit - Arlington County,ART,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-242,41,"Washington, DC-VA-MD",30085.0,Prince George's County Transit,TheBus,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-243,41,"Washington, DC-VA-MD",30085.0,Prince George's County Transit,TheBus,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-244,41,"Washington, DC-VA-MD",30085.0,Prince George's County Transit,TheBus,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-245,41,"Washington, DC-VA-MD",30081.0,Loudoun County Commuter Bus Service,LC Transit,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-246,41,"Washington, DC-VA-MD",30081.0,Loudoun County Commuter Bus Service,LC Transit,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-247,41,"Washington, DC-VA-MD",30081.0,Loudoun County Commuter Bus Service,LC Transit,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-248,41,"Washington, DC-VA-MD",60025.0,City of Alexandria,DASH,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-249,41,"Washington, DC-VA-MD",60025.0,City of Alexandria,DASH,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-250,41,"Washington, DC-VA-MD",60025.0,City of Alexandria,DASH,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-251,41,"Washington, DC-VA-MD",30058.0,City of Fairfax CUE Bus,CUE,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-252,41,"Washington, DC-VA-MD",30058.0,City of Fairfax CUE Bus,CUE,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-253,41,"Washington, DC-VA-MD",30058.0,City of Fairfax CUE Bus,CUE,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-254,41,"Washington, DC-VA-MD",30106.0,National Capital Region Transportation Planning Board,MWCOG/TPB,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-255,41,"Washington, DC-VA-MD",30106.0,National Capital Region Transportation Planning Board,MWCOG/TPB,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-256,41,"Washington, DC-VA-MD",30106.0,National Capital Region Transportation Planning Board,MWCOG/TPB,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-257,41,"Washington, DC-VA-MD",30104.0,Metropolitan Washington Airports Authority,MWAA,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-258,41,"Washington, DC-VA-MD",30104.0,Metropolitan Washington Airports Authority,MWAA,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-259,41,"Washington, DC-VA-MD",30104.0,Metropolitan Washington Airports Authority,MWAA,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-260,41,"Washington, DC-VA-MD",30105.0,Northern Virginia Transportation Commission,NVTC,Washington,47780,47780,"Washington, IN",POINT (-87.07204524818482 38.70243740049104)
-261,41,"Washington, DC-VA-MD",30105.0,Northern Virginia Transportation Commission,NVTC,Washington,47900,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",POINT (-77.47440412429256 38.83346378486468)
-262,41,"Washington, DC-VA-MD",30105.0,Northern Virginia Transportation Commission,NVTC,Washington,47820,47820,"Washington, NC",POINT (-76.8597763697363 35.49400284829893)
-263,42,"Atlanta, GA",40022.0,Metropolitan Atlanta Rapid Transit Authority,MARTA,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-264,43,"Atlanta, GA",,,Atlanta Other,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-265,43,"Atlanta, GA",40078.0,Cobb County Department of Transportation,,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-266,43,"Atlanta, GA",40135.0,Georgia Regional Transportation Authority,GRTA,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-267,43,"Atlanta, GA",40138.0,Gwinnett County Board of Commissioners,GCT,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-268,43,"Atlanta, GA",40230.0,City of Atlanta DPW - Transit Division,COA DPW,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-269,43,"Atlanta, GA",40153.0,vRide - Atlanta,,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-270,43,"Atlanta, GA",40203.0,Enterprise Rideshare,,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-271,43,"Atlanta, GA",40082.0,Douglas County Rideshare,Rideshare,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-272,43,"Atlanta, GA",40181.0,Henry County Transit,HC,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-273,43,"Atlanta, GA",40161.0,Cherokee County Board of Commissioners,CATS,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-274,43,"Atlanta, GA",40246.0,Center for Pan Asian Community Services,CPACS,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-275,43,"Atlanta, GA",40176.0,Atlanta Regional Commission,ARC,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-276,43,"Atlanta, GA",40236.0,City of Marietta,,Atlanta,12060,12060,"Atlanta-Sandy Springs-Roswell, GA",POINT (-84.39960619275047 33.69279759300953)
-277,44,"Boston, MA-NH-RI",10003.0,Massachusetts Bay Transportation Authority,MBTA,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-278,45,"Boston, MA-NH-RI",,,Boston Other,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-279,45,"Boston, MA-NH-RI",10004.0,Brockton Area Transit Authority,BAT,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-280,45,"Boston, MA-NH-RI",10013.0,Merrimack Valley Regional Transit Authority,MVRTA,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-281,45,"Boston, MA-NH-RI",10005.0,Lowell Regional Transit Authority,LRTA,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-282,45,"Boston, MA-NH-RI",10118.0,MetroWest Regional Transit Authority,MWRTA,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-283,45,"Boston, MA-NH-RI",10133.0,Boston Express Bus,BX,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-284,45,"Boston, MA-NH-RI",10053.0,Cape Ann Transportation Authority,CATA,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-285,45,"Boston, MA-NH-RI",11159.0,Blooms Bus Lines,BBL,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-286,45,"Boston, MA-NH-RI",10181.0,Town of Lexington,Lexpess,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-287,45,"Boston, MA-NH-RI",10180.0,City of Burlington,,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-288,45,"Boston, MA-NH-RI",10123.0,Greater Derry Salem Cooperative Alliance for Regional Transportation,CART,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-289,45,"Boston, MA-NH-RI",10179.0,City of Beverly,,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-290,45,"Boston, MA-NH-RI",10182.0,Mission Hill Link,,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-291,45,"Boston, MA-NH-RI",10178.0,Town of Bedford,,Boston,14460,14460,"Boston-Cambridge-Newton, MA-NH",POINT (-71.10048066703337 42.55802877261765)
-292,46,"Detroit, MI",50119.0,City of Detroit Department of Transportation,DDOT,Detroit,19820,19820,"Detroit-Warren-Dearborn, MI",POINT (-83.2327066199091 42.71919680768266)
-293,47,"Detroit, MI",50031.0,Suburban Mobility Authority for Regional Transportation,SMART,Detroit,19820,19820,"Detroit-Warren-Dearborn, MI",POINT (-83.2327066199091 42.71919680768266)
-294,48,"Detroit, MI",,,Detroit Other,Detroit,19820,19820,"Detroit-Warren-Dearborn, MI",POINT (-83.2327066199091 42.71919680768266)
-295,48,"Detroit, MI",50141.0,Detroit Transportation Corporation,Detroit People Mover,Detroit,19820,19820,"Detroit-Warren-Dearborn, MI",POINT (-83.2327066199091 42.71919680768266)
-296,48,"Detroit, MI",50193.0,Enterprise Rideshare - Michigan,,Detroit,19820,19820,"Detroit-Warren-Dearborn, MI",POINT (-83.2327066199091 42.71919680768266)
-297,48,"Detroit, MI",50213.0,M-1 Rail,,Detroit,19820,19820,"Detroit-Warren-Dearborn, MI",POINT (-83.2327066199091 42.71919680768266)
-298,48,"Detroit, MI",50522.0,Lake Erie Transit,LET,Detroit,19820,19820,"Detroit-Warren-Dearborn, MI",POINT (-83.2327066199091 42.71919680768266)
-299,49,"Phoenix-Mesa, AZ",90032.0,City of Phoenix Public Transit Department,Valley Metro,Phoenix,38060,38060,"Phoenix-Mesa-Scottsdale, AZ",POINT (-112.0704818042841 33.18570766566435)
-300,50,"Phoenix-Mesa, AZ",90209.0,Valley Metro Rail,Valley Metro Rail,Phoenix,38060,38060,"Phoenix-Mesa-Scottsdale, AZ",POINT (-112.0704818042841 33.18570766566435)
-301,51,"Phoenix-Mesa, AZ",90136.0,Regional Public Transportation Authority,RPTA,Phoenix,38060,38060,"Phoenix-Mesa-Scottsdale, AZ",POINT (-112.0704818042841 33.18570766566435)
-302,52,"Phoenix-Mesa, AZ",,,Phoenix Other,Phoenix,38060,38060,"Phoenix-Mesa-Scottsdale, AZ",POINT (-112.0704818042841 33.18570766566435)
-303,52,"Phoenix-Mesa, AZ",90169.0,vRide - Valley Metro,,Phoenix,38060,38060,"Phoenix-Mesa-Scottsdale, AZ",POINT (-112.0704818042841 33.18570766566435)
-304,52,"Phoenix-Mesa, AZ",90131.0,City of Scottsdale - Scottsdale Trolley,COS,Phoenix,38060,38060,"Phoenix-Mesa-Scottsdale, AZ",POINT (-112.0704818042841 33.18570766566435)
-305,52,"Phoenix-Mesa, AZ",90034.0,City of Glendale Transit,,Phoenix,38060,38060,"Phoenix-Mesa-Scottsdale, AZ",POINT (-112.0704818042841 33.18570766566435)
-306,52,"Phoenix-Mesa, AZ",90140.0,Peoria Transit,,Phoenix,38060,38060,"Phoenix-Mesa-Scottsdale, AZ",POINT (-112.0704818042841 33.18570766566435)
-307,53,"San Francisco-Oakland, CA",90015.0,San Francisco Municipal Railway,MUNI,San Francisco,41860,41860,"San Francisco-Oakland-Hayward, CA",POINT (-122.1671972036833 37.78098618283747)
-308,54,"San Francisco-Oakland, CA",90003.0,San Francisco Bay Area Rapid Transit District,BART,San Francisco,41860,41860,"San Francisco-Oakland-Hayward, CA",POINT (-122.1671972036833 37.78098618283747)
-309,55,"San Francisco-Oakland, CA",90014.0,Alameda-Contra Costa Transit District,AC Transit,San Francisco,41860,41860,"San Francisco-Oakland-Hayward, CA",POINT (-122.1671972036833 37.78098618283747)
-310,56,"San Francisco-Oakland, CA",90134.0,Peninsula Corridor Joint Powers Board,Caltrain,San Francisco,41860,41860,"San Francisco-Oakland-Hayward, CA",POINT (-122.1671972036833 37.78098618283747)
-311,57,"San Francisco-Oakland, CA",90009.0,San Mateo County Transit District,SamTrans,San Francisco,41860,41860,"San Francisco-Oakland-Hayward, CA",POINT (-122.1671972036833 37.78098618283747)
-312,58,"San Francisco-Oakland, CA",,,San Francisco Other,San Francisco,41860,41860,"San Francisco-Oakland-Hayward, CA",POINT (-122.1671972036833 37.78098618283747)
-313,58,"San Francisco-Oakland, CA",90016.0,"Golden Gate Bridge, Highway and Transportation District",GGBHTD,San Francisco,41860,41860,"San Francisco-Oakland-Hayward, CA",POINT (-122.1671972036833 37.78098618283747)
-314,58,"San Francisco-Oakland, CA",90234.0,Marin County Transit District,,San Francisco,41860,41860,"San Francisco-Oakland-Hayward, CA",POINT (-122.1671972036833 37.78098618283747)
-315,58,"San Francisco-Oakland, CA",90225.0,San Francisco Bay Area Water Emergency Transportation Authority,WETA,San Francisco,41860,41860,"San Francisco-Oakland-Hayward, CA",POINT (-122.1671972036833 37.78098618283747)
-316,58,"San Francisco-Oakland, CA",90159.0,Western Contra Costa Transit Authority,WestCAT,San Francisco,41860,41860,"San Francisco-Oakland-Hayward, CA",POINT (-122.1671972036833 37.78098618283747)
-317,58,"San Francisco-Oakland, CA",90161.0,City of Union City Transit Division,UCT,San Francisco,41860,41860,"San Francisco-Oakland-Hayward, CA",POINT (-122.1671972036833 37.78098618283747)
-318,58,"San Francisco-Oakland, CA",90299.0,Sonoma-Marin Area Rail Transit District,SMART,San Francisco,41860,41860,"San Francisco-Oakland-Hayward, CA",POINT (-122.1671972036833 37.78098618283747)
-319,59,"Seattle, WA",1.0,King County Department of Transportation,King County Metro,Seattle,42660,42660,"Seattle-Tacoma-Bellevue, WA",POINT (-121.8508472304692 47.55749541194654)
-320,60,"Seattle, WA",40.0,Central Puget Sound Regional Transit Authority,Sound Transit,Seattle,42660,42660,"Seattle-Tacoma-Bellevue, WA",POINT (-121.8508472304692 47.55749541194654)
-321,61,"Seattle, WA",35.0,Washington State Ferries,Washington State Ferries,Seattle,42660,42660,"Seattle-Tacoma-Bellevue, WA",POINT (-121.8508472304692 47.55749541194654)
-322,62,"Seattle, WA",29.0,Snohomish County Public Transportation Benefit Area Corporation,Community Transit,Seattle,42660,42660,"Seattle-Tacoma-Bellevue, WA",POINT (-121.8508472304692 47.55749541194654)
-323,63,"Seattle, WA",3.0,Pierce County Transportation Benefit Area Authority,Pierce Transit,Seattle,42660,42660,"Seattle-Tacoma-Bellevue, WA",POINT (-121.8508472304692 47.55749541194654)
-324,64,"Seattle, WA",,,Seattle Other,Seattle,42660,42660,"Seattle-Tacoma-Bellevue, WA",POINT (-121.8508472304692 47.55749541194654)
-325,64,"Seattle, WA",23.0,Seattle Center Monorail Transit,SMS,Seattle,42660,42660,"Seattle-Tacoma-Bellevue, WA",POINT (-121.8508472304692 47.55749541194654)
-326,64,"Seattle, WA",5.0,Everett Transit,ET,Seattle,42660,42660,"Seattle-Tacoma-Bellevue, WA",POINT (-121.8508472304692 47.55749541194654)
-327,64,"Seattle, WA",28.0,Pierce County Ferry Operations,Pierce County Ferry,Seattle,42660,42660,"Seattle-Tacoma-Bellevue, WA",POINT (-121.8508472304692 47.55749541194654)
-328,64,"Seattle, WA",407.0,Muckleshoot Indian Tribe,MIT,Seattle,42660,42660,"Seattle-Tacoma-Bellevue, WA",POINT (-121.8508472304692 47.55749541194654)
-329,65,"San Diego, CA",90026.0,San Diego Metropolitan Transit System,San Diego MTS,San Diego,41740,41740,"San Diego-Carlsbad, CA",POINT (-116.7352928978179 33.03413648999)
-330,66,"San Diego, CA",90030.0,North County Transit District,NCTD,San Diego,41740,41740,"San Diego-Carlsbad, CA",POINT (-116.7352928978179 33.03413648999)
-331,67,"San Diego, CA",90095.0,San Diego Association of Governments,SANDAG,San Diego,41740,41740,"San Diego-Carlsbad, CA",POINT (-116.7352928978179 33.03413648999)
-332,68,"Minneapolis-St. Paul, MN-WI",50027.0,Metro Transit,Metro Transit,Minneapolis,33460,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",POINT (-93.34558459008886 45.06500851312855)
-333,69,"Minneapolis-St. Paul, MN-WI",,,Minneapolis-St. Paul Other,Minneapolis,33460,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",POINT (-93.34558459008886 45.06500851312855)
-334,69,"Minneapolis-St. Paul, MN-WI",50515.0,University of Minnesota Transit,,Minneapolis,33460,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",POINT (-93.34558459008886 45.06500851312855)
-335,69,"Minneapolis-St. Paul, MN-WI",50154.0,Metropolitan Council,,Minneapolis,33460,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",POINT (-93.34558459008886 45.06500851312855)
-336,69,"Minneapolis-St. Paul, MN-WI",50519.0,Minnesota Valley Transit Authority,MVTA,Minneapolis,33460,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",POINT (-93.34558459008886 45.06500851312855)
-337,69,"Minneapolis-St. Paul, MN-WI",50155.0,Metro Mobility,,Minneapolis,33460,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",POINT (-93.34558459008886 45.06500851312855)
-338,69,"Minneapolis-St. Paul, MN-WI",50518.0,SouthWest Transit,SWT,Minneapolis,33460,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",POINT (-93.34558459008886 45.06500851312855)
-339,69,"Minneapolis-St. Paul, MN-WI",50516.0,City of Plymouth,Plymouth Metrolink,Minneapolis,33460,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",POINT (-93.34558459008886 45.06500851312855)
-340,69,"Minneapolis-St. Paul, MN-WI",50517.0,City of Maple Grove,,Minneapolis,33460,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",POINT (-93.34558459008886 45.06500851312855)
-341,70,"Tampa-St. Petersburg, FL",40041.0,Hillsborough Area Regional Transit Authority,HART,Tampa,45300,45300,"Tampa-St. Petersburg-Clearwater, FL",POINT (-82.4058698813898 28.153686015729)
-342,71,"Tampa-St. Petersburg, FL",40027.0,Pinellas Suncoast Transit Authority,PSTA,Tampa,45300,45300,"Tampa-St. Petersburg-Clearwater, FL",POINT (-82.4058698813898 28.153686015729)
-343,72,"Tampa-St. Petersburg, FL",,,Tampa Other,Tampa,45300,45300,"Tampa-St. Petersburg-Clearwater, FL",POINT (-82.4058698813898 28.153686015729)
-344,72,"Tampa-St. Petersburg, FL",40074.0,Pasco County Public Transportation,PCPT,Tampa,45300,45300,"Tampa-St. Petersburg-Clearwater, FL",POINT (-82.4058698813898 28.153686015729)
-345,72,"Tampa-St. Petersburg, FL",40259.0,Jolley Trolley Transportation of Clearwater,PSTA,Tampa,45300,45300,"Tampa-St. Petersburg-Clearwater, FL",POINT (-82.4058698813898 28.153686015729)
-346,72,"Tampa-St. Petersburg, FL",40200.0,Tampa Bay Area Regional Transit Authority,TBARTA,Tampa,45300,45300,"Tampa-St. Petersburg-Clearwater, FL",POINT (-82.4058698813898 28.153686015729)
-347,72,"Tampa-St. Petersburg, FL",40258.0,The Looper Group,,Tampa,45300,45300,"Tampa-St. Petersburg-Clearwater, FL",POINT (-82.4058698813898 28.153686015729)
-348,73,"Denver-Aurora, CO",80006.0,Denver Regional Transportation District,RTD,Denver,19740,19740,"Denver-Aurora-Lakewood, CO",POINT (-104.894468773499 39.43370640987533)
-349,74,"Denver-Aurora, CO",80109.0,vRide - Denver,vRide - Denver,Denver,19740,19740,"Denver-Aurora-Lakewood, CO",POINT (-104.894468773499 39.43370640987533)
-350,75,"Baltimore, MD",30034.0,Maryland Transit Administration,MTA,Baltimore,12580,12580,"Baltimore-Columbia-Towson, MD",POINT (-76.58060119908306 39.33848075711592)
-351,76,"Baltimore, MD",,,Baltimore Other,Baltimore,12580,12580,"Baltimore-Columbia-Towson, MD",POINT (-76.58060119908306 39.33848075711592)
-352,76,"Baltimore, MD",30201.0,Baltimore City DOT,,Baltimore,12580,12580,"Baltimore-Columbia-Towson, MD",POINT (-76.58060119908306 39.33848075711592)
-353,76,"Baltimore, MD",30048.0,Howard Transit,HT,Baltimore,12580,12580,"Baltimore-Columbia-Towson, MD",POINT (-76.58060119908306 39.33848075711592)
-354,76,"Baltimore, MD",30040.0,Annapolis DOT,Annapolis Transit,Baltimore,12580,12580,"Baltimore-Columbia-Towson, MD",POINT (-76.58060119908306 39.33848075711592)
-355,76,"Baltimore, MD",30129.0,Anne Arundel County,,Baltimore,12580,12580,"Baltimore-Columbia-Towson, MD",POINT (-76.58060119908306 39.33848075711592)
-356,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,St,41060,41060,"St. Cloud, MN",POINT (-94.47204440523159 45.58587737595796)
-357,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,St,41140,41140,"St. Joseph, MO-KS",POINT (-94.78386621989668 39.83417357094609)
-358,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,St,41220,41220,"St. Marys, GA",POINT (-81.66997650559183 30.93056308452205)
-359,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,St,41180,41180,"St. Louis, MO-IL",POINT (-90.35011206984764 38.73526895327782)
-360,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,St,41260,41260,"St. Marys, PA",POINT (-78.64914529401295 41.42523799601247)
-361,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,St,41100,41100,"St. George, UT",POINT (-113.504769397656 37.28037666677322)
-362,78,"St. Louis, MO-IL",,,St. Louis Other,St,41060,41060,"St. Cloud, MN",POINT (-94.47204440523159 45.58587737595796)
-363,78,"St. Louis, MO-IL",,,St. Louis Other,St,41140,41140,"St. Joseph, MO-KS",POINT (-94.78386621989668 39.83417357094609)
-364,78,"St. Louis, MO-IL",,,St. Louis Other,St,41220,41220,"St. Marys, GA",POINT (-81.66997650559183 30.93056308452205)
-365,78,"St. Louis, MO-IL",,,St. Louis Other,St,41180,41180,"St. Louis, MO-IL",POINT (-90.35011206984764 38.73526895327782)
-366,78,"St. Louis, MO-IL",,,St. Louis Other,St,41260,41260,"St. Marys, PA",POINT (-78.64914529401295 41.42523799601247)
-367,78,"St. Louis, MO-IL",,,St. Louis Other,St,41100,41100,"St. George, UT",POINT (-113.504769397656 37.28037666677322)
-368,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT,St,41060,41060,"St. Cloud, MN",POINT (-94.47204440523159 45.58587737595796)
-369,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT,St,41140,41140,"St. Joseph, MO-KS",POINT (-94.78386621989668 39.83417357094609)
-370,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT,St,41220,41220,"St. Marys, GA",POINT (-81.66997650559183 30.93056308452205)
-371,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT,St,41180,41180,"St. Louis, MO-IL",POINT (-90.35011206984764 38.73526895327782)
-372,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT,St,41260,41260,"St. Marys, PA",POINT (-78.64914529401295 41.42523799601247)
-373,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT,St,41100,41100,"St. George, UT",POINT (-113.504769397656 37.28037666677322)
-374,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,,St,41060,41060,"St. Cloud, MN",POINT (-94.47204440523159 45.58587737595796)
-375,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,,St,41140,41140,"St. Joseph, MO-KS",POINT (-94.78386621989668 39.83417357094609)
-376,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,,St,41220,41220,"St. Marys, GA",POINT (-81.66997650559183 30.93056308452205)
-377,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,,St,41180,41180,"St. Louis, MO-IL",POINT (-90.35011206984764 38.73526895327782)
-378,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,,St,41260,41260,"St. Marys, PA",POINT (-78.64914529401295 41.42523799601247)
-379,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,,St,41100,41100,"St. George, UT",POINT (-113.504769397656 37.28037666677322)
-380,79,"Riverside-San Bernardino, CA",90029.0,Omnitrans,OMNI,Riverside,40140,40140,"Riverside-San Bernardino-Ontario, CA",POINT (-116.1296855672032 34.55165274060091)
-381,80,"Riverside-San Bernardino, CA",90031.0,Riverside Transit Agency,RTA,Riverside,40140,40140,"Riverside-San Bernardino-Ontario, CA",POINT (-116.1296855672032 34.55165274060091)
-382,81,"Riverside-San Bernardino, CA",,,Riverside-San Bernardino Other,Riverside,40140,40140,"Riverside-San Bernardino-Ontario, CA",POINT (-116.1296855672032 34.55165274060091)
-383,81,"Riverside-San Bernardino, CA",90052.0,City of Corona,CCTS,Riverside,40140,40140,"Riverside-San Bernardino-Ontario, CA",POINT (-116.1296855672032 34.55165274060091)
-384,81,"Riverside-San Bernardino, CA",90086.0,City of Riverside Special Transportation,City of Riverside,Riverside,40140,40140,"Riverside-San Bernardino-Ontario, CA",POINT (-116.1296855672032 34.55165274060091)
-385,81,"Riverside-San Bernardino, CA",90218.0,Riverside County Transportation Commission,RCTC 5307 Recipient,Riverside,40140,40140,"Riverside-San Bernardino-Ontario, CA",POINT (-116.1296855672032 34.55165274060091)
-386,82,"Las Vegas-Henderson, NV",90045.0,Regional Transportation Commission of Southern Nevada,RTC,Las Vegas,29820,29820,"Las Vegas-Henderson-Paradise, NV",POINT (-115.0135369680576 36.21523781771886)
-387,82,"Las Vegas-Henderson, NV",90045.0,Regional Transportation Commission of Southern Nevada,RTC,Las Vegas,29780,29780,"Las Vegas, NM",POINT (-104.8159353005419 35.4804816938676)
-388,83,"Las Vegas-Henderson, NV",90242.0,Las Vegas Monorail Company,LVMC,Las Vegas,29820,29820,"Las Vegas-Henderson-Paradise, NV",POINT (-115.0135369680576 36.21523781771886)
-389,83,"Las Vegas-Henderson, NV",90242.0,Las Vegas Monorail Company,LVMC,Las Vegas,29780,29780,"Las Vegas, NM",POINT (-104.8159353005419 35.4804816938676)
-390,84,"Portland, OR-WA",8.0,Tri-County Metropolitan Transportation District of Oregon,TriMet,Portland,38900,38900,"Portland-Vancouver-Hillsboro, OR-WA",POINT (-122.4783059148 45.59837211076189)
-391,84,"Portland, OR-WA",8.0,Tri-County Metropolitan Transportation District of Oregon,TriMet,Portland,38860,38860,"Portland-South Portland, ME",POINT (-70.46877049233215 43.69611219475335)
-392,85,"Portland, OR-WA",58.0,City of Portland,PBOT,Portland,38900,38900,"Portland-Vancouver-Hillsboro, OR-WA",POINT (-122.4783059148 45.59837211076189)
-393,85,"Portland, OR-WA",58.0,City of Portland,PBOT,Portland,38860,38860,"Portland-South Portland, ME",POINT (-70.46877049233215 43.69611219475335)
-394,86,"Portland, OR-WA",24.0,Clark County Public Transportation Benefit Area Authority,C-Tran,Portland,38900,38900,"Portland-Vancouver-Hillsboro, OR-WA",POINT (-122.4783059148 45.59837211076189)
-395,86,"Portland, OR-WA",24.0,Clark County Public Transportation Benefit Area Authority,C-Tran,Portland,38860,38860,"Portland-South Portland, ME",POINT (-70.46877049233215 43.69611219475335)
-396,87,"Portland, OR-WA",,,Portland Other,Portland,38900,38900,"Portland-Vancouver-Hillsboro, OR-WA",POINT (-122.4783059148 45.59837211076189)
-397,87,"Portland, OR-WA",,,Portland Other,Portland,38860,38860,"Portland-South Portland, ME",POINT (-70.46877049233215 43.69611219475335)
-398,87,"Portland, OR-WA",46.0,South Metro Area Regional Transit,SMART,Portland,38900,38900,"Portland-Vancouver-Hillsboro, OR-WA",POINT (-122.4783059148 45.59837211076189)
-399,87,"Portland, OR-WA",46.0,South Metro Area Regional Transit,SMART,Portland,38860,38860,"Portland-South Portland, ME",POINT (-70.46877049233215 43.69611219475335)
-400,87,"Portland, OR-WA",376.0,Ride Connection,,Portland,38900,38900,"Portland-Vancouver-Hillsboro, OR-WA",POINT (-122.4783059148 45.59837211076189)
-401,87,"Portland, OR-WA",376.0,Ride Connection,,Portland,38860,38860,"Portland-South Portland, ME",POINT (-70.46877049233215 43.69611219475335)
-402,88,"Cleveland, OH",50015.0,The Greater Cleveland Regional Transit Authority,GCRTA,Cleveland,17380,17380,"Cleveland, MS",POINT (-90.88036125965698 33.79558181465302)
-403,88,"Cleveland, OH",50015.0,The Greater Cleveland Regional Transit Authority,GCRTA,Cleveland,17420,17420,"Cleveland, TN",POINT (-84.66739029368156 35.13454522858348)
-404,88,"Cleveland, OH",50015.0,The Greater Cleveland Regional Transit Authority,GCRTA,Cleveland,17460,17460,"Cleveland-Elyria, OH",POINT (-81.68382227241914 41.37537421511097)
-405,89,"Cleveland, OH",,,Cleveland Other,Cleveland,17380,17380,"Cleveland, MS",POINT (-90.88036125965698 33.79558181465302)
-406,89,"Cleveland, OH",,,Cleveland Other,Cleveland,17420,17420,"Cleveland, TN",POINT (-84.66739029368156 35.13454522858348)
-407,89,"Cleveland, OH",,,Cleveland Other,Cleveland,17460,17460,"Cleveland-Elyria, OH",POINT (-81.68382227241914 41.37537421511097)
-408,89,"Cleveland, OH",50117.0,Laketran,,Cleveland,17380,17380,"Cleveland, MS",POINT (-90.88036125965698 33.79558181465302)
-409,89,"Cleveland, OH",50117.0,Laketran,,Cleveland,17420,17420,"Cleveland, TN",POINT (-84.66739029368156 35.13454522858348)
-410,89,"Cleveland, OH",50117.0,Laketran,,Cleveland,17460,17460,"Cleveland-Elyria, OH",POINT (-81.68382227241914 41.37537421511097)
-411,89,"Cleveland, OH",50198.0,Medina County Public Transit,MCPT,Cleveland,17380,17380,"Cleveland, MS",POINT (-90.88036125965698 33.79558181465302)
-412,89,"Cleveland, OH",50198.0,Medina County Public Transit,MCPT,Cleveland,17420,17420,"Cleveland, TN",POINT (-84.66739029368156 35.13454522858348)
-413,89,"Cleveland, OH",50198.0,Medina County Public Transit,MCPT,Cleveland,17460,17460,"Cleveland-Elyria, OH",POINT (-81.68382227241914 41.37537421511097)
-414,90,"San Antonio, TX",60011.0,VIA Metropolitan Transit,VIA,San Antonio,41700,41700,"San Antonio-New Braunfels, TX",POINT (-98.60225642424642 29.42873501128543)
-415,91,"San Antonio, TX",60130.0,Alamo Area Council of Governments,Alamo Regional Transit,San Antonio,41700,41700,"San Antonio-New Braunfels, TX",POINT (-98.60225642424642 29.42873501128543)
-416,92,"Pittsburgh, PA",30022.0,Port Authority of Allegheny County,PAAC,Pittsburgh,38300,38300,"Pittsburgh, PA",POINT (-79.83095505809933 40.43902795452785)
-417,93,"Pittsburgh, PA",,,Pittsburgh Other,Pittsburgh,38300,38300,"Pittsburgh, PA",POINT (-79.83095505809933 40.43902795452785)
-418,93,"Pittsburgh, PA",30023.0,Beaver County Transit Authority,BCTA,Pittsburgh,38300,38300,"Pittsburgh, PA",POINT (-79.83095505809933 40.43902795452785)
-419,93,"Pittsburgh, PA",30044.0,Westmoreland County Transit Authority,WCTA,Pittsburgh,38300,38300,"Pittsburgh, PA",POINT (-79.83095505809933 40.43902795452785)
-420,93,"Pittsburgh, PA",30111.0,Washington County Transportation Authority,,Pittsburgh,38300,38300,"Pittsburgh, PA",POINT (-79.83095505809933 40.43902795452785)
-421,93,"Pittsburgh, PA",30078.0,Southwestern Pennsylvania Commission,SPC,Pittsburgh,38300,38300,"Pittsburgh, PA",POINT (-79.83095505809933 40.43902795452785)
-422,93,"Pittsburgh, PA",30990.0,Airport Corridor Transportation Association,ACTA,Pittsburgh,38300,38300,"Pittsburgh, PA",POINT (-79.83095505809933 40.43902795452785)
-423,94,"Sacramento, CA",90019.0,Sacramento Regional Transit District,Sacramento RT,Sacramento,40900,40900,"Sacramento--Roseville--Arden-Arcade, CA",POINT (-120.9975514207566 38.78047805560668)
-424,95,"Sacramento, CA",,,Sacramento Other,Sacramento,40900,40900,"Sacramento--Roseville--Arden-Arcade, CA",POINT (-120.9975514207566 38.78047805560668)
-425,95,"Sacramento, CA",90090.0,Yolo County Transportation District,YCTD,Sacramento,40900,40900,"Sacramento--Roseville--Arden-Arcade, CA",POINT (-120.9975514207566 38.78047805560668)
-426,95,"Sacramento, CA",90205.0,City of Elk Grove,etran,Sacramento,40900,40900,"Sacramento--Roseville--Arden-Arcade, CA",POINT (-120.9975514207566 38.78047805560668)
-427,95,"Sacramento, CA",90196.0,Placer County DPWF,PCDPWF,Sacramento,40900,40900,"Sacramento--Roseville--Arden-Arcade, CA",POINT (-120.9975514207566 38.78047805560668)
-428,95,"Sacramento, CA",90223.0,Paratransit,,Sacramento,40900,40900,"Sacramento--Roseville--Arden-Arcade, CA",POINT (-120.9975514207566 38.78047805560668)
-429,95,"Sacramento, CA",90229.0,El Dorado County Transit Authority,EDCTA,Sacramento,40900,40900,"Sacramento--Roseville--Arden-Arcade, CA",POINT (-120.9975514207566 38.78047805560668)
-430,95,"Sacramento, CA",90168.0,Roseville Transit,,Sacramento,40900,40900,"Sacramento--Roseville--Arden-Arcade, CA",POINT (-120.9975514207566 38.78047805560668)
-431,95,"Sacramento, CA",90220.0,City of Folsom,FSL,Sacramento,40900,40900,"Sacramento--Roseville--Arden-Arcade, CA",POINT (-120.9975514207566 38.78047805560668)
-432,96,"San Jose, CA",90013.0,Santa Clara Valley Transportation Authority,VTA,San Jose,41940,41940,"San Jose-Sunnyvale-Santa Clara, CA",POINT (-121.3758832917817 36.90948171496966)
-433,97,"Cincinnati, OH-KY-IN",50012.0,Southwest Ohio Regional Transit Authority,SORTA,Cincinnati,17140,17140,"Cincinnati, OH-KY-IN",POINT (-84.42748156261699 39.07152487796367)
-434,98,"Cincinnati, OH-KY-IN",,,Cincinnati Other,Cincinnati,17140,17140,"Cincinnati, OH-KY-IN",POINT (-84.42748156261699 39.07152487796367)
-435,98,"Cincinnati, OH-KY-IN",40019.0,Transit Authority of Northern Kentucky,TANK,Cincinnati,17140,17140,"Cincinnati, OH-KY-IN",POINT (-84.42748156261699 39.07152487796367)
-436,98,"Cincinnati, OH-KY-IN",50157.0,Butler County Regional Transit Authority,BCRTA,Cincinnati,17140,17140,"Cincinnati, OH-KY-IN",POINT (-84.42748156261699 39.07152487796367)
-437,98,"Cincinnati, OH-KY-IN",50166.0,Clermont Transportation Connection,CTC,Cincinnati,17140,17140,"Cincinnati, OH-KY-IN",POINT (-84.42748156261699 39.07152487796367)
-438,98,"Cincinnati, OH-KY-IN",50200.0,Warren County Transit Services,WCTS,Cincinnati,17140,17140,"Cincinnati, OH-KY-IN",POINT (-84.42748156261699 39.07152487796367)
-439,99,"Kansas City, MO-KS",70005.0,Kansas City Area Transportation Authority,KCATA,Kansas City,28140,28140,"Kansas City, MO-KS",POINT (-94.44438286042632 38.93719048603548)
-440,100,"Kansas City, MO-KS",,,Kansas City Other,Kansas City,28140,28140,"Kansas City, MO-KS",POINT (-94.44438286042632 38.93719048603548)
-441,100,"Kansas City, MO-KS",70271.0,"Kansas City, City of Missouri",KCMO,Kansas City,28140,28140,"Kansas City, MO-KS",POINT (-94.44438286042632 38.93719048603548)
-442,100,"Kansas City, MO-KS",70035.0,Johnson County Transit,The JO,Kansas City,28140,28140,"Kansas City, MO-KS",POINT (-94.44438286042632 38.93719048603548)
-443,100,"Kansas City, MO-KS",70046.0,City of Independence,IndeBus,Kansas City,28140,28140,"Kansas City, MO-KS",POINT (-94.44438286042632 38.93719048603548)
-444,100,"Kansas City, MO-KS",70047.0,Unified Government Transit Department,UGT,Kansas City,28140,28140,"Kansas City, MO-KS",POINT (-94.44438286042632 38.93719048603548)
-445,101,"Orlando, FL",40035.0,Central Florida Regional Transportation Authority,LYNX,Orlando,36740,36740,"Orlando-Kissimmee-Sanford, FL",POINT (-81.36300157584371 28.43433057853582)
-446,102,"Orlando, FL",40232.0,Central Florida Commuter Rail,SunRail,Orlando,36740,36740,"Orlando-Kissimmee-Sanford, FL",POINT (-81.36300157584371 28.43433057853582)
-447,103,"Indianapolis, IN",50050.0,Indianapolis and Marion County Public Transportation,IndyGo,Indianapolis,26900,26900,"Indianapolis-Carmel-Anderson, IN",POINT (-86.20613516350936 39.74741482690619)
-448,104,"Indianapolis, IN",,,Indianapolis Other,Indianapolis,26900,26900,"Indianapolis-Carmel-Anderson, IN",POINT (-86.20613516350936 39.74741482690619)
-449,104,"Indianapolis, IN",50209.0,Central Indiana Regional Transportation Authority,CIRTA,Indianapolis,26900,26900,"Indianapolis-Carmel-Anderson, IN",POINT (-86.20613516350936 39.74741482690619)
-450,104,"Indianapolis, IN",50201.0,Hancock Area Rural Transit,HART,Indianapolis,26900,26900,"Indianapolis-Carmel-Anderson, IN",POINT (-86.20613516350936 39.74741482690619)
-451,105,"Virginia Beach, VA",30083.0,Transportation District Commission of Hampton Roads,HRT,Virginia Beach,47260,47260,"Virginia Beach-Norfolk-Newport News, VA-NC",POINT (-76.4541116293933 36.8329253385939)
-452,106,"Virginia Beach, VA",30198.0,Suffolk Transit,Suffolk Transit,Virginia Beach,47260,47260,"Virginia Beach-Norfolk-Newport News, VA-NC",POINT (-76.4541116293933 36.8329253385939)
-453,107,"Milwaukee, WI",50008.0,Milwaukee County Transit System,MCTS,Milwaukee,33340,33340,"Milwaukee-Waukesha-West Allis, WI",POINT (-88.17228390498043 43.17657086143308)
-454,108,"Milwaukee, WI",,,Milwaukee Other,Milwaukee,33340,33340,"Milwaukee-Waukesha-West Allis, WI",POINT (-88.17228390498043 43.17657086143308)
-455,108,"Milwaukee, WI",50096.0,City of Waukesha Transit Commission,Waukesha Metro Transit,Milwaukee,33340,33340,"Milwaukee-Waukesha-West Allis, WI",POINT (-88.17228390498043 43.17657086143308)
-456,108,"Milwaukee, WI",50161.0,Ozaukee County Transit Services,OCTS,Milwaukee,33340,33340,"Milwaukee-Waukesha-West Allis, WI",POINT (-88.17228390498043 43.17657086143308)
-457,108,"Milwaukee, WI",50160.0,Washington County Transit,,Milwaukee,33340,33340,"Milwaukee-Waukesha-West Allis, WI",POINT (-88.17228390498043 43.17657086143308)
-458,108,"Milwaukee, WI",55312.0,City of Milwaukee,,Milwaukee,33340,33340,"Milwaukee-Waukesha-West Allis, WI",POINT (-88.17228390498043 43.17657086143308)
-459,109,"Columbus, OH",50016.0,Central Ohio Transit Authority,COTA,Columbus,17980,17980,"Columbus, GA-AL",POINT (-84.90873110720597 32.44143924931389)
-460,109,"Columbus, OH",50016.0,Central Ohio Transit Authority,COTA,Columbus,18060,18060,"Columbus, MS",POINT (-88.44331637001312 33.47294136499276)
-461,109,"Columbus, OH",50016.0,Central Ohio Transit Authority,COTA,Columbus,18100,18100,"Columbus, NE",POINT (-97.52113913448461 41.57129634551089)
-462,109,"Columbus, OH",50016.0,Central Ohio Transit Authority,COTA,Columbus,18020,18020,"Columbus, IN",POINT (-85.89759281155193 39.20595249887474)
-463,109,"Columbus, OH",50016.0,Central Ohio Transit Authority,COTA,Columbus,18140,18140,"Columbus, OH",POINT (-82.83679000217438 39.96812467498784)
-464,110,"Columbus, OH",,,Columbus Other,Columbus,17980,17980,"Columbus, GA-AL",POINT (-84.90873110720597 32.44143924931389)
-465,110,"Columbus, OH",,,Columbus Other,Columbus,18060,18060,"Columbus, MS",POINT (-88.44331637001312 33.47294136499276)
-466,110,"Columbus, OH",,,Columbus Other,Columbus,18100,18100,"Columbus, NE",POINT (-97.52113913448461 41.57129634551089)
-467,110,"Columbus, OH",,,Columbus Other,Columbus,18020,18020,"Columbus, IN",POINT (-85.89759281155193 39.20595249887474)
-468,110,"Columbus, OH",,,Columbus Other,Columbus,18140,18140,"Columbus, OH",POINT (-82.83679000217438 39.96812467498784)
-469,110,"Columbus, OH",50199.0,Delaware County Transit Board,DATA,Columbus,17980,17980,"Columbus, GA-AL",POINT (-84.90873110720597 32.44143924931389)
-470,110,"Columbus, OH",50199.0,Delaware County Transit Board,DATA,Columbus,18060,18060,"Columbus, MS",POINT (-88.44331637001312 33.47294136499276)
-471,110,"Columbus, OH",50199.0,Delaware County Transit Board,DATA,Columbus,18100,18100,"Columbus, NE",POINT (-97.52113913448461 41.57129634551089)
-472,110,"Columbus, OH",50199.0,Delaware County Transit Board,DATA,Columbus,18020,18020,"Columbus, IN",POINT (-85.89759281155193 39.20595249887474)
-473,110,"Columbus, OH",50199.0,Delaware County Transit Board,DATA,Columbus,18140,18140,"Columbus, OH",POINT (-82.83679000217438 39.96812467498784)
-474,110,"Columbus, OH",50191.0,Mid-Ohio Regional Planning Commission,MORPC,Columbus,17980,17980,"Columbus, GA-AL",POINT (-84.90873110720597 32.44143924931389)
-475,110,"Columbus, OH",50191.0,Mid-Ohio Regional Planning Commission,MORPC,Columbus,18060,18060,"Columbus, MS",POINT (-88.44331637001312 33.47294136499276)
-476,110,"Columbus, OH",50191.0,Mid-Ohio Regional Planning Commission,MORPC,Columbus,18100,18100,"Columbus, NE",POINT (-97.52113913448461 41.57129634551089)
-477,110,"Columbus, OH",50191.0,Mid-Ohio Regional Planning Commission,MORPC,Columbus,18020,18020,"Columbus, IN",POINT (-85.89759281155193 39.20595249887474)
-478,110,"Columbus, OH",50191.0,Mid-Ohio Regional Planning Commission,MORPC,Columbus,18140,18140,"Columbus, OH",POINT (-82.83679000217438 39.96812467498784)
-479,111,"Austin, TX",60048.0,Capital Metropolitan Transportation Authority,CapMetro,Austin,12420,12420,"Austin-Round Rock, TX",POINT (-97.65444493244374 30.262597035435)
-480,111,"Austin, TX",60048.0,Capital Metropolitan Transportation Authority,CapMetro,Austin,12380,12380,"Austin, MN",POINT (-92.75252641820238 43.67142942921456)
-481,112,"Austin, TX",60125.0,City of Round Rock,City of Round Rock,Austin,12420,12420,"Austin-Round Rock, TX",POINT (-97.65444493244374 30.262597035435)
-482,112,"Austin, TX",60125.0,City of Round Rock,City of Round Rock,Austin,12380,12380,"Austin, MN",POINT (-92.75252641820238 43.67142942921456)
-483,113,"Charlotte, NC-SC",40008.0,Charlotte Area Transit System,CATS,Charlotte,16740,16740,"Charlotte-Concord-Gastonia, NC-SC",POINT (-80.867034007537 35.18875828957029)
-484,114,"Charlotte, NC-SC",,,Charlotte Other,Charlotte,16740,16740,"Charlotte-Concord-Gastonia, NC-SC",POINT (-80.867034007537 35.18875828957029)
-485,114,"Charlotte, NC-SC",40228.0,Mecklenburg County DSS,MCTS,Charlotte,16740,16740,"Charlotte-Concord-Gastonia, NC-SC",POINT (-80.867034007537 35.18875828957029)
-486,114,"Charlotte, NC-SC",40205.0,Iredell County Area Transportation Services,ICATS,Charlotte,16740,16740,"Charlotte-Concord-Gastonia, NC-SC",POINT (-80.867034007537 35.18875828957029)
-487,114,"Charlotte, NC-SC",40215.0,Union County Transportation,UCT,Charlotte,16740,16740,"Charlotte-Concord-Gastonia, NC-SC",POINT (-80.867034007537 35.18875828957029)
-488,114,"Charlotte, NC-SC",40237.0,Lancaster County Council on Aging,Lancaster Area Ride Service,Charlotte,16740,16740,"Charlotte-Concord-Gastonia, NC-SC",POINT (-80.867034007537 35.18875828957029)
-489,115,"Providence, RI-MA",10001.0,Rhode Island Public Transit Authority,RIPTA,Providence,39300,39300,"Providence-Warwick, RI-MA",POINT (-71.39997650050394 41.71842789746073)
-490,116,"Providence, RI-MA",,,Providence Other,Providence,39300,39300,"Providence-Warwick, RI-MA",POINT (-71.39997650050394 41.71842789746073)
-491,116,"Providence, RI-MA",10064.0,Greater Attleboro-Taunton Regional Transit Authority,GATRA,Providence,39300,39300,"Providence-Warwick, RI-MA",POINT (-71.39997650050394 41.71842789746073)
-492,116,"Providence, RI-MA",11147.0,Rhode Island DOT,RIDOT,Providence,39300,39300,"Providence-Warwick, RI-MA",POINT (-71.39997650050394 41.71842789746073)
-493,117,"Jacksonville, FL",40040.0,Jacksonville Transportation Authority,JTA,Jacksonville,27380,27380,"Jacksonville, TX",POINT (-95.16519485887029 31.83696429654443)
-494,117,"Jacksonville, FL",40040.0,Jacksonville Transportation Authority,JTA,Jacksonville,27340,27340,"Jacksonville, NC",POINT (-77.43208298346815 34.73212776753807)
-495,117,"Jacksonville, FL",40040.0,Jacksonville Transportation Authority,JTA,Jacksonville,27260,27260,"Jacksonville, FL",POINT (-81.79206234214148 30.23672079966326)
-496,117,"Jacksonville, FL",40040.0,Jacksonville Transportation Authority,JTA,Jacksonville,27300,27300,"Jacksonville, IL",POINT (-90.28512054609949 39.6936892747291)
-497,118,"Jacksonville, FL",40245.0,Clay County Council on Aging,Clay Transit,Jacksonville,27380,27380,"Jacksonville, TX",POINT (-95.16519485887029 31.83696429654443)
-498,118,"Jacksonville, FL",40245.0,Clay County Council on Aging,Clay Transit,Jacksonville,27340,27340,"Jacksonville, NC",POINT (-77.43208298346815 34.73212776753807)
-499,118,"Jacksonville, FL",40245.0,Clay County Council on Aging,Clay Transit,Jacksonville,27260,27260,"Jacksonville, FL",POINT (-81.79206234214148 30.23672079966326)
-500,118,"Jacksonville, FL",40245.0,Clay County Council on Aging,Clay Transit,Jacksonville,27300,27300,"Jacksonville, IL",POINT (-90.28512054609949 39.6936892747291)
-501,119,"Memphis, TN-MS-AR",40003.0,Memphis Area Transit Authority,MATA,Memphis,32820,32820,"Memphis, TN-MS-AR",POINT (-89.81523244298334 35.00767520010713)
-502,120,"Memphis, TN-MS-AR",40247.0,Shelby County Government,Shelby County Government,Memphis,32820,32820,"Memphis, TN-MS-AR",POINT (-89.81523244298334 35.00767520010713)
-503,121,"Salt Lake City-West Valley City, UT",80001.0,Utah Transit Authority,UTA,Salt Lake City,41620,41620,"Salt Lake City, UT",POINT (-113.0105060904822 40.47058289257779)
-504,122,"Louisville/Jefferson County, KY-IN",40018.0,Transit Authority of River City,TARC,Louisville,31140,31140,"Louisville/Jefferson County, KY-IN",POINT (-85.67087438583525 38.33674212229526)
-505,123,"Louisville/Jefferson County, KY-IN",,,Louisville Other,Louisville,31140,31140,"Louisville/Jefferson County, KY-IN",POINT (-85.67087438583525 38.33674212229526)
-506,123,"Louisville/Jefferson County, KY-IN",40196.0,Kentuckiana Regional Planning and Development Agency,KIPDA,Louisville,31140,31140,"Louisville/Jefferson County, KY-IN",POINT (-85.67087438583525 38.33674212229526)
-507,123,"Louisville/Jefferson County, KY-IN",40218.0,Oldham's Public Bus,,Louisville,31140,31140,"Louisville/Jefferson County, KY-IN",POINT (-85.67087438583525 38.33674212229526)
-508,124,"Nashville-Davidson, TN",40004.0,Metropolitan Transit Authority,WeGo/MTA,Nashville,34980,34980,"Nashville-Davidson--Murfreesboro--Franklin, TN",POINT (-86.72447679844316 36.08907227168498)
-509,125,"Nashville-Davidson, TN",,,Nashville Other,Nashville,34980,34980,"Nashville-Davidson--Murfreesboro--Franklin, TN",POINT (-86.72447679844316 36.08907227168498)
-510,125,"Nashville-Davidson, TN",40159.0,Regional Transportation Authority,RTA,Nashville,34980,34980,"Nashville-Davidson--Murfreesboro--Franklin, TN",POINT (-86.72447679844316 36.08907227168498)
-511,125,"Nashville-Davidson, TN",40178.0,The Transportation Management Association Group,TMA,Nashville,34980,34980,"Nashville-Davidson--Murfreesboro--Franklin, TN",POINT (-86.72447679844316 36.08907227168498)
-512,125,"Nashville-Davidson, TN",40162.0,Franklin Transit Authority,FTA,Nashville,34980,34980,"Nashville-Davidson--Murfreesboro--Franklin, TN",POINT (-86.72447679844316 36.08907227168498)
-513,126,"Richmond, VA",30006.0,Greater Richmond Transit Company,GRTC,Richmond,40060,40060,"Richmond, VA",POINT (-77.47355870214272 37.46199979856708)
-514,126,"Richmond, VA",30006.0,Greater Richmond Transit Company,GRTC,Richmond,40080,40080,"Richmond-Berea, KY",POINT (-84.2938496081032 37.57212147642202)
-515,126,"Richmond, VA",30006.0,Greater Richmond Transit Company,GRTC,Richmond,39980,39980,"Richmond, IN",POINT (-85.00983824347368 39.8643823553559)
-516,127,"Richmond, VA",30009.0,Petersburg Area Transit,Petersburg Area Transit,Richmond,40060,40060,"Richmond, VA",POINT (-77.47355870214272 37.46199979856708)
-517,127,"Richmond, VA",30009.0,Petersburg Area Transit,Petersburg Area Transit,Richmond,40080,40080,"Richmond-Berea, KY",POINT (-84.2938496081032 37.57212147642202)
-518,127,"Richmond, VA",30009.0,Petersburg Area Transit,Petersburg Area Transit,Richmond,39980,39980,"Richmond, IN",POINT (-85.00983824347368 39.8643823553559)
-519,128,"Buffalo, NY",20004.0,Niagara Frontier Transportation Authority,NFT Metro,Buffalo,15380,15380,"Buffalo-Cheektowaga-Niagara Falls, NY",POINT (-78.73667371517844 42.91091243448507)
-520,129,"Hartford, CT",10048.0,CTTRANSIT Hartford,CTTransit,Hartford,25540,25540,"Hartford-West Hartford-East Hartford, CT",POINT (-72.57733808990466 41.73462661270841)
-521,130,"Hartford, CT",,,Hartford Other,Hartford,25540,25540,"Hartford-West Hartford-East Hartford, CT",POINT (-72.57733808990466 41.73462661270841)
-522,130,"Hartford, CT",10102.0,Connecticut DOT,CDOT,Hartford,25540,25540,"Hartford-West Hartford-East Hartford, CT",POINT (-72.57733808990466 41.73462661270841)
-523,130,"Hartford, CT",10130.0,CTTRANSIT New Britain,,Hartford,25540,25540,"Hartford-West Hartford-East Hartford, CT",POINT (-72.57733808990466 41.73462661270841)
-524,130,"Hartford, CT",10017.0,Greater Hartford Transit District,GHTD,Hartford,25540,25540,"Hartford-West Hartford-East Hartford, CT",POINT (-72.57733808990466 41.73462661270841)
-525,130,"Hartford, CT",10045.0,CTTransit New Britain -Dattco.,CDOT CTTransit DATTCO,Hartford,25540,25540,"Hartford-West Hartford-East Hartford, CT",POINT (-72.57733808990466 41.73462661270841)
-526,130,"Hartford, CT",10063.0,Middletown Transit District,MTD,Hartford,25540,25540,"Hartford-West Hartford-East Hartford, CT",POINT (-72.57733808990466 41.73462661270841)
-527,130,"Hartford, CT",10132.0,CTTransit Torrington-Winsted,Nason Partners,Hartford,25540,25540,"Hartford-West Hartford-East Hartford, CT",POINT (-72.57733808990466 41.73462661270841)
-528,131,"New Orleans, LA",60032.0,New Orleans Regional Transit Authority,NORTA,New Orleans,35380,35380,"New Orleans-Metairie, LA",POINT (-89.95808621040975 29.92518184761198)
-529,132,"New Orleans, LA",,,New Orleans Other,New Orleans,35380,35380,"New Orleans-Metairie, LA",POINT (-89.95808621040975 29.92518184761198)
-530,132,"New Orleans, LA",60088.0,Jefferson Parish Department of Transit Administration,Jet,New Orleans,35380,35380,"New Orleans-Metairie, LA",POINT (-89.95808621040975 29.92518184761198)
-531,132,"New Orleans, LA",60127.0,Plaquemines Parish Government,PPG,New Orleans,35380,35380,"New Orleans-Metairie, LA",POINT (-89.95808621040975 29.92518184761198)
-532,132,"New Orleans, LA",60058.0,St. Bernard Urban Rapid Transit,SBURT,New Orleans,35380,35380,"New Orleans-Metairie, LA",POINT (-89.95808621040975 29.92518184761198)
-533,132,"New Orleans, LA",60112.0,River Parishes Transit Authority,RPTA,New Orleans,35380,35380,"New Orleans-Metairie, LA",POINT (-89.95808621040975 29.92518184761198)
-534,132,"New Orleans, LA",60128.0,Regional Planning Commission,RPC,New Orleans,35380,35380,"New Orleans-Metairie, LA",POINT (-89.95808621040975 29.92518184761198)
-535,133,"Raleigh, NC",40007.0,Capital Area Transit,GoRaleigh,Raleigh,39580,39580,"Raleigh, NC",POINT (-78.46086535879141 35.75725506779662)
-536,134,"Raleigh, NC",,,Raleigh Other,Raleigh,39580,39580,"Raleigh, NC",POINT (-78.46086535879141 35.75725506779662)
-537,134,"Raleigh, NC",40147.0,North Carolina State University Transportation Department,NCSU,Raleigh,39580,39580,"Raleigh, NC",POINT (-78.46086535879141 35.75725506779662)
-538,134,"Raleigh, NC",40143.0,Town of Cary,GoCary,Raleigh,39580,39580,"Raleigh, NC",POINT (-78.46086535879141 35.75725506779662)
-539,134,"Raleigh, NC",40222.0,Wake County DSS,TRACS,Raleigh,39580,39580,"Raleigh, NC",POINT (-78.46086535879141 35.75725506779662)
-540,135,"Oklahoma City, OK",60017.0,Central Oklahoma Transportation and Parking Authority,COTPA,Oklahoma City,36420,36420,"Oklahoma City, OK",POINT (-97.50389257113274 35.42984899063848)
-541,136,"Oklahoma City, OK",60118.0,City of Edmond,Citylink,Oklahoma City,36420,36420,"Oklahoma City, OK",POINT (-97.50389257113274 35.42984899063848)
-542,137,"Tucson, AZ",90033.0,City of Tucson,Sun Tran,Tucson,46060,46060,"Tucson, AZ",POINT (-111.7898922454797 32.0974214694924)
-543,138,"Tucson, AZ",,,Tucson Other,Tucson,46060,46060,"Tucson, AZ",POINT (-111.7898922454797 32.0974214694924)
-544,138,"Tucson, AZ",90222.0,Pima Association of Governments,PAG,Tucson,46060,46060,"Tucson, AZ",POINT (-111.7898922454797 32.0974214694924)
-545,138,"Tucson, AZ",90191.0,Town of Oro Valley - Transit Services Division,SunShutDNR,Tucson,46060,46060,"Tucson, AZ",POINT (-111.7898922454797 32.0974214694924)
-546,139,"Urban Honolulu, HI",90002.0,City and County of Honolulu Department of Transportation Services,DTS,Urban Honolulu,46520,46520,"Urban Honolulu, HI",POINT (-158.1053341795545 21.50078536134099)
-547,140,"Birmingham, AL",40042.0,Birmingham-Jefferson County Transit Authority,MAX,Birmingham,13820,13820,"Birmingham-Hoover, AL",POINT (-86.81388195537581 33.46381824392428)
-548,141,"Birmingham, AL",40169.0,Regional Planning Commission of Greater Birmingham,RPCGB,Birmingham,13820,13820,"Birmingham-Hoover, AL",POINT (-86.81388195537581 33.46381824392428)
-549,142,"Rochester, NY",20113.0,RTS - Monroe County,RGRTA,Rochester,40380,40380,"Rochester, NY",POINT (-77.50789682670171 42.96592704119399)
-550,142,"Rochester, NY",20113.0,RTS - Monroe County,RGRTA,Rochester,40340,40340,"Rochester, MN",POINT (-92.33807901148462 43.95598323100925)
-551,143,"Tulsa, OK",60018.0,Metropolitan Tulsa Transit Authority,MTTA,Tulsa,46140,46140,"Tulsa, OK",POINT (-96.1662742008172 36.25042342887361)
-552,144,"Grand Rapids, MI",50033.0,Interurban Transit Partnership,The Rapid,Grand Rapids,24330,24330,"Grand Rapids, MN",POINT (-93.63197749438663 47.50951438271588)
-553,144,"Grand Rapids, MI",50033.0,Interurban Transit Partnership,The Rapid,Grand Rapids,24340,24340,"Grand Rapids-Wyoming, MI",POINT (-85.4883007883229 42.9992610243922)
+id,Project ID,UZA Name,NTD ID,Agency Name,Reporter Acronym,GEOID,NAME,centroid_x,centroid_y
+0,1,"New York-Newark, NY-NJ-CT",,New York City Transit,NYC Transit,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+1,1,"New York-Newark, NY-NJ-CT",20008.0,MTA New York City Transit,NYCT,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+2,2,"New York-Newark, NY-NJ-CT",20080.0,New Jersey Transit Corporation,NJ TRANSIT,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+3,1,"New York-Newark, NY-NJ-CT",20188.0,MTA Bus Company,MTABUS,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+4,3,"New York-Newark, NY-NJ-CT",20100.0,MTA Long Island Rail Road,MTA LIRR,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+5,4,"New York-Newark, NY-NJ-CT",20098.0,Port Authority Trans-Hudson Corporation,PATH,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+6,5,"New York-Newark, NY-NJ-CT",20078.0,MTA Metro-North Railroad,MTA MNR,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+7,6,"New York-Newark, NY-NJ-CT",20076.0,Westchester County Bee-Line System,Westchester County Bee-Line System,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+8,7,"New York-Newark, NY-NJ-CT",20206.0,Nassau Inter County Express,Nassau Inter County Express,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+9,8,"New York-Newark, NY-NJ-CT",20082.0,New York City Department of Transportation,NYCDOT,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+10,9,"New York-Newark, NY-NJ-CT",,,New York City Other,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+11,9,"New York-Newark, NY-NJ-CT",20099.0,Staten Island Railway,SIRTOA,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+12,9,"New York-Newark, NY-NJ-CT",20190.0,NY Waterway,Port Imperial Ferry Corporation,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+13,9,"New York-Newark, NY-NJ-CT",20166.0,Orange-Newark-Elizabeth,Coach USA,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+14,9,"New York-Newark, NY-NJ-CT",20072.0,Suffolk County DPW - Transportation,ST,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+15,9,"New York-Newark, NY-NJ-CT",20126.0,Hudson Transit Lines,Short Line,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+16,9,"New York-Newark, NY-NJ-CT",20219.0,A&C Bus Corporation & Montgomery & Westside Owners Association,,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+17,9,"New York-Newark, NY-NJ-CT",20122.0,Academy Lines,,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+18,9,"New York-Newark, NY-NJ-CT",20128.0,Suburban Transit Corporation,Coach USA,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+19,9,"New York-Newark, NY-NJ-CT",20084.0,Transport of Rockland,TOR,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+20,9,"New York-Newark, NY-NJ-CT",20149.0,Rockland Coaches,,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+21,9,"New York-Newark, NY-NJ-CT",20161.0,DeCamp Bus Lines,,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+22,9,"New York-Newark, NY-NJ-CT",22930.0,NYC Economic Development Corporation,NYCEDC,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+23,9,"New York-Newark, NY-NJ-CT",20189.0,BillyBey Ferry Company,,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+24,9,"New York-Newark, NY-NJ-CT",20163.0,Lakeland Bus Lines,,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+25,9,"New York-Newark, NY-NJ-CT",20169.0,Trans-Bridge Lines,,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+26,9,"New York-Newark, NY-NJ-CT",20175.0,Private Transportation Corporation,,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+27,9,"New York-Newark, NY-NJ-CT",20217.0,Hampton Jitney,,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+28,9,"New York-Newark, NY-NJ-CT",20220.0,Broadway Bus Corporation,,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+29,9,"New York-Newark, NY-NJ-CT",20165.0,Olympia Trails Bus Company,Coach USA,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+30,9,"New York-Newark, NY-NJ-CT",20177.0,Adirondack Transit Lines,Adirondack Trailways,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+31,9,"New York-Newark, NY-NJ-CT",20135.0,Monsey New Square Trails Corporation,,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+32,9,"New York-Newark, NY-NJ-CT",20160.0,Community Transit,Community Transit,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+33,9,"New York-Newark, NY-NJ-CT",20209.0,Somerset County Transportation,SCT,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+34,9,"New York-Newark, NY-NJ-CT",20006.0,Long Beach Bus,Long Beach Bus,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+35,9,"New York-Newark, NY-NJ-CT",20196.0,Middlesex County Area Transit,MCAT,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+36,9,"New York-Newark, NY-NJ-CT",20192.0,Bergen County Community Transportation,BCCT,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+37,9,"New York-Newark, NY-NJ-CT",20197.0,EZ Ride,EZ Ride,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+38,9,"New York-Newark, NY-NJ-CT",20222.0,Saddle River Trail,STR,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+39,9,"New York-Newark, NY-NJ-CT",20071.0,Huntington Area Rapid Transit,HART,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+40,9,"New York-Newark, NY-NJ-CT",20096.0,Putnam County Transit,PART,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+41,9,"New York-Newark, NY-NJ-CT",20212.0,County of Hunterdon,HCLink,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+42,9,"New York-Newark, NY-NJ-CT",20202.0,Essex County Division of Training and Employment,ECDTE,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+43,9,"New York-Newark, NY-NJ-CT",20085.0,Clarkstown Mini-Trans,,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+44,9,"New York-Newark, NY-NJ-CT",20210.0,County of Morris,MAPS,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+45,9,"New York-Newark, NY-NJ-CT",20176.0,Kaser Bus Service,Kaser,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+46,9,"New York-Newark, NY-NJ-CT",20089.0,Village of Spring Valley Bus,Spring Valley Jitney,35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.0865217112616,40.920555818631804
+47,10,"Los Angeles-Long Beach-Anaheim, CA",90154.0,Los Angeles County Metropolitan Transportation Authority,LA Metro,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+48,11,"Los Angeles-Long Beach-Anaheim, CA",90036.0,Orange County Transportation Authority,OCTA,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+49,12,"Los Angeles-Long Beach-Anaheim, CA",90023.0,Long Beach Transit,LBT,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+50,13,"Los Angeles-Long Beach-Anaheim, CA",90147.0,City of Los Angeles Department of Transportation,LADOT,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+51,14,"Los Angeles-Long Beach-Anaheim, CA",90151.0,Southern California Regional Rail Authority,Metrolink,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+52,15,"Los Angeles-Long Beach-Anaheim, CA",90146.0,Foothill Transit,Foothill Transit,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+53,16,"Los Angeles-Long Beach-Anaheim, CA",90008.0,Santa Monica's Big Blue Bus,Big Blue Bus,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+54,17,"Los Angeles-Long Beach-Anaheim, CA",90211.0,Anaheim Transportation Network,ATN,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+55,18,"Los Angeles-Long Beach-Anaheim, CA",,,Los Angeles Other,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+56,18,"Los Angeles-Long Beach-Anaheim, CA",90041.0,Montebello Bus Lines,MBL,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+57,18,"Los Angeles-Long Beach-Anaheim, CA",90039.0,Culver City Municipal Bus Lines,Culver CityBus,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+58,18,"Los Angeles-Long Beach-Anaheim, CA",90157.0,Access Services,AS,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+59,18,"Los Angeles-Long Beach-Anaheim, CA",90010.0,Torrance Transit System,TTS,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+60,18,"Los Angeles-Long Beach-Anaheim, CA",90042.0,City of Gardena Transportation Department,GTrans,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+61,18,"Los Angeles-Long Beach-Anaheim, CA",99423.0,City of Glendale,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+62,18,"Los Angeles-Long Beach-Anaheim, CA",99424.0,City of Pasadena,ARTS,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+63,18,"Los Angeles-Long Beach-Anaheim, CA",90022.0,Norwalk Transit System,NTS,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+64,18,"Los Angeles-Long Beach-Anaheim, CA",90271.0,LA County DPW - East L.A.,LACDPW,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+65,18,"Los Angeles-Long Beach-Anaheim, CA",90265.0,City of El Monte Transportation Division,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+66,18,"Los Angeles-Long Beach-Anaheim, CA",90043.0,City of Commerce Municipal Buslines,CBL,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+67,18,"Los Angeles-Long Beach-Anaheim, CA",90247.0,City of Alhambra,ALH,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+68,18,"Los Angeles-Long Beach-Anaheim, CA",90291.0,City of South Gate,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+69,18,"Los Angeles-Long Beach-Anaheim, CA",90214.0,City of Redondo Beach - Beach Cities Transit,BCT,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+70,18,"Los Angeles-Long Beach-Anaheim, CA",90258.0,City of Carson,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+71,18,"Los Angeles-Long Beach-Anaheim, CA",90286.0,City of Monterey Park,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+72,18,"Los Angeles-Long Beach-Anaheim, CA",90276.0,LA County DPW - South Whittier,LACDPW,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+73,18,"Los Angeles-Long Beach-Anaheim, CA",90256.0,City of Burbank,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+74,18,"Los Angeles-Long Beach-Anaheim, CA",90273.0,LA County DPW - Florence-Firestone,LACDPW,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+75,18,"Los Angeles-Long Beach-Anaheim, CA",90281.0,City of Lynwood,COL,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+76,18,"Los Angeles-Long Beach-Anaheim, CA",90264.0,City of Duarte,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+77,18,"Los Angeles-Long Beach-Anaheim, CA",90263.0,City of Downey,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+78,18,"Los Angeles-Long Beach-Anaheim, CA",90253.0,City of Bell Gardens,BG,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+79,18,"Los Angeles-Long Beach-Anaheim, CA",99425.0,Pomona Valley Transportation Authority,PVTA,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+80,18,"Los Angeles-Long Beach-Anaheim, CA",90287.0,Palos Verdes Peninsula Transit Authority,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+81,18,"Los Angeles-Long Beach-Anaheim, CA",90259.0,City of Cerritos,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+82,18,"Los Angeles-Long Beach-Anaheim, CA",90262.0,City of Cudahy,COC,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+83,18,"Los Angeles-Long Beach-Anaheim, CA",90251.0,"City of Baldwin Park, Baldwin Park Transit",,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+84,18,"Los Angeles-Long Beach-Anaheim, CA",90257.0,City of Calabasas,COC,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+85,18,"Los Angeles-Long Beach-Anaheim, CA",90294.0,City of West Hollywood,WEHO,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+86,18,"Los Angeles-Long Beach-Anaheim, CA",90260.0,Compton Renaissance Transit Service,CRT,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+87,18,"Los Angeles-Long Beach-Anaheim, CA",90289.0,City of Rosemead,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+88,18,"Los Angeles-Long Beach-Anaheim, CA",90254.0,City of Bellflower,BLF,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+89,18,"Los Angeles-Long Beach-Anaheim, CA",90284.0,City of Maywood,COM,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+90,18,"Los Angeles-Long Beach-Anaheim, CA",90269.0,LA County DPW - Athens Shuttle Service,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+91,18,"Los Angeles-Long Beach-Anaheim, CA",90293.0,City of West Covina,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+92,18,"Los Angeles-Long Beach-Anaheim, CA",90275.0,LA County DPW - Lennox Shuttle,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+93,18,"Los Angeles-Long Beach-Anaheim, CA",90295.0,City of Whittier,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+94,18,"Los Angeles-Long Beach-Anaheim, CA",90044.0,City of Arcadia Transit,Arcadia Transit,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+95,18,"Los Angeles-Long Beach-Anaheim, CA",90280.0,City of Lawndale,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+96,18,"Los Angeles-Long Beach-Anaheim, CA",90278.0,Los Angeles County Dept. of Public Works - Willowbrook Shuttle,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+97,18,"Los Angeles-Long Beach-Anaheim, CA",90249.0,City of Avalon,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+98,18,"Los Angeles-Long Beach-Anaheim, CA",90266.0,City of Glendora,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+99,18,"Los Angeles-Long Beach-Anaheim, CA",90272.0,Los Angeles County DPW - East Valinda,LACDPW,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+100,18,"Los Angeles-Long Beach-Anaheim, CA",90268.0,City of Inglewood,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+101,18,"Los Angeles-Long Beach-Anaheim, CA",90252.0,City of Bell,Bell,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+102,18,"Los Angeles-Long Beach-Anaheim, CA",90024.0,City of La Mirada Transit,LMT,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+103,18,"Los Angeles-Long Beach-Anaheim, CA",90270.0,LA County DPW - Avocado Heights,LACDPW,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+104,18,"Los Angeles-Long Beach-Anaheim, CA",90285.0,City of Monrovia,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+105,18,"Los Angeles-Long Beach-Anaheim, CA",90277.0,LA County DPW - Whittier,LACDPW,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+106,18,"Los Angeles-Long Beach-Anaheim, CA",90296.0,Claremont Dial-a-Ride,CLDAR,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+107,18,"Los Angeles-Long Beach-Anaheim, CA",90250.0,City of Azusa,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+108,18,"Los Angeles-Long Beach-Anaheim, CA",90283.0,City of Manhattan Beach Dial A Ride,CMB DAR,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+109,18,"Los Angeles-Long Beach-Anaheim, CA",90301.0,City of Lakewood - DASH Transit,DASH,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+110,18,"Los Angeles-Long Beach-Anaheim, CA",90261.0,City of Covina,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+111,18,"Los Angeles-Long Beach-Anaheim, CA",90255.0,City of Beverly Hills,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+112,18,"Los Angeles-Long Beach-Anaheim, CA",90292.0,City of South Pasadena,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+113,18,"Los Angeles-Long Beach-Anaheim, CA",90246.0,City of Agoura Hills,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+114,18,"Los Angeles-Long Beach-Anaheim, CA",90288.0,City of Pico Rivera,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+115,18,"Los Angeles-Long Beach-Anaheim, CA",90279.0,LA County DPW - Willowbrook et al.,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+116,18,"Los Angeles-Long Beach-Anaheim, CA",90290.0,City of Santa Fe Springs,SFS,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+117,18,"Los Angeles-Long Beach-Anaheim, CA",90300.0,City of Artesia,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+118,18,"Los Angeles-Long Beach-Anaheim, CA",90282.0,City of Malibu,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+119,18,"Los Angeles-Long Beach-Anaheim, CA",90274.0,LA County DPW - King Medical Center Shuttle Service,,31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14964815478179,34.22061387970025
+120,19,"Chicago, IL-IN",50066.0,Chicago Transit Authority,CTA,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+121,20,"Chicago, IL-IN",50118.0,Metra Rail,Metra,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+122,21,"Chicago, IL-IN",,PACE,PACE,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+123,21,"Chicago, IL-IN",50113.0,Pace - Suburban Bus Division,PACE,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+124,21,"Chicago, IL-IN",50182.0,"Pace-Suburban Bus Division, ADA Paratransit Services",PACE,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+125,22,"Chicago, IL-IN",,,Chicago Other,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+126,22,"Chicago, IL-IN",50104.0,Northern Indiana Commuter Transportation District,NICTD,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+127,22,"Chicago, IL-IN",50045.0,Gary Public Transportation Corporation,GPTC,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+128,22,"Chicago, IL-IN",50521.0,Chicago Water Taxi,CWT,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+129,22,"Chicago, IL-IN",50183.0,City of Valparaiso,,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+130,22,"Chicago, IL-IN",50042.0,East Chicago Transit,ECT,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+131,22,"Chicago, IL-IN",50131.0,Opportunity Enterprises,OE,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+132,22,"Chicago, IL-IN",50167.0,South Lake County Community Services,SLCCS,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+133,22,"Chicago, IL-IN",50103.0,North Township of Lake County Dial-A-Ride,,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+134,22,"Chicago, IL-IN",50179.0,Porter County Aging and Community Services,PCACS,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+135,22,"Chicago, IL-IN",50185.0,Northwestern Indiana Regional Planning Commission,NIRPC,16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96271609572413,41.7026577013949
+136,23,"Miami, FL",40034.0,Miami-Dade Transit,Miami-Dade Transit,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+137,23,"Miami, FL",40034.0,Miami-Dade Transit,Miami-Dade Transit,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+138,24,"Miami, FL",40029.0,Broward County Transit Division,Broward County Transit Division,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+139,24,"Miami, FL",40029.0,Broward County Transit Division,Broward County Transit Division,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+140,25,"Miami, FL",40037.0,"Board of County Commissioners, Palm Beach County, PalmTran",PalmTran,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+141,25,"Miami, FL",40037.0,"Board of County Commissioners, Palm Beach County, PalmTran",PalmTran,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+142,26,"Miami, FL",40077.0,South Florida Regional Transportation Authority,TRI-Rail,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+143,26,"Miami, FL",40077.0,South Florida Regional Transportation Authority,TRI-Rail,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+144,27,"Miami, FL",,,Miami Other,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+145,27,"Miami, FL",,,Miami Other,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+146,27,"Miami, FL",40152.0,Miami Lakes - vRide,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+147,27,"Miami, FL",40152.0,Miami Lakes - vRide,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+148,27,"Miami, FL",40254.0,City of Lauderhill,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+149,27,"Miami, FL",40254.0,City of Lauderhill,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+150,27,"Miami, FL",44929.0,City of Fort Lauderdale,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+151,27,"Miami, FL",44929.0,City of Fort Lauderdale,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+152,27,"Miami, FL",40249.0,City of Hallandale Beach,COHB,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+153,27,"Miami, FL",40249.0,City of Hallandale Beach,COHB,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+154,27,"Miami, FL",40262.0,Town of Davie,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+155,27,"Miami, FL",40262.0,Town of Davie,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+156,27,"Miami, FL",40251.0,City of Pembroke Pines,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+157,27,"Miami, FL",40251.0,City of Pembroke Pines,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+158,27,"Miami, FL",40241.0,City of Miramar - Public Works Department,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+159,27,"Miami, FL",40241.0,City of Miramar - Public Works Department,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+160,27,"Miami, FL",40238.0,City of Coconut Creek,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+161,27,"Miami, FL",40238.0,City of Coconut Creek,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+162,27,"Miami, FL",40256.0,City of Margate,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+163,27,"Miami, FL",40256.0,City of Margate,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+164,27,"Miami, FL",40257.0,City of Pompano Beach,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+165,27,"Miami, FL",40257.0,City of Pompano Beach,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+166,27,"Miami, FL",40250.0,City of Lauderdale Lakes,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+167,27,"Miami, FL",40250.0,City of Lauderdale Lakes,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+168,27,"Miami, FL",40253.0,City of Coral Springs,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+169,27,"Miami, FL",40253.0,City of Coral Springs,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+170,27,"Miami, FL",40255.0,City of Hollywood,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+171,27,"Miami, FL",40255.0,City of Hollywood,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+172,27,"Miami, FL",40239.0,City of Deerfield Beach/ North East Focal Point Senior Center,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+173,27,"Miami, FL",40239.0,City of Deerfield Beach/ North East Focal Point Senior Center,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+174,27,"Miami, FL",44932.0,City of Tamarac,COT,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+175,27,"Miami, FL",44932.0,City of Tamarac,COT,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+176,27,"Miami, FL",40261.0,City of Dania Beach,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+177,27,"Miami, FL",40261.0,City of Dania Beach,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+178,27,"Miami, FL",40260.0,Town of Lauderdale-By-The-Sea,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+179,27,"Miami, FL",40260.0,Town of Lauderdale-By-The-Sea,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+180,27,"Miami, FL",40248.0,Town of Hillsboro Beach,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+181,27,"Miami, FL",40248.0,Town of Hillsboro Beach,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+182,27,"Miami, FL",40240.0,City of Lighthouse Point,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+183,27,"Miami, FL",40240.0,City of Lighthouse Point,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+184,27,"Miami, FL",40263.0,City of West Park,,33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50589817430131,26.15727454778179
+185,27,"Miami, FL",40263.0,City of West Park,,33060,"Miami, OK",-94.81044668550187,36.83552296414012
+186,28,"Philadelphia, PA-NJ-DE-MD",30019.0,Southeastern Pennsylvania Transportation Authority,SEPTA,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",-75.30198512536879,39.905587868347716
+187,29,"Philadelphia, PA-NJ-DE-MD",20075.0,Port Authority Transit Corporation,PATCO,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",-75.30198512536879,39.905587868347716
+188,30,"Philadelphia, PA-NJ-DE-MD",30075.0,Delaware Transit Corporation,DART First State,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",-75.30198512536879,39.905587868347716
+189,31,"Philadelphia, PA-NJ-DE-MD",,,Philadelphia Other,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",-75.30198512536879,39.905587868347716
+190,31,"Philadelphia, PA-NJ-DE-MD",30057.0,Pennsylvania Department of Transportation,PENNDOT,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",-75.30198512536879,39.905587868347716
+191,31,"Philadelphia, PA-NJ-DE-MD",20204.0,Senior Citizens United Community Services of Camden County,SCUCS,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",-75.30198512536879,39.905587868347716
+192,31,"Philadelphia, PA-NJ-DE-MD",30108.0,Cecil County Government - SSCT,,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",-75.30198512536879,39.905587868347716
+193,31,"Philadelphia, PA-NJ-DE-MD",20208.0,County of Burlington,BurLink,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",-75.30198512536879,39.905587868347716
+194,31,"Philadelphia, PA-NJ-DE-MD",20201.0,County of Cumberland,CCET,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",-75.30198512536879,39.905587868347716
+195,31,"Philadelphia, PA-NJ-DE-MD",20195.0,Gloucester County Division of Transportation Services,DTS,37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",-75.30198512536879,39.905587868347716
+196,32,"Dallas-Fort Worth-Arlington, TX",60056.0,Dallas Area Rapid Transit,DART,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+197,33,"Dallas-Fort Worth-Arlington, TX",60007.0,Fort Worth Transportation Authority,FWTA,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+198,34,"Dallas-Fort Worth-Arlington, TX",,,Dallas-Fort Worth Other,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+199,34,"Dallas-Fort Worth-Arlington, TX",60133.0,McKinney Avenue Transit Authority,MATA,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+200,34,"Dallas-Fort Worth-Arlington, TX",60084.0,Ft.Worth - vRide,,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+201,34,"Dallas-Fort Worth-Arlington, TX",60114.0,STAR Transit,STAR,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+202,34,"Dallas-Fort Worth-Arlington, TX",60041.0,Handitran Special Transit Division - City of Arlington,Handitran,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+203,34,"Dallas-Fort Worth-Arlington, TX",60115.0,Public Transit Services,PTS,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+204,34,"Dallas-Fort Worth-Arlington, TX",60260.0,Community Services,CSI,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+205,34,"Dallas-Fort Worth-Arlington, TX",60068.0,City of Grand Prairie Transportation Services Department,Grand Connection,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+206,34,"Dallas-Fort Worth-Arlington, TX",60113.0,City of Cleburne,City/County Trans.,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+207,34,"Dallas-Fort Worth-Arlington, TX",60070.0,City of Mesquite,,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+208,34,"Dallas-Fort Worth-Arlington, TX",60117.0,North Central Texas Council of Governments,NCTCOG,19100,"Dallas-Fort Worth-Arlington, TX",-97.02520967925676,32.81815115755703
+209,35,"Houston, TX",60008.0,"Metropolitan Transit Authority of Harris County, Texas",Houston Metro,26420,"Houston-The Woodlands-Sugar Land, TX",-95.40067321752298,29.78728956319982
+210,36,"Houston, TX",,,Houston Other,26420,"Houston-The Woodlands-Sugar Land, TX",-95.40067321752298,29.78728956319982
+211,36,"Houston, TX",60103.0,Fort Bend County Public Transportation,Fort Bend Transit,26420,"Houston-The Woodlands-Sugar Land, TX",-95.40067321752298,29.78728956319982
+212,36,"Houston, TX",60108.0,"Harris County Community Services Department, Office of Transit Services",Harris County Transit,26420,"Houston-The Woodlands-Sugar Land, TX",-95.40067321752298,29.78728956319982
+213,36,"Houston, TX",60121.0,Greater Southeast Management District,GSMD,26420,"Houston-The Woodlands-Sugar Land, TX",-95.40067321752298,29.78728956319982
+214,36,"Houston, TX",60119.0,Harris County Improvement District 1,HCID1,26420,"Houston-The Woodlands-Sugar Land, TX",-95.40067321752298,29.78728956319982
+215,36,"Houston, TX",60126.0,Harris County Improvement District 3,UKMD,26420,"Houston-The Woodlands-Sugar Land, TX",-95.40067321752298,29.78728956319982
+216,36,"Houston, TX",66270.0,Midtown Management District,,26420,"Houston-The Woodlands-Sugar Land, TX",-95.40067321752298,29.78728956319982
+217,36,"Houston, TX",60120.0,Westchase District,westchase district,26420,"Houston-The Woodlands-Sugar Land, TX",-95.40067321752298,29.78728956319982
+218,37,"Washington, DC-VA-MD",30030.0,Washington Metropolitan Area Transit Authority,WMATA,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+219,37,"Washington, DC-VA-MD",30030.0,Washington Metropolitan Area Transit Authority,WMATA,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+220,37,"Washington, DC-VA-MD",30030.0,Washington Metropolitan Area Transit Authority,WMATA,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+221,38,"Washington, DC-VA-MD",30051.0,Ride-On Montgomery County Transit,Ride-On Montgomery County Transit,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+222,38,"Washington, DC-VA-MD",30051.0,Ride-On Montgomery County Transit,Ride-On Montgomery County Transit,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+223,38,"Washington, DC-VA-MD",30051.0,Ride-On Montgomery County Transit,Ride-On Montgomery County Transit,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+224,39,"Washington, DC-VA-MD",30068.0,Fairfax Connector Bus System,Fairfax Connector,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+225,39,"Washington, DC-VA-MD",30068.0,Fairfax Connector Bus System,Fairfax Connector,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+226,39,"Washington, DC-VA-MD",30068.0,Fairfax Connector Bus System,Fairfax Connector,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+227,40,"Washington, DC-VA-MD",30112.0,DDOT,DDOT,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+228,40,"Washington, DC-VA-MD",30112.0,DDOT,DDOT,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+229,40,"Washington, DC-VA-MD",30112.0,DDOT,DDOT,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+230,41,"Washington, DC-VA-MD",,,"Washington, DC Other",47780,"Washington, IN",-87.07204524818482,38.702437400491036
+231,41,"Washington, DC-VA-MD",,,"Washington, DC Other",47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+232,41,"Washington, DC-VA-MD",,,"Washington, DC Other",47820,"Washington, NC",-76.8597763697363,35.49400284829893
+233,41,"Washington, DC-VA-MD",30073.0,Virginia Railway Express,VRE,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+234,41,"Washington, DC-VA-MD",30073.0,Virginia Railway Express,VRE,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+235,41,"Washington, DC-VA-MD",30073.0,Virginia Railway Express,VRE,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+236,41,"Washington, DC-VA-MD",30070.0,Potomac and Rappahannock Transportation Commission,PRTC,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+237,41,"Washington, DC-VA-MD",30070.0,Potomac and Rappahannock Transportation Commission,PRTC,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+238,41,"Washington, DC-VA-MD",30070.0,Potomac and Rappahannock Transportation Commission,PRTC,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+239,41,"Washington, DC-VA-MD",30080.0,Arlington Transit - Arlington County,ART,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+240,41,"Washington, DC-VA-MD",30080.0,Arlington Transit - Arlington County,ART,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+241,41,"Washington, DC-VA-MD",30080.0,Arlington Transit - Arlington County,ART,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+242,41,"Washington, DC-VA-MD",30085.0,Prince George's County Transit,TheBus,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+243,41,"Washington, DC-VA-MD",30085.0,Prince George's County Transit,TheBus,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+244,41,"Washington, DC-VA-MD",30085.0,Prince George's County Transit,TheBus,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+245,41,"Washington, DC-VA-MD",30081.0,Loudoun County Commuter Bus Service,LC Transit,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+246,41,"Washington, DC-VA-MD",30081.0,Loudoun County Commuter Bus Service,LC Transit,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+247,41,"Washington, DC-VA-MD",30081.0,Loudoun County Commuter Bus Service,LC Transit,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+248,41,"Washington, DC-VA-MD",60025.0,City of Alexandria,DASH,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+249,41,"Washington, DC-VA-MD",60025.0,City of Alexandria,DASH,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+250,41,"Washington, DC-VA-MD",60025.0,City of Alexandria,DASH,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+251,41,"Washington, DC-VA-MD",30058.0,City of Fairfax CUE Bus,CUE,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+252,41,"Washington, DC-VA-MD",30058.0,City of Fairfax CUE Bus,CUE,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+253,41,"Washington, DC-VA-MD",30058.0,City of Fairfax CUE Bus,CUE,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+254,41,"Washington, DC-VA-MD",30106.0,National Capital Region Transportation Planning Board,MWCOG/TPB,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+255,41,"Washington, DC-VA-MD",30106.0,National Capital Region Transportation Planning Board,MWCOG/TPB,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+256,41,"Washington, DC-VA-MD",30106.0,National Capital Region Transportation Planning Board,MWCOG/TPB,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+257,41,"Washington, DC-VA-MD",30104.0,Metropolitan Washington Airports Authority,MWAA,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+258,41,"Washington, DC-VA-MD",30104.0,Metropolitan Washington Airports Authority,MWAA,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+259,41,"Washington, DC-VA-MD",30104.0,Metropolitan Washington Airports Authority,MWAA,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+260,41,"Washington, DC-VA-MD",30105.0,Northern Virginia Transportation Commission,NVTC,47780,"Washington, IN",-87.07204524818482,38.702437400491036
+261,41,"Washington, DC-VA-MD",30105.0,Northern Virginia Transportation Commission,NVTC,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47440412429256,38.83346378486468
+262,41,"Washington, DC-VA-MD",30105.0,Northern Virginia Transportation Commission,NVTC,47820,"Washington, NC",-76.8597763697363,35.49400284829893
+263,42,"Atlanta, GA",40022.0,Metropolitan Atlanta Rapid Transit Authority,MARTA,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+264,43,"Atlanta, GA",,,Atlanta Other,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+265,43,"Atlanta, GA",40078.0,Cobb County Department of Transportation,,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+266,43,"Atlanta, GA",40135.0,Georgia Regional Transportation Authority,GRTA,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+267,43,"Atlanta, GA",40138.0,Gwinnett County Board of Commissioners,GCT,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+268,43,"Atlanta, GA",40230.0,City of Atlanta DPW - Transit Division,COA DPW,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+269,43,"Atlanta, GA",40153.0,vRide - Atlanta,,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+270,43,"Atlanta, GA",40203.0,Enterprise Rideshare,,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+271,43,"Atlanta, GA",40082.0,Douglas County Rideshare,Rideshare,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+272,43,"Atlanta, GA",40181.0,Henry County Transit,HC,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+273,43,"Atlanta, GA",40161.0,Cherokee County Board of Commissioners,CATS,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+274,43,"Atlanta, GA",40246.0,Center for Pan Asian Community Services,CPACS,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+275,43,"Atlanta, GA",40176.0,Atlanta Regional Commission,ARC,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+276,43,"Atlanta, GA",40236.0,City of Marietta,,12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39960619275047,33.69279759300953
+277,44,"Boston, MA-NH-RI",10003.0,Massachusetts Bay Transportation Authority,MBTA,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+278,45,"Boston, MA-NH-RI",,,Boston Other,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+279,45,"Boston, MA-NH-RI",10004.0,Brockton Area Transit Authority,BAT,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+280,45,"Boston, MA-NH-RI",10013.0,Merrimack Valley Regional Transit Authority,MVRTA,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+281,45,"Boston, MA-NH-RI",10005.0,Lowell Regional Transit Authority,LRTA,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+282,45,"Boston, MA-NH-RI",10118.0,MetroWest Regional Transit Authority,MWRTA,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+283,45,"Boston, MA-NH-RI",10133.0,Boston Express Bus,BX,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+284,45,"Boston, MA-NH-RI",10053.0,Cape Ann Transportation Authority,CATA,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+285,45,"Boston, MA-NH-RI",11159.0,Blooms Bus Lines,BBL,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+286,45,"Boston, MA-NH-RI",10181.0,Town of Lexington,Lexpess,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+287,45,"Boston, MA-NH-RI",10180.0,City of Burlington,,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+288,45,"Boston, MA-NH-RI",10123.0,Greater Derry Salem Cooperative Alliance for Regional Transportation,CART,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+289,45,"Boston, MA-NH-RI",10179.0,City of Beverly,,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+290,45,"Boston, MA-NH-RI",10182.0,Mission Hill Link,,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+291,45,"Boston, MA-NH-RI",10178.0,Town of Bedford,,14460,"Boston-Cambridge-Newton, MA-NH",-71.10048066703337,42.55802877261765
+292,46,"Detroit, MI",50119.0,City of Detroit Department of Transportation,DDOT,19820,"Detroit-Warren-Dearborn, MI",-83.2327066199091,42.71919680768266
+293,47,"Detroit, MI",50031.0,Suburban Mobility Authority for Regional Transportation,SMART,19820,"Detroit-Warren-Dearborn, MI",-83.2327066199091,42.71919680768266
+294,48,"Detroit, MI",,,Detroit Other,19820,"Detroit-Warren-Dearborn, MI",-83.2327066199091,42.71919680768266
+295,48,"Detroit, MI",50141.0,Detroit Transportation Corporation,Detroit People Mover,19820,"Detroit-Warren-Dearborn, MI",-83.2327066199091,42.71919680768266
+296,48,"Detroit, MI",50193.0,Enterprise Rideshare - Michigan,,19820,"Detroit-Warren-Dearborn, MI",-83.2327066199091,42.71919680768266
+297,48,"Detroit, MI",50213.0,M-1 Rail,,19820,"Detroit-Warren-Dearborn, MI",-83.2327066199091,42.71919680768266
+298,48,"Detroit, MI",50522.0,Lake Erie Transit,LET,19820,"Detroit-Warren-Dearborn, MI",-83.2327066199091,42.71919680768266
+299,49,"Phoenix-Mesa, AZ",90032.0,City of Phoenix Public Transit Department,Valley Metro,38060,"Phoenix-Mesa-Scottsdale, AZ",-112.07048180428409,33.185707665664346
+300,50,"Phoenix-Mesa, AZ",90209.0,Valley Metro Rail,Valley Metro Rail,38060,"Phoenix-Mesa-Scottsdale, AZ",-112.07048180428409,33.185707665664346
+301,51,"Phoenix-Mesa, AZ",90136.0,Regional Public Transportation Authority,RPTA,38060,"Phoenix-Mesa-Scottsdale, AZ",-112.07048180428409,33.185707665664346
+302,52,"Phoenix-Mesa, AZ",,,Phoenix Other,38060,"Phoenix-Mesa-Scottsdale, AZ",-112.07048180428409,33.185707665664346
+303,52,"Phoenix-Mesa, AZ",90169.0,vRide - Valley Metro,,38060,"Phoenix-Mesa-Scottsdale, AZ",-112.07048180428409,33.185707665664346
+304,52,"Phoenix-Mesa, AZ",90131.0,City of Scottsdale - Scottsdale Trolley,COS,38060,"Phoenix-Mesa-Scottsdale, AZ",-112.07048180428409,33.185707665664346
+305,52,"Phoenix-Mesa, AZ",90034.0,City of Glendale Transit,,38060,"Phoenix-Mesa-Scottsdale, AZ",-112.07048180428409,33.185707665664346
+306,52,"Phoenix-Mesa, AZ",90140.0,Peoria Transit,,38060,"Phoenix-Mesa-Scottsdale, AZ",-112.07048180428409,33.185707665664346
+307,53,"San Francisco-Oakland, CA",90015.0,San Francisco Municipal Railway,MUNI,41860,"San Francisco-Oakland-Hayward, CA",-122.16719720368332,37.78098618283747
+308,54,"San Francisco-Oakland, CA",90003.0,San Francisco Bay Area Rapid Transit District,BART,41860,"San Francisco-Oakland-Hayward, CA",-122.16719720368332,37.78098618283747
+309,55,"San Francisco-Oakland, CA",90014.0,Alameda-Contra Costa Transit District,AC Transit,41860,"San Francisco-Oakland-Hayward, CA",-122.16719720368332,37.78098618283747
+310,56,"San Francisco-Oakland, CA",90134.0,Peninsula Corridor Joint Powers Board,Caltrain,41860,"San Francisco-Oakland-Hayward, CA",-122.16719720368332,37.78098618283747
+311,57,"San Francisco-Oakland, CA",90009.0,San Mateo County Transit District,SamTrans,41860,"San Francisco-Oakland-Hayward, CA",-122.16719720368332,37.78098618283747
+312,58,"San Francisco-Oakland, CA",,,San Francisco Other,41860,"San Francisco-Oakland-Hayward, CA",-122.16719720368332,37.78098618283747
+313,58,"San Francisco-Oakland, CA",90016.0,"Golden Gate Bridge, Highway and Transportation District",GGBHTD,41860,"San Francisco-Oakland-Hayward, CA",-122.16719720368332,37.78098618283747
+314,58,"San Francisco-Oakland, CA",90234.0,Marin County Transit District,,41860,"San Francisco-Oakland-Hayward, CA",-122.16719720368332,37.78098618283747
+315,58,"San Francisco-Oakland, CA",90225.0,San Francisco Bay Area Water Emergency Transportation Authority,WETA,41860,"San Francisco-Oakland-Hayward, CA",-122.16719720368332,37.78098618283747
+316,58,"San Francisco-Oakland, CA",90159.0,Western Contra Costa Transit Authority,WestCAT,41860,"San Francisco-Oakland-Hayward, CA",-122.16719720368332,37.78098618283747
+317,58,"San Francisco-Oakland, CA",90161.0,City of Union City Transit Division,UCT,41860,"San Francisco-Oakland-Hayward, CA",-122.16719720368332,37.78098618283747
+318,58,"San Francisco-Oakland, CA",90299.0,Sonoma-Marin Area Rail Transit District,SMART,41860,"San Francisco-Oakland-Hayward, CA",-122.16719720368332,37.78098618283747
+319,59,"Seattle, WA",1.0,King County Department of Transportation,King County Metro,42660,"Seattle-Tacoma-Bellevue, WA",-121.85084723046923,47.55749541194654
+320,60,"Seattle, WA",40.0,Central Puget Sound Regional Transit Authority,Sound Transit,42660,"Seattle-Tacoma-Bellevue, WA",-121.85084723046923,47.55749541194654
+321,61,"Seattle, WA",35.0,Washington State Ferries,Washington State Ferries,42660,"Seattle-Tacoma-Bellevue, WA",-121.85084723046923,47.55749541194654
+322,62,"Seattle, WA",29.0,Snohomish County Public Transportation Benefit Area Corporation,Community Transit,42660,"Seattle-Tacoma-Bellevue, WA",-121.85084723046923,47.55749541194654
+323,63,"Seattle, WA",3.0,Pierce County Transportation Benefit Area Authority,Pierce Transit,42660,"Seattle-Tacoma-Bellevue, WA",-121.85084723046923,47.55749541194654
+324,64,"Seattle, WA",,,Seattle Other,42660,"Seattle-Tacoma-Bellevue, WA",-121.85084723046923,47.55749541194654
+325,64,"Seattle, WA",23.0,Seattle Center Monorail Transit,SMS,42660,"Seattle-Tacoma-Bellevue, WA",-121.85084723046923,47.55749541194654
+326,64,"Seattle, WA",5.0,Everett Transit,ET,42660,"Seattle-Tacoma-Bellevue, WA",-121.85084723046923,47.55749541194654
+327,64,"Seattle, WA",28.0,Pierce County Ferry Operations,Pierce County Ferry,42660,"Seattle-Tacoma-Bellevue, WA",-121.85084723046923,47.55749541194654
+328,64,"Seattle, WA",407.0,Muckleshoot Indian Tribe,MIT,42660,"Seattle-Tacoma-Bellevue, WA",-121.85084723046923,47.55749541194654
+329,65,"San Diego, CA",90026.0,San Diego Metropolitan Transit System,San Diego MTS,41740,"San Diego-Carlsbad, CA",-116.73529289781787,33.03413648999
+330,66,"San Diego, CA",90030.0,North County Transit District,NCTD,41740,"San Diego-Carlsbad, CA",-116.73529289781787,33.03413648999
+331,67,"San Diego, CA",90095.0,San Diego Association of Governments,SANDAG,41740,"San Diego-Carlsbad, CA",-116.73529289781787,33.03413648999
+332,68,"Minneapolis-St. Paul, MN-WI",50027.0,Metro Transit,Metro Transit,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",-93.34558459008886,45.06500851312855
+333,69,"Minneapolis-St. Paul, MN-WI",,,Minneapolis-St. Paul Other,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",-93.34558459008886,45.06500851312855
+334,69,"Minneapolis-St. Paul, MN-WI",50515.0,University of Minnesota Transit,,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",-93.34558459008886,45.06500851312855
+335,69,"Minneapolis-St. Paul, MN-WI",50154.0,Metropolitan Council,,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",-93.34558459008886,45.06500851312855
+336,69,"Minneapolis-St. Paul, MN-WI",50519.0,Minnesota Valley Transit Authority,MVTA,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",-93.34558459008886,45.06500851312855
+337,69,"Minneapolis-St. Paul, MN-WI",50155.0,Metro Mobility,,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",-93.34558459008886,45.06500851312855
+338,69,"Minneapolis-St. Paul, MN-WI",50518.0,SouthWest Transit,SWT,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",-93.34558459008886,45.06500851312855
+339,69,"Minneapolis-St. Paul, MN-WI",50516.0,City of Plymouth,Plymouth Metrolink,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",-93.34558459008886,45.06500851312855
+340,69,"Minneapolis-St. Paul, MN-WI",50517.0,City of Maple Grove,,33460,"Minneapolis-St. Paul-Bloomington, MN-WI",-93.34558459008886,45.06500851312855
+341,70,"Tampa-St. Petersburg, FL",40041.0,Hillsborough Area Regional Transit Authority,HART,45300,"Tampa-St. Petersburg-Clearwater, FL",-82.4058698813898,28.153686015729
+342,71,"Tampa-St. Petersburg, FL",40027.0,Pinellas Suncoast Transit Authority,PSTA,45300,"Tampa-St. Petersburg-Clearwater, FL",-82.4058698813898,28.153686015729
+343,72,"Tampa-St. Petersburg, FL",,,Tampa Other,45300,"Tampa-St. Petersburg-Clearwater, FL",-82.4058698813898,28.153686015729
+344,72,"Tampa-St. Petersburg, FL",40074.0,Pasco County Public Transportation,PCPT,45300,"Tampa-St. Petersburg-Clearwater, FL",-82.4058698813898,28.153686015729
+345,72,"Tampa-St. Petersburg, FL",40259.0,Jolley Trolley Transportation of Clearwater,PSTA,45300,"Tampa-St. Petersburg-Clearwater, FL",-82.4058698813898,28.153686015729
+346,72,"Tampa-St. Petersburg, FL",40200.0,Tampa Bay Area Regional Transit Authority,TBARTA,45300,"Tampa-St. Petersburg-Clearwater, FL",-82.4058698813898,28.153686015729
+347,72,"Tampa-St. Petersburg, FL",40258.0,The Looper Group,,45300,"Tampa-St. Petersburg-Clearwater, FL",-82.4058698813898,28.153686015729
+348,73,"Denver-Aurora, CO",80006.0,Denver Regional Transportation District,RTD,19740,"Denver-Aurora-Lakewood, CO",-104.89446877349897,39.43370640987533
+349,74,"Denver-Aurora, CO",80109.0,vRide - Denver,vRide - Denver,19740,"Denver-Aurora-Lakewood, CO",-104.89446877349897,39.43370640987533
+350,75,"Baltimore, MD",30034.0,Maryland Transit Administration,MTA,12580,"Baltimore-Columbia-Towson, MD",-76.58060119908306,39.33848075711592
+351,76,"Baltimore, MD",,,Baltimore Other,12580,"Baltimore-Columbia-Towson, MD",-76.58060119908306,39.33848075711592
+352,76,"Baltimore, MD",30201.0,Baltimore City DOT,,12580,"Baltimore-Columbia-Towson, MD",-76.58060119908306,39.33848075711592
+353,76,"Baltimore, MD",30048.0,Howard Transit,HT,12580,"Baltimore-Columbia-Towson, MD",-76.58060119908306,39.33848075711592
+354,76,"Baltimore, MD",30040.0,Annapolis DOT,Annapolis Transit,12580,"Baltimore-Columbia-Towson, MD",-76.58060119908306,39.33848075711592
+355,76,"Baltimore, MD",30129.0,Anne Arundel County,,12580,"Baltimore-Columbia-Towson, MD",-76.58060119908306,39.33848075711592
+356,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41060,"St. Cloud, MN",-94.47204440523159,45.58587737595796
+357,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41140,"St. Joseph, MO-KS",-94.78386621989668,39.83417357094609
+358,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41220,"St. Marys, GA",-81.66997650559183,30.930563084522053
+359,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41180,"St. Louis, MO-IL",-90.35011206984764,38.73526895327782
+360,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41260,"St. Marys, PA",-78.64914529401295,41.42523799601247
+361,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41100,"St. George, UT",-113.50476939765602,37.28037666677322
+362,78,"St. Louis, MO-IL",,,St. Louis Other,41060,"St. Cloud, MN",-94.47204440523159,45.58587737595796
+363,78,"St. Louis, MO-IL",,,St. Louis Other,41140,"St. Joseph, MO-KS",-94.78386621989668,39.83417357094609
+364,78,"St. Louis, MO-IL",,,St. Louis Other,41220,"St. Marys, GA",-81.66997650559183,30.930563084522053
+365,78,"St. Louis, MO-IL",,,St. Louis Other,41180,"St. Louis, MO-IL",-90.35011206984764,38.73526895327782
+366,78,"St. Louis, MO-IL",,,St. Louis Other,41260,"St. Marys, PA",-78.64914529401295,41.42523799601247
+367,78,"St. Louis, MO-IL",,,St. Louis Other,41100,"St. George, UT",-113.50476939765602,37.28037666677322
+368,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT,41060,"St. Cloud, MN",-94.47204440523159,45.58587737595796
+369,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT,41140,"St. Joseph, MO-KS",-94.78386621989668,39.83417357094609
+370,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT,41220,"St. Marys, GA",-81.66997650559183,30.930563084522053
+371,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT,41180,"St. Louis, MO-IL",-90.35011206984764,38.73526895327782
+372,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT,41260,"St. Marys, PA",-78.64914529401295,41.42523799601247
+373,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT,41100,"St. George, UT",-113.50476939765602,37.28037666677322
+374,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,,41060,"St. Cloud, MN",-94.47204440523159,45.58587737595796
+375,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,,41140,"St. Joseph, MO-KS",-94.78386621989668,39.83417357094609
+376,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,,41220,"St. Marys, GA",-81.66997650559183,30.930563084522053
+377,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,,41180,"St. Louis, MO-IL",-90.35011206984764,38.73526895327782
+378,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,,41260,"St. Marys, PA",-78.64914529401295,41.42523799601247
+379,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,,41100,"St. George, UT",-113.50476939765602,37.28037666677322
+380,79,"Riverside-San Bernardino, CA",90029.0,Omnitrans,OMNI,40140,"Riverside-San Bernardino-Ontario, CA",-116.12968556720321,34.55165274060091
+381,80,"Riverside-San Bernardino, CA",90031.0,Riverside Transit Agency,RTA,40140,"Riverside-San Bernardino-Ontario, CA",-116.12968556720321,34.55165274060091
+382,81,"Riverside-San Bernardino, CA",,,Riverside-San Bernardino Other,40140,"Riverside-San Bernardino-Ontario, CA",-116.12968556720321,34.55165274060091
+383,81,"Riverside-San Bernardino, CA",90052.0,City of Corona,CCTS,40140,"Riverside-San Bernardino-Ontario, CA",-116.12968556720321,34.55165274060091
+384,81,"Riverside-San Bernardino, CA",90086.0,City of Riverside Special Transportation,City of Riverside,40140,"Riverside-San Bernardino-Ontario, CA",-116.12968556720321,34.55165274060091
+385,81,"Riverside-San Bernardino, CA",90218.0,Riverside County Transportation Commission,RCTC 5307 Recipient,40140,"Riverside-San Bernardino-Ontario, CA",-116.12968556720321,34.55165274060091
+386,82,"Las Vegas-Henderson, NV",90045.0,Regional Transportation Commission of Southern Nevada,RTC,29820,"Las Vegas-Henderson-Paradise, NV",-115.0135369680576,36.21523781771886
+387,82,"Las Vegas-Henderson, NV",90045.0,Regional Transportation Commission of Southern Nevada,RTC,29780,"Las Vegas, NM",-104.81593530054187,35.480481693867596
+388,83,"Las Vegas-Henderson, NV",90242.0,Las Vegas Monorail Company,LVMC,29820,"Las Vegas-Henderson-Paradise, NV",-115.0135369680576,36.21523781771886
+389,83,"Las Vegas-Henderson, NV",90242.0,Las Vegas Monorail Company,LVMC,29780,"Las Vegas, NM",-104.81593530054187,35.480481693867596
+390,84,"Portland, OR-WA",8.0,Tri-County Metropolitan Transportation District of Oregon,TriMet,38900,"Portland-Vancouver-Hillsboro, OR-WA",-122.47830591480002,45.59837211076189
+391,84,"Portland, OR-WA",8.0,Tri-County Metropolitan Transportation District of Oregon,TriMet,38860,"Portland-South Portland, ME",-70.46877049233215,43.69611219475335
+392,85,"Portland, OR-WA",58.0,City of Portland,PBOT,38900,"Portland-Vancouver-Hillsboro, OR-WA",-122.47830591480002,45.59837211076189
+393,85,"Portland, OR-WA",58.0,City of Portland,PBOT,38860,"Portland-South Portland, ME",-70.46877049233215,43.69611219475335
+394,86,"Portland, OR-WA",24.0,Clark County Public Transportation Benefit Area Authority,C-Tran,38900,"Portland-Vancouver-Hillsboro, OR-WA",-122.47830591480002,45.59837211076189
+395,86,"Portland, OR-WA",24.0,Clark County Public Transportation Benefit Area Authority,C-Tran,38860,"Portland-South Portland, ME",-70.46877049233215,43.69611219475335
+396,87,"Portland, OR-WA",,,Portland Other,38900,"Portland-Vancouver-Hillsboro, OR-WA",-122.47830591480002,45.59837211076189
+397,87,"Portland, OR-WA",,,Portland Other,38860,"Portland-South Portland, ME",-70.46877049233215,43.69611219475335
+398,87,"Portland, OR-WA",46.0,South Metro Area Regional Transit,SMART,38900,"Portland-Vancouver-Hillsboro, OR-WA",-122.47830591480002,45.59837211076189
+399,87,"Portland, OR-WA",46.0,South Metro Area Regional Transit,SMART,38860,"Portland-South Portland, ME",-70.46877049233215,43.69611219475335
+400,87,"Portland, OR-WA",376.0,Ride Connection,,38900,"Portland-Vancouver-Hillsboro, OR-WA",-122.47830591480002,45.59837211076189
+401,87,"Portland, OR-WA",376.0,Ride Connection,,38860,"Portland-South Portland, ME",-70.46877049233215,43.69611219475335
+402,88,"Cleveland, OH",50015.0,The Greater Cleveland Regional Transit Authority,GCRTA,17380,"Cleveland, MS",-90.88036125965698,33.79558181465302
+403,88,"Cleveland, OH",50015.0,The Greater Cleveland Regional Transit Authority,GCRTA,17420,"Cleveland, TN",-84.66739029368156,35.134545228583484
+404,88,"Cleveland, OH",50015.0,The Greater Cleveland Regional Transit Authority,GCRTA,17460,"Cleveland-Elyria, OH",-81.68382227241914,41.375374215110966
+405,89,"Cleveland, OH",,,Cleveland Other,17380,"Cleveland, MS",-90.88036125965698,33.79558181465302
+406,89,"Cleveland, OH",,,Cleveland Other,17420,"Cleveland, TN",-84.66739029368156,35.134545228583484
+407,89,"Cleveland, OH",,,Cleveland Other,17460,"Cleveland-Elyria, OH",-81.68382227241914,41.375374215110966
+408,89,"Cleveland, OH",50117.0,Laketran,,17380,"Cleveland, MS",-90.88036125965698,33.79558181465302
+409,89,"Cleveland, OH",50117.0,Laketran,,17420,"Cleveland, TN",-84.66739029368156,35.134545228583484
+410,89,"Cleveland, OH",50117.0,Laketran,,17460,"Cleveland-Elyria, OH",-81.68382227241914,41.375374215110966
+411,89,"Cleveland, OH",50198.0,Medina County Public Transit,MCPT,17380,"Cleveland, MS",-90.88036125965698,33.79558181465302
+412,89,"Cleveland, OH",50198.0,Medina County Public Transit,MCPT,17420,"Cleveland, TN",-84.66739029368156,35.134545228583484
+413,89,"Cleveland, OH",50198.0,Medina County Public Transit,MCPT,17460,"Cleveland-Elyria, OH",-81.68382227241914,41.375374215110966
+414,90,"San Antonio, TX",60011.0,VIA Metropolitan Transit,VIA,41700,"San Antonio-New Braunfels, TX",-98.60225642424642,29.42873501128543
+415,91,"San Antonio, TX",60130.0,Alamo Area Council of Governments,Alamo Regional Transit,41700,"San Antonio-New Braunfels, TX",-98.60225642424642,29.42873501128543
+416,92,"Pittsburgh, PA",30022.0,Port Authority of Allegheny County,PAAC,38300,"Pittsburgh, PA",-79.83095505809933,40.43902795452785
+417,93,"Pittsburgh, PA",,,Pittsburgh Other,38300,"Pittsburgh, PA",-79.83095505809933,40.43902795452785
+418,93,"Pittsburgh, PA",30023.0,Beaver County Transit Authority,BCTA,38300,"Pittsburgh, PA",-79.83095505809933,40.43902795452785
+419,93,"Pittsburgh, PA",30044.0,Westmoreland County Transit Authority,WCTA,38300,"Pittsburgh, PA",-79.83095505809933,40.43902795452785
+420,93,"Pittsburgh, PA",30111.0,Washington County Transportation Authority,,38300,"Pittsburgh, PA",-79.83095505809933,40.43902795452785
+421,93,"Pittsburgh, PA",30078.0,Southwestern Pennsylvania Commission,SPC,38300,"Pittsburgh, PA",-79.83095505809933,40.43902795452785
+422,93,"Pittsburgh, PA",30990.0,Airport Corridor Transportation Association,ACTA,38300,"Pittsburgh, PA",-79.83095505809933,40.43902795452785
+423,94,"Sacramento, CA",90019.0,Sacramento Regional Transit District,Sacramento RT,40900,"Sacramento--Roseville--Arden-Arcade, CA",-120.9975514207566,38.78047805560668
+424,95,"Sacramento, CA",,,Sacramento Other,40900,"Sacramento--Roseville--Arden-Arcade, CA",-120.9975514207566,38.78047805560668
+425,95,"Sacramento, CA",90090.0,Yolo County Transportation District,YCTD,40900,"Sacramento--Roseville--Arden-Arcade, CA",-120.9975514207566,38.78047805560668
+426,95,"Sacramento, CA",90205.0,City of Elk Grove,etran,40900,"Sacramento--Roseville--Arden-Arcade, CA",-120.9975514207566,38.78047805560668
+427,95,"Sacramento, CA",90196.0,Placer County DPWF,PCDPWF,40900,"Sacramento--Roseville--Arden-Arcade, CA",-120.9975514207566,38.78047805560668
+428,95,"Sacramento, CA",90223.0,Paratransit,,40900,"Sacramento--Roseville--Arden-Arcade, CA",-120.9975514207566,38.78047805560668
+429,95,"Sacramento, CA",90229.0,El Dorado County Transit Authority,EDCTA,40900,"Sacramento--Roseville--Arden-Arcade, CA",-120.9975514207566,38.78047805560668
+430,95,"Sacramento, CA",90168.0,Roseville Transit,,40900,"Sacramento--Roseville--Arden-Arcade, CA",-120.9975514207566,38.78047805560668
+431,95,"Sacramento, CA",90220.0,City of Folsom,FSL,40900,"Sacramento--Roseville--Arden-Arcade, CA",-120.9975514207566,38.78047805560668
+432,96,"San Jose, CA",90013.0,Santa Clara Valley Transportation Authority,VTA,41940,"San Jose-Sunnyvale-Santa Clara, CA",-121.37588329178168,36.90948171496966
+433,97,"Cincinnati, OH-KY-IN",50012.0,Southwest Ohio Regional Transit Authority,SORTA,17140,"Cincinnati, OH-KY-IN",-84.42748156261699,39.07152487796367
+434,98,"Cincinnati, OH-KY-IN",,,Cincinnati Other,17140,"Cincinnati, OH-KY-IN",-84.42748156261699,39.07152487796367
+435,98,"Cincinnati, OH-KY-IN",40019.0,Transit Authority of Northern Kentucky,TANK,17140,"Cincinnati, OH-KY-IN",-84.42748156261699,39.07152487796367
+436,98,"Cincinnati, OH-KY-IN",50157.0,Butler County Regional Transit Authority,BCRTA,17140,"Cincinnati, OH-KY-IN",-84.42748156261699,39.07152487796367
+437,98,"Cincinnati, OH-KY-IN",50166.0,Clermont Transportation Connection,CTC,17140,"Cincinnati, OH-KY-IN",-84.42748156261699,39.07152487796367
+438,98,"Cincinnati, OH-KY-IN",50200.0,Warren County Transit Services,WCTS,17140,"Cincinnati, OH-KY-IN",-84.42748156261699,39.07152487796367
+439,99,"Kansas City, MO-KS",70005.0,Kansas City Area Transportation Authority,KCATA,28140,"Kansas City, MO-KS",-94.44438286042632,38.93719048603548
+440,100,"Kansas City, MO-KS",,,Kansas City Other,28140,"Kansas City, MO-KS",-94.44438286042632,38.93719048603548
+441,100,"Kansas City, MO-KS",70271.0,"Kansas City, City of Missouri",KCMO,28140,"Kansas City, MO-KS",-94.44438286042632,38.93719048603548
+442,100,"Kansas City, MO-KS",70035.0,Johnson County Transit,The JO,28140,"Kansas City, MO-KS",-94.44438286042632,38.93719048603548
+443,100,"Kansas City, MO-KS",70046.0,City of Independence,IndeBus,28140,"Kansas City, MO-KS",-94.44438286042632,38.93719048603548
+444,100,"Kansas City, MO-KS",70047.0,Unified Government Transit Department,UGT,28140,"Kansas City, MO-KS",-94.44438286042632,38.93719048603548
+445,101,"Orlando, FL",40035.0,Central Florida Regional Transportation Authority,LYNX,36740,"Orlando-Kissimmee-Sanford, FL",-81.36300157584371,28.434330578535825
+446,102,"Orlando, FL",40232.0,Central Florida Commuter Rail,SunRail,36740,"Orlando-Kissimmee-Sanford, FL",-81.36300157584371,28.434330578535825
+447,103,"Indianapolis, IN",50050.0,Indianapolis and Marion County Public Transportation,IndyGo,26900,"Indianapolis-Carmel-Anderson, IN",-86.20613516350936,39.74741482690619
+448,104,"Indianapolis, IN",,,Indianapolis Other,26900,"Indianapolis-Carmel-Anderson, IN",-86.20613516350936,39.74741482690619
+449,104,"Indianapolis, IN",50209.0,Central Indiana Regional Transportation Authority,CIRTA,26900,"Indianapolis-Carmel-Anderson, IN",-86.20613516350936,39.74741482690619
+450,104,"Indianapolis, IN",50201.0,Hancock Area Rural Transit,HART,26900,"Indianapolis-Carmel-Anderson, IN",-86.20613516350936,39.74741482690619
+451,105,"Virginia Beach, VA",30083.0,Transportation District Commission of Hampton Roads,HRT,47260,"Virginia Beach-Norfolk-Newport News, VA-NC",-76.4541116293933,36.832925338593896
+452,106,"Virginia Beach, VA",30198.0,Suffolk Transit,Suffolk Transit,47260,"Virginia Beach-Norfolk-Newport News, VA-NC",-76.4541116293933,36.832925338593896
+453,107,"Milwaukee, WI",50008.0,Milwaukee County Transit System,MCTS,33340,"Milwaukee-Waukesha-West Allis, WI",-88.17228390498043,43.176570861433085
+454,108,"Milwaukee, WI",,,Milwaukee Other,33340,"Milwaukee-Waukesha-West Allis, WI",-88.17228390498043,43.176570861433085
+455,108,"Milwaukee, WI",50096.0,City of Waukesha Transit Commission,Waukesha Metro Transit,33340,"Milwaukee-Waukesha-West Allis, WI",-88.17228390498043,43.176570861433085
+456,108,"Milwaukee, WI",50161.0,Ozaukee County Transit Services,OCTS,33340,"Milwaukee-Waukesha-West Allis, WI",-88.17228390498043,43.176570861433085
+457,108,"Milwaukee, WI",50160.0,Washington County Transit,,33340,"Milwaukee-Waukesha-West Allis, WI",-88.17228390498043,43.176570861433085
+458,108,"Milwaukee, WI",55312.0,City of Milwaukee,,33340,"Milwaukee-Waukesha-West Allis, WI",-88.17228390498043,43.176570861433085
+459,109,"Columbus, OH",50016.0,Central Ohio Transit Authority,COTA,17980,"Columbus, GA-AL",-84.90873110720597,32.44143924931389
+460,109,"Columbus, OH",50016.0,Central Ohio Transit Authority,COTA,18060,"Columbus, MS",-88.44331637001312,33.47294136499276
+461,109,"Columbus, OH",50016.0,Central Ohio Transit Authority,COTA,18100,"Columbus, NE",-97.52113913448461,41.571296345510895
+462,109,"Columbus, OH",50016.0,Central Ohio Transit Authority,COTA,18020,"Columbus, IN",-85.89759281155193,39.20595249887474
+463,109,"Columbus, OH",50016.0,Central Ohio Transit Authority,COTA,18140,"Columbus, OH",-82.83679000217438,39.96812467498784
+464,110,"Columbus, OH",,,Columbus Other,17980,"Columbus, GA-AL",-84.90873110720597,32.44143924931389
+465,110,"Columbus, OH",,,Columbus Other,18060,"Columbus, MS",-88.44331637001312,33.47294136499276
+466,110,"Columbus, OH",,,Columbus Other,18100,"Columbus, NE",-97.52113913448461,41.571296345510895
+467,110,"Columbus, OH",,,Columbus Other,18020,"Columbus, IN",-85.89759281155193,39.20595249887474
+468,110,"Columbus, OH",,,Columbus Other,18140,"Columbus, OH",-82.83679000217438,39.96812467498784
+469,110,"Columbus, OH",50199.0,Delaware County Transit Board,DATA,17980,"Columbus, GA-AL",-84.90873110720597,32.44143924931389
+470,110,"Columbus, OH",50199.0,Delaware County Transit Board,DATA,18060,"Columbus, MS",-88.44331637001312,33.47294136499276
+471,110,"Columbus, OH",50199.0,Delaware County Transit Board,DATA,18100,"Columbus, NE",-97.52113913448461,41.571296345510895
+472,110,"Columbus, OH",50199.0,Delaware County Transit Board,DATA,18020,"Columbus, IN",-85.89759281155193,39.20595249887474
+473,110,"Columbus, OH",50199.0,Delaware County Transit Board,DATA,18140,"Columbus, OH",-82.83679000217438,39.96812467498784
+474,110,"Columbus, OH",50191.0,Mid-Ohio Regional Planning Commission,MORPC,17980,"Columbus, GA-AL",-84.90873110720597,32.44143924931389
+475,110,"Columbus, OH",50191.0,Mid-Ohio Regional Planning Commission,MORPC,18060,"Columbus, MS",-88.44331637001312,33.47294136499276
+476,110,"Columbus, OH",50191.0,Mid-Ohio Regional Planning Commission,MORPC,18100,"Columbus, NE",-97.52113913448461,41.571296345510895
+477,110,"Columbus, OH",50191.0,Mid-Ohio Regional Planning Commission,MORPC,18020,"Columbus, IN",-85.89759281155193,39.20595249887474
+478,110,"Columbus, OH",50191.0,Mid-Ohio Regional Planning Commission,MORPC,18140,"Columbus, OH",-82.83679000217438,39.96812467498784
+479,111,"Austin, TX",60048.0,Capital Metropolitan Transportation Authority,CapMetro,12420,"Austin-Round Rock, TX",-97.65444493244374,30.262597035435004
+480,111,"Austin, TX",60048.0,Capital Metropolitan Transportation Authority,CapMetro,12380,"Austin, MN",-92.75252641820238,43.671429429214555
+481,112,"Austin, TX",60125.0,City of Round Rock,City of Round Rock,12420,"Austin-Round Rock, TX",-97.65444493244374,30.262597035435004
+482,112,"Austin, TX",60125.0,City of Round Rock,City of Round Rock,12380,"Austin, MN",-92.75252641820238,43.671429429214555
+483,113,"Charlotte, NC-SC",40008.0,Charlotte Area Transit System,CATS,16740,"Charlotte-Concord-Gastonia, NC-SC",-80.867034007537,35.18875828957029
+484,114,"Charlotte, NC-SC",,,Charlotte Other,16740,"Charlotte-Concord-Gastonia, NC-SC",-80.867034007537,35.18875828957029
+485,114,"Charlotte, NC-SC",40228.0,Mecklenburg County DSS,MCTS,16740,"Charlotte-Concord-Gastonia, NC-SC",-80.867034007537,35.18875828957029
+486,114,"Charlotte, NC-SC",40205.0,Iredell County Area Transportation Services,ICATS,16740,"Charlotte-Concord-Gastonia, NC-SC",-80.867034007537,35.18875828957029
+487,114,"Charlotte, NC-SC",40215.0,Union County Transportation,UCT,16740,"Charlotte-Concord-Gastonia, NC-SC",-80.867034007537,35.18875828957029
+488,114,"Charlotte, NC-SC",40237.0,Lancaster County Council on Aging,Lancaster Area Ride Service,16740,"Charlotte-Concord-Gastonia, NC-SC",-80.867034007537,35.18875828957029
+489,115,"Providence, RI-MA",10001.0,Rhode Island Public Transit Authority,RIPTA,39300,"Providence-Warwick, RI-MA",-71.39997650050394,41.71842789746073
+490,116,"Providence, RI-MA",,,Providence Other,39300,"Providence-Warwick, RI-MA",-71.39997650050394,41.71842789746073
+491,116,"Providence, RI-MA",10064.0,Greater Attleboro-Taunton Regional Transit Authority,GATRA,39300,"Providence-Warwick, RI-MA",-71.39997650050394,41.71842789746073
+492,116,"Providence, RI-MA",11147.0,Rhode Island DOT,RIDOT,39300,"Providence-Warwick, RI-MA",-71.39997650050394,41.71842789746073
+493,117,"Jacksonville, FL",40040.0,Jacksonville Transportation Authority,JTA,27380,"Jacksonville, TX",-95.1651948588703,31.836964296544426
+494,117,"Jacksonville, FL",40040.0,Jacksonville Transportation Authority,JTA,27340,"Jacksonville, NC",-77.43208298346815,34.732127767538074
+495,117,"Jacksonville, FL",40040.0,Jacksonville Transportation Authority,JTA,27260,"Jacksonville, FL",-81.79206234214148,30.23672079966326
+496,117,"Jacksonville, FL",40040.0,Jacksonville Transportation Authority,JTA,27300,"Jacksonville, IL",-90.28512054609949,39.693689274729095
+497,118,"Jacksonville, FL",40245.0,Clay County Council on Aging,Clay Transit,27380,"Jacksonville, TX",-95.1651948588703,31.836964296544426
+498,118,"Jacksonville, FL",40245.0,Clay County Council on Aging,Clay Transit,27340,"Jacksonville, NC",-77.43208298346815,34.732127767538074
+499,118,"Jacksonville, FL",40245.0,Clay County Council on Aging,Clay Transit,27260,"Jacksonville, FL",-81.79206234214148,30.23672079966326
+500,118,"Jacksonville, FL",40245.0,Clay County Council on Aging,Clay Transit,27300,"Jacksonville, IL",-90.28512054609949,39.693689274729095
+501,119,"Memphis, TN-MS-AR",40003.0,Memphis Area Transit Authority,MATA,32820,"Memphis, TN-MS-AR",-89.81523244298334,35.00767520010713
+502,120,"Memphis, TN-MS-AR",40247.0,Shelby County Government,Shelby County Government,32820,"Memphis, TN-MS-AR",-89.81523244298334,35.00767520010713
+503,121,"Salt Lake City-West Valley City, UT",80001.0,Utah Transit Authority,UTA,41620,"Salt Lake City, UT",-113.0105060904822,40.47058289257779
+504,122,"Louisville/Jefferson County, KY-IN",40018.0,Transit Authority of River City,TARC,31140,"Louisville/Jefferson County, KY-IN",-85.67087438583525,38.33674212229526
+505,123,"Louisville/Jefferson County, KY-IN",,,Louisville Other,31140,"Louisville/Jefferson County, KY-IN",-85.67087438583525,38.33674212229526
+506,123,"Louisville/Jefferson County, KY-IN",40196.0,Kentuckiana Regional Planning and Development Agency,KIPDA,31140,"Louisville/Jefferson County, KY-IN",-85.67087438583525,38.33674212229526
+507,123,"Louisville/Jefferson County, KY-IN",40218.0,Oldham's Public Bus,,31140,"Louisville/Jefferson County, KY-IN",-85.67087438583525,38.33674212229526
+508,124,"Nashville-Davidson, TN",40004.0,Metropolitan Transit Authority,WeGo/MTA,34980,"Nashville-Davidson--Murfreesboro--Franklin, TN",-86.72447679844316,36.08907227168498
+509,125,"Nashville-Davidson, TN",,,Nashville Other,34980,"Nashville-Davidson--Murfreesboro--Franklin, TN",-86.72447679844316,36.08907227168498
+510,125,"Nashville-Davidson, TN",40159.0,Regional Transportation Authority,RTA,34980,"Nashville-Davidson--Murfreesboro--Franklin, TN",-86.72447679844316,36.08907227168498
+511,125,"Nashville-Davidson, TN",40178.0,The Transportation Management Association Group,TMA,34980,"Nashville-Davidson--Murfreesboro--Franklin, TN",-86.72447679844316,36.08907227168498
+512,125,"Nashville-Davidson, TN",40162.0,Franklin Transit Authority,FTA,34980,"Nashville-Davidson--Murfreesboro--Franklin, TN",-86.72447679844316,36.08907227168498
+513,126,"Richmond, VA",30006.0,Greater Richmond Transit Company,GRTC,40060,"Richmond, VA",-77.47355870214272,37.46199979856708
+514,126,"Richmond, VA",30006.0,Greater Richmond Transit Company,GRTC,40080,"Richmond-Berea, KY",-84.2938496081032,37.57212147642202
+515,126,"Richmond, VA",30006.0,Greater Richmond Transit Company,GRTC,39980,"Richmond, IN",-85.00983824347368,39.8643823553559
+516,127,"Richmond, VA",30009.0,Petersburg Area Transit,Petersburg Area Transit,40060,"Richmond, VA",-77.47355870214272,37.46199979856708
+517,127,"Richmond, VA",30009.0,Petersburg Area Transit,Petersburg Area Transit,40080,"Richmond-Berea, KY",-84.2938496081032,37.57212147642202
+518,127,"Richmond, VA",30009.0,Petersburg Area Transit,Petersburg Area Transit,39980,"Richmond, IN",-85.00983824347368,39.8643823553559
+519,128,"Buffalo, NY",20004.0,Niagara Frontier Transportation Authority,NFT Metro,15380,"Buffalo-Cheektowaga-Niagara Falls, NY",-78.73667371517844,42.91091243448507
+520,129,"Hartford, CT",10048.0,CTTRANSIT Hartford,CTTransit,25540,"Hartford-West Hartford-East Hartford, CT",-72.57733808990466,41.73462661270841
+521,130,"Hartford, CT",,,Hartford Other,25540,"Hartford-West Hartford-East Hartford, CT",-72.57733808990466,41.73462661270841
+522,130,"Hartford, CT",10102.0,Connecticut DOT,CDOT,25540,"Hartford-West Hartford-East Hartford, CT",-72.57733808990466,41.73462661270841
+523,130,"Hartford, CT",10130.0,CTTRANSIT New Britain,,25540,"Hartford-West Hartford-East Hartford, CT",-72.57733808990466,41.73462661270841
+524,130,"Hartford, CT",10017.0,Greater Hartford Transit District,GHTD,25540,"Hartford-West Hartford-East Hartford, CT",-72.57733808990466,41.73462661270841
+525,130,"Hartford, CT",10045.0,CTTransit New Britain -Dattco.,CDOT CTTransit DATTCO,25540,"Hartford-West Hartford-East Hartford, CT",-72.57733808990466,41.73462661270841
+526,130,"Hartford, CT",10063.0,Middletown Transit District,MTD,25540,"Hartford-West Hartford-East Hartford, CT",-72.57733808990466,41.73462661270841
+527,130,"Hartford, CT",10132.0,CTTransit Torrington-Winsted,Nason Partners,25540,"Hartford-West Hartford-East Hartford, CT",-72.57733808990466,41.73462661270841
+528,131,"New Orleans, LA",60032.0,New Orleans Regional Transit Authority,NORTA,35380,"New Orleans-Metairie, LA",-89.95808621040975,29.925181847611977
+529,132,"New Orleans, LA",,,New Orleans Other,35380,"New Orleans-Metairie, LA",-89.95808621040975,29.925181847611977
+530,132,"New Orleans, LA",60088.0,Jefferson Parish Department of Transit Administration,Jet,35380,"New Orleans-Metairie, LA",-89.95808621040975,29.925181847611977
+531,132,"New Orleans, LA",60127.0,Plaquemines Parish Government,PPG,35380,"New Orleans-Metairie, LA",-89.95808621040975,29.925181847611977
+532,132,"New Orleans, LA",60058.0,St. Bernard Urban Rapid Transit,SBURT,35380,"New Orleans-Metairie, LA",-89.95808621040975,29.925181847611977
+533,132,"New Orleans, LA",60112.0,River Parishes Transit Authority,RPTA,35380,"New Orleans-Metairie, LA",-89.95808621040975,29.925181847611977
+534,132,"New Orleans, LA",60128.0,Regional Planning Commission,RPC,35380,"New Orleans-Metairie, LA",-89.95808621040975,29.925181847611977
+535,133,"Raleigh, NC",40007.0,Capital Area Transit,GoRaleigh,39580,"Raleigh, NC",-78.46086535879141,35.75725506779662
+536,134,"Raleigh, NC",,,Raleigh Other,39580,"Raleigh, NC",-78.46086535879141,35.75725506779662
+537,134,"Raleigh, NC",40147.0,North Carolina State University Transportation Department,NCSU,39580,"Raleigh, NC",-78.46086535879141,35.75725506779662
+538,134,"Raleigh, NC",40143.0,Town of Cary,GoCary,39580,"Raleigh, NC",-78.46086535879141,35.75725506779662
+539,134,"Raleigh, NC",40222.0,Wake County DSS,TRACS,39580,"Raleigh, NC",-78.46086535879141,35.75725506779662
+540,135,"Oklahoma City, OK",60017.0,Central Oklahoma Transportation and Parking Authority,COTPA,36420,"Oklahoma City, OK",-97.50389257113274,35.429848990638476
+541,136,"Oklahoma City, OK",60118.0,City of Edmond,Citylink,36420,"Oklahoma City, OK",-97.50389257113274,35.429848990638476
+542,137,"Tucson, AZ",90033.0,City of Tucson,Sun Tran,46060,"Tucson, AZ",-111.78989224547975,32.097421469492396
+543,138,"Tucson, AZ",,,Tucson Other,46060,"Tucson, AZ",-111.78989224547975,32.097421469492396
+544,138,"Tucson, AZ",90222.0,Pima Association of Governments,PAG,46060,"Tucson, AZ",-111.78989224547975,32.097421469492396
+545,138,"Tucson, AZ",90191.0,Town of Oro Valley - Transit Services Division,SunShutDNR,46060,"Tucson, AZ",-111.78989224547975,32.097421469492396
+546,139,"Urban Honolulu, HI",90002.0,City and County of Honolulu Department of Transportation Services,DTS,46520,"Urban Honolulu, HI",-158.1053341795545,21.500785361340995
+547,140,"Birmingham, AL",40042.0,Birmingham-Jefferson County Transit Authority,MAX,13820,"Birmingham-Hoover, AL",-86.8138819553758,33.46381824392428
+548,141,"Birmingham, AL",40169.0,Regional Planning Commission of Greater Birmingham,RPCGB,13820,"Birmingham-Hoover, AL",-86.8138819553758,33.46381824392428
+549,142,"Rochester, NY",20113.0,RTS - Monroe County,RGRTA,40380,"Rochester, NY",-77.50789682670171,42.965927041193986
+550,142,"Rochester, NY",20113.0,RTS - Monroe County,RGRTA,40340,"Rochester, MN",-92.33807901148462,43.95598323100925
+551,143,"Tulsa, OK",60018.0,Metropolitan Tulsa Transit Authority,MTTA,46140,"Tulsa, OK",-96.1662742008172,36.25042342887361
+552,144,"Grand Rapids, MI",50033.0,Interurban Transit Partnership,The Rapid,24330,"Grand Rapids, MN",-93.63197749438663,47.50951438271588
+553,144,"Grand Rapids, MI",50033.0,Interurban Transit Partnership,The Rapid,24340,"Grand Rapids-Wyoming, MI",-85.4883007883229,42.9992610243922

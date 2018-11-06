@@ -20,9 +20,11 @@ def make_match_name(name):
 
 def load_csa():
     csa = gpd.read_file('data/geojson/cbsa/cb_2017_us_cbsa_500k.shp')
-    csa['centroid'] = csa.centroid
+    csa['centroid_x'] = csa.centroid.x
+    csa['centroid_y'] = csa.centroid.y
     csa['name_match'] = csa['NAME'].apply(make_match_name)
-    return csa.drop(columns=['CSAFP', 'AFFGEOID', 'LSAD', 'ALAND', 'AWATER', 'geometry'])
+    return csa.drop(columns=['CSAFP', 'CBSAFP', 'AFFGEOID', 'LSAD', 
+                             'ALAND', 'AWATER', 'geometry'])
 
 def main():
     # Load the excel data:
@@ -37,6 +39,7 @@ def main():
 
     csa = load_csa()
     merge = pd.merge(agencies, csa, how='left', on='name_match')
+    merge = merge.drop(columns=['name_match'])
 
     merge.to_csv('data/output/ta.csv', index_label='id')
 
