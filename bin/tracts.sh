@@ -17,3 +17,10 @@ mapshaper data/geojson/tracts/us_tracts.shp \
   -filter-fields GEOID \
   -rename-fields id=GEOID \
   -o data/output/tracts/ format=topojson singles
+
+mapshaper data/geojson/states/admin1_polygons.json \
+  -simplify 0.5 \
+  -filter-fields ISO3166_2 \
+  -rename-fields id=ISO3166_2 \
+  -o data/output/states.json format=topojson
+  
