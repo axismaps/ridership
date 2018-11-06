@@ -27,7 +27,7 @@ def load_csa():
     csa['centy'] = csa.centroid.y
     csa['name_match'] = csa['NAME'].apply(make_match_name)
     merge = pd.merge(csa, csa.bounds, how='inner', left_index=True, right_index=True)
-    return merge.drop(columns=['CSAFP', 'CBSAFP', 'AFFGEOID', 'LSAD', 
+    return merge.drop(columns=['CSAFP', 'CBSAFP', 'AFFGEOID', 'LSAD',
                                'ALAND', 'AWATER', 'geometry'])
 
 def main():
@@ -46,12 +46,14 @@ def main():
 
     # Export TA metadata
     merge[['Project ID', 'Agency Name', 'Reporter Acronym', 'GEOID']].to_csv(
-        'data/output/ta.csv', index_label='id')
-    
+        'data/output/ta.csv', index=False,
+        header=['taid', 'taname', 'tashort', 'msaid'])
+
     # Export MSA metadata
     geo = merge[['GEOID', 'NAME', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy']]
     geo = geo.groupby('GEOID').first()
-    geo.to_csv('data/output/msa.csv', index_label='id')
+    geo.to_csv('data/output/msa.csv', index_label='msaid',
+        header=['name', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy'])
 
 if __name__ == "__main__":
     main()
