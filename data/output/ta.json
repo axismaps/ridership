@@ -1,0 +1,3087 @@
+{
+  "16740": {
+    "centy": 35.18875828957029, 
+    "centx": -80.867034007537, 
+    "NAME": "Charlotte-Concord-Gastonia, NC-SC", 
+    "maxx": -80.182559, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "CATS", 
+        "Agency Name": "Charlotte Area Transit System"
+      }, 
+      "1": {
+        "Reporter Acronym": "Charlotte Other", 
+        "Agency Name": "Charlotte Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "MCTS", 
+        "Agency Name": "Mecklenburg County DSS"
+      }, 
+      "3": {
+        "Reporter Acronym": "ICATS", 
+        "Agency Name": "Iredell County Area Transportation Services"
+      }, 
+      "4": {
+        "Reporter Acronym": "UCT", 
+        "Agency Name": "Union County Transportation"
+      }, 
+      "5": {
+        "Reporter Acronym": "Lancaster Area Ride Service", 
+        "Agency Name": "Lancaster County Council on Aging"
+      }
+    }, 
+    "minx": -81.537599, 
+    "miny": 34.457775999999996, 
+    "maxy": 36.05881
+  }, 
+  "26900": {
+    "centy": 39.74741482690619, 
+    "centx": -86.20613516350936, 
+    "NAME": "Indianapolis-Carmel-Anderson, IN", 
+    "maxx": -85.575623, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "IndyGo", 
+        "Agency Name": "Indianapolis and Marion County Public Transportation"
+      }, 
+      "1": {
+        "Reporter Acronym": "Indianapolis Other", 
+        "Agency Name": "Indianapolis Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "CIRTA", 
+        "Agency Name": "Central Indiana Regional Transportation Authority"
+      }, 
+      "3": {
+        "Reporter Acronym": "HART", 
+        "Agency Name": "Hancock Area Rural Transit"
+      }
+    }, 
+    "minx": -87.01468299999999, 
+    "miny": 39.048356999999996, 
+    "maxy": 40.379523999999996
+  }, 
+  "41620": {
+    "centy": 40.47058289257779, 
+    "centx": -113.0105060904822, 
+    "NAME": "Salt Lake City, UT", 
+    "maxx": -111.553266, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "UTA", 
+        "Agency Name": "Utah Transit Authority"
+      }
+    }, 
+    "minx": -114.047133613292, 
+    "miny": 39.903694, 
+    "maxy": 41.076888
+  }, 
+  "40340": {
+    "centy": 43.95598323100925, 
+    "centx": -92.33807901148462, 
+    "NAME": "Rochester, MN", 
+    "maxx": -91.7302174228592, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "RGRTA", 
+        "Agency Name": "RTS - Monroe County"
+      }
+    }, 
+    "minx": -93.04596599999999, 
+    "miny": 43.5004201689952, 
+    "maxy": 44.455321
+  }, 
+  "27380": {
+    "centy": 31.836964296544426, 
+    "centx": -95.1651948588703, 
+    "NAME": "Jacksonville, TX", 
+    "maxx": -94.86585699999999, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "JTA", 
+        "Agency Name": "Jacksonville Transportation Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Clay Transit", 
+        "Agency Name": "Clay County Council on Aging"
+      }
+    }, 
+    "minx": -95.46213999999999, 
+    "miny": 31.42571, 
+    "maxy": 32.137989
+  }, 
+  "33340": {
+    "centy": 43.176570861433085, 
+    "centx": -88.17228390498043, 
+    "NAME": "Milwaukee-Waukesha-West Allis, WI", 
+    "maxx": -87.79169, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "MCTS", 
+        "Agency Name": "Milwaukee County Transit System"
+      }, 
+      "1": {
+        "Reporter Acronym": "Milwaukee Other", 
+        "Agency Name": "Milwaukee Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "Waukesha Metro Transit", 
+        "Agency Name": "City of Waukesha Transit Commission"
+      }, 
+      "3": {
+        "Reporter Acronym": "OCTS", 
+        "Agency Name": "Ozaukee County Transit Services"
+      }, 
+      "4": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Washington County Transit"
+      }, 
+      "5": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Milwaukee"
+      }
+    }, 
+    "minx": -88.54216799999999, 
+    "miny": 42.842003, 
+    "maxy": 43.543532
+  }, 
+  "41260": {
+    "centy": 41.42523799601247, 
+    "centx": -78.64914529401295, 
+    "NAME": "St. Marys, PA", 
+    "maxx": -78.234675, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "St. Louis METRO", 
+        "Agency Name": "Bi-State Development Agency of the Missouri-Illinois Metropolitan District"
+      }, 
+      "1": {
+        "Reporter Acronym": "St. Louis Other", 
+        "Agency Name": "St. Louis Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "MCT", 
+        "Agency Name": "Madison County Transit District"
+      }, 
+      "3": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Loop Trolley Transportation Development District"
+      }
+    }, 
+    "minx": -79.095096, 
+    "miny": 41.201859, 
+    "maxy": 41.629898
+  }, 
+  "38900": {
+    "centy": 45.59837211076189, 
+    "centx": -122.47830591480002, 
+    "NAME": "Portland-Vancouver-Hillsboro, OR-WA", 
+    "maxx": -121.51438, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "TriMet", 
+        "Agency Name": "Tri-County Metropolitan Transportation District of Oregon"
+      }, 
+      "1": {
+        "Reporter Acronym": "PBOT", 
+        "Agency Name": "City of Portland"
+      }, 
+      "2": {
+        "Reporter Acronym": "C-Tran", 
+        "Agency Name": "Clark County Public Transportation Benefit Area Authority"
+      }, 
+      "3": {
+        "Reporter Acronym": "Portland Other", 
+        "Agency Name": "Portland Other"
+      }, 
+      "4": {
+        "Reporter Acronym": "SMART", 
+        "Agency Name": "South Metro Area Regional Transit"
+      }, 
+      "5": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Ride Connection"
+      }
+    }, 
+    "minx": -123.785567, 
+    "miny": 44.885715999999995, 
+    "maxy": 46.388627
+  }, 
+  "12420": {
+    "centy": 30.262597035435004, 
+    "centx": -97.65444493244374, 
+    "NAME": "Austin-Round Rock, TX", 
+    "maxx": -97.024461, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "CapMetro", 
+        "Agency Name": "Capital Metropolitan Transportation Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "City of Round Rock", 
+        "Agency Name": "City of Round Rock"
+      }
+    }, 
+    "minx": -98.2976, 
+    "miny": 29.630744999999997, 
+    "maxy": 30.906188
+  }, 
+  "12060": {
+    "centy": 33.69279759300953, 
+    "centx": -84.39960619275047, 
+    "NAME": "Atlanta-Sandy Springs-Roswell, GA", 
+    "maxx": -83.269306, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "MARTA", 
+        "Agency Name": "Metropolitan Atlanta Rapid Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Atlanta Other", 
+        "Agency Name": "Atlanta Other"
+      }, 
+      "2": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Cobb County Department of Transportation"
+      }, 
+      "3": {
+        "Reporter Acronym": "GRTA", 
+        "Agency Name": "Georgia Regional Transportation Authority"
+      }, 
+      "4": {
+        "Reporter Acronym": "GCT", 
+        "Agency Name": "Gwinnett County Board of Commissioners"
+      }, 
+      "5": {
+        "Reporter Acronym": "COA DPW", 
+        "Agency Name": "City of Atlanta DPW - Transit Division"
+      }, 
+      "6": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "vRide - Atlanta"
+      }, 
+      "7": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Enterprise Rideshare"
+      }, 
+      "8": {
+        "Reporter Acronym": "Rideshare", 
+        "Agency Name": "Douglas County Rideshare"
+      }, 
+      "9": {
+        "Reporter Acronym": "HC", 
+        "Agency Name": "Henry County Transit"
+      }, 
+      "10": {
+        "Reporter Acronym": "CATS", 
+        "Agency Name": "Cherokee County Board of Commissioners"
+      }, 
+      "11": {
+        "Reporter Acronym": "CPACS", 
+        "Agency Name": "Center for Pan Asian Community Services"
+      }, 
+      "12": {
+        "Reporter Acronym": "ARC", 
+        "Agency Name": "Atlanta Regional Commission"
+      }, 
+      "13": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Marietta"
+      }
+    }, 
+    "minx": -85.38647347216839, 
+    "miny": 32.84464, 
+    "maxy": 34.617923999999995
+  }, 
+  "40080": {
+    "centy": 37.57212147642202, 
+    "centx": -84.2938496081032, 
+    "NAME": "Richmond-Berea, KY", 
+    "maxx": -84.073908, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "GRTC", 
+        "Agency Name": "Greater Richmond Transit Company"
+      }, 
+      "1": {
+        "Reporter Acronym": "Petersburg Area Transit", 
+        "Agency Name": "Petersburg Area Transit"
+      }
+    }, 
+    "minx": -84.525643, 
+    "miny": 37.15174, 
+    "maxy": 37.917546
+  }, 
+  "25540": {
+    "centy": 41.73462661270841, 
+    "centx": -72.57733808990466, 
+    "NAME": "Hartford-West Hartford-East Hartford, CT", 
+    "maxx": -72.099229, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "CTTransit", 
+        "Agency Name": "CTTRANSIT Hartford"
+      }, 
+      "1": {
+        "Reporter Acronym": "Hartford Other", 
+        "Agency Name": "Hartford Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "CDOT", 
+        "Agency Name": "Connecticut DOT"
+      }, 
+      "3": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "CTTRANSIT New Britain"
+      }, 
+      "4": {
+        "Reporter Acronym": "GHTD", 
+        "Agency Name": "Greater Hartford Transit District"
+      }, 
+      "5": {
+        "Reporter Acronym": "CDOT CTTransit DATTCO", 
+        "Agency Name": "CTTransit New Britain -Dattco."
+      }, 
+      "6": {
+        "Reporter Acronym": "MTD", 
+        "Agency Name": "Middletown Transit District"
+      }, 
+      "7": {
+        "Reporter Acronym": "Nason Partners", 
+        "Agency Name": "CTTransit Torrington-Winsted"
+      }
+    }, 
+    "minx": -73.02953699999999, 
+    "miny": 41.254811088302496, 
+    "maxy": 42.038860282198
+  }, 
+  "41700": {
+    "centy": 29.42873501128543, 
+    "centx": -98.60225642424642, 
+    "NAME": "San Antonio-New Braunfels, TX", 
+    "maxx": -97.63101999999999, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "VIA", 
+        "Agency Name": "VIA Metropolitan Transit"
+      }, 
+      "1": {
+        "Reporter Acronym": "Alamo Regional Transit", 
+        "Agency Name": "Alamo Area Council of Governments"
+      }
+    }, 
+    "minx": -99.603318, 
+    "miny": 28.612658, 
+    "maxy": 30.138954
+  }, 
+  "37980": {
+    "centy": 39.905587868347716, 
+    "centx": -75.30198512536879, 
+    "NAME": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD", 
+    "maxx": -74.389708, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "SEPTA", 
+        "Agency Name": "Southeastern Pennsylvania Transportation Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "PATCO", 
+        "Agency Name": "Port Authority Transit Corporation"
+      }, 
+      "2": {
+        "Reporter Acronym": "DART First State", 
+        "Agency Name": "Delaware Transit Corporation"
+      }, 
+      "3": {
+        "Reporter Acronym": "Philadelphia Other", 
+        "Agency Name": "Philadelphia Other"
+      }, 
+      "4": {
+        "Reporter Acronym": "PENNDOT", 
+        "Agency Name": "Pennsylvania Department of Transportation"
+      }, 
+      "5": {
+        "Reporter Acronym": "SCUCS", 
+        "Agency Name": "Senior Citizens United Community Services of Camden County"
+      }, 
+      "6": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Cecil County Government - SSCT"
+      }, 
+      "7": {
+        "Reporter Acronym": "BurLink", 
+        "Agency Name": "County of Burlington"
+      }, 
+      "8": {
+        "Reporter Acronym": "CCET", 
+        "Agency Name": "County of Cumberland"
+      }, 
+      "9": {
+        "Reporter Acronym": "DTS", 
+        "Agency Name": "Gloucester County Division of Transportation Services"
+      }
+    }, 
+    "minx": -76.2332587690425, 
+    "miny": 39.290417, 
+    "maxy": 40.608579999999996
+  }, 
+  "35620": {
+    "centy": 40.920555818631804, 
+    "centx": -74.0865217112616, 
+    "NAME": "New York-Newark-Jersey City, NY-NJ-PA", 
+    "maxx": -71.856214, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "NYC Transit", 
+        "Agency Name": "New York City Transit"
+      }, 
+      "1": {
+        "Reporter Acronym": "NYCT", 
+        "Agency Name": "MTA New York City Transit"
+      }, 
+      "2": {
+        "Reporter Acronym": "NJ TRANSIT", 
+        "Agency Name": "New Jersey Transit Corporation"
+      }, 
+      "3": {
+        "Reporter Acronym": "MTABUS", 
+        "Agency Name": "MTA Bus Company"
+      }, 
+      "4": {
+        "Reporter Acronym": "MTA LIRR", 
+        "Agency Name": "MTA Long Island Rail Road"
+      }, 
+      "5": {
+        "Reporter Acronym": "PATH", 
+        "Agency Name": "Port Authority Trans-Hudson Corporation"
+      }, 
+      "6": {
+        "Reporter Acronym": "MTA MNR", 
+        "Agency Name": "MTA Metro-North Railroad"
+      }, 
+      "7": {
+        "Reporter Acronym": "Westchester County Bee-Line System", 
+        "Agency Name": "Westchester County Bee-Line System"
+      }, 
+      "8": {
+        "Reporter Acronym": "Nassau Inter County Express", 
+        "Agency Name": "Nassau Inter County Express"
+      }, 
+      "9": {
+        "Reporter Acronym": "NYCDOT", 
+        "Agency Name": "New York City Department of Transportation"
+      }, 
+      "10": {
+        "Reporter Acronym": "New York City Other", 
+        "Agency Name": "New York City Other"
+      }, 
+      "11": {
+        "Reporter Acronym": "SIRTOA", 
+        "Agency Name": "Staten Island Railway"
+      }, 
+      "12": {
+        "Reporter Acronym": "Port Imperial Ferry Corporation", 
+        "Agency Name": "NY Waterway"
+      }, 
+      "13": {
+        "Reporter Acronym": "Coach USA", 
+        "Agency Name": "Orange-Newark-Elizabeth"
+      }, 
+      "14": {
+        "Reporter Acronym": "ST", 
+        "Agency Name": "Suffolk County DPW - Transportation"
+      }, 
+      "15": {
+        "Reporter Acronym": "Short Line", 
+        "Agency Name": "Hudson Transit Lines"
+      }, 
+      "16": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "A&C Bus Corporation & Montgomery & Westside Owners Association"
+      }, 
+      "17": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Academy Lines"
+      }, 
+      "18": {
+        "Reporter Acronym": "Coach USA", 
+        "Agency Name": "Suburban Transit Corporation"
+      }, 
+      "19": {
+        "Reporter Acronym": "TOR", 
+        "Agency Name": "Transport of Rockland"
+      }, 
+      "20": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Rockland Coaches"
+      }, 
+      "21": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "DeCamp Bus Lines"
+      }, 
+      "22": {
+        "Reporter Acronym": "NYCEDC", 
+        "Agency Name": "NYC Economic Development Corporation"
+      }, 
+      "23": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "BillyBey Ferry Company"
+      }, 
+      "24": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Lakeland Bus Lines"
+      }, 
+      "25": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Trans-Bridge Lines"
+      }, 
+      "26": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Private Transportation Corporation"
+      }, 
+      "27": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Hampton Jitney"
+      }, 
+      "28": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Broadway Bus Corporation"
+      }, 
+      "29": {
+        "Reporter Acronym": "Coach USA", 
+        "Agency Name": "Olympia Trails Bus Company"
+      }, 
+      "30": {
+        "Reporter Acronym": "Adirondack Trailways", 
+        "Agency Name": "Adirondack Transit Lines"
+      }, 
+      "31": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Monsey New Square Trails Corporation"
+      }, 
+      "32": {
+        "Reporter Acronym": "Community Transit", 
+        "Agency Name": "Community Transit"
+      }, 
+      "33": {
+        "Reporter Acronym": "SCT", 
+        "Agency Name": "Somerset County Transportation"
+      }, 
+      "34": {
+        "Reporter Acronym": "Long Beach Bus", 
+        "Agency Name": "Long Beach Bus"
+      }, 
+      "35": {
+        "Reporter Acronym": "MCAT", 
+        "Agency Name": "Middlesex County Area Transit"
+      }, 
+      "36": {
+        "Reporter Acronym": "BCCT", 
+        "Agency Name": "Bergen County Community Transportation"
+      }, 
+      "37": {
+        "Reporter Acronym": "EZ Ride", 
+        "Agency Name": "EZ Ride"
+      }, 
+      "38": {
+        "Reporter Acronym": "STR", 
+        "Agency Name": "Saddle River Trail"
+      }, 
+      "39": {
+        "Reporter Acronym": "HART", 
+        "Agency Name": "Huntington Area Rapid Transit"
+      }, 
+      "40": {
+        "Reporter Acronym": "PART", 
+        "Agency Name": "Putnam County Transit"
+      }, 
+      "41": {
+        "Reporter Acronym": "HCLink", 
+        "Agency Name": "County of Hunterdon"
+      }, 
+      "42": {
+        "Reporter Acronym": "ECDTE", 
+        "Agency Name": "Essex County Division of Training and Employment"
+      }, 
+      "43": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Clarkstown Mini-Trans"
+      }, 
+      "44": {
+        "Reporter Acronym": "MAPS", 
+        "Agency Name": "County of Morris"
+      }, 
+      "45": {
+        "Reporter Acronym": "Kaser", 
+        "Agency Name": "Kaser Bus Service"
+      }, 
+      "46": {
+        "Reporter Acronym": "Spring Valley Jitney", 
+        "Agency Name": "Village of Spring Valley Bus"
+      }
+    }, 
+    "minx": -75.359184, 
+    "miny": 39.498537, 
+    "maxy": 42.080906
+  }, 
+  "41740": {
+    "centy": 33.03413648999, 
+    "centx": -116.73529289781787, 
+    "NAME": "San Diego-Carlsbad, CA", 
+    "maxx": -116.08109, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "San Diego MTS", 
+        "Agency Name": "San Diego Metropolitan Transit System"
+      }, 
+      "1": {
+        "Reporter Acronym": "NCTD", 
+        "Agency Name": "North County Transit District"
+      }, 
+      "2": {
+        "Reporter Acronym": "SANDAG", 
+        "Agency Name": "San Diego Association of Governments"
+      }
+    }, 
+    "minx": -117.596147232519, 
+    "miny": 32.534155999999996, 
+    "maxy": 33.505024999999996
+  }, 
+  "17380": {
+    "centy": 33.79558181465302, 
+    "centx": -90.88036125965698, 
+    "NAME": "Cleveland, MS", 
+    "maxx": -90.656977, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "GCRTA", 
+        "Agency Name": "The Greater Cleveland Regional Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Cleveland Other", 
+        "Agency Name": "Cleveland Other"
+      }, 
+      "2": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Laketran"
+      }, 
+      "3": {
+        "Reporter Acronym": "MCPT", 
+        "Agency Name": "Medina County Public Transit"
+      }
+    }, 
+    "minx": -91.232537, 
+    "miny": 33.529308, 
+    "maxy": 34.120712
+  }, 
+  "12580": {
+    "centy": 39.33848075711592, 
+    "centx": -76.58060119908306, 
+    "NAME": "Baltimore-Columbia-Towson, MD", 
+    "maxx": -75.7476710652218, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "MTA", 
+        "Agency Name": "Maryland Transit Administration"
+      }, 
+      "1": {
+        "Reporter Acronym": "Baltimore Other", 
+        "Agency Name": "Baltimore Other"
+      }, 
+      "2": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Baltimore City DOT"
+      }, 
+      "3": {
+        "Reporter Acronym": "HT", 
+        "Agency Name": "Howard Transit"
+      }, 
+      "4": {
+        "Reporter Acronym": "Annapolis Transit", 
+        "Agency Name": "Annapolis DOT"
+      }, 
+      "5": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Anne Arundel County"
+      }
+    }, 
+    "minx": -77.31151, 
+    "miny": 38.7127443256283, 
+    "maxy": 39.7213050468054
+  }, 
+  "17140": {
+    "centy": 39.07152487796367, 
+    "centx": -84.42748156261699, 
+    "NAME": "Cincinnati, OH-KY-IN", 
+    "maxx": -83.673018, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "SORTA", 
+        "Agency Name": "Southwest Ohio Regional Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Cincinnati Other", 
+        "Agency Name": "Cincinnati Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "TANK", 
+        "Agency Name": "Transit Authority of Northern Kentucky"
+      }, 
+      "3": {
+        "Reporter Acronym": "BCRTA", 
+        "Agency Name": "Butler County Regional Transit Authority"
+      }, 
+      "4": {
+        "Reporter Acronym": "CTC", 
+        "Agency Name": "Clermont Transportation Connection"
+      }, 
+      "5": {
+        "Reporter Acronym": "WCTS", 
+        "Agency Name": "Warren County Transit Services"
+      }
+    }, 
+    "minx": -85.140312, 
+    "miny": 38.473039, 
+    "maxy": 39.729262999999996
+  }, 
+  "24330": {
+    "centy": 47.50951438271588, 
+    "centx": -93.63197749438663, 
+    "NAME": "Grand Rapids, MN", 
+    "maxx": -93.055943, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "The Rapid", 
+        "Agency Name": "Interurban Transit Partnership"
+      }
+    }, 
+    "minx": -94.41904, 
+    "miny": 47.025194, 
+    "maxy": 47.89895
+  }, 
+  "40900": {
+    "centy": 38.78047805560668, 
+    "centx": -120.9975514207566, 
+    "NAME": "Sacramento--Roseville--Arden-Arcade, CA", 
+    "maxx": -119.877287, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "Sacramento RT", 
+        "Agency Name": "Sacramento Regional Transit District"
+      }, 
+      "1": {
+        "Reporter Acronym": "Sacramento Other", 
+        "Agency Name": "Sacramento Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "YCTD", 
+        "Agency Name": "Yolo County Transportation District"
+      }, 
+      "3": {
+        "Reporter Acronym": "etran", 
+        "Agency Name": "City of Elk Grove"
+      }, 
+      "4": {
+        "Reporter Acronym": "PCDPWF", 
+        "Agency Name": "Placer County DPWF"
+      }, 
+      "5": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Paratransit"
+      }, 
+      "6": {
+        "Reporter Acronym": "EDCTA", 
+        "Agency Name": "El Dorado County Transit Authority"
+      }, 
+      "7": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Roseville Transit"
+      }, 
+      "8": {
+        "Reporter Acronym": "FSL", 
+        "Agency Name": "City of Folsom"
+      }
+    }, 
+    "minx": -122.422048, 
+    "miny": 38.018421, 
+    "maxy": 39.3164525335553
+  }, 
+  "46060": {
+    "centy": 32.097421469492396, 
+    "centx": -111.78989224547975, 
+    "NAME": "Tucson, AZ", 
+    "maxx": -110.447773, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "Sun Tran", 
+        "Agency Name": "City of Tucson"
+      }, 
+      "1": {
+        "Reporter Acronym": "Tucson Other", 
+        "Agency Name": "Tucson Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "PAG", 
+        "Agency Name": "Pima Association of Governments"
+      }, 
+      "3": {
+        "Reporter Acronym": "SunShutDNR", 
+        "Agency Name": "Town of Oro Valley - Transit Services Division"
+      }
+    }, 
+    "minx": -113.333897, 
+    "miny": 31.4261324300682, 
+    "maxy": 32.514188
+  }, 
+  "35380": {
+    "centy": 29.925181847611977, 
+    "centx": -89.95808621040975, 
+    "NAME": "New Orleans-Metairie, LA", 
+    "maxx": -88.81701699999999, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "NORTA", 
+        "Agency Name": "New Orleans Regional Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "New Orleans Other", 
+        "Agency Name": "New Orleans Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "Jet", 
+        "Agency Name": "Jefferson Parish Department of Transit Administration"
+      }, 
+      "3": {
+        "Reporter Acronym": "PPG", 
+        "Agency Name": "Plaquemines Parish Government"
+      }, 
+      "4": {
+        "Reporter Acronym": "SBURT", 
+        "Agency Name": "St. Bernard Urban Rapid Transit"
+      }, 
+      "5": {
+        "Reporter Acronym": "RPTA", 
+        "Agency Name": "River Parishes Transit Authority"
+      }, 
+      "6": {
+        "Reporter Acronym": "RPC", 
+        "Agency Name": "Regional Planning Commission"
+      }
+    }, 
+    "minx": -90.96369299999999, 
+    "miny": 28.928608999999998, 
+    "maxy": 30.711904999999998
+  }, 
+  "16980": {
+    "centy": 41.7026577013949, 
+    "centx": -87.96271609572413, 
+    "NAME": "Chicago-Naperville-Elgin, IL-IN-WI", 
+    "maxx": -86.929362, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "CTA", 
+        "Agency Name": "Chicago Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Metra", 
+        "Agency Name": "Metra Rail"
+      }, 
+      "2": {
+        "Reporter Acronym": "PACE", 
+        "Agency Name": "PACE"
+      }, 
+      "3": {
+        "Reporter Acronym": "PACE", 
+        "Agency Name": "Pace - Suburban Bus Division"
+      }, 
+      "4": {
+        "Reporter Acronym": "PACE", 
+        "Agency Name": "Pace-Suburban Bus Division, ADA Paratransit Services"
+      }, 
+      "5": {
+        "Reporter Acronym": "Chicago Other", 
+        "Agency Name": "Chicago Other"
+      }, 
+      "6": {
+        "Reporter Acronym": "NICTD", 
+        "Agency Name": "Northern Indiana Commuter Transportation District"
+      }, 
+      "7": {
+        "Reporter Acronym": "GPTC", 
+        "Agency Name": "Gary Public Transportation Corporation"
+      }, 
+      "8": {
+        "Reporter Acronym": "CWT", 
+        "Agency Name": "Chicago Water Taxi"
+      }, 
+      "9": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Valparaiso"
+      }, 
+      "10": {
+        "Reporter Acronym": "ECT", 
+        "Agency Name": "East Chicago Transit"
+      }, 
+      "11": {
+        "Reporter Acronym": "OE", 
+        "Agency Name": "Opportunity Enterprises"
+      }, 
+      "12": {
+        "Reporter Acronym": "SLCCS", 
+        "Agency Name": "South Lake County Community Services"
+      }, 
+      "13": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "North Township of Lake County Dial-A-Ride"
+      }, 
+      "14": {
+        "Reporter Acronym": "PCACS", 
+        "Agency Name": "Porter County Aging and Community Services"
+      }, 
+      "15": {
+        "Reporter Acronym": "NIRPC", 
+        "Agency Name": "Northwestern Indiana Regional Planning Commission"
+      }
+    }, 
+    "minx": -88.942146, 
+    "miny": 40.736515, 
+    "maxy": 42.669906
+  }, 
+  "45300": {
+    "centy": 28.153686015729, 
+    "centx": -82.4058698813898, 
+    "NAME": "Tampa-St. Petersburg-Clearwater, FL", 
+    "maxx": -82.054035, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "HART", 
+        "Agency Name": "Hillsborough Area Regional Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "PSTA", 
+        "Agency Name": "Pinellas Suncoast Transit Authority"
+      }, 
+      "2": {
+        "Reporter Acronym": "Tampa Other", 
+        "Agency Name": "Tampa Other"
+      }, 
+      "3": {
+        "Reporter Acronym": "PCPT", 
+        "Agency Name": "Pasco County Public Transportation"
+      }, 
+      "4": {
+        "Reporter Acronym": "PSTA", 
+        "Agency Name": "Jolley Trolley Transportation of Clearwater"
+      }, 
+      "5": {
+        "Reporter Acronym": "TBARTA", 
+        "Agency Name": "Tampa Bay Area Regional Transit Authority"
+      }, 
+      "6": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "The Looper Group"
+      }
+    }, 
+    "minx": -82.852432, 
+    "miny": 27.576037, 
+    "maxy": 28.694858999999997
+  }, 
+  "29820": {
+    "centy": 36.21523781771886, 
+    "centx": -115.0135369680576, 
+    "NAME": "Las Vegas-Henderson-Paradise, NV", 
+    "maxx": -114.042819, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "RTC", 
+        "Agency Name": "Regional Transportation Commission of Southern Nevada"
+      }, 
+      "1": {
+        "Reporter Acronym": "LVMC", 
+        "Agency Name": "Las Vegas Monorail Company"
+      }
+    }, 
+    "minx": -115.896925, 
+    "miny": 35.001857, 
+    "maxy": 36.853473
+  }, 
+  "39300": {
+    "centy": 41.71842789746073, 
+    "centx": -71.39997650050394, 
+    "NAME": "Providence-Warwick, RI-MA", 
+    "maxx": -70.82091799999999, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "RIPTA", 
+        "Agency Name": "Rhode Island Public Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Providence Other", 
+        "Agency Name": "Providence Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "GATRA", 
+        "Agency Name": "Greater Attleboro-Taunton Regional Transit Authority"
+      }, 
+      "3": {
+        "Reporter Acronym": "RIDOT", 
+        "Agency Name": "Rhode Island DOT"
+      }
+    }, 
+    "minx": -71.86277199999999, 
+    "miny": 41.146339, 
+    "maxy": 42.095538999999995
+  }, 
+  "42660": {
+    "centy": 47.55749541194654, 
+    "centx": -121.85084723046923, 
+    "NAME": "Seattle-Tacoma-Bellevue, WA", 
+    "maxx": -120.907399, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "King County Metro", 
+        "Agency Name": "King County Department of Transportation"
+      }, 
+      "1": {
+        "Reporter Acronym": "Sound Transit", 
+        "Agency Name": "Central Puget Sound Regional Transit Authority"
+      }, 
+      "2": {
+        "Reporter Acronym": "Washington State Ferries", 
+        "Agency Name": "Washington State Ferries"
+      }, 
+      "3": {
+        "Reporter Acronym": "Community Transit", 
+        "Agency Name": "Snohomish County Public Transportation Benefit Area Corporation"
+      }, 
+      "4": {
+        "Reporter Acronym": "Pierce Transit", 
+        "Agency Name": "Pierce County Transportation Benefit Area Authority"
+      }, 
+      "5": {
+        "Reporter Acronym": "Seattle Other", 
+        "Agency Name": "Seattle Other"
+      }, 
+      "6": {
+        "Reporter Acronym": "SMS", 
+        "Agency Name": "Seattle Center Monorail Transit"
+      }, 
+      "7": {
+        "Reporter Acronym": "ET", 
+        "Agency Name": "Everett Transit"
+      }, 
+      "8": {
+        "Reporter Acronym": "Pierce County Ferry", 
+        "Agency Name": "Pierce County Ferry Operations"
+      }, 
+      "9": {
+        "Reporter Acronym": "MIT", 
+        "Agency Name": "Muckleshoot Indian Tribe"
+      }
+    }, 
+    "minx": -122.841858, 
+    "miny": 46.728406, 
+    "maxy": 48.298988
+  }, 
+  "40140": {
+    "centy": 34.55165274060091, 
+    "centx": -116.12968556720321, 
+    "NAME": "Riverside-San Bernardino-Ontario, CA", 
+    "maxx": -114.131211, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "OMNI", 
+        "Agency Name": "Omnitrans"
+      }, 
+      "1": {
+        "Reporter Acronym": "RTA", 
+        "Agency Name": "Riverside Transit Agency"
+      }, 
+      "2": {
+        "Reporter Acronym": "Riverside-San Bernardino Other", 
+        "Agency Name": "Riverside-San Bernardino Other"
+      }, 
+      "3": {
+        "Reporter Acronym": "CCTS", 
+        "Agency Name": "City of Corona"
+      }, 
+      "4": {
+        "Reporter Acronym": "City of Riverside", 
+        "Agency Name": "City of Riverside Special Transportation"
+      }, 
+      "5": {
+        "Reporter Acronym": "RCTC 5307 Recipient", 
+        "Agency Name": "Riverside County Transportation Commission"
+      }
+    }, 
+    "minx": -117.802539, 
+    "miny": 33.425931999999996, 
+    "maxy": 35.8096294219517
+  }, 
+  "27300": {
+    "centy": 39.693689274729095, 
+    "centx": -90.28512054609949, 
+    "NAME": "Jacksonville, IL", 
+    "maxx": -89.92395499999999, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "JTA", 
+        "Agency Name": "Jacksonville Transportation Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Clay Transit", 
+        "Agency Name": "Clay County Council on Aging"
+      }
+    }, 
+    "minx": -90.646112, 
+    "miny": 39.519926999999996, 
+    "maxy": 39.87675
+  }, 
+  "41140": {
+    "centy": 39.83417357094609, 
+    "centx": -94.78386621989668, 
+    "NAME": "St. Joseph, MO-KS", 
+    "maxx": -94.203457, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "St. Louis METRO", 
+        "Agency Name": "Bi-State Development Agency of the Missouri-Illinois Metropolitan District"
+      }, 
+      "1": {
+        "Reporter Acronym": "St. Louis Other", 
+        "Agency Name": "St. Louis Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "MCT", 
+        "Agency Name": "Madison County Transit District"
+      }, 
+      "3": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Loop Trolley Transportation Development District"
+      }
+    }, 
+    "minx": -95.33994299999999, 
+    "miny": 39.530372, 
+    "maxy": 40.130095999999995
+  }, 
+  "19740": {
+    "centy": 39.43370640987533, 
+    "centx": -104.89446877349897, 
+    "NAME": "Denver-Aurora-Lakewood, CO", 
+    "maxx": -103.705701, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "RTD", 
+        "Agency Name": "Denver Regional Transportation District"
+      }, 
+      "1": {
+        "Reporter Acronym": "vRide - Denver", 
+        "Agency Name": "vRide - Denver"
+      }
+    }, 
+    "minx": -106.210173, 
+    "miny": 38.693089, 
+    "maxy": 40.044143999999996
+  }, 
+  "27340": {
+    "centy": 34.732127767538074, 
+    "centx": -77.43208298346815, 
+    "NAME": "Jacksonville, NC", 
+    "maxx": -77.105153, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "JTA", 
+        "Agency Name": "Jacksonville Transportation Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Clay Transit", 
+        "Agency Name": "Clay County Council on Aging"
+      }
+    }, 
+    "minx": -77.680127, 
+    "miny": 34.44048343031, 
+    "maxy": 34.98446
+  }, 
+  "28140": {
+    "centy": 38.93719048603548, 
+    "centx": -94.44438286042632, 
+    "NAME": "Kansas City, MO-KS", 
+    "maxx": -93.477233, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "KCATA", 
+        "Agency Name": "Kansas City Area Transportation Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Kansas City Other", 
+        "Agency Name": "Kansas City Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "KCMO", 
+        "Agency Name": "Kansas City, City of Missouri"
+      }, 
+      "3": {
+        "Reporter Acronym": "The JO", 
+        "Agency Name": "Johnson County Transit"
+      }, 
+      "4": {
+        "Reporter Acronym": "IndeBus", 
+        "Agency Name": "City of Independence"
+      }, 
+      "5": {
+        "Reporter Acronym": "UGT", 
+        "Agency Name": "Unified Government Transit Department"
+      }
+    }, 
+    "minx": -95.187963, 
+    "miny": 38.025952, 
+    "maxy": 39.788954
+  }, 
+  "47780": {
+    "centy": 38.702437400491036, 
+    "centx": -87.07204524818482, 
+    "NAME": "Washington, IN", 
+    "maxx": -86.90419299999999, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "WMATA", 
+        "Agency Name": "Washington Metropolitan Area Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Ride-On Montgomery County Transit", 
+        "Agency Name": "Ride-On Montgomery County Transit"
+      }, 
+      "2": {
+        "Reporter Acronym": "Fairfax Connector", 
+        "Agency Name": "Fairfax Connector Bus System"
+      }, 
+      "3": {
+        "Reporter Acronym": "DDOT", 
+        "Agency Name": "DDOT"
+      }, 
+      "4": {
+        "Reporter Acronym": "Washington, DC Other", 
+        "Agency Name": "Washington, DC Other"
+      }, 
+      "5": {
+        "Reporter Acronym": "VRE", 
+        "Agency Name": "Virginia Railway Express"
+      }, 
+      "6": {
+        "Reporter Acronym": "PRTC", 
+        "Agency Name": "Potomac and Rappahannock Transportation Commission"
+      }, 
+      "7": {
+        "Reporter Acronym": "ART", 
+        "Agency Name": "Arlington Transit - Arlington County"
+      }, 
+      "8": {
+        "Reporter Acronym": "TheBus", 
+        "Agency Name": "Prince George's County Transit"
+      }, 
+      "9": {
+        "Reporter Acronym": "LC Transit", 
+        "Agency Name": "Loudoun County Commuter Bus Service"
+      }, 
+      "10": {
+        "Reporter Acronym": "DASH", 
+        "Agency Name": "City of Alexandria"
+      }, 
+      "11": {
+        "Reporter Acronym": "CUE", 
+        "Agency Name": "City of Fairfax CUE Bus"
+      }, 
+      "12": {
+        "Reporter Acronym": "MWCOG/TPB", 
+        "Agency Name": "National Capital Region Transportation Planning Board"
+      }, 
+      "13": {
+        "Reporter Acronym": "MWAA", 
+        "Agency Name": "Metropolitan Washington Airports Authority"
+      }, 
+      "14": {
+        "Reporter Acronym": "NVTC", 
+        "Agency Name": "Northern Virginia Transportation Commission"
+      }
+    }, 
+    "minx": -87.279173, 
+    "miny": 38.490452999999995, 
+    "maxy": 38.904204
+  }, 
+  "47900": {
+    "centy": 38.83346378486468, 
+    "centx": -77.47440412429256, 
+    "NAME": "Washington-Arlington-Alexandria, DC-VA-MD-WV", 
+    "maxx": -76.38148199999999, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "WMATA", 
+        "Agency Name": "Washington Metropolitan Area Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Ride-On Montgomery County Transit", 
+        "Agency Name": "Ride-On Montgomery County Transit"
+      }, 
+      "2": {
+        "Reporter Acronym": "Fairfax Connector", 
+        "Agency Name": "Fairfax Connector Bus System"
+      }, 
+      "3": {
+        "Reporter Acronym": "DDOT", 
+        "Agency Name": "DDOT"
+      }, 
+      "4": {
+        "Reporter Acronym": "Washington, DC Other", 
+        "Agency Name": "Washington, DC Other"
+      }, 
+      "5": {
+        "Reporter Acronym": "VRE", 
+        "Agency Name": "Virginia Railway Express"
+      }, 
+      "6": {
+        "Reporter Acronym": "PRTC", 
+        "Agency Name": "Potomac and Rappahannock Transportation Commission"
+      }, 
+      "7": {
+        "Reporter Acronym": "ART", 
+        "Agency Name": "Arlington Transit - Arlington County"
+      }, 
+      "8": {
+        "Reporter Acronym": "TheBus", 
+        "Agency Name": "Prince George's County Transit"
+      }, 
+      "9": {
+        "Reporter Acronym": "LC Transit", 
+        "Agency Name": "Loudoun County Commuter Bus Service"
+      }, 
+      "10": {
+        "Reporter Acronym": "DASH", 
+        "Agency Name": "City of Alexandria"
+      }, 
+      "11": {
+        "Reporter Acronym": "CUE", 
+        "Agency Name": "City of Fairfax CUE Bus"
+      }, 
+      "12": {
+        "Reporter Acronym": "MWCOG/TPB", 
+        "Agency Name": "National Capital Region Transportation Planning Board"
+      }, 
+      "13": {
+        "Reporter Acronym": "MWAA", 
+        "Agency Name": "Metropolitan Washington Airports Authority"
+      }, 
+      "14": {
+        "Reporter Acronym": "NVTC", 
+        "Agency Name": "Northern Virginia Transportation Commission"
+      }
+    }, 
+    "minx": -78.39470399999999, 
+    "miny": 37.990688, 
+    "maxy": 39.720017999999996
+  }, 
+  "47820": {
+    "centy": 35.49400284829893, 
+    "centx": -76.8597763697363, 
+    "NAME": "Washington, NC", 
+    "maxx": -76.4689288614689, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "WMATA", 
+        "Agency Name": "Washington Metropolitan Area Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Ride-On Montgomery County Transit", 
+        "Agency Name": "Ride-On Montgomery County Transit"
+      }, 
+      "2": {
+        "Reporter Acronym": "Fairfax Connector", 
+        "Agency Name": "Fairfax Connector Bus System"
+      }, 
+      "3": {
+        "Reporter Acronym": "DDOT", 
+        "Agency Name": "DDOT"
+      }, 
+      "4": {
+        "Reporter Acronym": "Washington, DC Other", 
+        "Agency Name": "Washington, DC Other"
+      }, 
+      "5": {
+        "Reporter Acronym": "VRE", 
+        "Agency Name": "Virginia Railway Express"
+      }, 
+      "6": {
+        "Reporter Acronym": "PRTC", 
+        "Agency Name": "Potomac and Rappahannock Transportation Commission"
+      }, 
+      "7": {
+        "Reporter Acronym": "ART", 
+        "Agency Name": "Arlington Transit - Arlington County"
+      }, 
+      "8": {
+        "Reporter Acronym": "TheBus", 
+        "Agency Name": "Prince George's County Transit"
+      }, 
+      "9": {
+        "Reporter Acronym": "LC Transit", 
+        "Agency Name": "Loudoun County Commuter Bus Service"
+      }, 
+      "10": {
+        "Reporter Acronym": "DASH", 
+        "Agency Name": "City of Alexandria"
+      }, 
+      "11": {
+        "Reporter Acronym": "CUE", 
+        "Agency Name": "City of Fairfax CUE Bus"
+      }, 
+      "12": {
+        "Reporter Acronym": "MWCOG/TPB", 
+        "Agency Name": "National Capital Region Transportation Planning Board"
+      }, 
+      "13": {
+        "Reporter Acronym": "MWAA", 
+        "Agency Name": "Metropolitan Washington Airports Authority"
+      }, 
+      "14": {
+        "Reporter Acronym": "NVTC", 
+        "Agency Name": "Northern Virginia Transportation Commission"
+      }
+    }, 
+    "minx": -77.19577199999999, 
+    "miny": 35.21608, 
+    "maxy": 35.739473
+  }, 
+  "38860": {
+    "centy": 43.69611219475335, 
+    "centx": -70.46877049233215, 
+    "NAME": "Portland-South Portland, ME", 
+    "maxx": -69.700152, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "TriMet", 
+        "Agency Name": "Tri-County Metropolitan Transportation District of Oregon"
+      }, 
+      "1": {
+        "Reporter Acronym": "PBOT", 
+        "Agency Name": "City of Portland"
+      }, 
+      "2": {
+        "Reporter Acronym": "C-Tran", 
+        "Agency Name": "Clark County Public Transportation Benefit Area Authority"
+      }, 
+      "3": {
+        "Reporter Acronym": "Portland Other", 
+        "Agency Name": "Portland Other"
+      }, 
+      "4": {
+        "Reporter Acronym": "SMART", 
+        "Agency Name": "South Metro Area Regional Transit"
+      }, 
+      "5": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Ride Connection"
+      }
+    }, 
+    "minx": -70.9890367618669, 
+    "miny": 42.977764, 
+    "maxy": 44.171036
+  }, 
+  "17980": {
+    "centy": 32.44143924931389, 
+    "centx": -84.90873110720597, 
+    "NAME": "Columbus, GA-AL", 
+    "maxx": -84.389927, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "COTA", 
+        "Agency Name": "Central Ohio Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Columbus Other", 
+        "Agency Name": "Columbus Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "DATA", 
+        "Agency Name": "Delaware County Transit Board"
+      }, 
+      "3": {
+        "Reporter Acronym": "MORPC", 
+        "Agency Name": "Mid-Ohio Regional Planning Commission"
+      }
+    }, 
+    "minx": -85.434721, 
+    "miny": 32.061707999999996, 
+    "maxy": 32.872495
+  }, 
+  "18100": {
+    "centy": 41.571296345510895, 
+    "centx": -97.52113913448461, 
+    "NAME": "Columbus, NE", 
+    "maxx": -97.252421, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "COTA", 
+        "Agency Name": "Central Ohio Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Columbus Other", 
+        "Agency Name": "Columbus Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "DATA", 
+        "Agency Name": "Delaware County Transit Board"
+      }, 
+      "3": {
+        "Reporter Acronym": "MORPC", 
+        "Agency Name": "Mid-Ohio Regional Planning Commission"
+      }
+    }, 
+    "minx": -97.831215, 
+    "miny": 41.333118999999996, 
+    "maxy": 41.743207
+  }, 
+  "41100": {
+    "centy": 37.28037666677322, 
+    "centx": -113.50476939765602, 
+    "NAME": "St. George, UT", 
+    "maxx": -112.899136, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "St. Louis METRO", 
+        "Agency Name": "Bi-State Development Agency of the Missouri-Illinois Metropolitan District"
+      }, 
+      "1": {
+        "Reporter Acronym": "St. Louis Other", 
+        "Agency Name": "St. Louis Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "MCT", 
+        "Agency Name": "Madison County Transit District"
+      }, 
+      "3": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Loop Trolley Transportation Development District"
+      }
+    }, 
+    "minx": -114.052962, 
+    "miny": 36.999976, 
+    "maxy": 37.618289
+  }, 
+  "34980": {
+    "centy": 36.08907227168498, 
+    "centx": -86.72447679844316, 
+    "NAME": "Nashville-Davidson--Murfreesboro--Franklin, TN", 
+    "maxx": -85.778634, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "WeGo/MTA", 
+        "Agency Name": "Metropolitan Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Nashville Other", 
+        "Agency Name": "Nashville Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "RTA", 
+        "Agency Name": "Regional Transportation Authority"
+      }, 
+      "3": {
+        "Reporter Acronym": "TMA", 
+        "Agency Name": "The Transportation Management Association Group"
+      }, 
+      "4": {
+        "Reporter Acronym": "FTA", 
+        "Agency Name": "Franklin Transit Authority"
+      }
+    }, 
+    "minx": -87.74374999999999, 
+    "miny": 35.408175, 
+    "maxy": 36.652485999999996
+  }, 
+  "36420": {
+    "centy": 35.429848990638476, 
+    "centx": -97.50389257113274, 
+    "NAME": "Oklahoma City, OK", 
+    "maxx": -96.61919499999999, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "COTPA", 
+        "Agency Name": "Central Oklahoma Transportation and Parking Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Citylink", 
+        "Agency Name": "City of Edmond"
+      }
+    }, 
+    "minx": -98.31336999999999, 
+    "miny": 34.681118999999995, 
+    "maxy": 36.164777
+  }, 
+  "40060": {
+    "centy": 37.46199979856708, 
+    "centx": -77.47355870214272, 
+    "NAME": "Richmond, VA", 
+    "maxx": -76.741984, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "GRTC", 
+        "Agency Name": "Greater Richmond Transit Company"
+      }, 
+      "1": {
+        "Reporter Acronym": "Petersburg Area Transit", 
+        "Agency Name": "Petersburg Area Transit"
+      }
+    }, 
+    "minx": -78.240748, 
+    "miny": 36.707657999999995, 
+    "maxy": 38.252615999999996
+  }, 
+  "46520": {
+    "centy": 21.500785361340995, 
+    "centx": -158.1053341795545, 
+    "NAME": "Urban Honolulu, HI", 
+    "maxx": -157.648929, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "DTS", 
+        "Agency Name": "City and County of Honolulu Department of Transportation Services"
+      }
+    }, 
+    "minx": -178.334698, 
+    "miny": 21.255043, 
+    "maxy": 28.402123
+  }, 
+  "29780": {
+    "centy": 35.480481693867596, 
+    "centx": -104.81593530054187, 
+    "NAME": "Las Vegas, NM", 
+    "maxx": -103.637026, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "RTC", 
+        "Agency Name": "Regional Transportation Commission of Southern Nevada"
+      }, 
+      "1": {
+        "Reporter Acronym": "LVMC", 
+        "Agency Name": "Las Vegas Monorail Company"
+      }
+    }, 
+    "minx": -105.724461, 
+    "miny": 35.041605, 
+    "maxy": 35.871193999999996
+  }, 
+  "41060": {
+    "centy": 45.58587737595796, 
+    "centx": -94.47204440523159, 
+    "NAME": "St. Cloud, MN", 
+    "maxx": -93.759435, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "St. Louis METRO", 
+        "Agency Name": "Bi-State Development Agency of the Missouri-Illinois Metropolitan District"
+      }, 
+      "1": {
+        "Reporter Acronym": "St. Louis Other", 
+        "Agency Name": "St. Louis Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "MCT", 
+        "Agency Name": "Madison County Transit District"
+      }, 
+      "3": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Loop Trolley Transportation Development District"
+      }
+    }, 
+    "minx": -95.139856, 
+    "miny": 45.282298, 
+    "maxy": 45.824131
+  }, 
+  "19100": {
+    "centy": 32.81815115755703, 
+    "centx": -97.02520967925676, 
+    "NAME": "Dallas-Fort Worth-Arlington, TX", 
+    "maxx": -95.858723, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "DART", 
+        "Agency Name": "Dallas Area Rapid Transit"
+      }, 
+      "1": {
+        "Reporter Acronym": "FWTA", 
+        "Agency Name": "Fort Worth Transportation Authority"
+      }, 
+      "2": {
+        "Reporter Acronym": "Dallas-Fort Worth Other", 
+        "Agency Name": "Dallas-Fort Worth Other"
+      }, 
+      "3": {
+        "Reporter Acronym": "MATA", 
+        "Agency Name": "McKinney Avenue Transit Authority"
+      }, 
+      "4": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Ft.Worth - vRide"
+      }, 
+      "5": {
+        "Reporter Acronym": "STAR", 
+        "Agency Name": "STAR Transit"
+      }, 
+      "6": {
+        "Reporter Acronym": "Handitran", 
+        "Agency Name": "Handitran Special Transit Division - City of Arlington"
+      }, 
+      "7": {
+        "Reporter Acronym": "PTS", 
+        "Agency Name": "Public Transit Services"
+      }, 
+      "8": {
+        "Reporter Acronym": "CSI", 
+        "Agency Name": "Community Services"
+      }, 
+      "9": {
+        "Reporter Acronym": "Grand Connection", 
+        "Agency Name": "City of Grand Prairie Transportation Services Department"
+      }, 
+      "10": {
+        "Reporter Acronym": "City/County Trans.", 
+        "Agency Name": "City of Cleburne"
+      }, 
+      "11": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Mesquite"
+      }, 
+      "12": {
+        "Reporter Acronym": "NCTCOG", 
+        "Agency Name": "North Central Texas Council of Governments"
+      }
+    }, 
+    "minx": -98.068545, 
+    "miny": 32.052087, 
+    "maxy": 33.434011
+  }, 
+  "33460": {
+    "centy": 45.06500851312855, 
+    "centx": -93.34558459008886, 
+    "NAME": "Minneapolis-St. Paul-Bloomington, MN-WI", 
+    "maxx": -92.134812, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "Metro Transit", 
+        "Agency Name": "Metro Transit"
+      }, 
+      "1": {
+        "Reporter Acronym": "Minneapolis-St. Paul Other", 
+        "Agency Name": "Minneapolis-St. Paul Other"
+      }, 
+      "2": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "University of Minnesota Transit"
+      }, 
+      "3": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Metropolitan Council"
+      }, 
+      "4": {
+        "Reporter Acronym": "MVTA", 
+        "Agency Name": "Minnesota Valley Transit Authority"
+      }, 
+      "5": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Metro Mobility"
+      }, 
+      "6": {
+        "Reporter Acronym": "SWT", 
+        "Agency Name": "SouthWest Transit"
+      }, 
+      "7": {
+        "Reporter Acronym": "Plymouth Metrolink", 
+        "Agency Name": "City of Plymouth"
+      }, 
+      "8": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Maple Grove"
+      }
+    }, 
+    "minx": -94.62948899999999, 
+    "miny": 44.195836, 
+    "maxy": 46.24715
+  }, 
+  "31140": {
+    "centy": 38.33674212229526, 
+    "centx": -85.67087438583525, 
+    "NAME": "Louisville/Jefferson County, KY-IN", 
+    "maxx": -84.866981, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "TARC", 
+        "Agency Name": "Transit Authority of River City"
+      }, 
+      "1": {
+        "Reporter Acronym": "Louisville Other", 
+        "Agency Name": "Louisville Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "KIPDA", 
+        "Agency Name": "Kentuckiana Regional Planning and Development Agency"
+      }, 
+      "3": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Oldham's Public Bus"
+      }
+    }, 
+    "minx": -86.33001851513349, 
+    "miny": 37.805879, 
+    "maxy": 38.831812
+  }, 
+  "41860": {
+    "centy": 37.78098618283747, 
+    "centx": -122.16719720368332, 
+    "NAME": "San Francisco-Oakland-Hayward, CA", 
+    "maxx": -121.469214, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "MUNI", 
+        "Agency Name": "San Francisco Municipal Railway"
+      }, 
+      "1": {
+        "Reporter Acronym": "BART", 
+        "Agency Name": "San Francisco Bay Area Rapid Transit District"
+      }, 
+      "2": {
+        "Reporter Acronym": "AC Transit", 
+        "Agency Name": "Alameda-Contra Costa Transit District"
+      }, 
+      "3": {
+        "Reporter Acronym": "Caltrain", 
+        "Agency Name": "Peninsula Corridor Joint Powers Board"
+      }, 
+      "4": {
+        "Reporter Acronym": "SamTrans", 
+        "Agency Name": "San Mateo County Transit District"
+      }, 
+      "5": {
+        "Reporter Acronym": "San Francisco Other", 
+        "Agency Name": "San Francisco Other"
+      }, 
+      "6": {
+        "Reporter Acronym": "GGBHTD", 
+        "Agency Name": "Golden Gate Bridge, Highway and Transportation District"
+      }, 
+      "7": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Marin County Transit District"
+      }, 
+      "8": {
+        "Reporter Acronym": "WETA", 
+        "Agency Name": "San Francisco Bay Area Water Emergency Transportation Authority"
+      }, 
+      "9": {
+        "Reporter Acronym": "WestCAT", 
+        "Agency Name": "Western Contra Costa Transit Authority"
+      }, 
+      "10": {
+        "Reporter Acronym": "UCT", 
+        "Agency Name": "City of Union City Transit Division"
+      }, 
+      "11": {
+        "Reporter Acronym": "SMART", 
+        "Agency Name": "Sonoma-Marin Area Rail Transit District"
+      }
+    }, 
+    "minx": -123.024066, 
+    "miny": 37.1073182889556, 
+    "maxy": 38.321208999999996
+  }, 
+  "19820": {
+    "centy": 42.71919680768266, 
+    "centx": -83.2327066199091, 
+    "NAME": "Detroit-Warren-Dearborn, MI", 
+    "maxx": -82.413474, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "DDOT", 
+        "Agency Name": "City of Detroit Department of Transportation"
+      }, 
+      "1": {
+        "Reporter Acronym": "SMART", 
+        "Agency Name": "Suburban Mobility Authority for Regional Transportation"
+      }, 
+      "2": {
+        "Reporter Acronym": "Detroit Other", 
+        "Agency Name": "Detroit Other"
+      }, 
+      "3": {
+        "Reporter Acronym": "Detroit People Mover", 
+        "Agency Name": "Detroit Transportation Corporation"
+      }, 
+      "4": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Enterprise Rideshare - Michigan"
+      }, 
+      "5": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "M-1 Rail"
+      }, 
+      "6": {
+        "Reporter Acronym": "LET", 
+        "Agency Name": "Lake Erie Transit"
+      }
+    }, 
+    "minx": -84.158189, 
+    "miny": 42.033339, 
+    "maxy": 43.327048999999995
+  }, 
+  "18020": {
+    "centy": 39.20595249887474, 
+    "centx": -85.89759281155193, 
+    "NAME": "Columbus, IN", 
+    "maxx": -85.68451499999999, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "COTA", 
+        "Agency Name": "Central Ohio Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Columbus Other", 
+        "Agency Name": "Columbus Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "DATA", 
+        "Agency Name": "Delaware County Transit Board"
+      }, 
+      "3": {
+        "Reporter Acronym": "MORPC", 
+        "Agency Name": "Mid-Ohio Regional Planning Commission"
+      }
+    }, 
+    "minx": -86.085601, 
+    "miny": 39.035903, 
+    "maxy": 39.350231
+  }, 
+  "38060": {
+    "centy": 33.185707665664346, 
+    "centx": -112.07048180428409, 
+    "NAME": "Phoenix-Mesa-Scottsdale, AZ", 
+    "maxx": -110.448444, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "Valley Metro", 
+        "Agency Name": "City of Phoenix Public Transit Department"
+      }, 
+      "1": {
+        "Reporter Acronym": "Valley Metro Rail", 
+        "Agency Name": "Valley Metro Rail"
+      }, 
+      "2": {
+        "Reporter Acronym": "RPTA", 
+        "Agency Name": "Regional Public Transportation Authority"
+      }, 
+      "3": {
+        "Reporter Acronym": "Phoenix Other", 
+        "Agency Name": "Phoenix Other"
+      }, 
+      "4": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "vRide - Valley Metro"
+      }, 
+      "5": {
+        "Reporter Acronym": "COS", 
+        "Agency Name": "City of Scottsdale - Scottsdale Trolley"
+      }, 
+      "6": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Glendale Transit"
+      }, 
+      "7": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Peoria Transit"
+      }
+    }, 
+    "minx": -113.334379, 
+    "miny": 32.501248, 
+    "maxy": 34.04817
+  }, 
+  "18140": {
+    "centy": 39.96812467498784, 
+    "centx": -82.83679000217438, 
+    "NAME": "Columbus, OH", 
+    "maxx": -82.024219, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "COTA", 
+        "Agency Name": "Central Ohio Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Columbus Other", 
+        "Agency Name": "Columbus Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "DATA", 
+        "Agency Name": "Delaware County Transit Board"
+      }, 
+      "3": {
+        "Reporter Acronym": "MORPC", 
+        "Agency Name": "Mid-Ohio Regional Planning Commission"
+      }
+    }, 
+    "minx": -83.653386, 
+    "miny": 39.361565999999996, 
+    "maxy": 40.712527
+  }, 
+  "18060": {
+    "centy": 33.47294136499276, 
+    "centx": -88.44331637001312, 
+    "NAME": "Columbus, MS", 
+    "maxx": -88.2489373465952, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "COTA", 
+        "Agency Name": "Central Ohio Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Columbus Other", 
+        "Agency Name": "Columbus Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "DATA", 
+        "Agency Name": "Delaware County Transit Board"
+      }, 
+      "3": {
+        "Reporter Acronym": "MORPC", 
+        "Agency Name": "Mid-Ohio Regional Planning Commission"
+      }
+    }, 
+    "minx": -88.67125, 
+    "miny": 33.286922, 
+    "maxy": 33.74581
+  }, 
+  "17420": {
+    "centy": 35.134545228583484, 
+    "centx": -84.66739029368156, 
+    "NAME": "Cleveland, TN", 
+    "maxx": -84.292319677455, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "GCRTA", 
+        "Agency Name": "The Greater Cleveland Regional Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Cleveland Other", 
+        "Agency Name": "Cleveland Other"
+      }, 
+      "2": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Laketran"
+      }, 
+      "3": {
+        "Reporter Acronym": "MCPT", 
+        "Agency Name": "Medina County Public Transit"
+      }
+    }, 
+    "minx": -85.026737, 
+    "miny": 34.987569, 
+    "maxy": 35.357870999999996
+  }, 
+  "27260": {
+    "centy": 30.23672079966326, 
+    "centx": -81.79206234214148, 
+    "NAME": "Jacksonville, FL", 
+    "maxx": -81.21289519458351, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "JTA", 
+        "Agency Name": "Jacksonville Transportation Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Clay Transit", 
+        "Agency Name": "Clay County Council on Aging"
+      }
+    }, 
+    "minx": -82.4597918101678, 
+    "miny": 29.622432, 
+    "maxy": 30.829922
+  }, 
+  "26420": {
+    "centy": 29.78728956319982, 
+    "centx": -95.40067321752298, 
+    "NAME": "Houston-The Woodlands-Sugar Land, TX", 
+    "maxx": -94.353383, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "Houston Metro", 
+        "Agency Name": "Metropolitan Transit Authority of Harris County, Texas"
+      }, 
+      "1": {
+        "Reporter Acronym": "Houston Other", 
+        "Agency Name": "Houston Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "Fort Bend Transit", 
+        "Agency Name": "Fort Bend County Public Transportation"
+      }, 
+      "3": {
+        "Reporter Acronym": "Harris County Transit", 
+        "Agency Name": "Harris County Community Services Department, Office of Transit Services"
+      }, 
+      "4": {
+        "Reporter Acronym": "GSMD", 
+        "Agency Name": "Greater Southeast Management District"
+      }, 
+      "5": {
+        "Reporter Acronym": "HCID1", 
+        "Agency Name": "Harris County Improvement District 1"
+      }, 
+      "6": {
+        "Reporter Acronym": "UKMD", 
+        "Agency Name": "Harris County Improvement District 3"
+      }, 
+      "7": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Midtown Management District"
+      }, 
+      "8": {
+        "Reporter Acronym": "westchase district", 
+        "Agency Name": "Westchase District"
+      }
+    }, 
+    "minx": -96.62198, 
+    "miny": 28.825565880112496, 
+    "maxy": 30.630284
+  }, 
+  "33060": {
+    "centy": 36.83552296414012, 
+    "centx": -94.81044668550187, 
+    "NAME": "Miami, OK", 
+    "maxx": -94.617964, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "Miami-Dade Transit", 
+        "Agency Name": "Miami-Dade Transit"
+      }, 
+      "1": {
+        "Reporter Acronym": "Broward County Transit Division", 
+        "Agency Name": "Broward County Transit Division"
+      }, 
+      "2": {
+        "Reporter Acronym": "PalmTran", 
+        "Agency Name": "Board of County Commissioners, Palm Beach County, PalmTran"
+      }, 
+      "3": {
+        "Reporter Acronym": "TRI-Rail", 
+        "Agency Name": "South Florida Regional Transportation Authority"
+      }, 
+      "4": {
+        "Reporter Acronym": "Miami Other", 
+        "Agency Name": "Miami Other"
+      }, 
+      "5": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Miami Lakes - vRide"
+      }, 
+      "6": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Lauderhill"
+      }, 
+      "7": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Fort Lauderdale"
+      }, 
+      "8": {
+        "Reporter Acronym": "COHB", 
+        "Agency Name": "City of Hallandale Beach"
+      }, 
+      "9": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Town of Davie"
+      }, 
+      "10": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Pembroke Pines"
+      }, 
+      "11": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Miramar - Public Works Department"
+      }, 
+      "12": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Coconut Creek"
+      }, 
+      "13": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Margate"
+      }, 
+      "14": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Pompano Beach"
+      }, 
+      "15": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Lauderdale Lakes"
+      }, 
+      "16": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Coral Springs"
+      }, 
+      "17": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Hollywood"
+      }, 
+      "18": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Deerfield Beach/ North East Focal Point Senior Center"
+      }, 
+      "19": {
+        "Reporter Acronym": "COT", 
+        "Agency Name": "City of Tamarac"
+      }, 
+      "20": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Dania Beach"
+      }, 
+      "21": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Town of Lauderdale-By-The-Sea"
+      }, 
+      "22": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Town of Hillsboro Beach"
+      }, 
+      "23": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Lighthouse Point"
+      }, 
+      "24": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of West Park"
+      }
+    }, 
+    "minx": -95.037735, 
+    "miny": 36.667443, 
+    "maxy": 36.999528999999995
+  }, 
+  "33100": {
+    "centy": 26.15727454778179, 
+    "centx": -80.50589817430131, 
+    "NAME": "Miami-Fort Lauderdale-West Palm Beach, FL", 
+    "maxx": -80.031362, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "Miami-Dade Transit", 
+        "Agency Name": "Miami-Dade Transit"
+      }, 
+      "1": {
+        "Reporter Acronym": "Broward County Transit Division", 
+        "Agency Name": "Broward County Transit Division"
+      }, 
+      "2": {
+        "Reporter Acronym": "PalmTran", 
+        "Agency Name": "Board of County Commissioners, Palm Beach County, PalmTran"
+      }, 
+      "3": {
+        "Reporter Acronym": "TRI-Rail", 
+        "Agency Name": "South Florida Regional Transportation Authority"
+      }, 
+      "4": {
+        "Reporter Acronym": "Miami Other", 
+        "Agency Name": "Miami Other"
+      }, 
+      "5": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Miami Lakes - vRide"
+      }, 
+      "6": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Lauderhill"
+      }, 
+      "7": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Fort Lauderdale"
+      }, 
+      "8": {
+        "Reporter Acronym": "COHB", 
+        "Agency Name": "City of Hallandale Beach"
+      }, 
+      "9": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Town of Davie"
+      }, 
+      "10": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Pembroke Pines"
+      }, 
+      "11": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Miramar - Public Works Department"
+      }, 
+      "12": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Coconut Creek"
+      }, 
+      "13": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Margate"
+      }, 
+      "14": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Pompano Beach"
+      }, 
+      "15": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Lauderdale Lakes"
+      }, 
+      "16": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Coral Springs"
+      }, 
+      "17": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Hollywood"
+      }, 
+      "18": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Deerfield Beach/ North East Focal Point Senior Center"
+      }, 
+      "19": {
+        "Reporter Acronym": "COT", 
+        "Agency Name": "City of Tamarac"
+      }, 
+      "20": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Dania Beach"
+      }, 
+      "21": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Town of Lauderdale-By-The-Sea"
+      }, 
+      "22": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Town of Hillsboro Beach"
+      }, 
+      "23": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Lighthouse Point"
+      }, 
+      "24": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of West Park"
+      }
+    }, 
+    "minx": -80.88623199999999, 
+    "miny": 25.13807, 
+    "maxy": 26.97094
+  }, 
+  "41180": {
+    "centy": 38.73526895327782, 
+    "centx": -90.35011206984764, 
+    "NAME": "St. Louis, MO-IL", 
+    "maxx": -89.138393, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "St. Louis METRO", 
+        "Agency Name": "Bi-State Development Agency of the Missouri-Illinois Metropolitan District"
+      }, 
+      "1": {
+        "Reporter Acronym": "St. Louis Other", 
+        "Agency Name": "St. Louis Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "MCT", 
+        "Agency Name": "Madison County Transit District"
+      }, 
+      "3": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Loop Trolley Transportation Development District"
+      }
+    }, 
+    "minx": -91.41863699999999, 
+    "miny": 38.003499, 
+    "maxy": 39.523368999999995
+  }, 
+  "17460": {
+    "centy": 41.375374215110966, 
+    "centx": -81.68382227241914, 
+    "NAME": "Cleveland-Elyria, OH", 
+    "maxx": -81.00217573236529, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "GCRTA", 
+        "Agency Name": "The Greater Cleveland Regional Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Cleveland Other", 
+        "Agency Name": "Cleveland Other"
+      }, 
+      "2": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Laketran"
+      }, 
+      "3": {
+        "Reporter Acronym": "MCPT", 
+        "Agency Name": "Medina County Public Transit"
+      }
+    }, 
+    "minx": -82.3480736835418, 
+    "miny": 40.988198, 
+    "maxy": 41.8531568842684
+  }, 
+  "13820": {
+    "centy": 33.46381824392428, 
+    "centx": -86.8138819553758, 
+    "NAME": "Birmingham-Hoover, AL", 
+    "maxx": -86.043993, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "MAX", 
+        "Agency Name": "Birmingham-Jefferson County Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "RPCGB", 
+        "Agency Name": "Regional Planning Commission of Greater Birmingham"
+      }
+    }, 
+    "minx": -87.636118, 
+    "miny": 32.660117, 
+    "maxy": 34.260169999999995
+  }, 
+  "39580": {
+    "centy": 35.75725506779662, 
+    "centx": -78.46086535879141, 
+    "NAME": "Raleigh, NC", 
+    "maxx": -78.006551, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "GoRaleigh", 
+        "Agency Name": "Capital Area Transit"
+      }, 
+      "1": {
+        "Reporter Acronym": "Raleigh Other", 
+        "Agency Name": "Raleigh Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "NCSU", 
+        "Agency Name": "North Carolina State University Transportation Department"
+      }, 
+      "3": {
+        "Reporter Acronym": "GoCary", 
+        "Agency Name": "Town of Cary"
+      }, 
+      "4": {
+        "Reporter Acronym": "TRACS", 
+        "Agency Name": "Wake County DSS"
+      }
+    }, 
+    "minx": -78.995059, 
+    "miny": 35.254672, 
+    "maxy": 36.266191
+  }, 
+  "40380": {
+    "centy": 42.965927041193986, 
+    "centx": -77.50789682670171, 
+    "NAME": "Rochester, NY", 
+    "maxx": -76.702325, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "RGRTA", 
+        "Agency Name": "RTS - Monroe County"
+      }
+    }, 
+    "minx": -78.46642899999999, 
+    "miny": 42.459185999999995, 
+    "maxy": 43.376504999999995
+  }, 
+  "14460": {
+    "centy": 42.55802877261765, 
+    "centx": -71.10048066703337, 
+    "NAME": "Boston-Cambridge-Newton, MA-NH", 
+    "maxx": -70.525567, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "MBTA", 
+        "Agency Name": "Massachusetts Bay Transportation Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Boston Other", 
+        "Agency Name": "Boston Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "BAT", 
+        "Agency Name": "Brockton Area Transit Authority"
+      }, 
+      "3": {
+        "Reporter Acronym": "MVRTA", 
+        "Agency Name": "Merrimack Valley Regional Transit Authority"
+      }, 
+      "4": {
+        "Reporter Acronym": "LRTA", 
+        "Agency Name": "Lowell Regional Transit Authority"
+      }, 
+      "5": {
+        "Reporter Acronym": "MWRTA", 
+        "Agency Name": "MetroWest Regional Transit Authority"
+      }, 
+      "6": {
+        "Reporter Acronym": "BX", 
+        "Agency Name": "Boston Express Bus"
+      }, 
+      "7": {
+        "Reporter Acronym": "CATA", 
+        "Agency Name": "Cape Ann Transportation Authority"
+      }, 
+      "8": {
+        "Reporter Acronym": "BBL", 
+        "Agency Name": "Blooms Bus Lines"
+      }, 
+      "9": {
+        "Reporter Acronym": "Lexpess", 
+        "Agency Name": "Town of Lexington"
+      }, 
+      "10": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Burlington"
+      }, 
+      "11": {
+        "Reporter Acronym": "CART", 
+        "Agency Name": "Greater Derry Salem Cooperative Alliance for Regional Transportation"
+      }, 
+      "12": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Beverly"
+      }, 
+      "13": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Mission Hill Link"
+      }, 
+      "14": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Town of Bedford"
+      }
+    }, 
+    "minx": -71.89877002948, 
+    "miny": 41.623432, 
+    "maxy": 43.572787
+  }, 
+  "39980": {
+    "centy": 39.8643823553559, 
+    "centx": -85.00983824347368, 
+    "NAME": "Richmond, IN", 
+    "maxx": -84.8109329724325, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "GRTC", 
+        "Agency Name": "Greater Richmond Transit Company"
+      }, 
+      "1": {
+        "Reporter Acronym": "Petersburg Area Transit", 
+        "Agency Name": "Petersburg Area Transit"
+      }
+    }, 
+    "minx": -85.221136, 
+    "miny": 39.714763999999995, 
+    "maxy": 40.006357
+  }, 
+  "12380": {
+    "centy": 43.671429429214555, 
+    "centx": -92.75252641820238, 
+    "NAME": "Austin, MN", 
+    "maxx": -92.44894781237689, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "CapMetro", 
+        "Agency Name": "Capital Metropolitan Transportation Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "City of Round Rock", 
+        "Agency Name": "City of Round Rock"
+      }
+    }, 
+    "minx": -93.04952399999999, 
+    "miny": 43.499548, 
+    "maxy": 43.848760999999996
+  }, 
+  "41220": {
+    "centy": 30.930563084522053, 
+    "centx": -81.66997650559183, 
+    "NAME": "St. Marys, GA", 
+    "maxx": -81.403409, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "St. Louis METRO", 
+        "Agency Name": "Bi-State Development Agency of the Missouri-Illinois Metropolitan District"
+      }, 
+      "1": {
+        "Reporter Acronym": "St. Louis Other", 
+        "Agency Name": "St. Louis Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "MCT", 
+        "Agency Name": "Madison County Transit District"
+      }, 
+      "3": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Loop Trolley Transportation Development District"
+      }
+    }, 
+    "minx": -81.93674899999999, 
+    "miny": 30.708655999999998, 
+    "maxy": 31.169594999999997
+  }, 
+  "46140": {
+    "centy": 36.25042342887361, 
+    "centx": -96.1662742008172, 
+    "NAME": "Tulsa, OK", 
+    "maxx": -95.20794599999999, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "MTTA", 
+        "Agency Name": "Metropolitan Tulsa Transit Authority"
+      }
+    }, 
+    "minx": -97.06448499999999, 
+    "miny": 35.376689999999996, 
+    "maxy": 36.999286
+  }, 
+  "38300": {
+    "centy": 40.43902795452785, 
+    "centx": -79.83095505809933, 
+    "NAME": "Pittsburgh, PA", 
+    "maxx": -78.974459, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "PAAC", 
+        "Agency Name": "Port Authority of Allegheny County"
+      }, 
+      "1": {
+        "Reporter Acronym": "Pittsburgh Other", 
+        "Agency Name": "Pittsburgh Other"
+      }, 
+      "2": {
+        "Reporter Acronym": "BCTA", 
+        "Agency Name": "Beaver County Transit Authority"
+      }, 
+      "3": {
+        "Reporter Acronym": "WCTA", 
+        "Agency Name": "Westmoreland County Transit Authority"
+      }, 
+      "4": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Washington County Transportation Authority"
+      }, 
+      "5": {
+        "Reporter Acronym": "SPC", 
+        "Agency Name": "Southwestern Pennsylvania Commission"
+      }, 
+      "6": {
+        "Reporter Acronym": "ACTA", 
+        "Agency Name": "Airport Corridor Transportation Association"
+      }
+    }, 
+    "minx": -80.519218, 
+    "miny": 39.720712999999996, 
+    "maxy": 41.173134
+  }, 
+  "41940": {
+    "centy": 36.90948171496966, 
+    "centx": -121.37588329178168, 
+    "NAME": "San Jose-Sunnyvale-Santa Clara, CA", 
+    "maxx": -120.596562, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "VTA", 
+        "Agency Name": "Santa Clara Valley Transportation Authority"
+      }
+    }, 
+    "minx": -122.202653, 
+    "miny": 36.196847999999996, 
+    "maxy": 37.484637
+  }, 
+  "47260": {
+    "centy": 36.832925338593896, 
+    "centx": -76.4541116293933, 
+    "NAME": "Virginia Beach-Norfolk-Newport News, VA-NC", 
+    "maxx": -75.7733857837426, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "HRT", 
+        "Agency Name": "Transportation District Commission of Hampton Roads"
+      }, 
+      "1": {
+        "Reporter Acronym": "Suffolk Transit", 
+        "Agency Name": "Suffolk Transit"
+      }
+    }, 
+    "minx": -76.95051, 
+    "miny": 36.071709999999996, 
+    "maxy": 37.603173999999996
+  }, 
+  "24340": {
+    "centy": 42.9992610243922, 
+    "centx": -85.4883007883229, 
+    "NAME": "Grand Rapids-Wyoming, MI", 
+    "maxx": -84.83530499999999, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "The Rapid", 
+        "Agency Name": "Interurban Transit Partnership"
+      }
+    }, 
+    "minx": -86.27199581316529, 
+    "miny": 42.419728, 
+    "maxy": 43.468201
+  }, 
+  "15380": {
+    "centy": 42.91091243448507, 
+    "centx": -78.73667371517844, 
+    "NAME": "Buffalo-Cheektowaga-Niagara Falls, NY", 
+    "maxx": -78.460416, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "NFT Metro", 
+        "Agency Name": "Niagara Frontier Transportation Authority"
+      }
+    }, 
+    "minx": -79.13689290760351, 
+    "miny": 42.438286, 
+    "maxy": 43.374884
+  }, 
+  "36740": {
+    "centy": 28.434330578535825, 
+    "centx": -81.36300157584371, 
+    "NAME": "Orlando-Kissimmee-Sanford, FL", 
+    "maxx": -80.861398, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "LYNX", 
+        "Agency Name": "Central Florida Regional Transportation Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "SunRail", 
+        "Agency Name": "Central Florida Commuter Rail"
+      }
+    }, 
+    "minx": -81.957641, 
+    "miny": 27.642003, 
+    "maxy": 29.276766
+  }, 
+  "32820": {
+    "centy": 35.00767520010713, 
+    "centx": -89.81523244298334, 
+    "NAME": "Memphis, TN-MS-AR", 
+    "maxx": -89.01658599999999, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "MATA", 
+        "Agency Name": "Memphis Area Transit Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "Shelby County Government", 
+        "Agency Name": "Shelby County Government"
+      }
+    }, 
+    "minx": -90.58853599999999, 
+    "miny": 34.423807, 
+    "maxy": 35.652344
+  }, 
+  "31080": {
+    "centy": 34.22061387970025, 
+    "centx": -118.14964815478179, 
+    "NAME": "Los Angeles-Long Beach-Anaheim, CA", 
+    "maxx": -117.413314, 
+    "agencies": {
+      "0": {
+        "Reporter Acronym": "LA Metro", 
+        "Agency Name": "Los Angeles County Metropolitan Transportation Authority"
+      }, 
+      "1": {
+        "Reporter Acronym": "OCTA", 
+        "Agency Name": "Orange County Transportation Authority"
+      }, 
+      "2": {
+        "Reporter Acronym": "LBT", 
+        "Agency Name": "Long Beach Transit"
+      }, 
+      "3": {
+        "Reporter Acronym": "LADOT", 
+        "Agency Name": "City of Los Angeles Department of Transportation"
+      }, 
+      "4": {
+        "Reporter Acronym": "Metrolink", 
+        "Agency Name": "Southern California Regional Rail Authority"
+      }, 
+      "5": {
+        "Reporter Acronym": "Foothill Transit", 
+        "Agency Name": "Foothill Transit"
+      }, 
+      "6": {
+        "Reporter Acronym": "Big Blue Bus", 
+        "Agency Name": "Santa Monica's Big Blue Bus"
+      }, 
+      "7": {
+        "Reporter Acronym": "ATN", 
+        "Agency Name": "Anaheim Transportation Network"
+      }, 
+      "8": {
+        "Reporter Acronym": "Los Angeles Other", 
+        "Agency Name": "Los Angeles Other"
+      }, 
+      "9": {
+        "Reporter Acronym": "MBL", 
+        "Agency Name": "Montebello Bus Lines"
+      }, 
+      "10": {
+        "Reporter Acronym": "Culver CityBus", 
+        "Agency Name": "Culver City Municipal Bus Lines"
+      }, 
+      "11": {
+        "Reporter Acronym": "AS", 
+        "Agency Name": "Access Services"
+      }, 
+      "12": {
+        "Reporter Acronym": "TTS", 
+        "Agency Name": "Torrance Transit System"
+      }, 
+      "13": {
+        "Reporter Acronym": "GTrans", 
+        "Agency Name": "City of Gardena Transportation Department"
+      }, 
+      "14": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Glendale"
+      }, 
+      "15": {
+        "Reporter Acronym": "ARTS", 
+        "Agency Name": "City of Pasadena"
+      }, 
+      "16": {
+        "Reporter Acronym": "NTS", 
+        "Agency Name": "Norwalk Transit System"
+      }, 
+      "17": {
+        "Reporter Acronym": "LACDPW", 
+        "Agency Name": "LA County DPW - East L.A."
+      }, 
+      "18": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of El Monte Transportation Division"
+      }, 
+      "19": {
+        "Reporter Acronym": "CBL", 
+        "Agency Name": "City of Commerce Municipal Buslines"
+      }, 
+      "20": {
+        "Reporter Acronym": "ALH", 
+        "Agency Name": "City of Alhambra"
+      }, 
+      "21": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of South Gate"
+      }, 
+      "22": {
+        "Reporter Acronym": "BCT", 
+        "Agency Name": "City of Redondo Beach - Beach Cities Transit"
+      }, 
+      "23": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Carson"
+      }, 
+      "24": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Monterey Park"
+      }, 
+      "25": {
+        "Reporter Acronym": "LACDPW", 
+        "Agency Name": "LA County DPW - South Whittier"
+      }, 
+      "26": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Burbank"
+      }, 
+      "27": {
+        "Reporter Acronym": "LACDPW", 
+        "Agency Name": "LA County DPW - Florence-Firestone"
+      }, 
+      "28": {
+        "Reporter Acronym": "COL", 
+        "Agency Name": "City of Lynwood"
+      }, 
+      "29": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Duarte"
+      }, 
+      "30": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Downey"
+      }, 
+      "31": {
+        "Reporter Acronym": "BG", 
+        "Agency Name": "City of Bell Gardens"
+      }, 
+      "32": {
+        "Reporter Acronym": "PVTA", 
+        "Agency Name": "Pomona Valley Transportation Authority"
+      }, 
+      "33": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Palos Verdes Peninsula Transit Authority"
+      }, 
+      "34": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Cerritos"
+      }, 
+      "35": {
+        "Reporter Acronym": "COC", 
+        "Agency Name": "City of Cudahy"
+      }, 
+      "36": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Baldwin Park, Baldwin Park Transit"
+      }, 
+      "37": {
+        "Reporter Acronym": "COC", 
+        "Agency Name": "City of Calabasas"
+      }, 
+      "38": {
+        "Reporter Acronym": "WEHO", 
+        "Agency Name": "City of West Hollywood"
+      }, 
+      "39": {
+        "Reporter Acronym": "CRT", 
+        "Agency Name": "Compton Renaissance Transit Service"
+      }, 
+      "40": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Rosemead"
+      }, 
+      "41": {
+        "Reporter Acronym": "BLF", 
+        "Agency Name": "City of Bellflower"
+      }, 
+      "42": {
+        "Reporter Acronym": "COM", 
+        "Agency Name": "City of Maywood"
+      }, 
+      "43": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "LA County DPW - Athens Shuttle Service"
+      }, 
+      "44": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of West Covina"
+      }, 
+      "45": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "LA County DPW - Lennox Shuttle"
+      }, 
+      "46": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Whittier"
+      }, 
+      "47": {
+        "Reporter Acronym": "Arcadia Transit", 
+        "Agency Name": "City of Arcadia Transit"
+      }, 
+      "48": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Lawndale"
+      }, 
+      "49": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "Los Angeles County Dept. of Public Works - Willowbrook Shuttle"
+      }, 
+      "50": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Avalon"
+      }, 
+      "51": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Glendora"
+      }, 
+      "52": {
+        "Reporter Acronym": "LACDPW", 
+        "Agency Name": "Los Angeles County DPW - East Valinda"
+      }, 
+      "53": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Inglewood"
+      }, 
+      "54": {
+        "Reporter Acronym": "Bell", 
+        "Agency Name": "City of Bell"
+      }, 
+      "55": {
+        "Reporter Acronym": "LMT", 
+        "Agency Name": "City of La Mirada Transit"
+      }, 
+      "56": {
+        "Reporter Acronym": "LACDPW", 
+        "Agency Name": "LA County DPW - Avocado Heights"
+      }, 
+      "57": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Monrovia"
+      }, 
+      "58": {
+        "Reporter Acronym": "LACDPW", 
+        "Agency Name": "LA County DPW - Whittier"
+      }, 
+      "59": {
+        "Reporter Acronym": "CLDAR", 
+        "Agency Name": "Claremont Dial-a-Ride"
+      }, 
+      "60": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Azusa"
+      }, 
+      "61": {
+        "Reporter Acronym": "CMB DAR", 
+        "Agency Name": "City of Manhattan Beach Dial A Ride"
+      }, 
+      "62": {
+        "Reporter Acronym": "DASH", 
+        "Agency Name": "City of Lakewood - DASH Transit"
+      }, 
+      "63": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Covina"
+      }, 
+      "64": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Beverly Hills"
+      }, 
+      "65": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of South Pasadena"
+      }, 
+      "66": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Agoura Hills"
+      }, 
+      "67": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Pico Rivera"
+      }, 
+      "68": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "LA County DPW - Willowbrook et al."
+      }, 
+      "69": {
+        "Reporter Acronym": "SFS", 
+        "Agency Name": "City of Santa Fe Springs"
+      }, 
+      "70": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Artesia"
+      }, 
+      "71": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "City of Malibu"
+      }, 
+      "72": {
+        "Reporter Acronym": NaN, 
+        "Agency Name": "LA County DPW - King Medical Center Shuttle Service"
+      }
+    }, 
+    "minx": -118.944862413904, 
+    "miny": 32.801462, 
+    "maxy": 34.823301
+  }
+}

@@ -1,4 +1,5 @@
 import re
+import json
 import pandas as pd
 import geopandas as gpd
 
@@ -7,9 +8,9 @@ def clean_ta(ta, drop):
     ta = ta.dropna(how='all')
 
     # Combine project ID's
-    ta['Project ID'] = ta['Project ID'].combine_first(
-        ta['"Other" primary Project ID']
-    ).astype('int32')
+    # ta['Project ID'] = ta['Project ID'].combine_first(
+    #     ta['"Other" primary Project ID']
+    # ).astype('int32')
     ta['Agency Name'] = ta['Agency Name'].combine_first(
         ta['Reporter Acronym']
     )
@@ -23,12 +24,34 @@ def make_match_name(name):
 
 def load_csa():
     csa = gpd.read_file('data/geojson/cbsa/cb_2017_us_cbsa_500k.shp')
-    csa['centroid_x'] = csa.centroid.x
-    csa['centroid_y'] = csa.centroid.y
+    csa['centx'] = csa.centroid.x
+    csa['centy'] = csa.centroid.y
     csa['name_match'] = csa['NAME'].apply(make_match_name)
     merge = pd.merge(csa, csa.bounds, how='inner', left_index=True, right_index=True)
-    return merge.drop(columns=['CSAFP', 'CBSAFP', 'AFFGEOID', 'LSAD', 
+    return merge.drop(columns=['CSAFP', 'CBSAFP', 'AFFGEOID', 'LSAD',
                                'ALAND', 'AWATER', 'geometry'])
+
+def make_json(df):
+    d = {}
+    for i, row in df.iterrows():
+        gid = row['GEOID']
+        pid = row['Project ID']
+        if gid not in d:
+            d[gid] = row[['NAME', 'centx', 'centy',
+                          'minx', 'miny', 'maxx', 'maxy']].to_dict()
+            d[gid]['agencies'] = {}
+
+        j = len(d[gid]['agencies'])
+        ta_info = row[['Agency Name', 'Reporter Acronym']].to_dict()
+        if pid:
+            d[gid]['agencies'][j] = ta_info
+        else:
+            if 'sub' not in d[gid]['agencies'][j]:
+                d[gid]['agencies'][j]['sub'] = {}
+            k = len(d[gid]['agencies'][j]['sub'])
+            d[gid]['agencies'][j]['sub'][k] = ta_info
+
+    return d
 
 def main():
     # Load the excel data:
@@ -45,7 +68,10 @@ def main():
     merge = pd.merge(agencies, csa, how='left', on='name_match')
     merge = merge.drop(columns=['UZA Name', 'name_match'])
 
-    merge.to_csv('data/output/ta.csv', index_label='id')
+    with open('data/output/ta.json', 'w') as fp:
+        json.dump(make_json(merge), fp, indent=2)
+
+    # group.to_json('data/output/ta.json', orient='index')
 
 if __name__ == "__main__":
     main()
