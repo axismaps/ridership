@@ -23,8 +23,9 @@ def load_csa():
     csa['centroid_x'] = csa.centroid.x
     csa['centroid_y'] = csa.centroid.y
     csa['name_match'] = csa['NAME'].apply(make_match_name)
-    return csa.drop(columns=['CSAFP', 'CBSAFP', 'AFFGEOID', 'LSAD', 
-                             'ALAND', 'AWATER', 'geometry'])
+    merge = pd.merge(csa, csa.bounds, how='inner', left_index=True, right_index=True)
+    return merge.drop(columns=['CSAFP', 'CBSAFP', 'AFFGEOID', 'LSAD', 
+                               'ALAND', 'AWATER', 'geometry'])
 
 def main():
     # Load the excel data:
