@@ -4,8 +4,11 @@
   "description": "Ridership Visualization",
   "main": "index.js",
   "scripts": {
+    "data": "npm run data:clean && npm run data:meta && npm run data:tracts",
     "data:clean": "python bin/ntd.py",
+    "data:meta": "python bin/meta.py",
     "data:tiles": "./bin/tiles.sh",
+    "data:tracts": "./bin/tracts.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
