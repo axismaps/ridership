@@ -10,6 +10,9 @@ def clean_ta(ta, drop):
     ta['Project ID'] = ta['Project ID'].combine_first(
         ta['"Other" primary Project ID']
     ).astype('int32')
+    ta['Agency Name'] = ta['Agency Name'].combine_first(
+        ta['Reporter Acronym']
+    )
 
     # Drop unused columns
     return ta.drop(columns=drop)
@@ -40,7 +43,7 @@ def main():
 
     csa = load_csa()
     merge = pd.merge(agencies, csa, how='left', on='name_match')
-    merge = merge.drop(columns=['name_match'])
+    merge = merge.drop(columns=['UZA Name', 'name_match'])
 
     merge.to_csv('data/output/ta.csv', index_label='id')
 
