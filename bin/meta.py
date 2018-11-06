@@ -1,3 +1,4 @@
+import re
 import pandas as pd
 import geopandas as gpd
 
@@ -13,10 +14,15 @@ def clean_ta(ta, drop):
     # Drop unused columns
     return ta.drop(columns=drop)
 
+def make_match_name(name):
+    matches = re.search(r"(\s|\w)*", name)
+    return matches.group(0)
+
 def load_csa():
-    csa = gpd.read_file('data/geojson/csa/cb_2017_us_csa_500k.shp')
+    csa = gpd.read_file('data/geojson/cbsa/cb_2017_us_cbsa_500k.shp')
     csa['centroid'] = csa.centroid
-    return csa.drop(columns=['CSAFP', 'AFFGEOID', 'LSAD', 'ALAND', 'AWATER'])
+    csa['name_match'] = csa['NAME'].apply(make_match_name)
+    return csa.drop(columns=['CSAFP', 'AFFGEOID', 'LSAD', 'ALAND', 'AWATER', 'geometry'])
 
 def main():
     # Load the excel data:
@@ -27,10 +33,12 @@ def main():
 
     DROP = ['ShowIndividual', '"Other" primary Project ID', 'Primary UZA']
     agencies = clean_ta(TA, DROP)
+    agencies['name_match'] = agencies['UZA Name'].apply(make_match_name)
 
     csa = load_csa()
+    merge = pd.merge(agencies, csa, how='left', on='name_match')
 
-    agencies.to_csv('data/output/ta.csv', index_label='id')
+    merge.to_csv('data/output/ta.csv', index_label='id')
 
 if __name__ == "__main__":
     main()
