@@ -12,8 +12,7 @@ def clean_ta(ta, drop):
     # Drop unused columns
     return ta.drop(columns=drop)
 
-DROP = ['ShowIndividual', '"Other" primary Project ID', 'Primary UZA',
-        'UZA Name', 'Agency Name', 'Reporter Acronym']
+DROP = ['ShowIndividual', '"Other" primary Project ID', 'Primary UZA']
 
 def main():
     # Load the excel data:
@@ -22,7 +21,8 @@ def main():
 
     print 'Data successfully loaded from Excel'
 
-    print clean_ta(TA, DROP)
+    agencies = clean_ta(TA, DROP)
+    agencies.to_csv('data/output/ta.csv', index_label='id')
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,434 @@
+id,Project ID,UZA Name,NTD ID,Agency Name,Reporter Acronym
+0,1,"New York-Newark, NY-NJ-CT",,New York City Transit,NYC Transit
+1,1,"New York-Newark, NY-NJ-CT",20008.0,MTA New York City Transit,NYCT
+2,2,"New York-Newark, NY-NJ-CT",20080.0,New Jersey Transit Corporation,NJ TRANSIT
+3,1,"New York-Newark, NY-NJ-CT",20188.0,MTA Bus Company,MTABUS
+4,3,"New York-Newark, NY-NJ-CT",20100.0,MTA Long Island Rail Road,MTA LIRR
+5,4,"New York-Newark, NY-NJ-CT",20098.0,Port Authority Trans-Hudson Corporation,PATH
+6,5,"New York-Newark, NY-NJ-CT",20078.0,MTA Metro-North Railroad,MTA MNR
+7,6,"New York-Newark, NY-NJ-CT",20076.0,Westchester County Bee-Line System,Westchester County Bee-Line System
+8,7,"New York-Newark, NY-NJ-CT",20206.0,Nassau Inter County Express,Nassau Inter County Express
+9,8,"New York-Newark, NY-NJ-CT",20082.0,New York City Department of Transportation,NYCDOT
+10,9,"New York-Newark, NY-NJ-CT",,,New York City Other
+11,9,"New York-Newark, NY-NJ-CT",20099.0,Staten Island Railway,SIRTOA
+12,9,"New York-Newark, NY-NJ-CT",20190.0,NY Waterway,Port Imperial Ferry Corporation
+13,9,"New York-Newark, NY-NJ-CT",20166.0,Orange-Newark-Elizabeth,Coach USA
+14,9,"New York-Newark, NY-NJ-CT",20072.0,Suffolk County DPW - Transportation,ST
+15,9,"New York-Newark, NY-NJ-CT",20126.0,Hudson Transit Lines,Short Line
+16,9,"New York-Newark, NY-NJ-CT",20219.0,A&C Bus Corporation & Montgomery & Westside Owners Association,
+17,9,"New York-Newark, NY-NJ-CT",20122.0,Academy Lines,
+18,9,"New York-Newark, NY-NJ-CT",20128.0,Suburban Transit Corporation,Coach USA
+19,9,"New York-Newark, NY-NJ-CT",20084.0,Transport of Rockland,TOR
+20,9,"New York-Newark, NY-NJ-CT",20149.0,Rockland Coaches,
+21,9,"New York-Newark, NY-NJ-CT",20161.0,DeCamp Bus Lines,
+22,9,"New York-Newark, NY-NJ-CT",22930.0,NYC Economic Development Corporation,NYCEDC
+23,9,"New York-Newark, NY-NJ-CT",20189.0,BillyBey Ferry Company,
+24,9,"New York-Newark, NY-NJ-CT",20163.0,Lakeland Bus Lines,
+25,9,"New York-Newark, NY-NJ-CT",20169.0,Trans-Bridge Lines,
+26,9,"New York-Newark, NY-NJ-CT",20175.0,Private Transportation Corporation,
+27,9,"New York-Newark, NY-NJ-CT",20217.0,Hampton Jitney,
+28,9,"New York-Newark, NY-NJ-CT",20220.0,Broadway Bus Corporation,
+29,9,"New York-Newark, NY-NJ-CT",20165.0,Olympia Trails Bus Company,Coach USA
+30,9,"New York-Newark, NY-NJ-CT",20177.0,Adirondack Transit Lines,Adirondack Trailways
+31,9,"New York-Newark, NY-NJ-CT",20135.0,Monsey New Square Trails Corporation,
+32,9,"New York-Newark, NY-NJ-CT",20160.0,Community Transit,Community Transit
+33,9,"New York-Newark, NY-NJ-CT",20209.0,Somerset County Transportation,SCT
+34,9,"New York-Newark, NY-NJ-CT",20006.0,Long Beach Bus,Long Beach Bus
+35,9,"New York-Newark, NY-NJ-CT",20196.0,Middlesex County Area Transit,MCAT
+36,9,"New York-Newark, NY-NJ-CT",20192.0,Bergen County Community Transportation,BCCT
+37,9,"New York-Newark, NY-NJ-CT",20197.0,EZ Ride,EZ Ride
+38,9,"New York-Newark, NY-NJ-CT",20222.0,Saddle River Trail,STR
+39,9,"New York-Newark, NY-NJ-CT",20071.0,Huntington Area Rapid Transit,HART
+40,9,"New York-Newark, NY-NJ-CT",20096.0,Putnam County Transit,PART
+41,9,"New York-Newark, NY-NJ-CT",20212.0,County of Hunterdon,HCLink
+42,9,"New York-Newark, NY-NJ-CT",20202.0,Essex County Division of Training and Employment,ECDTE
+43,9,"New York-Newark, NY-NJ-CT",20085.0,Clarkstown Mini-Trans,
+44,9,"New York-Newark, NY-NJ-CT",20210.0,County of Morris,MAPS
+45,9,"New York-Newark, NY-NJ-CT",20176.0,Kaser Bus Service,Kaser
+46,9,"New York-Newark, NY-NJ-CT",20089.0,Village of Spring Valley Bus,Spring Valley Jitney
+47,10,"Los Angeles-Long Beach-Anaheim, CA",90154.0,Los Angeles County Metropolitan Transportation Authority,LA Metro
+48,11,"Los Angeles-Long Beach-Anaheim, CA",90036.0,Orange County Transportation Authority,OCTA
+49,12,"Los Angeles-Long Beach-Anaheim, CA",90023.0,Long Beach Transit,LBT
+50,13,"Los Angeles-Long Beach-Anaheim, CA",90147.0,City of Los Angeles Department of Transportation,LADOT
+51,14,"Los Angeles-Long Beach-Anaheim, CA",90151.0,Southern California Regional Rail Authority,Metrolink
+52,15,"Los Angeles-Long Beach-Anaheim, CA",90146.0,Foothill Transit,Foothill Transit
+53,16,"Los Angeles-Long Beach-Anaheim, CA",90008.0,Santa Monica's Big Blue Bus,Big Blue Bus
+54,17,"Los Angeles-Long Beach-Anaheim, CA",90211.0,Anaheim Transportation Network,ATN
+55,18,"Los Angeles-Long Beach-Anaheim, CA",,,Los Angeles Other
+56,18,"Los Angeles-Long Beach-Anaheim, CA",90041.0,Montebello Bus Lines,MBL
+57,18,"Los Angeles-Long Beach-Anaheim, CA",90039.0,Culver City Municipal Bus Lines,Culver CityBus
+58,18,"Los Angeles-Long Beach-Anaheim, CA",90157.0,Access Services,AS
+59,18,"Los Angeles-Long Beach-Anaheim, CA",90010.0,Torrance Transit System,TTS
+60,18,"Los Angeles-Long Beach-Anaheim, CA",90042.0,City of Gardena Transportation Department,GTrans
+61,18,"Los Angeles-Long Beach-Anaheim, CA",99423.0,City of Glendale,
+62,18,"Los Angeles-Long Beach-Anaheim, CA",99424.0,City of Pasadena,ARTS
+63,18,"Los Angeles-Long Beach-Anaheim, CA",90022.0,Norwalk Transit System,NTS
+64,18,"Los Angeles-Long Beach-Anaheim, CA",90271.0,LA County DPW - East L.A.,LACDPW
+65,18,"Los Angeles-Long Beach-Anaheim, CA",90265.0,City of El Monte Transportation Division,
+66,18,"Los Angeles-Long Beach-Anaheim, CA",90043.0,City of Commerce Municipal Buslines,CBL
+67,18,"Los Angeles-Long Beach-Anaheim, CA",90247.0,City of Alhambra,ALH
+68,18,"Los Angeles-Long Beach-Anaheim, CA",90291.0,City of South Gate,
+69,18,"Los Angeles-Long Beach-Anaheim, CA",90214.0,City of Redondo Beach - Beach Cities Transit,BCT
+70,18,"Los Angeles-Long Beach-Anaheim, CA",90258.0,City of Carson,
+71,18,"Los Angeles-Long Beach-Anaheim, CA",90286.0,City of Monterey Park,
+72,18,"Los Angeles-Long Beach-Anaheim, CA",90276.0,LA County DPW - South Whittier,LACDPW
+73,18,"Los Angeles-Long Beach-Anaheim, CA",90256.0,City of Burbank,
+74,18,"Los Angeles-Long Beach-Anaheim, CA",90273.0,LA County DPW - Florence-Firestone,LACDPW
+75,18,"Los Angeles-Long Beach-Anaheim, CA",90281.0,City of Lynwood,COL
+76,18,"Los Angeles-Long Beach-Anaheim, CA",90264.0,City of Duarte,
+77,18,"Los Angeles-Long Beach-Anaheim, CA",90263.0,City of Downey,
+78,18,"Los Angeles-Long Beach-Anaheim, CA",90253.0,City of Bell Gardens,BG
+79,18,"Los Angeles-Long Beach-Anaheim, CA",99425.0,Pomona Valley Transportation Authority,PVTA
+80,18,"Los Angeles-Long Beach-Anaheim, CA",90287.0,Palos Verdes Peninsula Transit Authority,
+81,18,"Los Angeles-Long Beach-Anaheim, CA",90259.0,City of Cerritos,
+82,18,"Los Angeles-Long Beach-Anaheim, CA",90262.0,City of Cudahy,COC
+83,18,"Los Angeles-Long Beach-Anaheim, CA",90251.0,"City of Baldwin Park, Baldwin Park Transit",
+84,18,"Los Angeles-Long Beach-Anaheim, CA",90257.0,City of Calabasas,COC
+85,18,"Los Angeles-Long Beach-Anaheim, CA",90294.0,City of West Hollywood,WEHO
+86,18,"Los Angeles-Long Beach-Anaheim, CA",90260.0,Compton Renaissance Transit Service,CRT
+87,18,"Los Angeles-Long Beach-Anaheim, CA",90289.0,City of Rosemead,
+88,18,"Los Angeles-Long Beach-Anaheim, CA",90254.0,City of Bellflower,BLF
+89,18,"Los Angeles-Long Beach-Anaheim, CA",90284.0,City of Maywood,COM
+90,18,"Los Angeles-Long Beach-Anaheim, CA",90269.0,LA County DPW - Athens Shuttle Service,
+91,18,"Los Angeles-Long Beach-Anaheim, CA",90293.0,City of West Covina,
+92,18,"Los Angeles-Long Beach-Anaheim, CA",90275.0,LA County DPW - Lennox Shuttle,
+93,18,"Los Angeles-Long Beach-Anaheim, CA",90295.0,City of Whittier,
+94,18,"Los Angeles-Long Beach-Anaheim, CA",90044.0,City of Arcadia Transit,Arcadia Transit
+95,18,"Los Angeles-Long Beach-Anaheim, CA",90280.0,City of Lawndale,
+96,18,"Los Angeles-Long Beach-Anaheim, CA",90278.0,Los Angeles County Dept. of Public Works - Willowbrook Shuttle,
+97,18,"Los Angeles-Long Beach-Anaheim, CA",90249.0,City of Avalon,
+98,18,"Los Angeles-Long Beach-Anaheim, CA",90266.0,City of Glendora,
+99,18,"Los Angeles-Long Beach-Anaheim, CA",90272.0,Los Angeles County DPW - East Valinda,LACDPW
+100,18,"Los Angeles-Long Beach-Anaheim, CA",90268.0,City of Inglewood,
+101,18,"Los Angeles-Long Beach-Anaheim, CA",90252.0,City of Bell,Bell
+102,18,"Los Angeles-Long Beach-Anaheim, CA",90024.0,City of La Mirada Transit,LMT
+103,18,"Los Angeles-Long Beach-Anaheim, CA",90270.0,LA County DPW - Avocado Heights,LACDPW
+104,18,"Los Angeles-Long Beach-Anaheim, CA",90285.0,City of Monrovia,
+105,18,"Los Angeles-Long Beach-Anaheim, CA",90277.0,LA County DPW - Whittier,LACDPW
+106,18,"Los Angeles-Long Beach-Anaheim, CA",90296.0,Claremont Dial-a-Ride,CLDAR
+107,18,"Los Angeles-Long Beach-Anaheim, CA",90250.0,City of Azusa,
+108,18,"Los Angeles-Long Beach-Anaheim, CA",90283.0,City of Manhattan Beach Dial A Ride,CMB DAR
+109,18,"Los Angeles-Long Beach-Anaheim, CA",90301.0,City of Lakewood - DASH Transit,DASH
+110,18,"Los Angeles-Long Beach-Anaheim, CA",90261.0,City of Covina,
+111,18,"Los Angeles-Long Beach-Anaheim, CA",90255.0,City of Beverly Hills,
+112,18,"Los Angeles-Long Beach-Anaheim, CA",90292.0,City of South Pasadena,
+113,18,"Los Angeles-Long Beach-Anaheim, CA",90246.0,City of Agoura Hills,
+114,18,"Los Angeles-Long Beach-Anaheim, CA",90288.0,City of Pico Rivera,
+115,18,"Los Angeles-Long Beach-Anaheim, CA",90279.0,LA County DPW - Willowbrook et al.,
+116,18,"Los Angeles-Long Beach-Anaheim, CA",90290.0,City of Santa Fe Springs,SFS
+117,18,"Los Angeles-Long Beach-Anaheim, CA",90300.0,City of Artesia,
+118,18,"Los Angeles-Long Beach-Anaheim, CA",90282.0,City of Malibu,
+119,18,"Los Angeles-Long Beach-Anaheim, CA",90274.0,LA County DPW - King Medical Center Shuttle Service,
+120,19,"Chicago, IL-IN",50066.0,Chicago Transit Authority,CTA
+121,20,"Chicago, IL-IN",50118.0,Metra Rail,Metra
+122,21,"Chicago, IL-IN",,PACE,PACE
+123,21,"Chicago, IL-IN",50113.0,Pace - Suburban Bus Division,PACE
+124,21,"Chicago, IL-IN",50182.0,"Pace-Suburban Bus Division, ADA Paratransit Services",PACE
+125,22,"Chicago, IL-IN",,,Chicago Other
+126,22,"Chicago, IL-IN",50104.0,Northern Indiana Commuter Transportation District,NICTD
+127,22,"Chicago, IL-IN",50045.0,Gary Public Transportation Corporation,GPTC
+128,22,"Chicago, IL-IN",50521.0,Chicago Water Taxi,CWT
+129,22,"Chicago, IL-IN",50183.0,City of Valparaiso,
+130,22,"Chicago, IL-IN",50042.0,East Chicago Transit,ECT
+131,22,"Chicago, IL-IN",50131.0,Opportunity Enterprises,OE
+132,22,"Chicago, IL-IN",50167.0,South Lake County Community Services,SLCCS
+133,22,"Chicago, IL-IN",50103.0,North Township of Lake County Dial-A-Ride,
+134,22,"Chicago, IL-IN",50179.0,Porter County Aging and Community Services,PCACS
+135,22,"Chicago, IL-IN",50185.0,Northwestern Indiana Regional Planning Commission,NIRPC
+136,23,"Miami, FL",40034.0,Miami-Dade Transit,Miami-Dade Transit
+137,24,"Miami, FL",40029.0,Broward County Transit Division,Broward County Transit Division
+138,25,"Miami, FL",40037.0,"Board of County Commissioners, Palm Beach County, PalmTran",PalmTran
+139,26,"Miami, FL",40077.0,South Florida Regional Transportation Authority,TRI-Rail
+140,27,"Miami, FL",,,Miami Other
+141,27,"Miami, FL",40152.0,Miami Lakes - vRide,
+142,27,"Miami, FL",40254.0,City of Lauderhill,
+143,27,"Miami, FL",44929.0,City of Fort Lauderdale,
+144,27,"Miami, FL",40249.0,City of Hallandale Beach,COHB
+145,27,"Miami, FL",40262.0,Town of Davie,
+146,27,"Miami, FL",40251.0,City of Pembroke Pines,
+147,27,"Miami, FL",40241.0,City of Miramar - Public Works Department,
+148,27,"Miami, FL",40238.0,City of Coconut Creek,
+149,27,"Miami, FL",40256.0,City of Margate,
+150,27,"Miami, FL",40257.0,City of Pompano Beach,
+151,27,"Miami, FL",40250.0,City of Lauderdale Lakes,
+152,27,"Miami, FL",40253.0,City of Coral Springs,
+153,27,"Miami, FL",40255.0,City of Hollywood,
+154,27,"Miami, FL",40239.0,City of Deerfield Beach/ North East Focal Point Senior Center,
+155,27,"Miami, FL",44932.0,City of Tamarac,COT
+156,27,"Miami, FL",40261.0,City of Dania Beach,
+157,27,"Miami, FL",40260.0,Town of Lauderdale-By-The-Sea,
+158,27,"Miami, FL",40248.0,Town of Hillsboro Beach,
+159,27,"Miami, FL",40240.0,City of Lighthouse Point,
+160,27,"Miami, FL",40263.0,City of West Park,
+161,28,"Philadelphia, PA-NJ-DE-MD",30019.0,Southeastern Pennsylvania Transportation Authority,SEPTA
+162,29,"Philadelphia, PA-NJ-DE-MD",20075.0,Port Authority Transit Corporation,PATCO
+163,30,"Philadelphia, PA-NJ-DE-MD",30075.0,Delaware Transit Corporation,DART First State
+164,31,"Philadelphia, PA-NJ-DE-MD",,,Philadelphia Other
+165,31,"Philadelphia, PA-NJ-DE-MD",30057.0,Pennsylvania Department of Transportation,PENNDOT
+166,31,"Philadelphia, PA-NJ-DE-MD",20204.0,Senior Citizens United Community Services of Camden County,SCUCS
+167,31,"Philadelphia, PA-NJ-DE-MD",30108.0,Cecil County Government - SSCT,
+168,31,"Philadelphia, PA-NJ-DE-MD",20208.0,County of Burlington,BurLink
+169,31,"Philadelphia, PA-NJ-DE-MD",20201.0,County of Cumberland,CCET
+170,31,"Philadelphia, PA-NJ-DE-MD",20195.0,Gloucester County Division of Transportation Services,DTS
+171,32,"Dallas-Fort Worth-Arlington, TX",60056.0,Dallas Area Rapid Transit,DART
+172,33,"Dallas-Fort Worth-Arlington, TX",60007.0,Fort Worth Transportation Authority,FWTA
+173,34,"Dallas-Fort Worth-Arlington, TX",,,Dallas-Fort Worth Other
+174,34,"Dallas-Fort Worth-Arlington, TX",60133.0,McKinney Avenue Transit Authority,MATA
+175,34,"Dallas-Fort Worth-Arlington, TX",60084.0,Ft.Worth - vRide,
+176,34,"Dallas-Fort Worth-Arlington, TX",60114.0,STAR Transit,STAR
+177,34,"Dallas-Fort Worth-Arlington, TX",60041.0,Handitran Special Transit Division - City of Arlington,Handitran
+178,34,"Dallas-Fort Worth-Arlington, TX",60115.0,Public Transit Services,PTS
+179,34,"Dallas-Fort Worth-Arlington, TX",60260.0,Community Services,CSI
+180,34,"Dallas-Fort Worth-Arlington, TX",60068.0,City of Grand Prairie Transportation Services Department,Grand Connection
+181,34,"Dallas-Fort Worth-Arlington, TX",60113.0,City of Cleburne,City/County Trans.
+182,34,"Dallas-Fort Worth-Arlington, TX",60070.0,City of Mesquite,
+183,34,"Dallas-Fort Worth-Arlington, TX",60117.0,North Central Texas Council of Governments,NCTCOG
+184,35,"Houston, TX",60008.0,"Metropolitan Transit Authority of Harris County, Texas",Houston Metro
+185,36,"Houston, TX",,,Houston Other
+186,36,"Houston, TX",60103.0,Fort Bend County Public Transportation,Fort Bend Transit
+187,36,"Houston, TX",60108.0,"Harris County Community Services Department, Office of Transit Services",Harris County Transit
+188,36,"Houston, TX",60121.0,Greater Southeast Management District,GSMD
+189,36,"Houston, TX",60119.0,Harris County Improvement District 1,HCID1
+190,36,"Houston, TX",60126.0,Harris County Improvement District 3,UKMD
+191,36,"Houston, TX",66270.0,Midtown Management District,
+192,36,"Houston, TX",60120.0,Westchase District,westchase district
+193,37,"Washington, DC-VA-MD",30030.0,Washington Metropolitan Area Transit Authority,WMATA
+194,38,"Washington, DC-VA-MD",30051.0,Ride-On Montgomery County Transit,Ride-On Montgomery County Transit
+195,39,"Washington, DC-VA-MD",30068.0,Fairfax Connector Bus System,Fairfax Connector
+196,40,"Washington, DC-VA-MD",30112.0,DDOT,DDOT
+197,41,"Washington, DC-VA-MD",,,"Washington, DC Other"
+198,41,"Washington, DC-VA-MD",30073.0,Virginia Railway Express,VRE
+199,41,"Washington, DC-VA-MD",30070.0,Potomac and Rappahannock Transportation Commission,PRTC
+200,41,"Washington, DC-VA-MD",30080.0,Arlington Transit - Arlington County,ART
+201,41,"Washington, DC-VA-MD",30085.0,Prince George's County Transit,TheBus
+202,41,"Washington, DC-VA-MD",30081.0,Loudoun County Commuter Bus Service,LC Transit
+203,41,"Washington, DC-VA-MD",60025.0,City of Alexandria,DASH
+204,41,"Washington, DC-VA-MD",30058.0,City of Fairfax CUE Bus,CUE
+205,41,"Washington, DC-VA-MD",30106.0,National Capital Region Transportation Planning Board,MWCOG/TPB
+206,41,"Washington, DC-VA-MD",30104.0,Metropolitan Washington Airports Authority,MWAA
+207,41,"Washington, DC-VA-MD",30105.0,Northern Virginia Transportation Commission,NVTC
+208,42,"Atlanta, GA",40022.0,Metropolitan Atlanta Rapid Transit Authority,MARTA
+209,43,"Atlanta, GA",,,Atlanta Other
+210,43,"Atlanta, GA",40078.0,Cobb County Department of Transportation,
+211,43,"Atlanta, GA",40135.0,Georgia Regional Transportation Authority,GRTA
+212,43,"Atlanta, GA",40138.0,Gwinnett County Board of Commissioners,GCT
+213,43,"Atlanta, GA",40230.0,City of Atlanta DPW - Transit Division,COA DPW
+214,43,"Atlanta, GA",40153.0,vRide - Atlanta,
+215,43,"Atlanta, GA",40203.0,Enterprise Rideshare,
+216,43,"Atlanta, GA",40082.0,Douglas County Rideshare,Rideshare
+217,43,"Atlanta, GA",40181.0,Henry County Transit,HC
+218,43,"Atlanta, GA",40161.0,Cherokee County Board of Commissioners,CATS
+219,43,"Atlanta, GA",40246.0,Center for Pan Asian Community Services,CPACS
+220,43,"Atlanta, GA",40176.0,Atlanta Regional Commission,ARC
+221,43,"Atlanta, GA",40236.0,City of Marietta,
+222,44,"Boston, MA-NH-RI",10003.0,Massachusetts Bay Transportation Authority,MBTA
+223,45,"Boston, MA-NH-RI",,,Boston Other
+224,45,"Boston, MA-NH-RI",10004.0,Brockton Area Transit Authority,BAT
+225,45,"Boston, MA-NH-RI",10013.0,Merrimack Valley Regional Transit Authority,MVRTA
+226,45,"Boston, MA-NH-RI",10005.0,Lowell Regional Transit Authority,LRTA
+227,45,"Boston, MA-NH-RI",10118.0,MetroWest Regional Transit Authority,MWRTA
+228,45,"Boston, MA-NH-RI",10133.0,Boston Express Bus,BX
+229,45,"Boston, MA-NH-RI",10053.0,Cape Ann Transportation Authority,CATA
+230,45,"Boston, MA-NH-RI",11159.0,Blooms Bus Lines,BBL
+231,45,"Boston, MA-NH-RI",10181.0,Town of Lexington,Lexpess
+232,45,"Boston, MA-NH-RI",10180.0,City of Burlington,
+233,45,"Boston, MA-NH-RI",10123.0,Greater Derry Salem Cooperative Alliance for Regional Transportation,CART
+234,45,"Boston, MA-NH-RI",10179.0,City of Beverly,
+235,45,"Boston, MA-NH-RI",10182.0,Mission Hill Link,
+236,45,"Boston, MA-NH-RI",10178.0,Town of Bedford,
+237,46,"Detroit, MI",50119.0,City of Detroit Department of Transportation,DDOT
+238,47,"Detroit, MI",50031.0,Suburban Mobility Authority for Regional Transportation,SMART
+239,48,"Detroit, MI",,,Detroit Other
+240,48,"Detroit, MI",50141.0,Detroit Transportation Corporation,Detroit People Mover
+241,48,"Detroit, MI",50193.0,Enterprise Rideshare - Michigan,
+242,48,"Detroit, MI",50213.0,M-1 Rail,
+243,48,"Detroit, MI",50522.0,Lake Erie Transit,LET
+244,49,"Phoenix-Mesa, AZ",90032.0,City of Phoenix Public Transit Department,Valley Metro
+245,50,"Phoenix-Mesa, AZ",90209.0,Valley Metro Rail,Valley Metro Rail
+246,51,"Phoenix-Mesa, AZ",90136.0,Regional Public Transportation Authority,RPTA
+247,52,"Phoenix-Mesa, AZ",,,Phoenix Other
+248,52,"Phoenix-Mesa, AZ",90169.0,vRide - Valley Metro,
+249,52,"Phoenix-Mesa, AZ",90131.0,City of Scottsdale - Scottsdale Trolley,COS
+250,52,"Phoenix-Mesa, AZ",90034.0,City of Glendale Transit,
+251,52,"Phoenix-Mesa, AZ",90140.0,Peoria Transit,
+252,53,"San Francisco-Oakland, CA",90015.0,San Francisco Municipal Railway,MUNI
+253,54,"San Francisco-Oakland, CA",90003.0,San Francisco Bay Area Rapid Transit District,BART
+254,55,"San Francisco-Oakland, CA",90014.0,Alameda-Contra Costa Transit District,AC Transit
+255,56,"San Francisco-Oakland, CA",90134.0,Peninsula Corridor Joint Powers Board,Caltrain
+256,57,"San Francisco-Oakland, CA",90009.0,San Mateo County Transit District,SamTrans
+257,58,"San Francisco-Oakland, CA",,,San Francisco Other
+258,58,"San Francisco-Oakland, CA",90016.0,"Golden Gate Bridge, Highway and Transportation District",GGBHTD
+259,58,"San Francisco-Oakland, CA",90234.0,Marin County Transit District,
+260,58,"San Francisco-Oakland, CA",90225.0,San Francisco Bay Area Water Emergency Transportation Authority,WETA
+261,58,"San Francisco-Oakland, CA",90159.0,Western Contra Costa Transit Authority,WestCAT
+262,58,"San Francisco-Oakland, CA",90161.0,City of Union City Transit Division,UCT
+263,58,"San Francisco-Oakland, CA",90299.0,Sonoma-Marin Area Rail Transit District,SMART
+264,59,"Seattle, WA",1.0,King County Department of Transportation,King County Metro
+265,60,"Seattle, WA",40.0,Central Puget Sound Regional Transit Authority,Sound Transit
+266,61,"Seattle, WA",35.0,Washington State Ferries,Washington State Ferries
+267,62,"Seattle, WA",29.0,Snohomish County Public Transportation Benefit Area Corporation,Community Transit
+268,63,"Seattle, WA",3.0,Pierce County Transportation Benefit Area Authority,Pierce Transit
+269,64,"Seattle, WA",,,Seattle Other
+270,64,"Seattle, WA",23.0,Seattle Center Monorail Transit,SMS
+271,64,"Seattle, WA",5.0,Everett Transit,ET
+272,64,"Seattle, WA",28.0,Pierce County Ferry Operations,Pierce County Ferry
+273,64,"Seattle, WA",407.0,Muckleshoot Indian Tribe,MIT
+274,65,"San Diego, CA",90026.0,San Diego Metropolitan Transit System,San Diego MTS
+275,66,"San Diego, CA",90030.0,North County Transit District,NCTD
+276,67,"San Diego, CA",90095.0,San Diego Association of Governments,SANDAG
+277,68,"Minneapolis-St. Paul, MN-WI",50027.0,Metro Transit,Metro Transit
+278,69,"Minneapolis-St. Paul, MN-WI",,,Minneapolis-St. Paul Other
+279,69,"Minneapolis-St. Paul, MN-WI",50515.0,University of Minnesota Transit,
+280,69,"Minneapolis-St. Paul, MN-WI",50154.0,Metropolitan Council,
+281,69,"Minneapolis-St. Paul, MN-WI",50519.0,Minnesota Valley Transit Authority,MVTA
+282,69,"Minneapolis-St. Paul, MN-WI",50155.0,Metro Mobility,
+283,69,"Minneapolis-St. Paul, MN-WI",50518.0,SouthWest Transit,SWT
+284,69,"Minneapolis-St. Paul, MN-WI",50516.0,City of Plymouth,Plymouth Metrolink
+285,69,"Minneapolis-St. Paul, MN-WI",50517.0,City of Maple Grove,
+286,70,"Tampa-St. Petersburg, FL",40041.0,Hillsborough Area Regional Transit Authority,HART
+287,71,"Tampa-St. Petersburg, FL",40027.0,Pinellas Suncoast Transit Authority,PSTA
+288,72,"Tampa-St. Petersburg, FL",,,Tampa Other
+289,72,"Tampa-St. Petersburg, FL",40074.0,Pasco County Public Transportation,PCPT
+290,72,"Tampa-St. Petersburg, FL",40259.0,Jolley Trolley Transportation of Clearwater,PSTA
+291,72,"Tampa-St. Petersburg, FL",40200.0,Tampa Bay Area Regional Transit Authority,TBARTA
+292,72,"Tampa-St. Petersburg, FL",40258.0,The Looper Group,
+293,73,"Denver-Aurora, CO",80006.0,Denver Regional Transportation District,RTD
+294,74,"Denver-Aurora, CO",80109.0,vRide - Denver,vRide - Denver
+295,75,"Baltimore, MD",30034.0,Maryland Transit Administration,MTA
+296,76,"Baltimore, MD",,,Baltimore Other
+297,76,"Baltimore, MD",30201.0,Baltimore City DOT,
+298,76,"Baltimore, MD",30048.0,Howard Transit,HT
+299,76,"Baltimore, MD",30040.0,Annapolis DOT,Annapolis Transit
+300,76,"Baltimore, MD",30129.0,Anne Arundel County,
+301,77,"St. Louis, MO-IL",70006.0,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO
+302,78,"St. Louis, MO-IL",,,St. Louis Other
+303,78,"St. Louis, MO-IL",50146.0,Madison County Transit District,MCT
+304,78,"St. Louis, MO-IL",70057.0,Loop Trolley Transportation Development District,
+305,79,"Riverside-San Bernardino, CA",90029.0,Omnitrans,OMNI
+306,80,"Riverside-San Bernardino, CA",90031.0,Riverside Transit Agency,RTA
+307,81,"Riverside-San Bernardino, CA",,,Riverside-San Bernardino Other
+308,81,"Riverside-San Bernardino, CA",90052.0,City of Corona,CCTS
+309,81,"Riverside-San Bernardino, CA",90086.0,City of Riverside Special Transportation,City of Riverside
+310,81,"Riverside-San Bernardino, CA",90218.0,Riverside County Transportation Commission,RCTC 5307 Recipient
+311,82,"Las Vegas-Henderson, NV",90045.0,Regional Transportation Commission of Southern Nevada,RTC
+312,83,"Las Vegas-Henderson, NV",90242.0,Las Vegas Monorail Company,LVMC
+313,84,"Portland, OR-WA",8.0,Tri-County Metropolitan Transportation District of Oregon,TriMet
+314,85,"Portland, OR-WA",58.0,City of Portland,PBOT
+315,86,"Portland, OR-WA",24.0,Clark County Public Transportation Benefit Area Authority,C-Tran
+316,87,"Portland, OR-WA",,,Portland Other
+317,87,"Portland, OR-WA",46.0,South Metro Area Regional Transit,SMART
+318,87,"Portland, OR-WA",376.0,Ride Connection,
+319,88,"Cleveland, OH",50015.0,The Greater Cleveland Regional Transit Authority,GCRTA
+320,89,"Cleveland, OH",,,Cleveland Other
+321,89,"Cleveland, OH",50117.0,Laketran,
+322,89,"Cleveland, OH",50198.0,Medina County Public Transit,MCPT
+323,90,"San Antonio, TX",60011.0,VIA Metropolitan Transit,VIA
+324,91,"San Antonio, TX",60130.0,Alamo Area Council of Governments,Alamo Regional Transit
+325,92,"Pittsburgh, PA",30022.0,Port Authority of Allegheny County,PAAC
+326,93,"Pittsburgh, PA",,,Pittsburgh Other
+327,93,"Pittsburgh, PA",30023.0,Beaver County Transit Authority,BCTA
+328,93,"Pittsburgh, PA",30044.0,Westmoreland County Transit Authority,WCTA
+329,93,"Pittsburgh, PA",30111.0,Washington County Transportation Authority,
+330,93,"Pittsburgh, PA",30078.0,Southwestern Pennsylvania Commission,SPC
+331,93,"Pittsburgh, PA",30990.0,Airport Corridor Transportation Association,ACTA
+332,94,"Sacramento, CA",90019.0,Sacramento Regional Transit District,Sacramento RT
+333,95,"Sacramento, CA",,,Sacramento Other
+334,95,"Sacramento, CA",90090.0,Yolo County Transportation District,YCTD
+335,95,"Sacramento, CA",90205.0,City of Elk Grove,etran
+336,95,"Sacramento, CA",90196.0,Placer County DPWF,PCDPWF
+337,95,"Sacramento, CA",90223.0,Paratransit,
+338,95,"Sacramento, CA",90229.0,El Dorado County Transit Authority,EDCTA
+339,95,"Sacramento, CA",90168.0,Roseville Transit,
+340,95,"Sacramento, CA",90220.0,City of Folsom,FSL
+341,96,"San Jose, CA",90013.0,Santa Clara Valley Transportation Authority,VTA
+342,97,"Cincinnati, OH-KY-IN",50012.0,Southwest Ohio Regional Transit Authority,SORTA
+343,98,"Cincinnati, OH-KY-IN",,,Cincinnati Other
+344,98,"Cincinnati, OH-KY-IN",40019.0,Transit Authority of Northern Kentucky,TANK
+345,98,"Cincinnati, OH-KY-IN",50157.0,Butler County Regional Transit Authority,BCRTA
+346,98,"Cincinnati, OH-KY-IN",50166.0,Clermont Transportation Connection,CTC
+347,98,"Cincinnati, OH-KY-IN",50200.0,Warren County Transit Services,WCTS
+348,99,"Kansas City, MO-KS",70005.0,Kansas City Area Transportation Authority,KCATA
+349,100,"Kansas City, MO-KS",,,Kansas City Other
+350,100,"Kansas City, MO-KS",70271.0,"Kansas City, City of Missouri",KCMO
+351,100,"Kansas City, MO-KS",70035.0,Johnson County Transit,The JO
+352,100,"Kansas City, MO-KS",70046.0,City of Independence,IndeBus
+353,100,"Kansas City, MO-KS",70047.0,Unified Government Transit Department,UGT
+354,101,"Orlando, FL",40035.0,Central Florida Regional Transportation Authority,LYNX
+355,102,"Orlando, FL",40232.0,Central Florida Commuter Rail,SunRail
+356,103,"Indianapolis, IN",50050.0,Indianapolis and Marion County Public Transportation,IndyGo
+357,104,"Indianapolis, IN",,,Indianapolis Other
+358,104,"Indianapolis, IN",50209.0,Central Indiana Regional Transportation Authority,CIRTA
+359,104,"Indianapolis, IN",50201.0,Hancock Area Rural Transit,HART
+360,105,"Virginia Beach, VA",30083.0,Transportation District Commission of Hampton Roads,HRT
+361,106,"Virginia Beach, VA",30198.0,Suffolk Transit,Suffolk Transit
+362,107,"Milwaukee, WI",50008.0,Milwaukee County Transit System,MCTS
+363,108,"Milwaukee, WI",,,Milwaukee Other
+364,108,"Milwaukee, WI",50096.0,City of Waukesha Transit Commission,Waukesha Metro Transit
+365,108,"Milwaukee, WI",50161.0,Ozaukee County Transit Services,OCTS
+366,108,"Milwaukee, WI",50160.0,Washington County Transit,
+367,108,"Milwaukee, WI",55312.0,City of Milwaukee,
+368,109,"Columbus, OH",50016.0,Central Ohio Transit Authority,COTA
+369,110,"Columbus, OH",,,Columbus Other
+370,110,"Columbus, OH",50199.0,Delaware County Transit Board,DATA
+371,110,"Columbus, OH",50191.0,Mid-Ohio Regional Planning Commission,MORPC
+372,111,"Austin, TX",60048.0,Capital Metropolitan Transportation Authority,CapMetro
+373,112,"Austin, TX",60125.0,City of Round Rock,City of Round Rock
+374,113,"Charlotte, NC-SC",40008.0,Charlotte Area Transit System,CATS
+375,114,"Charlotte, NC-SC",,,Charlotte Other
+376,114,"Charlotte, NC-SC",40228.0,Mecklenburg County DSS,MCTS
+377,114,"Charlotte, NC-SC",40205.0,Iredell County Area Transportation Services,ICATS
+378,114,"Charlotte, NC-SC",40215.0,Union County Transportation,UCT
+379,114,"Charlotte, NC-SC",40237.0,Lancaster County Council on Aging,Lancaster Area Ride Service
+380,115,"Providence, RI-MA",10001.0,Rhode Island Public Transit Authority,RIPTA
+381,116,"Providence, RI-MA",,,Providence Other
+382,116,"Providence, RI-MA",10064.0,Greater Attleboro-Taunton Regional Transit Authority,GATRA
+383,116,"Providence, RI-MA",11147.0,Rhode Island DOT,RIDOT
+384,117,"Jacksonville, FL",40040.0,Jacksonville Transportation Authority,JTA
+385,118,"Jacksonville, FL",40245.0,Clay County Council on Aging,Clay Transit
+386,119,"Memphis, TN-MS-AR",40003.0,Memphis Area Transit Authority,MATA
+387,120,"Memphis, TN-MS-AR",40247.0,Shelby County Government,Shelby County Government
+388,121,"Salt Lake City-West Valley City, UT",80001.0,Utah Transit Authority,UTA
+389,122,"Louisville/Jefferson County, KY-IN",40018.0,Transit Authority of River City,TARC
+390,123,"Louisville/Jefferson County, KY-IN",,,Louisville Other
+391,123,"Louisville/Jefferson County, KY-IN",40196.0,Kentuckiana Regional Planning and Development Agency,KIPDA
+392,123,"Louisville/Jefferson County, KY-IN",40218.0,Oldham's Public Bus,
+393,124,"Nashville-Davidson, TN",40004.0,Metropolitan Transit Authority,WeGo/MTA
+394,125,"Nashville-Davidson, TN",,,Nashville Other
+395,125,"Nashville-Davidson, TN",40159.0,Regional Transportation Authority,RTA
+396,125,"Nashville-Davidson, TN",40178.0,The Transportation Management Association Group,TMA
+397,125,"Nashville-Davidson, TN",40162.0,Franklin Transit Authority,FTA
+398,126,"Richmond, VA",30006.0,Greater Richmond Transit Company,GRTC
+399,127,"Richmond, VA",30009.0,Petersburg Area Transit,Petersburg Area Transit
+400,128,"Buffalo, NY",20004.0,Niagara Frontier Transportation Authority,NFT Metro
+401,129,"Hartford, CT",10048.0,CTTRANSIT Hartford,CTTransit
+402,130,"Hartford, CT",,,Hartford Other
+403,130,"Hartford, CT",10102.0,Connecticut DOT,CDOT
+404,130,"Hartford, CT",10130.0,CTTRANSIT New Britain,
+405,130,"Hartford, CT",10017.0,Greater Hartford Transit District,GHTD
+406,130,"Hartford, CT",10045.0,CTTransit New Britain -Dattco.,CDOT CTTransit DATTCO
+407,130,"Hartford, CT",10063.0,Middletown Transit District,MTD
+408,130,"Hartford, CT",10132.0,CTTransit Torrington-Winsted,Nason Partners
+409,131,"New Orleans, LA",60032.0,New Orleans Regional Transit Authority,NORTA
+410,132,"New Orleans, LA",,,New Orleans Other
+411,132,"New Orleans, LA",60088.0,Jefferson Parish Department of Transit Administration,Jet
+412,132,"New Orleans, LA",60127.0,Plaquemines Parish Government,PPG
+413,132,"New Orleans, LA",60058.0,St. Bernard Urban Rapid Transit,SBURT
+414,132,"New Orleans, LA",60112.0,River Parishes Transit Authority,RPTA
+415,132,"New Orleans, LA",60128.0,Regional Planning Commission,RPC
+416,133,"Raleigh, NC",40007.0,Capital Area Transit,GoRaleigh
+417,134,"Raleigh, NC",,,Raleigh Other
+418,134,"Raleigh, NC",40147.0,North Carolina State University Transportation Department,NCSU
+419,134,"Raleigh, NC",40143.0,Town of Cary,GoCary
+420,134,"Raleigh, NC",40222.0,Wake County DSS,TRACS
+421,135,"Oklahoma City, OK",60017.0,Central Oklahoma Transportation and Parking Authority,COTPA
+422,136,"Oklahoma City, OK",60118.0,City of Edmond,Citylink
+423,137,"Tucson, AZ",90033.0,City of Tucson,Sun Tran
+424,138,"Tucson, AZ",,,Tucson Other
+425,138,"Tucson, AZ",90222.0,Pima Association of Governments,PAG
+426,138,"Tucson, AZ",90191.0,Town of Oro Valley - Transit Services Division,SunShutDNR
+427,139,"Urban Honolulu, HI",90002.0,City and County of Honolulu Department of Transportation Services,DTS
+428,140,"Birmingham, AL",40042.0,Birmingham-Jefferson County Transit Authority,MAX
+429,141,"Birmingham, AL",40169.0,Regional Planning Commission of Greater Birmingham,RPCGB
+430,142,"Rochester, NY",20113.0,RTS - Monroe County,RGRTA
+431,143,"Tulsa, OK",60018.0,Metropolitan Tulsa Transit Authority,MTTA
+432,144,"Grand Rapids, MI",50033.0,Interurban Transit Partnership,The Rapid
