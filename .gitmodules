@@ -1,0 +1,3 @@
+[submodule "src/js/state"]
+	path = src/js/state
+	url = https://github.com/axismaps/state.git
