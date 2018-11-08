@@ -3,10 +3,13 @@
   <title>TransitCenter Ridership Visualization</title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="initial-scale=1.0"/>
+  <link rel="stylesheet" type="text/css" href="fontawesome-pro/css/all.min.css">
 </head>
 <body>
   <div class="outer-container">
-      <%= require('html-loader!./atlas.html') %>
+    <%= require('html-loader!./header.html') %>
+    <%= require('html-loader!./atlas.html') %>
+    <%= require('html-loader!./sidebar.html') %>
   </div>
   <script src="js/d3.min.js"></script>
   <script src="js/d3-selection-multi.min.js"></script>

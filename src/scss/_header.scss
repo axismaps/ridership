@@ -1,0 +1,23 @@
+.header {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.header__title-row {
+  height: $header__title-row--height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.header__title-block {
+  display: flex;
+}
+
+.header__title-buttons-block {
+  display: flex;
+}

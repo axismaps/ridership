@@ -58,6 +58,16 @@ module.exports = {
         flatten: true,
       },
       {
+        from: 'node_modules/@fortawesome/fontawesome-pro/css/*',
+        to: 'fontawesome-pro/css',
+        flatten: true,
+      },
+      {
+        from: 'node_modules/@fortawesome/fontawesome-pro/webfonts/*',
+        to: 'fontawesome-pro/webfonts',
+        flatten: true,
+      },
+      {
         from: 'node_modules/d3/dist/d3.min.js',
         to: 'js/d3.min.js',
       },
