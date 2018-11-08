@@ -1,0 +1,9 @@
+.sidebar__outer-container {
+  @include panel();
+  position: absolute;
+  left: 0px;
+  top: $sidebar--top;
+  height: calc(100vh - #{$sidebar--top});
+  width: $sidebar--width;
+  border-top-right-radius: $sidebar--border-radius;
+}
