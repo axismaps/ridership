@@ -1,5 +1,6 @@
 import dataMethods from './data/dataMethods';
 import getState from './getComponents/getState';
+import getAtlas from './getComponents/getAtlas';
 
 require('../scss/index.scss');
 
@@ -15,7 +16,9 @@ const app = {
   },
   initComponents() {
     const { components, data } = this;
-    components.state = getState({ components, data });
+    const state = getState({ components, data });
+    components.state = state;
+    components.atlas = getAtlas({ data, state });
   },
 };
 

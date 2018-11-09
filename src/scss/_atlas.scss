@@ -7,3 +7,11 @@
   width: calc(100% - #{$atlas--left});
   border-top-left-radius: $sidebar--border-radius;
 }
+
+.atlas__top-row {
+  height: $panel__top-row--height;
+}
+
+.atlas__map-container {
+  height: calc(100% - #{$panel__top-row--height});
+}
