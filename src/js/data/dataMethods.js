@@ -1,5 +1,4 @@
 const dataMethods = {
-
   cleanData({ rawData }) {
     const [
       rawTa,
@@ -8,6 +7,9 @@ const dataMethods = {
       rawStates,
     ] = rawData;
 
+    const {
+      getNationalMapData,
+    } = dataMethods;
 
     const msa = rawMsa.rows.map((record) => {
       const {
@@ -51,8 +53,14 @@ const dataMethods = {
 
     const ntd = rawNtd.rows.map((record) => {
       const cleanRecord = Object.assign({}, record);
-      cleanRecord.id = record.id.toString();
+      cleanRecord.taId = record.id.toString();
       return cleanRecord;
+    });
+
+    const nationalMapData = getNationalMapData({
+      msa,
+      ntd,
+      ta,
     });
 
     const data = new Map();
@@ -61,10 +69,25 @@ const dataMethods = {
     data.set('ntd', ntd);
     data.set('ta', ta);
     data.set('statesTopo', rawStates);
-
-    console.log('data', data);
+    data.set('nationalMapData', nationalMapData);
 
     return data;
+  },
+  getNationalMapData({
+    msa,
+    ntd,
+    ta,
+  }) {
+    return msa.map((metro) => {
+      const metroCopy = Object.assign({}, metro);
+      metroCopy.ta = ta.filter(agency => agency.msaId === metro.msaId)
+        .map((agency) => {
+          const agencyCopy = Object.assign({}, agency);
+          agencyCopy.ntd = ntd.filter(d => d.taId === agency.taId);
+          return agencyCopy;
+        });
+      return metroCopy;
+    });
   },
   getData(callback) {
     const { cleanData } = dataMethods;
@@ -78,12 +101,14 @@ const dataMethods = {
         const data = cleanData({ rawData });
         callback(data);
       });
-
-    d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20DISTINCT%20ON%20(id)%20id,%20ST_AsGeoJSON(the_geom)%20as%20the_geom,%20taname,%20tashort,%20msaid,%20msaname%20FROM%20ta_transit_vars')
-      .then((data) => {
-        console.log('??', data);
-      });
   },
+  // getCurrentNationalMapData({
+  //   data,
+  //   year,
+  //   indicator,
+  // }) {
+  //   const currentNationalMapData = {};
+  // },
 };
 
 export default dataMethods;

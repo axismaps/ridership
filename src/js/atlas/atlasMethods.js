@@ -1,7 +1,6 @@
 import * as topojson from 'topojson-client';
 import * as topojsonSimplify from 'topojson-simplify';
 
-console.log('presim', topojsonSimplify);
 Object.assign(topojson, topojsonSimplify);
 
 const atlasMethods = {
@@ -22,7 +21,6 @@ const atlasMethods = {
   getGeoData({
     statesTopo,
   }) {
-    console.log('statestopo', statesTopo);
     return {
       statesGeo: topojson.feature(
         statesTopo,
@@ -35,11 +33,8 @@ const atlasMethods = {
     height,
   }) {
     const projection = d3.geoAlbersUsa()
-    // .scale(1000)
-      // .scale(1)
       .translate([width / 2, height / 2]);
-    console.log('scale?', projection.scale());
-    console.log('translate?', projection.translate());
+
     const geoPath = d3.geoPath()
       .projection(projection);
     return {
