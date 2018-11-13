@@ -19,7 +19,9 @@ const privateMethods = {
       getGeoProps,
       drawLayers,
       drawStates,
-      setInitialPanZoom,
+      getZoomed,
+      setZoomEvents,
+      getInitialScaleTranslate,
     } = atlasMethods;
 
     const {
@@ -31,13 +33,10 @@ const privateMethods = {
       projection,
     } = getGeoProps({ width, height });
 
-    setInitialPanZoom({
-      statesGeo,
-      projection,
-      geoPath,
-    });
-
-    console.log('states geo', statesGeo);
+    const {
+      initialTranslate,
+      initialScale,
+    } = getInitialScaleTranslate({ projection });
 
     const mapSVG = drawMapSVG({
       mapContainer,
@@ -51,11 +50,22 @@ const privateMethods = {
 
     const states = drawStates({
       layers,
-      // mapSVG,
-      width,
-      height,
-      statesGeo,
+      // statesGeo,
+      statesTopo,
       geoPath,
+    });
+
+    const zoomed = getZoomed({
+      states,
+      initialScale,
+      initialTranslate,
+      projection,
+      geoPath,
+    });
+
+    setZoomEvents({
+      zoomed,
+      mapSVG,
     });
 
     Object.assign(props, {

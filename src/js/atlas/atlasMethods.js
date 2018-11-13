@@ -1,4 +1,8 @@
 import * as topojson from 'topojson-client';
+import * as topojsonSimplify from 'topojson-simplify';
+
+console.log('presim', topojsonSimplify);
+Object.assign(topojson, topojsonSimplify);
 
 const atlasMethods = {
   drawMapSVG({
@@ -31,8 +35,11 @@ const atlasMethods = {
     height,
   }) {
     const projection = d3.geoAlbersUsa()
-      .scale(1000)
+    // .scale(1000)
+      // .scale(1)
       .translate([width / 2, height / 2]);
+    console.log('scale?', projection.scale());
+    console.log('translate?', projection.translate());
     const geoPath = d3.geoPath()
       .projection(projection);
     return {
@@ -40,13 +47,13 @@ const atlasMethods = {
       projection,
     };
   },
-  setInitialPanZoom({
-    statesGeo,
-    geoPath,
+  getInitialScaleTranslate({
+    projection,
   }) {
-    const bounds = geoPath
-      .bounds(statesGeo.features);
-    console.log('bounds', bounds);
+    return {
+      initialTranslate: projection.translate(),
+      initialScale: projection.scale(),
+    };
   },
   drawLayers({
     mapSVG,
@@ -56,23 +63,53 @@ const atlasMethods = {
       agencies: mapSVG.append('g'),
     };
   },
+  getZoomed({
+    states,
+    // initialScale,
+    // initialTranslate,
+    // projection,
+    // geoPath,
+  }) {
+    return () => {
+      const { transform } = d3.event;
+      // console.log('transform', transform);
+      // projection
+      //   .translate([(initialTranslate[0] * transform.k) + transform.x,
+      //     (initialTranslate[1] * transform.k) + transform.y])
+      //   .scale(initialScale * transform.k);
+
+      // states.attr('d', geoPath);
+      states.attrs({
+        transform: `translate(${transform.x},${transform.y})scale(${transform.k})`,
+        'stroke-width': 1.5 / transform.k,
+      });
+    };
+  },
+  setZoomEvents({
+    zoomed,
+    mapSVG,
+  }) {
+    const zoom = d3.zoom()
+      .scaleExtent([1, 8])
+      .on('zoom', zoomed);
+    mapSVG.call(zoom);
+  },
   drawStates({
     layers,
-    width,
-    height,
-    statesGeo,
+    // statesGeo,
+    statesTopo,
     geoPath,
   }) {
-    // console.log('states topo', statesTopo);
-    layers.states
-      .selectAll('.map__state')
-      .data(statesGeo.features)
-      .enter()
+    const simpleTopo = topojson.simplify(topojson.presimplify(statesTopo), 0.001);
+    return layers.states
+
       .append('path')
+
+      .datum(topojson.feature(simpleTopo, simpleTopo.objects.admin1_polygons))
       .attrs({
         class: 'map__state',
-        // fill: 'grey',
         d: geoPath,
+        'stroke-width': 1.5,
       });
   },
 };
