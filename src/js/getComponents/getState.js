@@ -3,8 +3,8 @@ import State from '../state/state';
 const getState = ({ data }) => {
   const state = new State({
     mobile: false,
-    currentMSA: null,
-    currentIndicator: null,
+    msa: null,
+    indicator: 'bus',
     // currentYears: [2016, 2017],
     year: 2010,
     agenciesOn: true,
