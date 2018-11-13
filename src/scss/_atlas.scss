@@ -15,3 +15,9 @@
 .atlas__map-container {
   height: calc(100% - #{$panel__top-row--height});
 }
+
+.map__state {
+  fill: #EEEEEE;
+  stroke: #CCCCCC;
+  stroke-width: 1.5px;
+}
