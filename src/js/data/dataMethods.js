@@ -71,6 +71,7 @@ const dataMethods = {
     data.set('statesTopo', rawStates);
     data.set('nationalMapData', nationalMapData);
 
+    console.log('nationalMapData', nationalMapData);
     return data;
   },
   getNationalMapData({
@@ -102,13 +103,6 @@ const dataMethods = {
         callback(data);
       });
   },
-  // getCurrentNationalMapData({
-  //   data,
-  //   year,
-  //   indicator,
-  // }) {
-  //   const currentNationalMapData = {};
-  // },
 };
 
 export default dataMethods;

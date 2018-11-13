@@ -1,7 +1,7 @@
-import * as topojson from 'topojson-client';
+import * as topojsonBase from 'topojson-client';
 import * as topojsonSimplify from 'topojson-simplify';
 
-Object.assign(topojson, topojsonSimplify);
+const topojson = Object.assign({}, topojsonBase, topojsonSimplify);
 
 const atlasMethods = {
   drawMapSVG({
@@ -91,7 +91,6 @@ const atlasMethods = {
   },
   drawStates({
     layers,
-    // statesGeo,
     statesTopo,
     geoPath,
   }) {
@@ -106,6 +105,11 @@ const atlasMethods = {
         d: geoPath,
         'stroke-width': 1.5,
       });
+  },
+  drawClusters({
+    currentNationalData,
+  }) {
+    console.log('draw currentNationalData', currentNationalData);
   },
 };
 

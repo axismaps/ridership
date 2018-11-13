@@ -11,10 +11,10 @@ const privateMethods = {
       width,
       height,
       statesTopo,
+      currentNationalMapData,
     } = props;
-
+    console.log('current map data', currentNationalMapData);
     const {
-      getGeoData,
       drawMapSVG,
       getGeoProps,
       drawLayers,
@@ -23,10 +23,6 @@ const privateMethods = {
       setZoomEvents,
       getInitialScaleTranslate,
     } = atlasMethods;
-
-    const {
-      statesGeo,
-    } = getGeoData({ statesTopo });
 
     const {
       geoPath,
@@ -50,7 +46,6 @@ const privateMethods = {
 
     const states = drawStates({
       layers,
-      // statesGeo,
       statesTopo,
       geoPath,
     });
@@ -89,6 +84,7 @@ class Atlas {
       height,
       statesTopo: null,
       layers: null,
+      currentNationalMapData: null,
     });
     const {
       init,
@@ -102,6 +98,12 @@ class Atlas {
   config(config) {
     Object.assign(privateProps.get(this), config);
     return this;
+  }
+
+  updateYear() {
+    const props = privateProps.get(this);
+    const { currentNationalMapData } = props;
+    console.log('currentnationaldata', currentNationalMapData);
   }
 }
 
