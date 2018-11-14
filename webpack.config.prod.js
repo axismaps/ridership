@@ -75,6 +75,10 @@ module.exports = {
         from: 'node_modules/d3-selection-multi/build/d3-selection-multi.min.js',
         to: 'js/d3-selection-multi.min.js',
       },
+      {
+        from: 'node_modules/d3-force-cluster/dist/d3-force-cluster.min.js',
+        to: 'js/d3-force-cluster.min.js',
+      },
     ]),
   ],
 };

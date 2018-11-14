@@ -11,7 +11,7 @@ const getState = ({ data }) => {
   });
 
   state.getCurrentNationalMapData = function getCurrentNationalMapData() {
-    const nationalMapData = data.get('nationalMapData');
+    const nationalMapData = data.get('allNationalMapData');
     const year = this.get('year');
     return nationalMapData.map((msa) => {
       const msaCopy = Object.assign({}, msa);

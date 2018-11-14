@@ -6,3 +6,4 @@ data/output/*.mbtiles*
 *.pyc
 ~$*
 dist
+scratch

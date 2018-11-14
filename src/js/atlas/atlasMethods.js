@@ -60,6 +60,7 @@ const atlasMethods = {
   },
   getZoomed({
     states,
+    agencies,
     // initialScale,
     // initialTranslate,
     // projection,
@@ -78,6 +79,10 @@ const atlasMethods = {
         transform: `translate(${transform.x},${transform.y})scale(${transform.k})`,
         'stroke-width': 1.5 / transform.k,
       });
+
+      agencies.attrs({
+        transform: `translate(${transform.x},${transform.y})scale(${transform.k})`,
+      });
     };
   },
   setZoomEvents({
@@ -90,12 +95,12 @@ const atlasMethods = {
     mapSVG.call(zoom);
   },
   drawStates({
-    layers,
+    layer,
     statesTopo,
     geoPath,
   }) {
     const simpleTopo = topojson.simplify(topojson.presimplify(statesTopo), 0.001);
-    return layers.states
+    return layer
 
       .append('path')
 
@@ -106,10 +111,35 @@ const atlasMethods = {
         'stroke-width': 1.5,
       });
   },
-  drawClusters({
-    currentNationalData,
+  getRadiusScale({
+    nationalMapData,
+    indicator,
   }) {
-    console.log('draw currentNationalData', currentNationalData);
+    // const allTa = nationalMapData.reduce((accumulator, ))
+  },
+  drawAgencies({
+    nationalMapData,
+    layer,
+    projection,
+    indicator,
+  }) {
+    console.log('national map data', nationalMapData);
+    console.log('indicator', indicator);
+    console.log('d3 force', d3.forceSimulation());
+    // calculate radius scale
+    // create cluster diagram, each msa is a section, etc.
+    const agencies = layer.selectAll('.map__agency')
+      .data(nationalMapData)
+      .enter()
+      .append('circle')
+      .attrs({
+        r: 3,
+        fill: 'orange',
+        cx: d => projection(d.cent)[0],
+        cy: d => projection(d.cent)[1],
+      });
+
+    return agencies;
   },
 };
 

@@ -8,7 +8,7 @@ const dataMethods = {
     ] = rawData;
 
     const {
-      getNationalMapData,
+      getAllNationalMapData,
     } = dataMethods;
 
     const msa = rawMsa.rows.map((record) => {
@@ -26,6 +26,7 @@ const dataMethods = {
       return {
         centX: centx,
         centY: centy,
+        cent: [centx, centy],
         maxX: maxx,
         maxY: maxy,
         minX: minx,
@@ -57,7 +58,7 @@ const dataMethods = {
       return cleanRecord;
     });
 
-    const nationalMapData = getNationalMapData({
+    const allNationalMapData = getAllNationalMapData({
       msa,
       ntd,
       ta,
@@ -69,12 +70,11 @@ const dataMethods = {
     data.set('ntd', ntd);
     data.set('ta', ta);
     data.set('statesTopo', rawStates);
-    data.set('nationalMapData', nationalMapData);
+    data.set('allNationalMapData', allNationalMapData);
 
-    console.log('nationalMapData', nationalMapData);
     return data;
   },
-  getNationalMapData({
+  getAllNationalMapData({
     msa,
     ntd,
     ta,
