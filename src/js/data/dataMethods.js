@@ -84,7 +84,15 @@ const dataMethods = {
       metroCopy.ta = ta.filter(agency => agency.msaId === metro.msaId)
         .map((agency) => {
           const agencyCopy = Object.assign({}, agency);
-          agencyCopy.ntd = ntd.filter(d => d.taId === agency.taId);
+          agencyCopy.cent = metro.cent;
+          agencyCopy.ntd = ntd
+            .filter(d => d.taId === agency.taId)
+            .map((d) => {
+              const ntdCopy = Object.assign({}, d);
+              ntdCopy.msaId = agency.msaId;
+              ntdCopy.cent = metro.cent;
+              return ntdCopy;
+            });
           return agencyCopy;
         });
       return metroCopy;

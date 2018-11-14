@@ -58,7 +58,6 @@
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^5.5.0",
     "d3": "^5.7.0",
-    "d3-force-cluster": "^0.1.2",
     "d3-selection-multi": "^1.0.1",
     "topojson-client": "^3.0.0",
     "topojson-simplify": "^3.0.2"

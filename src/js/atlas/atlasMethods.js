@@ -112,10 +112,15 @@ const atlasMethods = {
       });
   },
   getRadiusScale({
-    nationalMapData,
+    allAgencies,
     indicator,
   }) {
-    // const allTa = nationalMapData.reduce((accumulator, ))
+    // const allAgencies = nationalMapData
+    //   .reduce((accumulator, msa) => [...accumulator, ...msa.ta.map(d => d.ntd[indicator])], []);
+    const values = allAgencies.map(d => d[indicator]);
+    return d3.scaleSqrt()
+      .domain(d3.extent(values))
+      .range([2, 10]);
   },
   drawAgencies({
     nationalMapData,
@@ -123,21 +128,63 @@ const atlasMethods = {
     projection,
     indicator,
   }) {
+    const {
+      getRadiusScale,
+    } = atlasMethods;
     console.log('national map data', nationalMapData);
-    console.log('indicator', indicator);
-    console.log('d3 force', d3.forceSimulation());
-    // calculate radius scale
-    // create cluster diagram, each msa is a section, etc.
+
+    const allAgencies = nationalMapData
+      .reduce((accumulator, msa) => [...accumulator, ...msa.ta], []);
+
+    const radiusScale = getRadiusScale({
+      allAgencies,
+      indicator,
+    });
+
+    // const centers = nationalMapData.reduce((accumulator, msa) => {
+    //   accumulator[msa.msaId] = {
+    //     x: projection(msa.cent)[0],
+    //     y: projection(msa.cent)[1],
+    //   };
+    //   return accumulator;
+    // }, {});
+
+
+    const nodes = allAgencies.map(agency => ({
+      cluster: agency.msaId,
+      radius: radiusScale(agency[indicator]),
+      x: projection(agency.cent)[0] + (Math.random() / 100),
+      y: projection(agency.cent)[1] + (Math.random() / 100),
+    }));
+    console.log('nodes', nodes);
+
     const agencies = layer.selectAll('.map__agency')
-      .data(nationalMapData)
+      .data(nodes)
       .enter()
       .append('circle')
       .attrs({
-        r: 3,
+        class: 'map__agency',
         fill: 'orange',
-        cx: d => projection(d.cent)[0],
-        cy: d => projection(d.cent)[1],
+      })
+      .on('mouseover', (d) => {
+        console.log(d.cluster);
       });
+
+    const layoutTick = () => {
+      agencies
+        .attrs({
+          cx: d => d.x,
+          cy: d => d.y,
+          r: d => d.radius,
+        });
+    };
+
+    const simulation = d3.forceSimulation()
+      .force('x', d3.forceX().x(d => d.x))
+      .force('y', d3.forceY().y(d => d.y))
+      .force('collide', d3.forceCollide(d => d.radius + 0.5))
+      .on('tick', layoutTick)
+      .nodes(nodes);
 
     return agencies;
   },
