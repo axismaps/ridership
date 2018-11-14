@@ -81,7 +81,9 @@ const atlasMethods = {
       });
 
       agencies.attrs({
+
         transform: `translate(${transform.x},${transform.y})scale(${transform.k})`,
+        r: d => d.radius / transform.k,
       });
     };
   },
@@ -167,7 +169,7 @@ const atlasMethods = {
         fill: 'orange',
       })
       .on('mouseover', (d) => {
-        console.log(d.cluster);
+        console.log(d);
       });
 
     const layoutTick = () => {
@@ -183,9 +185,18 @@ const atlasMethods = {
       .force('x', d3.forceX().x(d => d.x))
       .force('y', d3.forceY().y(d => d.y))
       .force('collide', d3.forceCollide(d => d.radius + 0.5))
-      .on('tick', layoutTick)
-      .nodes(nodes);
+      // .on('tick', layoutTick)
+      // .on('end', () => {
+      //   console.log('end');
+      // })
+      .nodes(nodes)
+      .stop();
 
+    for (let i = 0; i < 300; i += 1) {
+      simulation.tick();
+    }
+
+    layoutTick();
     return agencies;
   },
 };
