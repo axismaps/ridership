@@ -29,6 +29,7 @@ const privateMethods = {
     const {
       geoPath,
       projection,
+      projectionModify,
     } = getGeoProps({ width, height });
 
     const {
@@ -65,7 +66,9 @@ const privateMethods = {
       initialScale,
       initialTranslate,
       projection,
+      projectionModify,
       geoPath,
+
     });
 
     setZoomEvents({
@@ -75,6 +78,7 @@ const privateMethods = {
 
     Object.assign(props, {
       states,
+      agencies,
       layers,
       mapSVG,
     });
