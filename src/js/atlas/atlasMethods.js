@@ -94,7 +94,7 @@ const atlasMethods = {
         unshiftedPos,
       }) => {
         const change = d - original;
-        return unshiftedPos + change;
+        return unshiftedPos + change + ((change * transform.k) / 20) - (change / 20);
       };
       agencies.attrs({
         cx: d => getCenter({
@@ -143,7 +143,7 @@ const atlasMethods = {
     const values = allAgencies.map(d => d.indicator);
     return d3.scaleSqrt()
       .domain(d3.extent(values))
-      .range([2, 10]);
+      .range([5, 30]);
   },
   drawAgencies({
     nationalMapData,
@@ -200,7 +200,7 @@ const atlasMethods = {
     const simulation = d3.forceSimulation()
       .force('x', d3.forceX().x(d => d.x))
       .force('y', d3.forceY().y(d => d.y))
-      .force('collide', d3.forceCollide(d => d.radius + 0.5))
+      .force('collide', d3.forceCollide(d => d.radius * 0.8))
       .nodes(nodes)
       .stop();
 
