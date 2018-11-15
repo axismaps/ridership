@@ -113,7 +113,7 @@ class Atlas {
     return this;
   }
 
-  updateYear() {
+  updateYears() {
     const props = privateProps.get(this);
     const { nationalMapData } = props;
     console.log('currentnationaldata', nationalMapData);

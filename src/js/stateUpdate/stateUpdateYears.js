@@ -1,6 +1,6 @@
-const getStateUpdateYear = ({ components }) => function updateYear() {
+const getStateUpdateYear = ({ components }) => function updateYears() {
   const { atlas } = components;
-  // const year = this.get('year');
+  // const years = this.get('years');
   // const nationalMapData = data.get('nationalMapData');
   const nationalMapData = this.getCurrentNationalMapData();
 
@@ -8,7 +8,7 @@ const getStateUpdateYear = ({ components }) => function updateYear() {
     .config({
       nationalMapData,
     })
-    .updateYear();
+    .updateYears();
 };
 
 export default getStateUpdateYear;
