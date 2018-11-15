@@ -143,12 +143,13 @@ const atlasMethods = {
     const values = allAgencies.map(d => d.indicator);
     return d3.scaleSqrt()
       .domain(d3.extent(values))
-      .range([5, 30]);
+      .range([5, 35]);
   },
   drawAgencies({
     nationalMapData,
     layer,
     projection,
+    changeColorScale,
     // indicator,
   }) {
     const {
@@ -158,7 +159,8 @@ const atlasMethods = {
     console.log('nationaMapData', nationalMapData);
 
     const allAgencies = nationalMapData
-      .reduce((accumulator, msa) => [...accumulator, ...msa.ta], []);
+      .reduce((accumulator, msa) => [...accumulator, ...msa.ta], [])
+      .sort((a, b) => b.indicator - a.indicator);
 
     const radiusScale = getRadiusScale({
       allAgencies,
@@ -174,6 +176,8 @@ const atlasMethods = {
       xOriginal: projection(agency.cent)[0],
       yOriginal: projection(agency.cent)[1],
       cent: agency.cent,
+      color: changeColorScale(agency.pctChange),
+      pctChange: agency.pctChange,
     }));
 
     const agencies = layer.selectAll('.map__agency')
@@ -182,7 +186,7 @@ const atlasMethods = {
       .append('circle')
       .attrs({
         class: 'map__agency',
-        fill: 'orange',
+        fill: d => d.color,
       })
       .on('mouseover', (d) => {
         console.log(d);

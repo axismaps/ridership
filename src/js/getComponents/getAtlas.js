@@ -6,6 +6,7 @@ const getAtlas = ({ data, state }) => new Atlas({
   // indicator: state.get('indricator'),
   yearRange: data.get('yearRange'),
   msa: state.get('msa'),
+  changeColorScale: data.get('changeColorScale'),
 });
 
 export default getAtlas;

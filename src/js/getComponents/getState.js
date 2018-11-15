@@ -13,9 +13,10 @@ const getState = ({ data }) => {
   state.getCurrentNationalMapData = function getCurrentNationalMapData() {
     const nationalMapData = data.get('allNationalMapData');
     const years = this.get('years');
-    console.log('year', years);
+
     const indicator = this.get('indicator');
     const inYears = d => d.year >= years[0] && d.year <= years[1];
+
     return nationalMapData.map((msa) => {
       const msaCopy = Object.assign({}, msa);
       msaCopy.ta = msa.ta
@@ -35,13 +36,24 @@ const getState = ({ data }) => {
             taName,
             taShort,
           };
-          // const ntdRecord = agency.ntd.find(d => d.year === year);
-          const ntdRecords = agency.ntd.filter(inYears);
 
+          const ntdRecords = agency.ntd.filter(inYears);
+          const yearExtent = d3.extent(agency.ntd, d => d.year);
+
+          const firstRecord = agency.ntd.find(d => d.year === yearExtent[0])[indicator];
+          const lastRecord = agency.ntd.find(d => d.year === yearExtent[1])[indicator];
+
+          const noRecord = d => [0, null].includes(d);
+
+          const pctChange = noRecord(firstRecord)
+            ? null
+            : ((lastRecord - firstRecord)
+              / firstRecord) * 100;
           const indicatorValue = d3.sum(ntdRecords, d => d[indicator]);
           // Object.assign(agencyCopy, ntdRecords);
           Object.assign(agencyCopy, {
             indicator: indicatorValue,
+            pctChange,
           });
           return agencyCopy;
         })

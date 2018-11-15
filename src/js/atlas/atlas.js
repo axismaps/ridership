@@ -12,6 +12,7 @@ const privateMethods = {
       height,
       statesTopo,
       nationalMapData,
+      changeColorScale,
     } = props;
 
     const {
@@ -56,6 +57,7 @@ const privateMethods = {
       layer: layers.agencies,
       nationalMapData,
       projection,
+      changeColorScale,
     });
 
     const zoomed = getZoomed({

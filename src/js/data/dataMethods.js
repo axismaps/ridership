@@ -66,6 +66,16 @@ const dataMethods = {
 
     const yearRange = d3.extent(ntd, d => d.year);
 
+    const changeColorScale = d3.scaleThreshold()
+      .domain([-25, -5, 5, 25])
+      .range([
+        '#BC4E9F',
+        '#E6B4D6',
+        '#E2F1FD',
+        '#8BD5D5',
+        '#009093',
+      ]);
+
     const data = new Map();
 
     data.set('msa', msa);
@@ -74,6 +84,7 @@ const dataMethods = {
     data.set('statesTopo', rawStates);
     data.set('allNationalMapData', allNationalMapData);
     data.set('yearRange', yearRange);
+    data.set('changeColorScale', changeColorScale);
 
     return data;
   },
