@@ -6,18 +6,20 @@ const getState = ({ data }) => {
     msa: null,
     indicator: 'bus',
     // currentYears: [2016, 2017],
-    year: 2010,
+    years: [2008, 2010],
     agenciesOn: true,
   });
 
   state.getCurrentNationalMapData = function getCurrentNationalMapData() {
     const nationalMapData = data.get('allNationalMapData');
-    const year = this.get('year');
+    const years = this.get('years');
+    console.log('year', years);
     const indicator = this.get('indicator');
+    const inYears = d => d.year >= years[0] && d.year <= years[1];
     return nationalMapData.map((msa) => {
       const msaCopy = Object.assign({}, msa);
       msaCopy.ta = msa.ta
-        .filter(agency => agency.ntd.find(d => d.year === year) !== undefined)
+        .filter(agency => agency.ntd.filter(inYears).length > 0)
         .map((agency) => {
           const {
             cent,
@@ -33,8 +35,14 @@ const getState = ({ data }) => {
             taName,
             taShort,
           };
-          const ntdRecord = agency.ntd.find(d => d.year === year);
-          Object.assign(agencyCopy, ntdRecord);
+          // const ntdRecord = agency.ntd.find(d => d.year === year);
+          const ntdRecords = agency.ntd.filter(inYears);
+
+          const indicatorValue = d3.sum(ntdRecords, d => d[indicator]);
+          // Object.assign(agencyCopy, ntdRecords);
+          Object.assign(agencyCopy, {
+            indicator: indicatorValue,
+          });
           return agencyCopy;
         })
         .filter(agency => agency[indicator] !== 0);

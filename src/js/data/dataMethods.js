@@ -64,6 +64,8 @@ const dataMethods = {
       ta,
     });
 
+    const yearRange = d3.extent(ntd, d => d.year);
+
     const data = new Map();
 
     data.set('msa', msa);
@@ -71,6 +73,7 @@ const dataMethods = {
     data.set('ta', ta);
     data.set('statesTopo', rawStates);
     data.set('allNationalMapData', allNationalMapData);
+    data.set('yearRange', yearRange);
 
     return data;
   },

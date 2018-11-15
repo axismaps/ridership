@@ -12,7 +12,6 @@ const privateMethods = {
       height,
       statesTopo,
       nationalMapData,
-      indicator,
     } = props;
 
     const {
@@ -57,7 +56,6 @@ const privateMethods = {
       layer: layers.agencies,
       nationalMapData,
       projection,
-      indicator,
     });
 
     const zoomed = getZoomed({
@@ -65,7 +63,6 @@ const privateMethods = {
       agencies,
       initialScale,
       initialTranslate,
-      projection,
       projectionModify,
       geoPath,
 
