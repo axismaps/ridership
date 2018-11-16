@@ -10,6 +10,13 @@
 
 .atlas__top-row {
   height: $panel__top-row--height;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.indicator-dropdown {
+  margin-left: 10px;
 }
 
 .atlas__map-container {

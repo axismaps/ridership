@@ -85,7 +85,7 @@ const dataMethods = {
     data.set('allNationalMapData', allNationalMapData);
     data.set('yearRange', yearRange);
     data.set('changeColorScale', changeColorScale);
-
+    console.log('data', data);
     return data;
   },
   getAllNationalMapData({

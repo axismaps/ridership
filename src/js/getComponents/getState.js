@@ -8,6 +8,8 @@ const getState = ({ data }) => {
     // currentYears: [2016, 2017],
     years: [2008, 2010],
     agenciesOn: true,
+    nationalDataView: 'ta', // ta or msa
+    scale: 'national', // national or msa
   });
 
   state.getCurrentNationalMapData = function getCurrentNationalMapData() {
