@@ -15,8 +15,23 @@
   padding-left: 20px;
 }
 
-.indicator-dropdown {
+.atlas__indicator-dropdown-button {
   margin-left: 10px;
+}
+
+.atlas__year-slider-button {
+  margin-left: 50px;
+}
+
+.atlas__indicator-dropdown-button,
+.atlas__year-slider-button {
+  display: flex;
+  align-items: center;
+}
+
+.atlas__indicator-dropdown-button-text,
+.atlas__year-slider-button-text {
+  margin-right: 5px;
 }
 
 .atlas__map-container {

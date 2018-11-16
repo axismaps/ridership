@@ -21,3 +21,8 @@
   src: url('/fonts/MarkOffcPro-Black.ttf');
   font-weight: 800;
 }
+
+body {
+  background: $body--background;
+  font-family: Mark, Arial, sans-serif;
+}
