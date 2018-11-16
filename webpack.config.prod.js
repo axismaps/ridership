@@ -79,6 +79,11 @@ module.exports = {
         from: 'node_modules/d3-force-cluster/dist/d3-force-cluster.min.js',
         to: 'js/d3-force-cluster.min.js',
       },
+      {
+        from: 'src/fonts/*',
+        to: 'fonts',
+        flatten: true,
+      },
     ]),
   ],
 };
