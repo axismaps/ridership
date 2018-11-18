@@ -3,12 +3,32 @@ import getPrivateBase from './dropdownPrivateBase';
 
 const privateProps = new WeakMap();
 
-const privateMethods = {};
+const privateMethods = {
+  init() {
+    const {
+      indicators,
+      // contentContainer,
+    } = privateProps.get(this);
+    const {
+      setToggleButtonClick,
+    } = privateMethods;
+
+    setToggleButtonClick.call(this);
+    console.log('indicators', indicators);
+  },
+};
 
 class IndicatorDropdown {
   constructor(config) {
-    privateProps.set(this, {});
+    const {
+      init,
+    } = privateMethods;
+    privateProps.set(this, {
+      dropdownOpen: true,
+    });
     this.config(config);
+    console.log('test');
+    init.call(this);
   }
 
   config(config) {

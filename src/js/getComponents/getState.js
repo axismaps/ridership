@@ -4,7 +4,7 @@ const getState = ({ data }) => {
   const state = new State({
     mobile: false,
     msa: null,
-    indicator: 'bus',
+    indicator: data.get('indicators').get('bus'),
     // currentYears: [2016, 2017],
     years: [2008, 2010],
     agenciesOn: true,
@@ -16,7 +16,7 @@ const getState = ({ data }) => {
     const nationalMapData = data.get('allNationalMapData');
     const years = this.get('years');
 
-    const indicator = this.get('indicator');
+    const indicator = this.get('indicator').value;
     const inYears = d => d.year >= years[0] && d.year <= years[1];
 
     return nationalMapData.map((msa) => {

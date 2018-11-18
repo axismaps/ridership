@@ -3,11 +3,23 @@ import getPrivateBase from './dropdownPrivateBase';
 
 const privateProps = new WeakMap();
 
-const privateMethods = {};
+const privateMethods = {
+  init() {
+    // const {
+    // } = privateProps.get(this);
+    const {
+      setToggleButtonClick,
+    } = privateMethods;
+
+    setToggleButtonClick.call(this);
+  },
+};
 
 class SliderDropdown {
   constructor(config) {
-    privateProps.set(this, {});
+    privateProps.set(this, {
+      dropdownOpen: true,
+    });
     this.config(config);
   }
 

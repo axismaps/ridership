@@ -75,6 +75,74 @@ const dataMethods = {
         '#8BD5D5',
         '#009093',
       ]);
+      // 5: "headways"
+      // 6: "fares"
+      // 7: "recovery"
+      // 8: "bus"
+      // 9: "rail"
+      // 10: "total_oe"
+      // 11: "vrm_per_ride"
+      // 12: "trip_length"
+      // 13: "upt"
+      // 14: "speed"
+      // 15: "vrm"
+      // 16: "taId"
+
+    const indicators = new Map();
+
+    {
+      const indicatorList = [
+        {
+          text: 'Average Headways',
+          value: 'headways',
+        },
+        {
+          text: 'Average Fares',
+          value: 'fares',
+        },
+        {
+          text: 'Farebox Recovery',
+          value: 'recovery',
+        },
+        {
+          text: 'Bus Ridership',
+          value: 'bus',
+        },
+        {
+          text: 'Rail Ridership',
+          value: 'rail',
+        },
+        {
+          text: 'total_oe',
+          value: 'total_oe',
+        },
+        {
+          text: 'Vehicle Revenue Miles (per ride)',
+          value: 'vrm_per_ride',
+        },
+        {
+          text: 'Average Trip Length',
+          value: 'trip_length',
+        },
+        {
+          text: 'upt',
+          value: 'upt',
+        },
+        {
+          text: 'Average Speed',
+          value: 'speed',
+        },
+        {
+          text: 'Vehicle Revenue Miles (total)',
+          value: 'vrm',
+        },
+      ];
+
+      indicatorList.forEach((indicator) => {
+        indicators.set(indicator.value, indicator);
+      });
+    }
+
 
     const data = new Map();
 
@@ -85,6 +153,7 @@ const dataMethods = {
     data.set('allNationalMapData', allNationalMapData);
     data.set('yearRange', yearRange);
     data.set('changeColorScale', changeColorScale);
+    data.set('indicators', indicators);
     console.log('data', data);
     return data;
   },
