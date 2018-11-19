@@ -54,12 +54,12 @@ const getState = ({ data }) => {
           const indicatorValue = d3.sum(ntdRecords, d => d[indicator]);
           // Object.assign(agencyCopy, ntdRecords);
           Object.assign(agencyCopy, {
-            indicator: indicatorValue,
+            indicatorValue,
             pctChange,
           });
           return agencyCopy;
         })
-        .filter(agency => agency[indicator] !== 0);
+        .filter(agency => agency.indicatorValue !== 0);
       return msaCopy;
     })
       .filter(msa => msa.ta.length > 0);

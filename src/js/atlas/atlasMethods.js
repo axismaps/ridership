@@ -65,14 +65,17 @@ const atlasMethods = {
   },
   getZoomed({
     states,
-    agencies,
+    getAgencies,
     initialScale,
     initialTranslate,
     projectionModify,
+    setCurrentTransform,
   }) {
     return () => {
       const { transform } = d3.event;
+      setCurrentTransform(transform);
 
+      const agencies = getAgencies();
       /**
        * Re-project cluster nodes.
        * Everything else is scaled w/ un-modified original projection
@@ -88,13 +91,21 @@ const atlasMethods = {
         'stroke-width': 1.5 / transform.k,
       });
 
+      // const getCenter = ({
+      //   d,
+      //   original,
+      //   unshiftedPos,
+      // }) => {
+      //   const change = d - original;
+      //   return unshiftedPos + change + ((change * transform.k) / 20) - (change / 20);
+      // };
       const getCenter = ({
         d,
         original,
         unshiftedPos,
       }) => {
         const change = d - original;
-        return unshiftedPos + change + ((change * transform.k) / 20) - (change / 20);
+        return unshiftedPos + change;
       };
       agencies.attrs({
         cx: d => getCenter({
@@ -108,6 +119,10 @@ const atlasMethods = {
           unshiftedPos: projectionModify(d.cent)[1],
         }),
       });
+      // agencies.attrs({
+      //   cx: d => d.x,
+      //   cy: d => d.y,
+      // });
     };
   },
   setZoomEvents({
@@ -140,7 +155,7 @@ const atlasMethods = {
     allAgencies,
     // indicator,
   }) {
-    const values = allAgencies.map(d => d.indicator);
+    const values = allAgencies.map(d => d.indicatorValue);
     return d3.scaleSqrt()
       .domain(d3.extent(values))
       .range([5, 35]);
@@ -148,7 +163,7 @@ const atlasMethods = {
   drawAgencies({
     nationalMapData,
     layer,
-    projection,
+    projectionModify,
     changeColorScale,
     // indicator,
   }) {
@@ -156,11 +171,9 @@ const atlasMethods = {
       getRadiusScale,
     } = atlasMethods;
 
-    console.log('nationaMapData', nationalMapData);
-
     const allAgencies = nationalMapData
       .reduce((accumulator, msa) => [...accumulator, ...msa.ta], [])
-      .sort((a, b) => b.indicator - a.indicator);
+      .sort((a, b) => b.indicatorValue - a.indicatorValue);
 
     const radiusScale = getRadiusScale({
       allAgencies,
@@ -170,21 +183,27 @@ const atlasMethods = {
 
     const nodes = allAgencies.map(agency => ({
       cluster: agency.msaId,
-      radius: radiusScale(agency.indicator),
-      x: projection(agency.cent)[0],
-      y: projection(agency.cent)[1],
-      xOriginal: projection(agency.cent)[0],
-      yOriginal: projection(agency.cent)[1],
+      taId: agency.taId,
+      radius: radiusScale(agency.indicatorValue),
+      x: projectionModify(agency.cent)[0],
+      y: projectionModify(agency.cent)[1],
+      xOriginal: projectionModify(agency.cent)[0],
+      yOriginal: projectionModify(agency.cent)[1],
       cent: agency.cent,
       color: changeColorScale(agency.pctChange),
       pctChange: agency.pctChange,
     }));
 
     const agencies = layer.selectAll('.map__agency')
-      .data(nodes)
+      .data(nodes, d => d.taId);
+
+    const newAgencies = agencies
       .enter()
       .append('circle')
       .attrs({
+        cx: d => d.xOriginal,
+        cy: d => d.yOriginal,
+        r: 0,
         class: 'map__agency',
         fill: d => d.color,
       })
@@ -192,8 +211,14 @@ const atlasMethods = {
         console.log(d);
       });
 
+    agencies.exit().remove();
+
+    const mergedAgencies = newAgencies.merge(agencies);
+
     const layoutTick = () => {
-      agencies
+      mergedAgencies
+        .transition()
+        .duration(500)
         .attrs({
           cx: d => d.x,
           cy: d => d.y,
@@ -204,7 +229,8 @@ const atlasMethods = {
     const simulation = d3.forceSimulation()
       .force('x', d3.forceX().x(d => d.x))
       .force('y', d3.forceY().y(d => d.y))
-      .force('collide', d3.forceCollide(d => d.radius * 0.8))
+      // .force('collide', d3.forceCollide(d => d.radius * 0.8))
+      .force('collide', d3.forceCollide(d => d.radius))
       .nodes(nodes)
       .stop();
 
@@ -213,7 +239,7 @@ const atlasMethods = {
     }
 
     layoutTick();
-    return agencies;
+    return mergedAgencies;
   },
 };
 

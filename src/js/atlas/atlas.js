@@ -58,16 +58,20 @@ const privateMethods = {
       nationalMapData,
       projection,
       changeColorScale,
+      projectionModify,
     });
 
     const zoomed = getZoomed({
       states,
-      agencies,
+      // agencies,
+      getAgencies: () => props.agencies,
       initialScale,
       initialTranslate,
       projectionModify,
       geoPath,
-
+      setCurrentTransform: (newTransform) => {
+        props.transform = newTransform;
+      },
     });
 
     setZoomEvents({
@@ -80,6 +84,8 @@ const privateMethods = {
       agencies,
       layers,
       mapSVG,
+      projection,
+      projectionModify,
     });
   },
 };
@@ -117,6 +123,28 @@ class Atlas {
     const props = privateProps.get(this);
     const { nationalMapData } = props;
     console.log('currentnationaldata', nationalMapData);
+  }
+
+  updateNationalMapData() {
+    const props = privateProps.get(this);
+    const {
+      layers,
+      nationalMapData,
+      projection,
+      changeColorScale,
+      projectionModify,
+    } = props;
+    const {
+      drawAgencies,
+    } = atlasMethods;
+
+    props.agencies = drawAgencies({
+      layer: layers.agencies,
+      nationalMapData,
+      projection,
+      changeColorScale,
+      projectionModify,
+    });
   }
 }
 
