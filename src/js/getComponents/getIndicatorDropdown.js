@@ -1,7 +1,6 @@
 import IndicatorDropdown from '../dropdown/indicatorDropdown';
 
 const indicatorDropdown = ({ data, state }) => new IndicatorDropdown({
-
   indicator: state.get('indicator'),
   updateIndicator: (newIndicator) => {
     const currentIndicator = state.get('indicator');

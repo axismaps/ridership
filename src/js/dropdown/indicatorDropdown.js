@@ -1,4 +1,3 @@
-import getPublicBase from './dropdownPublicBase';
 import getPrivateBase from './dropdownPrivateBase';
 import pureMethods from './indicatorDropdownMethods';
 
@@ -14,17 +13,20 @@ const privateMethods = {
       toggleButton,
       indicator,
       toggleButtonText,
+      updateIndicator,
     } = props;
 
     const {
       setMenuToggleEvents,
       setContentVisibility,
+
     } = privateMethods;
 
     const {
       drawContent,
       setButtonText,
       setContentPosition,
+      highlightCurrentIndicator,
     } = pureMethods;
 
     setMenuToggleEvents.call(this);
@@ -40,10 +42,18 @@ const privateMethods = {
       contentOuterContainer,
     });
 
-    props.indicatorRows = drawContent({
+    const indicatorRows = drawContent({
       indicators,
       contentContainer,
+      updateIndicator,
     });
+
+    highlightCurrentIndicator({
+      indicatorRows,
+      indicator,
+    });
+
+    props.indicatorRows = indicatorRows;
   },
 };
 
@@ -60,7 +70,7 @@ class IndicatorDropdown {
       contentContainer: d3.select('.indicator-dropdown__content'),
     });
     this.config(config);
-    console.log('test');
+
     init.call(this);
   }
 
@@ -70,18 +80,22 @@ class IndicatorDropdown {
   }
 
   update() {
-    console.log('update', this);
+    const { highlightCurrentIndicator } = pureMethods;
+    const {
+      indicatorRows,
+      indicator,
+    } = privateProps.get(this);
+
+    highlightCurrentIndicator({
+      indicatorRows,
+      indicator,
+    });
   }
 }
 
 Object.assign(
   privateMethods,
   getPrivateBase({ privateProps, privateMethods }),
-);
-
-Object.assign(
-  IndicatorDropdown.prototype,
-  getPublicBase({ privateProps, privateMethods }),
 );
 
 export default IndicatorDropdown;

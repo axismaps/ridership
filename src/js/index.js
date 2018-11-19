@@ -3,6 +3,7 @@ import getState from './getComponents/getState';
 import getAtlas from './getComponents/getAtlas';
 import getIndicatorDropdown from './getComponents/getIndicatorDropdown';
 import getSliderDropdown from './getComponents/getSliderDropdown';
+import initStateUpdateListeners from './stateUpdate/stateUpdate';
 
 require('../scss/index.scss');
 
@@ -14,6 +15,7 @@ const app = {
     getData((data) => {
       this.data = data;
       this.initComponents();
+      this.initStateUpdateListeners();
     });
   },
   initComponents() {
@@ -23,6 +25,10 @@ const app = {
     components.atlas = getAtlas({ data, state });
     components.indicatorDropdown = getIndicatorDropdown({ state, data });
     components.getSliderDropdown = getSliderDropdown({ state, data });
+  },
+  initStateUpdateListeners() {
+    const { components, data } = this;
+    initStateUpdateListeners({ components, data });
   },
 };
 

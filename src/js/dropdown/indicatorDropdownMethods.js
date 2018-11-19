@@ -2,6 +2,7 @@ const pureMethods = {
   drawContent({
     indicators,
     contentContainer,
+    updateIndicator,
   }) {
     const indicatorList = Array.from(indicators.values());
 
@@ -13,7 +14,8 @@ const pureMethods = {
       .attrs({
         class: 'indicator-dropdown__content-row',
       })
-      .text(d => d.text);
+      .text(d => d.text)
+      .on('click', updateIndicator);
 
     return indicatorRows;
   },
@@ -46,7 +48,6 @@ const pureMethods = {
     indicatorRows,
     indicator,
   }) {
-    console.log('indciator', indicator);
     indicatorRows
       .classed('indicator-dropdown__content-row--highlighted', d => d.value === indicator.value);
   },

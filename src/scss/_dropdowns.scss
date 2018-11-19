@@ -19,3 +19,9 @@
   margin-top: 15px;
   cursor: pointer;
 }
+
+.indicator-dropdown__content-row:hover,
+.indicator-dropdown__content-row--highlighted {
+  color: $header__title-row--background;
+  font-weight: 600;
+}

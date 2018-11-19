@@ -1,11 +1,13 @@
-import getStateUpdateYear from './stateUpdateYear';
+import getStateUpdateYears from './stateUpdateYears';
+import getStateUpdateIndicator from './stateUpdateIndicator';
 
-const setStateCallbacks = ({ components }) => {
+const initStateUpdateListeners = ({ components }) => {
   const { state } = components;
 
   state.registerCallbacks({
-    year: getStateUpdateYear(({ components })),
+    years: getStateUpdateYears(({ components })),
+    indicator: getStateUpdateIndicator({ components, state }),
   });
 };
 
-export default setStateCallbacks;
+export default initStateUpdateListeners;
