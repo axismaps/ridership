@@ -5,22 +5,23 @@ const getDropdownPrivateBase = ({
   setToggleButtonClick() {
     const props = privateProps.get(this);
     const { toggleButton } = props;
-    const { toggleMenu } = privateMethods;
+    const { setContentVisibility } = privateMethods;
 
     toggleButton
-      .on('click', toggleMenu.bind(this));
+      .on('click', () => {
+        props.dropdownOpen = !props.dropdownOpen;
+        setContentVisibility.call(this);
+      });
   },
-  toggleMenu() {
+  setContentVisibility() {
     const props = privateProps.get(this);
     const {
       contentOuterContainer,
+      dropdownOpen,
     } = props;
 
-
-    props.dropdownOpen = !props.dropdownOpen;
-    console.log('menu open', props.dropdownOpen);
     contentOuterContainer
-      .classed('dropdown-content--open', props.dropdownOpen);
+      .classed('dropdown-content--open', dropdownOpen);
   },
 });
 

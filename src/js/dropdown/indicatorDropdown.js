@@ -1,5 +1,6 @@
 import getPublicBase from './dropdownPublicBase';
 import getPrivateBase from './dropdownPrivateBase';
+import pureMethods from './indicatorDropdownMethods';
 
 const privateProps = new WeakMap();
 
@@ -7,14 +8,41 @@ const privateMethods = {
   init() {
     const {
       indicators,
-      // contentContainer,
+      contentContainer,
+      contentOuterContainer,
+      toggleButton,
+      indicator,
+      toggleButtonText,
     } = privateProps.get(this);
+
     const {
       setToggleButtonClick,
+      setContentVisibility,
     } = privateMethods;
 
+    const {
+      drawContent,
+      setButtonText,
+      setContentPosition,
+    } = pureMethods;
+
     setToggleButtonClick.call(this);
-    console.log('indicators', indicators);
+    setContentVisibility.call(this);
+
+    setButtonText({
+      indicator,
+      toggleButtonText,
+    });
+
+    setContentPosition({
+      toggleButton,
+      contentOuterContainer,
+    });
+
+    drawContent({
+      indicators,
+      contentContainer,
+    });
   },
 };
 
@@ -25,6 +53,10 @@ class IndicatorDropdown {
     } = privateMethods;
     privateProps.set(this, {
       dropdownOpen: true,
+      toggleButton: d3.select('.atlas__indicator-dropdown-button'),
+      toggleButtonText: d3.select('.atlas__indicator-dropdown-button-text'),
+      contentOuterContainer: d3.select('.indicator-dropdown__content-container'),
+      contentContainer: d3.select('.indicator-dropdown__content'),
     });
     this.config(config);
     console.log('test');
