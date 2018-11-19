@@ -16,7 +16,7 @@ const privateMethods = {
     } = privateProps.get(this);
 
     const {
-      setToggleButtonClick,
+      setMenuToggleEvents,
       setContentVisibility,
     } = privateMethods;
 
@@ -26,7 +26,7 @@ const privateMethods = {
       setContentPosition,
     } = pureMethods;
 
-    setToggleButtonClick.call(this);
+    setMenuToggleEvents.call(this);
     setContentVisibility.call(this);
 
     setButtonText({
