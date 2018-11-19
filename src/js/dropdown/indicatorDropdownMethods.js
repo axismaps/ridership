@@ -5,7 +5,7 @@ const pureMethods = {
   }) {
     const indicatorList = Array.from(indicators.values());
 
-    contentContainer
+    const indicatorRows = contentContainer
       .selectAll('.indicator-dropdown__content-row')
       .data(indicatorList)
       .enter()
@@ -14,6 +14,8 @@ const pureMethods = {
         class: 'indicator-dropdown__content-row',
       })
       .text(d => d.text);
+
+    return indicatorRows;
   },
   setContentPosition({
     toggleButton,
@@ -39,6 +41,14 @@ const pureMethods = {
     toggleButtonText,
   }) {
     toggleButtonText.text(indicator.text);
+  },
+  highlightCurrentIndicator({
+    indicatorRows,
+    indicator,
+  }) {
+    console.log('indciator', indicator);
+    indicatorRows
+      .classed('indicator-dropdown__content-row--highlighted', d => d.value === indicator.value);
   },
 };
 

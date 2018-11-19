@@ -6,6 +6,7 @@ const privateProps = new WeakMap();
 
 const privateMethods = {
   init() {
+    const props = privateProps.get(this);
     const {
       indicators,
       contentContainer,
@@ -13,7 +14,7 @@ const privateMethods = {
       toggleButton,
       indicator,
       toggleButtonText,
-    } = privateProps.get(this);
+    } = props;
 
     const {
       setMenuToggleEvents,
@@ -39,7 +40,7 @@ const privateMethods = {
       contentOuterContainer,
     });
 
-    drawContent({
+    props.indicatorRows = drawContent({
       indicators,
       contentContainer,
     });

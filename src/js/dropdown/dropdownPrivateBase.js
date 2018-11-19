@@ -2,8 +2,6 @@ const getDropdownPrivateBase = ({
   privateProps,
   privateMethods,
 }) => ({
-
-
   setMenuToggleEvents() {
     const props = privateProps.get(this);
     const {
