@@ -155,25 +155,32 @@ const atlasMethods = {
     allAgencies,
     // indicator,
   }) {
-    const values = allAgencies.map(d => d.indicatorValue);
+    const values = allAgencies.map(d => d.uptTotal);
     return d3.scaleSqrt()
       .domain(d3.extent(values))
       .range([5, 35]);
+  },
+  getAllAgencies({
+    nationalMapData,
+  }) {
+    return nationalMapData
+      .reduce((accumulator, msa) => [...accumulator, ...msa.ta], [])
+      .sort((a, b) => b.indicatorValue - a.indicatorValue);
   },
   drawAgencies({
     nationalMapData,
     layer,
     projectionModify,
     changeColorScale,
+    logSimulationNodes,
     // indicator,
   }) {
     const {
       getRadiusScale,
+      getAllAgencies,
     } = atlasMethods;
 
-    const allAgencies = nationalMapData
-      .reduce((accumulator, msa) => [...accumulator, ...msa.ta], [])
-      .sort((a, b) => b.indicatorValue - a.indicatorValue);
+    const allAgencies = getAllAgencies({ nationalMapData });
 
     const radiusScale = getRadiusScale({
       allAgencies,
@@ -184,14 +191,15 @@ const atlasMethods = {
     const nodes = allAgencies.map(agency => ({
       cluster: agency.msaId,
       taId: agency.taId,
-      radius: radiusScale(agency.indicatorValue),
+      radius: radiusScale(agency.uptTotal),
       x: projectionModify(agency.cent)[0],
       y: projectionModify(agency.cent)[1],
       xOriginal: projectionModify(agency.cent)[0],
       yOriginal: projectionModify(agency.cent)[1],
       cent: agency.cent,
-      color: changeColorScale(agency.pctChange),
+      // color: changeColorScale(agency.pctChange),
       pctChange: agency.pctChange,
+      uptTotal: agency.uptTotal,
     }));
 
     const agencies = layer.selectAll('.map__agency')
@@ -205,7 +213,7 @@ const atlasMethods = {
         cy: d => d.yOriginal,
         r: 0,
         class: 'map__agency',
-        fill: d => d.color,
+        fill: d => changeColorScale(d.pctChange),
       })
       .on('mouseover', (d) => {
         console.log(d);
@@ -223,6 +231,7 @@ const atlasMethods = {
           cx: d => d.x,
           cy: d => d.y,
           r: d => d.radius,
+          fill: d => (d.pctChange === null ? 'lightgrey' : changeColorScale(d.pctChange)),
         });
     };
 
@@ -239,7 +248,37 @@ const atlasMethods = {
     }
 
     layoutTick();
+
+    logSimulationNodes(nodes);
+
     return mergedAgencies;
+  },
+  setAgencyColors({
+    agencies,
+    changeColorScale,
+    nationalMapData,
+    nodes,
+  }) {
+    const { getAllAgencies } = atlasMethods;
+
+    const allAgencies = getAllAgencies({ nationalMapData });
+
+    const agenciesTable = allAgencies.reduce((accumulator, agency) => {
+      accumulator[agency.taId] = agency.pctChange;
+      return accumulator;
+    }, {});
+    const nodesCopy = nodes.map((node) => {
+      const nodeCopy = Object.assign({}, node);
+      nodeCopy.pctChange = agenciesTable[node.taId];
+      return nodeCopy;
+    });
+    agencies
+      .data(nodesCopy, d => d.taId)
+      .transition()
+      .duration(500)
+      .attrs({
+        fill: d => (d.pctChange === null ? 'lightgrey' : changeColorScale(d.pctChange)),
+      });
   },
 };
 

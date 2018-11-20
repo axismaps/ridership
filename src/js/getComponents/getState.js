@@ -14,6 +14,7 @@ const getState = ({ data }) => {
 
   state.getCurrentNationalMapData = function getCurrentNationalMapData() {
     const nationalMapData = data.get('allNationalMapData');
+
     const years = this.get('years');
 
     const indicator = this.get('indicator').value;
@@ -52,14 +53,16 @@ const getState = ({ data }) => {
             : ((lastRecord - firstRecord)
               / firstRecord) * 100;
           const indicatorValue = d3.sum(ntdRecords, d => d[indicator]);
+          const uptTotal = d3.sum(ntdRecords, d => d.upt);
           // Object.assign(agencyCopy, ntdRecords);
           Object.assign(agencyCopy, {
             indicatorValue,
             pctChange,
+            uptTotal,
           });
           return agencyCopy;
         })
-        .filter(agency => agency.indicatorValue !== 0);
+        .filter(agency => agency.uptTotal !== 0);
       return msaCopy;
     })
       .filter(msa => msa.ta.length > 0);

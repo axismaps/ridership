@@ -59,6 +59,9 @@ const privateMethods = {
       projection,
       changeColorScale,
       projectionModify,
+      logSimulationNodes: (nodes) => {
+        props.nodes = nodes;
+      },
     });
 
     const zoomed = getZoomed({
@@ -133,18 +136,27 @@ class Atlas {
       projection,
       changeColorScale,
       projectionModify,
+      agencies,
+      nodes,
     } = props;
     const {
       drawAgencies,
+      setAgencyColors,
     } = atlasMethods;
 
-    props.agencies = drawAgencies({
-      layer: layers.agencies,
-      nationalMapData,
-      projection,
+    setAgencyColors({
+      agencies,
       changeColorScale,
-      projectionModify,
+      nationalMapData,
+      nodes,
     });
+    // props.agencies = drawAgencies({
+    //   layer: layers.agencies,
+    //   nationalMapData,
+    //   projection,
+    //   changeColorScale,
+    //   projectionModify,
+    // });
   }
 }
 
