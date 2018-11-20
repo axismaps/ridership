@@ -1,4 +1,5 @@
 import atlasMethods from './atlasMethods';
+import DataProbe from '../dataProbe/dataProbe';
 
 const privateProps = new WeakMap();
 
@@ -13,6 +14,7 @@ const privateMethods = {
       statesTopo,
       nationalMapData,
       changeColorScale,
+      dataProbe,
     } = props;
 
     const {
@@ -54,6 +56,7 @@ const privateMethods = {
     });
 
     const agencies = drawAgencies({
+      dataProbe,
       layer: layers.agencies,
       nationalMapData,
       projection,
@@ -107,6 +110,9 @@ class Atlas {
       statesTopo: null,
       layers: null,
       nationalMapData: null,
+      dataProbe: new DataProbe({
+        container: d3.select('.outer-container'),
+      }),
     });
     const {
       init,
@@ -131,16 +137,16 @@ class Atlas {
   updateNationalMapData() {
     const props = privateProps.get(this);
     const {
-      layers,
+      // layers,
       nationalMapData,
-      projection,
+      // projection,
       changeColorScale,
-      projectionModify,
+      // projectionModify,
       agencies,
       nodes,
     } = props;
     const {
-      drawAgencies,
+      // drawAgencies,
       setAgencyColors,
     } = atlasMethods;
 

@@ -1,0 +1,30 @@
+.data-probe {
+  z-index: 1000;
+  color: white;
+  pointer-events: none;
+}
+
+.data-probe__inner {
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 5px;
+}
+
+.data-probe__row:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.data-probe__row {
+  // font-weight: 700;
+  // text-align: center;
+}
+
+.data-probe__click-row {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.data-probe__field {
+  font-weight: 600;
+}

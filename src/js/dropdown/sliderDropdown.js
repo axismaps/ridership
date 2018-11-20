@@ -7,19 +7,27 @@ const privateMethods = {
     // const {
     // } = privateProps.get(this);
     const {
-      setToggleButtonClick,
+      setMenuToggleEvents,
+      setContentVisibility,
     } = privateMethods;
 
-    setToggleButtonClick.call(this);
+    setMenuToggleEvents.call(this);
+    setContentVisibility.call(this);
   },
 };
 
 class SliderDropdown {
   constructor(config) {
+    const {
+      init,
+    } = privateMethods;
     privateProps.set(this, {
       dropdownOpen: true,
     });
+
     this.config(config);
+
+    init.call(this);
   }
 
   config(config) {

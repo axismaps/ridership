@@ -49,4 +49,11 @@
 .map__agency {
   stroke: #666666;
   stroke-width: 1px;
+  fill-opacity: 0.8;
+}
+
+.map__agency:hover {
+  fill-opacity: 0.95;
+  stroke: black;
+  stroke-width: 2px;
 }

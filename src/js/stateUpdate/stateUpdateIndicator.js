@@ -5,7 +5,7 @@ const getStateUpdateIndicator = ({ components, state }) => function updateIndica
   } = components;
   const indicator = state.get('indicator');
   const nationalMapData = state.getCurrentNationalMapData();
-  console.log('nationaMapData', nationalMapData);
+
   indicatorDropdown
     .config({
       indicator,

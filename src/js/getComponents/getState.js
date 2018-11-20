@@ -59,6 +59,9 @@ const getState = ({ data }) => {
             indicatorValue,
             pctChange,
             uptTotal,
+            msaName: msa.name,
+            taName: agency.taName,
+            taShort: agency.taShort,
           });
           return agencyCopy;
         })

@@ -174,6 +174,7 @@ const atlasMethods = {
     changeColorScale,
     logSimulationNodes,
     // indicator,
+    dataProbe,
   }) {
     const {
       getRadiusScale,
@@ -200,10 +201,15 @@ const atlasMethods = {
       // color: changeColorScale(agency.pctChange),
       pctChange: agency.pctChange,
       uptTotal: agency.uptTotal,
+      indicatorValue: agency.indicatorValue,
+      msaName: agency.msaName,
+      taName: agency.taName,
     }));
 
     const agencies = layer.selectAll('.map__agency')
       .data(nodes, d => d.taId);
+
+    const formatPct = d3.format(',d');
 
     const newAgencies = agencies
       .enter()
@@ -217,6 +223,38 @@ const atlasMethods = {
       })
       .on('mouseover', (d) => {
         console.log(d);
+        console.log(d3.event);
+        const { clientX, clientY } = d3.event;
+        const pos = {
+          left: clientX + 10,
+          bottom: window.innerHeight - clientY + 10,
+          width: 250,
+        };
+        const html = `
+          <div class="data-probe__row"><span class="data-probe__field">MSA:</span> ${d.msaName}</div>
+          <div class="data-probe__row"><span class="data-probe__field">Agency:</span> ${d.taName}</div>
+          <div class="data-probe__row"><span class="data-probe__field">Percent Change:</span> ${formatPct(d.pctChange)}%</div>
+        `;
+        dataProbe
+          .config({
+            pos,
+            html,
+          })
+          .draw();
+      })
+      // .on('mousemove', () => {
+      //   const { clientX, clientY } = d3.event;
+      //   const pos = {
+      //     left: clientX,
+      //     bottom: window.innerHeight - clientY + 10,
+      //     width: 200,
+      //   };
+      //   dataProbe
+      //     .config({ pos })
+      //     .move();
+      // })
+      .on('mouseout', () => {
+        dataProbe.remove();
       });
 
     agencies.exit().remove();
@@ -264,12 +302,13 @@ const atlasMethods = {
     const allAgencies = getAllAgencies({ nationalMapData });
 
     const agenciesTable = allAgencies.reduce((accumulator, agency) => {
-      accumulator[agency.taId] = agency.pctChange;
+      accumulator[agency.taId] = agency;
       return accumulator;
     }, {});
     const nodesCopy = nodes.map((node) => {
       const nodeCopy = Object.assign({}, node);
-      nodeCopy.pctChange = agenciesTable[node.taId];
+      nodeCopy.pctChange = agenciesTable[node.taId].pctChange;
+      nodeCopy.indicatorValue = agenciesTable[node.taId].indicatorValue;
       return nodeCopy;
     });
     agencies
