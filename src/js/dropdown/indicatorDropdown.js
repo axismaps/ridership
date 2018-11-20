@@ -80,15 +80,24 @@ class IndicatorDropdown {
   }
 
   update() {
-    const { highlightCurrentIndicator } = pureMethods;
+    const {
+      highlightCurrentIndicator,
+      setButtonText,
+    } = pureMethods;
     const {
       indicatorRows,
       indicator,
+      toggleButtonText,
     } = privateProps.get(this);
 
     highlightCurrentIndicator({
       indicatorRows,
       indicator,
+    });
+
+    setButtonText({
+      indicator,
+      toggleButtonText,
     });
   }
 }
