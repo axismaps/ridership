@@ -76,10 +76,6 @@ module.exports = {
         to: 'js/d3-selection-multi.min.js',
       },
       {
-        from: 'node_modules/d3-force/dist/d3-force.min.js',
-        to: 'js/d3-force.min.js',
-      },
-      {
         from: 'src/fonts/*',
         to: 'fonts',
         flatten: true,
