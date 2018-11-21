@@ -1,18 +1,47 @@
-import getPrivateBase from './dropdownPrivateBase';
+import getPrivateBase from './dropdownBase';
+import sliderPureMethods from './sliderDropdownMethods';
 
 const privateProps = new WeakMap();
 
 const privateMethods = {
   init() {
-    // const {
-    // } = privateProps.get(this);
+    const props = privateProps.get(this);
+
+    const {
+      yearRange,
+      years,
+      updateYears,
+      contentContainer,
+      toggleButton,
+      contentOuterContainer,
+    } = props;
+
     const {
       setMenuToggleEvents,
       setContentVisibility,
+      setContentPosition,
     } = privateMethods;
+
+    const {
+      getSlider,
+    } = sliderPureMethods;
+
+    setContentPosition({
+      toggleButton,
+      contentOuterContainer,
+    });
 
     setMenuToggleEvents.call(this);
     setContentVisibility.call(this);
+
+    const slider = getSlider({
+      yearRange,
+      years,
+      updateYears,
+      contentContainer,
+    });
+
+    Object.assign(props, { slider });
   },
 };
 

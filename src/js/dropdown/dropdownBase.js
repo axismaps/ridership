@@ -49,6 +49,25 @@ const getDropdownPrivateBase = ({
     contentOuterContainer
       .classed('dropdown-content--open', dropdownOpen);
   },
+  setContentPosition({
+    toggleButton,
+    contentOuterContainer,
+  }) {
+    const {
+      left,
+      top,
+      height,
+    } = toggleButton.node().getBoundingClientRect();
+
+    const menuMargin = 10;
+
+    contentOuterContainer
+      .styles({
+        position: 'absolute',
+        left: `${left}px`,
+        top: `${top + height + menuMargin}px`,
+      });
+  },
 });
 
 export default getDropdownPrivateBase;

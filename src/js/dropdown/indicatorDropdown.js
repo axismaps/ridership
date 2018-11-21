@@ -1,4 +1,4 @@
-import getPrivateBase from './dropdownPrivateBase';
+import getPrivateBase from './dropdownBase';
 import pureMethods from './indicatorDropdownMethods';
 
 const privateProps = new WeakMap();
@@ -19,13 +19,12 @@ const privateMethods = {
     const {
       setMenuToggleEvents,
       setContentVisibility,
-
+      setContentPosition,
     } = privateMethods;
 
     const {
       drawContent,
       setButtonText,
-      setContentPosition,
       highlightCurrentIndicator,
     } = pureMethods;
 

@@ -8,14 +8,10 @@ const getSliderBase = ({ privateProps }) => ({
     const props = privateProps.get(this);
     const {
       valueRange,
-      stepSections,
     } = props;
 
-    const domain = stepSections.length === 2
-      ? [valueRange[0], stepSections[0].years[1], valueRange[1]]
-      : valueRange;
     props.scale = d3.scaleLinear()
-      .domain(domain);
+      .domain(valueRange);
     const { scale } = props;
 
     props.handleScale = d3.scaleLinear()
@@ -28,29 +24,11 @@ const getSliderBase = ({ privateProps }) => ({
       handleWidth,
       scale,
       handleScale,
-      stepSections,
     } = privateProps.get(this);
 
-    const domain = scale.domain();
+    scale
+      .range([padding.left + (handleWidth / 2), size.width - padding.right - (handleWidth / 2)]);
 
-    if (stepSections.length === 2) {
-      const increments1 = stepSections[0].increment;
-      const increments2 = stepSections[1].increment;
-      const steps1 = (domain[1] - domain[0]) / increments1;
-      const steps2 = (domain[2] - domain[0]) / increments2;
-
-      const pctWayThrough = steps1 / (steps1 + steps2);
-
-      const startPoint = padding.left + (handleWidth / 2);
-      const endPoint = size.width - padding.right - (handleWidth / 2);
-      const midPoint = (endPoint - startPoint) * pctWayThrough;
-
-      scale
-        .range([startPoint, midPoint, endPoint]);
-    } else if (stepSections.length === 1) {
-      scale
-        .range([padding.left + (handleWidth / 2), size.width - padding.right - (handleWidth / 2)]);
-    }
     handleScale.range(scale.range());
   },
   updateScaleValueRange() {
@@ -116,10 +94,10 @@ const getSliderBase = ({ privateProps }) => ({
 
         handle.classed(
           'slider__handle--hover',
-          x >= handlePos.x &&
-          x <= handlePos.x + handleHeight &&
-          y >= handlePos.y &&
-          y <= handlePos.y + handleHeight,
+          x >= handlePos.x
+          && x <= handlePos.x + handleHeight
+          && y >= handlePos.y
+          && y <= handlePos.y + handleHeight,
         );
       });
   },

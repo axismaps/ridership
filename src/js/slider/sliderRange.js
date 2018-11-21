@@ -3,7 +3,14 @@ import getSliderBase from './sliderBase';
 const privateProps = new WeakMap();
 
 const privateMethods = {
+  init() {
+    // const props = privateProps.get(this);
+    const {
+      setScale,
+    } = privateMethods;
 
+    setScale.call(this);
+  },
 };
 
 class slider {
@@ -12,7 +19,13 @@ class slider {
 
     });
 
+    const {
+      init,
+    } = privateMethods;
+
     this.config(config);
+
+    init.call(this);
   }
 
   config(config) {
