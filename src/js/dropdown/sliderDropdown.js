@@ -64,8 +64,18 @@ class SliderDropdown {
     return this;
   }
 
-  update() {
-    console.log('update', this);
+  updateYears() {
+    const {
+      years,
+      slider,
+    } = privateProps.get(this);
+
+
+    slider
+      .config({
+        currentValues: years,
+      })
+      .update();
   }
 }
 

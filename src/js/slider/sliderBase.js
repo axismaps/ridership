@@ -12,33 +12,27 @@ const getSliderBase = ({ privateProps }) => ({
 
     props.scale = d3.scaleLinear()
       .domain(valueRange);
-    const { scale } = props;
-
-    props.handleScale = d3.scaleLinear()
-      .domain(scale.domain());
+    // const { scale } = props;
   },
   updateScale() {
     const {
       size,
       padding,
-      handleWidth,
+      // handleWidth,
+      handleSize,
       scale,
-      handleScale,
     } = privateProps.get(this);
 
     scale
-      .range([padding.left + (handleWidth / 2), size.width - padding.right - (handleWidth / 2)]);
-
-    handleScale.range(scale.range());
+      .range([padding.left + (handleSize.width / 2),
+        size.width - padding.right - (handleSize.width / 2)]);
   },
   updateScaleValueRange() {
     const {
       valueRange,
       scale,
-      handleScale,
     } = privateProps.get(this);
     scale.domain(valueRange);
-    handleScale.domain(scale.domain());
   },
   drawSvg() {
     const props = privateProps.get(this);
@@ -78,7 +72,7 @@ const getSliderBase = ({ privateProps }) => ({
       .on('mousemove', () => {
         const {
           handle,
-          handleHeight,
+          handleSize,
         } = privateProps.get(this);
         if (handle === undefined) return;
 
@@ -95,9 +89,9 @@ const getSliderBase = ({ privateProps }) => ({
         handle.classed(
           'slider__handle--hover',
           x >= handlePos.x
-          && x <= handlePos.x + handleHeight
+          && x <= handlePos.x + handleSize.height
           && y >= handlePos.y
-          && y <= handlePos.y + handleHeight,
+          && y <= handlePos.y + handleSize.height,
         );
       });
   },
@@ -108,7 +102,7 @@ const getSliderBase = ({ privateProps }) => ({
     } = privateProps.get(this);
     detectionTrack.attrs({
       x1: scale.range()[0],
-      x2: scale.range().slice(-1)[0],
+      x2: scale.range()[1],
     });
   },
   drawBackgroundTrack() {
@@ -158,14 +152,14 @@ const getSliderBase = ({ privateProps }) => ({
     } = props;
 
     const defaultAttrs = {
-      class: 'slider__track slider__active-track',
+      class: 'slider__active-track',
       x: padding.left,
       y: (size.height / 2) - (trackHeight / 2),
       height: trackHeight,
       'pointer-events': 'none',
-      rx: 3,
-      ry: 3,
-      opacity: 0,
+      // rx: 3,
+      // ry: 3,
+      opacity: 1,
     };
 
     const overrideAttrs = activeTrackAttrs !== undefined ? activeTrackAttrs : {};

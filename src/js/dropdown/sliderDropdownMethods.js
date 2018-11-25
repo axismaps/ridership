@@ -9,13 +9,14 @@ const sliderPureMethods = {
   }) {
     const width = 200;
     const height = 24;
-    const svg = contentContainer.append('svg')
-      .styles({
-        width: `${width}px`,
-        height: `${height}px`,
-      });
+    // const svg = contentContainer.append('svg')
+    //   .styles({
+    //     width: `${width}px`,
+    //     height: `${height}px`,
+    //   });
 
     const slider = new Slider({
+      container: contentContainer,
       size: {
         width,
         height,
@@ -24,10 +25,15 @@ const sliderPureMethods = {
         width: 16,
         height,
       },
-      svg,
+      padding: {
+        left: 0,
+        right: 0,
+      },
+      // svg,
       valueRange: yearRange,
-      values: years,
-      updateValues: updateYears,
+      currentValues: years,
+      onDragEnd: updateYears,
+      trackHeight: 7,
     });
     return slider;
   },

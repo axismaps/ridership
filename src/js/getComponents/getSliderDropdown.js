@@ -7,7 +7,8 @@ const sliderDropdown = ({ data, state }) => new SliderDropdown({
   contentContainer: d3.select('.year-slider__content'),
   years: state.get('years'),
   updateYears: (newYears) => {
-    state.update('years', newYears);
+    const yearIntegers = newYears.map(d => Math.round(d));
+    state.update({ years: yearIntegers });
   },
   yearRange: data.get('yearRange'),
 });

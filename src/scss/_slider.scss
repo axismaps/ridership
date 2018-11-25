@@ -1,0 +1,13 @@
+.slider__track {
+  fill: #cccccc;
+}
+
+.slider__active-track {
+  fill: $main-blue;
+}
+
+.slider__handle {
+  stroke: #707070;
+  stroke-width: 1px;
+  fill: white;
+}

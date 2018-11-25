@@ -24,7 +24,7 @@ const app = {
     components.state = state;
     components.atlas = getAtlas({ data, state });
     components.indicatorDropdown = getIndicatorDropdown({ state, data });
-    components.getSliderDropdown = getSliderDropdown({ state, data });
+    components.sliderDropdown = getSliderDropdown({ state, data });
   },
   initStateUpdateListeners() {
     const { components, data } = this;

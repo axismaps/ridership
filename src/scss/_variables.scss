@@ -1,3 +1,5 @@
+$main-blue: #2D74ED;
+
 $atlas--left-margin: 10px;
 
 $body--background: #DFE9FC;
@@ -8,7 +10,7 @@ $sidebar--border-radius: 5px;
 $header__title-row--height: 70px;
 $header__menu-row--height: 50px;
 $header--height: $header__title-row--height + $header__menu-row--height;
-$header__title-row--background: #2D74ED;
+$header__title-row--background: $main-blue;
 
 $panel__top-row--height: 50px;
 

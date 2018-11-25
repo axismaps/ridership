@@ -223,7 +223,6 @@ const atlasMethods = {
       })
       .on('mouseover', (d) => {
         console.log(d);
-        console.log(d3.event);
         const { clientX, clientY } = d3.event;
         const pos = {
           left: clientX + 10,
