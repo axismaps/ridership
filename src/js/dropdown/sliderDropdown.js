@@ -61,7 +61,7 @@ class SliderDropdown {
       init,
     } = privateMethods;
     privateProps.set(this, {
-      dropdownOpen: true,
+      dropdownOpen: false,
     });
 
     this.config(config);

@@ -5,7 +5,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
   } = components;
   const years = this.get('years');
   // const nationalMapData = data.get('nationalMapData');
-  console.log('update years', years);
+  // console.log('update years', years);
   const nationalMapData = this.getCurrentNationalMapData();
 
   atlas

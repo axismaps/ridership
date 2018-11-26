@@ -129,7 +129,6 @@ const privateMethods = {
       left: [valueRange[0], currentValues[1] - 1],
       right: [currentValues[0] + 1, valueRange[1]],
     };
-    console.log('set limits', props.currentValueLimits);
   },
   getCurrentHandle(newValue) {
     const {
@@ -242,7 +241,6 @@ class slider {
     } = privateMethods;
 
     const { currentValues } = privateProps.get(this);
-    console.log('UPDATE', currentValues);
 
     // setHandleValueLimits.call(this);
     setHandlePositions.call(this, currentValues);
