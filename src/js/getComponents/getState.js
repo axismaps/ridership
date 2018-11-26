@@ -43,8 +43,8 @@ const getState = ({ data }) => {
           const ntdRecords = agency.ntd.filter(inYears);
           const yearExtent = d3.extent(agency.ntd, d => d.year);
 
-          const firstRecord = agency.ntd.find(d => d.year === yearExtent[0])[indicator];
-          const lastRecord = agency.ntd.find(d => d.year === yearExtent[1])[indicator];
+          const firstRecord = agency.ntd.find(d => d.year === years[0])[indicator];
+          const lastRecord = agency.ntd.find(d => d.year === years[1])[indicator];
 
           const noRecord = d => [0, null].includes(d);
 

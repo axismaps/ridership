@@ -29,6 +29,16 @@ const privateMethods = {
     } = atlasMethods;
 
     const {
+      setRadiusScale,
+    } = privateMethods;
+
+    setRadiusScale.call(this);
+
+    const {
+      radiusScale,
+    } = props;
+
+    const {
       geoPath,
       projection,
       projectionModify,
@@ -55,7 +65,9 @@ const privateMethods = {
       geoPath,
     });
 
+
     const agencies = drawAgencies({
+      radiusScale,
       dataProbe,
       layer: layers.agencies,
       nationalMapData,
@@ -92,7 +104,16 @@ const privateMethods = {
       mapSVG,
       projection,
       projectionModify,
+      radiusScale,
     });
+  },
+  setRadiusScale() {
+    const props = privateProps.get(this);
+    const { nationalMapData } = props;
+
+    const { getRadiusScale } = atlasMethods;
+
+    props.radiusScale = getRadiusScale({ nationalMapData });
   },
 };
 
@@ -130,8 +151,44 @@ class Atlas {
 
   updateYears() {
     const props = privateProps.get(this);
-    const { nationalMapData } = props;
+    const {
+      setRadiusScale,
+    } = privateMethods;
+
+    // setRadiusScale.call(this);
+
+    const {
+      nationalMapData,
+      radiusScale,
+      // layers,
+      // projection,
+      // changeColorScale,
+      // projectionModify,
+      agencies,
+      nodes,
+      changeColorScale,
+    } = props;
+    const {
+      // drawAgencies,
+      updateAgencyRadii,
+    } = atlasMethods;
+
+
     // console.log('currentnationaldata', nationalMapData);
+    // props.agencies = drawAgencies({
+    //   layer: layers.agencies,
+    //   nationalMapData,
+    //   projection,
+    //   changeColorScale,
+    //   projectionModify,
+    // });
+    updateAgencyRadii({
+      nationalMapData,
+      radiusScale,
+      agencies,
+      nodes,
+      changeColorScale,
+    });
   }
 
   updateNationalMapData() {
@@ -144,6 +201,7 @@ class Atlas {
       // projectionModify,
       agencies,
       nodes,
+      radiusScale,
     } = props;
     const {
       // drawAgencies,
@@ -155,6 +213,7 @@ class Atlas {
       changeColorScale,
       nationalMapData,
       nodes,
+      radiusScale,
     });
     // props.agencies = drawAgencies({
     //   layer: layers.agencies,

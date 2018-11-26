@@ -152,9 +152,15 @@ const atlasMethods = {
       });
   },
   getRadiusScale({
-    allAgencies,
+    // allAgencies,
+    nationalMapData,
     // indicator,
   }) {
+    const {
+      getAllAgencies,
+    } = atlasMethods;
+
+    const allAgencies = getAllAgencies({ nationalMapData });
     const values = allAgencies.map(d => d.uptTotal);
     return d3.scaleSqrt()
       .domain(d3.extent(values))
@@ -167,6 +173,17 @@ const atlasMethods = {
       .reduce((accumulator, msa) => [...accumulator, ...msa.ta], [])
       .sort((a, b) => b.indicatorValue - a.indicatorValue);
   },
+  getAgenciesTable({
+    nationalMapData,
+  }) {
+    return nationalMapData
+      .reduce((accumulator, msa) => {
+        msa.ta.forEach((ta) => {
+          accumulator[ta.taId] = ta;
+        });
+        return accumulator;
+      }, {});
+  },
   drawAgencies({
     nationalMapData,
     layer,
@@ -175,18 +192,14 @@ const atlasMethods = {
     logSimulationNodes,
     // indicator,
     dataProbe,
+    radiusScale,
   }) {
     const {
-      getRadiusScale,
+      // getRadiusScale,
       getAllAgencies,
     } = atlasMethods;
 
     const allAgencies = getAllAgencies({ nationalMapData });
-
-    const radiusScale = getRadiusScale({
-      allAgencies,
-      // indicator,
-    });
 
 
     const nodes = allAgencies.map(agency => ({
@@ -285,33 +298,94 @@ const atlasMethods = {
     }
 
     layoutTick();
+    if (logSimulationNodes !== undefined) {
+      logSimulationNodes(nodes);
+    }
 
-    logSimulationNodes(nodes);
 
     return mergedAgencies;
+  },
+  getUpdatedNodes({
+    nodes,
+    nationalMapData,
+    radiusScale,
+  }) {
+    const {
+      getAgenciesTable,
+    } = atlasMethods;
+
+    const agenciesTable = getAgenciesTable({ nationalMapData });
+
+    return nodes
+      .map((node) => {
+        const nodeCopy = Object.assign({}, node);
+        const agency = agenciesTable[node.taId];
+        if (agency === undefined) return nodeCopy;
+        nodeCopy.pctChange = agency.pctChange;
+        // console.log('?', nodeCopy.pctChange, agency.pctChange);
+        nodeCopy.indicatorValue = agency.indicatorValue;
+        nodeCopy.uptTotal = agency.uptTotal;
+        nodeCopy.radius = radiusScale(agency.uptTotal);
+        // radius: radiusScale(agency.uptTotal),
+        return nodeCopy;
+      });
+  },
+  updateAgencyRadii({
+    agencies,
+    radiusScale,
+    nationalMapData,
+    nodes,
+    changeColorScale,
+  }) {
+    const {
+      getUpdatedNodes,
+    } = atlasMethods;
+    const updatedNodes = getUpdatedNodes({
+      nodes,
+      nationalMapData,
+      radiusScale,
+    });
+    // console.log('updatednodes', updatedNodes);
+    agencies
+      .data(updatedNodes, d => d.taId)
+      .transition()
+      .duration(500)
+      .attrs({
+        // r: d => d.radius,
+        fill: d => (d.pctChange === null ? 'lightgrey' : changeColorScale(d.pctChange)),
+      });
   },
   setAgencyColors({
     agencies,
     changeColorScale,
     nationalMapData,
     nodes,
+    radiusScale,
   }) {
-    const { getAllAgencies } = atlasMethods;
-
-    const allAgencies = getAllAgencies({ nationalMapData });
-
-    const agenciesTable = allAgencies.reduce((accumulator, agency) => {
-      accumulator[agency.taId] = agency;
-      return accumulator;
-    }, {});
-    const nodesCopy = nodes.map((node) => {
-      const nodeCopy = Object.assign({}, node);
-      nodeCopy.pctChange = agenciesTable[node.taId].pctChange;
-      nodeCopy.indicatorValue = agenciesTable[node.taId].indicatorValue;
-      return nodeCopy;
+    const {
+      getUpdatedNodes,
+    } = atlasMethods;
+    const updatedNodes = getUpdatedNodes({
+      nodes,
+      nationalMapData,
+      radiusScale,
     });
+    // const { getAllAgencies } = atlasMethods;
+
+    // const allAgencies = getAllAgencies({ nationalMapData });
+
+    // const agenciesTable = allAgencies.reduce((accumulator, agency) => {
+    //   accumulator[agency.taId] = agency;
+    //   return accumulator;
+    // }, {});
+    // const nodesCopy = nodes.map((node) => {
+    //   const nodeCopy = Object.assign({}, node);
+    //   nodeCopy.pctChange = agenciesTable[node.taId].pctChange;
+    //   nodeCopy.indicatorValue = agenciesTable[node.taId].indicatorValue;
+    //   return nodeCopy;
+    // });
     agencies
-      .data(nodesCopy, d => d.taId)
+      .data(updatedNodes, d => d.taId)
       .transition()
       .duration(500)
       .attrs({
