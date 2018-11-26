@@ -125,17 +125,6 @@ const privateMethods = {
       valueRange,
     } = props;
 
-    // const { getCurrentTimes } = privateMethods;
-
-    // const currentTimes = getCurrentTimes.call(this);
-
-    // const handleOffset = xScale.invert(xScale.range()[0] + handleWidth).getTime() -
-    //   xScale.invert(xScale.range()[0]).getTime();
-
-    // props.currentValueLimits = {
-    //   left: [xTimeRange[0], currentTimes[1] - handleOffset],
-    //   right: [currentTimes[0] + handleOffset, xTimeRange[1]],
-    // };
     props.currentValueLimits = {
       left: [valueRange[0], currentValues[1] - 1],
       right: [currentValues[0] + 1, valueRange[1]],

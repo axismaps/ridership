@@ -18,6 +18,7 @@ const privateMethods = {
 
     const {
       setMenuToggleEvents,
+      setToggleButtonText,
       setContentVisibility,
       setContentPosition,
     } = privateMethods;
@@ -32,6 +33,7 @@ const privateMethods = {
     });
 
     setMenuToggleEvents.call(this);
+    setToggleButtonText.call(this);
     setContentVisibility.call(this);
 
     const slider = getSlider({
@@ -42,6 +44,14 @@ const privateMethods = {
     });
 
     Object.assign(props, { slider });
+  },
+  setToggleButtonText() {
+    const {
+      toggleButtonText,
+      years,
+    } = privateProps.get(this);
+    toggleButtonText
+      .text(`${years[0]} - ${years[1]}`);
   },
 };
 
@@ -70,12 +80,17 @@ class SliderDropdown {
       slider,
     } = privateProps.get(this);
 
+    const {
+      setToggleButtonText,
+    } = privateMethods;
 
     slider
       .config({
         currentValues: years,
       })
       .update();
+
+    setToggleButtonText.call(this);
   }
 }
 
