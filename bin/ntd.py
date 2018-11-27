@@ -1,5 +1,6 @@
 import pandas as pd
 from meta import clean_ta
+import carto
 
 # Load the excel data:
 TA = pd.read_excel('data/meta/Transit_Agencies_for_Visualization.xlsx',
@@ -68,7 +69,6 @@ for name, df in datasets.items():
     stack = ntd_merge(df, n)
     years = pd.Series(stack.index.levels[1])
     stacks[n] = stack.drop(years[years.astype(int) <= 2005], level=1)
-    print stacks[n]
 
 print'Created stacks for ' + str(stacks.keys())
 
@@ -101,4 +101,13 @@ del stacks['pmt']
 print 'Calculated values for ' + str(stacks.keys())
 
 # Export to CSV
-pd.concat(stacks.values(), axis=1).to_csv('data/output/ntd.csv', index_label=['id', 'year'])
+indexes = ['id', 'year']
+export = pd.concat(stacks.values(), axis=1)
+export.to_csv('data/output/ntd.csv', index_label=indexes)
+
+indexes.extend(export.columns.values)
+
+# Upload to Carto
+gz = carto.gzip_file('ntd.csv')
+carto.delete_table('ntd')
+carto.copy_table('ntd', indexes, gz)
