@@ -3,6 +3,7 @@
 node_modules/*
 data/output/*.geojson
 data/output/*.mbtiles*
+data/output/*.gz
 *.pyc
 ~$*
 dist

@@ -1,6 +1,11 @@
 from os import path
+import gzip
+import shutil
 import requests
 import settings
+
+def get_file_loc(filename):
+    return path.join(path.dirname(__file__), '../data/output/', filename)
 
 def delete_table(name):
     url = 'http://' + settings.CARTO_USER + '.carto.com/api/v2/sql/'
@@ -8,6 +13,12 @@ def delete_table(name):
     response = requests.get(url, params=querystring)
 
     print response.text
+
+def gzip_file(filename):
+    f = get_file_loc(filename)
+    with open(f, 'rb') as f_in:
+        with gzip.open(f + '.gz', 'wb') as f_out:
+            shutil.copyfileobj(f_in, f_out)
 
 def copy_table(name, cols, filename):
     url = 'http://' + settings.CARTO_USER + '.carto.com/api/v2/sql/copyfrom'
@@ -19,7 +30,7 @@ def copy_table(name, cols, filename):
         'Content-Encoding': 'gzip',
         'Content-Type': 'application/octet-stream'
     }
-    csv = open(path.join(path.dirname(__file__), '../data/output/', filename), mode='rb').read()
+    csv = open(get_file_loc(filename), mode='rb').read()
     response = requests.post(url, headers=headers, params=querystring, data=csv)
 
     print response.text
