@@ -75,18 +75,6 @@ const dataMethods = {
         '#8BD5D5',
         '#009093',
       ]);
-      // 5: "headways"
-      // 6: "fares"
-      // 7: "recovery"
-      // 8: "bus"
-      // 9: "rail"
-      // 10: "total_oe"
-      // 11: "vrm_per_ride"
-      // 12: "trip_length"
-      // 13: "upt"
-      // 14: "speed"
-      // 15: "vrm"
-      // 16: "taId"
 
     const indicators = new Map();
 
@@ -95,46 +83,57 @@ const dataMethods = {
         {
           text: 'Average Headways',
           value: 'headways',
+          summaryType: 'mean',
         },
         {
           text: 'Average Fares',
           value: 'fares',
+          summaryType: 'mean',
         },
         {
           text: 'Farebox Recovery',
           value: 'recovery',
+          summaryType: 'sum',
         },
         {
           text: 'Bus Ridership',
           value: 'bus',
+          summaryType: 'sum',
         },
         {
           text: 'Rail Ridership',
           value: 'rail',
+          summaryType: 'sum',
         },
         {
-          text: 'total_oe',
+          text: 'Operating Expenses (total)',
           value: 'total_oe',
+          summaryType: 'sum',
         },
         {
           text: 'Vehicle Revenue Miles (per ride)',
           value: 'vrm_per_ride',
+          summaryType: 'mean',
         },
         {
           text: 'Average Trip Length',
           value: 'trip_length',
+          summaryType: 'mean',
         },
         {
           text: 'Unlinked Passenger Trips',
           value: 'upt',
+          summaryType: 'sum',
         },
         {
           text: 'Average Speed',
           value: 'speed',
+          summaryType: 'mean',
         },
         {
           text: 'Vehicle Revenue Miles (total)',
           value: 'vrm',
+          summaryType: 'sum',
         },
       ];
 
@@ -143,6 +142,27 @@ const dataMethods = {
       });
     }
 
+    const indicatorSummaries = new Array(yearRange[1] - yearRange[0])
+      .fill(null)
+      .map((placeholder, i) => {
+        const record = {};
+
+        const year = yearRange[0] + i;
+
+        const recordsForYear = ntd.filter(d => d.year === year);
+
+        const summaries = new Map();
+
+        indicators.forEach((indicator, key) => {
+          const indCopy = Object.assign({}, indicator);
+          indCopy.indicatorSummary = d3[indicator.summaryType](recordsForYear, d => d[key]);
+          summaries.set(key, indCopy);
+        });
+
+        Object.assign(record, { year, summaries });
+
+        return record;
+      });
 
     const data = new Map();
 
@@ -154,6 +174,7 @@ const dataMethods = {
     data.set('yearRange', yearRange);
     data.set('changeColorScale', changeColorScale);
     data.set('indicators', indicators);
+    data.set('indicatorSummaries', indicatorSummaries);
     console.log('data', data);
     return data;
   },
