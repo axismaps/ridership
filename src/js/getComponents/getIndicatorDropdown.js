@@ -1,6 +1,6 @@
 import IndicatorDropdown from '../dropdown/indicatorDropdown';
 
-const indicatorDropdown = ({ data, state }) => new IndicatorDropdown({
+const getIndicatorDropdown = ({ data, state }) => new IndicatorDropdown({
   indicator: state.get('indicator'),
   updateIndicator: (newIndicator) => {
     const currentIndicator = state.get('indicator');
@@ -11,4 +11,4 @@ const indicatorDropdown = ({ data, state }) => new IndicatorDropdown({
   indicators: data.get('indicators'),
 });
 
-export default indicatorDropdown;
+export default getIndicatorDropdown;
