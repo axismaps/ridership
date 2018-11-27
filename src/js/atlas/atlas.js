@@ -151,57 +151,49 @@ class Atlas {
 
   updateYears() {
     const props = privateProps.get(this);
-    const {
-      setRadiusScale,
-    } = privateMethods;
+    // const {
+    //   setRadiusScale,
+    // } = privateMethods;
 
     // setRadiusScale.call(this);
 
     const {
       nationalMapData,
-      radiusScale,
-      // layers,
-      // projection,
-      // changeColorScale,
-      // projectionModify,
+      // radiusScale,
       agencies,
       nodes,
       changeColorScale,
     } = props;
     const {
       // drawAgencies,
-      updateAgencyRadii,
+      // updateAgencyRadii,
+      setAgencyColors,
     } = atlasMethods;
 
-
-    // console.log('currentnationaldata', nationalMapData);
-    // props.agencies = drawAgencies({
-    //   layer: layers.agencies,
+    // updateAgencyRadii({
     //   nationalMapData,
-    //   projection,
+    //   radiusScale,
+    //   agencies,
+    //   nodes,
     //   changeColorScale,
-    //   projectionModify,
     // });
-    updateAgencyRadii({
-      nationalMapData,
-      radiusScale,
+    setAgencyColors({
       agencies,
-      nodes,
       changeColorScale,
+      nationalMapData,
+      nodes,
+      // radiusScale,
     });
   }
 
   updateNationalMapData() {
     const props = privateProps.get(this);
     const {
-      // layers,
       nationalMapData,
-      // projection,
       changeColorScale,
-      // projectionModify,
       agencies,
       nodes,
-      radiusScale,
+      // radiusScale,
     } = props;
     const {
       // drawAgencies,
@@ -213,15 +205,8 @@ class Atlas {
       changeColorScale,
       nationalMapData,
       nodes,
-      radiusScale,
+      // radiusScale,
     });
-    // props.agencies = drawAgencies({
-    //   layer: layers.agencies,
-    //   nationalMapData,
-    //   projection,
-    //   changeColorScale,
-    //   projectionModify,
-    // });
   }
 }
 

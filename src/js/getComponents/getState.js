@@ -40,8 +40,8 @@ const getState = ({ data }) => {
             taShort,
           };
 
-          const ntdRecords = agency.ntd.filter(inYears);
-          const yearExtent = d3.extent(agency.ntd, d => d.year);
+          // const ntdRecords = agency.ntd.filter(inYears);
+          const ntd2017 = agency.ntd.find(d => d.year === 2017);
 
           const firstRecord = agency.ntd.find(d => d.year === years[0])[indicator];
           const lastRecord = agency.ntd.find(d => d.year === years[1])[indicator];
@@ -52,13 +52,14 @@ const getState = ({ data }) => {
             ? null
             : ((lastRecord - firstRecord)
               / firstRecord) * 100;
-          const indicatorValue = d3.sum(ntdRecords, d => d[indicator]);
-          const uptTotal = d3.sum(ntdRecords, d => d.upt);
-          // Object.assign(agencyCopy, ntdRecords);
+          // const indicatorValue = d3.sum(ntdRecords, d => d[indicator]);
+          // const uptTotal = d3.sum(ntdRecords, d => d.upt);
+
           Object.assign(agencyCopy, {
-            indicatorValue,
+            // indicatorValue,
             pctChange,
-            uptTotal,
+            // uptTotal,
+            upt2017: ntd2017.upt,
             msaName: msa.name,
             taName: agency.taName,
             taShort: agency.taShort,
