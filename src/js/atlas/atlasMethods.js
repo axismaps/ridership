@@ -160,8 +160,11 @@ const atlasMethods = {
       getAllAgencies,
     } = atlasMethods;
 
+
     const allAgencies = getAllAgencies({ nationalMapData });
-    const values = allAgencies.map(d => d.uptTotal);
+    console.log(allAgencies);
+    const values = allAgencies.map(d => d.upt2017);
+    console.log('val', d3.extent(values));
     return d3.scaleSqrt()
       .domain(d3.extent(values))
       .range([5, 35]);
@@ -171,7 +174,7 @@ const atlasMethods = {
   }) {
     return nationalMapData
       .reduce((accumulator, msa) => [...accumulator, ...msa.ta], [])
-      .sort((a, b) => b.indicatorValue - a.indicatorValue);
+      .sort((a, b) => b.upt2017 - a.upt2017);
   },
   getAgenciesTable({
     nationalMapData,
@@ -205,7 +208,7 @@ const atlasMethods = {
     const nodes = allAgencies.map(agency => ({
       cluster: agency.msaId,
       taId: agency.taId,
-      radius: radiusScale(agency.uptTotal),
+      radius: radiusScale(agency.upt2017),
       x: projectionModify(agency.cent)[0],
       y: projectionModify(agency.cent)[1],
       xOriginal: projectionModify(agency.cent)[0],
@@ -213,8 +216,8 @@ const atlasMethods = {
       cent: agency.cent,
       // color: changeColorScale(agency.pctChange),
       pctChange: agency.pctChange,
-      uptTotal: agency.uptTotal,
-      indicatorValue: agency.indicatorValue,
+      // uptTotal: agency.uptTotal,
+      upt2017: agency.upt2017,
       msaName: agency.msaName,
       taName: agency.taName,
     }));
@@ -308,7 +311,7 @@ const atlasMethods = {
   getUpdatedNodes({
     nodes,
     nationalMapData,
-    radiusScale,
+    // radiusScale,
   }) {
     const {
       getAgenciesTable,
@@ -322,17 +325,14 @@ const atlasMethods = {
         const agency = agenciesTable[node.taId];
         if (agency === undefined) return nodeCopy;
         nodeCopy.pctChange = agency.pctChange;
-        // console.log('?', nodeCopy.pctChange, agency.pctChange);
-        nodeCopy.indicatorValue = agency.indicatorValue;
-        nodeCopy.uptTotal = agency.uptTotal;
-        nodeCopy.radius = radiusScale(agency.uptTotal);
-        // radius: radiusScale(agency.uptTotal),
+        // nodeCopy.uptTotal = agency.uptTotal;
+        // nodeCopy.radius = radiusScale(agency.uptTotal);
         return nodeCopy;
       });
   },
   updateAgencyRadii({
     agencies,
-    radiusScale,
+    // radiusScale,
     nationalMapData,
     nodes,
     changeColorScale,
@@ -343,7 +343,7 @@ const atlasMethods = {
     const updatedNodes = getUpdatedNodes({
       nodes,
       nationalMapData,
-      radiusScale,
+      // radiusScale,
     });
     // console.log('updatednodes', updatedNodes);
     agencies
@@ -360,7 +360,7 @@ const atlasMethods = {
     changeColorScale,
     nationalMapData,
     nodes,
-    radiusScale,
+    // radiusScale,
   }) {
     const {
       getUpdatedNodes,
@@ -368,22 +368,9 @@ const atlasMethods = {
     const updatedNodes = getUpdatedNodes({
       nodes,
       nationalMapData,
-      radiusScale,
+      // radiusScale,
     });
-    // const { getAllAgencies } = atlasMethods;
 
-    // const allAgencies = getAllAgencies({ nationalMapData });
-
-    // const agenciesTable = allAgencies.reduce((accumulator, agency) => {
-    //   accumulator[agency.taId] = agency;
-    //   return accumulator;
-    // }, {});
-    // const nodesCopy = nodes.map((node) => {
-    //   const nodeCopy = Object.assign({}, node);
-    //   nodeCopy.pctChange = agenciesTable[node.taId].pctChange;
-    //   nodeCopy.indicatorValue = agenciesTable[node.taId].indicatorValue;
-    //   return nodeCopy;
-    // });
     agencies
       .data(updatedNodes, d => d.taId)
       .transition()
