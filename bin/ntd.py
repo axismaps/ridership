@@ -1,6 +1,6 @@
 import pandas as pd
 from meta import clean_ta
-import carto
+from carto import replace_data
 
 # Load the excel data:
 TA = pd.read_excel('data/meta/Transit_Agencies_for_Visualization.xlsx',
@@ -108,6 +108,4 @@ export.to_csv('data/output/ntd.csv', index_label=indexes)
 indexes.extend(export.columns.values)
 
 # Upload to Carto
-gz = carto.gzip_file('ntd.csv')
-carto.delete_table('ntd')
-carto.copy_table('ntd', indexes, gz)
+replace_data('ntd', indexes, 'ntd.csv')

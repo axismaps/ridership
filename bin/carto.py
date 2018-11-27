@@ -37,3 +37,9 @@ def copy_table(name, cols, filename):
     response = requests.post(url, headers=headers, params=querystring, data=csv)
 
     print 'Copy result: ' + response.text
+
+def replace_data(name, cols, filename):
+    gz = gzip_file(filename)
+    delete_table(name)
+    copy_table(name, cols, gz)
+    print 'Upload to Carto was successful'
