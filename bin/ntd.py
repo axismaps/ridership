@@ -1,5 +1,6 @@
 import pandas as pd
 from meta import clean_ta
+from carto import replace_data
 
 # Load the excel data:
 TA = pd.read_excel('data/meta/Transit_Agencies_for_Visualization.xlsx',
@@ -64,39 +65,47 @@ def ntd_merge(dframe, d_name):
 stacks = {}
 
 for name, df in datasets.items():
-    stack = ntd_merge(df, name)
+    n = name.replace(' ', '_').lower()
+    stack = ntd_merge(df, n)
     years = pd.Series(stack.index.levels[1])
-    stacks[name] = stack.drop(years[years.astype(int) <= 2005], level=1)
+    stacks[n] = stack.drop(years[years.astype(int) <= 2005], level=1)
 
 print'Created stacks for ' + str(stacks.keys())
 
 # Calculate derived values
 # Average fares
-stacks['fares'] = pd.Series(stacks['FARES'] / stacks['UPT'], name='fares')
+stacks['fares'] = pd.Series(stacks['fares'] / stacks['upt'], name='fares')
 
 # Average speed
-stacks['speed'] = pd.Series(stacks['VRM'] / stacks['VRH'], name='speed')
+stacks['speed'] = pd.Series(stacks['vrm'] / stacks['vrh'], name='speed')
 
 # Farebox recovery
-stacks['recovery'] = pd.Series(stacks['FARES'] / stacks['Total OE'], name='recovery')
+stacks['recovery'] = pd.Series(stacks['fares'] / stacks['total_oe'], name='recovery')
 
 # Vehicle revenue miles per ride
-stacks['vrm_per_ride'] = pd.Series(stacks['VRM'] / stacks['UPT'], name='vrm_per_ride')
+stacks['vrm_per_ride'] = pd.Series(stacks['vrm'] / stacks['upt'], name='vrm_per_ride')
 
 # Average headways
-stacks['headways'] = pd.Series((stacks['DRM'] / stacks['speed']) / stacks['VOMS'], name='headways')
+stacks['headways'] = pd.Series((stacks['drm'] / stacks['speed']) / stacks['voms'], name='headways')
 
 # Average trip length
-stacks['trip_length'] = pd.Series(stacks['PMT'] / stacks['UPT'], name='trip_length')
+stacks['trip_length'] = pd.Series(stacks['pmt'] / stacks['upt'], name='trip_length')
 
 # Delete extra indicators
-del stacks['FARES']
-del stacks['VRH']
-del stacks['DRM']
-del stacks['VOMS']
-del stacks['PMT']
+del stacks['fares']
+del stacks['vrh']
+del stacks['drm']
+del stacks['voms']
+del stacks['pmt']
 
 print 'Calculated values for ' + str(stacks.keys())
 
 # Export to CSV
-pd.concat(stacks.values(), axis=1).to_csv('data/output/ntd.csv', index_label=['id', 'year'])
+indexes = ['id', 'year']
+export = pd.concat(stacks.values(), axis=1)
+export.to_csv('data/output/ntd.csv', index_label=indexes)
+
+indexes.extend(export.columns.values)
+
+# Upload to Carto
+replace_data('ntd', indexes, 'ntd.csv')

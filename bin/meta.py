@@ -1,6 +1,7 @@
 import re
 import pandas as pd
 import geopandas as gpd
+from carto import replace_data
 
 def clean_ta(ta, drop):
     # Remove missing NTD ID's
@@ -45,15 +46,20 @@ def main():
     merge = pd.merge(agencies, csa, how='inner', on='name_match')
 
     # Export TA metadata
+    ta_header = ['taid', 'taname', 'tashort', 'msaid']
     merge[['Project ID', 'Agency Name', 'Reporter Acronym', 'GEOID']].to_csv(
         'data/output/ta.csv', index=False,
-        header=['taid', 'taname', 'tashort', 'msaid'])
+        header=ta_header)
+    replace_data('ta', ta_header, 'ta.csv')
 
     # Export MSA metadata
+    msa_header = ['name', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy']
     geo = merge[['GEOID', 'NAME', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy']]
     geo = geo.groupby('GEOID').first()
     geo.to_csv('data/output/msa.csv', index_label='msaid',
-               header=['name', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy'])
+               header=msa_header)
+
+    replace_data('msa', ['msaid'] + msa_header, 'msa.csv')
 
 if __name__ == "__main__":
     main()
