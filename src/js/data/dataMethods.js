@@ -142,27 +142,29 @@ const dataMethods = {
       });
     }
 
-    const indicatorSummaries = new Array(yearRange[1] - yearRange[0])
-      .fill(null)
-      .map((placeholder, i) => {
-        const record = {};
-
+    const indicatorSummaries = [];
+    {
+      const recordsPerYear = new Map();
+      for (let i = 0; i < yearRange[1] - yearRange[0]; i += 1) {
         const year = yearRange[0] + i;
-
         const recordsForYear = ntd.filter(d => d.year === year);
-
-        const summaries = new Map();
-
-        indicators.forEach((indicator, key) => {
-          const indCopy = Object.assign({}, indicator);
-          indCopy.indicatorSummary = d3[indicator.summaryType](recordsForYear, d => d[key]);
-          summaries.set(key, indCopy);
-        });
-
-        Object.assign(record, { year, summaries });
-
-        return record;
+        recordsPerYear.set(year, recordsForYear);
+      }
+      indicators.forEach((indicator, key) => {
+        const indicatorCopy = Object.assign({}, indicator);
+        indicatorCopy.summaries = [];
+        for (let i = 0; i < yearRange[1] - yearRange[0]; i += 1) {
+          const year = yearRange[0] + i;
+          const recordsForYear = recordsPerYear.get(year);
+          const summary = {
+            year,
+            indicatorSummary: d3[indicator.summaryType](recordsForYear, d => d[key]),
+          };
+          indicatorCopy.summaries.push(summary);
+        }
+        indicatorSummaries.push(indicatorCopy);
       });
+    }
 
     const data = new Map();
 
