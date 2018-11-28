@@ -1,0 +1,8 @@
+.histogram {
+  position: absolute;
+  background: white;
+  bottom: 0px;
+  right: 0px;
+  width: calc(100% - #{$atlas--left});
+  height: $histogram--height;
+}

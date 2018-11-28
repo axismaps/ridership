@@ -3,7 +3,7 @@
   position: absolute;
   left: $atlas--left;
   top: $sidebar--top;
-  height: calc(100vh - #{$sidebar--top});
+  height: calc(100vh - #{$sidebar--top} - #{$histogram--height});
   width: calc(100% - #{$atlas--left});
   border-top-left-radius: $sidebar--border-radius;
 }
