@@ -155,12 +155,16 @@ const dataMethods = {
         indicatorCopy.summaries = [];
         for (let i = 0; i < yearRange[1] - yearRange[0]; i += 1) {
           const year = yearRange[0] + i;
-          const recordsForYear = recordsPerYear.get(year);
+          const recordsForYear = recordsPerYear.get(year)
+            .filter(d => d[key] !== null && Number.isFinite(d[key]));
+          const indicatorSummary = d3[indicator.summaryType](recordsForYear, d => d[key]);
           const summary = {
             year,
-            indicatorSummary: d3[indicator.summaryType](recordsForYear, d => d[key]),
+            indicatorSummary,
           };
-          indicatorCopy.summaries.push(summary);
+          if (indicatorSummary !== undefined) {
+            indicatorCopy.summaries.push(summary);
+          }
         }
         indicatorSummaries.push(indicatorCopy);
       });

@@ -13,7 +13,19 @@
   padding-right: 20px;
 }
 
+.sidebar__sparkline-title {
+  color: #666666;
+}
+
 .sidebar__sparkline-row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.sidebar__sparkline-path {
+  stroke: #666666;
+  stroke-width: 1px;
+  fill: none;
 }

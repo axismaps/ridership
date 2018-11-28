@@ -162,9 +162,9 @@ const atlasMethods = {
 
 
     const allAgencies = getAllAgencies({ nationalMapData });
-    console.log(allAgencies);
+
     const values = allAgencies.map(d => d.upt2017);
-    console.log('val', d3.extent(values));
+
     return d3.scaleSqrt()
       .domain(d3.extent(values))
       .range([5, 35]);

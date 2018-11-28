@@ -1,4 +1,4 @@
-import atlasMethods from './atlasMethods';
+import atlasMethods from './atlasFunctions';
 import DataProbe from '../dataProbe/dataProbe';
 
 const privateProps = new WeakMap();

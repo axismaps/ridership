@@ -21,21 +21,24 @@ const sidebarPureFunctions = {
   },
   drawSparkLines({
     sparkRows,
+    yearRange,
   }) {
-    const width = 180;
-    const height = 30;
+    const sparkLines = [];
+
     sparkRows
       .append('div')
       .attr('class', 'sidebar__sparkline-container')
-      .append('svg')
-      .attr('class', 'sidebar__sparkline-svg')
-      .styles({
-        width: `${width}px`,
-        height: `${height}px`,
-      })
-      .each(function drawSparkline() {
-        const svg = d3.select(this);
+      .each(function drawSparkline(d) {
+        const container = d3.select(this);
+
+        const sparkLine = new SparkLine({
+          container,
+          indicatorData: d,
+          yearRange,
+        });
+        sparkLines.push(sparkLine);
       });
+    return sparkLines;
   },
   updateCurrentSparklineIndicator() {
 

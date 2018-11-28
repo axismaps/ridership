@@ -1,4 +1,4 @@
-import pureFunctions from './sidebarMethods';
+import pureFunctions from './sidebarSparklineFunctions';
 
 const privateProps = new WeakMap();
 
@@ -9,6 +9,7 @@ const privateMethods = {
     const {
       contentContainer,
       indicatorSummaries,
+      yearRange,
     } = props;
 
     const {
@@ -27,6 +28,7 @@ const privateMethods = {
     });
 
     const sparkLines = drawSparkLines({
+      yearRange,
       sparkRows,
     });
 
