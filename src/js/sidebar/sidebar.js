@@ -12,12 +12,28 @@ const privateMethods = {
     } = props;
 
     const {
-      drawSparklineRows,
+      drawSparkLineRows,
+      drawSparkLineTitles,
+      drawSparkLines,
     } = pureFunctions;
 
-    drawSparklineRows({
+    const sparkRows = drawSparkLineRows({
       contentContainer,
       indicatorSummaries,
+    });
+
+    const sparkTitles = drawSparkLineTitles({
+      sparkRows,
+    });
+
+    const sparkLines = drawSparkLines({
+      sparkRows,
+    });
+
+    Object.assign(props, {
+      sparkRows,
+      sparkTitles,
+      sparkLines,
     });
   },
 };
