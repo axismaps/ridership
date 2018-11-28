@@ -38,6 +38,12 @@ const privateMethods = {
       height,
       indicatorData,
     });
+
+    Object.assign(props, {
+      svg,
+      scales,
+      line,
+    });
   },
 };
 
@@ -48,6 +54,8 @@ class SparkLine {
       width: 180,
       indicatorData: null,
       yearRange: null,
+      expanded: false,
+      selected: false,
     });
 
     const {
@@ -57,11 +65,27 @@ class SparkLine {
     this.config(config);
 
     init.call(this);
+
+    this.updateSelected();
   }
 
   config(config) {
     Object.assign(privateProps.get(this), config);
     return this;
+  }
+
+  getIndicator() {
+    const { indicatorData } = privateProps.get(this);
+    return indicatorData;
+  }
+
+  updateSelected() {
+    const {
+      selected,
+      line,
+    } = privateProps.get(this);
+
+    line.classed('sidebar__sparkline-path--selected', selected);
   }
 }
 

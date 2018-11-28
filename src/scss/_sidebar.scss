@@ -17,6 +17,11 @@
   color: #666666;
 }
 
+.sidebar__sparkline-title--selected {
+  color: $main-blue;
+  font-weight: 600;
+}
+
 .sidebar__sparkline-row {
   display: flex;
   align-items: center;
@@ -28,4 +33,9 @@
   stroke: #666666;
   stroke-width: 1px;
   fill: none;
+}
+
+.sidebar__sparkline-path--selected {
+  stroke: $main-blue;
+  stroke-width: 2px;
 }

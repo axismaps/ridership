@@ -30,7 +30,7 @@ const sparkLineFunctions = {
         .range([0, width]),
       yScale: d3.scaleLinear()
         .domain(yDomain)
-        .range([0, height]),
+        .range([height, 0]),
     };
   },
   drawLine({
@@ -46,7 +46,7 @@ const sparkLineFunctions = {
       .x(d => xScale(d.year))
       .y(d => yScale(d.indicatorSummary));
 
-    svg
+    return svg
       .append('path')
       .data([indicatorData.summaries])
       .attrs({

@@ -22,6 +22,7 @@ const sidebarPureFunctions = {
   drawSparkLines({
     sparkRows,
     yearRange,
+    // currentIndicator,
   }) {
     const sparkLines = [];
 
@@ -35,6 +36,7 @@ const sidebarPureFunctions = {
           container,
           indicatorData: d,
           yearRange,
+          // selected: currentIndicator.value === d.value,
         });
         sparkLines.push(sparkLine);
       });

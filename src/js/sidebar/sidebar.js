@@ -10,6 +10,7 @@ const privateMethods = {
       contentContainer,
       indicatorSummaries,
       yearRange,
+      currentIndicator,
     } = props;
 
     const {
@@ -30,6 +31,7 @@ const privateMethods = {
     const sparkLines = drawSparkLines({
       yearRange,
       sparkRows,
+      currentIndicator,
     });
 
     Object.assign(props, {
@@ -51,11 +53,33 @@ class Sidebar {
     this.config(config);
 
     init.call(this);
+
+    this.updateCurrentIndicator();
   }
 
   config(config) {
     Object.assign(privateProps.get(this), config);
     return this;
+  }
+
+  updateCurrentIndicator() {
+    const {
+      currentIndicator,
+      sparkLines,
+      sparkTitles,
+    } = privateProps.get(this);
+
+    sparkTitles
+      .classed('sidebar__sparkline-title--selected', d => currentIndicator.value === d.value);
+
+    sparkLines
+      .forEach((sparkLine) => {
+        sparkLine
+          .config({
+            selected: currentIndicator.value === sparkLine.getIndicator().value,
+          })
+          .updateSelected();
+      });
   }
 }
 

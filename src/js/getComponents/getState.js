@@ -4,9 +4,10 @@ const getState = ({ data }) => {
   const state = new State({
     mobile: false,
     msa: null,
-    indicator: data.get('indicators').get('bus'),
+    indicator: data.get('indicators').get('headways'),
     // currentYears: [2016, 2017],
-    years: [2008, 2010],
+    // years: [2008, 2010],
+    years: data.get('yearRange'),
     agenciesOn: true,
     nationalDataView: 'ta', // ta or msa
     scale: 'national', // national or msa

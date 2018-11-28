@@ -152,9 +152,7 @@ const atlasMethods = {
       });
   },
   getRadiusScale({
-    // allAgencies,
     nationalMapData,
-    // indicator,
   }) {
     const {
       getAllAgencies,
