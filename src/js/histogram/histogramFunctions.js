@@ -124,6 +124,49 @@ const histogramFunctions = {
         console.log(d);
       });
   },
+  drawAxes({
+    xScale,
+    yScale,
+    svg,
+    padding,
+    height,
+  }) {
+    const yScaleReversed = d3.scaleLinear()
+      .domain(yScale.domain())
+      .range([yScale.range()[1], yScale.range()[0]]);
+    const xAxis = svg
+      .append('g')
+      .attrs({
+        transform: `translate(${padding.left}, ${height - padding.bottom})`,
+        class: 'histogram__axis',
+      })
+      .call(d3.axisBottom(xScale));
+
+    const yAxis = svg.append('g')
+      .attrs({
+        transform: `translate(${padding.left}, ${padding.top})`,
+        class: 'histogram__axis',
+      })
+      .call(d3.axisLeft(yScaleReversed));
+    return { xAxis, yAxis };
+  },
+  updateAxes({
+    xScale,
+    yScale,
+    xAxis,
+    yAxis,
+  }) {
+    const yScaleReversed = d3.scaleLinear()
+      .domain(yScale.domain())
+      .range([yScale.range()[1], yScale.range()[0]]);
+    yAxis.transition()
+      .duration(500)
+      .call(d3.axisLeft(yScaleReversed));
+
+    xAxis.transition()
+      .duration(500)
+      .call(d3.axisBottom(xScale));
+  },
   updateBars({
     bars,
     histogramData,

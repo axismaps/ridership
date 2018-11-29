@@ -21,6 +21,7 @@ const privateMethods = {
       getScales,
       drawSVG,
       drawBars,
+      drawAxes,
     } = histogramFunctions;
 
     const histogramData = getHistogramData({
@@ -53,11 +54,21 @@ const privateMethods = {
       barSpacing,
     });
 
+    const { xAxis, yAxis } = drawAxes({
+      xScale,
+      yScale,
+      svg,
+      padding,
+      height,
+    });
+
     Object.assign(props, {
       // xScale,
       // yScale,
       // histogramData,
       bars,
+      xAxis,
+      yAxis,
       svg,
     });
   },
@@ -74,35 +85,6 @@ const privateMethods = {
 
     Object.assign(props, { width, height });
   },
-  // drawBars() {
-  //   const props = privateProps.get(this);
-  //   const {
-  //     svg,
-  //     xScale,
-  //     yScale,
-  //     changeColorScale,
-  //     histogramData,
-  //     padding,
-  //     height,
-  //     width,
-  //     barSpacing,
-  //   } = props;
-  //   const {
-  //     drawBars,
-  //   } = histogramFunctions;
-  //   const bars = drawBars({
-  //     svg,
-  //     xScale,
-  //     yScale,
-  //     changeColorScale,
-  //     histogramData,
-  //     padding,
-  //     height,
-  //     width,
-  //     barSpacing,
-  //   });
-  //   Object.assign(props, { bars });
-  // },
 };
 
 class Histogram {
@@ -114,7 +96,7 @@ class Histogram {
       container: null,
       bucketCount: 16,
       padding: {
-        top: 0,
+        top: 10,
         bottom: 65,
         left: 85,
         right: 250,
@@ -144,27 +126,40 @@ class Histogram {
       getHistogramData,
       updateBars,
       getScales,
+      updateAxes,
     } = histogramFunctions;
+
     const {
       bars,
-      // yScale,
       changeColorScale,
       nationalMapData,
       bucketCount,
       padding,
       width,
       height,
+      xAxis,
+      yAxis,
     } = privateProps.get(this);
+
     const histogramData = getHistogramData({
       nationalMapData,
       bucketCount,
     });
-    const { yScale } = getScales({
+
+    const { yScale, xScale } = getScales({
       padding,
       histogramData,
       width,
       height,
     });
+
+    updateAxes({
+      xScale,
+      yScale,
+      xAxis,
+      yAxis,
+    });
+
     updateBars({
       height,
       padding,
