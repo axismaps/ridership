@@ -4,6 +4,7 @@ import getAtlas from './getComponents/getAtlas';
 import getIndicatorDropdown from './getComponents/getIndicatorDropdown';
 import getSliderDropdown from './getComponents/getSliderDropdown';
 import getSidebar from './getComponents/getSidebar';
+import getHistogram from './getComponents/getHistogram';
 import initStateUpdateListeners from './stateUpdate/stateUpdate';
 
 require('../scss/index.scss');
@@ -27,6 +28,7 @@ const app = {
     components.indicatorDropdown = getIndicatorDropdown({ state, data });
     components.sliderDropdown = getSliderDropdown({ state, data });
     components.sidebar = getSidebar({ state, data });
+    components.histogram = getHistogram({ state, data });
   },
   initStateUpdateListeners() {
     const { components, data } = this;

@@ -3,7 +3,8 @@ import State from '../state/state';
 const getState = ({ data }) => {
   const state = new State({
     mobile: false,
-    msa: null,
+    msa: null, // for msa view
+    msaProbe: null, // probed msa in national view
     indicator: data.get('indicators').get('headways'),
     // currentYears: [2016, 2017],
     // years: [2008, 2010],
