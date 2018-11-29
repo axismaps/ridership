@@ -2,6 +2,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
   const {
     atlas,
     sliderDropdown,
+    histogram,
   } = components;
   const years = this.get('years');
   // const nationalMapData = data.get('nationalMapData');
@@ -13,6 +14,12 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
       nationalMapData,
     })
     .updateYears();
+
+  histogram
+    .config({
+      nationalMapData,
+    })
+    .updateData();
 
   sliderDropdown
     .config({

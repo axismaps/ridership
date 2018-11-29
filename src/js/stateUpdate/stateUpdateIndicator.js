@@ -3,6 +3,7 @@ const getStateUpdateIndicator = ({ components, state }) => function updateIndica
     indicatorDropdown,
     atlas,
     sidebar,
+    histogram,
   } = components;
   const indicator = state.get('indicator');
   const nationalMapData = state.getCurrentNationalMapData();
@@ -18,6 +19,12 @@ const getStateUpdateIndicator = ({ components, state }) => function updateIndica
       nationalMapData,
     })
     .updateNationalMapData();
+
+  histogram
+    .config({
+      nationalMapData,
+    })
+    .updateData();
 
   sidebar
     .config({
