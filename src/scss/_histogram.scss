@@ -6,3 +6,8 @@
   width: calc(100% - #{$atlas--left});
   height: $histogram--height;
 }
+
+.histogram__average-line {
+  stroke: #666666;
+  stroke-width: 1px;
+}

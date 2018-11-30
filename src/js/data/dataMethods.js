@@ -170,6 +170,8 @@ const dataMethods = {
       });
     }
 
+    console.log('indicator summaries', indicatorSummaries);
+
     const data = new Map();
 
     data.set('msa', msa);

@@ -20,15 +20,12 @@ const histogramFunctions = {
 
     const allAgencies = nationalMapData
       .reduce((accumulator, msa) => [...accumulator, ...msa.ta], [])
-      .filter(d => d.pctChange < 500); // filter out crazy outliers...
+      .filter(d => d.pctChange < 500);
+
+    const nationalAverage = d3.mean(allAgencies, d => d.pctChange);
 
     const changeSpan = d3.extent(allAgencies, d => d.pctChange);
-    console.log('span', changeSpan);
-    // allAgencies.forEach((d) => {
-    //   if (d.pctChange > 100) {
-    //     console.log(d, d.pctChange);
-    //   }
-    // });
+
     const bucketSize = (changeSpan[1] - changeSpan[0]) / bucketCount;
 
     const histogramData = new Array(bucketCount)
@@ -56,7 +53,7 @@ const histogramFunctions = {
           index: i,
         };
       });
-    return histogramData;
+    return { histogramData, nationalAverage };
   },
   getScales({
     width,
@@ -66,13 +63,12 @@ const histogramFunctions = {
   }) {
     const yDomain = [
       0,
-      d3.max(histogramData, d => d.count),
+      d3.max(histogramData, d => d.count) + (d3.max(histogramData, d => d.count) * 0.2),
     ];
     const yRange = [
       0,
       height - padding.top - padding.bottom,
     ];
-    console.log('histogramData', histogramData.map(d => d.bucket));
 
     const xDomain = d3.extent(histogramData
       .reduce((accumular, d) => [...accumular, ...d.bucket], []));
@@ -163,6 +159,37 @@ const histogramFunctions = {
       })
       .call(getYAxisGenerator({ yScale }));
     return { xAxis, yAxis };
+  },
+  drawAverageLine({
+    svg,
+    nationalAverage,
+    xScale,
+    padding,
+    height,
+  }) {
+    return svg
+      .append('line')
+      .attrs({
+        class: 'histogram__average-line',
+        y1: padding.top,
+        y2: height - padding.bottom,
+        x1: padding.left + xScale(nationalAverage),
+        x2: padding.left + xScale(nationalAverage),
+      });
+  },
+  updateAverageLine({
+    averageLine,
+    nationalAverage,
+    xScale,
+    padding,
+  }) {
+    averageLine
+      .transition()
+      .duration(500)
+      .attrs({
+        x1: padding.left + xScale(nationalAverage),
+        x2: padding.left + xScale(nationalAverage),
+      });
   },
   updateAxes({
     xScale,

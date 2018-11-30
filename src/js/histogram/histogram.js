@@ -22,9 +22,13 @@ const privateMethods = {
       drawSVG,
       drawBars,
       drawAxes,
+      drawAverageLine,
     } = histogramFunctions;
 
-    const histogramData = getHistogramData({
+    const {
+      histogramData,
+      nationalAverage,
+    } = getHistogramData({
       nationalMapData,
       bucketCount,
     });
@@ -62,6 +66,14 @@ const privateMethods = {
       height,
     });
 
+    const averageLine = drawAverageLine({
+      svg,
+      nationalAverage,
+      xScale,
+      padding,
+      height,
+    });
+
     Object.assign(props, {
       // xScale,
       // yScale,
@@ -70,6 +82,7 @@ const privateMethods = {
       xAxis,
       yAxis,
       svg,
+      averageLine,
     });
   },
   setDimensions() {
@@ -96,7 +109,7 @@ class Histogram {
       container: null,
       bucketCount: 16,
       padding: {
-        top: 10,
+        top: 20,
         bottom: 65,
         left: 85,
         right: 250,
@@ -127,6 +140,7 @@ class Histogram {
       updateBars,
       getScales,
       updateAxes,
+      updateAverageLine,
     } = histogramFunctions;
 
     const {
@@ -138,10 +152,14 @@ class Histogram {
       width,
       height,
       xAxis,
+      averageLine,
       yAxis,
     } = privateProps.get(this);
 
-    const histogramData = getHistogramData({
+    const {
+      histogramData,
+      nationalAverage,
+    } = getHistogramData({
       nationalMapData,
       bucketCount,
     });
@@ -167,6 +185,13 @@ class Histogram {
       histogramData,
       yScale,
       changeColorScale,
+    });
+
+    updateAverageLine({
+      averageLine,
+      nationalAverage,
+      xScale,
+      padding,
     });
   }
 }
