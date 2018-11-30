@@ -1,3 +1,16 @@
+const axisFunctions = {
+  getXAxisGenerator({ xScale }) {
+    return d3.axisBottom(xScale);
+  },
+  getYAxisGenerator({ yScale }) {
+    const yScaleReversed = d3.scaleLinear()
+      .domain(yScale.domain())
+      .range([yScale.range()[1], yScale.range()[0]]);
+    return d3.axisLeft(yScaleReversed)
+      .ticks(4);
+  },
+};
+
 const histogramFunctions = {
   getHistogramData({
     nationalMapData,
@@ -131,23 +144,24 @@ const histogramFunctions = {
     padding,
     height,
   }) {
-    const yScaleReversed = d3.scaleLinear()
-      .domain(yScale.domain())
-      .range([yScale.range()[1], yScale.range()[0]]);
+    const {
+      getYAxisGenerator,
+      getXAxisGenerator,
+    } = axisFunctions;
     const xAxis = svg
       .append('g')
       .attrs({
         transform: `translate(${padding.left}, ${height - padding.bottom})`,
         class: 'histogram__axis',
       })
-      .call(d3.axisBottom(xScale));
+      .call(getXAxisGenerator({ xScale }));
 
     const yAxis = svg.append('g')
       .attrs({
         transform: `translate(${padding.left}, ${padding.top})`,
         class: 'histogram__axis',
       })
-      .call(d3.axisLeft(yScaleReversed));
+      .call(getYAxisGenerator({ yScale }));
     return { xAxis, yAxis };
   },
   updateAxes({
@@ -156,16 +170,18 @@ const histogramFunctions = {
     xAxis,
     yAxis,
   }) {
-    const yScaleReversed = d3.scaleLinear()
-      .domain(yScale.domain())
-      .range([yScale.range()[1], yScale.range()[0]]);
+    const {
+      getYAxisGenerator,
+      getXAxisGenerator,
+    } = axisFunctions;
+
     yAxis.transition()
       .duration(500)
-      .call(d3.axisLeft(yScaleReversed));
+      .call(getYAxisGenerator({ yScale }));
 
     xAxis.transition()
       .duration(500)
-      .call(d3.axisBottom(xScale));
+      .call(getXAxisGenerator({ xScale }));
   },
   updateBars({
     bars,
