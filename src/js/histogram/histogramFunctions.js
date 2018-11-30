@@ -9,6 +9,14 @@ const axisFunctions = {
     return d3.axisLeft(yScaleReversed)
       .ticks(4);
   },
+  updateNationalAverageText({
+    nationalAverageText,
+    nationalAverage,
+  }) {
+    const formatPercent = d3.format('.1%');
+    nationalAverageText
+      .text(`National Change: ${formatPercent(nationalAverage / 100)}`);
+  },
 };
 
 const histogramFunctions = {
@@ -16,8 +24,6 @@ const histogramFunctions = {
     nationalMapData,
     bucketCount,
   }) {
-    console.log('national map data', nationalMapData);
-
     const allAgencies = nationalMapData
       .reduce((accumulator, msa) => [...accumulator, ...msa.ta], [])
       .filter(d => d.pctChange < 500);
@@ -167,29 +173,63 @@ const histogramFunctions = {
     padding,
     height,
   }) {
-    return svg
+    const {
+      updateNationalAverageText,
+    } = axisFunctions;
+
+    const nationalAverageGroup = svg
+      .append('g')
+      .attr('transform', `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`);
+      // .attr('transform', `translate(${padding.top}, ${padding.left})`);
+      // .attr('transform', 'translate(50, 50)');
+
+    const nationalAverageText = nationalAverageGroup
+      .append('text')
+      .attrs({
+        'text-anchor': 'middle',
+        x: 0,
+        y: -8,
+      });
+
+    updateNationalAverageText({
+      nationalAverageText,
+      nationalAverage,
+    });
+
+    nationalAverageGroup
       .append('line')
       .attrs({
         class: 'histogram__average-line',
-        y1: padding.top,
-        y2: height - padding.bottom,
-        x1: padding.left + xScale(nationalAverage),
-        x2: padding.left + xScale(nationalAverage),
+        y1: 0,
+        y2: height - padding.bottom - padding.top,
+        x1: 0,
+        x2: 0,
       });
+    return {
+      nationalAverageGroup,
+      nationalAverageText,
+    };
   },
   updateAverageLine({
-    averageLine,
+    nationalAverageGroup,
     nationalAverage,
     xScale,
     padding,
+    nationalAverageText,
   }) {
-    averageLine
+    const {
+      updateNationalAverageText,
+    } = axisFunctions;
+
+    updateNationalAverageText({
+      nationalAverageText,
+      nationalAverage,
+    });
+
+    nationalAverageGroup
       .transition()
       .duration(500)
-      .attrs({
-        x1: padding.left + xScale(nationalAverage),
-        x2: padding.left + xScale(nationalAverage),
-      });
+      .attr('transform', `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`);
   },
   updateAxes({
     xScale,

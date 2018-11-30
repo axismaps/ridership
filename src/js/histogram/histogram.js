@@ -66,7 +66,10 @@ const privateMethods = {
       height,
     });
 
-    const averageLine = drawAverageLine({
+    const {
+      nationalAverageGroup,
+      nationalAverageText,
+    } = drawAverageLine({
       svg,
       nationalAverage,
       xScale,
@@ -82,7 +85,8 @@ const privateMethods = {
       xAxis,
       yAxis,
       svg,
-      averageLine,
+      nationalAverageGroup,
+      nationalAverageText,
     });
   },
   setDimensions() {
@@ -109,7 +113,7 @@ class Histogram {
       container: null,
       bucketCount: 16,
       padding: {
-        top: 20,
+        top: 30,
         bottom: 65,
         left: 85,
         right: 250,
@@ -152,7 +156,8 @@ class Histogram {
       width,
       height,
       xAxis,
-      averageLine,
+      nationalAverageGroup,
+      nationalAverageText,
       yAxis,
     } = privateProps.get(this);
 
@@ -188,8 +193,9 @@ class Histogram {
     });
 
     updateAverageLine({
-      averageLine,
+      nationalAverageGroup,
       nationalAverage,
+      nationalAverageText,
       xScale,
       padding,
     });
