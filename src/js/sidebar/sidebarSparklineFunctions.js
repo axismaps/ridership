@@ -22,13 +22,16 @@ const sidebarPureFunctions = {
   drawSparkLines({
     sparkRows,
     yearRange,
-    // currentIndicator,
+    updateCurrentIndicator,
   }) {
     const sparkLines = [];
 
     sparkRows
       .append('div')
       .attr('class', 'sidebar__sparkline-container')
+      .on('click', (d) => {
+        updateCurrentIndicator(d);
+      })
       .each(function drawSparkline(d) {
         const container = d3.select(this);
 

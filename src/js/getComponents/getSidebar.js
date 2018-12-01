@@ -7,6 +7,9 @@ const getSidebar = ({ data, state }) => new Sidebar({
   scale: state.get('scale'),
   contentContainer: d3.select('.sidebar__content'),
   topRowContainer: d3.select('.sidebar__top-row'),
+  updateCurrentIndicator: (newIndicator) => {
+    state.update({ indicator: newIndicator });
+  },
 });
 
 export default getSidebar;

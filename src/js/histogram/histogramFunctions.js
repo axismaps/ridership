@@ -180,12 +180,11 @@ const histogramFunctions = {
     const nationalAverageGroup = svg
       .append('g')
       .attr('transform', `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`);
-      // .attr('transform', `translate(${padding.top}, ${padding.left})`);
-      // .attr('transform', 'translate(50, 50)');
 
     const nationalAverageText = nationalAverageGroup
       .append('text')
       .attrs({
+        class: 'histogram__average-text',
         'text-anchor': 'middle',
         x: 0,
         y: -8,

@@ -11,6 +11,7 @@ const privateMethods = {
       indicatorSummaries,
       yearRange,
       currentIndicator,
+      updateCurrentIndicator,
     } = props;
 
     const {
@@ -29,6 +30,7 @@ const privateMethods = {
     });
 
     const sparkLines = drawSparkLines({
+      updateCurrentIndicator,
       yearRange,
       sparkRows,
       currentIndicator,
