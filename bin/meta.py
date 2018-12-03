@@ -15,6 +15,9 @@ def clean_ta(ta, drop):
         ta['Reporter Acronym']
     )
 
+    #Create display column
+    ta['display'] = ta['ShowIndividual'].astype('bool')
+
     # Drop unused columns
     return ta.drop(columns=drop)
 
@@ -52,8 +55,8 @@ def main():
     merge = pd.merge(agencies, csa, how='inner', on=['name_match', 'state_match'])
 
     # Export TA metadata
-    ta_header = ['taid', 'taname', 'tashort', 'msaid']
-    merge[['Project ID', 'Agency Name', 'Reporter Acronym', 'GEOID']].to_csv(
+    ta_header = ['taid', 'taname', 'tashort', 'msaid', 'display']
+    merge[['Project ID', 'Agency Name', 'Reporter Acronym', 'GEOID', 'display']].to_csv(
         'data/output/ta.csv', index=False,
         header=ta_header)
     replace_data('ta', ta_header, 'ta.csv')

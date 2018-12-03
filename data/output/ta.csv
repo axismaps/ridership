@@ -1,434 +1,434 @@
-taid,taname,tashort,msaid
-1,New York City Transit,NYC Transit,35620
-1,MTA New York City Transit,NYCT,35620
-2,New Jersey Transit Corporation,NJ TRANSIT,35620
-1,MTA Bus Company,MTABUS,35620
-3,MTA Long Island Rail Road,MTA LIRR,35620
-4,Port Authority Trans-Hudson Corporation,PATH,35620
-5,MTA Metro-North Railroad,MTA MNR,35620
-6,Westchester County Bee-Line System,Westchester County Bee-Line System,35620
-7,Nassau Inter County Express,Nassau Inter County Express,35620
-8,New York City Department of Transportation,NYCDOT,35620
-9,New York City Other,New York City Other,35620
-9,Staten Island Railway,SIRTOA,35620
-9,NY Waterway,Port Imperial Ferry Corporation,35620
-9,Orange-Newark-Elizabeth,Coach USA,35620
-9,Suffolk County DPW - Transportation,ST,35620
-9,Hudson Transit Lines,Short Line,35620
-9,A&C Bus Corporation & Montgomery & Westside Owners Association,,35620
-9,Academy Lines,,35620
-9,Suburban Transit Corporation,Coach USA,35620
-9,Transport of Rockland,TOR,35620
-9,Rockland Coaches,,35620
-9,DeCamp Bus Lines,,35620
-9,NYC Economic Development Corporation,NYCEDC,35620
-9,BillyBey Ferry Company,,35620
-9,Lakeland Bus Lines,,35620
-9,Trans-Bridge Lines,,35620
-9,Private Transportation Corporation,,35620
-9,Hampton Jitney,,35620
-9,Broadway Bus Corporation,,35620
-9,Olympia Trails Bus Company,Coach USA,35620
-9,Adirondack Transit Lines,Adirondack Trailways,35620
-9,Monsey New Square Trails Corporation,,35620
-9,Community Transit,Community Transit,35620
-9,Somerset County Transportation,SCT,35620
-9,Long Beach Bus,Long Beach Bus,35620
-9,Middlesex County Area Transit,MCAT,35620
-9,Bergen County Community Transportation,BCCT,35620
-9,EZ Ride,EZ Ride,35620
-9,Saddle River Trail,STR,35620
-9,Huntington Area Rapid Transit,HART,35620
-9,Putnam County Transit,PART,35620
-9,County of Hunterdon,HCLink,35620
-9,Essex County Division of Training and Employment,ECDTE,35620
-9,Clarkstown Mini-Trans,,35620
-9,County of Morris,MAPS,35620
-9,Kaser Bus Service,Kaser,35620
-9,Village of Spring Valley Bus,Spring Valley Jitney,35620
-10,Los Angeles County Metropolitan Transportation Authority,LA Metro,31080
-11,Orange County Transportation Authority,OCTA,31080
-12,Long Beach Transit,LBT,31080
-13,City of Los Angeles Department of Transportation,LADOT,31080
-14,Southern California Regional Rail Authority,Metrolink,31080
-15,Foothill Transit,Foothill Transit,31080
-16,Santa Monica's Big Blue Bus,Big Blue Bus,31080
-17,Anaheim Transportation Network,ATN,31080
-18,Los Angeles Other,Los Angeles Other,31080
-18,Montebello Bus Lines,MBL,31080
-18,Culver City Municipal Bus Lines,Culver CityBus,31080
-18,Access Services,AS,31080
-18,Torrance Transit System,TTS,31080
-18,City of Gardena Transportation Department,GTrans,31080
-18,City of Glendale,,31080
-18,City of Pasadena,ARTS,31080
-18,Norwalk Transit System,NTS,31080
-18,LA County DPW - East L.A.,LACDPW,31080
-18,City of El Monte Transportation Division,,31080
-18,City of Commerce Municipal Buslines,CBL,31080
-18,City of Alhambra,ALH,31080
-18,City of South Gate,,31080
-18,City of Redondo Beach - Beach Cities Transit,BCT,31080
-18,City of Carson,,31080
-18,City of Monterey Park,,31080
-18,LA County DPW - South Whittier,LACDPW,31080
-18,City of Burbank,,31080
-18,LA County DPW - Florence-Firestone,LACDPW,31080
-18,City of Lynwood,COL,31080
-18,City of Duarte,,31080
-18,City of Downey,,31080
-18,City of Bell Gardens,BG,31080
-18,Pomona Valley Transportation Authority,PVTA,31080
-18,Palos Verdes Peninsula Transit Authority,,31080
-18,City of Cerritos,,31080
-18,City of Cudahy,COC,31080
-18,"City of Baldwin Park, Baldwin Park Transit",,31080
-18,City of Calabasas,COC,31080
-18,City of West Hollywood,WEHO,31080
-18,Compton Renaissance Transit Service,CRT,31080
-18,City of Rosemead,,31080
-18,City of Bellflower,BLF,31080
-18,City of Maywood,COM,31080
-18,LA County DPW - Athens Shuttle Service,,31080
-18,City of West Covina,,31080
-18,LA County DPW - Lennox Shuttle,,31080
-18,City of Whittier,,31080
-18,City of Arcadia Transit,Arcadia Transit,31080
-18,City of Lawndale,,31080
-18,Los Angeles County Dept. of Public Works - Willowbrook Shuttle,,31080
-18,City of Avalon,,31080
-18,City of Glendora,,31080
-18,Los Angeles County DPW - East Valinda,LACDPW,31080
-18,City of Inglewood,,31080
-18,City of Bell,Bell,31080
-18,City of La Mirada Transit,LMT,31080
-18,LA County DPW - Avocado Heights,LACDPW,31080
-18,City of Monrovia,,31080
-18,LA County DPW - Whittier,LACDPW,31080
-18,Claremont Dial-a-Ride,CLDAR,31080
-18,City of Azusa,,31080
-18,City of Manhattan Beach Dial A Ride,CMB DAR,31080
-18,City of Lakewood - DASH Transit,DASH,31080
-18,City of Covina,,31080
-18,City of Beverly Hills,,31080
-18,City of South Pasadena,,31080
-18,City of Agoura Hills,,31080
-18,City of Pico Rivera,,31080
-18,LA County DPW - Willowbrook et al.,,31080
-18,City of Santa Fe Springs,SFS,31080
-18,City of Artesia,,31080
-18,City of Malibu,,31080
-18,LA County DPW - King Medical Center Shuttle Service,,31080
-19,Chicago Transit Authority,CTA,16980
-20,Metra Rail,Metra,16980
-21,PACE,PACE,16980
-21,Pace - Suburban Bus Division,PACE,16980
-21,"Pace-Suburban Bus Division, ADA Paratransit Services",PACE,16980
-22,Chicago Other,Chicago Other,16980
-22,Northern Indiana Commuter Transportation District,NICTD,16980
-22,Gary Public Transportation Corporation,GPTC,16980
-22,Chicago Water Taxi,CWT,16980
-22,City of Valparaiso,,16980
-22,East Chicago Transit,ECT,16980
-22,Opportunity Enterprises,OE,16980
-22,South Lake County Community Services,SLCCS,16980
-22,North Township of Lake County Dial-A-Ride,,16980
-22,Porter County Aging and Community Services,PCACS,16980
-22,Northwestern Indiana Regional Planning Commission,NIRPC,16980
-23,Miami-Dade Transit,Miami-Dade Transit,33100
-24,Broward County Transit Division,Broward County Transit Division,33100
-25,"Board of County Commissioners, Palm Beach County, PalmTran",PalmTran,33100
-26,South Florida Regional Transportation Authority,TRI-Rail,33100
-27,Miami Other,Miami Other,33100
-27,Miami Lakes - vRide,,33100
-27,City of Lauderhill,,33100
-27,City of Fort Lauderdale,,33100
-27,City of Hallandale Beach,COHB,33100
-27,Town of Davie,,33100
-27,City of Pembroke Pines,,33100
-27,City of Miramar - Public Works Department,,33100
-27,City of Coconut Creek,,33100
-27,City of Margate,,33100
-27,City of Pompano Beach,,33100
-27,City of Lauderdale Lakes,,33100
-27,City of Coral Springs,,33100
-27,City of Hollywood,,33100
-27,City of Deerfield Beach/ North East Focal Point Senior Center,,33100
-27,City of Tamarac,COT,33100
-27,City of Dania Beach,,33100
-27,Town of Lauderdale-By-The-Sea,,33100
-27,Town of Hillsboro Beach,,33100
-27,City of Lighthouse Point,,33100
-27,City of West Park,,33100
-28,Southeastern Pennsylvania Transportation Authority,SEPTA,37980
-29,Port Authority Transit Corporation,PATCO,37980
-30,Delaware Transit Corporation,DART First State,37980
-31,Philadelphia Other,Philadelphia Other,37980
-31,Pennsylvania Department of Transportation,PENNDOT,37980
-31,Senior Citizens United Community Services of Camden County,SCUCS,37980
-31,Cecil County Government - SSCT,,37980
-31,County of Burlington,BurLink,37980
-31,County of Cumberland,CCET,37980
-31,Gloucester County Division of Transportation Services,DTS,37980
-32,Dallas Area Rapid Transit,DART,19100
-33,Fort Worth Transportation Authority,FWTA,19100
-34,Dallas-Fort Worth Other,Dallas-Fort Worth Other,19100
-34,McKinney Avenue Transit Authority,MATA,19100
-34,Ft.Worth - vRide,,19100
-34,STAR Transit,STAR,19100
-34,Handitran Special Transit Division - City of Arlington,Handitran,19100
-34,Public Transit Services,PTS,19100
-34,Community Services,CSI,19100
-34,City of Grand Prairie Transportation Services Department,Grand Connection,19100
-34,City of Cleburne,City/County Trans.,19100
-34,City of Mesquite,,19100
-34,North Central Texas Council of Governments,NCTCOG,19100
-35,"Metropolitan Transit Authority of Harris County, Texas",Houston Metro,26420
-36,Houston Other,Houston Other,26420
-36,Fort Bend County Public Transportation,Fort Bend Transit,26420
-36,"Harris County Community Services Department, Office of Transit Services",Harris County Transit,26420
-36,Greater Southeast Management District,GSMD,26420
-36,Harris County Improvement District 1,HCID1,26420
-36,Harris County Improvement District 3,UKMD,26420
-36,Midtown Management District,,26420
-36,Westchase District,westchase district,26420
-37,Washington Metropolitan Area Transit Authority,WMATA,47900
-38,Ride-On Montgomery County Transit,Ride-On Montgomery County Transit,47900
-39,Fairfax Connector Bus System,Fairfax Connector,47900
-40,DDOT,DDOT,47900
-41,"Washington, DC Other","Washington, DC Other",47900
-41,Virginia Railway Express,VRE,47900
-41,Potomac and Rappahannock Transportation Commission,PRTC,47900
-41,Arlington Transit - Arlington County,ART,47900
-41,Prince George's County Transit,TheBus,47900
-41,Loudoun County Commuter Bus Service,LC Transit,47900
-41,City of Alexandria,DASH,47900
-41,City of Fairfax CUE Bus,CUE,47900
-41,National Capital Region Transportation Planning Board,MWCOG/TPB,47900
-41,Metropolitan Washington Airports Authority,MWAA,47900
-41,Northern Virginia Transportation Commission,NVTC,47900
-42,Metropolitan Atlanta Rapid Transit Authority,MARTA,12060
-43,Atlanta Other,Atlanta Other,12060
-43,Cobb County Department of Transportation,,12060
-43,Georgia Regional Transportation Authority,GRTA,12060
-43,Gwinnett County Board of Commissioners,GCT,12060
-43,City of Atlanta DPW - Transit Division,COA DPW,12060
-43,vRide - Atlanta,,12060
-43,Enterprise Rideshare,,12060
-43,Douglas County Rideshare,Rideshare,12060
-43,Henry County Transit,HC,12060
-43,Cherokee County Board of Commissioners,CATS,12060
-43,Center for Pan Asian Community Services,CPACS,12060
-43,Atlanta Regional Commission,ARC,12060
-43,City of Marietta,,12060
-44,Massachusetts Bay Transportation Authority,MBTA,14460
-45,Boston Other,Boston Other,14460
-45,Brockton Area Transit Authority,BAT,14460
-45,Merrimack Valley Regional Transit Authority,MVRTA,14460
-45,Lowell Regional Transit Authority,LRTA,14460
-45,MetroWest Regional Transit Authority,MWRTA,14460
-45,Boston Express Bus,BX,14460
-45,Cape Ann Transportation Authority,CATA,14460
-45,Blooms Bus Lines,BBL,14460
-45,Town of Lexington,Lexpess,14460
-45,City of Burlington,,14460
-45,Greater Derry Salem Cooperative Alliance for Regional Transportation,CART,14460
-45,City of Beverly,,14460
-45,Mission Hill Link,,14460
-45,Town of Bedford,,14460
-46,City of Detroit Department of Transportation,DDOT,19820
-47,Suburban Mobility Authority for Regional Transportation,SMART,19820
-48,Detroit Other,Detroit Other,19820
-48,Detroit Transportation Corporation,Detroit People Mover,19820
-48,Enterprise Rideshare - Michigan,,19820
-48,M-1 Rail,,19820
-48,Lake Erie Transit,LET,19820
-49,City of Phoenix Public Transit Department,Valley Metro,38060
-50,Valley Metro Rail,Valley Metro Rail,38060
-51,Regional Public Transportation Authority,RPTA,38060
-52,Phoenix Other,Phoenix Other,38060
-52,vRide - Valley Metro,,38060
-52,City of Scottsdale - Scottsdale Trolley,COS,38060
-52,City of Glendale Transit,,38060
-52,Peoria Transit,,38060
-53,San Francisco Municipal Railway,MUNI,41860
-54,San Francisco Bay Area Rapid Transit District,BART,41860
-55,Alameda-Contra Costa Transit District,AC Transit,41860
-56,Peninsula Corridor Joint Powers Board,Caltrain,41860
-57,San Mateo County Transit District,SamTrans,41860
-58,San Francisco Other,San Francisco Other,41860
-58,"Golden Gate Bridge, Highway and Transportation District",GGBHTD,41860
-58,Marin County Transit District,,41860
-58,San Francisco Bay Area Water Emergency Transportation Authority,WETA,41860
-58,Western Contra Costa Transit Authority,WestCAT,41860
-58,City of Union City Transit Division,UCT,41860
-58,Sonoma-Marin Area Rail Transit District,SMART,41860
-59,King County Department of Transportation,King County Metro,42660
-60,Central Puget Sound Regional Transit Authority,Sound Transit,42660
-61,Washington State Ferries,Washington State Ferries,42660
-62,Snohomish County Public Transportation Benefit Area Corporation,Community Transit,42660
-63,Pierce County Transportation Benefit Area Authority,Pierce Transit,42660
-64,Seattle Other,Seattle Other,42660
-64,Seattle Center Monorail Transit,SMS,42660
-64,Everett Transit,ET,42660
-64,Pierce County Ferry Operations,Pierce County Ferry,42660
-64,Muckleshoot Indian Tribe,MIT,42660
-65,San Diego Metropolitan Transit System,San Diego MTS,41740
-66,North County Transit District,NCTD,41740
-67,San Diego Association of Governments,SANDAG,41740
-68,Metro Transit,Metro Transit,33460
-69,Minneapolis-St. Paul Other,Minneapolis-St. Paul Other,33460
-69,University of Minnesota Transit,,33460
-69,Metropolitan Council,,33460
-69,Minnesota Valley Transit Authority,MVTA,33460
-69,Metro Mobility,,33460
-69,SouthWest Transit,SWT,33460
-69,City of Plymouth,Plymouth Metrolink,33460
-69,City of Maple Grove,,33460
-70,Hillsborough Area Regional Transit Authority,HART,45300
-71,Pinellas Suncoast Transit Authority,PSTA,45300
-72,Tampa Other,Tampa Other,45300
-72,Pasco County Public Transportation,PCPT,45300
-72,Jolley Trolley Transportation of Clearwater,PSTA,45300
-72,Tampa Bay Area Regional Transit Authority,TBARTA,45300
-72,The Looper Group,,45300
-73,Denver Regional Transportation District,RTD,19740
-74,vRide - Denver,vRide - Denver,19740
-75,Maryland Transit Administration,MTA,12580
-76,Baltimore Other,Baltimore Other,12580
-76,Baltimore City DOT,,12580
-76,Howard Transit,HT,12580
-76,Annapolis DOT,Annapolis Transit,12580
-76,Anne Arundel County,,12580
-77,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41180
-78,St. Louis Other,St. Louis Other,41180
-78,Madison County Transit District,MCT,41180
-78,Loop Trolley Transportation Development District,,41180
-79,Omnitrans,OMNI,40140
-80,Riverside Transit Agency,RTA,40140
-81,Riverside-San Bernardino Other,Riverside-San Bernardino Other,40140
-81,City of Corona,CCTS,40140
-81,City of Riverside Special Transportation,City of Riverside,40140
-81,Riverside County Transportation Commission,RCTC 5307 Recipient,40140
-82,Regional Transportation Commission of Southern Nevada,RTC,29820
-83,Las Vegas Monorail Company,LVMC,29820
-84,Tri-County Metropolitan Transportation District of Oregon,TriMet,38900
-85,City of Portland,PBOT,38900
-86,Clark County Public Transportation Benefit Area Authority,C-Tran,38900
-87,Portland Other,Portland Other,38900
-87,South Metro Area Regional Transit,SMART,38900
-87,Ride Connection,,38900
-88,The Greater Cleveland Regional Transit Authority,GCRTA,17460
-89,Cleveland Other,Cleveland Other,17460
-89,Laketran,,17460
-89,Medina County Public Transit,MCPT,17460
-90,VIA Metropolitan Transit,VIA,41700
-91,Alamo Area Council of Governments,Alamo Regional Transit,41700
-92,Port Authority of Allegheny County,PAAC,38300
-93,Pittsburgh Other,Pittsburgh Other,38300
-93,Beaver County Transit Authority,BCTA,38300
-93,Westmoreland County Transit Authority,WCTA,38300
-93,Washington County Transportation Authority,,38300
-93,Southwestern Pennsylvania Commission,SPC,38300
-93,Airport Corridor Transportation Association,ACTA,38300
-94,Sacramento Regional Transit District,Sacramento RT,40900
-95,Sacramento Other,Sacramento Other,40900
-95,Yolo County Transportation District,YCTD,40900
-95,City of Elk Grove,etran,40900
-95,Placer County DPWF,PCDPWF,40900
-95,Paratransit,,40900
-95,El Dorado County Transit Authority,EDCTA,40900
-95,Roseville Transit,,40900
-95,City of Folsom,FSL,40900
-96,Santa Clara Valley Transportation Authority,VTA,41940
-97,Southwest Ohio Regional Transit Authority,SORTA,17140
-98,Cincinnati Other,Cincinnati Other,17140
-98,Transit Authority of Northern Kentucky,TANK,17140
-98,Butler County Regional Transit Authority,BCRTA,17140
-98,Clermont Transportation Connection,CTC,17140
-98,Warren County Transit Services,WCTS,17140
-99,Kansas City Area Transportation Authority,KCATA,28140
-100,Kansas City Other,Kansas City Other,28140
-100,"Kansas City, City of Missouri",KCMO,28140
-100,Johnson County Transit,The JO,28140
-100,City of Independence,IndeBus,28140
-100,Unified Government Transit Department,UGT,28140
-101,Central Florida Regional Transportation Authority,LYNX,36740
-102,Central Florida Commuter Rail,SunRail,36740
-103,Indianapolis and Marion County Public Transportation,IndyGo,26900
-104,Indianapolis Other,Indianapolis Other,26900
-104,Central Indiana Regional Transportation Authority,CIRTA,26900
-104,Hancock Area Rural Transit,HART,26900
-105,Transportation District Commission of Hampton Roads,HRT,47260
-106,Suffolk Transit,Suffolk Transit,47260
-107,Milwaukee County Transit System,MCTS,33340
-108,Milwaukee Other,Milwaukee Other,33340
-108,City of Waukesha Transit Commission,Waukesha Metro Transit,33340
-108,Ozaukee County Transit Services,OCTS,33340
-108,Washington County Transit,,33340
-108,City of Milwaukee,,33340
-109,Central Ohio Transit Authority,COTA,18140
-110,Columbus Other,Columbus Other,18140
-110,Delaware County Transit Board,DATA,18140
-110,Mid-Ohio Regional Planning Commission,MORPC,18140
-111,Capital Metropolitan Transportation Authority,CapMetro,12420
-112,City of Round Rock,City of Round Rock,12420
-113,Charlotte Area Transit System,CATS,16740
-114,Charlotte Other,Charlotte Other,16740
-114,Mecklenburg County DSS,MCTS,16740
-114,Iredell County Area Transportation Services,ICATS,16740
-114,Union County Transportation,UCT,16740
-114,Lancaster County Council on Aging,Lancaster Area Ride Service,16740
-115,Rhode Island Public Transit Authority,RIPTA,39300
-116,Providence Other,Providence Other,39300
-116,Greater Attleboro-Taunton Regional Transit Authority,GATRA,39300
-116,Rhode Island DOT,RIDOT,39300
-117,Jacksonville Transportation Authority,JTA,27260
-118,Clay County Council on Aging,Clay Transit,27260
-119,Memphis Area Transit Authority,MATA,32820
-120,Shelby County Government,Shelby County Government,32820
-121,Utah Transit Authority,UTA,41620
-122,Transit Authority of River City,TARC,31140
-123,Louisville Other,Louisville Other,31140
-123,Kentuckiana Regional Planning and Development Agency,KIPDA,31140
-123,Oldham's Public Bus,,31140
-124,Metropolitan Transit Authority,WeGo/MTA,34980
-125,Nashville Other,Nashville Other,34980
-125,Regional Transportation Authority,RTA,34980
-125,The Transportation Management Association Group,TMA,34980
-125,Franklin Transit Authority,FTA,34980
-126,Greater Richmond Transit Company,GRTC,40060
-127,Petersburg Area Transit,Petersburg Area Transit,40060
-128,Niagara Frontier Transportation Authority,NFT Metro,15380
-129,CTTRANSIT Hartford,CTTransit,25540
-130,Hartford Other,Hartford Other,25540
-130,Connecticut DOT,CDOT,25540
-130,CTTRANSIT New Britain,,25540
-130,Greater Hartford Transit District,GHTD,25540
-130,CTTransit New Britain -Dattco.,CDOT CTTransit DATTCO,25540
-130,Middletown Transit District,MTD,25540
-130,CTTransit Torrington-Winsted,Nason Partners,25540
-131,New Orleans Regional Transit Authority,NORTA,35380
-132,New Orleans Other,New Orleans Other,35380
-132,Jefferson Parish Department of Transit Administration,Jet,35380
-132,Plaquemines Parish Government,PPG,35380
-132,St. Bernard Urban Rapid Transit,SBURT,35380
-132,River Parishes Transit Authority,RPTA,35380
-132,Regional Planning Commission,RPC,35380
-133,Capital Area Transit,GoRaleigh,39580
-134,Raleigh Other,Raleigh Other,39580
-134,North Carolina State University Transportation Department,NCSU,39580
-134,Town of Cary,GoCary,39580
-134,Wake County DSS,TRACS,39580
-135,Central Oklahoma Transportation and Parking Authority,COTPA,36420
-136,City of Edmond,Citylink,36420
-137,City of Tucson,Sun Tran,46060
-138,Tucson Other,Tucson Other,46060
-138,Pima Association of Governments,PAG,46060
-138,Town of Oro Valley - Transit Services Division,SunShutDNR,46060
-139,City and County of Honolulu Department of Transportation Services,DTS,46520
-140,Birmingham-Jefferson County Transit Authority,MAX,13820
-141,Regional Planning Commission of Greater Birmingham,RPCGB,13820
-142,RTS - Monroe County,RGRTA,40380
-143,Metropolitan Tulsa Transit Authority,MTTA,46140
-144,Interurban Transit Partnership,The Rapid,24340
+taid,taname,tashort,msaid,display
+1,New York City Transit,NYC Transit,35620,True
+1,MTA New York City Transit,NYCT,35620,False
+2,New Jersey Transit Corporation,NJ TRANSIT,35620,True
+1,MTA Bus Company,MTABUS,35620,False
+3,MTA Long Island Rail Road,MTA LIRR,35620,True
+4,Port Authority Trans-Hudson Corporation,PATH,35620,True
+5,MTA Metro-North Railroad,MTA MNR,35620,True
+6,Westchester County Bee-Line System,Westchester County Bee-Line System,35620,True
+7,Nassau Inter County Express,Nassau Inter County Express,35620,True
+8,New York City Department of Transportation,NYCDOT,35620,True
+9,New York City Other,New York City Other,35620,True
+9,Staten Island Railway,SIRTOA,35620,False
+9,NY Waterway,Port Imperial Ferry Corporation,35620,False
+9,Orange-Newark-Elizabeth,Coach USA,35620,False
+9,Suffolk County DPW - Transportation,ST,35620,False
+9,Hudson Transit Lines,Short Line,35620,False
+9,A&C Bus Corporation & Montgomery & Westside Owners Association,,35620,False
+9,Academy Lines,,35620,False
+9,Suburban Transit Corporation,Coach USA,35620,False
+9,Transport of Rockland,TOR,35620,False
+9,Rockland Coaches,,35620,False
+9,DeCamp Bus Lines,,35620,False
+9,NYC Economic Development Corporation,NYCEDC,35620,False
+9,BillyBey Ferry Company,,35620,False
+9,Lakeland Bus Lines,,35620,False
+9,Trans-Bridge Lines,,35620,False
+9,Private Transportation Corporation,,35620,False
+9,Hampton Jitney,,35620,False
+9,Broadway Bus Corporation,,35620,False
+9,Olympia Trails Bus Company,Coach USA,35620,False
+9,Adirondack Transit Lines,Adirondack Trailways,35620,False
+9,Monsey New Square Trails Corporation,,35620,False
+9,Community Transit,Community Transit,35620,False
+9,Somerset County Transportation,SCT,35620,False
+9,Long Beach Bus,Long Beach Bus,35620,False
+9,Middlesex County Area Transit,MCAT,35620,False
+9,Bergen County Community Transportation,BCCT,35620,False
+9,EZ Ride,EZ Ride,35620,False
+9,Saddle River Trail,STR,35620,False
+9,Huntington Area Rapid Transit,HART,35620,False
+9,Putnam County Transit,PART,35620,False
+9,County of Hunterdon,HCLink,35620,False
+9,Essex County Division of Training and Employment,ECDTE,35620,False
+9,Clarkstown Mini-Trans,,35620,False
+9,County of Morris,MAPS,35620,False
+9,Kaser Bus Service,Kaser,35620,False
+9,Village of Spring Valley Bus,Spring Valley Jitney,35620,False
+10,Los Angeles County Metropolitan Transportation Authority,LA Metro,31080,True
+11,Orange County Transportation Authority,OCTA,31080,True
+12,Long Beach Transit,LBT,31080,True
+13,City of Los Angeles Department of Transportation,LADOT,31080,True
+14,Southern California Regional Rail Authority,Metrolink,31080,True
+15,Foothill Transit,Foothill Transit,31080,True
+16,Santa Monica's Big Blue Bus,Big Blue Bus,31080,True
+17,Anaheim Transportation Network,ATN,31080,True
+18,Los Angeles Other,Los Angeles Other,31080,True
+18,Montebello Bus Lines,MBL,31080,False
+18,Culver City Municipal Bus Lines,Culver CityBus,31080,False
+18,Access Services,AS,31080,False
+18,Torrance Transit System,TTS,31080,False
+18,City of Gardena Transportation Department,GTrans,31080,False
+18,City of Glendale,,31080,False
+18,City of Pasadena,ARTS,31080,False
+18,Norwalk Transit System,NTS,31080,False
+18,LA County DPW - East L.A.,LACDPW,31080,False
+18,City of El Monte Transportation Division,,31080,False
+18,City of Commerce Municipal Buslines,CBL,31080,False
+18,City of Alhambra,ALH,31080,False
+18,City of South Gate,,31080,False
+18,City of Redondo Beach - Beach Cities Transit,BCT,31080,False
+18,City of Carson,,31080,False
+18,City of Monterey Park,,31080,False
+18,LA County DPW - South Whittier,LACDPW,31080,False
+18,City of Burbank,,31080,False
+18,LA County DPW - Florence-Firestone,LACDPW,31080,False
+18,City of Lynwood,COL,31080,False
+18,City of Duarte,,31080,False
+18,City of Downey,,31080,False
+18,City of Bell Gardens,BG,31080,False
+18,Pomona Valley Transportation Authority,PVTA,31080,False
+18,Palos Verdes Peninsula Transit Authority,,31080,False
+18,City of Cerritos,,31080,False
+18,City of Cudahy,COC,31080,False
+18,"City of Baldwin Park, Baldwin Park Transit",,31080,False
+18,City of Calabasas,COC,31080,False
+18,City of West Hollywood,WEHO,31080,False
+18,Compton Renaissance Transit Service,CRT,31080,False
+18,City of Rosemead,,31080,False
+18,City of Bellflower,BLF,31080,False
+18,City of Maywood,COM,31080,False
+18,LA County DPW - Athens Shuttle Service,,31080,False
+18,City of West Covina,,31080,False
+18,LA County DPW - Lennox Shuttle,,31080,False
+18,City of Whittier,,31080,False
+18,City of Arcadia Transit,Arcadia Transit,31080,False
+18,City of Lawndale,,31080,False
+18,Los Angeles County Dept. of Public Works - Willowbrook Shuttle,,31080,False
+18,City of Avalon,,31080,False
+18,City of Glendora,,31080,False
+18,Los Angeles County DPW - East Valinda,LACDPW,31080,False
+18,City of Inglewood,,31080,False
+18,City of Bell,Bell,31080,False
+18,City of La Mirada Transit,LMT,31080,False
+18,LA County DPW - Avocado Heights,LACDPW,31080,False
+18,City of Monrovia,,31080,False
+18,LA County DPW - Whittier,LACDPW,31080,False
+18,Claremont Dial-a-Ride,CLDAR,31080,False
+18,City of Azusa,,31080,False
+18,City of Manhattan Beach Dial A Ride,CMB DAR,31080,False
+18,City of Lakewood - DASH Transit,DASH,31080,False
+18,City of Covina,,31080,False
+18,City of Beverly Hills,,31080,False
+18,City of South Pasadena,,31080,False
+18,City of Agoura Hills,,31080,False
+18,City of Pico Rivera,,31080,False
+18,LA County DPW - Willowbrook et al.,,31080,False
+18,City of Santa Fe Springs,SFS,31080,False
+18,City of Artesia,,31080,False
+18,City of Malibu,,31080,False
+18,LA County DPW - King Medical Center Shuttle Service,,31080,False
+19,Chicago Transit Authority,CTA,16980,True
+20,Metra Rail,Metra,16980,True
+21,PACE,PACE,16980,True
+21,Pace - Suburban Bus Division,PACE,16980,False
+21,"Pace-Suburban Bus Division, ADA Paratransit Services",PACE,16980,False
+22,Chicago Other,Chicago Other,16980,True
+22,Northern Indiana Commuter Transportation District,NICTD,16980,False
+22,Gary Public Transportation Corporation,GPTC,16980,False
+22,Chicago Water Taxi,CWT,16980,False
+22,City of Valparaiso,,16980,False
+22,East Chicago Transit,ECT,16980,False
+22,Opportunity Enterprises,OE,16980,False
+22,South Lake County Community Services,SLCCS,16980,False
+22,North Township of Lake County Dial-A-Ride,,16980,False
+22,Porter County Aging and Community Services,PCACS,16980,False
+22,Northwestern Indiana Regional Planning Commission,NIRPC,16980,False
+23,Miami-Dade Transit,Miami-Dade Transit,33100,True
+24,Broward County Transit Division,Broward County Transit Division,33100,True
+25,"Board of County Commissioners, Palm Beach County, PalmTran",PalmTran,33100,True
+26,South Florida Regional Transportation Authority,TRI-Rail,33100,True
+27,Miami Other,Miami Other,33100,True
+27,Miami Lakes - vRide,,33100,False
+27,City of Lauderhill,,33100,False
+27,City of Fort Lauderdale,,33100,False
+27,City of Hallandale Beach,COHB,33100,False
+27,Town of Davie,,33100,False
+27,City of Pembroke Pines,,33100,False
+27,City of Miramar - Public Works Department,,33100,False
+27,City of Coconut Creek,,33100,False
+27,City of Margate,,33100,False
+27,City of Pompano Beach,,33100,False
+27,City of Lauderdale Lakes,,33100,False
+27,City of Coral Springs,,33100,False
+27,City of Hollywood,,33100,False
+27,City of Deerfield Beach/ North East Focal Point Senior Center,,33100,False
+27,City of Tamarac,COT,33100,False
+27,City of Dania Beach,,33100,False
+27,Town of Lauderdale-By-The-Sea,,33100,False
+27,Town of Hillsboro Beach,,33100,False
+27,City of Lighthouse Point,,33100,False
+27,City of West Park,,33100,False
+28,Southeastern Pennsylvania Transportation Authority,SEPTA,37980,True
+29,Port Authority Transit Corporation,PATCO,37980,True
+30,Delaware Transit Corporation,DART First State,37980,True
+31,Philadelphia Other,Philadelphia Other,37980,True
+31,Pennsylvania Department of Transportation,PENNDOT,37980,False
+31,Senior Citizens United Community Services of Camden County,SCUCS,37980,False
+31,Cecil County Government - SSCT,,37980,False
+31,County of Burlington,BurLink,37980,False
+31,County of Cumberland,CCET,37980,False
+31,Gloucester County Division of Transportation Services,DTS,37980,False
+32,Dallas Area Rapid Transit,DART,19100,True
+33,Fort Worth Transportation Authority,FWTA,19100,True
+34,Dallas-Fort Worth Other,Dallas-Fort Worth Other,19100,True
+34,McKinney Avenue Transit Authority,MATA,19100,False
+34,Ft.Worth - vRide,,19100,False
+34,STAR Transit,STAR,19100,False
+34,Handitran Special Transit Division - City of Arlington,Handitran,19100,False
+34,Public Transit Services,PTS,19100,False
+34,Community Services,CSI,19100,False
+34,City of Grand Prairie Transportation Services Department,Grand Connection,19100,False
+34,City of Cleburne,City/County Trans.,19100,False
+34,City of Mesquite,,19100,False
+34,North Central Texas Council of Governments,NCTCOG,19100,False
+35,"Metropolitan Transit Authority of Harris County, Texas",Houston Metro,26420,True
+36,Houston Other,Houston Other,26420,True
+36,Fort Bend County Public Transportation,Fort Bend Transit,26420,False
+36,"Harris County Community Services Department, Office of Transit Services",Harris County Transit,26420,False
+36,Greater Southeast Management District,GSMD,26420,False
+36,Harris County Improvement District 1,HCID1,26420,False
+36,Harris County Improvement District 3,UKMD,26420,False
+36,Midtown Management District,,26420,False
+36,Westchase District,westchase district,26420,False
+37,Washington Metropolitan Area Transit Authority,WMATA,47900,True
+38,Ride-On Montgomery County Transit,Ride-On Montgomery County Transit,47900,True
+39,Fairfax Connector Bus System,Fairfax Connector,47900,True
+40,DDOT,DDOT,47900,True
+41,"Washington, DC Other","Washington, DC Other",47900,True
+41,Virginia Railway Express,VRE,47900,False
+41,Potomac and Rappahannock Transportation Commission,PRTC,47900,False
+41,Arlington Transit - Arlington County,ART,47900,False
+41,Prince George's County Transit,TheBus,47900,False
+41,Loudoun County Commuter Bus Service,LC Transit,47900,False
+41,City of Alexandria,DASH,47900,False
+41,City of Fairfax CUE Bus,CUE,47900,False
+41,National Capital Region Transportation Planning Board,MWCOG/TPB,47900,False
+41,Metropolitan Washington Airports Authority,MWAA,47900,False
+41,Northern Virginia Transportation Commission,NVTC,47900,False
+42,Metropolitan Atlanta Rapid Transit Authority,MARTA,12060,True
+43,Atlanta Other,Atlanta Other,12060,True
+43,Cobb County Department of Transportation,,12060,False
+43,Georgia Regional Transportation Authority,GRTA,12060,False
+43,Gwinnett County Board of Commissioners,GCT,12060,False
+43,City of Atlanta DPW - Transit Division,COA DPW,12060,False
+43,vRide - Atlanta,,12060,False
+43,Enterprise Rideshare,,12060,False
+43,Douglas County Rideshare,Rideshare,12060,False
+43,Henry County Transit,HC,12060,False
+43,Cherokee County Board of Commissioners,CATS,12060,False
+43,Center for Pan Asian Community Services,CPACS,12060,False
+43,Atlanta Regional Commission,ARC,12060,False
+43,City of Marietta,,12060,False
+44,Massachusetts Bay Transportation Authority,MBTA,14460,True
+45,Boston Other,Boston Other,14460,True
+45,Brockton Area Transit Authority,BAT,14460,False
+45,Merrimack Valley Regional Transit Authority,MVRTA,14460,False
+45,Lowell Regional Transit Authority,LRTA,14460,False
+45,MetroWest Regional Transit Authority,MWRTA,14460,False
+45,Boston Express Bus,BX,14460,False
+45,Cape Ann Transportation Authority,CATA,14460,False
+45,Blooms Bus Lines,BBL,14460,False
+45,Town of Lexington,Lexpess,14460,False
+45,City of Burlington,,14460,False
+45,Greater Derry Salem Cooperative Alliance for Regional Transportation,CART,14460,False
+45,City of Beverly,,14460,False
+45,Mission Hill Link,,14460,False
+45,Town of Bedford,,14460,False
+46,City of Detroit Department of Transportation,DDOT,19820,True
+47,Suburban Mobility Authority for Regional Transportation,SMART,19820,True
+48,Detroit Other,Detroit Other,19820,True
+48,Detroit Transportation Corporation,Detroit People Mover,19820,False
+48,Enterprise Rideshare - Michigan,,19820,False
+48,M-1 Rail,,19820,False
+48,Lake Erie Transit,LET,19820,False
+49,City of Phoenix Public Transit Department,Valley Metro,38060,True
+50,Valley Metro Rail,Valley Metro Rail,38060,True
+51,Regional Public Transportation Authority,RPTA,38060,True
+52,Phoenix Other,Phoenix Other,38060,True
+52,vRide - Valley Metro,,38060,False
+52,City of Scottsdale - Scottsdale Trolley,COS,38060,False
+52,City of Glendale Transit,,38060,False
+52,Peoria Transit,,38060,False
+53,San Francisco Municipal Railway,MUNI,41860,True
+54,San Francisco Bay Area Rapid Transit District,BART,41860,True
+55,Alameda-Contra Costa Transit District,AC Transit,41860,True
+56,Peninsula Corridor Joint Powers Board,Caltrain,41860,True
+57,San Mateo County Transit District,SamTrans,41860,True
+58,San Francisco Other,San Francisco Other,41860,True
+58,"Golden Gate Bridge, Highway and Transportation District",GGBHTD,41860,False
+58,Marin County Transit District,,41860,False
+58,San Francisco Bay Area Water Emergency Transportation Authority,WETA,41860,False
+58,Western Contra Costa Transit Authority,WestCAT,41860,False
+58,City of Union City Transit Division,UCT,41860,False
+58,Sonoma-Marin Area Rail Transit District,SMART,41860,False
+59,King County Department of Transportation,King County Metro,42660,True
+60,Central Puget Sound Regional Transit Authority,Sound Transit,42660,True
+61,Washington State Ferries,Washington State Ferries,42660,True
+62,Snohomish County Public Transportation Benefit Area Corporation,Community Transit,42660,True
+63,Pierce County Transportation Benefit Area Authority,Pierce Transit,42660,True
+64,Seattle Other,Seattle Other,42660,True
+64,Seattle Center Monorail Transit,SMS,42660,False
+64,Everett Transit,ET,42660,False
+64,Pierce County Ferry Operations,Pierce County Ferry,42660,False
+64,Muckleshoot Indian Tribe,MIT,42660,False
+65,San Diego Metropolitan Transit System,San Diego MTS,41740,True
+66,North County Transit District,NCTD,41740,True
+67,San Diego Association of Governments,SANDAG,41740,True
+68,Metro Transit,Metro Transit,33460,True
+69,Minneapolis-St. Paul Other,Minneapolis-St. Paul Other,33460,True
+69,University of Minnesota Transit,,33460,False
+69,Metropolitan Council,,33460,False
+69,Minnesota Valley Transit Authority,MVTA,33460,False
+69,Metro Mobility,,33460,False
+69,SouthWest Transit,SWT,33460,False
+69,City of Plymouth,Plymouth Metrolink,33460,False
+69,City of Maple Grove,,33460,False
+70,Hillsborough Area Regional Transit Authority,HART,45300,True
+71,Pinellas Suncoast Transit Authority,PSTA,45300,True
+72,Tampa Other,Tampa Other,45300,True
+72,Pasco County Public Transportation,PCPT,45300,False
+72,Jolley Trolley Transportation of Clearwater,PSTA,45300,False
+72,Tampa Bay Area Regional Transit Authority,TBARTA,45300,False
+72,The Looper Group,,45300,False
+73,Denver Regional Transportation District,RTD,19740,True
+74,vRide - Denver,vRide - Denver,19740,True
+75,Maryland Transit Administration,MTA,12580,True
+76,Baltimore Other,Baltimore Other,12580,True
+76,Baltimore City DOT,,12580,False
+76,Howard Transit,HT,12580,False
+76,Annapolis DOT,Annapolis Transit,12580,False
+76,Anne Arundel County,,12580,False
+77,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41180,True
+78,St. Louis Other,St. Louis Other,41180,True
+78,Madison County Transit District,MCT,41180,False
+78,Loop Trolley Transportation Development District,,41180,False
+79,Omnitrans,OMNI,40140,True
+80,Riverside Transit Agency,RTA,40140,True
+81,Riverside-San Bernardino Other,Riverside-San Bernardino Other,40140,True
+81,City of Corona,CCTS,40140,False
+81,City of Riverside Special Transportation,City of Riverside,40140,False
+81,Riverside County Transportation Commission,RCTC 5307 Recipient,40140,False
+82,Regional Transportation Commission of Southern Nevada,RTC,29820,True
+83,Las Vegas Monorail Company,LVMC,29820,True
+84,Tri-County Metropolitan Transportation District of Oregon,TriMet,38900,True
+85,City of Portland,PBOT,38900,True
+86,Clark County Public Transportation Benefit Area Authority,C-Tran,38900,True
+87,Portland Other,Portland Other,38900,True
+87,South Metro Area Regional Transit,SMART,38900,False
+87,Ride Connection,,38900,False
+88,The Greater Cleveland Regional Transit Authority,GCRTA,17460,True
+89,Cleveland Other,Cleveland Other,17460,True
+89,Laketran,,17460,False
+89,Medina County Public Transit,MCPT,17460,False
+90,VIA Metropolitan Transit,VIA,41700,True
+91,Alamo Area Council of Governments,Alamo Regional Transit,41700,True
+92,Port Authority of Allegheny County,PAAC,38300,True
+93,Pittsburgh Other,Pittsburgh Other,38300,True
+93,Beaver County Transit Authority,BCTA,38300,False
+93,Westmoreland County Transit Authority,WCTA,38300,False
+93,Washington County Transportation Authority,,38300,False
+93,Southwestern Pennsylvania Commission,SPC,38300,False
+93,Airport Corridor Transportation Association,ACTA,38300,False
+94,Sacramento Regional Transit District,Sacramento RT,40900,True
+95,Sacramento Other,Sacramento Other,40900,True
+95,Yolo County Transportation District,YCTD,40900,False
+95,City of Elk Grove,etran,40900,False
+95,Placer County DPWF,PCDPWF,40900,False
+95,Paratransit,,40900,False
+95,El Dorado County Transit Authority,EDCTA,40900,False
+95,Roseville Transit,,40900,False
+95,City of Folsom,FSL,40900,False
+96,Santa Clara Valley Transportation Authority,VTA,41940,True
+97,Southwest Ohio Regional Transit Authority,SORTA,17140,True
+98,Cincinnati Other,Cincinnati Other,17140,True
+98,Transit Authority of Northern Kentucky,TANK,17140,False
+98,Butler County Regional Transit Authority,BCRTA,17140,False
+98,Clermont Transportation Connection,CTC,17140,False
+98,Warren County Transit Services,WCTS,17140,False
+99,Kansas City Area Transportation Authority,KCATA,28140,True
+100,Kansas City Other,Kansas City Other,28140,True
+100,"Kansas City, City of Missouri",KCMO,28140,False
+100,Johnson County Transit,The JO,28140,False
+100,City of Independence,IndeBus,28140,False
+100,Unified Government Transit Department,UGT,28140,False
+101,Central Florida Regional Transportation Authority,LYNX,36740,True
+102,Central Florida Commuter Rail,SunRail,36740,True
+103,Indianapolis and Marion County Public Transportation,IndyGo,26900,True
+104,Indianapolis Other,Indianapolis Other,26900,True
+104,Central Indiana Regional Transportation Authority,CIRTA,26900,False
+104,Hancock Area Rural Transit,HART,26900,False
+105,Transportation District Commission of Hampton Roads,HRT,47260,True
+106,Suffolk Transit,Suffolk Transit,47260,True
+107,Milwaukee County Transit System,MCTS,33340,True
+108,Milwaukee Other,Milwaukee Other,33340,True
+108,City of Waukesha Transit Commission,Waukesha Metro Transit,33340,False
+108,Ozaukee County Transit Services,OCTS,33340,False
+108,Washington County Transit,,33340,False
+108,City of Milwaukee,,33340,False
+109,Central Ohio Transit Authority,COTA,18140,True
+110,Columbus Other,Columbus Other,18140,True
+110,Delaware County Transit Board,DATA,18140,False
+110,Mid-Ohio Regional Planning Commission,MORPC,18140,False
+111,Capital Metropolitan Transportation Authority,CapMetro,12420,True
+112,City of Round Rock,City of Round Rock,12420,True
+113,Charlotte Area Transit System,CATS,16740,True
+114,Charlotte Other,Charlotte Other,16740,True
+114,Mecklenburg County DSS,MCTS,16740,False
+114,Iredell County Area Transportation Services,ICATS,16740,False
+114,Union County Transportation,UCT,16740,False
+114,Lancaster County Council on Aging,Lancaster Area Ride Service,16740,False
+115,Rhode Island Public Transit Authority,RIPTA,39300,True
+116,Providence Other,Providence Other,39300,True
+116,Greater Attleboro-Taunton Regional Transit Authority,GATRA,39300,False
+116,Rhode Island DOT,RIDOT,39300,False
+117,Jacksonville Transportation Authority,JTA,27260,True
+118,Clay County Council on Aging,Clay Transit,27260,True
+119,Memphis Area Transit Authority,MATA,32820,True
+120,Shelby County Government,Shelby County Government,32820,True
+121,Utah Transit Authority,UTA,41620,True
+122,Transit Authority of River City,TARC,31140,True
+123,Louisville Other,Louisville Other,31140,True
+123,Kentuckiana Regional Planning and Development Agency,KIPDA,31140,False
+123,Oldham's Public Bus,,31140,False
+124,Metropolitan Transit Authority,WeGo/MTA,34980,True
+125,Nashville Other,Nashville Other,34980,True
+125,Regional Transportation Authority,RTA,34980,False
+125,The Transportation Management Association Group,TMA,34980,False
+125,Franklin Transit Authority,FTA,34980,False
+126,Greater Richmond Transit Company,GRTC,40060,True
+127,Petersburg Area Transit,Petersburg Area Transit,40060,True
+128,Niagara Frontier Transportation Authority,NFT Metro,15380,True
+129,CTTRANSIT Hartford,CTTransit,25540,True
+130,Hartford Other,Hartford Other,25540,True
+130,Connecticut DOT,CDOT,25540,False
+130,CTTRANSIT New Britain,,25540,False
+130,Greater Hartford Transit District,GHTD,25540,False
+130,CTTransit New Britain -Dattco.,CDOT CTTransit DATTCO,25540,False
+130,Middletown Transit District,MTD,25540,False
+130,CTTransit Torrington-Winsted,Nason Partners,25540,False
+131,New Orleans Regional Transit Authority,NORTA,35380,True
+132,New Orleans Other,New Orleans Other,35380,True
+132,Jefferson Parish Department of Transit Administration,Jet,35380,False
+132,Plaquemines Parish Government,PPG,35380,False
+132,St. Bernard Urban Rapid Transit,SBURT,35380,False
+132,River Parishes Transit Authority,RPTA,35380,False
+132,Regional Planning Commission,RPC,35380,False
+133,Capital Area Transit,GoRaleigh,39580,True
+134,Raleigh Other,Raleigh Other,39580,True
+134,North Carolina State University Transportation Department,NCSU,39580,False
+134,Town of Cary,GoCary,39580,False
+134,Wake County DSS,TRACS,39580,False
+135,Central Oklahoma Transportation and Parking Authority,COTPA,36420,True
+136,City of Edmond,Citylink,36420,True
+137,City of Tucson,Sun Tran,46060,True
+138,Tucson Other,Tucson Other,46060,True
+138,Pima Association of Governments,PAG,46060,False
+138,Town of Oro Valley - Transit Services Division,SunShutDNR,46060,False
+139,City and County of Honolulu Department of Transportation Services,DTS,46520,True
+140,Birmingham-Jefferson County Transit Authority,MAX,13820,True
+141,Regional Planning Commission of Greater Birmingham,RPCGB,13820,True
+142,RTS - Monroe County,RGRTA,40380,True
+143,Metropolitan Tulsa Transit Authority,MTTA,46140,True
+144,Interurban Transit Partnership,The Rapid,24340,True
