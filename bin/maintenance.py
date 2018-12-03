@@ -22,29 +22,38 @@ VALID_VAL_KEYS = [
 ]
 
 
-def format_data(df):
+def format_data(df, tas):
     ind = list(set(df.keys()).intersection(VALID_ID_KEYS))[0]
     val = list(set(df.keys()).intersection(VALID_VAL_KEYS))[0]
-    m = df[[ind, val]].rename(index=str, columns={ind: 'index', val: 'value'})
-    group = m.groupby('index').sum().stack()
-    print group
+    m = df[[ind, val]].rename(index=str, columns={ind: 'NTD ID'})
+    m['maintenance'] = pd.to_numeric(m[val], errors='coerce').fillna(value=0)
+    merge = pd.merge(tas, m, how='left', on='NTD ID')
+    group = merge[['Project ID', 'maintenance']].groupby('Project ID').sum().stack()
 
     return group
 
 
-def load_excel():
-    maintenance = {}
+def load_excel(tas):
+    maintenance = pd.DataFrame()
     files = os.listdir(DIR)
     for i in files:
-        print i
         year = re.search(r"^\d{4}", i).group(0)
-        maintenance[year] = format_data(pd.read_excel(DIR + i))
+        maintenance[year] = format_data(pd.read_excel(DIR + i), tas)
+    
     return maintenance
 
 
-def main():
-    years = load_excel()
+def load_maintenance():
+    TA = pd.read_excel('data/meta/Transit_Agencies_for_Visualization.xlsx',
+                       sheet_name='TC AgencyList')
+    TA_DROP = ['ShowIndividual', '"Other" primary Project ID', 'Primary UZA',
+               'UZA Name', 'Agency Name', 'Reporter Acronym', 'display']
+    ta_clean = clean_ta(TA, TA_DROP)
+
+    years = load_excel(ta_clean)
+    print years
+    
 
 
 if __name__ == "__main__":
-    main()
+    load_maintenance()
