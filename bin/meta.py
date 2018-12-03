@@ -19,7 +19,7 @@ def clean_ta(ta, drop):
     return ta.drop(columns=drop)
 
 def make_match_name(name):
-    matches = re.search(r"(\s|\w)*", name)
+    matches = re.search(r"(\s|\w|\.)*", name)
     return matches.group(0)
 
 def make_match_state(name):
