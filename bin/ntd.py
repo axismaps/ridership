@@ -1,5 +1,8 @@
 import pandas as pd
+from numpy import inf
+from numpy import nan
 from meta import clean_ta
+from maintenance import load_maintenance
 from carto import replace_data
 
 # Load the excel data:
@@ -39,7 +42,7 @@ col21 = ['Last Report Year', 'Legacy NTD ID', 'Agency Name', 'Agency Status',
          'Mode Status', 'UZA', 'UZA Area SQ Miles', 'UZA Population', '2017 Status']
 
 TA_DROP = ['ShowIndividual', '"Other" primary Project ID', 'Primary UZA',
-           'UZA Name', 'Agency Name', 'Reporter Acronym']
+           'UZA Name', 'Agency Name', 'Reporter Acronym', 'display']
 ta_clean = clean_ta(TA, TA_DROP)
 
 datasets = {}
@@ -91,6 +94,9 @@ stacks['headways'] = pd.Series((stacks['drm'] / stacks['speed']) / stacks['voms'
 # Average trip length
 stacks['trip_length'] = pd.Series(stacks['pmt'] / stacks['upt'], name='trip_length')
 
+# Miles between failures
+stacks['failures'] = pd.Series(stacks['pmt'] / load_maintenance(), name='failures')
+
 # Delete extra indicators
 del stacks['fares']
 del stacks['vrh']
@@ -100,9 +106,11 @@ del stacks['pmt']
 
 print 'Calculated values for ' + str(stacks.keys())
 
-# Export to CSV
+# Removing zeroes and Infinities
 indexes = ['id', 'year']
-export = pd.concat(stacks.values(), axis=1)
+export = pd.concat(stacks.values(), axis=1).replace([inf, 0], nan)
+
+#Export to CSV
 export.to_csv('data/output/ntd.csv', index_label=indexes)
 
 indexes.extend(export.columns.values)

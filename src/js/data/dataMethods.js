@@ -135,6 +135,11 @@ const dataMethods = {
           value: 'vrm',
           summaryType: 'sum',
         },
+        {
+          text: 'Miles Between Failures',
+          value: 'failures',
+          summaryType: 'mean',
+        },
       ];
 
       indicatorList.forEach((indicator) => {
