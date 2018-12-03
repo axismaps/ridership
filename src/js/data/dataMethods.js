@@ -11,6 +11,8 @@ const dataMethods = {
       getAllNationalMapData,
     } = dataMethods;
 
+    console.log('rawmsa', rawMsa);
+    console.log('rawta', rawTa);
     const msa = rawMsa.rows.map((record) => {
       const {
         centx,
@@ -134,6 +136,11 @@ const dataMethods = {
           text: 'Vehicle Revenue Miles (total)',
           value: 'vrm',
           summaryType: 'sum',
+        },
+        {
+          text: 'Miles Between Failures',
+          value: 'failures',
+          summaryType: 'mean',
         },
       ];
 

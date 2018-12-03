@@ -108,13 +108,12 @@ print 'Calculated values for ' + str(stacks.keys())
 
 # Removing zeroes and Infinities
 indexes = ['id', 'year']
-export = pd.concat(stacks.values(), axis=1)
-export2 = export.replace([inf, 0], nan)
+export = pd.concat(stacks.values(), axis=1).replace([inf, 0], nan)
 
 #Export to CSV
-export2.to_csv('data/output/ntd.csv', index_label=indexes)
+export.to_csv('data/output/ntd.csv', index_label=indexes)
 
-indexes.extend(export2.columns.values)
+indexes.extend(export.columns.values)
 
 # Upload to Carto
 replace_data('ntd', indexes, 'ntd.csv')

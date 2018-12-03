@@ -1,12 +1,12 @@
-const getStateUpdateIndicator = ({ components, state }) => function updateIndicator() {
+const getStateUpdateIndicator = ({ components }) => function updateIndicator() {
   const {
     indicatorDropdown,
     atlas,
     sidebar,
     histogram,
   } = components;
-  const indicator = state.get('indicator');
-  const nationalMapData = state.getCurrentNationalMapData();
+  const indicator = this.get('indicator');
+  const nationalMapData = this.getCurrentNationalMapData();
 
   indicatorDropdown
     .config({
