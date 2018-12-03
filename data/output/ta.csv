@@ -136,55 +136,30 @@ taid,taname,tashort,msaid
 22,Porter County Aging and Community Services,PCACS,16980
 22,Northwestern Indiana Regional Planning Commission,NIRPC,16980
 23,Miami-Dade Transit,Miami-Dade Transit,33100
-23,Miami-Dade Transit,Miami-Dade Transit,33060
 24,Broward County Transit Division,Broward County Transit Division,33100
-24,Broward County Transit Division,Broward County Transit Division,33060
 25,"Board of County Commissioners, Palm Beach County, PalmTran",PalmTran,33100
-25,"Board of County Commissioners, Palm Beach County, PalmTran",PalmTran,33060
 26,South Florida Regional Transportation Authority,TRI-Rail,33100
-26,South Florida Regional Transportation Authority,TRI-Rail,33060
 27,Miami Other,Miami Other,33100
-27,Miami Other,Miami Other,33060
 27,Miami Lakes - vRide,,33100
-27,Miami Lakes - vRide,,33060
 27,City of Lauderhill,,33100
-27,City of Lauderhill,,33060
 27,City of Fort Lauderdale,,33100
-27,City of Fort Lauderdale,,33060
 27,City of Hallandale Beach,COHB,33100
-27,City of Hallandale Beach,COHB,33060
 27,Town of Davie,,33100
-27,Town of Davie,,33060
 27,City of Pembroke Pines,,33100
-27,City of Pembroke Pines,,33060
 27,City of Miramar - Public Works Department,,33100
-27,City of Miramar - Public Works Department,,33060
 27,City of Coconut Creek,,33100
-27,City of Coconut Creek,,33060
 27,City of Margate,,33100
-27,City of Margate,,33060
 27,City of Pompano Beach,,33100
-27,City of Pompano Beach,,33060
 27,City of Lauderdale Lakes,,33100
-27,City of Lauderdale Lakes,,33060
 27,City of Coral Springs,,33100
-27,City of Coral Springs,,33060
 27,City of Hollywood,,33100
-27,City of Hollywood,,33060
 27,City of Deerfield Beach/ North East Focal Point Senior Center,,33100
-27,City of Deerfield Beach/ North East Focal Point Senior Center,,33060
 27,City of Tamarac,COT,33100
-27,City of Tamarac,COT,33060
 27,City of Dania Beach,,33100
-27,City of Dania Beach,,33060
 27,Town of Lauderdale-By-The-Sea,,33100
-27,Town of Lauderdale-By-The-Sea,,33060
 27,Town of Hillsboro Beach,,33100
-27,Town of Hillsboro Beach,,33060
 27,City of Lighthouse Point,,33100
-27,City of Lighthouse Point,,33060
 27,City of West Park,,33100
-27,City of West Park,,33060
 28,Southeastern Pennsylvania Transportation Authority,SEPTA,37980
 29,Port Authority Transit Corporation,PATCO,37980
 30,Delaware Transit Corporation,DART First State,37980
@@ -217,51 +192,21 @@ taid,taname,tashort,msaid
 36,Harris County Improvement District 3,UKMD,26420
 36,Midtown Management District,,26420
 36,Westchase District,westchase district,26420
-37,Washington Metropolitan Area Transit Authority,WMATA,47780
 37,Washington Metropolitan Area Transit Authority,WMATA,47900
-37,Washington Metropolitan Area Transit Authority,WMATA,47820
-38,Ride-On Montgomery County Transit,Ride-On Montgomery County Transit,47780
 38,Ride-On Montgomery County Transit,Ride-On Montgomery County Transit,47900
-38,Ride-On Montgomery County Transit,Ride-On Montgomery County Transit,47820
-39,Fairfax Connector Bus System,Fairfax Connector,47780
 39,Fairfax Connector Bus System,Fairfax Connector,47900
-39,Fairfax Connector Bus System,Fairfax Connector,47820
-40,DDOT,DDOT,47780
 40,DDOT,DDOT,47900
-40,DDOT,DDOT,47820
-41,"Washington, DC Other","Washington, DC Other",47780
 41,"Washington, DC Other","Washington, DC Other",47900
-41,"Washington, DC Other","Washington, DC Other",47820
-41,Virginia Railway Express,VRE,47780
 41,Virginia Railway Express,VRE,47900
-41,Virginia Railway Express,VRE,47820
-41,Potomac and Rappahannock Transportation Commission,PRTC,47780
 41,Potomac and Rappahannock Transportation Commission,PRTC,47900
-41,Potomac and Rappahannock Transportation Commission,PRTC,47820
-41,Arlington Transit - Arlington County,ART,47780
 41,Arlington Transit - Arlington County,ART,47900
-41,Arlington Transit - Arlington County,ART,47820
-41,Prince George's County Transit,TheBus,47780
 41,Prince George's County Transit,TheBus,47900
-41,Prince George's County Transit,TheBus,47820
-41,Loudoun County Commuter Bus Service,LC Transit,47780
 41,Loudoun County Commuter Bus Service,LC Transit,47900
-41,Loudoun County Commuter Bus Service,LC Transit,47820
-41,City of Alexandria,DASH,47780
 41,City of Alexandria,DASH,47900
-41,City of Alexandria,DASH,47820
-41,City of Fairfax CUE Bus,CUE,47780
 41,City of Fairfax CUE Bus,CUE,47900
-41,City of Fairfax CUE Bus,CUE,47820
-41,National Capital Region Transportation Planning Board,MWCOG/TPB,47780
 41,National Capital Region Transportation Planning Board,MWCOG/TPB,47900
-41,National Capital Region Transportation Planning Board,MWCOG/TPB,47820
-41,Metropolitan Washington Airports Authority,MWAA,47780
 41,Metropolitan Washington Airports Authority,MWAA,47900
-41,Metropolitan Washington Airports Authority,MWAA,47820
-41,Northern Virginia Transportation Commission,NVTC,47780
 41,Northern Virginia Transportation Commission,NVTC,47900
-41,Northern Virginia Transportation Commission,NVTC,47820
 42,Metropolitan Atlanta Rapid Transit Authority,MARTA,12060
 43,Atlanta Other,Atlanta Other,12060
 43,Cobb County Department of Transportation,,12060
@@ -355,30 +300,14 @@ taid,taname,tashort,msaid
 76,Howard Transit,HT,12580
 76,Annapolis DOT,Annapolis Transit,12580
 76,Anne Arundel County,,12580
-77,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41060
 77,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41140
-77,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41220
 77,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41180
-77,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41260
-77,Bi-State Development Agency of the Missouri-Illinois Metropolitan District,St. Louis METRO,41100
-78,St. Louis Other,St. Louis Other,41060
 78,St. Louis Other,St. Louis Other,41140
-78,St. Louis Other,St. Louis Other,41220
 78,St. Louis Other,St. Louis Other,41180
-78,St. Louis Other,St. Louis Other,41260
-78,St. Louis Other,St. Louis Other,41100
-78,Madison County Transit District,MCT,41060
 78,Madison County Transit District,MCT,41140
-78,Madison County Transit District,MCT,41220
 78,Madison County Transit District,MCT,41180
-78,Madison County Transit District,MCT,41260
-78,Madison County Transit District,MCT,41100
-78,Loop Trolley Transportation Development District,,41060
 78,Loop Trolley Transportation Development District,,41140
-78,Loop Trolley Transportation Development District,,41220
 78,Loop Trolley Transportation Development District,,41180
-78,Loop Trolley Transportation Development District,,41260
-78,Loop Trolley Transportation Development District,,41100
 79,Omnitrans,OMNI,40140
 80,Riverside Transit Agency,RTA,40140
 81,Riverside-San Bernardino Other,Riverside-San Bernardino Other,40140
@@ -386,32 +315,16 @@ taid,taname,tashort,msaid
 81,City of Riverside Special Transportation,City of Riverside,40140
 81,Riverside County Transportation Commission,RCTC 5307 Recipient,40140
 82,Regional Transportation Commission of Southern Nevada,RTC,29820
-82,Regional Transportation Commission of Southern Nevada,RTC,29780
 83,Las Vegas Monorail Company,LVMC,29820
-83,Las Vegas Monorail Company,LVMC,29780
 84,Tri-County Metropolitan Transportation District of Oregon,TriMet,38900
-84,Tri-County Metropolitan Transportation District of Oregon,TriMet,38860
 85,City of Portland,PBOT,38900
-85,City of Portland,PBOT,38860
 86,Clark County Public Transportation Benefit Area Authority,C-Tran,38900
-86,Clark County Public Transportation Benefit Area Authority,C-Tran,38860
 87,Portland Other,Portland Other,38900
-87,Portland Other,Portland Other,38860
 87,South Metro Area Regional Transit,SMART,38900
-87,South Metro Area Regional Transit,SMART,38860
 87,Ride Connection,,38900
-87,Ride Connection,,38860
-88,The Greater Cleveland Regional Transit Authority,GCRTA,17380
-88,The Greater Cleveland Regional Transit Authority,GCRTA,17420
 88,The Greater Cleveland Regional Transit Authority,GCRTA,17460
-89,Cleveland Other,Cleveland Other,17380
-89,Cleveland Other,Cleveland Other,17420
 89,Cleveland Other,Cleveland Other,17460
-89,Laketran,,17380
-89,Laketran,,17420
 89,Laketran,,17460
-89,Medina County Public Transit,MCPT,17380
-89,Medina County Public Transit,MCPT,17420
 89,Medina County Public Transit,MCPT,17460
 90,VIA Metropolitan Transit,VIA,41700
 91,Alamo Area Council of Governments,Alamo Regional Transit,41700
@@ -458,30 +371,12 @@ taid,taname,tashort,msaid
 108,Ozaukee County Transit Services,OCTS,33340
 108,Washington County Transit,,33340
 108,City of Milwaukee,,33340
-109,Central Ohio Transit Authority,COTA,17980
-109,Central Ohio Transit Authority,COTA,18060
-109,Central Ohio Transit Authority,COTA,18100
-109,Central Ohio Transit Authority,COTA,18020
 109,Central Ohio Transit Authority,COTA,18140
-110,Columbus Other,Columbus Other,17980
-110,Columbus Other,Columbus Other,18060
-110,Columbus Other,Columbus Other,18100
-110,Columbus Other,Columbus Other,18020
 110,Columbus Other,Columbus Other,18140
-110,Delaware County Transit Board,DATA,17980
-110,Delaware County Transit Board,DATA,18060
-110,Delaware County Transit Board,DATA,18100
-110,Delaware County Transit Board,DATA,18020
 110,Delaware County Transit Board,DATA,18140
-110,Mid-Ohio Regional Planning Commission,MORPC,17980
-110,Mid-Ohio Regional Planning Commission,MORPC,18060
-110,Mid-Ohio Regional Planning Commission,MORPC,18100
-110,Mid-Ohio Regional Planning Commission,MORPC,18020
 110,Mid-Ohio Regional Planning Commission,MORPC,18140
 111,Capital Metropolitan Transportation Authority,CapMetro,12420
-111,Capital Metropolitan Transportation Authority,CapMetro,12380
 112,City of Round Rock,City of Round Rock,12420
-112,City of Round Rock,City of Round Rock,12380
 113,Charlotte Area Transit System,CATS,16740
 114,Charlotte Other,Charlotte Other,16740
 114,Mecklenburg County DSS,MCTS,16740
@@ -492,14 +387,8 @@ taid,taname,tashort,msaid
 116,Providence Other,Providence Other,39300
 116,Greater Attleboro-Taunton Regional Transit Authority,GATRA,39300
 116,Rhode Island DOT,RIDOT,39300
-117,Jacksonville Transportation Authority,JTA,27380
-117,Jacksonville Transportation Authority,JTA,27340
 117,Jacksonville Transportation Authority,JTA,27260
-117,Jacksonville Transportation Authority,JTA,27300
-118,Clay County Council on Aging,Clay Transit,27380
-118,Clay County Council on Aging,Clay Transit,27340
 118,Clay County Council on Aging,Clay Transit,27260
-118,Clay County Council on Aging,Clay Transit,27300
 119,Memphis Area Transit Authority,MATA,32820
 120,Shelby County Government,Shelby County Government,32820
 121,Utah Transit Authority,UTA,41620
@@ -513,11 +402,7 @@ taid,taname,tashort,msaid
 125,The Transportation Management Association Group,TMA,34980
 125,Franklin Transit Authority,FTA,34980
 126,Greater Richmond Transit Company,GRTC,40060
-126,Greater Richmond Transit Company,GRTC,40080
-126,Greater Richmond Transit Company,GRTC,39980
 127,Petersburg Area Transit,Petersburg Area Transit,40060
-127,Petersburg Area Transit,Petersburg Area Transit,40080
-127,Petersburg Area Transit,Petersburg Area Transit,39980
 128,Niagara Frontier Transportation Authority,NFT Metro,15380
 129,CTTRANSIT Hartford,CTTransit,25540
 130,Hartford Other,Hartford Other,25540
@@ -549,7 +434,5 @@ taid,taname,tashort,msaid
 140,Birmingham-Jefferson County Transit Authority,MAX,13820
 141,Regional Planning Commission of Greater Birmingham,RPCGB,13820
 142,RTS - Monroe County,RGRTA,40380
-142,RTS - Monroe County,RGRTA,40340
 143,Metropolitan Tulsa Transit Authority,MTTA,46140
-144,Interurban Transit Partnership,The Rapid,24330
 144,Interurban Transit Partnership,The Rapid,24340

@@ -22,11 +22,16 @@ def make_match_name(name):
     matches = re.search(r"(\s|\w)*", name)
     return matches.group(0)
 
+def make_match_state(name):
+    matches = re.search(r"[A-Z]{2}", name)
+    return matches.group(0)
+
 def load_csa():
     csa = gpd.read_file('data/geojson/cbsa/cb_2017_us_cbsa_500k.shp')
     csa['centx'] = csa.centroid.x
     csa['centy'] = csa.centroid.y
     csa['name_match'] = csa['NAME'].apply(make_match_name)
+    csa['state_match'] = csa['NAME'].apply(make_match_state)
     merge = pd.merge(csa, csa.bounds, how='inner', left_index=True, right_index=True)
     return merge.drop(columns=['CSAFP', 'CBSAFP', 'AFFGEOID', 'LSAD',
                                'ALAND', 'AWATER', 'geometry'])
@@ -41,9 +46,10 @@ def main():
     DROP = ['ShowIndividual', '"Other" primary Project ID', 'Primary UZA']
     agencies = clean_ta(TA, DROP)
     agencies['name_match'] = agencies['UZA Name'].apply(make_match_name)
+    agencies['state_match'] = agencies['UZA Name'].apply(make_match_state)
 
     csa = load_csa()
-    merge = pd.merge(agencies, csa, how='inner', on='name_match')
+    merge = pd.merge(agencies, csa, how='inner', on=['name_match', 'state_match'])
 
     # Export TA metadata
     ta_header = ['taid', 'taname', 'tashort', 'msaid']
