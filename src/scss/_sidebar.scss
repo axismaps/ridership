@@ -13,6 +13,37 @@
   padding-right: 20px;
 }
 
+.sidebar__top-button-outer {
+  height: 100%;
+}
+
+.sidebar__top-button {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar__top-button--active,
+.sidebar__top-button:hover {
+  color: $main-blue;
+  font-weight: 600;
+  border-bottom: 4px solid $main-blue;
+  height: calc(100% - 4px);
+
+  .sidebar__top-button-text, i {
+    margin-top: 4px;
+  }
+}
+
+.sidebar__top-button-text {
+  margin-left: 8px;
+}
+
+.sidebar__parallel-button {
+  margin-left: 30px;
+}
+
 .sidebar__sparkline-title {
   color: #666666;
 }
