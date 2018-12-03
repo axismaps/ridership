@@ -27,6 +27,7 @@ const privateMethods = {
       pcpContainer,
       indicatorSummaries,
       indicatorHeight,
+      margins,
     });
 
     const svg = drawSVG({
@@ -72,8 +73,8 @@ const privateMethods = {
 class ParallelCoordinatePlot {
   constructor(config) {
     privateProps.set(this, {
-      indicatorHeight: 40,
-      width: 180,
+      indicatorHeight: 60,
+      width: 220,
       allAgenciesData: null,
       yearRange: null,
       expanded: false,

@@ -54,11 +54,11 @@
   margin-left: 30px;
 }
 
-.sidebar__sparkline-title {
+.sidebar__sparkline-title, .sidebar__pcp-row {
   color: #666666;
 }
 
-.sidebar__sparkline-title--selected {
+.sidebar__sparkline-title--selected, .sidebar__pcp-row--selected {
   color: $main-blue;
   font-weight: 600;
 }
@@ -87,14 +87,10 @@
 
 .sidebar__pcp-container > * {
   display: inline-block;
+  vertical-align: top;
 }
 
-.sidebar__pcp-labels {
-  margin-top: 30px;
-} 
-
 .sidebar__pcp-row {
-  height: 40px;
   width: 200px;
 }
 

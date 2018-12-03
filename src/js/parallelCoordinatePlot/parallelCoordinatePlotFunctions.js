@@ -3,15 +3,19 @@ const parallelCoordinatePlotFunctions = {
   drawIndicators({
     pcpContainer,
     indicatorSummaries,
+    indicatorHeight,
+    margins,
   }) {
     const indicatorsContainer = pcpContainer.append('div')
-      .attr('class', 'sidebar__pcp-labels');
+      .attr('class', 'sidebar__pcp-labels')
+      .style('margin-top', `${margins[0] - 8}px`);
 
     indicatorsContainer.selectAll('.sidebar__pcp-row')
       .data(indicatorSummaries, d => d.value)
       .enter()
       .append('div')
       .attr('class', 'sidebar__pcp-row')
+      .style('height', `${indicatorHeight}px`)
       .append('p')
       .html(d => d.text);
 
