@@ -35,7 +35,7 @@ def load_excel(tas):
     for i in files:
         year = re.search(r"^\d{4}", i).group(0)
         maintenance[year] = format_data(pd.read_excel(DIR + i))
-    
+
     merge = pd.merge(maintenance, tas, how='inner', on='NTD ID').drop(columns='NTD ID')
     stack = merge.groupby('Project ID').sum().stack()
     return stack
