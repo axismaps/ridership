@@ -190,6 +190,8 @@ const dataMethods = {
     data.set('changeColorScale', changeColorScale);
     data.set('indicators', indicators);
     data.set('indicatorSummaries', indicatorSummaries);
+    data.set('cachedTractGeoJSON', new Map());
+    data.set('cachedTractData', new Map());
     console.log('data', data);
     return data;
   },
