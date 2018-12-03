@@ -11,6 +11,8 @@ const dataMethods = {
       getAllNationalMapData,
     } = dataMethods;
 
+    console.log('rawmsa', rawMsa);
+    console.log('rawta', rawTa);
     const msa = rawMsa.rows.map((record) => {
       const {
         centx,

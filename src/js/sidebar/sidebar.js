@@ -120,7 +120,7 @@ const privateMethods = {
     });
   },
   drawNationalParallelPlot() {
-
+    console.log('DRAW PARALLEL COORDINATE PLOT');
   },
 };
 

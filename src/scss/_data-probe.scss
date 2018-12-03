@@ -1,14 +1,14 @@
 .data-probe {
   z-index: 1000;
-  color: white;
-  pointer-events: none;
+  @include popup-outer();
 }
 
 .data-probe__inner {
-  padding: 15px 20px;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  border-radius: 5px;
+  // padding: 15px 20px;
+  // background: rgba(0, 0, 0, 0.8);
+  // color: white;
+  // border-radius: 5px;
+  @include popup-inner();
 }
 
 .data-probe__row:not(:last-child) {
