@@ -74,3 +74,24 @@
   stroke: $main-blue;
   stroke-width: 2px;
 }
+
+.sidebar__pcp-container {
+  display: none;
+}
+
+.sidebar__pcp-container > * {
+  display: inline-block;
+}
+
+.sidebar__pcp-labels {
+  margin-top: 30px;
+} 
+
+.sidebar__pcp-row {
+  height: 40px;
+  width: 200px;
+}
+
+.sidebar__pcp-row p {
+  margin: 0;
+}

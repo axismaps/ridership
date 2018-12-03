@@ -2,6 +2,7 @@ import Sidebar from '../sidebar/sidebar';
 
 const getSidebar = ({ data, state }) => new Sidebar({
   indicatorSummaries: data.get('indicatorSummaries'),
+  allAgenciesData: state.getCurrentAllAgenciesData(),
   currentIndicator: state.get('indicator'),
   yearRange: data.get('yearRange'),
   scale: state.get('scale'),
