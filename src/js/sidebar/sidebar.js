@@ -1,4 +1,6 @@
 import pureFunctions from './sidebarSparklineFunctions';
+import pcpFunctions from './sidebarParallelCoordinatePlotFunctions';
+import DataProbe from '../dataProbe/dataProbe';
 
 const privateProps = new WeakMap();
 
@@ -121,6 +123,36 @@ const privateMethods = {
   },
   drawNationalParallelPlot() {
     console.log('DRAW PARALLEL COORDINATE PLOT');
+
+    const props = privateProps.get(this);
+
+    const {
+      contentContainer,
+      indicatorSummaries,
+      allAgenciesData,
+      dataProbe,
+    } = props;
+
+    const {
+      drawPcpContainer,
+      drawPcp,
+    } = pcpFunctions;
+
+    const pcpContainer = drawPcpContainer({
+      contentContainer,
+    });
+
+    const pcp = drawPcp({
+      pcpContainer,
+      allAgenciesData,
+      indicatorSummaries,
+      dataProbe,
+    });
+
+    Object.assign(props, {
+      pcpContainer,
+      pcp,
+    });
   },
 };
 
@@ -131,7 +163,11 @@ class Sidebar {
       setTopButtonEvents,
     } = privateMethods;
 
-    privateProps.set(this, {});
+    privateProps.set(this, {
+      dataProbe: new DataProbe({
+        container: d3.select('.outer-container'),
+      }),
+    });
 
     this.config(config);
     setTopButtonEvents.call(this);
@@ -163,6 +199,24 @@ class Sidebar {
           })
           .updateSelected();
       });
+  }
+
+  updateData() {
+    const {
+      pcp,
+      allAgenciesData,
+      currentSidebarView,
+    } = privateProps.get(this);
+
+    if (currentSidebarView === 'parallel') {
+      pcp
+        .config({
+          allAgenciesData,
+        })
+        .updateData();
+    }
+
+    return this;
   }
 }
 
