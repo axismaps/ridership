@@ -95,6 +95,7 @@ const parallelCoordinatePlotFunctions = {
       .append('path')
       .style('fill', 'none')
       .attr('class', 'pcp-line')
+      .attr('d', d => lineGenerator(d.indicators))
       .on('mouseover', () => {
         d3.select(this).raise();
       })
@@ -138,6 +139,7 @@ const parallelCoordinatePlotFunctions = {
     const mergedLines = newLines.merge(lines);
 
     mergedLines
+      .transition()
       .attr('d', d => lineGenerator(d.indicators));
 
     return mergedLines;

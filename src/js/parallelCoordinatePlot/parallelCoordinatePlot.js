@@ -15,9 +15,6 @@ const privateMethods = {
       dataProbe,
     } = props;
 
-    console.log(dataProbe);
-
-
     const {
       drawIndicators,
       drawSVG,

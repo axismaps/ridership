@@ -205,11 +205,16 @@ class Sidebar {
     const {
       pcp,
       allAgenciesData,
+      currentSidebarView,
     } = privateProps.get(this);
 
-    pcp
-      .config(allAgenciesData)
-      .updateData();
+    if (currentSidebarView === 'parallel') {
+      pcp
+        .config({
+          allAgenciesData,
+        })
+        .updateData();
+    }
 
     return this;
   }
