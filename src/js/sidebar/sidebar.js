@@ -87,7 +87,6 @@ const privateMethods = {
     const {
       contentContainer,
       indicatorSummaries,
-      allAgenciesData,
       yearRange,
       currentIndicator,
       updateCurrentIndicator,
@@ -115,6 +114,23 @@ const privateMethods = {
       currentIndicator,
     });
 
+    Object.assign(props, {
+      sparkRows,
+      sparkTitles,
+      sparkLines,
+    });
+  },
+  drawNationalParallelPlot() {
+    console.log('DRAW PARALLEL COORDINATE PLOT');
+
+    const props = privateProps.get(this);
+
+    const {
+      contentContainer,
+      indicatorSummaries,
+      allAgenciesData,
+    } = props;
+
     const {
       drawPcpContainer,
       drawPcp,
@@ -134,15 +150,6 @@ const privateMethods = {
       pcpContainer,
       pcp,
     });
-
-    Object.assign(props, {
-      sparkRows,
-      sparkTitles,
-      sparkLines,
-    });
-  },
-  drawNationalParallelPlot() {
-    console.log('DRAW PARALLEL COORDINATE PLOT');
   },
 };
 
