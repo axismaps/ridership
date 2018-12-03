@@ -1,3 +1,18 @@
+const updateComponents = ({
+  atlas,
+  msa,
+  scale,
+  tractTopo,
+}) => {
+  atlas
+    .config({
+      scale,
+      msa,
+      tractTopo,
+    })
+    .updateScale();
+};
+
 const getStateUpdateScale = ({ components, data }) => function updateScale() {
   const {
     atlas,
@@ -8,15 +23,25 @@ const getStateUpdateScale = ({ components, data }) => function updateScale() {
     const msa = this.get('msa');
 
     const cachedTractGeoJSON = data.get('cachedTractGeoJSON');
-    console.log('MSA?!?', msa);
+
     if (cachedTractGeoJSON.has(msa.msaId)) {
       const tractTopo = cachedTractGeoJSON.get(msa.msaId);
-      console.log('has tract', tractTopo);
+      updateComponents({
+        atlas,
+        msa,
+        scale,
+        tractTopo,
+      });
     } else {
       d3.json(`data/tracts/tract-${msa.msaId}.json`)
         .then((tractTopo) => {
-          console.log('new TRACT', tractTopo);
           cachedTractGeoJSON.set(msa.msaId, tractTopo);
+          updateComponents({
+            atlas,
+            msa,
+            scale,
+            tractTopo,
+          });
         })
         .catch((err) => {
           console.log('TRACT NOT FOUND', err);

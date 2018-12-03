@@ -58,9 +58,13 @@ const atlasMethods = {
   drawLayers({
     mapSVG,
   }) {
+    const nationalView = mapSVG.append('g');
+    const states = nationalView.append('g');
+    const agencies = nationalView.append('g');
     return {
-      states: mapSVG.append('g'),
-      agencies: mapSVG.append('g'),
+      nationalView,
+      states,
+      agencies,
     };
   },
   getZoomed({
