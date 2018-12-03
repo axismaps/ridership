@@ -15,6 +15,7 @@ const privateMethods = {
       nationalMapData,
       changeColorScale,
       dataProbe,
+      jumpToMsa,
     } = props;
 
     const {
@@ -67,6 +68,7 @@ const privateMethods = {
 
 
     const agencies = drawAgencies({
+      jumpToMsa,
       radiusScale,
       dataProbe,
       layer: layers.agencies,

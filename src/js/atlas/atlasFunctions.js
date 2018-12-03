@@ -194,6 +194,7 @@ const atlasMethods = {
     // indicator,
     dataProbe,
     radiusScale,
+    jumpToMsa,
   }) {
     const {
       // getRadiusScale,
@@ -204,7 +205,7 @@ const atlasMethods = {
 
 
     const nodes = allAgencies.map(agency => ({
-      cluster: agency.msaId,
+      msaId: agency.msaId,
       taId: agency.taId,
       radius: radiusScale(agency.upt2017),
       x: projectionModify(agency.cent)[0],
@@ -247,6 +248,7 @@ const atlasMethods = {
           <div class="data-probe__row"><span class="data-probe__field">MSA:</span> ${d.msaName}</div>
           <div class="data-probe__row"><span class="data-probe__field">Agency:</span> ${d.taName}</div>
           <div class="data-probe__row"><span class="data-probe__field">Percent Change:</span> ${formatPct(d.pctChange)}%</div>
+          <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
         `;
         dataProbe
           .config({
@@ -268,6 +270,9 @@ const atlasMethods = {
       // })
       .on('mouseout', () => {
         dataProbe.remove();
+      })
+      .on('click', (d) => {
+        jumpToMsa(d);
       });
 
     agencies.exit().remove();
