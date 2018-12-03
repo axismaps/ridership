@@ -12,11 +12,13 @@ const sidebarPureFunctions = {
     pcpContainer,
     allAgenciesData,
     indicatorSummaries,
+    dataProbe,
   }) {
     return new ParallelCoordinatePlot({
       pcpContainer,
       allAgenciesData,
       indicatorSummaries,
+      dataProbe,
     });
   },
 };

@@ -33,12 +33,28 @@ const parallelCoordinatePlotFunctions = {
       });
 
     svg.append('g')
+      .attr('class', 'pcp-ticks')
+      .attr('transform', `translate(${margins[1]},${margins[0]})`)
+      .selectAll('path')
+      .data(indicatorSummaries)
+      .enter()
+      .append('path')
+      .attr('d', (d, i) => `M0,${i * indicatorHeight}H${width - 2 * margins[1]}`);
+
+    svg.append('g')
       .attr('class', 'pcp-lines')
       .attr('transform', `translate(${margins[1]},${margins[0]})`);
 
     svg.append('g')
       .attr('class', 'axis')
       .attr('transform', `translate(${margins[1]},${margins[0]})`);
+
+    svg.append('g')
+      .attr('class', 'probe-dot')
+      .attr('transform', `translate(${margins[1]},${margins[0]})`)
+      .append('circle')
+      .attr('r', 5)
+      .style('display', 'none');
 
     return svg;
   },
@@ -64,27 +80,65 @@ const parallelCoordinatePlotFunctions = {
     indicatorHeight,
     svg,
     xScale,
+    dataProbe,
   }) {
     const lineGenerator = d3.line()
       .x(d => xScale(d.pctChange))
       .y((d, i) => i * indicatorHeight);
       // .defined(d => d.pctChange !== null);
 
-    const indicatorsData = allAgenciesData.map(d => d.indicators);
     const lines = svg.select('g.pcp-lines').selectAll('path.pcp-line')
-      .data(indicatorsData, d => d.taId);
+      .data(allAgenciesData, d => d.taId);
 
     const newLines = lines
       .enter()
       .append('path')
       .style('fill', 'none')
-      .style('stroke', 'rgba(0,0,0,.1)')
-      .attr('class', 'pcp-line');
+      .attr('class', 'pcp-line')
+      .on('mouseover', () => {
+        d3.select(this).raise();
+      })
+      .on('mousemove', (d) => {
+        dataProbe.remove();
+        d3.select(this).raise();
+        const { clientX, clientY } = d3.event;
+        const pos = {
+          left: clientX + 10,
+          bottom: window.innerHeight - clientY + 10,
+          width: 250,
+        };
+        const svgTop = svg.select('g.pcp-lines').node().getBoundingClientRect().top;
+        const closest = Math.round((clientY - svgTop) / indicatorHeight);
+        const displayValue = d.indicators[closest].pctChange === null ? 'N/A' : (`${Math.round(d.indicators[closest].pctChange)}%`);
+        const html = `
+          <div class="data-probe__row"><span class="data-probe__field">Agency:</span> ${d.taName}</div>
+          <div class="data-probe__row"><span class="data-probe__field">Percent Change in ${d.indicators[closest].text}:</span> ${displayValue}</div>
+          <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
+        `;
+        dataProbe
+          .config({
+            pos,
+            html,
+          })
+          .draw();
+
+        svg.select('.probe-dot circle')
+          .attrs({
+            cx: xScale(d.indicators[closest].pctChange),
+            cy: closest * indicatorHeight,
+          })
+          .style('display', 'block');
+      })
+      .on('mouseout', () => {
+        dataProbe.remove();
+        svg.select('.probe-dot circle')
+          .style('display', 'none');
+      });
 
     const mergedLines = newLines.merge(lines);
 
     mergedLines
-      .attr('d', lineGenerator);
+      .attr('d', d => lineGenerator(d.indicators));
 
     return mergedLines;
   },
@@ -94,7 +148,8 @@ const parallelCoordinatePlotFunctions = {
   }) {
     const axis = d3.axisTop()
       .scale(xScale)
-      .ticks(5);
+      .tickFormat(d => `${d}%`)
+      .ticks(3);
 
     return svg.select('g.axis').call(axis);
   },

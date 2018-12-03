@@ -1,5 +1,6 @@
 import pureFunctions from './sidebarSparklineFunctions';
 import pcpFunctions from './sidebarParallelCoordinatePlotFunctions';
+import DataProbe from '../dataProbe/dataProbe';
 
 const privateProps = new WeakMap();
 
@@ -129,6 +130,7 @@ const privateMethods = {
       contentContainer,
       indicatorSummaries,
       allAgenciesData,
+      dataProbe,
     } = props;
 
     const {
@@ -144,6 +146,7 @@ const privateMethods = {
       pcpContainer,
       allAgenciesData,
       indicatorSummaries,
+      dataProbe,
     });
 
     Object.assign(props, {
@@ -160,7 +163,11 @@ class Sidebar {
       setTopButtonEvents,
     } = privateMethods;
 
-    privateProps.set(this, {});
+    privateProps.set(this, {
+      dataProbe: new DataProbe({
+        container: d3.select('.outer-container'),
+      }),
+    });
 
     this.config(config);
     setTopButtonEvents.call(this);

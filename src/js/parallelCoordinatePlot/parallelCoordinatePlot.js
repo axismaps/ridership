@@ -12,7 +12,11 @@ const privateMethods = {
       indicatorHeight,
       width,
       margins,
+      dataProbe,
     } = props;
+
+    console.log(dataProbe);
+
 
     const {
       drawIndicators,
@@ -48,6 +52,7 @@ const privateMethods = {
       width,
       svg,
       xScale,
+      dataProbe,
     });
 
     const axis = drawAxis({
@@ -86,8 +91,6 @@ class ParallelCoordinatePlot {
     this.config(config);
 
     init.call(this);
-
-    this.updateData();
   }
 
   config(config) {
@@ -105,9 +108,8 @@ class ParallelCoordinatePlot {
       width,
       margins,
       svg,
+      dataProbe,
     } = privateProps.get(this);
-
-    if (svg === undefined) return this;
 
     const xScale = getXScale({
       allAgenciesData,
@@ -121,6 +123,7 @@ class ParallelCoordinatePlot {
       width,
       svg,
       xScale,
+      dataProbe,
     });
 
     drawAxis({
