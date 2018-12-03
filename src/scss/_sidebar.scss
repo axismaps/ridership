@@ -8,9 +8,14 @@
   border-top-right-radius: $sidebar--border-radius;
 }
 
+.sidebar__outer-content {
+  margin-top: 20px;
+}
+
 .sidebar__content {
   padding-left: 20px;
   padding-right: 20px;
+  // padding-top: 20px;
 }
 
 .sidebar__top-button-outer {
@@ -24,8 +29,13 @@
   cursor: pointer;
 }
 
-.sidebar__top-button--active,
 .sidebar__top-button:hover {
+  color: $main-blue;
+  font-weight: 600;
+}
+
+.sidebar__top-button--active,
+ {
   color: $main-blue;
   font-weight: 600;
   border-bottom: 4px solid $main-blue;
@@ -40,7 +50,7 @@
   margin-left: 8px;
 }
 
-.sidebar__parallel-button {
+.sidebar__parallel-button-outer {
   margin-left: 30px;
 }
 
