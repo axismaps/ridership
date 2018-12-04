@@ -21,6 +21,16 @@ const getSidebar = ({ data, state }) => new Sidebar({
     const highlights = newHighlight || [];
     state.update({ highlightedAgencies: highlights });
   },
+  updateExpandedIndicator: (newExpanded) => {
+    const expandedIndicator = state.get('expandedIndicator');
+    if (expandedIndicator !== null
+      && newExpanded !== null
+      && newExpanded.value === expandedIndicator.value) {
+      state.update({ expandedIndicator: null });
+    } else {
+      state.update({ expandedIndicator: newExpanded });
+    }
+  },
 });
 
 export default getSidebar;

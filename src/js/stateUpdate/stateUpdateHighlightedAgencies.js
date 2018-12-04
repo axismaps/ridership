@@ -6,11 +6,6 @@ const getStateUpdateHighlightedAgencies = ({ components }) => function updateHig
   } = components;
 
   const highlightedAgencies = this.get('highlightedAgencies');
-  // const years = this.get('highlightedAgencies');
-  // // const nationalMapData = data.get('nationalMapData');
-  // // console.log('update years', years);
-  // const nationalMapData = this.getCurrentNationalMapData();
-  // const allAgenciesData = this.getCurrentAllAgenciesData();
 
   atlas
     .config({

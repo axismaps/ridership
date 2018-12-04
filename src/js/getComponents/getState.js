@@ -10,7 +10,8 @@ const getState = ({ data }) => {
     agenciesOn: true,
     nationalDataView: 'ta', // ta or msa
     scale: 'national', // national or msa,
-    highlightedAgencies: [], // agencies highlighted on map/histogram/chart(s) mouseover
+    highlightedAgencies: [], // agencies highlighted on map/histogram/chart(s) mouseover,
+    expandedIndicator: null,
   });
 
   state.getCurrentNationalMapData = function getCurrentNationalMapData() {

@@ -93,6 +93,7 @@ const privateMethods = {
       currentIndicator,
       updateCurrentIndicator,
       updateIndicator,
+      updateExpandedIndicator,
       dataProbe,
     } = props;
 
@@ -105,11 +106,11 @@ const privateMethods = {
     const sparkRows = drawSparkLineRows({
       contentContainer,
       indicatorSummaries,
-      updateIndicator,
     });
 
     const sparkTitles = drawSparkLineTitles({
       sparkRows,
+      updateExpandedIndicator,
     });
 
     const sparkLines = drawSparkLines({
@@ -118,6 +119,7 @@ const privateMethods = {
       sparkRows,
       currentIndicator,
       dataProbe,
+      updateIndicator,
     });
 
     Object.assign(props, {
@@ -177,6 +179,7 @@ class Sidebar {
         container: d3.select('.outer-container'),
         highlightedAgencies: [],
       }),
+      expandedIndicator: null,
     });
 
     this.config(config);
@@ -216,6 +219,30 @@ class Sidebar {
       })
         .updateSelected();
     }
+
+    return this;
+  }
+
+  updateExpandedIndicator() {
+    const {
+      updateExpandedSparkline,
+    } = pureFunctions;
+
+    const {
+      sparkRows,
+      sparkLines,
+      currentSidebarView,
+      expandedIndicator,
+    } = privateProps.get(this);
+    if (currentSidebarView === 'sparklines') {
+      updateExpandedSparkline({
+        sparkRows,
+        sparkLines,
+        expandedIndicator,
+      });
+    }
+
+    return this;
   }
 
   updateData() {

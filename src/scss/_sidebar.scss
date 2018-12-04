@@ -69,10 +69,38 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 30px;
+  height: 30px;
+  transition: height .4s;
+}
+
+.sidebar__sparkline-row.expanded {
+  height: 160px;
 }
 
 .sidebar__sparkline-container {
   cursor: pointer;
+}
+
+.sidebar__sparkline-background {
+  fill: $body--background;
+  display: none;
+  opacity: 0;
+  transition: opacity .4s;
+}
+
+.sidebar__sparkline-axis,
+.sidebar__sparkline-axis path.domain {
+  display: none;
+}
+
+.sidebar__sparkline-axis g.tick line {
+  stroke: white;
+}
+
+.sidebar__sparkline-row.expanded .sidebar__sparkline-background,
+.sidebar__sparkline-row.expanded .sidebar__sparkline-axis {
+  display: block;
+  opacity: 1;
 }
 
 .sidebar__sparkline-path {
@@ -105,7 +133,7 @@
 }
 
 .pcp-ticks path.pcp-tick--selected {
-  stroke: #2D74ED;
+  stroke: $main-blue;
   stroke-width: 2;
 }
 
