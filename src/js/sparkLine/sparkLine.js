@@ -11,6 +11,7 @@ const privateMethods = {
       width,
       height,
       yearRange,
+      dataProbe,
     } = props;
 
     const {
@@ -37,6 +38,7 @@ const privateMethods = {
       width,
       height,
       indicatorData,
+      dataProbe,
     });
 
     Object.assign(props, {

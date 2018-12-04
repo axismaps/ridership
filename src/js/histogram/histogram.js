@@ -1,4 +1,5 @@
 import histogramFunctions from './histogramFunctions';
+import DataProbe from '../dataProbe/dataProbe';
 
 const privateProps = new WeakMap();
 
@@ -15,6 +16,7 @@ const privateMethods = {
       padding,
       container,
       updateHighlightedAgencies,
+      dataProbe,
     } = props;
 
     const {
@@ -58,6 +60,7 @@ const privateMethods = {
       width,
       barSpacing,
       updateHighlightedAgencies,
+      dataProbe,
     });
 
     const { xAxis, yAxis } = drawAxes({
@@ -122,6 +125,9 @@ class Histogram {
       },
       barSpacing: 5,
       highlightedAgencies: [],
+      dataProbe: new DataProbe({
+        container: d3.select('.outer-container'),
+      }),
     });
     const {
       init,
