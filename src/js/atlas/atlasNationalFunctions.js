@@ -1,4 +1,4 @@
-import atlasFunctions from './atlasFunctions';
+import atlasHelperFunctions from './atlasHelperFunctions';
 
 const atlasNationalFunctions = {
   drawAgencies({
@@ -13,7 +13,7 @@ const atlasNationalFunctions = {
   }) {
     const {
       getAllAgencies,
-    } = atlasFunctions;
+    } = atlasHelperFunctions;
 
     const allAgencies = getAllAgencies({ nationalMapData });
 
@@ -111,6 +111,39 @@ const atlasNationalFunctions = {
 
 
     return mergedAgencies;
+  },
+  zoomAgencies({
+    agencies,
+    projectionModify,
+  }) {
+    const getCenter = ({
+      d,
+      original,
+      unshiftedPos,
+    }) => {
+      const change = d - original;
+      return unshiftedPos + change;
+    };
+    // const getCenter = ({
+      //   d,
+      //   original,
+      //   unshiftedPos,
+      // }) => {
+      //   const change = d - original;
+      //   return unshiftedPos + change + ((change * transform.k) / 20) - (change / 20);
+      // };
+    agencies.attrs({
+      cx: d => getCenter({
+        d: d.x,
+        original: d.xOriginal,
+        unshiftedPos: projectionModify(d.cent)[0],
+      }),
+      cy: d => getCenter({
+        d: d.y,
+        original: d.yOriginal,
+        unshiftedPos: projectionModify(d.cent)[1],
+      }),
+    });
   },
 };
 

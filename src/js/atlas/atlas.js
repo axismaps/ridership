@@ -1,4 +1,4 @@
-import atlasMethods from './atlasFunctions';
+import atlasMethods from './atlasGeoFunctions';
 import atlasNationalFunctions from './atlasNationalFunctions';
 import DataProbe from '../dataProbe/dataProbe';
 

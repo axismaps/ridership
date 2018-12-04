@@ -1,5 +1,8 @@
+
 import * as topojsonBase from 'topojson-client';
 import * as topojsonSimplify from 'topojson-simplify';
+import atlasHelperFunctions from './atlasHelperFunctions';
+import atlasNationalFunctions from './atlasNationalFunctions';
 
 const topojson = Object.assign({}, topojsonBase, topojsonSimplify);
 
@@ -83,6 +86,9 @@ const atlasMethods = {
     projectionModify,
     setCurrentTransform,
   }) {
+    const {
+      zoomAgencies,
+    } = atlasNationalFunctions;
     return () => {
       const { transform } = d3.event;
       setCurrentTransform(transform);
@@ -103,38 +109,10 @@ const atlasMethods = {
         'stroke-width': 1.5 / transform.k,
       });
 
-      // const getCenter = ({
-      //   d,
-      //   original,
-      //   unshiftedPos,
-      // }) => {
-      //   const change = d - original;
-      //   return unshiftedPos + change + ((change * transform.k) / 20) - (change / 20);
-      // };
-      const getCenter = ({
-        d,
-        original,
-        unshiftedPos,
-      }) => {
-        const change = d - original;
-        return unshiftedPos + change;
-      };
-      agencies.attrs({
-        cx: d => getCenter({
-          d: d.x,
-          original: d.xOriginal,
-          unshiftedPos: projectionModify(d.cent)[0],
-        }),
-        cy: d => getCenter({
-          d: d.y,
-          original: d.yOriginal,
-          unshiftedPos: projectionModify(d.cent)[1],
-        }),
+      zoomAgencies({
+        agencies,
+        projectionModify,
       });
-      // agencies.attrs({
-      //   cx: d => d.x,
-      //   cy: d => d.y,
-      // });
     };
   },
   setZoomEvents({
@@ -168,7 +146,7 @@ const atlasMethods = {
   }) {
     const {
       getAllAgencies,
-    } = atlasMethods;
+    } = atlasHelperFunctions;
 
 
     const allAgencies = getAllAgencies({ nationalMapData });
@@ -179,13 +157,7 @@ const atlasMethods = {
       .domain(d3.extent(values))
       .range([5, 35]);
   },
-  getAllAgencies({
-    nationalMapData,
-  }) {
-    return nationalMapData
-      .reduce((accumulator, msa) => [...accumulator, ...msa.ta], [])
-      .sort((a, b) => b.upt2017 - a.upt2017);
-  },
+
   getAgenciesTable({
     nationalMapData,
   }) {
