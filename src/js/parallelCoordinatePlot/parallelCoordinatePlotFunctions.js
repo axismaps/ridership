@@ -32,7 +32,6 @@ const parallelCoordinatePlotFunctions = {
     indicatorHeight,
     width,
     margins,
-    updateIndicator,
   }) {
     const svg = pcpContainer
       .append('svg')

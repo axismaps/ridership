@@ -104,11 +104,11 @@ const privateMethods = {
     const sparkRows = drawSparkLineRows({
       contentContainer,
       indicatorSummaries,
+      updateIndicator,
     });
 
     const sparkTitles = drawSparkLineTitles({
       sparkRows,
-      updateIndicator,
     });
 
     const sparkLines = drawSparkLines({
@@ -140,7 +140,6 @@ const privateMethods = {
     const {
       drawPcpContainer,
       drawPcp,
-      updateSelected,
     } = pcpFunctions;
 
     const pcpContainer = drawPcpContainer({
