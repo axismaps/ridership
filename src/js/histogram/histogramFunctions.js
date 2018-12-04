@@ -147,7 +147,7 @@ const histogramFunctions = {
         };
         const html = `
           <div class="data-probe__row"><span class="data-probe__field">${d.agencies.length} transit authorit${d.agencies.length > 1 ? 'ies' : 'y'}</span></div>
-          <div class="data-probe__row">${d.bucket.map(d => `${Math.round(d)}%`).join(' – ')}</div>
+          <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' – ')}</div>
         `;
         dataProbe
           .config({

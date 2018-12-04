@@ -37,6 +37,7 @@ const sparkLineFunctions = {
     indicatorData,
     svg,
     scales,
+    dataProbe,
   }) {
     const {
       xScale,
@@ -46,13 +47,62 @@ const sparkLineFunctions = {
       .x(d => xScale(d.year))
       .y(d => yScale(d.indicatorSummary));
 
-    return svg
+    const line = svg.on('mousemove', (d) => {
+      dataProbe.remove();
+      const {
+        clientX,
+        clientY,
+      } = d3.event;
+      const pos = {
+        left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+        bottom: window.innerHeight - clientY + 10,
+        width: 250,
+      };
+      const x = clientX - svg.node().getBoundingClientRect().left;
+      const year = Math.min(Math.round(xScale.invert(x)), xScale.domain()[1]);
+      const i = year - xScale.domain()[0];
+      if (d.summaries[i] === undefined) return;
+      const format = (number) => {
+        if (number < 100) return d3.format('.2r')(number);
+        return d3.format(',d')(number);
+      };
+      const displayValue = d.summaries[i].indicatorSummary === null ? 'N/A' : format(d.summaries[i].indicatorSummary);
+      const html = `
+          <div class="data-probe__row"><span class="data-probe__field">${year}</span></div>
+          <div class="data-probe__row">${displayValue}</div>
+          <div class="data-probe__row data-probe__msa-text">Click to show on map</div>
+        `;
+      dataProbe
+        .config({
+          pos,
+          html,
+        })
+        .draw();
+
+      svg.select('circle')
+        .attrs({
+          cx: xScale(year),
+          cy: yScale(d.summaries[i].indicatorSummary),
+        })
+        .style('display', 'block');
+    })
+      .on('mouseout', () => {
+        dataProbe.remove();
+        svg.select('circle')
+          .style('display', 'none');
+      })
       .append('path')
       .data([indicatorData.summaries])
       .attrs({
         class: 'sidebar__sparkline-path',
         d: lineGenerator,
       });
+
+    svg.append('circle')
+      .attr('r', 5)
+      .style('display', 'none');
+
+    return line;
   },
 };
 
