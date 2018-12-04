@@ -15,6 +15,7 @@ const privateMethods = {
       dataProbe,
       updateIndicator,
       updateHighlightedAgencies,
+      maxValue,
     } = props;
 
     const {
@@ -45,6 +46,7 @@ const privateMethods = {
       allAgenciesData,
       width,
       margins,
+      maxValue,
     });
 
     const lines = drawLines({
@@ -81,10 +83,9 @@ class ParallelCoordinatePlot {
       width: 220,
       allAgenciesData: null,
       yearRange: null,
-      expanded: false,
-      selected: false,
       margins: [30, 15],
       currentIndicator: null,
+      maxValue: 200,
       highlightedAgencies: [],
     });
 
@@ -113,12 +114,14 @@ class ParallelCoordinatePlot {
       margins,
       svg,
       dataProbe,
+      maxValue,
     } = privateProps.get(this);
 
     const xScale = getXScale({
       allAgenciesData,
       width,
       margins,
+      maxValue,
     });
 
     drawLines({

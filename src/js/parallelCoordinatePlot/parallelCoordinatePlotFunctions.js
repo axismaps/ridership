@@ -71,6 +71,7 @@ const parallelCoordinatePlotFunctions = {
     allAgenciesData,
     width,
     margins,
+    maxValue,
   }) {
     const extent = d3.extent(
       allAgenciesData
@@ -80,7 +81,7 @@ const parallelCoordinatePlotFunctions = {
         }, []),
     )
       .filter(d => d !== null)
-      .map(d => Math.max(Math.min(d, 200), -200));
+      .map(d => Math.max(Math.min(d, maxValue), -maxValue));
 
     return d3.scaleLinear().domain(extent).range([0, width - 2 * margins[1]]).clamp(true);
   },
