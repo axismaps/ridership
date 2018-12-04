@@ -14,6 +14,8 @@ const privateMethods = {
       margins,
       dataProbe,
       updateIndicator,
+      updateHighlightedAgencies,
+      maxValue,
     } = props;
 
     const {
@@ -44,6 +46,7 @@ const privateMethods = {
       allAgenciesData,
       width,
       margins,
+      maxValue,
     });
 
     const lines = drawLines({
@@ -53,6 +56,7 @@ const privateMethods = {
       svg,
       xScale,
       dataProbe,
+      updateHighlightedAgencies,
     });
 
     const axis = drawAxis({
@@ -79,10 +83,10 @@ class ParallelCoordinatePlot {
       width: 220,
       allAgenciesData: null,
       yearRange: null,
-      expanded: false,
-      selected: false,
       margins: [30, 15],
       currentIndicator: null,
+      maxValue: 200,
+      highlightedAgencies: [],
     });
 
     const {
@@ -110,12 +114,14 @@ class ParallelCoordinatePlot {
       margins,
       svg,
       dataProbe,
+      maxValue,
     } = privateProps.get(this);
 
     const xScale = getXScale({
       allAgenciesData,
       width,
       margins,
+      maxValue,
     });
 
     drawLines({
@@ -146,6 +152,22 @@ class ParallelCoordinatePlot {
     } = privateProps.get(this);
     pcpContainer.selectAll('.sidebar__pcp-row').classed('sidebar__pcp-row--selected', d => currentIndicator.value === d.value);
     pcpContainer.selectAll('.pcp-ticks path').classed('pcp-tick--selected', d => currentIndicator.value === d.value);
+
+    return this;
+  }
+
+  updateHighlight() {
+    const {
+      lines,
+      highlightedAgencies,
+    } = privateProps.get(this);
+
+    lines.classed('highlight', (d) => {
+      const highlightIds = highlightedAgencies.map(agency => agency.taId);
+      return highlightIds.includes(d.taId);
+    });
+
+    return this;
   }
 }
 

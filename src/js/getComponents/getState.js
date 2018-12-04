@@ -9,7 +9,8 @@ const getState = ({ data }) => {
     years: data.get('yearRange'),
     agenciesOn: true,
     nationalDataView: 'ta', // ta or msa
-    scale: 'national', // national or msa
+    scale: 'national', // national or msa,
+    highlightedAgencies: [], // agencies highlighted on map/histogram/chart(s) mouseover
   });
 
   state.getCurrentNationalMapData = function getCurrentNationalMapData() {

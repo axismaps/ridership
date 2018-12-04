@@ -16,3 +16,12 @@
   font-weight: 600;
   font-size: 12px;
 }
+
+.histogram__svg rect {
+  cursor: pointer;
+}
+
+.histogram__svg rect:hover, .histogram__svg rect.highlight {
+  stroke: black;
+  stroke-width: 2px;
+}

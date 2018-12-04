@@ -14,6 +14,7 @@ const sidebarPureFunctions = {
     indicatorSummaries,
     dataProbe,
     updateIndicator,
+    updateHighlightedAgencies,
   }) {
     return new ParallelCoordinatePlot({
       pcpContainer,
@@ -21,6 +22,7 @@ const sidebarPureFunctions = {
       indicatorSummaries,
       dataProbe,
       updateIndicator,
+      updateHighlightedAgencies,
     });
   },
 };

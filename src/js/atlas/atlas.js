@@ -17,6 +17,7 @@ const privateMethods = {
       changeColorScale,
       dataProbe,
       jumpToMsa,
+      updateHighlightedAgencies,
     } = props;
 
     const {
@@ -80,6 +81,7 @@ const privateMethods = {
       projection,
       changeColorScale,
       projectionModify,
+      updateHighlightedAgencies,
       logSimulationNodes: (nodes) => {
         props.nodes = nodes;
       },
@@ -254,6 +256,18 @@ class Atlas {
       drawMSA.call(this);
       toggleNationalLayers.call(this);
     }
+  }
+
+  updateHighlight() {
+    const {
+      agencies,
+      highlightedAgencies,
+    } = privateProps.get(this);
+
+    agencies.classed('highlight', (d) => {
+      const highlightIds = highlightedAgencies.map(agency => agency.taId);
+      return highlightIds.includes(d.taId);
+    });
   }
 }
 

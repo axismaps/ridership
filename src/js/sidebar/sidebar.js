@@ -104,11 +104,11 @@ const privateMethods = {
     const sparkRows = drawSparkLineRows({
       contentContainer,
       indicatorSummaries,
+      updateIndicator,
     });
 
     const sparkTitles = drawSparkLineTitles({
       sparkRows,
-      updateIndicator,
     });
 
     const sparkLines = drawSparkLines({
@@ -135,12 +135,12 @@ const privateMethods = {
       allAgenciesData,
       dataProbe,
       updateIndicator,
+      updateHighlightedAgencies,
     } = props;
 
     const {
       drawPcpContainer,
       drawPcp,
-      updateSelected,
     } = pcpFunctions;
 
     const pcpContainer = drawPcpContainer({
@@ -153,6 +153,7 @@ const privateMethods = {
       indicatorSummaries,
       dataProbe,
       updateIndicator,
+      updateHighlightedAgencies,
     });
 
     Object.assign(props, {
@@ -172,6 +173,7 @@ class Sidebar {
     privateProps.set(this, {
       dataProbe: new DataProbe({
         container: d3.select('.outer-container'),
+        highlightedAgencies: [],
       }),
     });
 
@@ -227,6 +229,24 @@ class Sidebar {
           allAgenciesData,
         })
         .updateData();
+    }
+
+    return this;
+  }
+
+  updateHighlight() {
+    const {
+      pcp,
+      highlightedAgencies,
+      currentSidebarView,
+    } = privateProps.get(this);
+
+    if (currentSidebarView === 'parallel') {
+      pcp
+        .config({
+          highlightedAgencies,
+        })
+        .updateHighlight();
     }
 
     return this;

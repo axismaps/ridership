@@ -116,6 +116,7 @@ const histogramFunctions = {
     height,
     histogramData,
     barSpacing,
+    updateHighlightedAgencies,
   }) {
     const count = histogramData.length;
 
@@ -137,6 +138,10 @@ const histogramFunctions = {
       })
       .on('mouseover', (d) => {
         console.log(d);
+        updateHighlightedAgencies(d.agencies);
+      })
+      .on('mouseout', () => {
+        updateHighlightedAgencies([]);
       });
   },
   drawAxes({

@@ -197,7 +197,6 @@ const atlasMethods = {
         return accumulator;
       }, {});
   },
-
   getUpdatedNodes({
     nodes,
     nationalMapData,
