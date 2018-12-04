@@ -1,10 +1,5 @@
-
-import * as topojsonBase from 'topojson-client';
-import * as topojsonSimplify from 'topojson-simplify';
 import atlasHelperFunctions from './atlasHelperFunctions';
 import atlasNationalFunctions from './atlasNationalFunctions';
-
-const topojson = Object.assign({}, topojsonBase, topojsonSimplify);
 
 const atlasMethods = {
   drawMapSVG({
@@ -20,16 +15,6 @@ const atlasMethods = {
       });
 
     return mapSVG;
-  },
-  getGeoData({
-    statesTopo,
-  }) {
-    return {
-      statesGeo: topojson.feature(
-        statesTopo,
-        statesTopo.objects.admin1_polygons,
-      ),
-    };
   },
   getGeoProps({
     width,
@@ -88,6 +73,7 @@ const atlasMethods = {
   }) {
     const {
       zoomAgencies,
+      zoomStates,
     } = atlasNationalFunctions;
     return () => {
       const { transform } = d3.event;
@@ -104,9 +90,9 @@ const atlasMethods = {
           (initialTranslate[1] * transform.k) + transform.y])
         .scale(initialScale * transform.k);
 
-      states.attrs({
-        transform: `translate(${transform.x},${transform.y})scale(${transform.k})`,
-        'stroke-width': 1.5 / transform.k,
+      zoomStates({
+        states,
+        transform,
       });
 
       zoomAgencies({
@@ -124,23 +110,7 @@ const atlasMethods = {
       .on('zoom', zoomed);
     mapSVG.call(zoom);
   },
-  drawStates({
-    layer,
-    statesTopo,
-    geoPath,
-  }) {
-    const simpleTopo = topojson.simplify(topojson.presimplify(statesTopo), 0.001);
-    return layer
 
-      .append('path')
-
-      .datum(topojson.feature(simpleTopo, simpleTopo.objects.admin1_polygons))
-      .attrs({
-        class: 'map__state',
-        d: geoPath,
-        'stroke-width': 1.5,
-      });
-  },
   getRadiusScale({
     nationalMapData,
   }) {

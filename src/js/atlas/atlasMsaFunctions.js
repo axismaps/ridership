@@ -7,7 +7,7 @@ const atlasMSAFunctions = {
   }) {
     console.log('draw tracts');
   },
-  updateTracts({
+  zoomTracts({
     msa,
     tractData,
     layers,

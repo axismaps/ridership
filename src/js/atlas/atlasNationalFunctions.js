@@ -1,6 +1,27 @@
+import * as topojsonBase from 'topojson-client';
+import * as topojsonSimplify from 'topojson-simplify';
 import atlasHelperFunctions from './atlasHelperFunctions';
 
+const topojson = Object.assign({}, topojsonBase, topojsonSimplify);
+
 const atlasNationalFunctions = {
+  drawStates({
+    layer,
+    statesTopo,
+    geoPath,
+  }) {
+    const simpleTopo = topojson.simplify(topojson.presimplify(statesTopo), 0.001);
+    return layer
+
+      .append('path')
+
+      .datum(topojson.feature(simpleTopo, simpleTopo.objects.admin1_polygons))
+      .attrs({
+        class: 'map__state',
+        d: geoPath,
+        'stroke-width': 1.5,
+      });
+  },
   drawAgencies({
     nationalMapData,
     layer,
@@ -124,14 +145,7 @@ const atlasNationalFunctions = {
       const change = d - original;
       return unshiftedPos + change;
     };
-    // const getCenter = ({
-      //   d,
-      //   original,
-      //   unshiftedPos,
-      // }) => {
-      //   const change = d - original;
-      //   return unshiftedPos + change + ((change * transform.k) / 20) - (change / 20);
-      // };
+
     agencies.attrs({
       cx: d => getCenter({
         d: d.x,
@@ -143,6 +157,15 @@ const atlasNationalFunctions = {
         original: d.yOriginal,
         unshiftedPos: projectionModify(d.cent)[1],
       }),
+    });
+  },
+  zoomStates({
+    states,
+    transform,
+  }) {
+    states.attrs({
+      transform: `translate(${transform.x},${transform.y})scale(${transform.k})`,
+      'stroke-width': 1.5 / transform.k,
     });
   },
 };

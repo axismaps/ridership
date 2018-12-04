@@ -24,13 +24,14 @@ const privateMethods = {
       drawMapSVG,
       getGeoProps,
       drawLayers,
-      drawStates,
+      // drawStates,
       getZoomed,
       setZoomEvents,
       getInitialScaleTranslate,
     } = atlasMethods;
     const {
       drawAgencies,
+      drawStates,
     } = atlasNationalFunctions;
 
     const {
