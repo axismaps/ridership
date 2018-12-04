@@ -56,6 +56,7 @@
 
 .sidebar__sparkline-title, .sidebar__pcp-row {
   color: #666666;
+  cursor: pointer;
 }
 
 .sidebar__sparkline-title--selected, .sidebar__pcp-row--selected {
@@ -101,6 +102,11 @@
 .pcp-ticks path {
   stroke: rgba(0, 0, 0, .25);
   stroke-width: 1;
+}
+
+.pcp-ticks path.pcp-tick--selected {
+  stroke: #2D74ED;
+  stroke-width: 2;
 }
 
 path.pcp-line {

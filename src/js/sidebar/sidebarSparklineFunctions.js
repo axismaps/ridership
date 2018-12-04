@@ -13,11 +13,13 @@ const sidebarPureFunctions = {
   },
   drawSparkLineTitles({
     sparkRows,
+    updateIndicator,
   }) {
     return sparkRows
       .append('div')
       .attr('class', 'sidebar__sparkline-title')
-      .text(d => d.text);
+      .text(d => d.text)
+      .on('click', updateIndicator);
   },
   drawSparkLines({
     sparkRows,

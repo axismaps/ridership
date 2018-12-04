@@ -61,10 +61,18 @@ const atlasMethods = {
     const nationalView = mapSVG.append('g');
     const states = nationalView.append('g');
     const agencies = nationalView.append('g');
+
+    const msaView = mapSVG.append('g');
+    const tracts = msaView.append('g');
+    const labels = msaView.append('g');
+
     return {
       nationalView,
       states,
       agencies,
+      msaView,
+      tracts,
+      labels,
     };
   },
   getZoomed({
@@ -244,7 +252,7 @@ const atlasMethods = {
         console.log(d);
         const { clientX, clientY } = d3.event;
         const pos = {
-          left: clientX + 10,
+          left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
           bottom: window.innerHeight - clientY + 10,
           width: 250,
         };

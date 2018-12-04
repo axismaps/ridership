@@ -22,6 +22,7 @@ const privateMethods = {
     } else {
       drawMSAContent.call(this);
     }
+    this.updateCurrentIndicator();
   },
   clearContent() {
     const {
@@ -91,6 +92,7 @@ const privateMethods = {
       yearRange,
       currentIndicator,
       updateCurrentIndicator,
+      updateIndicator,
     } = props;
 
     const {
@@ -106,6 +108,7 @@ const privateMethods = {
 
     const sparkTitles = drawSparkLineTitles({
       sparkRows,
+      updateIndicator,
     });
 
     const sparkLines = drawSparkLines({
@@ -131,11 +134,13 @@ const privateMethods = {
       indicatorSummaries,
       allAgenciesData,
       dataProbe,
+      updateIndicator,
     } = props;
 
     const {
       drawPcpContainer,
       drawPcp,
+      updateSelected,
     } = pcpFunctions;
 
     const pcpContainer = drawPcpContainer({
@@ -147,6 +152,7 @@ const privateMethods = {
       allAgenciesData,
       indicatorSummaries,
       dataProbe,
+      updateIndicator,
     });
 
     Object.assign(props, {
@@ -172,8 +178,6 @@ class Sidebar {
     this.config(config);
     setTopButtonEvents.call(this);
     drawContent.call(this);
-
-    this.updateCurrentIndicator();
   }
 
   config(config) {
@@ -186,19 +190,28 @@ class Sidebar {
       currentIndicator,
       sparkLines,
       sparkTitles,
+      pcp,
+      currentSidebarView,
     } = privateProps.get(this);
 
-    sparkTitles
-      .classed('sidebar__sparkline-title--selected', d => currentIndicator.value === d.value);
+    if (currentSidebarView === 'sparklines') {
+      sparkTitles
+        .classed('sidebar__sparkline-title--selected', d => currentIndicator.value === d.value);
 
-    sparkLines
-      .forEach((sparkLine) => {
-        sparkLine
-          .config({
-            selected: currentIndicator.value === sparkLine.getIndicator().value,
-          })
-          .updateSelected();
-      });
+      sparkLines
+        .forEach((sparkLine) => {
+          sparkLine
+            .config({
+              selected: currentIndicator.value === sparkLine.getIndicator().value,
+            })
+            .updateSelected();
+        });
+    } else {
+      pcp.config({
+        currentIndicator,
+      })
+        .updateSelected();
+    }
   }
 
   updateData() {
