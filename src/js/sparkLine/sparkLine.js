@@ -18,6 +18,8 @@ const privateMethods = {
       drawSVG,
       drawLine,
       getScales,
+      drawAxis,
+      updateInteractions,
     } = sparkLineFunctions;
     const svg = drawSVG({
       container,
@@ -32,12 +34,21 @@ const privateMethods = {
       yearRange,
     });
 
-    const line = drawLine({
-      scales,
+    const axis = drawAxis({
       svg,
-      width,
-      height,
+      scales,
+    });
+
+    const line = drawLine({
       indicatorData,
+      svg,
+      scales,
+    });
+
+    updateInteractions({
+      indicatorData,
+      svg,
+      scales,
       dataProbe,
     });
 
@@ -45,6 +56,7 @@ const privateMethods = {
       svg,
       scales,
       line,
+      axis,
     });
   },
 };
@@ -88,6 +100,75 @@ class SparkLine {
     } = privateProps.get(this);
 
     line.classed('sidebar__sparkline-path--selected', selected);
+  }
+
+  updateExpanded() {
+    const {
+      expanded,
+      height,
+    } = privateProps.get(this);
+
+    if (expanded === true) {
+      this.config({
+        height: 160,
+      }).updateSize();
+    } else if (height !== 30) {
+      this.config({
+        height: 30,
+      }).updateSize();
+    }
+
+    return this;
+  }
+
+  updateSize() {
+    const {
+      getScales,
+      updateSparkline,
+      updateInteractions,
+    } = sparkLineFunctions;
+
+    const props = privateProps.get(this);
+
+    const {
+      indicatorData,
+      yearRange,
+      width,
+      height,
+      svg,
+      expanded,
+      line,
+      dataProbe,
+    } = props;
+
+    const scales = getScales({
+      indicatorData,
+      width,
+      height,
+      yearRange,
+    });
+
+    Object.assign(props, {
+      scales,
+    });
+
+    updateSparkline({
+      expanded,
+      svg,
+      line,
+      scales,
+      width,
+      height,
+    });
+
+    updateInteractions({
+      indicatorData,
+      svg,
+      scales,
+      dataProbe,
+    });
+
+    return this;
   }
 }
 

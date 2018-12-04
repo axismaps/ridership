@@ -33,11 +33,33 @@ const sparkLineFunctions = {
         .range([height, 0]),
     };
   },
+  drawAxis({
+    svg,
+    scales,
+  }) {
+    const {
+      xScale,
+      yScale,
+    } = scales;
+    svg.append('rect')
+      .attr('class', 'sidebar__sparkline-background')
+      .attrs({
+        width: '100%',
+        height: '100%',
+      });
+    const axis = d3.axisRight()
+      .scale(yScale)
+      .ticks(4)
+      .tickSize(xScale.range()[1]);
+
+    return svg.append('g')
+      .attr('class', 'sidebar__sparkline-axis')
+      .call(axis);
+  },
   drawLine({
     indicatorData,
     svg,
     scales,
-    dataProbe,
   }) {
     const {
       xScale,
@@ -47,8 +69,31 @@ const sparkLineFunctions = {
       .x(d => xScale(d.year))
       .y(d => yScale(d.indicatorSummary));
 
-    const line = svg.on('mousemove', (d) => {
+    const line = svg.append('path')
+      .data([indicatorData.summaries])
+      .attrs({
+        class: 'sidebar__sparkline-path',
+        d: lineGenerator,
+      });
+
+    svg.append('circle')
+      .attr('r', 5)
+      .style('display', 'none');
+
+    return line;
+  },
+  updateInteractions({
+    indicatorData,
+    svg,
+    scales,
+    dataProbe,
+  }) {
+    return svg.on('mousemove', (d) => {
       dataProbe.remove();
+      const {
+        xScale,
+        yScale,
+      } = scales;
       const {
         clientX,
         clientY,
@@ -90,17 +135,46 @@ const sparkLineFunctions = {
         dataProbe.remove();
         svg.select('circle')
           .style('display', 'none');
-      })
-      .append('path')
-      .data([indicatorData.summaries])
-      .attrs({
-        class: 'sidebar__sparkline-path',
-        d: lineGenerator,
+      });
+  },
+  updateSparkline({
+    expanded,
+    svg,
+    line,
+    scales,
+    width,
+    height,
+  }) {
+    svg
+      .transition()
+      .styles({
+        width: `${width}px`,
+        height: `${height}px`,
       });
 
-    svg.append('circle')
-      .attr('r', 5)
-      .style('display', 'none');
+    const {
+      xScale,
+      yScale,
+    } = scales;
+
+    const lineGenerator = d3.line()
+      .x(d => xScale(d.year))
+      .y(d => yScale(d.indicatorSummary));
+
+    line
+      .transition()
+      .attr('d', lineGenerator);
+
+    if (expanded) {
+      const axis = d3.axisRight()
+        .scale(yScale)
+        .ticks(4)
+        .tickSize(xScale.range()[1]);
+
+      svg.select('g.sidebar__sparkline-axis')
+        .transition()
+        .call(axis);
+    }
 
     return line;
   },
