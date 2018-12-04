@@ -51,10 +51,15 @@
   stroke: #666666;
   stroke-width: 1px;
   fill-opacity: 0.8;
+  cursor: pointer;
 }
 
 .map__agency:hover {
   fill-opacity: 0.95;
   stroke: black;
   stroke-width: 2px;
+}
+
+.map__hidden-layer {
+  display: none;
 }

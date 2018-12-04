@@ -8,9 +8,14 @@
   border-top-right-radius: $sidebar--border-radius;
 }
 
+.sidebar__outer-content {
+  margin-top: 20px;
+}
+
 .sidebar__content {
   padding-left: 20px;
   padding-right: 20px;
+  // padding-top: 20px;
 }
 
 .sidebar__top-button-outer {
@@ -24,8 +29,13 @@
   cursor: pointer;
 }
 
-.sidebar__top-button--active,
 .sidebar__top-button:hover {
+  color: $main-blue;
+  font-weight: 600;
+}
+
+.sidebar__top-button--active,
+ {
   color: $main-blue;
   font-weight: 600;
   border-bottom: 4px solid $main-blue;
@@ -40,15 +50,15 @@
   margin-left: 8px;
 }
 
-.sidebar__parallel-button {
+.sidebar__parallel-button-outer {
   margin-left: 30px;
 }
 
-.sidebar__sparkline-title {
+.sidebar__sparkline-title, .sidebar__pcp-row {
   color: #666666;
 }
 
-.sidebar__sparkline-title--selected {
+.sidebar__sparkline-title--selected, .sidebar__pcp-row--selected {
   color: $main-blue;
   font-weight: 600;
 }
@@ -73,4 +83,34 @@
 .sidebar__sparkline-path--selected {
   stroke: $main-blue;
   stroke-width: 2px;
+}
+
+.sidebar__pcp-container > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.sidebar__pcp-row {
+  width: 200px;
+}
+
+.sidebar__pcp-row p {
+  margin: 0;
+}
+
+.pcp-ticks path {
+  stroke: rgba(0, 0, 0, .25);
+  stroke-width: 1;
+}
+
+path.pcp-line {
+  fill: none;
+  stroke: rgba(0, 0, 0, .1);
+  stroke-width: .5;
+  cursor: pointer;
+}
+
+path.pcp-line:hover {
+  stroke: rgb(0, 0, 0);
+  stroke-width: 2;
 }

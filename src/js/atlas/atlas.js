@@ -15,6 +15,7 @@ const privateMethods = {
       nationalMapData,
       changeColorScale,
       dataProbe,
+      jumpToMsa,
     } = props;
 
     const {
@@ -67,6 +68,7 @@ const privateMethods = {
 
 
     const agencies = drawAgencies({
+      jumpToMsa,
       radiusScale,
       dataProbe,
       layer: layers.agencies,
@@ -114,6 +116,20 @@ const privateMethods = {
     const { getRadiusScale } = atlasMethods;
 
     props.radiusScale = getRadiusScale({ nationalMapData });
+  },
+  drawMSA() {
+
+  },
+  toggleNationalLayers() {
+    const {
+      layers,
+      scale,
+    } = privateProps.get(this);
+    const {
+      nationalView,
+    } = layers;
+    nationalView
+      .classed('map__hidden-layer', scale === 'msa');
   },
 };
 
@@ -207,6 +223,22 @@ class Atlas {
       nodes,
       // radiusScale,
     });
+  }
+
+  updateScale() {
+    const props = privateProps.get(this);
+    const {
+      scale,
+    } = props;
+    const {
+      drawMSA,
+      toggleNationalLayers,
+    } = privateMethods;
+
+    if (scale === 'msa') {
+      drawMSA.call(this);
+      toggleNationalLayers.call(this);
+    }
   }
 }
 

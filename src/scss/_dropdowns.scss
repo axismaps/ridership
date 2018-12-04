@@ -3,15 +3,11 @@
   opacity: 0;
   transition: opacity 300ms;
   pointer-events: none;
-  background: white;
-  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.35);
-  border-radius: 5px;
-  font-size: 15px;
-  font-weight: 350;
+  @include popup-outer();
 }
 
 .dropdown-content__inner {
-  margin: 20px;
+  @include popup-inner();
 }
 
 .dropdown-content--open {

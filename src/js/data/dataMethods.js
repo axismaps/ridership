@@ -11,6 +11,8 @@ const dataMethods = {
       getAllNationalMapData,
     } = dataMethods;
 
+    console.log('rawmsa', rawMsa);
+    console.log('rawta', rawTa);
     const msa = rawMsa.rows.map((record) => {
       const {
         centx,
@@ -188,6 +190,8 @@ const dataMethods = {
     data.set('changeColorScale', changeColorScale);
     data.set('indicators', indicators);
     data.set('indicatorSummaries', indicatorSummaries);
+    data.set('cachedTractGeoJSON', new Map());
+    data.set('cachedTractData', new Map());
     console.log('data', data);
     return data;
   },
