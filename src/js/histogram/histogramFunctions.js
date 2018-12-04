@@ -117,6 +117,7 @@ const histogramFunctions = {
     histogramData,
     barSpacing,
     updateHighlightedAgencies,
+    dataProbe,
   }) {
     const count = histogramData.length;
 
@@ -137,11 +138,27 @@ const histogramFunctions = {
         'stroke-width': 1,
       })
       .on('mouseover', (d) => {
-        console.log(d);
         updateHighlightedAgencies(d.agencies);
+        const { clientX, clientY } = d3.event;
+        const pos = {
+          left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+          bottom: window.innerHeight - clientY + 10,
+          width: 250,
+        };
+        const html = `
+          <div class="data-probe__row"><span class="data-probe__field">${d.agencies.length} transit authorit${d.agencies.length > 1 ? 'ies' : 'y'}</span></div>
+          <div class="data-probe__row">${d.bucket.map(d => `${Math.round(d)}%`).join(' – ')}</div>
+        `;
+        dataProbe
+          .config({
+            pos,
+            html,
+          })
+          .draw();
       })
       .on('mouseout', () => {
         updateHighlightedAgencies([]);
+        dataProbe.remove();
       });
   },
   drawAxes({
