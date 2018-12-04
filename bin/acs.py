@@ -3,6 +3,7 @@ import re
 import json
 import pandas as pd
 from census import Census
+from carto import replace_data
 import settings
 
 def msa_population():
@@ -30,6 +31,7 @@ def download_census():
     counties = geo.drop_duplicates(
         ['STATEFP', 'COUNTYFP', 'msaid']
     ).sort_values(['STATEFP', 'COUNTYFP'])
+    indexes = ['GEOID', 'year']
 
     with open('data/census/acs.json', "r") as read_file:
         meta = json.load(read_file)
@@ -40,7 +42,7 @@ def download_census():
                 if os.path.isfile(filename):
                     csv = pd.read_csv(
                         filename, dtype={'GEOID': object}
-                    ).set_index(['GEOID', 'year'])
+                    ).set_index(indexes)
                     acs.append(csv)
 
                 else:
@@ -55,7 +57,7 @@ def download_census():
                                     result['state'] + result['county'] + result['tract']
                                 ).astype(str)
                                 result['year'] = y
-                                out = result.set_index(['GEOID', 'year'])
+                                out = result.set_index(indexes)
                                 frames.append(out[r['var']])
                                 print 'Loaded:', r['name'], row['STATEFP'], row['COUNTYFP'], y, i
                             else:
@@ -72,9 +74,13 @@ def download_census():
                      'AFFGEOID', 'NAME', 'AWATER', 'LSAD', 'CBSAFP']
         ).dropna(
             subset=['pop']
-        ).set_index(['GEOID', 'year'])
+        ).set_index(indexes)
+
+        indexes.append('msaid')
 
         for d in meta:
+            if 'upload' in d and d['upload']:
+                indexes.append(d['key'])
             if 'var' not in d:
                 if 'sum' in d:
                     combined[d['key']] = 0
@@ -86,7 +92,9 @@ def download_census():
                     if 'scale' in d:
                         combined[d['key']] = combined[d['key']] * d['scale']
 
-        combined.to_csv('data/output/census.csv')
+        export = combined.reset_index()
+        export[indexes].to_csv('data/output/census.csv', index=False)
+        replace_data('census', indexes, 'census.csv')
 
 if __name__ == "__main__":
     # print msa_population()

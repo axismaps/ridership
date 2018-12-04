@@ -2,14 +2,16 @@
   {
     "name": "Total Population",
     "key": "pop",
-    "var": "B00001_001E"
+    "var": "B00001_001E",
+    "upload": true
   },
   {
     "name": "Population Density",
     "key": "density",
     "numerator": "pop",
     "denominator": "ALAND",
-    "scale": 1000000
+    "scale": 1000000,
+    "upload": true
   },
   {
     "name": "Total Population Foreign Born",
@@ -20,7 +22,8 @@
     "name": "Percent Foreign Born",
     "key": "foreign_pct",
     "numerator": "foreign",
-    "denominator": "pop"
+    "denominator": "pop",
+    "upload": true
   },
   {
     "name": "White",
@@ -46,26 +49,30 @@
     "name": "Percent White",
     "key": "white_pct",
     "numerator": "white",
-    "denominator": "pop"
+    "denominator": "pop",
+    "upload": true
   }
   ,
   {
     "name": "Percent Black",
     "key": "black_pct",
     "numerator": "black",
-    "denominator": "pop"
+    "denominator": "pop",
+    "upload": true
   },
   {
     "name": "Percent Asian",
     "key": "asian_pct",
     "numerator": "asian",
-    "denominator": "pop"
+    "denominator": "pop",
+    "upload": true
   },
   {
     "name": "Percent Hispanic/Latino",
     "key": "latino_pct",
     "numerator": "latino",
-    "denominator": "pop"
+    "denominator": "pop",
+    "upload": true
   },
   {
     "name": "Male: 75 - 79 years",
@@ -102,6 +109,13 @@
     "key": "over75",
     "sum": [
       "m75", "m80", "m85", "f75", "f80", "f85"
-    ]
+    ],
+    "upload": true
+  },
+  {
+    "name": "Median Household Income",
+    "key": "income",
+    "var": "B19013_001E",
+    "upload": true
   }
 ]
