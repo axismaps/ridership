@@ -1,5 +1,6 @@
 import atlasHelperFunctions from './atlasHelperFunctions';
 import atlasNationalFunctions from './atlasNationalFunctions';
+import atlasMSAFunctions from './atlasMsaFunctions';
 
 const atlasMethods = {
   drawMapSVG({
@@ -64,22 +65,30 @@ const atlasMethods = {
     };
   },
   getZoomed({
-    states,
-    getAgencies,
+    mapFeatures,
     initialScale,
     initialTranslate,
     projectionModify,
     setCurrentTransform,
+    getScale,
   }) {
     const {
       zoomAgencies,
       zoomStates,
     } = atlasNationalFunctions;
+    const {
+      zoomTracts,
+    } = atlasMSAFunctions;
     return () => {
       const { transform } = d3.event;
       setCurrentTransform(transform);
 
-      const agencies = getAgencies();
+      const scale = getScale();
+
+      const agencies = mapFeatures.get('agencies');
+      const states = mapFeatures.get('states');
+
+      const tracts = mapFeatures.get('tracts');
       /**
        * Re-project cluster nodes.
        * Everything else is scaled w/ un-modified original projection
@@ -89,16 +98,22 @@ const atlasMethods = {
         .translate([(initialTranslate[0] * transform.k) + transform.x,
           (initialTranslate[1] * transform.k) + transform.y])
         .scale(initialScale * transform.k);
+      if (scale === 'national') {
+        zoomStates({
+          states,
+          transform,
+        });
 
-      zoomStates({
-        states,
-        transform,
-      });
-
-      zoomAgencies({
-        agencies,
-        projectionModify,
-      });
+        zoomAgencies({
+          agencies,
+          projectionModify,
+        });
+      } else if (scale === 'msa') {
+        zoomTracts({
+          tracts,
+          transform,
+        });
+      }
     };
   },
   setZoomEvents({

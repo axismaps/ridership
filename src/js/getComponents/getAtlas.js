@@ -5,6 +5,7 @@ const getAtlas = ({ data, state }) => new Atlas({
   nationalMapData: state.getCurrentNationalMapData(),
   // indicator: state.get('indricator'),
   yearRange: data.get('yearRange'),
+  scale: state.get('scale'),
   msa: state.get('msa'),
   changeColorScale: data.get('changeColorScale'),
   jumpToMsa: (agency) => {

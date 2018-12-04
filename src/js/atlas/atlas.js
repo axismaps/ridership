@@ -1,6 +1,7 @@
 import atlasMethods from './atlasGeoFunctions';
 import atlasNationalFunctions from './atlasNationalFunctions';
 import DataProbe from '../dataProbe/dataProbe';
+import atlasMSAFunctions from './atlasMsaFunctions';
 
 const privateProps = new WeakMap();
 
@@ -18,6 +19,7 @@ const privateMethods = {
       dataProbe,
       jumpToMsa,
       updateHighlightedAgencies,
+      mapFeatures,
     } = props;
 
     const {
@@ -88,10 +90,15 @@ const privateMethods = {
       },
     });
 
+    mapFeatures.set('states', states);
+    mapFeatures.set('agencies', agencies);
+
     const zoomed = getZoomed({
-      states,
+      // states,
       // agencies,
-      getAgencies: () => props.agencies,
+      // getAgencies: () => props.agencies,
+      getScale: () => props.scale,
+      mapFeatures,
       initialScale,
       initialTranslate,
       projectionModify,
@@ -114,6 +121,7 @@ const privateMethods = {
       mapSVG,
       projection,
       projectionModify,
+      geoPath,
       radiusScale,
     });
 
@@ -130,9 +138,23 @@ const privateMethods = {
   drawMSA() {
     const {
       msa,
-      tractData,
+      tractTopo,
       layers,
+      geoPath,
+      mapFeatures,
     } = privateProps.get(this);
+    const {
+      drawTracts,
+    } = atlasMSAFunctions;
+
+    const tracts = drawTracts({
+      tractTopo,
+      msa,
+      layers,
+      geoPath,
+    });
+
+    mapFeatures.set('tracts', tracts);
   },
   toggleNationalLayers() {
     const {
@@ -165,6 +187,7 @@ class Atlas {
       statesTopo: null,
       layers: null,
       nationalMapData: null,
+      mapFeatures: new Map(),
       dataProbe: new DataProbe({
         container: d3.select('.outer-container'),
       }),

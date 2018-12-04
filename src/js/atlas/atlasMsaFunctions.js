@@ -1,19 +1,37 @@
+import * as topojson from 'topojson-client';
+
 const atlasMSAFunctions = {
   drawTracts({
     msa,
-    tractData,
+    tractTopo,
     layers,
-    projection,
+    // projection,
+    geoPath,
   }) {
-    console.log('draw tracts');
+    const tractGeo = topojson.feature(
+      tractTopo,
+      tractTopo.objects[`tract-${msa.msaId}`],
+    );
+
+    return layers.tracts.selectAll('.atlas__tract')
+      .data(tractGeo.features)
+      .enter()
+      .append('path')
+      .attrs({
+        d: geoPath,
+        'stroke-width': 1,
+        stroke: 'black',
+        fill: 'none',
+      });
   },
   zoomTracts({
-    msa,
-    tractData,
-    layers,
-    projection,
+    transform,
+    tracts,
   }) {
-    console.log('update tracts');
+    tracts.attrs({
+      transform: `translate(${transform.x},${transform.y})scale(${transform.k})`,
+      'stroke-width': 1 / transform.k,
+    });
   },
 };
 
