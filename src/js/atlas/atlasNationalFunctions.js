@@ -10,6 +10,7 @@ const atlasNationalFunctions = {
     dataProbe,
     radiusScale,
     jumpToMsa,
+    updateHighlightedAgencies,
   }) {
     const {
       getAllAgencies,
@@ -68,9 +69,11 @@ const atlasNationalFunctions = {
             html,
           })
           .draw();
+        updateHighlightedAgencies([d]);
       })
       .on('mouseout', () => {
         dataProbe.remove();
+        updateHighlightedAgencies([]);
       })
       .on('click', (d) => {
         jumpToMsa(d);
