@@ -66,5 +66,35 @@
     "key": "latino_pct",
     "numerator": "latino",
     "denominator": "pop"
+  },
+  {
+    "name": "Male: 75 - 79 years",
+    "key": "m75",
+    "var": "B01001_023E"
+  },
+  {
+    "name": "Male: 80 - 84 years",
+    "key": "m80",
+    "var": "B01001_024E"
+  },
+  {
+    "name": "Male: 85 years and over",
+    "key": "m85",
+    "var": "B01001_025E"
+  },
+  {
+    "name": "Female: 75 - 79 years",
+    "key": "f75",
+    "var": "B01001_047E"
+  },
+  {
+    "name": "Female: 80 - 84 years",
+    "key": "f80",
+    "var": "B01001_048E"
+  },
+  {
+    "name": "Female: 85 years and over",
+    "key": "f85",
+    "var": "B01001_049E"
   }
 ]
