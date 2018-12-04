@@ -61,10 +61,18 @@ const atlasMethods = {
     const nationalView = mapSVG.append('g');
     const states = nationalView.append('g');
     const agencies = nationalView.append('g');
+
+    const msaView = mapSVG.append('g');
+    const tracts = msaView.append('g');
+    const labels = msaView.append('g');
+
     return {
       nationalView,
       states,
       agencies,
+      msaView,
+      tracts,
+      labels,
     };
   },
   getZoomed({

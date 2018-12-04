@@ -31,6 +31,7 @@ const privateMethods = {
 
     const {
       setRadiusScale,
+      toggleNationalLayers,
     } = privateMethods;
 
     setRadiusScale.call(this);
@@ -99,6 +100,7 @@ const privateMethods = {
       mapSVG,
     });
 
+
     Object.assign(props, {
       states,
       agencies,
@@ -108,6 +110,8 @@ const privateMethods = {
       projectionModify,
       radiusScale,
     });
+
+    toggleNationalLayers.call(this);
   },
   setRadiusScale() {
     const props = privateProps.get(this);
@@ -118,7 +122,11 @@ const privateMethods = {
     props.radiusScale = getRadiusScale({ nationalMapData });
   },
   drawMSA() {
-
+    const {
+      msa,
+      tractData,
+      layers,
+    } = privateProps.get(this);
   },
   toggleNationalLayers() {
     const {
@@ -127,9 +135,13 @@ const privateMethods = {
     } = privateProps.get(this);
     const {
       nationalView,
+      msaView,
     } = layers;
     nationalView
       .classed('map__hidden-layer', scale === 'msa');
+
+    msaView
+      .classed('map__hidden-layer', scale === 'national');
   },
 };
 
