@@ -1,4 +1,5 @@
 import atlasMethods from './atlasFunctions';
+import atlasNationalFunctions from './atlasNationalFunctions';
 import DataProbe from '../dataProbe/dataProbe';
 
 const privateProps = new WeakMap();
@@ -26,8 +27,10 @@ const privateMethods = {
       getZoomed,
       setZoomEvents,
       getInitialScaleTranslate,
-      drawAgencies,
     } = atlasMethods;
+    const {
+      drawAgencies,
+    } = atlasNationalFunctions;
 
     const {
       setRadiusScale,
