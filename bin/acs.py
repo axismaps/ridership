@@ -1,4 +1,5 @@
 import re
+import json
 import pandas as pd
 from census import Census
 import settings
@@ -23,26 +24,34 @@ def msa_population():
     return merge
 
 def download_census():
-    frames = []
     c = Census(settings.CENSUS_API)
     geo = pd.read_csv('data/geojson/tracts/cbsa_crosswalk.csv', dtype={'GEOID': object})
     counties = geo.drop_duplicates(
         ['STATEFP', 'COUNTYFP', 'msaid']
     ).sort_values(['STATEFP', 'COUNTYFP'])
 
-    for i, row in counties.iterrows():
-        result = pd.DataFrame(
-            c.acs5.state_county_tract('B05002_013E', row['STATEFP'],
-                                      row['COUNTYFP'], Census.ALL, year=2010)
-        )
-        result['GEOID'] = pd.Series(
-            result['state'] + result['county'] + result['tract']
-        ).astype(str)
-        merge = pd.merge(result, geo, on='GEOID').set_index('GEOID')
-        frames.append(merge)
-        print 'Loaded:', row['STATEFP'], row['COUNTYFP'], i
-
-    print pd.concat(frames)
+    with open('data/census/acs.json', "r") as read_file:
+        meta = json.load(read_file)
+        acs = []
+        for r in meta:
+            frames = []
+            for y in range(2010, 2017):
+                for i, row in counties.iterrows():
+                    res = c.acs5.state_county_tract(r['var'], row['STATEFP'],
+                                                    row['COUNTYFP'], Census.ALL, year=y)
+                    if res:
+                        result = pd.DataFrame(res)
+                        result['GEOID'] = pd.Series(
+                            result['state'] + result['county'] + result['tract']
+                        ).astype(str)
+                        result['year'] = y
+                        out = result.set_index(['GEOID', 'year'])
+                        frames.append(out[r['var']])
+                        print 'Loaded:', r['name'], row['STATEFP'], row['COUNTYFP'], y, i
+                    else:
+                        print 'Empty:', r['name'], row['STATEFP'], row['COUNTYFP'], y, i
+            acs.append(pd.concat(frames))
+        pd.concat(acs, axis=1).to_csv('data/output/census.csv')
 
 if __name__ == "__main__":
     # print msa_population()

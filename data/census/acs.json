@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Total Population",
+    "key": "pop",
+    "var": "B00001_001E"
+  },
+  {
+    "name": "Total Population Foreign Born",
+    "key": "foreign",
+    "var": "B05002_013E"
+  }
+]
