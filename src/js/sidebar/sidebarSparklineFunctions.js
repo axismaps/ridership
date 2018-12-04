@@ -4,36 +4,32 @@ const sidebarPureFunctions = {
   drawSparkLineRows({
     contentContainer,
     indicatorSummaries,
+    updateIndicator,
   }) {
     return contentContainer.selectAll('.sidebar__sparkline-row')
       .data(indicatorSummaries, d => d.value)
       .enter()
       .append('div')
-      .attr('class', 'sidebar__sparkline-row');
+      .attr('class', 'sidebar__sparkline-row')
+      .on('click', updateIndicator);
   },
   drawSparkLineTitles({
     sparkRows,
-    updateIndicator,
   }) {
     return sparkRows
       .append('div')
       .attr('class', 'sidebar__sparkline-title')
-      .text(d => d.text)
-      .on('click', updateIndicator);
+      .text(d => d.text);
   },
   drawSparkLines({
     sparkRows,
     yearRange,
-    updateCurrentIndicator,
   }) {
     const sparkLines = [];
 
     sparkRows
       .append('div')
       .attr('class', 'sidebar__sparkline-container')
-      .on('click', (d) => {
-        updateCurrentIndicator(d);
-      })
       .each(function drawSparkline(d) {
         const container = d3.select(this);
 

@@ -32,7 +32,6 @@ const parallelCoordinatePlotFunctions = {
     indicatorHeight,
     width,
     margins,
-    updateIndicator,
   }) {
     const svg = pcpContainer
       .append('svg')
@@ -72,6 +71,7 @@ const parallelCoordinatePlotFunctions = {
     allAgenciesData,
     width,
     margins,
+    maxValue,
   }) {
     const extent = d3.extent(
       allAgenciesData
@@ -81,7 +81,7 @@ const parallelCoordinatePlotFunctions = {
         }, []),
     )
       .filter(d => d !== null)
-      .map(d => Math.max(Math.min(d, 200), -200));
+      .map(d => Math.max(Math.min(d, maxValue), -maxValue));
 
     return d3.scaleLinear().domain(extent).range([0, width - 2 * margins[1]]).clamp(true);
   },
@@ -91,6 +91,7 @@ const parallelCoordinatePlotFunctions = {
     svg,
     xScale,
     dataProbe,
+    updateHighlightedAgencies,
   }) {
     const lineGenerator = d3.line()
       .x(d => xScale(d.pctChange))
@@ -106,8 +107,8 @@ const parallelCoordinatePlotFunctions = {
       .style('fill', 'none')
       .attr('class', 'pcp-line')
       .attr('d', d => lineGenerator(d.indicators))
-      .on('mouseover', () => {
-        d3.select(this).raise();
+      .on('mouseover', (d) => {
+        updateHighlightedAgencies([d]);
       })
       .on('mousemove', (d) => {
         dataProbe.remove();
@@ -144,6 +145,7 @@ const parallelCoordinatePlotFunctions = {
         dataProbe.remove();
         svg.select('.probe-dot circle')
           .style('display', 'none');
+        updateHighlightedAgencies([]);
       });
 
     const mergedLines = newLines.merge(lines);

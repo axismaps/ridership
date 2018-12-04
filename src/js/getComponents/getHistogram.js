@@ -6,6 +6,10 @@ const getHistogram = ({ data, state }) => new Histogram({
   nationalMapData: state.getCurrentNationalMapData(),
   currentIndicator: state.get('indicator'),
   msaProbe: state.get('msaProbe'),
+  updateHighlightedAgencies: (newHighlight) => {
+    const highlights = newHighlight || [];
+    state.update({ highlightedAgencies: highlights });
+  },
 });
 
 export default getHistogram;

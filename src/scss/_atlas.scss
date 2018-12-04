@@ -54,7 +54,7 @@
   cursor: pointer;
 }
 
-.map__agency:hover {
+.map__agency:hover, .map__agency.highlight {
   fill-opacity: 0.95;
   stroke: black;
   stroke-width: 2px;
