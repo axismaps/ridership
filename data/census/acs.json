@@ -96,5 +96,12 @@
     "name": "Female: 85 years and over",
     "key": "f85",
     "var": "B01001_049E"
+  },
+  {
+    "name": "Population Age 75+",
+    "key": "over75",
+    "sum": [
+      "m75", "m80", "m85", "f75", "f80", "f85"
+    ]
   }
 ]

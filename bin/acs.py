@@ -42,7 +42,7 @@ def download_census():
                         filename, dtype={'GEOID': object}
                     ).set_index(['GEOID', 'year'])
                     acs.append(csv)
-                    print csv
+
                 else:
                     frames = []
                     for y in range(2010, 2016):
@@ -76,10 +76,15 @@ def download_census():
 
         for d in meta:
             if 'var' not in d:
-                combined[d['key']] = combined[d['numerator']].astype(int) / \
-                                     combined[d['denominator']].astype(int)
-                if 'scale' in d:
-                    combined[d['key']] = combined[d['key']] * d['scale']
+                if 'sum' in d:
+                    combined[d['key']] = 0
+                    for s in d['sum']:
+                        combined[d['key']] = combined[d['key']] + combined[s]
+                else:
+                    combined[d['key']] = combined[d['numerator']].astype(int) / \
+                                        combined[d['denominator']].astype(int)
+                    if 'scale' in d:
+                        combined[d['key']] = combined[d['key']] * d['scale']
 
         combined.to_csv('data/output/census.csv')
 
