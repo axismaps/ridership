@@ -35,7 +35,7 @@ def download_census():
         acs = []
         for r in meta:
             frames = []
-            for y in range(2010, 2017):
+            for y in range(2010, 2016):
                 for i, row in counties.iterrows():
                     res = c.acs5.state_county_tract(r['var'], row['STATEFP'],
                                                     row['COUNTYFP'], Census.ALL, year=y)
@@ -50,7 +50,7 @@ def download_census():
                         print 'Loaded:', r['name'], row['STATEFP'], row['COUNTYFP'], y, i
                     else:
                         print 'Empty:', r['name'], row['STATEFP'], row['COUNTYFP'], y, i
-            acs.append(pd.concat(frames))
+            acs.append(pd.Series(pd.concat(frames), name=r['key']))
         pd.concat(acs, axis=1).to_csv('data/output/census.csv')
 
 if __name__ == "__main__":
