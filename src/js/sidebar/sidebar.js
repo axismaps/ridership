@@ -93,6 +93,7 @@ const privateMethods = {
       currentIndicator,
       updateCurrentIndicator,
       updateIndicator,
+      dataProbe,
     } = props;
 
     const {
@@ -116,6 +117,7 @@ const privateMethods = {
       yearRange,
       sparkRows,
       currentIndicator,
+      dataProbe,
     });
 
     Object.assign(props, {

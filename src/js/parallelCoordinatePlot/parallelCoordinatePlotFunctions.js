@@ -92,6 +92,7 @@ const parallelCoordinatePlotFunctions = {
     xScale,
     dataProbe,
     updateHighlightedAgencies,
+    color,
   }) {
     const lineGenerator = d3.line()
       .x(d => xScale(d.pctChange))
@@ -105,6 +106,7 @@ const parallelCoordinatePlotFunctions = {
       .enter()
       .append('path')
       .style('fill', 'none')
+      .style('stroke', color)
       .attr('class', 'pcp-line')
       .attr('d', d => lineGenerator(d.indicators))
       .on('mouseover', (d) => {
@@ -139,7 +141,8 @@ const parallelCoordinatePlotFunctions = {
             cx: xScale(d.indicators[closest].pctChange),
             cy: closest * indicatorHeight,
           })
-          .style('display', 'block');
+          .style('display', 'block')
+          .style('fill', color(d));
       })
       .on('mouseout', () => {
         dataProbe.remove();
