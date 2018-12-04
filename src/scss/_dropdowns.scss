@@ -16,6 +16,7 @@
   pointer-events: auto;
 }
 
+.msa-dropdown__content-row,
 .indicator-dropdown__content-row {
   margin-top: 15px;
   cursor: pointer;
@@ -25,4 +26,9 @@
 .indicator-dropdown__content-row--highlighted {
   color: $header__title-row--background;
   font-weight: 600;
+}
+
+.msa-dropdown__content-container {
+  max-height: 75vh;
+  overflow-y: auto;
 }

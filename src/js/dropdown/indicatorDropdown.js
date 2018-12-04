@@ -36,10 +36,7 @@ const privateMethods = {
       toggleButtonText,
     });
 
-    setContentPosition({
-      toggleButton,
-      contentOuterContainer,
-    });
+    setContentPosition.call(this);
 
     const indicatorRows = drawContent({
       indicators,
@@ -62,11 +59,7 @@ class IndicatorDropdown {
       init,
     } = privateMethods;
     privateProps.set(this, {
-      dropdownOpen: false,
-      toggleButton: d3.select('.atlas__indicator-dropdown-button'),
-      toggleButtonText: d3.select('.atlas__indicator-dropdown-button-text'),
-      contentOuterContainer: d3.select('.indicator-dropdown__content-container'),
-      contentContainer: d3.select('.indicator-dropdown__content'),
+
     });
     this.config(config);
 

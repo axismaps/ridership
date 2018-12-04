@@ -27,10 +27,7 @@ const privateMethods = {
       getSlider,
     } = sliderPureMethods;
 
-    setContentPosition({
-      toggleButton,
-      contentOuterContainer,
-    });
+    setContentPosition.call(this);
 
     setMenuToggleEvents.call(this);
     setToggleButtonText.call(this);

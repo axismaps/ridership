@@ -49,10 +49,11 @@ const getDropdownPrivateBase = ({
     contentOuterContainer
       .classed('dropdown-content--open', dropdownOpen);
   },
-  setContentPosition({
-    toggleButton,
-    contentOuterContainer,
-  }) {
+  setContentPosition() {
+    const {
+      toggleButton,
+      contentOuterContainer,
+    } = privateProps.get(this);
     const {
       left,
       top,
