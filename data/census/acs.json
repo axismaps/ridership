@@ -15,5 +15,56 @@
     "name": "Total Population Foreign Born",
     "key": "foreign",
     "var": "B05002_013E"
+  },
+  {
+    "name": "Percent Foreign Born",
+    "key": "foreign_pct",
+    "numerator": "foreign",
+    "denominator": "pop"
+  },
+  {
+    "name": "White",
+    "key": "white",
+    "var": "B01001H_001E"
+  },
+  {
+    "name": "Black",
+    "key": "black",
+    "var": "B01001B_001E"
+  },
+  {
+    "name": "Asian",
+    "key": "asian",
+    "var": "B01001D_001E"
+  },
+  {
+    "name": "Hispanic/Latino",
+    "key": "latino",
+    "var": "B01001I_001E"
+  },
+  {
+    "name": "Percent White",
+    "key": "white_pct",
+    "numerator": "white",
+    "denominator": "pop"
+  }
+  ,
+  {
+    "name": "Percent Black",
+    "key": "black_pct",
+    "numerator": "black",
+    "denominator": "pop"
+  },
+  {
+    "name": "Percent Asian",
+    "key": "asian_pct",
+    "numerator": "asian",
+    "denominator": "pop"
+  },
+  {
+    "name": "Percent Hispanic/Latino",
+    "key": "latino_pct",
+    "numerator": "latino",
+    "denominator": "pop"
   }
 ]
