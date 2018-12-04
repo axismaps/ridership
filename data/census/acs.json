@@ -5,6 +5,13 @@
     "var": "B00001_001E"
   },
   {
+    "name": "Population Density",
+    "key": "density",
+    "numerator": "pop",
+    "denominator": "ALAND",
+    "scale": 1000000
+  },
+  {
     "name": "Total Population Foreign Born",
     "key": "foreign",
     "var": "B05002_013E"

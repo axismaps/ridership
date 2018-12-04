@@ -34,30 +34,40 @@ def download_census():
         meta = json.load(read_file)
         acs = []
         for r in meta:
-            frames = []
-            for y in range(2010, 2016):
-                for i, row in counties.iterrows():
-                    res = c.acs5.state_county_tract(r['var'], row['STATEFP'],
-                                                    row['COUNTYFP'], Census.ALL, year=y)
-                    if res:
-                        result = pd.DataFrame(res)
-                        result['GEOID'] = pd.Series(
-                            result['state'] + result['county'] + result['tract']
-                        ).astype(str)
-                        result['year'] = y
-                        out = result.set_index(['GEOID', 'year'])
-                        frames.append(out[r['var']])
-                        print 'Loaded:', r['name'], row['STATEFP'], row['COUNTYFP'], y, i
-                    else:
-                        print 'Empty:', r['name'], row['STATEFP'], row['COUNTYFP'], y, i
-            acs.append(pd.Series(pd.concat(frames), name=r['key']))
+            if 'var' in r:
+                frames = []
+                for y in range(2010, 2016):
+                    for i, row in counties.iterrows():
+                        res = c.acs5.state_county_tract(r['var'], row['STATEFP'],
+                                                        row['COUNTYFP'], Census.ALL, year=y)
+                        if res:
+                            result = pd.DataFrame(res)
+                            result['GEOID'] = pd.Series(
+                                result['state'] + result['county'] + result['tract']
+                            ).astype(str)
+                            result['year'] = y
+                            out = result.set_index(['GEOID', 'year'])
+                            frames.append(out[r['var']])
+                            print 'Loaded:', r['name'], row['STATEFP'], row['COUNTYFP'], y, i
+                        else:
+                            print 'Empty:', r['name'], row['STATEFP'], row['COUNTYFP'], y, i
+                acs.append(pd.Series(pd.concat(frames), name=r['key']))
 
         combined = pd.concat(acs, axis=1).reset_index().merge(
-            geo, on='GEOID', how='left'
+            geo, on='GEOID', how='inner'
         ).drop(
-            columns=['STATEFP', 'COUNTYFP', 'TRACTCE', 
+            columns=['STATEFP', 'COUNTYFP', 'TRACTCE',
                      'AFFGEOID', 'NAME', 'AWATER', 'LSAD', 'CBSAFP']
-        ).set_index('GEOID')
+        ).dropna(
+            subset=['pop']
+        ).set_index(['GEOID', 'year'])
+
+        for d in meta:
+            if 'var' not in d:
+                combined[d['key']] = combined[d['numerator']].astype(int) / \
+                                     combined[d['denominator']].astype(int)
+                if 'scale' in d:
+                    combined[d['key']] = combined[d['key']] * d['scale']
 
         combined.to_csv('data/output/census.csv')
 
