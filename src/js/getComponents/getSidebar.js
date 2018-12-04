@@ -11,8 +11,11 @@ const getSidebar = ({ data, state }) => new Sidebar({
   topRowContainer: d3.select('.sidebar__top-row'),
   parallelButtonContainer: d3.select('.sidebar__parallel-button'),
   sparkLineButtonContainer: d3.select('.sidebar__sparkline-button'),
-  updateCurrentIndicator: (newIndicator) => {
-    state.update({ indicator: newIndicator });
+  updateIndicator: (newIndicator) => {
+    const currentIndicator = state.get('indicator');
+    if (newIndicator !== currentIndicator) {
+      state.update({ indicator: newIndicator });
+    }
   },
 });
 

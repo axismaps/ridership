@@ -13,6 +13,7 @@ const privateMethods = {
       width,
       margins,
       dataProbe,
+      updateIndicator,
     } = props;
 
     const {
@@ -28,6 +29,7 @@ const privateMethods = {
       indicatorSummaries,
       indicatorHeight,
       margins,
+      updateIndicator,
     });
 
     const svg = drawSVG({
@@ -80,6 +82,7 @@ class ParallelCoordinatePlot {
       expanded: false,
       selected: false,
       margins: [30, 15],
+      currentIndicator: null,
     });
 
     const {
@@ -134,6 +137,15 @@ class ParallelCoordinatePlot {
     });
 
     return this;
+  }
+
+  updateSelected() {
+    const {
+      pcpContainer,
+      currentIndicator,
+    } = privateProps.get(this);
+    pcpContainer.selectAll('.sidebar__pcp-row').classed('sidebar__pcp-row--selected', d => currentIndicator.value === d.value);
+    pcpContainer.selectAll('.pcp-ticks path').classed('pcp-tick--selected', d => currentIndicator.value === d.value);
   }
 }
 

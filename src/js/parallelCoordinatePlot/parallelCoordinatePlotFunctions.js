@@ -5,6 +5,7 @@ const parallelCoordinatePlotFunctions = {
     indicatorSummaries,
     indicatorHeight,
     margins,
+    updateIndicator,
   }) {
     const indicatorsContainer = pcpContainer.append('div')
       .attr('class', 'sidebar__pcp-labels')
@@ -16,6 +17,10 @@ const parallelCoordinatePlotFunctions = {
       .append('div')
       .attr('class', 'sidebar__pcp-row')
       .style('height', `${indicatorHeight}px`)
+      .on('click', (d) => {
+        const { summaries, ...indicator } = d;
+        updateIndicator(indicator);
+      })
       .append('p')
       .html(d => d.text);
 
@@ -27,6 +32,7 @@ const parallelCoordinatePlotFunctions = {
     indicatorHeight,
     width,
     margins,
+    updateIndicator,
   }) {
     const svg = pcpContainer
       .append('svg')
@@ -116,8 +122,8 @@ const parallelCoordinatePlotFunctions = {
         const closest = Math.round((clientY - svgTop) / indicatorHeight);
         const displayValue = d.indicators[closest].pctChange === null ? 'N/A' : (`${Math.round(d.indicators[closest].pctChange)}%`);
         const html = `
-          <div class="data-probe__row"><span class="data-probe__field">Agency:</span> ${d.taName}</div>
-          <div class="data-probe__row"><span class="data-probe__field">Percent Change in ${d.indicators[closest].text}:</span> ${displayValue}</div>
+          <div class="data-probe__row"><span class="data-probe__field">${d.taName}</span></div>
+          <div class="data-probe__row">${d.indicators[closest].text}: ${displayValue}</div>
           <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
         `;
         dataProbe
