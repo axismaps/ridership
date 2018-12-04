@@ -14,6 +14,7 @@ const privateMethods = {
       nationalMapData,
       padding,
       container,
+      updateHighlightedAgencies,
     } = props;
 
     const {
@@ -56,6 +57,7 @@ const privateMethods = {
       height,
       width,
       barSpacing,
+      updateHighlightedAgencies,
     });
 
     const { xAxis, yAxis } = drawAxes({
@@ -119,6 +121,7 @@ class Histogram {
         right: 250,
       },
       barSpacing: 5,
+      highlightedAgencies: [],
     });
     const {
       init,
@@ -159,6 +162,7 @@ class Histogram {
       nationalAverageGroup,
       nationalAverageText,
       yAxis,
+      updateHighlightedAgencies,
     } = privateProps.get(this);
 
     const {
@@ -190,6 +194,7 @@ class Histogram {
       histogramData,
       yScale,
       changeColorScale,
+      updateHighlightedAgencies,
     });
 
     updateAverageLine({
@@ -199,6 +204,23 @@ class Histogram {
       xScale,
       padding,
     });
+
+    return this;
+  }
+
+  updateHighlight() {
+    const {
+      bars,
+      highlightedAgencies,
+    } = privateProps.get(this);
+
+    bars.classed('highlight', (d) => {
+      const barIds = d.agencies.map(agency => agency.taId);
+      const highlightIds = highlightedAgencies.map(agency => agency.taId);
+      return highlightIds.some(id => barIds.includes(id));
+    });
+
+    return this;
   }
 }
 

@@ -14,6 +14,7 @@ const privateMethods = {
       margins,
       dataProbe,
       updateIndicator,
+      updateHighlightedAgencies,
     } = props;
 
     const {
@@ -53,6 +54,7 @@ const privateMethods = {
       svg,
       xScale,
       dataProbe,
+      updateHighlightedAgencies,
     });
 
     const axis = drawAxis({
@@ -83,6 +85,7 @@ class ParallelCoordinatePlot {
       selected: false,
       margins: [30, 15],
       currentIndicator: null,
+      highlightedAgencies: [],
     });
 
     const {
@@ -146,6 +149,22 @@ class ParallelCoordinatePlot {
     } = privateProps.get(this);
     pcpContainer.selectAll('.sidebar__pcp-row').classed('sidebar__pcp-row--selected', d => currentIndicator.value === d.value);
     pcpContainer.selectAll('.pcp-ticks path').classed('pcp-tick--selected', d => currentIndicator.value === d.value);
+
+    return this;
+  }
+
+  updateHighlight() {
+    const {
+      lines,
+      highlightedAgencies,
+    } = privateProps.get(this);
+
+    lines.classed('highlight', (d) => {
+      const highlightIds = highlightedAgencies.map(agency => agency.taId);
+      return highlightIds.includes(d.taId);
+    });
+
+    return this;
   }
 }
 

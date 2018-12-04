@@ -17,6 +17,10 @@ const getSidebar = ({ data, state }) => new Sidebar({
       state.update({ indicator: newIndicator });
     }
   },
+  updateHighlightedAgencies: (newHighlight) => {
+    const highlights = newHighlight || [];
+    state.update({ highlightedAgencies: highlights });
+  },
 });
 
 export default getSidebar;

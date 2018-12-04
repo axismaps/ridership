@@ -116,7 +116,7 @@ path.pcp-line {
   cursor: pointer;
 }
 
-path.pcp-line:hover {
+path.pcp-line:hover, path.pcp-line.highlight {
   stroke: rgb(0, 0, 0);
   stroke-width: 2;
 }

@@ -90,6 +90,7 @@ const parallelCoordinatePlotFunctions = {
     svg,
     xScale,
     dataProbe,
+    updateHighlightedAgencies,
   }) {
     const lineGenerator = d3.line()
       .x(d => xScale(d.pctChange))
@@ -105,8 +106,8 @@ const parallelCoordinatePlotFunctions = {
       .style('fill', 'none')
       .attr('class', 'pcp-line')
       .attr('d', d => lineGenerator(d.indicators))
-      .on('mouseover', () => {
-        d3.select(this).raise();
+      .on('mouseover', (d) => {
+        updateHighlightedAgencies([d]);
       })
       .on('mousemove', (d) => {
         dataProbe.remove();
@@ -143,6 +144,7 @@ const parallelCoordinatePlotFunctions = {
         dataProbe.remove();
         svg.select('.probe-dot circle')
           .style('display', 'none');
+        updateHighlightedAgencies([]);
       });
 
     const mergedLines = newLines.merge(lines);

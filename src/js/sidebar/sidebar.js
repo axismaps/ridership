@@ -135,6 +135,7 @@ const privateMethods = {
       allAgenciesData,
       dataProbe,
       updateIndicator,
+      updateHighlightedAgencies,
     } = props;
 
     const {
@@ -152,6 +153,7 @@ const privateMethods = {
       indicatorSummaries,
       dataProbe,
       updateIndicator,
+      updateHighlightedAgencies,
     });
 
     Object.assign(props, {
@@ -171,6 +173,7 @@ class Sidebar {
     privateProps.set(this, {
       dataProbe: new DataProbe({
         container: d3.select('.outer-container'),
+        highlightedAgencies: [],
       }),
     });
 
@@ -226,6 +229,24 @@ class Sidebar {
           allAgenciesData,
         })
         .updateData();
+    }
+
+    return this;
+  }
+
+  updateHighlight() {
+    const {
+      pcp,
+      highlightedAgencies,
+      currentSidebarView,
+    } = privateProps.get(this);
+
+    if (currentSidebarView === 'parallel') {
+      pcp
+        .config({
+          highlightedAgencies,
+        })
+        .updateHighlight();
     }
 
     return this;

@@ -207,6 +207,7 @@ const atlasMethods = {
     dataProbe,
     radiusScale,
     jumpToMsa,
+    updateHighlightedAgencies,
   }) {
     const {
       // getRadiusScale,
@@ -268,6 +269,7 @@ const atlasMethods = {
             html,
           })
           .draw();
+        updateHighlightedAgencies([d]);
       })
       // .on('mousemove', () => {
       //   const { clientX, clientY } = d3.event;
@@ -282,6 +284,7 @@ const atlasMethods = {
       // })
       .on('mouseout', () => {
         dataProbe.remove();
+        updateHighlightedAgencies([]);
       })
       .on('click', (d) => {
         jumpToMsa(d);

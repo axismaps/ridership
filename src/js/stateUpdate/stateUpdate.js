@@ -1,6 +1,7 @@
 import getStateUpdateYears from './stateUpdateYears';
 import getStateUpdateIndicator from './stateUpdateIndicator';
 import getStateUpdateScale from './stateUpdateScale';
+import getStateUpdateHighlightedAgencies from './stateUpdateHighlightedAgencies';
 
 const initStateUpdateListeners = ({ components, data }) => {
   const { state } = components;
@@ -9,6 +10,7 @@ const initStateUpdateListeners = ({ components, data }) => {
     years: getStateUpdateYears(({ components })),
     indicator: getStateUpdateIndicator({ components }),
     scale: getStateUpdateScale({ components, data }),
+    highlightedAgencies: getStateUpdateHighlightedAgencies({ components, data }),
   });
 };
 

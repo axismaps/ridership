@@ -16,6 +16,10 @@ const getAtlas = ({ data, state }) => new Atlas({
       scale: 'msa',
     });
   },
+  updateHighlightedAgencies: (newHighlight) => {
+    const highlights = newHighlight || [];
+    state.update({ highlightedAgencies: highlights });
+  },
 });
 
 export default getAtlas;
