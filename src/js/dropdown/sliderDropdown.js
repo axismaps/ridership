@@ -12,8 +12,6 @@ const privateMethods = {
       years,
       updateYears,
       contentContainer,
-      toggleButton,
-      contentOuterContainer,
     } = props;
 
     const {

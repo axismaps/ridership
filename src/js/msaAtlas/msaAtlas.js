@@ -12,7 +12,6 @@ const privateMethods = {
       msa,
     } = props;
 
-    console.log('init msa');
     if (scale === 'national') return;
 
     const {
@@ -24,7 +23,6 @@ const privateMethods = {
       msa,
     });
 
-    console.log('atlas?', msaAtlas);
     Object.assign(props, { msaAtlas, loaded: true });
     // props.loaded = true;
   },
@@ -69,7 +67,13 @@ class MSAAtlas {
       msaAtlas,
       loaded,
     } = privateProps.get(this);
-    if (!loaded) return;
+    const {
+      init,
+    } = privateMethods;
+    if (!loaded) {
+      init.call(this);
+      return;
+    }
 
     const {
       jumpToMSA,
