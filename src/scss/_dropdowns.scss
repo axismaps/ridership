@@ -3,8 +3,13 @@
   opacity: 0;
   transition: opacity 300ms;
   pointer-events: none;
+  svg line {
+    pointer-events: none;
+  }
   @include popup-outer();
 }
+
+
 
 .dropdown-content__inner {
   @include popup-inner();
@@ -14,6 +19,9 @@
   // display: block;
   opacity: 1;
   pointer-events: auto;
+  svg line {
+    pointer-events: auto;
+  }
 }
 
 .msa-dropdown__content-row,

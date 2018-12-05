@@ -175,13 +175,13 @@ const privateMethods = {
 
 class Atlas {
   constructor(config) {
-    const mapContainer = d3.select('.atlas__map-container');
+    const { mapContainer } = config;
     const {
       width,
       height,
     } = mapContainer.node().getBoundingClientRect();
     privateProps.set(this, {
-      mapContainer,
+      // mapContainer,
       width,
       height,
       statesTopo: null,

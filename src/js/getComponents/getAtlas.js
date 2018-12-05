@@ -1,6 +1,7 @@
 import Atlas from '../atlas/atlas';
 
 const getAtlas = ({ data, state }) => new Atlas({
+  mapContainer: d3.select('.atlas__map-container'),
   statesTopo: data.get('statesTopo'),
   nationalMapData: state.getCurrentNationalMapData(),
   // indicator: state.get('indricator'),

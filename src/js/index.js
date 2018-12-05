@@ -1,11 +1,13 @@
 import dataMethods from './data/dataMethods';
 import getState from './getComponents/getState';
 import getAtlas from './getComponents/getAtlas';
+import getMSAAtlas from './getComponents/getMSAAtlas';
 import getIndicatorDropdown from './getComponents/getIndicatorDropdown';
 import getSliderDropdown from './getComponents/getSliderDropdown';
 import getSidebar from './getComponents/getSidebar';
 import getHistogram from './getComponents/getHistogram';
 import getMSADropdown from './getComponents/getMSADropdown';
+import getLayout from './getComponents/getLayout';
 import initStateUpdateListeners from './stateUpdate/stateUpdate';
 
 require('../scss/index.scss');
@@ -32,6 +34,8 @@ const app = {
     components.msaDropdown = getMSADropdown({ state, data });
     components.sidebar = getSidebar({ state, data });
     components.histogram = getHistogram({ state, data });
+    components.msaAtlas = getMSAAtlas({ state, data });
+    components.layout = getLayout({ state, data });
   },
   initStateUpdateListeners() {
     const { components, data } = this;

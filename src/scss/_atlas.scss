@@ -1,3 +1,4 @@
+.atlas__msa-map-container,
 .atlas__outer-container {
   @include panel();
   position: absolute;
@@ -62,4 +63,16 @@
 
 .map__hidden-layer {
   display: none;
+}
+
+.outer-container--msa {
+  .atlas__outer-container {
+    display: none;
+  }
+}
+
+.outer-container--national {
+  .atlas__msa-map-container {
+    display: none;
+  }
 }
