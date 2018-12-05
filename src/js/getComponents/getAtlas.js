@@ -14,8 +14,9 @@ const getAtlas = ({ data, state }) => new Atlas({
       .find(d => d.msaId === agency.msaId);
 
     state.update({
-      msa,
+
       scale: 'msa',
+      msa,
     });
   },
   updateHighlightedAgencies: (newHighlight) => {

@@ -1,10 +1,17 @@
 const updateComponents = ({
   layout,
-  msa,
+  // msa,
+  msaAtlas,
   scale,
   tractTopo,
 }) => {
   layout
+    .config({
+      scale,
+    })
+    .updateScale();
+
+  msaAtlas
     .config({
       scale,
     })
@@ -22,9 +29,11 @@ const getStateUpdateScale = ({ components, data }) => function updateScale() {
   const {
     atlas,
     layout,
+    msaAtlas,
   } = components;
 
   const scale = this.get('scale');
+
   if (scale === 'msa') {
     const msa = this.get('msa');
 
@@ -33,6 +42,7 @@ const getStateUpdateScale = ({ components, data }) => function updateScale() {
     if (cachedTractGeoJSON.has(msa.msaId)) {
       const tractTopo = cachedTractGeoJSON.get(msa.msaId);
       updateComponents({
+        msaAtlas,
         layout,
         msa,
         scale,
@@ -43,6 +53,7 @@ const getStateUpdateScale = ({ components, data }) => function updateScale() {
         .then((tractTopo) => {
           cachedTractGeoJSON.set(msa.msaId, tractTopo);
           updateComponents({
+            msaAtlas,
             layout,
             msa,
             scale,

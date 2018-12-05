@@ -1,4 +1,3 @@
-.atlas__msa-map-container,
 .atlas__outer-container {
   @include panel();
   position: absolute;
@@ -39,8 +38,18 @@
   margin-right: 5px;
 }
 
+.atlas__msa-map-container,
 .atlas__map-container {
   height: calc(100% - #{$panel__top-row--height});
+}
+
+.atlas__msa-map-container {
+  opacity: 0;
+  transition: opacity 1000ms;
+}
+
+.atlas__msa-map-container--loaded {
+  opacity: 1;
 }
 
 .map__state {
@@ -66,7 +75,7 @@
 }
 
 .outer-container--msa {
-  .atlas__outer-container {
+  .atlas__map-container {
     display: none;
   }
 }

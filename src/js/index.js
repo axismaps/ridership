@@ -28,6 +28,7 @@ const app = {
     const { components, data } = this;
     const state = getState({ components, data });
     components.state = state;
+    components.layout = getLayout({ state, data });
     components.atlas = getAtlas({ data, state });
     components.indicatorDropdown = getIndicatorDropdown({ state, data });
     components.sliderDropdown = getSliderDropdown({ state, data });
@@ -35,7 +36,6 @@ const app = {
     components.sidebar = getSidebar({ state, data });
     components.histogram = getHistogram({ state, data });
     components.msaAtlas = getMSAAtlas({ state, data });
-    components.layout = getLayout({ state, data });
   },
   initStateUpdateListeners() {
     const { components, data } = this;

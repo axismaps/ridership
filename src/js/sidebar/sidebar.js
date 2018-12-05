@@ -19,10 +19,10 @@ const privateMethods = {
     setTopButtonStatus.call(this);
     if (currentScale === 'national') {
       drawNationalContent.call(this);
+      this.updateCurrentIndicator();
     } else {
       drawMSAContent.call(this);
     }
-    this.updateCurrentIndicator();
   },
   clearContent() {
     const {
