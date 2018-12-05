@@ -32,7 +32,9 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
   sidebar
     .config({
       allAgenciesData,
+      years,
     })
+    .updateYears()
     .updateData();
 };
 

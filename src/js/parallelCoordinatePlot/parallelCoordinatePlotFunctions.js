@@ -8,8 +8,7 @@ const parallelCoordinatePlotFunctions = {
     updateIndicator,
   }) {
     const indicatorsContainer = pcpContainer.append('div')
-      .attr('class', 'sidebar__pcp-labels')
-      .style('margin-top', `${margins[0] - 8}px`);
+      .attr('class', 'sidebar__pcp-labels');
 
     indicatorsContainer.selectAll('.sidebar__pcp-row')
       .data(indicatorSummaries, d => d.value)
@@ -165,7 +164,7 @@ const parallelCoordinatePlotFunctions = {
   }) {
     const axis = d3.axisTop()
       .scale(xScale)
-      .tickFormat(d => `${d}%`)
+      .tickFormat(d => `${d > 0 ? '+' : ''}${d}%`)
       .ticks(3);
 
     return svg.select('g.axis').call(axis);

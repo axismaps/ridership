@@ -5,6 +5,7 @@ const getSidebar = ({ data, state }) => new Sidebar({
   allAgenciesData: state.getCurrentAllAgenciesData(),
   currentIndicator: state.get('indicator'),
   currentSidebarView: 'sparklines',
+  years: state.get('years'),
   yearRange: data.get('yearRange'),
   currentScale: state.get('scale'),
   contentContainer: d3.select('.sidebar__content'),

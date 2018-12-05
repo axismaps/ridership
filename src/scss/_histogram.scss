@@ -25,3 +25,11 @@
   stroke: black;
   stroke-width: 2px;
 }
+
+.histogram__svg .histogram__axis .tick line {
+  stroke: #999;
+}
+
+.histogram__svg .histogram__axis path.domain {
+  display: none;
+}

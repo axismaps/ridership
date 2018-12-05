@@ -2,11 +2,15 @@ const axisFunctions = {
   getXAxisGenerator({ xScale }) {
     return d3.axisBottom(xScale);
   },
-  getYAxisGenerator({ yScale }) {
+  getYAxisGenerator({
+    xScale,
+    yScale,
+  }) {
     const yScaleReversed = d3.scaleLinear()
       .domain(yScale.domain())
       .range([yScale.range()[1], yScale.range()[0]]);
     return d3.axisLeft(yScaleReversed)
+      .tickSize(xScale.range()[1])
       .ticks(4);
   },
   updateNationalAverageText({
@@ -182,10 +186,10 @@ const histogramFunctions = {
 
     const yAxis = svg.append('g')
       .attrs({
-        transform: `translate(${padding.left}, ${padding.top})`,
+        transform: `translate(${padding.left + xScale.range()[1]}, ${padding.top})`,
         class: 'histogram__axis',
       })
-      .call(getYAxisGenerator({ yScale }));
+      .call(getYAxisGenerator({ xScale, yScale }));
     return { xAxis, yAxis };
   },
   drawAverageLine({
@@ -265,7 +269,7 @@ const histogramFunctions = {
 
     yAxis.transition()
       .duration(500)
-      .call(getYAxisGenerator({ yScale }));
+      .call(getYAxisGenerator({ xScale, yScale }));
 
     xAxis.transition()
       .duration(500)

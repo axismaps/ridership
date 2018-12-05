@@ -49,6 +49,14 @@ const privateMethods = {
       height,
     });
 
+    const { xAxis, yAxis } = drawAxes({
+      xScale,
+      yScale,
+      svg,
+      padding,
+      height,
+    });
+
     const bars = drawBars({
       svg,
       xScale,
@@ -61,14 +69,6 @@ const privateMethods = {
       barSpacing,
       updateHighlightedAgencies,
       dataProbe,
-    });
-
-    const { xAxis, yAxis } = drawAxes({
-      xScale,
-      yScale,
-      svg,
-      padding,
-      height,
     });
 
     const {

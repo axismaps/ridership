@@ -140,6 +140,7 @@ const privateMethods = {
       dataProbe,
       updateIndicator,
       updateHighlightedAgencies,
+      years,
     } = props;
 
     const {
@@ -149,6 +150,7 @@ const privateMethods = {
 
     const pcpContainer = drawPcpContainer({
       contentContainer,
+      years,
     });
 
     const pcp = drawPcp({
@@ -245,11 +247,23 @@ class Sidebar {
     return this;
   }
 
+  updateYears() {
+    const {
+      contentContainer,
+      years,
+    } = privateProps.get(this);
+
+    contentContainer.select('span.sidebar__pcp-years').html(`${years.join(' – ')}`);
+
+    return this;
+  }
+
   updateData() {
     const {
       pcp,
       allAgenciesData,
       currentSidebarView,
+      years,
     } = privateProps.get(this);
 
     if (currentSidebarView === 'parallel') {

@@ -122,13 +122,31 @@
   stroke-width: 2px;
 }
 
-.sidebar__pcp-container > * {
+.sidebar__pcp-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sidebar__pcp-header p {
+  width: 220px;
+  text-align: center;
+  font-size: 12px;
+  margin: 0;
+}
+
+.sidebar__pcp-container .sidebar__pcp-labels, .sidebar__pcp-container .sidebar__pcp-svg,  {
   display: inline-block;
   vertical-align: top;
 }
 
 .sidebar__pcp-row {
   width: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar__pcp-row:hover {
+  background-color: $gray-hover;
 }
 
 .sidebar__pcp-row p {

@@ -3,9 +3,17 @@ import ParallelCoordinatePlot from '../parallelCoordinatePlot/parallelCoordinate
 const sidebarPureFunctions = {
   drawPcpContainer({
     contentContainer,
+    years,
   }) {
-    return contentContainer.append('div')
+    const container = contentContainer.append('div')
       .attr('class', 'sidebar__pcp-container');
+
+    container.append('div')
+      .attr('class', 'sidebar__pcp-header')
+      .append('p')
+      .html(`% change, <span class="sidebar__pcp-years">${years.join(' – ')}<span>`);
+
+    return container;
   },
 
   drawPcp({
