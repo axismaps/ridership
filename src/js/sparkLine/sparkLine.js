@@ -12,6 +12,7 @@ const privateMethods = {
       height,
       yearRange,
       dataProbe,
+      margin,
     } = props;
 
     const {
@@ -25,6 +26,7 @@ const privateMethods = {
       container,
       width,
       height,
+      margin,
     });
 
     const scales = getScales({
@@ -37,12 +39,14 @@ const privateMethods = {
     const axis = drawAxis({
       svg,
       scales,
+      margin,
     });
 
     const line = drawLine({
       indicatorData,
       svg,
       scales,
+      margin,
     });
 
     updateInteractions({
@@ -66,6 +70,7 @@ class SparkLine {
     privateProps.set(this, {
       height: 30,
       width: 180,
+      margin: 15,
       indicatorData: null,
       yearRange: null,
       expanded: false,
@@ -135,6 +140,7 @@ class SparkLine {
       yearRange,
       width,
       height,
+      margin,
       svg,
       expanded,
       line,
@@ -159,10 +165,11 @@ class SparkLine {
       scales,
       width,
       height,
+      margin,
+      indicatorData,
     });
 
     updateInteractions({
-      indicatorData,
       svg,
       scales,
       dataProbe,

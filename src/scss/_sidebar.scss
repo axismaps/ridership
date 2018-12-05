@@ -69,12 +69,16 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 30px;
-  height: 30px;
+  height: 45px;
   transition: height .4s;
 }
 
+.sidebar__sparkline-row:hover {
+  background-color: $gray-hover;
+}
+
 .sidebar__sparkline-row.expanded {
-  height: 160px;
+  height: 190px;
 }
 
 .sidebar__sparkline-container {
@@ -95,6 +99,10 @@
 
 .sidebar__sparkline-axis g.tick line {
   stroke: white;
+}
+
+.sidebar__sparkline-axis g.tick text {
+  fill: $main-blue;
 }
 
 .sidebar__sparkline-row.expanded .sidebar__sparkline-background,
