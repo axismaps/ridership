@@ -3,7 +3,8 @@
   "plugins": ["jest"],
   "globals": {
     "d3": false,
-    "window": false
+    "window": false,
+    "mapboxgl": false
   },
   "env": {
     "jest/globals": true

@@ -14,6 +14,7 @@ const app = {
   components: {},
   data: null,
   init() {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYXhpc21hcHMiLCJhIjoieUlmVFRmRSJ9.CpIxovz1TUWe_ecNLFuHNg';
     const { getData } = dataMethods;
     getData((data) => {
       this.data = data;

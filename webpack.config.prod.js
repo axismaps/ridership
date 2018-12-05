@@ -69,16 +69,24 @@ module.exports = {
       },
       {
         from: 'node_modules/d3/dist/d3.min.js',
-        to: 'js/d3.min.js',
+        to: 'd3/d3.min.js',
       },
       {
         from: 'node_modules/d3-selection-multi/build/d3-selection-multi.min.js',
-        to: 'js/d3-selection-multi.min.js',
+        to: 'd3/d3-selection-multi.min.js',
       },
       {
         from: 'src/fonts/*',
         to: 'fonts',
         flatten: true,
+      },
+      {
+        from: 'node_modules/mapbox-gl/dist/mapbox-gl.js',
+        to: 'mapbox-gl/mapbox-gl.js',
+      },
+      {
+        from: 'node_modules/mapbox-gl/dist/mapbox-gl.css',
+        to: 'mapbox-gl/mapbox-gl.css',
       },
     ]),
   ],
