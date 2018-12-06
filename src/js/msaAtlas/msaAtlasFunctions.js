@@ -1,5 +1,3 @@
-import * as topojson from 'topojson-client';
-
 const msaAtlasFunctions = {
   drawAtlas({
     msaMapContainer,
@@ -17,6 +15,7 @@ const msaAtlasFunctions = {
       zoom: 10.5,
     })
       .on('load', () => {
+        // console.log('style', msaAtlas.getStyle());
         drawSite({
           msaAtlas,
           msa,
@@ -71,17 +70,19 @@ const msaAtlasFunctions = {
     tractGeo,
     currentCensusField,
   }) {
-    console.log('tractGeo', tractGeo);
-    console.log('censusField', currentCensusField);
+    const tractGeoFiltered = Object.assign({}, tractGeo);
+    tractGeoFiltered.features = tractGeo.features.filter(d => d.properties[`${currentCensusField.value}-color`] !== null
+    && d.properties[`${currentCensusField.value}-color`] !== undefined);
+
     const currentTractSource = msaAtlas.getSource('tracts');
     if (currentTractSource === undefined) {
       msaAtlas.addSource('tracts', {
         type: 'geojson',
-        data: tractGeo,
+        data: tractGeoFiltered,
       });
     } else {
       msaAtlas.removeLayer('tract-fill');
-      currentTractSource.setData(tractGeo);
+      currentTractSource.setData(tractGeoFiltered);
     }
     const tractLayer = {
       id: 'tract-fill',
@@ -90,10 +91,10 @@ const msaAtlasFunctions = {
       layout: {},
       paint: {
         'fill-color': ['get', `${currentCensusField.value}-color`],
-        'fill-opacity': 0.5,
+        // 'fill-opacity': 0.5,
       },
     };
-    msaAtlas.addLayer(tractLayer);
+    msaAtlas.addLayer(tractLayer, 'building');
   },
 };
 
