@@ -10,7 +10,7 @@ const privateMethods = {
       scale,
       msaMapContainer,
       msa,
-      tractTopo,
+      tractGeo,
     } = props;
 
     if (scale === 'national') return;
@@ -22,7 +22,7 @@ const privateMethods = {
     const msaAtlas = drawAtlas({
       msaMapContainer,
       msa,
-      tractTopo,
+      tractGeo,
     });
 
     Object.assign(props, { msaAtlas, loaded: true });
@@ -67,7 +67,7 @@ class MSAAtlas {
       msa,
       msaAtlas,
       loaded,
-      tractTopo,
+      tractGeo,
     } = privateProps.get(this);
     const {
       init,
@@ -85,7 +85,7 @@ class MSAAtlas {
     drawSite({
       msaAtlas,
       msa,
-      tractTopo,
+      tractGeo,
     });
   }
 }

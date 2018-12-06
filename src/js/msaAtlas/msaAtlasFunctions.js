@@ -4,7 +4,7 @@ const msaAtlasFunctions = {
   drawAtlas({
     msaMapContainer,
     msa,
-    tractTopo,
+    tractGeo,
   }) {
     const {
       drawSite,
@@ -19,7 +19,7 @@ const msaAtlasFunctions = {
         drawSite({
           msaAtlas,
           msa,
-          tractTopo,
+          tractGeo,
         });
         msaMapContainer
           .classed('atlas__msa-map-container--loaded', true);
@@ -30,7 +30,7 @@ const msaAtlasFunctions = {
   drawSite({
     msaAtlas,
     msa,
-    tractTopo,
+    tractGeo,
   }) {
     const {
       jumpToMSA,
@@ -43,8 +43,7 @@ const msaAtlasFunctions = {
     });
     drawTracts({
       msaAtlas,
-      tractTopo,
-      msa,
+      tractGeo,
     });
   },
   jumpToMSA({
@@ -65,14 +64,9 @@ const msaAtlasFunctions = {
   },
   drawTracts({
     msaAtlas,
-    tractTopo,
-    msa,
+    tractGeo,
   }) {
-    console.log('tract topo', tractTopo);
-    const tractGeo = topojson.feature(
-      tractTopo,
-      tractTopo.objects[`tract-${msa.msaId}`],
-    );
+    console.log('tractGeo', tractGeo);
     const currentTractSource = msaAtlas.getSource('tracts');
     if (currentTractSource === undefined) {
       msaAtlas.addSource('tracts', {
