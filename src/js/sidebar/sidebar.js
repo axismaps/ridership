@@ -134,7 +134,7 @@ const privateMethods = {
     const {
       contentContainer,
       indicatorSummaries,
-      allAgenciesData,
+      agenciesData,
       dataProbe,
       updateIndicator,
       updateHighlightedAgencies,
@@ -153,7 +153,7 @@ const privateMethods = {
 
     const pcp = drawPcp({
       pcpContainer,
-      allAgenciesData,
+      agenciesData,
       indicatorSummaries,
       dataProbe,
       updateIndicator,
@@ -259,15 +259,14 @@ class Sidebar {
   updateData() {
     const {
       pcp,
-      allAgenciesData,
+      agenciesData,
       currentSidebarView,
-      years,
     } = privateProps.get(this);
 
     if (currentSidebarView === 'parallel') {
       pcp
         .config({
-          allAgenciesData,
+          agenciesData,
         })
         .updateData();
     }

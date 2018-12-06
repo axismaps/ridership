@@ -7,7 +7,7 @@ const privateMethods = {
     const props = privateProps.get(this);
     const {
       pcpContainer,
-      allAgenciesData,
+      agenciesData,
       indicatorSummaries,
       indicatorHeight,
       width,
@@ -44,14 +44,14 @@ const privateMethods = {
     });
 
     const xScale = getXScale({
-      allAgenciesData,
+      agenciesData,
       width,
       margins,
       maxValue,
     });
 
     const lines = drawLines({
-      allAgenciesData,
+      agenciesData,
       indicatorHeight,
       width,
       svg,
@@ -83,7 +83,7 @@ class ParallelCoordinatePlot {
     privateProps.set(this, {
       indicatorHeight: 60,
       width: 220,
-      allAgenciesData: null,
+      agenciesData: null,
       yearRange: null,
       margins: [30, 15],
       currentIndicator: null,
@@ -111,7 +111,7 @@ class ParallelCoordinatePlot {
       drawLines,
       drawAxis,
       getXScale,
-      allAgenciesData,
+      agenciesData,
       indicatorHeight,
       width,
       margins,
@@ -122,14 +122,14 @@ class ParallelCoordinatePlot {
     } = privateProps.get(this);
 
     const xScale = getXScale({
-      allAgenciesData,
+      agenciesData,
       width,
       margins,
       maxValue,
     });
 
     drawLines({
-      allAgenciesData,
+      agenciesData,
       indicatorHeight,
       width,
       svg,

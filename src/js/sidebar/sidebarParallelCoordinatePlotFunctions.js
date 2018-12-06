@@ -18,7 +18,7 @@ const sidebarPureFunctions = {
 
   drawPcp({
     pcpContainer,
-    allAgenciesData,
+    agenciesData,
     indicatorSummaries,
     dataProbe,
     updateIndicator,
@@ -26,7 +26,7 @@ const sidebarPureFunctions = {
   }) {
     return new ParallelCoordinatePlot({
       pcpContainer,
-      allAgenciesData,
+      agenciesData,
       indicatorSummaries,
       dataProbe,
       updateIndicator,

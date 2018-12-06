@@ -9,6 +9,7 @@ const dataMethods = {
 
     const {
       getAllNationalMapData,
+      getIndicatorSummaries,
     } = dataMethods;
 
     const msa = rawMsa.rows.map((record) => {
@@ -147,12 +148,41 @@ const dataMethods = {
       });
     }
 
+    const records = ntd;
+
+    const indicatorSummaries = getIndicatorSummaries({
+      yearRange,
+      indicators,
+      records,
+    });
+
+    const data = new Map();
+
+    data.set('msa', msa);
+    data.set('ntd', ntd);
+    data.set('ta', ta);
+    data.set('statesTopo', rawStates);
+    data.set('allNationalMapData', allNationalMapData);
+    data.set('yearRange', yearRange);
+    data.set('changeColorScale', changeColorScale);
+    data.set('indicators', indicators);
+    data.set('indicatorSummaries', indicatorSummaries);
+    data.set('cachedTractGeoJSON', new Map());
+    data.set('cachedTractData', new Map());
+    console.log('data', data);
+    return data;
+  },
+  getIndicatorSummaries({
+    yearRange,
+    indicators,
+    records,
+  }) {
     const indicatorSummaries = [];
     {
       const recordsPerYear = new Map();
       for (let i = 0; i < yearRange[1] - yearRange[0]; i += 1) {
         const year = yearRange[0] + i;
-        const recordsForYear = ntd.filter(d => d.year === year);
+        const recordsForYear = records.filter(d => d.year === year);
         recordsPerYear.set(year, recordsForYear);
       }
       indicators.forEach((indicator, key) => {
@@ -174,22 +204,7 @@ const dataMethods = {
         indicatorSummaries.push(indicatorCopy);
       });
     }
-
-    const data = new Map();
-
-    data.set('msa', msa);
-    data.set('ntd', ntd);
-    data.set('ta', ta);
-    data.set('statesTopo', rawStates);
-    data.set('allNationalMapData', allNationalMapData);
-    data.set('yearRange', yearRange);
-    data.set('changeColorScale', changeColorScale);
-    data.set('indicators', indicators);
-    data.set('indicatorSummaries', indicatorSummaries);
-    data.set('cachedTractGeoJSON', new Map());
-    data.set('cachedTractData', new Map());
-    console.log('data', data);
-    return data;
+    return indicatorSummaries;
   },
   getAllNationalMapData({
     msa,

@@ -67,13 +67,13 @@ const parallelCoordinatePlotFunctions = {
     return svg;
   },
   getXScale({
-    allAgenciesData,
+    agenciesData,
     width,
     margins,
     maxValue,
   }) {
     const extent = d3.extent(
-      allAgenciesData
+      agenciesData
         .reduce((accumulator, agency) => {
           const values = agency.indicators.map(d => d.pctChange);
           return [...accumulator, ...values];
@@ -85,7 +85,7 @@ const parallelCoordinatePlotFunctions = {
     return d3.scaleLinear().domain(extent).range([0, width - 2 * margins[1]]).clamp(true);
   },
   drawLines({
-    allAgenciesData,
+    agenciesData,
     indicatorHeight,
     svg,
     xScale,
@@ -99,7 +99,7 @@ const parallelCoordinatePlotFunctions = {
       // .defined(d => d.pctChange !== null);
 
     const lines = svg.select('g.pcp-lines').selectAll('path.pcp-line')
-      .data(allAgenciesData, d => d.taId);
+      .data(agenciesData, d => d.taId);
 
     const newLines = lines
       .enter()
