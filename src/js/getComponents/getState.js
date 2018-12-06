@@ -6,10 +6,12 @@ const getState = ({ data }) => {
     msa: null, // for msa view
     msaProbe: null, // probed msa in national view
     indicator: data.get('indicators').get('headways'),
-    years: data.get('yearRange'),
+    // years: data.get('yearRange'),
+    years: [2013, 2015],
     agenciesOn: true,
     nationalDataView: 'ta', // ta or msa
     scale: 'national', // national or msa,
+    censusField: { text: 'Income', value: 'income' },
     highlightedAgencies: [], // agencies highlighted on map/histogram/chart(s) mouseover,
     expandedIndicator: null,
     comparedAgencies: [],

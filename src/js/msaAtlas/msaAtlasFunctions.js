@@ -5,6 +5,7 @@ const msaAtlasFunctions = {
     msaMapContainer,
     msa,
     tractGeo,
+    currentCensusField,
   }) {
     const {
       drawSite,
@@ -20,6 +21,7 @@ const msaAtlasFunctions = {
           msaAtlas,
           msa,
           tractGeo,
+          currentCensusField,
         });
         msaMapContainer
           .classed('atlas__msa-map-container--loaded', true);
@@ -31,6 +33,7 @@ const msaAtlasFunctions = {
     msaAtlas,
     msa,
     tractGeo,
+    currentCensusField,
   }) {
     const {
       jumpToMSA,
@@ -44,6 +47,7 @@ const msaAtlasFunctions = {
     drawTracts({
       msaAtlas,
       tractGeo,
+      currentCensusField,
     });
   },
   jumpToMSA({
@@ -65,8 +69,10 @@ const msaAtlasFunctions = {
   drawTracts({
     msaAtlas,
     tractGeo,
+    currentCensusField,
   }) {
     console.log('tractGeo', tractGeo);
+    console.log('censusField', currentCensusField);
     const currentTractSource = msaAtlas.getSource('tracts');
     if (currentTractSource === undefined) {
       msaAtlas.addSource('tracts', {
@@ -83,8 +89,8 @@ const msaAtlasFunctions = {
       source: 'tracts',
       layout: {},
       paint: {
-        'fill-color': 'orange',
-        'fill-opacity': 0.2,
+        'fill-color': ['get', `${currentCensusField.value}-color`],
+        'fill-opacity': 0.5,
       },
     };
     msaAtlas.addLayer(tractLayer);
