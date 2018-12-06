@@ -179,7 +179,6 @@ class Sidebar {
         container: d3.select('.outer-container'),
         highlightedAgencies: [],
       }),
-      expandedIndicator: null,
     });
 
     this.config(config);

@@ -1,12 +1,14 @@
 import Sidebar from '../sidebar/sidebar';
 
 const getSidebar = ({ data, state }) => new Sidebar({
-  indicatorSummaries: data.get('indicatorSummaries'),
+  indicatorSummaries: state.getCurrentIndicatorSummaries(),
   agenciesData: state.getCurrentAgenciesData(),
   currentIndicator: state.get('indicator'),
+  expandedIndicator: state.get('expandedIndicator'),
   currentSidebarView: 'sparklines',
   years: state.get('years'),
   yearRange: data.get('yearRange'),
+  comparedAgencies: state.get('comparedAgencies'),
   currentScale: state.get('scale'),
   contentContainer: d3.select('.sidebar__content'),
   topRowContainer: d3.select('.sidebar__top-row'),

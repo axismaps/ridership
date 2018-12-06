@@ -148,14 +148,6 @@ const dataMethods = {
       });
     }
 
-    const records = ntd;
-
-    const indicatorSummaries = getIndicatorSummaries({
-      yearRange,
-      indicators,
-      records,
-    });
-
     const data = new Map();
 
     data.set('msa', msa);
@@ -166,45 +158,10 @@ const dataMethods = {
     data.set('yearRange', yearRange);
     data.set('changeColorScale', changeColorScale);
     data.set('indicators', indicators);
-    data.set('indicatorSummaries', indicatorSummaries);
     data.set('cachedTractGeoJSON', new Map());
     data.set('cachedTractData', new Map());
     console.log('data', data);
     return data;
-  },
-  getIndicatorSummaries({
-    yearRange,
-    indicators,
-    records,
-  }) {
-    const indicatorSummaries = [];
-    {
-      const recordsPerYear = new Map();
-      for (let i = 0; i < yearRange[1] - yearRange[0]; i += 1) {
-        const year = yearRange[0] + i;
-        const recordsForYear = records.filter(d => d.year === year);
-        recordsPerYear.set(year, recordsForYear);
-      }
-      indicators.forEach((indicator, key) => {
-        const indicatorCopy = Object.assign({}, indicator);
-        indicatorCopy.summaries = [];
-        for (let i = 0; i < yearRange[1] - yearRange[0]; i += 1) {
-          const year = yearRange[0] + i;
-          const recordsForYear = recordsPerYear.get(year)
-            .filter(d => d[key] !== null && Number.isFinite(d[key]));
-          const indicatorSummary = d3[indicator.summaryType](recordsForYear, d => d[key]);
-          const summary = {
-            year,
-            indicatorSummary,
-          };
-          if (indicatorSummary !== undefined) {
-            indicatorCopy.summaries.push(summary);
-          }
-        }
-        indicatorSummaries.push(indicatorCopy);
-      });
-    }
-    return indicatorSummaries;
   },
   getAllNationalMapData({
     msa,

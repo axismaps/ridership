@@ -21,9 +21,11 @@ const sparkLineFunctions = {
     width,
     height,
   }) {
-    const { summaries } = indicatorData;
+    const { agencies } = indicatorData;
+    const values = agencies.map(d => d.summaries)
+      .reduce((accumulator, d) => [...accumulator, ...d], []);
     const xDomain = yearRange;
-    const yDomain = d3.extent(summaries, d => d.indicatorSummary);
+    const yDomain = d3.extent(values, d => d.indicatorSummary);
 
     return {
       xScale: d3.scaleLinear()
@@ -77,18 +79,18 @@ const sparkLineFunctions = {
       .attr('class', 'sidebar__sparkline-path-container')
       .attr('transform', `translate(${margin},${margin})`);
 
-    const line = g.append('path')
-      .datum(indicatorData.summaries)
-      .attrs({
-        class: 'sidebar__sparkline-path',
-        d: lineGenerator,
-      });
+    const line = g.selectAll('path')
+      .data(indicatorData.agencies)
+      .enter()
+      .append('path')
+      .attr('class', 'sidebar__sparkline-path')
+      .attr('d', d => lineGenerator(d.summaries));
 
     g.append('circle')
       .attr('r', 5)
       .style('display', 'none');
 
-    return line;
+    return g.selectAll('path');
   },
   updateInteractions({
     svg,
@@ -113,12 +115,12 @@ const sparkLineFunctions = {
       const x = clientX - svg.select('.sidebar__sparkline-path').node().getBoundingClientRect().left;
       const year = Math.min(Math.round(xScale.invert(x)), xScale.domain()[1]);
       const i = year - xScale.domain()[0];
-      if (d.summaries[i] === undefined) return;
+      if (d.agencies[0].summaries[i] === undefined) return;
       const format = (number) => {
         if (number < 100) return d3.format('.2r')(number);
         return d3.format(',d')(number);
       };
-      const displayValue = d.summaries[i].indicatorSummary === null ? 'N/A' : format(d.summaries[i].indicatorSummary);
+      const displayValue = d.agencies[0].summaries[i].indicatorSummary === null ? 'N/A' : format(d.agencies[0].summaries[i].indicatorSummary);
       const html = `
           <div class="data-probe__row"><span class="data-probe__field">${year}</span></div>
           <div class="data-probe__row">${displayValue}</div>
@@ -134,7 +136,7 @@ const sparkLineFunctions = {
       svg.select('circle')
         .attrs({
           cx: xScale(year),
-          cy: yScale(d.summaries[i].indicatorSummary),
+          cy: yScale(d.agencies[0].summaries[i].indicatorSummary),
         })
         .style('display', 'block');
     })
@@ -171,9 +173,9 @@ const sparkLineFunctions = {
       .y(d => yScale(d.indicatorSummary));
 
     line
-      .datum(indicatorData.summaries)
+      .data(indicatorData.agencies)
       .transition()
-      .attr('d', lineGenerator);
+      .attr('d', d => lineGenerator(d.summaries));
 
     if (expanded) {
       const axis = d3.axisLeft()

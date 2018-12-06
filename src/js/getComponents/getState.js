@@ -76,13 +76,13 @@ const getState = ({ data }) => {
   };
   state.getCurrentAgenciesData = function getCurrentAgenciesData() {
     const nationalMapData = data.get('allNationalMapData');
-    const indicatorSummaries = data.get('indicatorSummaries');
+    const indicatorSummaries = state.getCurrentIndicatorSummaries();
 
     const years = this.get('years');
 
     const inYears = d => d.year >= years[0] && d.year <= years[1];
     const comparedAgencies = state.get('comparedAgencies');
-    const nationalDataView = state.get('nationalDataView');
+    // const nationalDataView = state.get('nationalDataView');
 
     // if (nationalDataView === 'ta') {
     const taIds = comparedAgencies.map(d => d.taId);
@@ -198,8 +198,8 @@ const getState = ({ data }) => {
      */
   };
   state.getCurrentCompareData = function getCurrentCompareData() {
-    const nationalMapData = data.get('allNationalMapData');
-    const years = this.get('years');
+    // const nationalMapData = data.get('allNationalMapData');
+    // const years = this.get('years');
     return null;
     // const nationalMapData = data.get('allNationalMapData');
     // const indicatorSummaries = data.get('indicatorSummaries');
@@ -254,6 +254,64 @@ const getState = ({ data }) => {
     //   .filter(msa => msa.length > 0)
     //   .reduce((accumulator, msa) => [...accumulator, ...msa], []);
   };
+
+  state.getCurrentIndicatorSummaries = function getCurrentIndicatorSummaries() {
+    const comparedAgencies = state.get('comparedAgencies');
+    const nationalDataView = state.get('nationalDataView');
+    const ids = comparedAgencies.map(d => d[`${nationalDataView}Id`]);
+    const allNationalMapData = data.get('allNationalMapData');
+    const records = allNationalMapData.map((msa) => {
+      const msaRecords = msa.ta.map(ta => ta.ntd)
+        .reduce((accumulator, ta) => [...accumulator, ...ta], []);
+      return msaRecords;
+    })
+      .reduce((accumulator, msa) => [...accumulator, ...msa], [])
+      .filter(d => ids.length === 0 || ids.includes(d[`${nationalDataView}Id`]));
+    const yearRange = data.get('yearRange');
+    const indicators = data.get('indicators');
+    const indicatorSummaries = [];
+    {
+      const recordsPerYear = new Map();
+      for (let i = 0; i < yearRange[1] - yearRange[0]; i += 1) {
+        const year = yearRange[0] + i;
+        const recordsForYear = records.filter(d => d.year === year);
+        recordsPerYear.set(year, recordsForYear);
+      }
+      indicators.forEach((indicator, key) => {
+        const indicatorCopy = Object.assign({}, indicator);
+        indicatorCopy.agencies = [];
+        const agencies = comparedAgencies.length === 0
+          ? [{
+            taId: 'all',
+            msaId: 'all',
+            summaries: [],
+          }]
+          : comparedAgencies.map(a => Object.assign({ summaries: [] }, a));
+        agencies.forEach((agency) => {
+          for (let i = 0; i < yearRange[1] - yearRange[0]; i += 1) {
+            const year = yearRange[0] + i;
+            const recordsForYear = recordsPerYear.get(year)
+              .filter(d => d[key] !== null
+                && Number.isFinite(d[key])
+                && (agency[`${nationalDataView}Id`] === 'all' || agency[`${nationalDataView}Id`] === d[`${nationalDataView}Id`]));
+            const indicatorSummary = d3[indicator.summaryType](recordsForYear, d => d[key]);
+            const summary = {
+              year,
+              indicatorSummary,
+            };
+            if (indicatorSummary !== undefined) {
+              agency.summaries.push(summary);
+            }
+          }
+          indicatorCopy.agencies.push(agency);
+        });
+
+        indicatorSummaries.push(indicatorCopy);
+      });
+    }
+    return indicatorSummaries;
+  };
+
   return state;
 };
 
