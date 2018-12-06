@@ -110,7 +110,7 @@ const processGeoJSON = ({
           accumulator[`${field.value}-color`] = color;
         } else {
           accumulator[field.value] = null;
-          accumulator[`${field.value}-color`] = 'grey';
+          accumulator[`${field.value}-color`] = null;
         }
 
         return accumulator;
