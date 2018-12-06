@@ -148,6 +148,41 @@ const dataMethods = {
       });
     }
 
+    const censusFields = [
+      {
+        text: 'Percentage Asian',
+        value: 'asian_pct',
+      },
+      {
+        text: 'Percentage Black',
+        value: 'black_pct',
+      },
+      {
+        text: 'Percentage Latino',
+        value: 'latino_pct',
+      },
+      {
+        text: 'Percentage White',
+        value: 'white_pct',
+      },
+      {
+        text: 'Percentage Foreign born',
+        value: 'foreign_pct',
+      },
+      {
+        text: 'Population over 75',
+        value: 'over75',
+      },
+      {
+        text: 'Population',
+        value: 'pop',
+      },
+      {
+        text: 'Income',
+        value: 'income',
+      },
+    ];
+
     const data = new Map();
 
     data.set('msa', msa);
@@ -160,7 +195,9 @@ const dataMethods = {
     data.set('indicators', indicators);
     data.set('cachedTractGeoJSON', new Map());
     data.set('cachedTractData', new Map());
+    data.set('censusFields', censusFields);
     console.log('data', data);
+    console.log('fields', data.get('censusFields'));
     return data;
   },
   getAllNationalMapData({

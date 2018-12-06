@@ -5,7 +5,6 @@ const getLayout = ({ state }) => new Layout({
   outerContainer: d3.select('.outer-container'),
   backButton: d3.select('.atlas__back-button'),
   returnToNationalScale: () => {
-    console.log('click');
     state.update({ scale: 'national' });
   },
 });

@@ -1,5 +1,6 @@
 import getPrivateBase from './dropdownBase';
 import pureMethods from './indicatorDropdownMethods';
+import getPublicDropdownBase from './dropdownPublicBase';
 
 const privateProps = new WeakMap();
 
@@ -95,6 +96,11 @@ class IndicatorDropdown {
 Object.assign(
   privateMethods,
   getPrivateBase({ privateProps, privateMethods }),
+);
+
+Object.assign(
+  IndicatorDropdown.prototype,
+  getPublicDropdownBase({ privateProps, privateMethods }),
 );
 
 export default IndicatorDropdown;

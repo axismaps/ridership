@@ -1,5 +1,6 @@
 import getPrivateBase from './dropdownBase';
 import sliderPureMethods from './sliderDropdownMethods';
+import getPublicDropdownBase from './dropdownPublicBase';
 
 const privateProps = new WeakMap();
 
@@ -92,6 +93,11 @@ class SliderDropdown {
 Object.assign(
   privateMethods,
   getPrivateBase({ privateProps, privateMethods }),
+);
+
+Object.assign(
+  SliderDropdown.prototype,
+  getPublicDropdownBase({ privateProps, privateMethods }),
 );
 
 export default SliderDropdown;

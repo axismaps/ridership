@@ -37,6 +37,7 @@
   margin-right: 5px;
 }
 
+.atlas__census-dropdown-button,
 .atlas__indicator-dropdown-button {
   margin-left: 10px;
   color: $header__title-row--background;
@@ -47,6 +48,7 @@
   margin-left: 50px;
 }
 
+.atlas__census-dropdown-button,
 .atlas__indicator-dropdown-button,
 .atlas__year-slider-button {
   display: flex;
@@ -54,6 +56,7 @@
   cursor: pointer;
 }
 
+.atlas__census-dropdown-button-text,
 .atlas__indicator-dropdown-button-text,
 .atlas__year-slider-button-text {
   margin-right: 5px;
@@ -96,12 +99,14 @@
 }
 
 .outer-container--msa {
+  .atlas__indicator-dropdown-button,
   .atlas__map-container {
     display: none;
   }
 }
 
 .outer-container--national {
+  .atlas__census-dropdown-button,
   .atlas__back-button,
   .atlas__msa-map-container {
     display: none;

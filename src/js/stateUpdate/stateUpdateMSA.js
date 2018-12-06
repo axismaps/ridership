@@ -21,41 +21,6 @@ const updateComponents = ({
     .updateMSA();
 };
 
-const censusFields = [
-  {
-    name: 'Percentage Asian',
-    value: 'asian_pct',
-  },
-  {
-    name: 'Percentage Black',
-    value: 'black_pct',
-  },
-  {
-    name: 'Percentage Latino',
-    value: 'latino_pct',
-  },
-  {
-    name: 'Percentage White',
-    value: 'white_pct',
-  },
-  {
-    name: 'Percentage Foreign born',
-    value: 'foreign_pct',
-  },
-  {
-    name: 'Population over 75',
-    value: 'over75',
-  },
-  {
-    name: 'Population',
-    value: 'pop',
-  },
-  {
-    name: 'Income',
-    value: 'income',
-  },
-];
-
 const processGeoJSON = ({
   years,
   msa,
@@ -101,6 +66,8 @@ const processGeoJSON = ({
       return featureCopy;
     }
     const changeColorScale = data.get('changeColorScale');
+    const censusFields = data.get('censusFields');
+
     const censusChange = censusFields
       .reduce((accumulator, field) => {
         if (census1[field.value] !== 0) {

@@ -1,5 +1,6 @@
 import getDropdownBase from './dropdownBase';
 import msaDropdownFunctions from './msaDropdownFunctions';
+import getPublicDropdownBase from './dropdownPublicBase';
 
 const privateProps = new WeakMap();
 
@@ -54,6 +55,11 @@ class MSADropdown {
 Object.assign(
   privateMethods,
   getDropdownBase({ privateProps, privateMethods }),
+);
+
+Object.assign(
+  MSADropdown.prototype,
+  getPublicDropdownBase({ privateProps, privateMethods }),
 );
 
 export default MSADropdown;
