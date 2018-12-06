@@ -11,6 +11,7 @@ const privateMethods = {
       msaMapContainer,
       msa,
       tractGeo,
+      currentCensusField,
     } = props;
 
     if (scale === 'national') return;
@@ -23,6 +24,7 @@ const privateMethods = {
       msaMapContainer,
       msa,
       tractGeo,
+      currentCensusField,
     });
 
     Object.assign(props, { msaAtlas, loaded: true });
@@ -68,6 +70,7 @@ class MSAAtlas {
       msaAtlas,
       loaded,
       tractGeo,
+      currentCensusField,
     } = privateProps.get(this);
     const {
       init,
@@ -86,6 +89,7 @@ class MSAAtlas {
       msaAtlas,
       msa,
       tractGeo,
+      currentCensusField,
     });
   }
 }

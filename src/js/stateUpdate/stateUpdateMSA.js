@@ -100,18 +100,22 @@ const processGeoJSON = ({
     if (census1 === undefined || census2 === undefined) {
       return featureCopy;
     }
+    const changeColorScale = data.get('changeColorScale');
     const censusChange = censusFields
       .reduce((accumulator, field) => {
         if (census1[field.value] !== 0) {
           accumulator[field.value] = (census2[field.value] - census1[field.value])
           / census1[field.value];
+          const color = changeColorScale(accumulator[field.value] * 100);
+          accumulator[`${field.value}-color`] = color;
         } else {
           accumulator[field.value] = null;
+          accumulator[`${field.value}-color`] = 'grey';
         }
 
         return accumulator;
       }, {});
-    Object.assign(featureCopy.properties, censusChange);
+    Object.assign(featureCopy.properties, censusChange, { fill: 'red' });
     return featureCopy;
   });
   cachedTractGeoJSON.set(`${msa.msaId}-${years[0]}-${years[1]}`, tractGeo);

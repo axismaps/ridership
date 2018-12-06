@@ -11,6 +11,7 @@ const getState = ({ data }) => {
     agenciesOn: true,
     nationalDataView: 'ta', // ta or msa
     scale: 'national', // national or msa,
+    censusField: { text: 'Income', value: 'income' },
     highlightedAgencies: [], // agencies highlighted on map/histogram/chart(s) mouseover,
     expandedIndicator: null,
   });
