@@ -15,7 +15,6 @@ const msaAtlasFunctions = {
       zoom: 10.5,
     })
       .on('load', () => {
-        // console.log('style', msaAtlas.getStyle());
         drawSite({
           msaAtlas,
           msa,

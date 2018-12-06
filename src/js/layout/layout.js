@@ -1,10 +1,27 @@
 const privateProps = new WeakMap();
 
+const privateMethods = {
+  initBackButtonListener() {
+    const {
+      returnToNationalScale,
+      backButton,
+    } = privateProps.get(this);
+
+    backButton
+      .on('click', returnToNationalScale);
+  },
+};
+
 class Layout {
   constructor(config) {
+    const {
+      initBackButtonListener,
+    } = privateMethods;
     privateProps.set(this, {});
     this.config(config);
     this.updateScale();
+
+    initBackButtonListener.call(this);
   }
 
   config(config) {
