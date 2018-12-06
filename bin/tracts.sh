@@ -16,7 +16,7 @@ mapshaper data/geojson/tracts/us_tracts.shp \
   -split msaid \
   -filter-fields GEOID \
   -rename-fields id=GEOID \
-  -o data/output/tracts/ format=topojson singles
+  -o data/geojson/msa_tracts format=geojson singles
 
 mapshaper data/geojson/states/admin1_polygons.json \
   -simplify 0.5 \

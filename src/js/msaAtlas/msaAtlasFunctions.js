@@ -1,7 +1,13 @@
+import * as topojson from 'topojson-client';
+
 const msaAtlasFunctions = {
-  drawAtlas({ msaMapContainer, msa }) {
+  drawAtlas({
+    msaMapContainer,
+    msa,
+    tractGeo,
+  }) {
     const {
-      jumpToMSA,
+      drawSite,
     } = msaAtlasFunctions;
     const msaAtlas = new mapboxgl.Map({
       container: msaMapContainer.node(),
@@ -10,15 +16,35 @@ const msaAtlasFunctions = {
       zoom: 10.5,
     })
       .on('load', () => {
-        jumpToMSA({
+        drawSite({
           msaAtlas,
           msa,
+          tractGeo,
         });
         msaMapContainer
           .classed('atlas__msa-map-container--loaded', true);
       });
 
     return msaAtlas;
+  },
+  drawSite({
+    msaAtlas,
+    msa,
+    tractGeo,
+  }) {
+    const {
+      jumpToMSA,
+      drawTracts,
+    } = msaAtlasFunctions;
+
+    jumpToMSA({
+      msaAtlas,
+      msa,
+    });
+    drawTracts({
+      msaAtlas,
+      tractGeo,
+    });
   },
   jumpToMSA({
     msaAtlas,
@@ -35,6 +61,33 @@ const msaAtlasFunctions = {
     const bounds = new mapboxgl.LngLatBounds(sw, ne);
     const camera = msaAtlas.cameraForBounds(bounds);
     msaAtlas.jumpTo(camera);
+  },
+  drawTracts({
+    msaAtlas,
+    tractGeo,
+  }) {
+    console.log('tractGeo', tractGeo);
+    const currentTractSource = msaAtlas.getSource('tracts');
+    if (currentTractSource === undefined) {
+      msaAtlas.addSource('tracts', {
+        type: 'geojson',
+        data: tractGeo,
+      });
+    } else {
+      msaAtlas.removeLayer('tract-fill');
+      currentTractSource.setData(tractGeo);
+    }
+    const tractLayer = {
+      id: 'tract-fill',
+      type: 'fill',
+      source: 'tracts',
+      layout: {},
+      paint: {
+        'fill-color': 'orange',
+        'fill-opacity': 0.2,
+      },
+    };
+    msaAtlas.addLayer(tractLayer);
   },
 };
 

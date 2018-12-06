@@ -9,8 +9,6 @@ const privateMethods = {
     const {
       indicators,
       contentContainer,
-      contentOuterContainer,
-      toggleButton,
       indicator,
       toggleButtonText,
       updateIndicator,

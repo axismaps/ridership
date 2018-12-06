@@ -4,7 +4,6 @@ const msaDropdownFunctions = {
     contentContainer,
     updateMSA,
   }) {
-    console.log('msaList', msaList);
     contentContainer
       .selectAll('.msa-dropdown__content-row')
       .data(msaList)
