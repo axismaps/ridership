@@ -53,10 +53,11 @@ const atlasNationalFunctions = {
       upt2017: agency.upt2017,
       msaName: agency.msaName,
       taName: agency.taName,
+      globalId: agency.globalId,
     }));
 
     const agencies = layer.selectAll('.map__agency')
-      .data(nodes, d => d.taId);
+      .data(nodes, d => d.globalId);
 
     const formatPct = d3.format(',d');
 
@@ -193,10 +194,11 @@ const atlasNationalFunctions = {
       pctChange: msa.pctChange,
       upt2017: msa.upt2017,
       name: msa.name,
+      globalId: msa.globalId,
     }));
 
     const msas = layer.selectAll('.map__agency')
-      .data(nodes, d => d.msaId);
+      .data(nodes, d => d.globalId);
 
     const formatPct = d3.format(',d');
 

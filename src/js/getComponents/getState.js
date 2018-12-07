@@ -37,6 +37,7 @@ const getState = ({ data }) => {
             taId,
             taName,
             taShort,
+            globalId,
           } = agency;
           const agencyCopy = {
             cent,
@@ -44,6 +45,7 @@ const getState = ({ data }) => {
             taId,
             taName,
             taShort,
+            globalId,
           };
 
           // const ntdRecords = agency.ntd.filter(inYears);

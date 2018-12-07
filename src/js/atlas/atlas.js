@@ -220,6 +220,7 @@ class Atlas {
       agencies,
       nodes,
       changeColorScale,
+      nationalDataView,
     } = props;
     const {
       // drawAgencies,
@@ -239,6 +240,7 @@ class Atlas {
       changeColorScale,
       nationalMapData,
       nodes,
+      nationalDataView,
       // radiusScale,
     });
   }
@@ -250,6 +252,7 @@ class Atlas {
       changeColorScale,
       agencies,
       nodes,
+      nationalDataView,
       // radiusScale,
     } = props;
     const {
@@ -262,6 +265,7 @@ class Atlas {
       changeColorScale,
       nationalMapData,
       nodes,
+      nationalDataView,
       // radiusScale,
     });
   }
@@ -304,6 +308,9 @@ class Atlas {
       });
 
       mapFeatures.set('agencies', agencies);
+      Object.assign(props, {
+        agencies,
+      });
     } else {
       const msas = drawMSAs({
         jumpToMsa,
@@ -320,6 +327,9 @@ class Atlas {
         },
       });
       mapFeatures.set('agencies', msas);
+      Object.assign(props, {
+        agencies: msas,
+      });
     }
   }
 
