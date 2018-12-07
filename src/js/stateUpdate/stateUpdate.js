@@ -11,14 +11,14 @@ const initStateUpdateListeners = ({ components, data }) => {
   const { state } = components;
 
   state.registerCallbacks({
-    years: getStateUpdateYears(({ components })),
+    years: getStateUpdateYears(({ components, data })),
     indicator: getStateUpdateIndicator({ components }),
     scale: getStateUpdateScale({ components, data }),
     msa: getStateUpdateMSA({ components, data }),
     highlightedAgencies: getStateUpdateHighlightedAgencies({ components }),
     expandedIndicator: getStateUpdateExpandedIndicator({ components }),
     comparedAgencies: getStateUpdateComparedAgencies({ components }),
-    censusField: getStateUpdateCensusField({ components }),
+    censusField: getStateUpdateCensusField({ components, data }),
   });
 };
 

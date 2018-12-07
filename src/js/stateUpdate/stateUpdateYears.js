@@ -1,4 +1,6 @@
-const getStateUpdateYear = ({ components }) => function updateYears() {
+import updateTractData from '../data/dataTractMethods';
+
+const getStateUpdateYear = ({ components, data }) => function updateYears() {
   const {
     atlas,
     sliderDropdown,
@@ -6,6 +8,8 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
     sidebar,
   } = components;
   const years = this.get('years');
+  const msa = this.get('msa');
+  const scale = this.get('scale');
   // const nationalMapData = data.get('nationalMapData');
   // console.log('update years', years);
   const nationalMapData = this.getCurrentNationalMapData();
@@ -36,6 +40,28 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
     })
     .updateYears()
     .updateData();
+
+  if (msa === null || scale === 'national') return;
+  updateTractData({
+    msa,
+    years,
+    data,
+    updateComponents() {
+      const {
+        msaAtlas,
+      } = components;
+
+      const cachedTractGeoJSON = data.get('cachedTractGeoJSON');
+
+      const tractGeo = cachedTractGeoJSON.get(`${msa.msaId}-${years[0]}-${years[1]}`);
+      msaAtlas
+        .config({
+          msa,
+          tractGeo,
+        })
+        .updateMSA();
+    },
+  });
 };
 
 export default getStateUpdateYear;
