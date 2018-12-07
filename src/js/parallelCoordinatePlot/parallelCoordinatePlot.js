@@ -119,6 +119,7 @@ class ParallelCoordinatePlot {
       dataProbe,
       maxValue,
       color,
+      updateHighlightedAgencies,
     } = privateProps.get(this);
 
     const xScale = getXScale({
@@ -136,6 +137,7 @@ class ParallelCoordinatePlot {
       xScale,
       dataProbe,
       color,
+      updateHighlightedAgencies,
     });
 
     drawAxis({
