@@ -3,6 +3,7 @@ import getState from './getComponents/getState';
 import getAtlas from './getComponents/getAtlas';
 import getMSAAtlas from './getComponents/getMSAAtlas';
 import getIndicatorDropdown from './getComponents/getIndicatorDropdown';
+import getCompareDropdown from './getComponents/getCompareDropdown';
 import getSliderDropdown from './getComponents/getSliderDropdown';
 import getSidebar from './getComponents/getSidebar';
 import getHistogram from './getComponents/getHistogram';
@@ -33,6 +34,7 @@ const app = {
     components.atlas = getAtlas({ data, state });
     components.indicatorDropdown = getIndicatorDropdown({ state, data });
     components.sliderDropdown = getSliderDropdown({ state, data });
+    components.compareDropdown = getCompareDropdown({ state, data });
     components.msaDropdown = getMSADropdown({ state, data });
     components.sidebar = getSidebar({ state, data });
     components.histogram = getHistogram({ state, data });

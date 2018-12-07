@@ -44,13 +44,15 @@
   font-weight: 600;
 }
 
-.atlas__year-slider-button {
+.atlas__year-slider-button,
+.atlas__compare-dropdown-button {
   margin-left: 50px;
 }
 
 .atlas__census-dropdown-button,
 .atlas__indicator-dropdown-button,
-.atlas__year-slider-button {
+.atlas__year-slider-button,
+.atlas__compare-dropdown-button {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -58,7 +60,8 @@
 
 .atlas__census-dropdown-button-text,
 .atlas__indicator-dropdown-button-text,
-.atlas__year-slider-button-text {
+.atlas__year-slider-button-text,
+.atlas__compare-dropdown-button-text {
   margin-right: 5px;
 }
 
@@ -100,6 +103,7 @@
 
 .outer-container--msa {
   .atlas__indicator-dropdown-button,
+  .atlas__compare-dropdown-button,
   .atlas__map-container {
     display: none;
   }

@@ -260,7 +260,12 @@ class Sidebar {
       pcp,
       agenciesData,
       currentSidebarView,
+      indicatorSummaries,
     } = privateProps.get(this);
+
+    const {
+      drawContent,
+    } = privateMethods;
 
     if (currentSidebarView === 'parallel') {
       pcp
@@ -268,6 +273,8 @@ class Sidebar {
           agenciesData,
         })
         .updateData();
+    } else {
+      drawContent.call(this);
     }
 
     return this;
