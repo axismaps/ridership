@@ -6,6 +6,7 @@ import getStateUpdateComparedAgencies from './stateUpdateComparedAgencies';
 import getStateUpdateExpandedIndicator from './stateUpdateExpandedIndicator';
 import getStateUpdateMSA from './stateUpdateMSA';
 import getStateUpdateCensusField from './stateUpdateCensusField';
+import getStateUpdateNationalDataView from './stateUpdateNationalDataView';
 
 const initStateUpdateListeners = ({ components, data }) => {
   const { state } = components;
@@ -19,6 +20,7 @@ const initStateUpdateListeners = ({ components, data }) => {
     expandedIndicator: getStateUpdateExpandedIndicator({ components }),
     comparedAgencies: getStateUpdateComparedAgencies({ components }),
     censusField: getStateUpdateCensusField({ components, data }),
+    nationalDataView: getStateUpdateNationalDataView({ components }),
   });
 };
 

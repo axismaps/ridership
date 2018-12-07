@@ -103,7 +103,7 @@ const privateMethods = {
 
     const rows = compareContainer.select('.sidebar__compare-rows')
       .selectAll('.sidebar__compare-row')
-      .data(comparedAgencies, d => d.taId);
+      .data(comparedAgencies, d => d.globalId);
     const newRows = rows
       .enter()
       .append('div')
@@ -118,7 +118,7 @@ const privateMethods = {
       .select('i')
       .on('click', (d) => {
         const others = comparedAgencies.slice()
-          .filter(a => a.taId !== d.taId);
+          .filter(a => a.globalId !== d.globalId);
         updateComparedAgencies(others);
         compareContainer.selectAll('.sidebar__compare-row')
           .filter(rowData => rowData.taName === d.taName)

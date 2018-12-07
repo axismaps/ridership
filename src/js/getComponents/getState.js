@@ -286,6 +286,7 @@ const getState = ({ data }) => {
           ? [{
             taId: 'all',
             msaId: 'all',
+            globalId: 'all',
             summaries: [],
           }]
           : comparedAgencies.map(a => Object.assign({ summaries: [] }, a));
