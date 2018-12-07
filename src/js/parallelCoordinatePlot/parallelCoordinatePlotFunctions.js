@@ -99,7 +99,7 @@ const parallelCoordinatePlotFunctions = {
       // .defined(d => d.pctChange !== null);
 
     const lines = svg.select('g.pcp-lines').selectAll('path.pcp-line')
-      .data(agenciesData, d => d.taId);
+      .data(agenciesData, d => d.globalId);
 
     const newLines = lines
       .enter()

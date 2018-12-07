@@ -126,12 +126,14 @@ const getState = ({ data }) => {
             taId,
             taName,
             taShort,
+            globalId,
           } = agency;
           const agencyCopy = {
             msaId,
             taId,
             taName,
             taShort,
+            globalId,
           };
           const agencyIndicators = indicatorSummaries.map((indicator) => {
             const {

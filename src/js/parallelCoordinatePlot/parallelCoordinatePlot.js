@@ -129,7 +129,7 @@ class ParallelCoordinatePlot {
       maxValue,
     });
 
-    drawLines({
+    const lines = drawLines({
       agenciesData,
       indicatorHeight,
       width,
@@ -147,6 +147,7 @@ class ParallelCoordinatePlot {
 
     Object.assign(privateProps.get(this), {
       xScale,
+      lines,
     });
 
     return this;
@@ -170,8 +171,8 @@ class ParallelCoordinatePlot {
     } = privateProps.get(this);
 
     lines.classed('highlight', (d) => {
-      const highlightIds = highlightedAgencies.map(agency => agency.taId);
-      return highlightIds.includes(d.taId);
+      const highlightIds = highlightedAgencies.map(agency => agency.globalId);
+      return highlightIds.includes(d.globalId);
     });
 
     return this;

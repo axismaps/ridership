@@ -223,8 +223,8 @@ class Histogram {
     } = privateProps.get(this);
 
     bars.classed('highlight', (d) => {
-      const barIds = d.agencies.map(agency => agency.taId);
-      const highlightIds = highlightedAgencies.map(agency => agency.taId);
+      const barIds = d.agencies.map(agency => agency.globalId);
+      const highlightIds = highlightedAgencies.map(agency => agency.globalId);
       return highlightIds.some(id => barIds.includes(id));
     });
 

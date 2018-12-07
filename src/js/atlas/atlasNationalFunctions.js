@@ -242,7 +242,7 @@ const atlasNationalFunctions = {
             html,
           })
           .draw();
-        // updateHighlightedAgencies([d]);
+        updateHighlightedAgencies([d]);
       });
 
     const layoutTick = () => {

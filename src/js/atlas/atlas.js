@@ -356,8 +356,8 @@ class Atlas {
     } = privateProps.get(this);
 
     agencies.classed('highlight', (d) => {
-      const highlightIds = highlightedAgencies.map(agency => agency.taId);
-      return highlightIds.includes(d.taId);
+      const highlightIds = highlightedAgencies.map(agency => agency.globalId);
+      return highlightIds.includes(d.globalId);
     });
   }
 }
