@@ -1,18 +1,23 @@
 <div class="atlas atlas__outer-container">
   <div class="atlas__top-row">
-    <div class="atlas__back-button"><i class="fas fa-reply"></i> Back</div>
-    <div>Select an indicator: </div>
-    <div class="atlas__indicator-dropdown-button">
-      <div class="atlas__indicator-dropdown-button-text"></div> <i class="fas fa-angle-down"></i>
-    </div>
-    <div class="atlas__census-dropdown-button">
-        <div class="atlas__census-dropdown-button-text">Income</div> <i class="fas fa-angle-down"></i>
+    <div class="atlas__top-row-left">
+      <div class="atlas__back-button"><i class="fas fa-reply"></i> Back</div>
+      <div>Select an indicator: </div>
+      <div class="atlas__indicator-dropdown-button">
+        <div class="atlas__indicator-dropdown-button-text"></div> <i class="fas fa-angle-down"></i>
       </div>
-    <div class="atlas__year-slider-button">
-      <div class="atlas__year-slider-button-text"></div> <i class="fas fa-angle-down"></i>
+      <div class="atlas__census-dropdown-button">
+          <div class="atlas__census-dropdown-button-text">Income</div> <i class="fas fa-angle-down"></i>
+        </div>
+      <div class="atlas__year-slider-button">
+        <div class="atlas__year-slider-button-text"></div> <i class="fas fa-angle-down"></i>
+      </div>
+      <div class="atlas__compare-dropdown-button">
+        <div class="atlas__compare-dropdown-button-text">Compare</div> <i class="fas fa-angle-down"></i>
+      </div>
     </div>
-    <div class="atlas__compare-dropdown-button">
-      <div class="atlas__compare-dropdown-button-text">Compare</div> <i class="fas fa-angle-down"></i>
+    <div class="atlas__top-row-right">
+      <div class="atlas__distance-dropdown-button"><i class="fas fa-Filter"></i> <div class="atlas__distance-dropdown-text">Filter tracts</div></div>
     </div>
   </div>
   <div class="atlas__map-container"></div>
@@ -37,4 +42,9 @@
 
 <div class="dropdown-content compare-dropdown__content-container">
   <div class="dropdown-content__inner compare-dropdown__content"></div>
+</div>
+
+<div class="dropdown-content distance-dropdown__content-container">
+  <div class="distance-dropdown__description">Show tracts within a selected distance to a transit stop:</div>
+  <div class="dropdown-content__inner distance-dropdown__content"></div>
 </div>

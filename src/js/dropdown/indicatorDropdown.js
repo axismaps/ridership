@@ -13,6 +13,7 @@ const privateMethods = {
       indicator,
       toggleButtonText,
       updateIndicator,
+      defaultText,
     } = props;
 
     const {
@@ -33,6 +34,7 @@ const privateMethods = {
     setButtonText({
       indicator,
       toggleButtonText,
+      defaultText,
     });
 
     setContentPosition.call(this);
@@ -58,7 +60,7 @@ class IndicatorDropdown {
       init,
     } = privateMethods;
     privateProps.set(this, {
-
+      alignMenuToButton: 'left',
     });
     this.config(config);
 

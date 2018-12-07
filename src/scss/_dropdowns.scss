@@ -9,8 +9,11 @@
   @include popup-outer();
 }
 
+.distance-dropdown__content-container {
+  max-width: 165px;
+}
 
-
+.distance-dropdown__description,
 .dropdown-content__inner {
   @include popup-inner();
 }

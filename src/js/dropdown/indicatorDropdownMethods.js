@@ -23,15 +23,16 @@ const pureMethods = {
   setButtonText({
     indicator,
     toggleButtonText,
+    defaultText,
   }) {
-    toggleButtonText.text(indicator.text);
+    toggleButtonText.text(indicator !== null ? indicator.text : defaultText);
   },
   highlightCurrentIndicator({
     indicatorRows,
     indicator,
   }) {
     indicatorRows
-      .classed('indicator-dropdown__content-row--highlighted', d => d.value === indicator.value);
+      .classed('indicator-dropdown__content-row--highlighted', d => (indicator === null ? false : d.value === indicator.value));
   },
 };
 
