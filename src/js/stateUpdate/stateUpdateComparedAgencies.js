@@ -3,9 +3,18 @@ const getStateUpdateHighlightedAgencies = ({ components }) => function updateHig
     atlas,
     histogram,
     sidebar,
+    compareDropdown,
   } = components;
 
-  const comparedAgencies = this.get('comparedgencies');
+  const comparedAgencies = this.get('comparedAgencies');
+  const indicatorSummaries = this.getCurrentIndicatorSummaries();
+  const agenciesData = this.getCurrentAgenciesData();
+
+  compareDropdown
+    .config({
+      comparedAgencies,
+    })
+    .update();
 
   atlas
     .config({
@@ -20,6 +29,8 @@ const getStateUpdateHighlightedAgencies = ({ components }) => function updateHig
   sidebar
     .config({
       comparedAgencies,
+      indicatorSummaries,
+      agenciesData,
     })
     .updateData();
 };

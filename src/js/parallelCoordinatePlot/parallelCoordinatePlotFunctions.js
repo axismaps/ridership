@@ -106,11 +106,24 @@ const parallelCoordinatePlotFunctions = {
       .append('path')
       .style('fill', 'none')
       .style('stroke', color)
+      .style('stroke-opacity', 0)
       .attr('class', 'pcp-line')
       .attr('d', d => lineGenerator(d.indicators))
       .on('mouseover', (d) => {
         updateHighlightedAgencies([d]);
       })
+      .on('mouseout', () => {
+        dataProbe.remove();
+        svg.select('.probe-dot circle')
+          .style('display', 'none');
+        updateHighlightedAgencies([]);
+      });
+
+    lines.exit().remove();
+
+    const mergedLines = newLines.merge(lines);
+
+    mergedLines
       .on('mousemove', (d) => {
         dataProbe.remove();
         d3.select(this).raise();
@@ -134,7 +147,6 @@ const parallelCoordinatePlotFunctions = {
             html,
           })
           .draw();
-
         svg.select('.probe-dot circle')
           .attrs({
             cx: xScale(d.indicators[closest].pctChange),
@@ -143,18 +155,9 @@ const parallelCoordinatePlotFunctions = {
           .style('display', 'block')
           .style('fill', color(d));
       })
-      .on('mouseout', () => {
-        dataProbe.remove();
-        svg.select('.probe-dot circle')
-          .style('display', 'none');
-        updateHighlightedAgencies([]);
-      });
-
-    const mergedLines = newLines.merge(lines);
-
-    mergedLines
       .transition()
-      .attr('d', d => lineGenerator(d.indicators));
+      .attr('d', d => lineGenerator(d.indicators))
+      .style('stroke-opacity', agenciesData.length < 15 ? 0.75 : 0.1);
 
     return mergedLines;
   },

@@ -31,7 +31,9 @@
 }
 
 .indicator-dropdown__content-row:hover,
-.indicator-dropdown__content-row--highlighted {
+.indicator-dropdown__content-row--highlighted,
+.compare-dropdown__content-row:hover,
+.compare-dropdown__content-row--highlighted {
   color: $header__title-row--background;
   font-weight: 600;
 }
