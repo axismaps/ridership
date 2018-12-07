@@ -266,6 +266,63 @@ class Atlas {
     });
   }
 
+  updateNationalDataView() {
+    const props = privateProps.get(this);
+    const {
+      nationalMapData,
+      changeColorScale,
+      dataProbe,
+      jumpToMsa,
+      updateHighlightedAgencies,
+      mapFeatures,
+      nationalDataView,
+      radiusScale,
+      layers,
+      projection,
+      projectionModify,
+    } = props;
+
+    const {
+      drawAgencies,
+      drawMSAs,
+    } = atlasNationalFunctions;
+
+    if (nationalDataView === 'ta') {
+      const agencies = drawAgencies({
+        jumpToMsa,
+        radiusScale,
+        dataProbe,
+        layer: layers.agencies,
+        nationalMapData,
+        projection,
+        changeColorScale,
+        projectionModify,
+        updateHighlightedAgencies,
+        logSimulationNodes: (nodes) => {
+          props.nodes = nodes;
+        },
+      });
+
+      mapFeatures.set('agencies', agencies);
+    } else {
+      const msas = drawMSAs({
+        jumpToMsa,
+        radiusScale,
+        dataProbe,
+        layer: layers.agencies,
+        nationalMapData,
+        projection,
+        changeColorScale,
+        projectionModify,
+        updateHighlightedAgencies,
+        logSimulationNodes: (nodes) => {
+          props.nodes = nodes;
+        },
+      });
+      mapFeatures.set('agencies', msas);
+    }
+  }
+
   updateScale() {
     const props = privateProps.get(this);
     const {

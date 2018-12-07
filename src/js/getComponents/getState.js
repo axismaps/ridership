@@ -74,10 +74,17 @@ const getState = ({ data }) => {
         })
         .filter(agency => agency.uptTotal !== 0);
 
-      const msaFirstRecords = msa.ta.map(ta => ta.ntd.find(d => d.year === years[0])[indicator.value])
+      const msaFirstRecords = msa.ta.map((ta) => {
+        const record = ta.ntd.find(d => d.year === years[0])[indicator.value];
+        return record;
+      })
         .filter(d => d !== null);
-      const msaLastRecords = msa.ta.map(ta => ta.ntd.find(d => d.year === years[1])[indicator.value])
+      const msaLastRecords = msa.ta.map((ta) => {
+        const record = ta.ntd.find(d => d.year === years[1])[indicator.value];
+        return record;
+      })
         .filter(d => d !== null);
+      msaCopy.upt2017 = d3.sum(msaCopy.ta.map(ta => ta.upt2017));
       if (msaFirstRecords.length > 0 && msaLastRecords.length > 0) {
         const summaries = [
           d3[indicator.summaryType](msaFirstRecords),

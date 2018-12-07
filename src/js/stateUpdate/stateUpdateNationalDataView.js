@@ -1,6 +1,7 @@
 const getStateUpdateNationalDataView = ({ components }) => function updateNationalDataView() {
   const {
     dataViewDropdown,
+    atlas,
   } = components;
 
   const nationalDataView = this.get('nationalDataView');
@@ -10,6 +11,12 @@ const getStateUpdateNationalDataView = ({ components }) => function updateNation
       nationalDataView,
     })
     .update();
+
+  atlas
+    .config({
+      nationalDataView,
+    })
+    .updateNationalDataView();
 };
 
 export default getStateUpdateNationalDataView;
