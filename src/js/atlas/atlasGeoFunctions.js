@@ -145,30 +145,37 @@ const atlasMethods = {
 
   getAgenciesTable({
     nationalMapData,
+    nationalDataView,
   }) {
     return nationalMapData
       .reduce((accumulator, msa) => {
-        msa.ta.forEach((ta) => {
-          accumulator[ta.taId] = ta;
-        });
+        if (nationalDataView === 'ta') {
+          msa.ta.forEach((ta) => {
+            accumulator[ta.globalId] = ta;
+          });
+        } else {
+          accumulator[msa.globalId] = msa;
+        }
+
         return accumulator;
       }, {});
   },
   getUpdatedNodes({
     nodes,
     nationalMapData,
+    nationalDataView,
     // radiusScale,
   }) {
     const {
       getAgenciesTable,
     } = atlasMethods;
 
-    const agenciesTable = getAgenciesTable({ nationalMapData });
+    const agenciesTable = getAgenciesTable({ nationalMapData, nationalDataView });
 
     return nodes
       .map((node) => {
         const nodeCopy = Object.assign({}, node);
-        const agency = agenciesTable[node.taId];
+        const agency = agenciesTable[node.globalId];
         if (agency === undefined) return nodeCopy;
         nodeCopy.pctChange = agency.pctChange;
         // nodeCopy.uptTotal = agency.uptTotal;
@@ -182,6 +189,7 @@ const atlasMethods = {
     nationalMapData,
     nodes,
     changeColorScale,
+    nationalDataView,
   }) {
     const {
       getUpdatedNodes,
@@ -189,6 +197,7 @@ const atlasMethods = {
     const updatedNodes = getUpdatedNodes({
       nodes,
       nationalMapData,
+      nationalDataView,
       // radiusScale,
     });
     // console.log('updatednodes', updatedNodes);
@@ -206,6 +215,7 @@ const atlasMethods = {
     changeColorScale,
     nationalMapData,
     nodes,
+    nationalDataView,
     // radiusScale,
   }) {
     const {
@@ -214,11 +224,12 @@ const atlasMethods = {
     const updatedNodes = getUpdatedNodes({
       nodes,
       nationalMapData,
+      nationalDataView,
       // radiusScale,
     });
 
     agencies
-      .data(updatedNodes, d => d.taId)
+      .data(updatedNodes, d => d.globalId)
       .transition()
       .duration(500)
       .attrs({

@@ -99,7 +99,7 @@ const parallelCoordinatePlotFunctions = {
       // .defined(d => d.pctChange !== null);
 
     const lines = svg.select('g.pcp-lines').selectAll('path.pcp-line')
-      .data(agenciesData, d => d.taId);
+      .data(agenciesData, d => d.globalId);
 
     const newLines = lines
       .enter()
@@ -109,9 +109,6 @@ const parallelCoordinatePlotFunctions = {
       .style('stroke-opacity', 0)
       .attr('class', 'pcp-line')
       .attr('d', d => lineGenerator(d.indicators))
-      .on('mouseover', (d) => {
-        updateHighlightedAgencies([d]);
-      })
       .on('mouseout', () => {
         dataProbe.remove();
         svg.select('.probe-dot circle')
@@ -124,6 +121,9 @@ const parallelCoordinatePlotFunctions = {
     const mergedLines = newLines.merge(lines);
 
     mergedLines
+      .on('mouseover', (d) => {
+        updateHighlightedAgencies([d]);
+      })
       .on('mousemove', (d) => {
         dataProbe.remove();
         d3.select(this).raise();
@@ -137,7 +137,7 @@ const parallelCoordinatePlotFunctions = {
         const closest = Math.round((clientY - svgTop) / indicatorHeight);
         const displayValue = d.indicators[closest].pctChange === null ? 'N/A' : (`${Math.round(d.indicators[closest].pctChange)}%`);
         const html = `
-          <div class="data-probe__row"><span class="data-probe__field">${d.taName}</span></div>
+          <div class="data-probe__row"><span class="data-probe__field">${d.taName || d.name}</span></div>
           <div class="data-probe__row">${d.indicators[closest].text}: ${displayValue}</div>
           <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
         `;

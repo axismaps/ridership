@@ -4,6 +4,7 @@ const getSidebar = ({ data, state }) => new Sidebar({
   indicatorSummaries: state.getCurrentIndicatorSummaries(),
   agenciesData: state.getCurrentAgenciesData(),
   currentIndicator: state.get('indicator'),
+  nationalDataView: state.get('nationalDataView'),
   expandedIndicator: state.get('expandedIndicator'),
   currentSidebarView: 'sparklines',
   years: state.get('years'),

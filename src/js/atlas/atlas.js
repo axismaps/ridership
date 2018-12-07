@@ -220,6 +220,7 @@ class Atlas {
       agencies,
       nodes,
       changeColorScale,
+      nationalDataView,
     } = props;
     const {
       // drawAgencies,
@@ -239,6 +240,7 @@ class Atlas {
       changeColorScale,
       nationalMapData,
       nodes,
+      nationalDataView,
       // radiusScale,
     });
   }
@@ -250,6 +252,7 @@ class Atlas {
       changeColorScale,
       agencies,
       nodes,
+      nationalDataView,
       // radiusScale,
     } = props;
     const {
@@ -262,8 +265,72 @@ class Atlas {
       changeColorScale,
       nationalMapData,
       nodes,
+      nationalDataView,
       // radiusScale,
     });
+  }
+
+  updateNationalDataView() {
+    const props = privateProps.get(this);
+    const {
+      nationalMapData,
+      changeColorScale,
+      dataProbe,
+      jumpToMsa,
+      updateHighlightedAgencies,
+      mapFeatures,
+      nationalDataView,
+      radiusScale,
+      layers,
+      projection,
+      projectionModify,
+    } = props;
+
+    const {
+      drawAgencies,
+      drawMSAs,
+    } = atlasNationalFunctions;
+
+    if (nationalDataView === 'ta') {
+      const agencies = drawAgencies({
+        jumpToMsa,
+        radiusScale,
+        dataProbe,
+        layer: layers.agencies,
+        nationalMapData,
+        projection,
+        changeColorScale,
+        projectionModify,
+        updateHighlightedAgencies,
+        logSimulationNodes: (nodes) => {
+          props.nodes = nodes;
+        },
+      });
+
+      mapFeatures.set('agencies', agencies);
+      Object.assign(props, {
+        agencies,
+      });
+    } else {
+      const msas = drawMSAs({
+        jumpToMsa,
+        radiusScale,
+        dataProbe,
+        layer: layers.agencies,
+        nationalMapData,
+        projection,
+        changeColorScale,
+        projectionModify,
+        updateHighlightedAgencies,
+        logSimulationNodes: (nodes) => {
+          props.nodes = nodes;
+        },
+      });
+      mapFeatures.set('agencies', msas);
+      Object.assign(props, {
+        agencies: msas,
+      });
+    }
   }
 
   updateScale() {
@@ -289,8 +356,8 @@ class Atlas {
     } = privateProps.get(this);
 
     agencies.classed('highlight', (d) => {
-      const highlightIds = highlightedAgencies.map(agency => agency.taId);
-      return highlightIds.includes(d.taId);
+      const highlightIds = highlightedAgencies.map(agency => agency.globalId);
+      return highlightIds.includes(d.globalId);
     });
   }
 }
