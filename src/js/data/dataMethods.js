@@ -205,11 +205,16 @@ const dataMethods = {
     ntd,
     ta,
   }) {
+    let globalId = 1;
     return msa.map((metro) => {
       const metroCopy = Object.assign({}, metro);
+      metroCopy.globalId = globalId;
+      globalId += 1;
       metroCopy.ta = ta.filter(agency => agency.msaId === metro.msaId)
         .map((agency) => {
           const agencyCopy = Object.assign({}, agency);
+          agencyCopy.globalId = globalId;
+          globalId += 1;
           agencyCopy.cent = metro.cent;
           agencyCopy.ntd = ntd
             .filter(d => d.taId === agency.taId)
