@@ -64,8 +64,6 @@ const getDropdownPrivateBase = ({
 
     const menuMargin = 10;
 
-    console.log('pos?', toggleButton.node().getBoundingClientRect(), alignMenuToButton);
-
     contentOuterContainer
       .styles({
         position: 'absolute',

@@ -1,4 +1,4 @@
-const getStateUpdateCensusField = ({ components, data }) => function updateCensusField() {
+const getStateUpdateCensusField = ({ components }) => function updateCensusField() {
   const censusField = this.get('censusField');
   const {
     censusDropdown,
@@ -18,7 +18,7 @@ const getStateUpdateCensusField = ({ components, data }) => function updateCensu
     .config({
       currentCensusField: censusField,
     })
-    .updateMSA();
+    .updateData();
 };
 
 export default getStateUpdateCensusField;

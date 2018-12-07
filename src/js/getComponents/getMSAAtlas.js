@@ -6,6 +6,7 @@ const getMSAAtlas = ({ state, data }) => new MSAAtlas({
   msaList: data.get('msa'),
   msaMapContainer: d3.select('.atlas__msa-map-container'),
   currentCensusField: state.get('censusField'),
+  distanceFilter: state.get('distanceFilter'),
 });
 
 export default getMSAAtlas;

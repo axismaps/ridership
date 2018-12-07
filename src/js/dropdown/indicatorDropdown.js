@@ -81,6 +81,7 @@ class IndicatorDropdown {
       indicatorRows,
       indicator,
       toggleButtonText,
+      defaultText,
     } = privateProps.get(this);
 
     highlightCurrentIndicator({
@@ -89,6 +90,7 @@ class IndicatorDropdown {
     });
 
     setButtonText({
+      defaultText,
       indicator,
       toggleButtonText,
     });

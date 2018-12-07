@@ -1,26 +1,5 @@
 import * as topojson from 'topojson-client';
 
-// const updateComponents = ({
-//   components,
-//   data,
-//   msa,
-//   years,
-// }) => {
-//   const {
-//     msaAtlas,
-//   } = components;
-
-//   const cachedTractGeoJSON = data.get('cachedTractGeoJSON');
-
-//   const tractGeo = cachedTractGeoJSON.get(`${msa.msaId}-${years[0]}-${years[1]}`);
-//   msaAtlas
-//     .config({
-//       msa,
-//       tractGeo,
-//     })
-//     .updateMSA();
-// };
-
 const processGeoJSON = ({
   years,
   msa,

@@ -9,7 +9,7 @@ const dataMethods = {
 
     const {
       getAllNationalMapData,
-      getIndicatorSummaries,
+      // getIndicatorSummaries,
     } = dataMethods;
 
     const msa = rawMsa.rows.map((record) => {
@@ -185,6 +185,10 @@ const dataMethods = {
 
     const distanceFilters = [
       {
+        text: '0.25 miles',
+        value: 0.25,
+      },
+      {
         text: '0.5 miles',
         value: 0.5,
       },
@@ -192,10 +196,7 @@ const dataMethods = {
         text: '1.0 miles',
         value: 1,
       },
-      {
-        text: '1.5 miles',
-        value: 1.5,
-      },
+
     ];
 
     const data = new Map();

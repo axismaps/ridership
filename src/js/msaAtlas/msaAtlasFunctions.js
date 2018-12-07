@@ -4,9 +4,10 @@ const msaAtlasFunctions = {
     msa,
     tractGeo,
     currentCensusField,
+    distanceFilter,
   }) {
     const {
-      drawSite,
+      initSite,
     } = msaAtlasFunctions;
     const msaAtlas = new mapboxgl.Map({
       container: msaMapContainer.node(),
@@ -15,7 +16,8 @@ const msaAtlasFunctions = {
       zoom: 10.5,
     })
       .on('load', () => {
-        drawSite({
+        initSite({
+          distanceFilter,
           msaAtlas,
           msa,
           tractGeo,
@@ -27,7 +29,8 @@ const msaAtlasFunctions = {
 
     return msaAtlas;
   },
-  drawSite({
+  initSite({
+    distanceFilter,
     msaAtlas,
     msa,
     tractGeo,
@@ -43,6 +46,7 @@ const msaAtlasFunctions = {
       msa,
     });
     drawTracts({
+      distanceFilter,
       msaAtlas,
       tractGeo,
       currentCensusField,
@@ -68,10 +72,19 @@ const msaAtlasFunctions = {
     msaAtlas,
     tractGeo,
     currentCensusField,
+    distanceFilter,
   }) {
     const tractGeoFiltered = Object.assign({}, tractGeo);
-    tractGeoFiltered.features = tractGeo.features.filter(d => d.properties[`${currentCensusField.value}-color`] !== null
-    && d.properties[`${currentCensusField.value}-color`] !== undefined);
+    tractGeoFiltered.features = tractGeo.features.filter((d) => {
+      const isDefined = d.properties[`${currentCensusField.value}-color`] !== null
+      && d.properties[`${currentCensusField.value}-color`] !== undefined;
+      const inDistance = distanceFilter === null ? true
+        : d.properties.dist <= distanceFilter.value;
+      return isDefined && inDistance;
+    });
+    // tractGeoFiltered.features.forEach((d) => {
+    //   console.log(d.properties.dist);
+    // });
 
     const currentTractSource = msaAtlas.getSource('tracts');
     if (currentTractSource === undefined) {

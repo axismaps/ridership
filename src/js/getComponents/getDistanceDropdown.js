@@ -6,6 +6,8 @@ const getDistanceDropdown = ({ data, state }) => new DistanceDropdown({
     const currentIndicator = state.get('distanceFilter');
     if (newIndicator !== currentIndicator) {
       state.update({ distanceFilter: newIndicator });
+    } else {
+      state.update({ distanceFilter: null });
     }
   },
   dropdownOpen: false,

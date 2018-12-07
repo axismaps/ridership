@@ -59,7 +59,7 @@ const getStateUpdateYear = ({ components, data }) => function updateYears() {
           msa,
           tractGeo,
         })
-        .updateMSA();
+        .updateData();
     },
   });
 };
