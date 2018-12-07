@@ -118,7 +118,6 @@ const updateTractData = ({
   updateComponents,
   data,
 }) => {
-  if (msa === null) return;
   const cachedTractGeoJSON = data.get('cachedTractGeoJSON');
   const cachedTractData = data.get('cachedTractData');
   if (cachedTractGeoJSON.has(`${msa.msaId}-${years[0]}-${years[1]}`)) {

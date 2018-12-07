@@ -13,7 +13,15 @@
   height: $panel__top-row--height;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding-left: 20px;
+  padding-right: 20px;
+}
+
+.atlas__top-row-left {
+  display: flex;
+  height: 100%;
+  align-items: center;
 }
 
 .atlas__back-button {
@@ -110,6 +118,7 @@
 }
 
 .outer-container--national {
+  .atlas__distance-dropdown,
   .atlas__census-dropdown-button,
   .atlas__back-button,
   .atlas__msa-map-container {
