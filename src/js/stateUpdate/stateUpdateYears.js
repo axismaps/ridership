@@ -1,4 +1,4 @@
-import updateTractData from '../data/dataTractMethods';
+import getCurrentTractData from '../data/dataTractMethods';
 
 const getStateUpdateYear = ({ components, data }) => function updateYears() {
   const {
@@ -14,6 +14,7 @@ const getStateUpdateYear = ({ components, data }) => function updateYears() {
   // console.log('update years', years);
   const nationalMapData = this.getCurrentNationalMapData();
   const agenciesData = this.getCurrentAgenciesData();
+  const censusField = this.get('censusField');
 
   atlas
     .config({
@@ -42,18 +43,20 @@ const getStateUpdateYear = ({ components, data }) => function updateYears() {
     .updateData();
 
   if (msa === null || scale === 'national') return;
-  updateTractData({
+
+  const distanceFilter = this.get('distanceFilter');
+
+  getCurrentTractData({
     msa,
     years,
     data,
-    updateComponents() {
+    distanceFilter,
+    censusField,
+    updateComponents(tractGeo) {
       const {
         msaAtlas,
       } = components;
 
-      const cachedTractGeoJSON = data.get('cachedTractGeoJSON');
-
-      const tractGeo = cachedTractGeoJSON.get(`${msa.msaId}-${years[0]}-${years[1]}`);
       msaAtlas
         .config({
           msa,

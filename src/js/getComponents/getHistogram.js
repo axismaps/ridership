@@ -11,6 +11,7 @@ const getHistogram = ({ data, state }) => new Histogram({
     const highlights = newHighlight || [];
     state.update({ highlightedAgencies: highlights });
   },
+  currentScale: state.get('scale'),
 });
 
 export default getHistogram;

@@ -72,16 +72,16 @@ const msaAtlasFunctions = {
     msaAtlas,
     tractGeo,
     currentCensusField,
-    distanceFilter,
+    // distanceFilter,
   }) {
-    const tractGeoFiltered = Object.assign({}, tractGeo);
-    tractGeoFiltered.features = tractGeo.features.filter((d) => {
-      const isDefined = d.properties[`${currentCensusField.value}-color`] !== null
-      && d.properties[`${currentCensusField.value}-color`] !== undefined;
-      const inDistance = distanceFilter === null ? true
-        : d.properties.dist <= distanceFilter.value;
-      return isDefined && inDistance;
-    });
+    // const tractGeoFiltered = Object.assign({}, tractGeo);
+    // tractGeoFiltered.features = tractGeo.features.filter((d) => {
+    //   const isDefined = d.properties[`${currentCensusField.value}-color`] !== null
+    //   && d.properties[`${currentCensusField.value}-color`] !== undefined;
+    //   const inDistance = distanceFilter === null ? true
+    //     : d.properties.dist <= distanceFilter.value;
+    //   return isDefined && inDistance;
+    // });
     // tractGeoFiltered.features.forEach((d) => {
     //   console.log(d.properties.dist);
     // });
@@ -90,11 +90,11 @@ const msaAtlasFunctions = {
     if (currentTractSource === undefined) {
       msaAtlas.addSource('tracts', {
         type: 'geojson',
-        data: tractGeoFiltered,
+        data: tractGeo,
       });
     } else {
       msaAtlas.removeLayer('tract-fill');
-      currentTractSource.setData(tractGeoFiltered);
+      currentTractSource.setData(tractGeo);
     }
     const tractLayer = {
       id: 'tract-fill',

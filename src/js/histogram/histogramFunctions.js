@@ -297,6 +297,75 @@ const histogramFunctions = {
         'stroke-width': 1,
       });
   },
+  updateNational({
+    bars,
+    changeColorScale,
+    nationalMapData,
+    bucketCount,
+    padding,
+    width,
+    height,
+    xAxis,
+    nationalAverageGroup,
+    nationalAverageText,
+    yAxis,
+    updateHighlightedAgencies,
+    nationalDataView,
+  }) {
+    const {
+      getHistogramData,
+      updateBars,
+      getScales,
+      updateAxes,
+      updateAverageLine,
+    } = histogramFunctions;
+
+    const {
+      histogramData,
+      nationalAverage,
+    } = getHistogramData({
+      nationalMapData,
+      bucketCount,
+      nationalDataView,
+    });
+
+    console.log('histogramData', histogramData);
+
+    const { yScale, xScale } = getScales({
+      padding,
+      histogramData,
+      width,
+      height,
+    });
+
+    updateAxes({
+      xScale,
+      yScale,
+      xAxis,
+      yAxis,
+    });
+
+    updateBars({
+      height,
+      padding,
+      bars,
+      histogramData,
+      yScale,
+      changeColorScale,
+      updateHighlightedAgencies,
+    });
+
+    updateAverageLine({
+      nationalAverageGroup,
+      nationalAverage,
+      nationalAverageText,
+      xScale,
+      padding,
+    });
+  },
+  updateMSA() {
+    console.log('UPDATE MSA HISTOGRAM');
+  },
 };
 
 export default histogramFunctions;

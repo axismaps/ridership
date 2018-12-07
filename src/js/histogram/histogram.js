@@ -128,6 +128,7 @@ class Histogram {
       dataProbe: new DataProbe({
         container: d3.select('.outer-container'),
       }),
+      currentScale: 'national',
     });
     const {
       init,
@@ -149,14 +150,6 @@ class Histogram {
 
   updateData() {
     const {
-      getHistogramData,
-      updateBars,
-      getScales,
-      updateAxes,
-      updateAverageLine,
-    } = histogramFunctions;
-
-    const {
       bars,
       changeColorScale,
       nationalMapData,
@@ -170,48 +163,33 @@ class Histogram {
       yAxis,
       updateHighlightedAgencies,
       nationalDataView,
+      currentScale,
     } = privateProps.get(this);
 
     const {
-      histogramData,
-      nationalAverage,
-    } = getHistogramData({
-      nationalMapData,
-      bucketCount,
-      nationalDataView,
-    });
+      updateNational,
+      updateMSA,
+    } = histogramFunctions;
 
-    const { yScale, xScale } = getScales({
-      padding,
-      histogramData,
-      width,
-      height,
-    });
-
-    updateAxes({
-      xScale,
-      yScale,
-      xAxis,
-      yAxis,
-    });
-
-    updateBars({
-      height,
-      padding,
-      bars,
-      histogramData,
-      yScale,
-      changeColorScale,
-      updateHighlightedAgencies,
-    });
-
-    updateAverageLine({
-      nationalAverageGroup,
-      nationalAverage,
-      nationalAverageText,
-      xScale,
-      padding,
-    });
+    if (currentScale === 'national') {
+      updateNational({
+        bars,
+        changeColorScale,
+        nationalMapData,
+        bucketCount,
+        padding,
+        width,
+        height,
+        xAxis,
+        nationalAverageGroup,
+        nationalAverageText,
+        yAxis,
+        updateHighlightedAgencies,
+        nationalDataView,
+      });
+    } else if (currentScale === 'msa') {
+      updateMSA();
+    }
 
     return this;
   }
