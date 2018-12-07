@@ -169,6 +169,7 @@ class Histogram {
       nationalAverageText,
       yAxis,
       updateHighlightedAgencies,
+      nationalDataView,
     } = privateProps.get(this);
 
     const {
@@ -177,6 +178,7 @@ class Histogram {
     } = getHistogramData({
       nationalMapData,
       bucketCount,
+      nationalDataView,
     });
 
     const { yScale, xScale } = getScales({
