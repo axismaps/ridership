@@ -183,6 +183,21 @@ const dataMethods = {
       },
     ];
 
+    const distanceFilters = [
+      {
+        text: '0.5 miles',
+        value: 0.5,
+      },
+      {
+        text: '1.0 miles',
+        value: 1,
+      },
+      {
+        text: '1.5 miles',
+        value: 1.5,
+      },
+    ];
+
     const data = new Map();
 
     data.set('msa', msa);
@@ -196,8 +211,9 @@ const dataMethods = {
     data.set('cachedTractGeoJSON', new Map());
     data.set('cachedTractData', new Map());
     data.set('censusFields', censusFields);
+    data.set('distanceFilters', distanceFilters);
     console.log('data', data);
-    console.log('fields', data.get('censusFields'));
+
     return data;
   },
   getAllNationalMapData({

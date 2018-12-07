@@ -3,6 +3,7 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
     layout,
     msaAtlas,
     censusDropdown,
+    distanceDropdown,
   } = components;
 
   const scale = this.get('scale');
@@ -14,6 +15,9 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
     .updateScale();
 
   censusDropdown
+    .resetMenuPosition();
+
+  distanceDropdown
     .resetMenuPosition();
 
   msaAtlas

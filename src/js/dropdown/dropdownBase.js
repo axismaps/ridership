@@ -53,21 +53,34 @@ const getDropdownPrivateBase = ({
     const {
       toggleButton,
       contentOuterContainer,
+      alignMenuToButton,
     } = privateProps.get(this);
     const {
       left,
       top,
       height,
+      width,
     } = toggleButton.node().getBoundingClientRect();
 
     const menuMargin = 10;
 
+    console.log('pos?', toggleButton.node().getBoundingClientRect(), alignMenuToButton);
+
     contentOuterContainer
       .styles({
         position: 'absolute',
-        left: `${left}px`,
         top: `${top + height + menuMargin}px`,
       });
+
+    if (alignMenuToButton === 'right') {
+      contentOuterContainer
+        .style('right', `${window.innerWidth - left - width}px`);
+    } else {
+      contentOuterContainer
+        .styles({
+          left: `${left}px`,
+        });
+    }
   },
 });
 

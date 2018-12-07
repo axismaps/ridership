@@ -10,6 +10,7 @@ import getHistogram from './getComponents/getHistogram';
 import getMSADropdown from './getComponents/getMSADropdown';
 import getLayout from './getComponents/getLayout';
 import getCensusDropdown from './getComponents/getCensusDropdown';
+import getDistanceDropdown from './getComponents/getDistanceDropdown';
 import initStateUpdateListeners from './stateUpdate/stateUpdate';
 
 require('../scss/index.scss');
@@ -40,6 +41,7 @@ const app = {
     components.histogram = getHistogram({ state, data });
     components.msaAtlas = getMSAAtlas({ state, data });
     components.censusDropdown = getCensusDropdown({ state, data });
+    components.distanceDropdown = getDistanceDropdown({ state, data });
   },
   initStateUpdateListeners() {
     const { components, data } = this;
