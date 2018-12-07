@@ -35,6 +35,8 @@ const privateMethods = {
     const {
       parallelButtonContainer,
       sparkLineButtonContainer,
+      compareContainer,
+      updateComparedAgencies,
     } = props;
     const {
       drawContent,
@@ -54,6 +56,9 @@ const privateMethods = {
       .on('click', () => {
         setNewView('sparklines');
       });
+
+    compareContainer.select('.sidebar__compare-clear-button')
+      .on('click', () => updateComparedAgencies([]));
   },
   setTopButtonStatus() {
     const {
@@ -69,11 +74,14 @@ const privateMethods = {
   drawNationalContent() {
     const {
       currentSidebarView,
+      comparedAgencies,
     } = privateProps.get(this);
     const {
       drawNationalSparkLines,
       drawNationalParallelPlot,
+      drawNationalCompareList,
     } = privateMethods;
+    drawNationalCompareList.call(this);
     if (currentSidebarView === 'sparklines') {
       drawNationalSparkLines.call(this);
     } else {
@@ -82,6 +90,44 @@ const privateMethods = {
   },
   drawMSAContent() {
     console.log('draw msa sidebar');
+  },
+  drawNationalCompareList() {
+    const props = privateProps.get(this);
+
+    const {
+      comparedAgencies,
+      updateComparedAgencies,
+      compareContainer,
+      updateHighlightedAgencies,
+    } = props;
+
+    const rows = compareContainer.select('.sidebar__compare-rows')
+      .selectAll('.sidebar__compare-row')
+      .data(comparedAgencies, d => d.taId);
+    const newRows = rows
+      .enter()
+      .append('div')
+      .attr('class', 'sidebar__compare-row')
+      .on('mouseover', d => updateHighlightedAgencies([d]))
+      .on('mouseout', () => updateHighlightedAgencies([]))
+      .text(d => d.taName);
+    newRows.append('i')
+      .attr('class', 'fa fa-times');
+
+    newRows.merge(rows)
+      .select('i')
+      .on('click', (d) => {
+        const others = comparedAgencies.slice()
+          .filter(a => a.taId !== d.taId);
+        updateComparedAgencies(others);
+        compareContainer.selectAll('.sidebar__compare-row')
+          .filter(rowData => rowData.taName === d.taName)
+          .remove();
+      });
+
+    rows.exit().remove();
+
+    compareContainer.classed('visible', comparedAgencies.length > 0);
   },
   drawNationalSparkLines() {
     const props = privateProps.get(this);
@@ -265,6 +311,7 @@ class Sidebar {
 
     const {
       drawContent,
+      drawNationalCompareList,
     } = privateMethods;
 
     if (currentSidebarView === 'parallel') {
@@ -273,6 +320,7 @@ class Sidebar {
           agenciesData,
         })
         .updateData();
+      drawNationalCompareList.call(this);
     } else {
       drawContent.call(this);
     }

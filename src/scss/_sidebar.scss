@@ -174,3 +174,34 @@ path.pcp-line:hover, path.pcp-line.highlight {
   stroke-opacity: 1;
   stroke-width: 2;
 }
+
+.sidebar__compare-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.sidebar__compare-list {
+  display: none;
+}
+
+.sidebar__compare-list.visible {
+  display: block;
+}
+
+.sidebar__compare-row .fa-times {
+  color: #666;
+  cursor: pointer;
+}
+
+.sidebar__compare-clear-button {
+  border-radius: 5px;
+  background-color: #F5F5F5;
+  margin: 20px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}

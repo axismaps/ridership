@@ -11,6 +11,7 @@ const getSidebar = ({ data, state }) => new Sidebar({
   comparedAgencies: state.get('comparedAgencies'),
   currentScale: state.get('scale'),
   contentContainer: d3.select('.sidebar__content'),
+  compareContainer: d3.select('.sidebar__compare-list'),
   topRowContainer: d3.select('.sidebar__top-row'),
   parallelButtonContainer: d3.select('.sidebar__parallel-button'),
   sparkLineButtonContainer: d3.select('.sidebar__sparkline-button'),
@@ -33,6 +34,16 @@ const getSidebar = ({ data, state }) => new Sidebar({
     } else {
       state.update({ expandedIndicator: newExpanded });
     }
+  },
+  updateComparedAgencies: (newCompare) => {
+    const comparedAgencies = state.get('comparedAgencies');
+    let matches = newCompare.length === comparedAgencies.length;
+    if (matches) {
+      newCompare.forEach((ta, i) => {
+        if (comparedAgencies[i].taId !== ta.taId) matches = false;
+      });
+    }
+    state.update({ comparedAgencies: matches ? [] : newCompare });
   },
 });
 
