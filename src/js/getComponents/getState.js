@@ -23,7 +23,7 @@ const getState = ({ data }) => {
 
     const years = this.get('years');
 
-    const indicator = this.get('indicator').value;
+    const indicator = this.get('indicator');
     const inYears = d => d.year >= years[0] && d.year <= years[1];
 
     return nationalMapData.map((msa) => {
@@ -49,8 +49,8 @@ const getState = ({ data }) => {
           // const ntdRecords = agency.ntd.filter(inYears);
           const ntd2017 = agency.ntd.find(d => d.year === 2017);
 
-          const firstRecord = agency.ntd.find(d => d.year === years[0])[indicator];
-          const lastRecord = agency.ntd.find(d => d.year === years[1])[indicator];
+          const firstRecord = agency.ntd.find(d => d.year === years[0])[indicator.value];
+          const lastRecord = agency.ntd.find(d => d.year === years[1])[indicator.value];
 
           const noRecord = d => [0, null].includes(d);
 
@@ -73,6 +73,20 @@ const getState = ({ data }) => {
           return agencyCopy;
         })
         .filter(agency => agency.uptTotal !== 0);
+
+      const msaFirstRecords = msa.ta.map(ta => ta.ntd.find(d => d.year === years[0])[indicator.value])
+        .filter(d => d !== null);
+      const msaLastRecords = msa.ta.map(ta => ta.ntd.find(d => d.year === years[1])[indicator.value])
+        .filter(d => d !== null);
+      if (msaFirstRecords.length > 0 && msaLastRecords.length > 0) {
+        const summaries = [
+          d3[indicator.summaryType](msaFirstRecords),
+          d3[indicator.summaryType](msaLastRecords),
+        ];
+        msaCopy.pctChange = 100 * (summaries[1] - summaries[0]) / summaries[0];
+      } else {
+        msaCopy.pctChange = null;
+      }
       return msaCopy;
     })
       .filter(msa => msa.ta.length > 0);
