@@ -329,7 +329,7 @@ const histogramFunctions = {
       nationalDataView,
     });
 
-    console.log('histogramData', histogramData);
+    // console.log('histogramData', histogramData);
 
     const { yScale, xScale } = getScales({
       padding,

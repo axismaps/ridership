@@ -12,7 +12,6 @@ const privateMethods = {
       msa,
       tractGeo,
       currentCensusField,
-      distanceFilter,
     } = props;
 
     if (scale === 'national') return;
@@ -22,7 +21,6 @@ const privateMethods = {
     } = msaAtlasFunctions;
 
     const msaAtlas = drawAtlas({
-      distanceFilter,
       msaMapContainer,
       msa,
       tractGeo,
@@ -73,7 +71,6 @@ class MSAAtlas {
       tractGeo,
       currentCensusField,
       msa,
-      distanceFilter,
     } = privateProps.get(this);
     const {
       init,
@@ -89,7 +86,6 @@ class MSAAtlas {
     } = msaAtlasFunctions;
 
     initSite({
-      distanceFilter,
       msa,
       msaAtlas,
       tractGeo,
@@ -103,7 +99,6 @@ class MSAAtlas {
       loaded,
       tractGeo,
       currentCensusField,
-      distanceFilter,
     } = privateProps.get(this);
     const {
       init,
@@ -119,7 +114,6 @@ class MSAAtlas {
     } = msaAtlasFunctions;
 
     drawTracts({
-      distanceFilter,
       msaAtlas,
       tractGeo,
       currentCensusField,

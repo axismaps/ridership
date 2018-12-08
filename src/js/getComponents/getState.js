@@ -1,4 +1,5 @@
 import State from '../state/state';
+import getGetCurrentTractGeo from '../state/stateGetCurrentTractGeoJSON';
 
 const getState = ({ data }) => {
   const state = new State({
@@ -17,6 +18,13 @@ const getState = ({ data }) => {
     expandedIndicator: null,
     comparedAgencies: [],
   });
+
+  Object.assign(
+    state,
+    {
+      getCurrentTractGeo: getGetCurrentTractGeo({ data }),
+    },
+  );
 
   state.getCurrentNationalMapData = function getCurrentNationalMapData() {
     const nationalMapData = data.get('allNationalMapData');

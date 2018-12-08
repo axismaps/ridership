@@ -1,29 +1,14 @@
-import getCurrentTractData from '../data/dataTractMethods';
-
-const getStateUpdateMSA = ({ components, data }) => function updateMSA() {
+const getStateUpdateMSA = ({ components }) => function updateMSA() {
   const msa = this.get('msa');
-  const years = this.get('years');
-  const distanceFilter = this.get('distanceFilter');
-  const censusField = this.get('censusField');
+  const { msaAtlas } = components;
 
-  getCurrentTractData({
-    msa,
-    years,
-    data,
-    distanceFilter,
-    censusField,
-    updateComponents(tractGeo) {
-      const {
-        msaAtlas,
-      } = components;
-
-      msaAtlas
-        .config({
-          msa,
-          tractGeo,
-        })
-        .updateMSA();
-    },
+  this.getCurrentTractGeo((tractGeo) => {
+    msaAtlas
+      .config({
+        msa,
+        tractGeo,
+      })
+      .updateMSA();
   });
 };
 

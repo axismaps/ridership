@@ -4,7 +4,6 @@ const msaAtlasFunctions = {
     msa,
     tractGeo,
     currentCensusField,
-    distanceFilter,
   }) {
     const {
       initSite,
@@ -17,7 +16,7 @@ const msaAtlasFunctions = {
     })
       .on('load', () => {
         initSite({
-          distanceFilter,
+
           msaAtlas,
           msa,
           tractGeo,
@@ -30,7 +29,6 @@ const msaAtlasFunctions = {
     return msaAtlas;
   },
   initSite({
-    distanceFilter,
     msaAtlas,
     msa,
     tractGeo,
@@ -46,7 +44,7 @@ const msaAtlasFunctions = {
       msa,
     });
     drawTracts({
-      distanceFilter,
+
       msaAtlas,
       tractGeo,
       currentCensusField,
@@ -72,20 +70,8 @@ const msaAtlasFunctions = {
     msaAtlas,
     tractGeo,
     currentCensusField,
-    // distanceFilter,
-  }) {
-    // const tractGeoFiltered = Object.assign({}, tractGeo);
-    // tractGeoFiltered.features = tractGeo.features.filter((d) => {
-    //   const isDefined = d.properties[`${currentCensusField.value}-color`] !== null
-    //   && d.properties[`${currentCensusField.value}-color`] !== undefined;
-    //   const inDistance = distanceFilter === null ? true
-    //     : d.properties.dist <= distanceFilter.value;
-    //   return isDefined && inDistance;
-    // });
-    // tractGeoFiltered.features.forEach((d) => {
-    //   console.log(d.properties.dist);
-    // });
 
+  }) {
     const currentTractSource = msaAtlas.getSource('tracts');
     if (currentTractSource === undefined) {
       msaAtlas.addSource('tracts', {
