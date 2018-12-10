@@ -254,9 +254,16 @@ const histogramFunctions = {
     });
 
     nationalAverageGroup
+      .style('opacity', 1)
       .transition()
       .duration(500)
       .attr('transform', `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`);
+  },
+  hideAverageLine({
+    nationalAverageGroup,
+  }) {
+    nationalAverageGroup
+      .style('opacity', 0);
   },
   updateAxes({
     xScale,
@@ -329,8 +336,6 @@ const histogramFunctions = {
       nationalDataView,
     });
 
-    console.log('histogramData', histogramData);
-
     const { yScale, xScale } = getScales({
       padding,
       histogramData,
@@ -368,10 +373,9 @@ const histogramFunctions = {
     bucketCount,
     currentCensusField,
   }) {
-    console.log('currentCensusField', currentCensusField);
     const tracts = tractGeo.features.map(d => d.properties);
-    const changeSpan = d3.extent(tracts, d => d[currentCensusField.value]);
-    console.log('changeSpan', changeSpan);
+    const changeSpan = d3.extent(tracts, d => d[currentCensusField.value] * 100);
+
     const bucketSize = (changeSpan[1] - changeSpan[0]) / bucketCount;
     const msaHistogramData = new Array(bucketCount)
       .fill(null)
@@ -383,11 +387,11 @@ const histogramFunctions = {
         const records = tracts
           .filter((tract) => {
             if (i === 0) {
-              return tract[currentCensusField.value] >= bucket[0]
-                && tract[currentCensusField.value] - bucket[1] <= 0.00001;
+              return tract[currentCensusField.value] * 100 >= bucket[0]
+                && tract[currentCensusField.value] * 100 - bucket[1] <= 0.00001;
             }
-            return tract[currentCensusField.value] > bucket[0]
-              && tract[currentCensusField.value] - bucket[1] <= 0.00001;
+            return tract[currentCensusField.value] * 100 > bucket[0]
+              && tract[currentCensusField.value] * 100 - bucket[1] <= 0.00001;
           });
         // const bucket = {};
         // bucket.index = i;
@@ -404,17 +408,54 @@ const histogramFunctions = {
     tractGeo,
     bucketCount,
     currentCensusField,
+    padding,
+    width,
+    height,
+    xAxis,
+    yAxis,
+    bars,
+    nationalAverageGroup,
+    changeColorScale,
   }) {
     const {
       getMSAHistogramData,
+      getScales,
+      updateAxes,
+      updateBars,
+      hideAverageLine,
     } = histogramFunctions;
-    const msaHistogramData = getMSAHistogramData({
+    const histogramData = getMSAHistogramData({
       tractGeo,
       bucketCount,
       currentCensusField,
     });
-    console.log('UPDATE MSA HISTOGRAM', tractGeo);
-    console.log('msaHistogramData', msaHistogramData);
+
+    const { yScale, xScale } = getScales({
+      padding,
+      histogramData,
+      width,
+      height,
+    });
+
+    updateAxes({
+      xScale,
+      yScale,
+      xAxis,
+      yAxis,
+    });
+
+    updateBars({
+      bars,
+      histogramData,
+      yScale,
+      changeColorScale,
+      height,
+      padding,
+    });
+
+    hideAverageLine({
+      nationalAverageGroup,
+    });
   },
 };
 

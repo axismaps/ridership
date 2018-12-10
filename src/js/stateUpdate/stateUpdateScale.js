@@ -30,6 +30,10 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
     .config({
       currentScale: scale,
     });
+
+  if (scale === 'national') {
+    histogram.updateData();
+  }
 };
 
 export default getStateUpdateScale;

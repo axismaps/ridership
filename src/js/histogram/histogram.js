@@ -196,6 +196,14 @@ class Histogram {
         tractGeo,
         bucketCount,
         currentCensusField,
+        padding,
+        width,
+        height,
+        xAxis,
+        yAxis,
+        bars,
+        changeColorScale,
+        nationalAverageGroup,
       });
     }
 
