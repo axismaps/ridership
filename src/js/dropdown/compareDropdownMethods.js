@@ -9,25 +9,54 @@ const pureMethods = {
       .sort((a, b) => b.ntd[b.ntd.length - 1].upt - a.ntd[a.ntd.length - 1].upt)
       .slice(0, 10);
 
+    // for the moment, this is actually MSAs by ridership
+    const msaByPop = nationalMapData.map((msa) => {
+      const msaCopy = Object.assign({}, msa);
+      msaCopy.population = d3.sum(msa.ta, ta => ta.ntd[ta.ntd.length - 1].upt);
+      return msaCopy;
+    })
+      .sort((a, b) => b.population - a.population)
+      .slice(0, 10);
+
     const compareList = [
       {
         text: 'Top 10 agencies by ridership',
         data: agenciesByRidership,
+        nationalDataView: 'ta',
+      },
+      {
+        text: 'Top 10 MSAs by population',
+        data: msaByPop,
+        nationalDataView: 'msa',
       },
     ];
 
     const compareRows = contentContainer
       .selectAll('.compare-dropdown__content-row')
-      .data(compareList)
+      .data(compareList);
+    const newRows = compareRows
       .enter()
       .append('div')
       .attrs({
         class: 'compare-dropdown__content-row',
       })
-      .text(d => d.text)
-      .on('click', d => updateComparedAgencies(d.data));
+      .text(d => d.text);
 
-    return compareRows;
+    newRows.merge(compareRows)
+      .on('click', d => updateComparedAgencies(d));
+
+    contentContainer.append('div')
+      .datum({ data: [] })
+      .attrs({
+        class: 'compare-dropdown__content-row',
+      })
+      .html('<i class="fa fa-mouse-pointer"></i> Select your own')
+      .on('click', () => {
+        // activate manual compare mode
+      });
+
+    return contentContainer
+      .selectAll('.compare-dropdown__content-row');
   },
 
   setButtonText({
@@ -42,10 +71,10 @@ const pureMethods = {
   }) {
     compareRows
       .classed('compare-dropdown__content-row--highlighted', (d) => {
-        let matches = d.data.length === comparedAgencies.length;
+        let matches = d.data.length === comparedAgencies.length && d.text !== undefined;
         if (matches) {
           d.data.forEach((ta, i) => {
-            if (comparedAgencies[i].taId !== ta.taId) matches = false;
+            if (comparedAgencies[i].globalId !== ta.globalId) matches = false;
           });
         }
         return matches;
