@@ -3,6 +3,7 @@ const getStateUpdateCensusField = ({ components }) => function updateCensusField
   const {
     censusDropdown,
     msaAtlas,
+    histogram,
   } = components;
 
   censusDropdown
@@ -13,6 +14,12 @@ const getStateUpdateCensusField = ({ components }) => function updateCensusField
 
   this.getCurrentTractGeo((tractGeo) => {
     msaAtlas
+      .config({
+        currentCensusField: censusField,
+        tractGeo,
+      })
+      .updateData();
+    histogram
       .config({
         currentCensusField: censusField,
         tractGeo,

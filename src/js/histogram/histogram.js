@@ -164,12 +164,16 @@ class Histogram {
       updateHighlightedAgencies,
       nationalDataView,
       currentScale,
+      tractGeo,
+      currentCensusField,
     } = privateProps.get(this);
 
     const {
       updateNational,
       updateMSA,
     } = histogramFunctions;
+
+    console.log('currentScale', currentScale);
 
     if (currentScale === 'national') {
       updateNational({
@@ -188,7 +192,11 @@ class Histogram {
         nationalDataView,
       });
     } else if (currentScale === 'msa') {
-      updateMSA();
+      updateMSA({
+        tractGeo,
+        bucketCount,
+        currentCensusField,
+      });
     }
 
     return this;

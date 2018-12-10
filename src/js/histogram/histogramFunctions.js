@@ -329,7 +329,7 @@ const histogramFunctions = {
       nationalDataView,
     });
 
-    // console.log('histogramData', histogramData);
+    console.log('histogramData', histogramData);
 
     const { yScale, xScale } = getScales({
       padding,
@@ -363,8 +363,58 @@ const histogramFunctions = {
       padding,
     });
   },
-  updateMSA() {
-    console.log('UPDATE MSA HISTOGRAM');
+  getMSAHistogramData({
+    tractGeo,
+    bucketCount,
+    currentCensusField,
+  }) {
+    console.log('currentCensusField', currentCensusField);
+    const tracts = tractGeo.features.map(d => d.properties);
+    const changeSpan = d3.extent(tracts, d => d[currentCensusField.value]);
+    console.log('changeSpan', changeSpan);
+    const bucketSize = (changeSpan[1] - changeSpan[0]) / bucketCount;
+    const msaHistogramData = new Array(bucketCount)
+      .fill(null)
+      .map((d, i) => {
+        const bucket = [
+          changeSpan[0] + (i * bucketSize),
+          changeSpan[0] + (i * bucketSize) + bucketSize,
+        ];
+        const records = tracts
+          .filter((tract) => {
+            if (i === 0) {
+              return tract[currentCensusField.value] >= bucket[0]
+                && tract[currentCensusField.value] <= bucket[1];
+            }
+            return tract[currentCensusField.value] > bucket[0]
+              && tract[currentCensusField.value] <= bucket[1];
+          });
+        // const bucket = {};
+        // bucket.index = i;
+        return {
+          bucket,
+          records,
+          count: records.length,
+          index: i,
+        };
+      });
+    return msaHistogramData;
+  },
+  updateMSA({
+    tractGeo,
+    bucketCount,
+    currentCensusField,
+  }) {
+    const {
+      getMSAHistogramData,
+    } = histogramFunctions;
+    const msaHistogramData = getMSAHistogramData({
+      tractGeo,
+      bucketCount,
+      currentCensusField,
+    });
+    console.log('UPDATE MSA HISTOGRAM', tractGeo);
+    console.log('msaHistogramData', msaHistogramData);
   },
 };
 

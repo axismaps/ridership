@@ -4,6 +4,7 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
     msaAtlas,
     censusDropdown,
     distanceDropdown,
+    histogram,
   } = components;
 
   const scale = this.get('scale');
@@ -23,6 +24,11 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
   msaAtlas
     .config({
       scale,
+    });
+
+  histogram
+    .config({
+      currentScale: scale,
     });
 };
 

@@ -4,7 +4,7 @@ const getStateUpdateDistanceFilter = ({ components }) => function updateDistance
     msaAtlas,
   } = components;
   const distanceFilter = this.get('distanceFilter');
-  const msa = this.get('msa');
+  // const msa = this.get('msa');
 
   distanceDropdown
     .config({
