@@ -1,5 +1,5 @@
 import State from '../state/state';
-import getGetCurrentTractGeo from '../state/stateGetCurrentTractGeoJSON';
+import getGetCurrentTractGeo from '../stateMethods/stateGetCurrentTractGeoJSON';
 
 const getState = ({ data }) => {
   const state = new State({
