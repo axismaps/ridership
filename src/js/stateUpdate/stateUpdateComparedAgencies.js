@@ -1,4 +1,4 @@
-const getStateUpdateHighlightedAgencies = ({ components }) => function updateHighlightedAgencies() {
+const getStateUpdateComparedAgencies = ({ components }) => function updateComparedAgencies() {
   const {
     atlas,
     histogram,
@@ -35,4 +35,4 @@ const getStateUpdateHighlightedAgencies = ({ components }) => function updateHig
     .updateData();
 };
 
-export default getStateUpdateHighlightedAgencies;
+export default getStateUpdateComparedAgencies;

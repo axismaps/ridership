@@ -3,6 +3,7 @@ const pureMethods = {
     nationalMapData,
     contentContainer,
     updateComparedAgencies,
+    updateNationalDataView,
   }) {
     const agenciesByRidership = nationalMapData.map(msa => msa.ta)
       .reduce((accumulator, ta) => [...accumulator, ...ta], [])
@@ -43,7 +44,10 @@ const pureMethods = {
       .text(d => d.text);
 
     newRows.merge(compareRows)
-      .on('click', d => updateComparedAgencies(d));
+      .on('click', (d) => {
+        updateNationalDataView(d.nationalDataView);
+        updateComparedAgencies(d.data);
+      });
 
     contentContainer.append('div')
       .datum({ data: [] })
@@ -57,12 +61,6 @@ const pureMethods = {
 
     return contentContainer
       .selectAll('.compare-dropdown__content-row');
-  },
-
-  setButtonText({
-    toggleButtonText,
-  }) {
-    toggleButtonText.text('Compare');
   },
 
   highlightCurrent({

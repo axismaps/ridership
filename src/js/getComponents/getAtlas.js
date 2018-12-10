@@ -10,6 +10,8 @@ const getAtlas = ({ data, state }) => new Atlas({
   msa: state.get('msa'),
   changeColorScale: data.get('changeColorScale'),
   nationalDataView: state.get('nationalDataView'),
+  compareMode: state.get('compareMode'),
+  comparedAgencies: state.get('comparedAgencies'),
   jumpToMsa: (agency) => {
     const msa = data.get('msa')
       .find(d => d.msaId === agency.msaId);

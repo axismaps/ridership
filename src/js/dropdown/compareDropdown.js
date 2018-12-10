@@ -10,9 +10,10 @@ const privateMethods = {
     const {
       contentContainer,
       updateComparedAgencies,
-      toggleButtonText,
       nationalMapData,
       comparedAgencies,
+      toggleButton,
+      updateNationalDataView,
     } = props;
 
     const {
@@ -23,7 +24,6 @@ const privateMethods = {
 
     const {
       drawContent,
-      setButtonText,
       highlightCurrent,
     } = pureMethods;
 
@@ -31,6 +31,7 @@ const privateMethods = {
       nationalMapData,
       updateComparedAgencies,
       contentContainer,
+      updateNationalDataView,
     });
 
     highlightCurrent({
@@ -43,8 +44,8 @@ const privateMethods = {
     setMenuToggleEvents.call(this);
     setContentVisibility.call(this);
 
-    setButtonText({
-      toggleButtonText,
+    toggleButton.select('.fa-times-circle').on('click', () => {
+      updateComparedAgencies([]);
     });
 
     setContentPosition.call(this);
@@ -72,23 +73,28 @@ class CompareDropdown {
   update() {
     const {
       highlightCurrent,
-      setButtonText,
     } = pureMethods;
     const {
       comparedAgencies,
       compareRows,
-      toggleButtonText,
+      compareMode,
     } = privateProps.get(this);
+
+    const {
+      setMenuToggleEvents,
+      removeMenuToggleEvents,
+    } = privateMethods;
 
     highlightCurrent({
       compareRows,
       comparedAgencies,
     });
 
-
-    setButtonText({
-      toggleButtonText,
-    });
+    if (compareMode === true) {
+      removeMenuToggleEvents.call(this);
+    } else {
+      setMenuToggleEvents.call(this);
+    }
   }
 }
 

@@ -17,6 +17,7 @@ const getState = ({ data }) => {
     highlightedAgencies: [], // agencies highlighted on map/histogram/chart(s) mouseover,
     expandedIndicator: null,
     comparedAgencies: [],
+    compareMode: false,
   });
 
   Object.assign(

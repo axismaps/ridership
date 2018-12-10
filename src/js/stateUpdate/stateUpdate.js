@@ -3,6 +3,7 @@ import getStateUpdateIndicator from './stateUpdateIndicator';
 import getStateUpdateScale from './stateUpdateScale';
 import getStateUpdateHighlightedAgencies from './stateUpdateHighlightedAgencies';
 import getStateUpdateComparedAgencies from './stateUpdateComparedAgencies';
+import getStateUpdateCompareMode from './stateUpdateCompareMode';
 import getStateUpdateExpandedIndicator from './stateUpdateExpandedIndicator';
 import getStateUpdateMSA from './stateUpdateMSA';
 import getStateUpdateCensusField from './stateUpdateCensusField';
@@ -20,6 +21,7 @@ const initStateUpdateListeners = ({ components, data }) => {
     highlightedAgencies: getStateUpdateHighlightedAgencies({ components, data }),
     expandedIndicator: getStateUpdateExpandedIndicator({ components, data }),
     comparedAgencies: getStateUpdateComparedAgencies({ components, data }),
+    compareMode: getStateUpdateCompareMode({ components }),
     censusField: getStateUpdateCensusField({ components, data }),
     distanceFilter: getStateUpdateDistanceFilter({ components, data }),
     nationalDataView: getStateUpdateNationalDataView({ components }),

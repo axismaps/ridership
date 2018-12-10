@@ -46,6 +46,9 @@ const getSidebar = ({ data, state }) => new Sidebar({
     }
     state.update({ comparedAgencies: matches ? [] : newCompare });
   },
+  updateCompareMode: (compareMode) => {
+    state.update({ compareMode });
+  },
 });
 
 export default getSidebar;
