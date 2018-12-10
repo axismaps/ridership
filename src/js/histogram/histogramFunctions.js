@@ -113,6 +113,35 @@ const histogramFunctions = {
         height: `${height}px`,
       });
   },
+  addNationalBarMouseEvents({
+    bars,
+    updateHighlightedAgencies,
+    dataProbe,
+  }) {
+    bars.on('mouseover', (d) => {
+      updateHighlightedAgencies(d.records);
+      const { clientX, clientY } = d3.event;
+      const pos = {
+        left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+        bottom: window.innerHeight - clientY + 10,
+        width: 250,
+      };
+      const html = `
+        <div class="data-probe__row"><span class="data-probe__field">${d.records.length} transit authorit${d.records.length > 1 ? 'ies' : 'y'}</span></div>
+        <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' – ')}</div>
+      `;
+      dataProbe
+        .config({
+          pos,
+          html,
+        })
+        .draw();
+    })
+      .on('mouseout', () => {
+        updateHighlightedAgencies([]);
+        dataProbe.remove();
+      });
+  },
   drawBars({
     svg,
     xScale,
@@ -125,11 +154,16 @@ const histogramFunctions = {
     updateHighlightedAgencies,
     dataProbe,
   }) {
+    const {
+      addNationalBarMouseEvents,
+    } = histogramFunctions;
+
+
     const count = histogramData.length;
 
     const rectWidth = ((xScale.range()[1] - xScale.range()[0]) / count) - barSpacing;
 
-    return svg
+    const bars = svg
       .selectAll('.histogram__bar')
       .data(histogramData, d => d.index)
       .enter()
@@ -142,30 +176,15 @@ const histogramFunctions = {
         fill: d => changeColorScale((d.bucket[1] + d.bucket[0]) / 2),
         stroke: '#999999',
         'stroke-width': 1,
-      })
-      .on('mouseover', (d) => {
-        updateHighlightedAgencies(d.records);
-        const { clientX, clientY } = d3.event;
-        const pos = {
-          left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
-          bottom: window.innerHeight - clientY + 10,
-          width: 250,
-        };
-        const html = `
-          <div class="data-probe__row"><span class="data-probe__field">${d.records.length} transit authorit${d.records.length > 1 ? 'ies' : 'y'}</span></div>
-          <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' – ')}</div>
-        `;
-        dataProbe
-          .config({
-            pos,
-            html,
-          })
-          .draw();
-      })
-      .on('mouseout', () => {
-        updateHighlightedAgencies([]);
-        dataProbe.remove();
       });
+
+    addNationalBarMouseEvents({
+      bars,
+      updateHighlightedAgencies,
+      dataProbe,
+    });
+
+    return bars;
   },
   drawAxes({
     xScale,
@@ -207,6 +226,7 @@ const histogramFunctions = {
 
     const nationalAverageGroup = svg
       .append('g')
+      .style('pointer-events', 'none')
       .attr('transform', `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`);
 
     const nationalAverageText = nationalAverageGroup
@@ -292,6 +312,7 @@ const histogramFunctions = {
     height,
     padding,
   }) {
+    console.log('UPDATE BARS');
     bars
       .data(histogramData, d => d.index)
       .transition()
@@ -318,6 +339,7 @@ const histogramFunctions = {
     yAxis,
     updateHighlightedAgencies,
     nationalDataView,
+    dataProbe,
   }) {
     const {
       getHistogramData,
@@ -325,6 +347,7 @@ const histogramFunctions = {
       getScales,
       updateAxes,
       updateAverageLine,
+      addNationalBarMouseEvents,
     } = histogramFunctions;
 
     const {
@@ -358,6 +381,13 @@ const histogramFunctions = {
       yScale,
       changeColorScale,
       updateHighlightedAgencies,
+      dataProbe,
+    });
+
+    addNationalBarMouseEvents({
+      bars,
+      updateHighlightedAgencies,
+      dataProbe,
     });
 
     updateAverageLine({
@@ -404,6 +434,32 @@ const histogramFunctions = {
       });
     return msaHistogramData;
   },
+  addMSABarMouseEvents({
+    bars,
+    dataProbe,
+  }) {
+    bars.on('mouseover', (d) => {
+      const { clientX, clientY } = d3.event;
+      const pos = {
+        left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+        bottom: window.innerHeight - clientY + 10,
+        width: 250,
+      };
+      const html = `
+        <div class="data-probe__row"><span class="data-probe__field">${d.records.length} census tract${d.records.length !== 1 ? 's' : ''}</span></div>
+        <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' – ')}</div>
+      `;
+      dataProbe
+        .config({
+          pos,
+          html,
+        })
+        .draw();
+    })
+      .on('mouseout', () => {
+        dataProbe.remove();
+      });
+  },
   updateMSA({
     tractGeo,
     bucketCount,
@@ -416,6 +472,7 @@ const histogramFunctions = {
     bars,
     nationalAverageGroup,
     changeColorScale,
+    dataProbe,
   }) {
     const {
       getMSAHistogramData,
@@ -423,6 +480,7 @@ const histogramFunctions = {
       updateAxes,
       updateBars,
       hideAverageLine,
+      addMSABarMouseEvents,
     } = histogramFunctions;
     const histogramData = getMSAHistogramData({
       tractGeo,
@@ -451,6 +509,11 @@ const histogramFunctions = {
       changeColorScale,
       height,
       padding,
+    });
+
+    addMSABarMouseEvents({
+      bars,
+      dataProbe,
     });
 
     hideAverageLine({

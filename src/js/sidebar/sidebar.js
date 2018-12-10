@@ -148,6 +148,7 @@ const privateMethods = {
       drawSparkLineTitles,
       drawSparkLines,
     } = pureFunctions;
+    console.log('drawNationalSparklines', indicatorSummaries);
 
     const sparkRows = drawSparkLineRows({
       contentContainer,
