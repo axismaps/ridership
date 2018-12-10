@@ -135,15 +135,20 @@
   margin: 0;
 }
 
+.sidebar__pcp-container {
+  white-space: nowrap;
+}
+
 .sidebar__pcp-container .sidebar__pcp-labels, .sidebar__pcp-container .sidebar__pcp-svg,  {
   display: inline-block;
   vertical-align: top;
 }
 
 .sidebar__pcp-row {
-  width: 200px;
+  width:180px;
   display: flex;
   align-items: center;
+  white-space: normal;
 }
 
 .sidebar__pcp-row:hover {
