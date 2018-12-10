@@ -19,7 +19,8 @@ const getStateUpdateCompareMode = ({ components }) => function updateCompareMode
   atlas
     .config({
       compareMode,
-    });
+    })
+    .updateInteractions();
 
   histogram
     .config({

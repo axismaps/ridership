@@ -4,6 +4,7 @@ const pureMethods = {
     contentContainer,
     updateComparedAgencies,
     updateNationalDataView,
+    updateCompareMode,
   }) {
     const agenciesByRidership = nationalMapData.map(msa => msa.ta)
       .reduce((accumulator, ta) => [...accumulator, ...ta], [])
@@ -57,6 +58,7 @@ const pureMethods = {
       .html('<i class="fa fa-mouse-pointer"></i> Select your own')
       .on('click', () => {
         // activate manual compare mode
+        updateCompareMode(true);
       });
 
     return contentContainer

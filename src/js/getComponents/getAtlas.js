@@ -26,6 +26,9 @@ const getAtlas = ({ data, state }) => new Atlas({
     const highlights = newHighlight || [];
     state.update({ highlightedAgencies: highlights });
   },
+  updateComparedAgencies: (comparedAgencies) => {
+    state.update({ comparedAgencies });
+  },
 });
 
 export default getAtlas;

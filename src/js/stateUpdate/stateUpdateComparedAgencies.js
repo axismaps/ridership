@@ -7,6 +7,7 @@ const getStateUpdateComparedAgencies = ({ components }) => function updateCompar
   } = components;
 
   const comparedAgencies = this.get('comparedAgencies');
+  const compareMode = this.get('compareMode');
   const indicatorSummaries = this.getCurrentIndicatorSummaries();
   const agenciesData = this.getCurrentAgenciesData();
 
@@ -18,8 +19,10 @@ const getStateUpdateComparedAgencies = ({ components }) => function updateCompar
 
   atlas
     .config({
+      compareMode,
       comparedAgencies,
-    });
+    })
+    .updateInteractions();
 
   histogram
     .config({

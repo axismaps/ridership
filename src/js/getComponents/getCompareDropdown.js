@@ -23,6 +23,9 @@ const getCompareDropdown = ({ state, data }) => new CompareDropdown({
       state.update({ nationalDataView: newView });
     }
   },
+  updateCompareMode: (compareMode) => {
+    state.update({ compareMode });
+  },
   dropdownOpen: false,
   toggleButton: d3.select('.atlas__compare-dropdown-button'),
   toggleButtonText: d3.select('.atlas__compare-dropdown-button-text'),

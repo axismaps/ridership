@@ -74,35 +74,6 @@ const atlasNationalFunctions = {
         r: 0,
         class: 'map__agency',
         fill: d => changeColorScale(d.pctChange),
-      })
-      .on('mouseout', () => {
-        dataProbe.remove();
-        updateHighlightedAgencies([]);
-      })
-      .on('click', (d) => {
-        jumpToMsa(d);
-      })
-      .on('mouseover', (d) => {
-        console.log(d);
-        const { clientX, clientY } = d3.event;
-        const pos = {
-          left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
-          bottom: window.innerHeight - clientY + 10,
-          width: 250,
-        };
-        const html = `
-          <div class="data-probe__row"><span class="data-probe__field">MSA:</span> ${d.msaName}</div>
-          <div class="data-probe__row"><span class="data-probe__field">Agency:</span> ${d.taName}</div>
-          <div class="data-probe__row"><span class="data-probe__field">Percent Change:</span> ${formatPct(d.pctChange)}%</div>
-          <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
-        `;
-        dataProbe
-          .config({
-            pos,
-            html,
-          })
-          .draw();
-        updateHighlightedAgencies([d]);
       });
 
     const layoutTick = () => {
@@ -215,34 +186,6 @@ const atlasNationalFunctions = {
         r: 0,
         class: 'map__agency',
         fill: d => changeColorScale(d.pctChange),
-      })
-      .on('mouseout', () => {
-        dataProbe.remove();
-        updateHighlightedAgencies([]);
-      })
-      .on('click', (d) => {
-        jumpToMsa(d);
-      })
-      .on('mouseover', (d) => {
-        console.log(d);
-        const { clientX, clientY } = d3.event;
-        const pos = {
-          left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
-          bottom: window.innerHeight - clientY + 10,
-          width: 250,
-        };
-        const html = `
-          <div class="data-probe__row"><span class="data-probe__field">MSA:</span> ${d.name}</div>
-          <div class="data-probe__row"><span class="data-probe__field">Percent Change:</span> ${formatPct(d.pctChange)}%</div>
-          <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
-        `;
-        dataProbe
-          .config({
-            pos,
-            html,
-          })
-          .draw();
-        updateHighlightedAgencies([d]);
       });
 
     const layoutTick = () => {

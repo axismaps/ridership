@@ -19,7 +19,8 @@ const getStateUpdateNationalDataView = ({ components }) => function updateNation
     .config({
       nationalDataView,
     })
-    .updateNationalDataView();
+    .updateNationalDataView()
+    .updateInteractions();
 
   histogram
     .config({

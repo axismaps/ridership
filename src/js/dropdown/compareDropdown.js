@@ -14,6 +14,7 @@ const privateMethods = {
       comparedAgencies,
       toggleButton,
       updateNationalDataView,
+      updateCompareMode,
     } = props;
 
     const {
@@ -32,6 +33,7 @@ const privateMethods = {
       updateComparedAgencies,
       contentContainer,
       updateNationalDataView,
+      updateCompareMode,
     });
 
     highlightCurrent({
@@ -46,6 +48,7 @@ const privateMethods = {
 
     toggleButton.select('.fa-times-circle').on('click', () => {
       updateComparedAgencies([]);
+      updateCompareMode(false);
     });
 
     setContentPosition.call(this);
