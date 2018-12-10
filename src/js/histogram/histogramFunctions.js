@@ -51,16 +51,16 @@ const histogramFunctions = {
           .filter((agency) => {
             if (i === 0) {
               return agency.pctChange >= bucket[0]
-                && agency.pctChange <= bucket[1];
+                && agency.pctChange - bucket[1] <= 0.00001;
             }
             return agency.pctChange > bucket[0]
-              && agency.pctChange <= bucket[1];
+              && agency.pctChange - bucket[1] <= 0.00001;
           });
         // const bucket = {};
         // bucket.index = i;
         return {
           bucket,
-          agencies,
+          records: agencies,
           count: agencies.length,
           index: i,
         };
@@ -144,7 +144,7 @@ const histogramFunctions = {
         'stroke-width': 1,
       })
       .on('mouseover', (d) => {
-        updateHighlightedAgencies(d.agencies);
+        updateHighlightedAgencies(d.records);
         const { clientX, clientY } = d3.event;
         const pos = {
           left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
@@ -152,7 +152,7 @@ const histogramFunctions = {
           width: 250,
         };
         const html = `
-          <div class="data-probe__row"><span class="data-probe__field">${d.agencies.length} transit authorit${d.agencies.length > 1 ? 'ies' : 'y'}</span></div>
+          <div class="data-probe__row"><span class="data-probe__field">${d.records.length} transit authorit${d.records.length > 1 ? 'ies' : 'y'}</span></div>
           <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' – ')}</div>
         `;
         dataProbe
@@ -384,10 +384,10 @@ const histogramFunctions = {
           .filter((tract) => {
             if (i === 0) {
               return tract[currentCensusField.value] >= bucket[0]
-                && tract[currentCensusField.value] <= bucket[1];
+                && tract[currentCensusField.value] - bucket[1] <= 0.00001;
             }
             return tract[currentCensusField.value] > bucket[0]
-              && tract[currentCensusField.value] <= bucket[1];
+              && tract[currentCensusField.value] - bucket[1] <= 0.00001;
           });
         // const bucket = {};
         // bucket.index = i;
