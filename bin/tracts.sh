@@ -10,7 +10,7 @@ mapshaper data/geojson/tracts/us_tracts.shp \
   -o data/geojson/tracts/cbsa_crosswalk.csv
 
 mapshaper data/geojson/tracts/us_tracts.shp \
-  -join data/geojson/tracts/cbsa_crosswalk.csv keys=GEOID,GEOID fields=msaid \
+  -join data/geojson/tracts/cbsa_crosswalk.csv field-types=GEOID:string keys=GEOID,GEOID fields=msaid \
   -filter "msaid != null" \
   -rename-layers tract \
   -split msaid \
