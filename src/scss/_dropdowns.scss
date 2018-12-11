@@ -28,7 +28,8 @@
 }
 
 .msa-dropdown__content-row,
-.indicator-dropdown__content-row {
+.indicator-dropdown__content-row,
+.compare-dropdown__content-row {
   margin-top: 15px;
   cursor: pointer;
 }
@@ -53,4 +54,9 @@
 
 .compare .atlas__compare-dropdown-button .fa-times-circle {
   display: inline;
+}
+
+.compare-dropdown__content-row:last-child {
+  padding-top: 15px;
+  border-top: 1px solid #ccc;
 }

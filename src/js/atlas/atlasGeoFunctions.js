@@ -1,6 +1,7 @@
 import atlasHelperFunctions from './atlasHelperFunctions';
 import atlasNationalFunctions from './atlasNationalFunctions';
 import atlasMSAFunctions from './atlasMsaFunctions';
+import DataProbe from '../dataProbe/dataProbe';
 
 const atlasMethods = {
   drawMapSVG({
@@ -245,7 +246,47 @@ const atlasMethods = {
     updateHighlightedAgencies,
     jumpToMsa,
     updateComparedAgencies,
+    mapContainer,
   }) {
+    const tooltip = new DataProbe({
+      container: d3.select('.outer-container'),
+    });
+    if (compareMode === true) {
+      mapContainer
+        .on('mouseover.compare', () => {
+          const { clientX, clientY } = d3.event;
+          const pos = {
+            left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+            bottom: window.innerHeight - clientY + 10,
+            width: 250,
+          };
+          const html = `Select a${nationalDataView === 'msa' ? 'n MSA' : ' transit agency'} to compare.`;
+          tooltip
+            .config({
+              pos,
+              html,
+            })
+            .draw();
+        })
+        .on('mousemove.compare', () => {
+          const { clientX, clientY } = d3.event;
+          const pos = {
+            left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+            bottom: window.innerHeight - clientY + 10,
+            width: 250,
+          };
+          tooltip
+            .config({
+              pos,
+            })
+            .setPos(pos);
+        })
+        .on('mouseout.compare', () => {
+          tooltip.remove();
+        });
+    } else {
+      mapContainer.on('mouseover.compare mousemove.compare mouseout.compare', null);
+    }
     const formatPct = d3.format(',d');
     agencies
       .on('mouseout', () => {
@@ -264,17 +305,19 @@ const atlasMethods = {
           } else {
             updateComparedAgencies([d, ...comparedAgencies]);
           }
+          dataProbe.remove();
         }
       })
       .on('mouseover', (d) => {
+        d3.event.stopPropagation();
+        const { clientX, clientY } = d3.event;
+        const pos = {
+          left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+          bottom: window.innerHeight - clientY + 10,
+          width: 250,
+        };
         if (compareMode === false) {
           console.log(d);
-          const { clientX, clientY } = d3.event;
-          const pos = {
-            left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
-            bottom: window.innerHeight - clientY + 10,
-            width: 250,
-          };
           const html = nationalDataView === 'msa' ? `
             <div class="data-probe__row"><span class="data-probe__field">MSA:</span> ${d.name}</div>
             <div class="data-probe__row"><span class="data-probe__field">Percent Change:</span> ${formatPct(d.pctChange)}%</div>
@@ -284,6 +327,19 @@ const atlasMethods = {
             <div class="data-probe__row"><span class="data-probe__field">Agency:</span> ${d.taName}</div>
             <div class="data-probe__row"><span class="data-probe__field">Percent Change:</span> ${formatPct(d.pctChange)}%</div>
             <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
+          `;
+          dataProbe
+            .config({
+              pos,
+              html,
+            })
+            .draw();
+        } else {
+          tooltip.remove();
+          const ids = comparedAgencies.map(a => a.globalId);
+          const html = ` 
+            <div class="data-probe__row"><span class="data-probe__field">${d.name || d.taName}</span></div>
+            <div class="data-probe__row">${ids.includes(d.globalId) ? 'Remove from' : 'Add to'} comparison</div>
           `;
           dataProbe
             .config({

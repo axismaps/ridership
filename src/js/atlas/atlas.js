@@ -103,6 +103,7 @@ const privateMethods = {
       compareMode,
       updateHighlightedAgencies,
       jumpToMsa,
+      mapContainer,
     });
 
     mapFeatures.set('states', states);
@@ -356,6 +357,19 @@ class Atlas {
     return this;
   }
 
+  updateCompared() {
+    const {
+      agencies,
+      comparedAgencies,
+    } = privateProps.get(this);
+
+    const ids = comparedAgencies.map(d => d.globalId);
+
+    agencies.classed('compared', d => ids.includes(d.globalId));
+
+    return this;
+  }
+
   updateInteractions() {
     const {
       agencies,
@@ -366,6 +380,7 @@ class Atlas {
       updateHighlightedAgencies,
       jumpToMsa,
       updateComparedAgencies,
+      mapContainer,
     } = privateProps.get(this);
     const {
       setInteractions,
@@ -379,6 +394,7 @@ class Atlas {
       compareMode,
       jumpToMsa,
       updateComparedAgencies,
+      mapContainer,
     });
   }
 
