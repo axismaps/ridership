@@ -4,7 +4,8 @@ const getAtlas = ({ data, state }) => new Atlas({
   mapContainer: d3.select('.atlas__map-container'),
   statesTopo: data.get('statesTopo'),
   nationalMapData: state.getCurrentNationalMapData(),
-  // indicator: state.get('indricator'),
+  allNationalMapData: data.get('allNationalMapData'),
+  indicator: state.get('indicator'),
   yearRange: data.get('yearRange'),
   scale: state.get('scale'),
   msa: state.get('msa'),
@@ -12,6 +13,7 @@ const getAtlas = ({ data, state }) => new Atlas({
   nationalDataView: state.get('nationalDataView'),
   compareMode: state.get('compareMode'),
   comparedAgencies: state.get('comparedAgencies'),
+  years: state.get('years'),
   jumpToMsa: (agency) => {
     const msa = data.get('msa')
       .find(d => d.msaId === agency.msaId);

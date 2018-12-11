@@ -17,6 +17,7 @@ const getStateUpdateIndicator = ({ components }) => function updateIndicator() {
   atlas
     .config({
       nationalMapData,
+      indicator,
     })
     .updateNationalMapData();
 

@@ -73,6 +73,14 @@ class DataProbe {
     probe.remove();
   }
 
+  getContainer() {
+    const {
+      probe,
+    } = privateProps.get(this);
+
+    return probe;
+  }
+
   getPos() {
     return privateProps.get(this).pos;
   }

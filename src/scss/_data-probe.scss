@@ -9,6 +9,7 @@
   // color: white;
   // border-radius: 5px;
   @include popup-inner();
+  font-size: 12px;
 }
 
 .data-probe__row:not(:last-child) {
@@ -27,6 +28,10 @@
 
 .data-probe__field {
   font-weight: 600;
+}
+
+.data-probe__name {
+  font-size: 15px;
 }
 
 .data-probe__msa-text {
