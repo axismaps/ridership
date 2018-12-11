@@ -19,7 +19,8 @@ const getStateUpdateIndicator = ({ components }) => function updateIndicator() {
       nationalMapData,
       indicator,
     })
-    .updateNationalMapData();
+    .updateNationalMapData()
+    .updateInteractions();
 
   histogram
     .config({
