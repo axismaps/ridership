@@ -51,6 +51,7 @@ module.exports = {
         from: 'data/output/*',
         to: 'data',
         flatten: true,
+        ignore: ['*.gz', '*.mbtiles', '*.geojson', '*.csv'],
       },
       {
         from: 'data/output/tracts/*',
