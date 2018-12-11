@@ -104,10 +104,18 @@
   cursor: pointer;
 }
 
-.map__agency:hover, .map__agency.highlight {
+.map__agency:hover, .map__agency.highlight, .map__agency.compared {
   fill-opacity: 0.95;
   stroke: black;
   stroke-width: 2px;
+}
+
+.compare .map__agency:hover {
+  cursor: url(img/add.svg), auto;
+}
+
+.compare .map__agency.compared:hover {
+  cursor: url(img/remove.svg), auto;
 }
 
 .map__hidden-layer {

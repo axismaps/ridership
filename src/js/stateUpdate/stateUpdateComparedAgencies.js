@@ -22,6 +22,7 @@ const getStateUpdateComparedAgencies = ({ components }) => function updateCompar
       compareMode,
       comparedAgencies,
     })
+    .updateCompared()
     .updateInteractions();
 
   histogram
