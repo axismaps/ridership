@@ -53,18 +53,46 @@ const getNationalIndicatorSummaries = function getNationalIndicatorSummaries({ d
       indicatorSummaries.push(indicatorCopy);
     });
   }
+  console.log('national summaries', indicatorSummaries);
   return indicatorSummaries;
 };
 
 const getMSAIndicatorSummaries = function getMSAIndicatorSummaries({ data }) {
+  // get MSA
+  // get records for MSA
+  // just get yearly data for each TA
+  const currentMSA = this.get('msa');
+  const allNationalMapData = data.get('allNationalMapData');
+  const agencies = allNationalMapData.find(d => d.msaId === currentMSA.msaId).ta;
 
+  const indicators = data.get('indicators');
+
+  const indicatorSummaries = [];
+  indicators.forEach((indicator, key) => {
+    const indicatorCopy = Object.assign({}, indicator);
+    const agenciesWithSummaries = agencies.map((agency) => {
+      const agencyCopy = Object.assign({}, agency);
+      agencyCopy.summaries = agency.ntd
+        .map(d => ({
+          year: d.year,
+          indicatorSummary: d[key],
+        }))
+        .filter(d => d.indicatorSummary !== null && d.indicatorSummary !== undefined);
+      return agencyCopy;
+    });
+    indicatorCopy.agencies = agenciesWithSummaries;
+    indicatorSummaries.push(indicatorCopy);
+  });
+  console.log('msa summaries', indicatorSummaries);
+  return indicatorSummaries;
 };
 
-const getGetCurrentIndicatorSummaries = ({ data }) => function getCurrentIndicatorSummaries() {
+const getGetCurrentIndicatorSummaries = ({ data }) => function getIndicatorSummaries() {
   const currentScale = this.get('scale');
   if (currentScale === 'national') {
     return getNationalIndicatorSummaries.call(this, { data });
   }
+
   return getMSAIndicatorSummaries.call(this, { data });
 };
 
