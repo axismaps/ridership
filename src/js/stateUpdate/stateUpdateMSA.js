@@ -3,8 +3,14 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
   const {
     msaAtlas,
     histogram,
+    sidebar,
   } = components;
-
+  const indicatorSummaries = this.getCurrentIndicatorSummaries();
+  sidebar
+    .config({
+      indicatorSummaries,
+    })
+    .updateData();
   this.getCurrentTractGeo((tractGeo) => {
     msaAtlas
       .config({

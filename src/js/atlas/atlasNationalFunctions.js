@@ -28,10 +28,10 @@ const atlasNationalFunctions = {
     projectionModify,
     changeColorScale,
     logSimulationNodes,
-    dataProbe,
+    // dataProbe,
     radiusScale,
-    jumpToMsa,
-    updateHighlightedAgencies,
+    // jumpToMsa,
+    // updateHighlightedAgencies,
   }) {
     const {
       getAllAgencies,
@@ -60,7 +60,7 @@ const atlasNationalFunctions = {
     const agencies = layer.selectAll('.map__agency')
       .data(nodes, d => d.globalId);
 
-    const formatPct = d3.format(',d');
+    // const formatPct = d3.format(',d');
 
     const newAgencies = agencies
       .enter()
@@ -150,10 +150,10 @@ const atlasNationalFunctions = {
     projectionModify,
     changeColorScale,
     logSimulationNodes,
-    dataProbe,
+    // dataProbe,
     radiusScale,
-    jumpToMsa,
-    updateHighlightedAgencies,
+    // jumpToMsa,
+    // updateHighlightedAgencies,
   }) {
     const nodes = nationalMapData.map(msa => ({
       msaId: msa.msaId,
@@ -173,7 +173,7 @@ const atlasNationalFunctions = {
     const msas = layer.selectAll('.map__agency')
       .data(nodes, d => d.globalId);
 
-    const formatPct = d3.format(',d');
+    // const formatPct = d3.format(',d');
 
     const newMSAa = msas
       .enter()
