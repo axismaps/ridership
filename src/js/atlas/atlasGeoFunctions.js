@@ -179,6 +179,7 @@ const atlasMethods = {
         const agency = agenciesTable[node.globalId];
         if (agency === undefined) return nodeCopy;
         nodeCopy.pctChange = agency.pctChange;
+        nodeCopy.firstAndLast = agency.firstAndLast;
         // nodeCopy.uptTotal = agency.uptTotal;
         // nodeCopy.radius = radiusScale(agency.uptTotal);
         return nodeCopy;
@@ -326,18 +327,19 @@ const atlasMethods = {
         if (compareMode === false) {
           const { globalId } = d;
           const msa = getMSAData({ allNationalMapData, globalId });
+          const format = number => (number === null ? 'N/A' : number);
           const html = nationalDataView === 'msa' ? `
             <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.name}</span></div>
-            <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${d.firstAndLast[0]}</div>
-            <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${d.firstAndLast[1]}</div>
+            <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
+            <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
             <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}%</div>
             <div class="data-probe__sparkline-container"></div>
             <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
           ` : `
             <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.taName}</span></div>
             <div class="data-probe__row">${d.msaName}</div>            
-            <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${d.firstAndLast[0]}</div>
-            <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${d.firstAndLast[1]}</div>
+            <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
+            <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
             <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}%</div>
             <div class="data-probe__sparkline-container"></div>
             <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
