@@ -66,6 +66,7 @@ const sparkLineFunctions = {
     svg,
     scales,
     margin,
+    color,
   }) {
     const {
       xScale,
@@ -84,6 +85,16 @@ const sparkLineFunctions = {
       .enter()
       .append('path')
       .attr('class', 'sidebar__sparkline-path')
+      // .style('stroke', d => (d.color !== undefined ? d.color : 'black'))
+      .each(function setColor(d) {
+        if (d.color !== undefined) {
+          d3.select(this)
+            .styles({
+              stroke: d.color,
+              'stroke-width': 1,
+            });
+        }
+      })
       .attr('d', d => lineGenerator(d.summaries));
 
     g.append('circle')
