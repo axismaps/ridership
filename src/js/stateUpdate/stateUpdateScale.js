@@ -5,6 +5,7 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
     censusDropdown,
     distanceDropdown,
     histogram,
+    sidebar,
   } = components;
 
   const scale = this.get('scale');
@@ -33,6 +34,21 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
 
   if (scale === 'national') {
     histogram.updateData();
+    sidebar
+      .config({
+        indicatorSummaries: this.getCurrentIndicatorSummaries(),
+        currentIndicatorDisabled: false,
+      })
+      .updateCurrentIndicator()
+      .updateData();
+  }
+
+  if (scale === 'msa') {
+    sidebar
+      .config({
+        currentIndicatorDisabled: true,
+      })
+      .updateCurrentIndicator();
   }
 };
 

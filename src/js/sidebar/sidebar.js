@@ -245,17 +245,20 @@ class Sidebar {
       sparkTitles,
       pcp,
       currentSidebarView,
+      currentIndicatorDisabled,
     } = privateProps.get(this);
 
     if (currentSidebarView === 'sparklines') {
       sparkTitles
-        .classed('sidebar__sparkline-title--selected', d => currentIndicator.value === d.value);
+        .classed('sidebar__sparkline-title--selected', d => currentIndicator.value === d.value
+        && !currentIndicatorDisabled);
 
       sparkLines
         .forEach((sparkLine) => {
           sparkLine
             .config({
-              selected: currentIndicator.value === sparkLine.getIndicator().value,
+              selected: currentIndicator.value === sparkLine.getIndicator().value
+              && !currentIndicatorDisabled,
             })
             .updateSelected();
         });
@@ -307,7 +310,7 @@ class Sidebar {
       pcp,
       agenciesData,
       currentSidebarView,
-      indicatorSummaries,
+      // indicatorSummaries,
     } = privateProps.get(this);
 
     const {
