@@ -77,6 +77,27 @@ class DataProbe {
     return privateProps.get(this).pos;
   }
 
+  setPos(pos) {
+    const {
+      probe,
+    } = privateProps.get(this);
+
+    if (probe === null || probe === undefined) return this;
+
+    const posStyle = Object.keys(pos)
+      .reduce((accumulator, key) => {
+        /* eslint-disable no-param-reassign */
+        accumulator[key] = `${pos[key]}px`;
+        /* eslint-enable no-param-reassign */
+        return accumulator;
+      }, {});
+
+    probe
+      .styles(posStyle);
+
+    return this;
+  }
+
   static clearProbes() {
     d3.selectAll('.data-probe').remove();
   }

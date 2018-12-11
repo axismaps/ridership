@@ -39,6 +39,26 @@ const getDropdownPrivateBase = ({
     setContainerMouseEvents(toggleButton);
     setContainerMouseEvents(contentOuterContainer);
   },
+  removeMenuToggleEvents() {
+    const props = privateProps.get(this);
+    const {
+      toggleButton,
+      contentOuterContainer,
+    } = props;
+    const {
+      setContentVisibility,
+    } = privateMethods;
+    const removeContainerMouseEvents = (container) => {
+      container
+        .on('mouseenter', null)
+        .on('mouseleave', null);
+    };
+
+    removeContainerMouseEvents(toggleButton);
+    removeContainerMouseEvents(contentOuterContainer);
+    props.dropdownOpen = false;
+    setContentVisibility.call(this);
+  },
   setContentVisibility() {
     const props = privateProps.get(this);
     const {

@@ -23,8 +23,11 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
   histogram
     .config({
       nationalMapData,
-    })
-    .updateData();
+    });
+  if (scale === 'national') {
+    histogram.updateData();
+  }
+
 
   sliderDropdown
     .config({
@@ -44,6 +47,12 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
 
   this.getCurrentTractGeo((tractGeo) => {
     msaAtlas
+      .config({
+        tractGeo,
+      })
+      .updateData();
+
+    histogram
       .config({
         tractGeo,
       })

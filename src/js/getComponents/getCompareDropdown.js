@@ -1,17 +1,30 @@
 import CompareDropdown from '../dropdown/compareDropdown';
 
 const getCompareDropdown = ({ state, data }) => new CompareDropdown({
+  compareMode: false,
   comparedAgencies: state.get('comparedAgencies'),
   nationalMapData: data.get('allNationalMapData'),
   updateComparedAgencies: (newCompare) => {
     const comparedAgencies = state.get('comparedAgencies');
+    const nationalDataView = state.get('nationalDataView');
     let matches = newCompare.length === comparedAgencies.length;
     if (matches) {
       newCompare.forEach((ta, i) => {
-        if (comparedAgencies[i].taId !== ta.taId) matches = false;
+        if (comparedAgencies[i].globalId !== ta.globalId) matches = false;
       });
     }
-    state.update({ comparedAgencies: matches ? [] : newCompare });
+    const updateList = matches ? [] : newCompare;
+    state.update({ compareMode: updateList.length > 0 });
+    state.update({ comparedAgencies: updateList });
+  },
+  updateNationalDataView: (newView) => {
+    const nationalDataView = state.get('nationalDataView');
+    if (newView !== nationalDataView) {
+      state.update({ nationalDataView: newView });
+    }
+  },
+  updateCompareMode: (compareMode) => {
+    state.update({ compareMode });
   },
   dropdownOpen: false,
   toggleButton: d3.select('.atlas__compare-dropdown-button'),

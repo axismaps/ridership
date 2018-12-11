@@ -166,6 +166,7 @@ class Histogram {
       currentScale,
       tractGeo,
       currentCensusField,
+      dataProbe,
     } = privateProps.get(this);
 
     const {
@@ -190,12 +191,22 @@ class Histogram {
         yAxis,
         updateHighlightedAgencies,
         nationalDataView,
+        dataProbe,
       });
     } else if (currentScale === 'msa') {
       updateMSA({
         tractGeo,
         bucketCount,
         currentCensusField,
+        padding,
+        width,
+        height,
+        xAxis,
+        yAxis,
+        bars,
+        changeColorScale,
+        nationalAverageGroup,
+        dataProbe,
       });
     }
 

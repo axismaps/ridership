@@ -6,6 +6,8 @@ const getDataviewDropdown = ({ state, data }) => new DataViewDropdown({
   updateNationalDataView: (newView) => {
     const nationalDataView = state.get('nationalDataView');
     if (newView !== nationalDataView) {
+      state.update({ compareMode: false });
+      state.update({ comparedAgencies: [] });
       state.update({ nationalDataView: newView });
     }
   },

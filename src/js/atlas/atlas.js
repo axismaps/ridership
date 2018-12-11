@@ -20,6 +20,10 @@ const privateMethods = {
       jumpToMsa,
       updateHighlightedAgencies,
       mapFeatures,
+      nationalDataView,
+      comparedAgencies,
+      compareMode,
+      updateComparedAgencies,
     } = props;
 
     const {
@@ -30,6 +34,7 @@ const privateMethods = {
       getZoomed,
       setZoomEvents,
       getInitialScaleTranslate,
+      setInteractions,
     } = atlasMethods;
     const {
       drawAgencies,
@@ -88,6 +93,17 @@ const privateMethods = {
       logSimulationNodes: (nodes) => {
         props.nodes = nodes;
       },
+    });
+
+    setInteractions({
+      agencies,
+      dataProbe,
+      nationalDataView,
+      comparedAgencies,
+      compareMode,
+      updateHighlightedAgencies,
+      jumpToMsa,
+      mapContainer,
     });
 
     mapFeatures.set('states', states);
@@ -243,6 +259,8 @@ class Atlas {
       nationalDataView,
       // radiusScale,
     });
+
+    return this;
   }
 
   updateNationalMapData() {
@@ -268,6 +286,8 @@ class Atlas {
       nationalDataView,
       // radiusScale,
     });
+
+    return this;
   }
 
   updateNationalDataView() {
@@ -284,6 +304,8 @@ class Atlas {
       layers,
       projection,
       projectionModify,
+      comparedAgencies,
+      compareMode,
     } = props;
 
     const {
@@ -331,6 +353,53 @@ class Atlas {
         agencies: msas,
       });
     }
+
+    return this;
+  }
+
+  updateCompared() {
+    const {
+      agencies,
+      comparedAgencies,
+    } = privateProps.get(this);
+
+    const ids = comparedAgencies.map(d => d.globalId);
+
+    agencies.classed('compared', d => ids.includes(d.globalId));
+
+    return this;
+  }
+
+  updateInteractions() {
+    const {
+      agencies,
+      dataProbe,
+      nationalDataView,
+      comparedAgencies,
+      compareMode,
+      updateHighlightedAgencies,
+      jumpToMsa,
+      updateComparedAgencies,
+      mapContainer,
+    } = privateProps.get(this);
+    const {
+      setInteractions,
+    } = atlasMethods;
+    setInteractions({
+      agencies,
+      dataProbe,
+      nationalDataView,
+      comparedAgencies,
+      updateHighlightedAgencies,
+      compareMode,
+      jumpToMsa,
+      updateComparedAgencies,
+      mapContainer,
+    });
+  }
+
+  updateCompare() {
+    return this;
   }
 
   updateScale() {

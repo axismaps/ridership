@@ -110,7 +110,7 @@ const privateMethods = {
       .attr('class', 'sidebar__compare-row')
       .on('mouseover', d => updateHighlightedAgencies([d]))
       .on('mouseout', () => updateHighlightedAgencies([]))
-      .text(d => d.taName);
+      .text(d => d.taName || d.name);
     newRows.append('i')
       .attr('class', 'fa fa-times');
 
@@ -121,7 +121,7 @@ const privateMethods = {
           .filter(a => a.globalId !== d.globalId);
         updateComparedAgencies(others);
         compareContainer.selectAll('.sidebar__compare-row')
-          .filter(rowData => rowData.taName === d.taName)
+          .filter(rowData => rowData.globalId === d.globalId)
           .remove();
       });
 
@@ -148,6 +148,7 @@ const privateMethods = {
       drawSparkLineTitles,
       drawSparkLines,
     } = pureFunctions;
+    console.log('drawNationalSparklines', indicatorSummaries);
 
     const sparkRows = drawSparkLineRows({
       contentContainer,

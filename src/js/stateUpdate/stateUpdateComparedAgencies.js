@@ -1,4 +1,4 @@
-const getStateUpdateHighlightedAgencies = ({ components }) => function updateHighlightedAgencies() {
+const getStateUpdateComparedAgencies = ({ components }) => function updateComparedAgencies() {
   const {
     atlas,
     histogram,
@@ -7,6 +7,7 @@ const getStateUpdateHighlightedAgencies = ({ components }) => function updateHig
   } = components;
 
   const comparedAgencies = this.get('comparedAgencies');
+  const compareMode = this.get('compareMode');
   const indicatorSummaries = this.getCurrentIndicatorSummaries();
   const agenciesData = this.getCurrentAgenciesData();
 
@@ -18,8 +19,11 @@ const getStateUpdateHighlightedAgencies = ({ components }) => function updateHig
 
   atlas
     .config({
+      compareMode,
       comparedAgencies,
-    });
+    })
+    .updateCompared()
+    .updateInteractions();
 
   histogram
     .config({
@@ -35,4 +39,4 @@ const getStateUpdateHighlightedAgencies = ({ components }) => function updateHig
     .updateData();
 };
 
-export default getStateUpdateHighlightedAgencies;
+export default getStateUpdateComparedAgencies;

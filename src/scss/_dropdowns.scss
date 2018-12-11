@@ -28,7 +28,8 @@
 }
 
 .msa-dropdown__content-row,
-.indicator-dropdown__content-row {
+.indicator-dropdown__content-row,
+.compare-dropdown__content-row {
   margin-top: 15px;
   cursor: pointer;
 }
@@ -36,7 +37,8 @@
 .indicator-dropdown__content-row:hover,
 .indicator-dropdown__content-row--highlighted,
 .compare-dropdown__content-row:hover,
-.compare-dropdown__content-row--highlighted {
+.compare-dropdown__content-row--highlighted,
+.compare .atlas__compare-dropdown-button {
   color: $header__title-row--background;
   font-weight: 600;
 }
@@ -44,4 +46,17 @@
 .msa-dropdown__content-container {
   max-height: 75vh;
   overflow-y: auto;
+}
+
+.atlas__compare-dropdown-button .fa-times-circle, .compare .atlas__compare-dropdown-button .fa-angle-down {
+  display: none;
+}
+
+.compare .atlas__compare-dropdown-button .fa-times-circle {
+  display: inline;
+}
+
+.compare-dropdown__content-row:last-child {
+  padding-top: 15px;
+  border-top: 1px solid #ccc;
 }

@@ -113,6 +113,35 @@ const histogramFunctions = {
         height: `${height}px`,
       });
   },
+  addNationalBarMouseEvents({
+    bars,
+    updateHighlightedAgencies,
+    dataProbe,
+  }) {
+    bars.on('mouseover', (d) => {
+      updateHighlightedAgencies(d.records);
+      const { clientX, clientY } = d3.event;
+      const pos = {
+        left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+        bottom: window.innerHeight - clientY + 10,
+        width: 250,
+      };
+      const html = `
+        <div class="data-probe__row"><span class="data-probe__field">${d.records.length} transit authorit${d.records.length > 1 ? 'ies' : 'y'}</span></div>
+        <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' – ')}</div>
+      `;
+      dataProbe
+        .config({
+          pos,
+          html,
+        })
+        .draw();
+    })
+      .on('mouseout', () => {
+        updateHighlightedAgencies([]);
+        dataProbe.remove();
+      });
+  },
   drawBars({
     svg,
     xScale,
@@ -125,11 +154,16 @@ const histogramFunctions = {
     updateHighlightedAgencies,
     dataProbe,
   }) {
+    const {
+      addNationalBarMouseEvents,
+    } = histogramFunctions;
+
+
     const count = histogramData.length;
 
     const rectWidth = ((xScale.range()[1] - xScale.range()[0]) / count) - barSpacing;
 
-    return svg
+    const bars = svg
       .selectAll('.histogram__bar')
       .data(histogramData, d => d.index)
       .enter()
@@ -142,30 +176,15 @@ const histogramFunctions = {
         fill: d => changeColorScale((d.bucket[1] + d.bucket[0]) / 2),
         stroke: '#999999',
         'stroke-width': 1,
-      })
-      .on('mouseover', (d) => {
-        updateHighlightedAgencies(d.records);
-        const { clientX, clientY } = d3.event;
-        const pos = {
-          left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
-          bottom: window.innerHeight - clientY + 10,
-          width: 250,
-        };
-        const html = `
-          <div class="data-probe__row"><span class="data-probe__field">${d.records.length} transit authorit${d.records.length > 1 ? 'ies' : 'y'}</span></div>
-          <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' – ')}</div>
-        `;
-        dataProbe
-          .config({
-            pos,
-            html,
-          })
-          .draw();
-      })
-      .on('mouseout', () => {
-        updateHighlightedAgencies([]);
-        dataProbe.remove();
       });
+
+    addNationalBarMouseEvents({
+      bars,
+      updateHighlightedAgencies,
+      dataProbe,
+    });
+
+    return bars;
   },
   drawAxes({
     xScale,
@@ -207,6 +226,7 @@ const histogramFunctions = {
 
     const nationalAverageGroup = svg
       .append('g')
+      .style('pointer-events', 'none')
       .attr('transform', `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`);
 
     const nationalAverageText = nationalAverageGroup
@@ -254,9 +274,16 @@ const histogramFunctions = {
     });
 
     nationalAverageGroup
+      .style('opacity', 1)
       .transition()
       .duration(500)
       .attr('transform', `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`);
+  },
+  hideAverageLine({
+    nationalAverageGroup,
+  }) {
+    nationalAverageGroup
+      .style('opacity', 0);
   },
   updateAxes({
     xScale,
@@ -285,6 +312,7 @@ const histogramFunctions = {
     height,
     padding,
   }) {
+    console.log('UPDATE BARS');
     bars
       .data(histogramData, d => d.index)
       .transition()
@@ -311,6 +339,7 @@ const histogramFunctions = {
     yAxis,
     updateHighlightedAgencies,
     nationalDataView,
+    dataProbe,
   }) {
     const {
       getHistogramData,
@@ -318,6 +347,7 @@ const histogramFunctions = {
       getScales,
       updateAxes,
       updateAverageLine,
+      addNationalBarMouseEvents,
     } = histogramFunctions;
 
     const {
@@ -328,8 +358,6 @@ const histogramFunctions = {
       bucketCount,
       nationalDataView,
     });
-
-    console.log('histogramData', histogramData);
 
     const { yScale, xScale } = getScales({
       padding,
@@ -353,6 +381,13 @@ const histogramFunctions = {
       yScale,
       changeColorScale,
       updateHighlightedAgencies,
+      dataProbe,
+    });
+
+    addNationalBarMouseEvents({
+      bars,
+      updateHighlightedAgencies,
+      dataProbe,
     });
 
     updateAverageLine({
@@ -368,10 +403,9 @@ const histogramFunctions = {
     bucketCount,
     currentCensusField,
   }) {
-    console.log('currentCensusField', currentCensusField);
     const tracts = tractGeo.features.map(d => d.properties);
-    const changeSpan = d3.extent(tracts, d => d[currentCensusField.value]);
-    console.log('changeSpan', changeSpan);
+    const changeSpan = d3.extent(tracts, d => d[currentCensusField.value] * 100);
+
     const bucketSize = (changeSpan[1] - changeSpan[0]) / bucketCount;
     const msaHistogramData = new Array(bucketCount)
       .fill(null)
@@ -383,11 +417,11 @@ const histogramFunctions = {
         const records = tracts
           .filter((tract) => {
             if (i === 0) {
-              return tract[currentCensusField.value] >= bucket[0]
-                && tract[currentCensusField.value] - bucket[1] <= 0.00001;
+              return tract[currentCensusField.value] * 100 >= bucket[0]
+                && tract[currentCensusField.value] * 100 - bucket[1] <= 0.00001;
             }
-            return tract[currentCensusField.value] > bucket[0]
-              && tract[currentCensusField.value] - bucket[1] <= 0.00001;
+            return tract[currentCensusField.value] * 100 > bucket[0]
+              && tract[currentCensusField.value] * 100 - bucket[1] <= 0.00001;
           });
         // const bucket = {};
         // bucket.index = i;
@@ -400,21 +434,91 @@ const histogramFunctions = {
       });
     return msaHistogramData;
   },
+  addMSABarMouseEvents({
+    bars,
+    dataProbe,
+  }) {
+    bars.on('mouseover', (d) => {
+      const { clientX, clientY } = d3.event;
+      const pos = {
+        left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+        bottom: window.innerHeight - clientY + 10,
+        width: 250,
+      };
+      const html = `
+        <div class="data-probe__row"><span class="data-probe__field">${d.records.length} census tract${d.records.length !== 1 ? 's' : ''}</span></div>
+        <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' – ')}</div>
+      `;
+      dataProbe
+        .config({
+          pos,
+          html,
+        })
+        .draw();
+    })
+      .on('mouseout', () => {
+        dataProbe.remove();
+      });
+  },
   updateMSA({
     tractGeo,
     bucketCount,
     currentCensusField,
+    padding,
+    width,
+    height,
+    xAxis,
+    yAxis,
+    bars,
+    nationalAverageGroup,
+    changeColorScale,
+    dataProbe,
   }) {
     const {
       getMSAHistogramData,
+      getScales,
+      updateAxes,
+      updateBars,
+      hideAverageLine,
+      addMSABarMouseEvents,
     } = histogramFunctions;
-    const msaHistogramData = getMSAHistogramData({
+    const histogramData = getMSAHistogramData({
       tractGeo,
       bucketCount,
       currentCensusField,
     });
-    console.log('UPDATE MSA HISTOGRAM', tractGeo);
-    console.log('msaHistogramData', msaHistogramData);
+
+    const { yScale, xScale } = getScales({
+      padding,
+      histogramData,
+      width,
+      height,
+    });
+
+    updateAxes({
+      xScale,
+      yScale,
+      xAxis,
+      yAxis,
+    });
+
+    updateBars({
+      bars,
+      histogramData,
+      yScale,
+      changeColorScale,
+      height,
+      padding,
+    });
+
+    addMSABarMouseEvents({
+      bars,
+      dataProbe,
+    });
+
+    hideAverageLine({
+      nationalAverageGroup,
+    });
   },
 };
 

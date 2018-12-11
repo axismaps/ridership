@@ -48,6 +48,11 @@ module.exports = {
         flatten: true,
       },
       {
+        from: 'src/img/*',
+        to: 'img',
+        flatten: true,
+      },
+      {
         from: 'data/output/*',
         to: 'data',
         flatten: true,
