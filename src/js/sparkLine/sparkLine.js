@@ -13,6 +13,7 @@ const privateMethods = {
       yearRange,
       dataProbe,
       margin,
+      color,
     } = props;
 
     const {
@@ -47,6 +48,7 @@ const privateMethods = {
       svg,
       scales,
       margin,
+      color,
     });
 
     updateInteractions({
