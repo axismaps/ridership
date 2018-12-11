@@ -247,7 +247,14 @@ const atlasMethods = {
     jumpToMsa,
     updateComparedAgencies,
     mapContainer,
+    years,
+    allNationalMapData,
+    indicator,
   }) {
+    const {
+      getMSAData,
+      drawMSASparkline,
+    } = atlasHelperFunctions;
     const tooltip = new DataProbe({
       container: d3.select('.outer-container'),
     });
@@ -256,9 +263,9 @@ const atlasMethods = {
         .on('mouseover.compare', () => {
           const { clientX, clientY } = d3.event;
           const pos = {
-            left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+            left: clientX < window.innerWidth - 310 ? (clientX + 10) : clientX - 310,
             bottom: window.innerHeight - clientY + 10,
-            width: 250,
+            width: 300,
           };
           const html = `Select a${nationalDataView === 'msa' ? 'n MSA' : ' transit agency'} to compare.`;
           tooltip
@@ -271,9 +278,9 @@ const atlasMethods = {
         .on('mousemove.compare', () => {
           const { clientX, clientY } = d3.event;
           const pos = {
-            left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+            left: clientX < window.innerWidth - 310 ? (clientX + 10) : clientX - 310,
             bottom: window.innerHeight - clientY + 10,
-            width: 250,
+            width: 300,
           };
           tooltip
             .config({
@@ -312,20 +319,27 @@ const atlasMethods = {
         d3.event.stopPropagation();
         const { clientX, clientY } = d3.event;
         const pos = {
-          left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+          left: clientX < window.innerWidth - 310 ? (clientX + 10) : clientX - 310,
           bottom: window.innerHeight - clientY + 10,
-          width: 250,
+          width: 300,
         };
         if (compareMode === false) {
-          console.log(d);
+          const { globalId } = d;
+          const msa = getMSAData({ allNationalMapData, globalId });
           const html = nationalDataView === 'msa' ? `
-            <div class="data-probe__row"><span class="data-probe__field">MSA:</span> ${d.name}</div>
-            <div class="data-probe__row"><span class="data-probe__field">Percent Change:</span> ${formatPct(d.pctChange)}%</div>
+            <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.name}</span></div>
+            <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${d.firstAndLast[0]}</div>
+            <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${d.firstAndLast[1]}</div>
+            <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}%</div>
+            <div class="data-probe__sparkline-container"></div>
             <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
           ` : `
-            <div class="data-probe__row"><span class="data-probe__field">MSA:</span> ${d.msaName}</div>
-            <div class="data-probe__row"><span class="data-probe__field">Agency:</span> ${d.taName}</div>
-            <div class="data-probe__row"><span class="data-probe__field">Percent Change:</span> ${formatPct(d.pctChange)}%</div>
+            <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.taName}</span></div>
+            <div class="data-probe__row">${d.msaName}</div>            
+            <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${d.firstAndLast[0]}</div>
+            <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${d.firstAndLast[1]}</div>
+            <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}%</div>
+            <div class="data-probe__sparkline-container"></div>
             <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
           `;
           dataProbe
@@ -334,6 +348,7 @@ const atlasMethods = {
               html,
             })
             .draw();
+          drawMSASparkline({ msa, indicator, container: dataProbe.getContainer().select('.data-probe__sparkline-container') });
         } else {
           tooltip.remove();
           const ids = comparedAgencies.map(a => a.globalId);

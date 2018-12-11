@@ -82,6 +82,7 @@ const getState = ({ data }) => {
             msaName: msa.name,
             taName: agency.taName,
             taShort: agency.taShort,
+            firstAndLast: [firstRecord, lastRecord],
           });
           return agencyCopy;
         })
@@ -98,15 +99,16 @@ const getState = ({ data }) => {
       })
         .filter(d => d !== null);
       msaCopy.upt2017 = d3.sum(msaCopy.ta.map(ta => ta.upt2017));
-      if (msaFirstRecords.length > 0 && msaLastRecords.length > 0) {
-        const summaries = [
-          d3[indicator.summaryType](msaFirstRecords),
-          d3[indicator.summaryType](msaLastRecords),
-        ];
+      const summaries = [
+        d3[indicator.summaryType](msaFirstRecords) || null,
+        d3[indicator.summaryType](msaLastRecords) || null,
+      ];
+      if (!summaries.includes(null)) {
         msaCopy.pctChange = 100 * (summaries[1] - summaries[0]) / summaries[0];
       } else {
         msaCopy.pctChange = null;
       }
+      msaCopy.firstAndLast = summaries;
       return msaCopy;
     })
       .filter(msa => msa.ta.length > 0);

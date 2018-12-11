@@ -54,6 +54,7 @@ const atlasNationalFunctions = {
       msaName: agency.msaName,
       taName: agency.taName,
       globalId: agency.globalId,
+      firstAndLast: agency.firstAndLast,
     }));
 
     const agencies = layer.selectAll('.map__agency')
@@ -166,6 +167,7 @@ const atlasNationalFunctions = {
       upt2017: msa.upt2017,
       name: msa.name,
       globalId: msa.globalId,
+      firstAndLast: msa.firstAndLast,
     }));
 
     const msas = layer.selectAll('.map__agency')

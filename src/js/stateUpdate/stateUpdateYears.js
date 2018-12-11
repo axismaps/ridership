@@ -17,6 +17,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
   atlas
     .config({
       nationalMapData,
+      years,
     })
     .updateYears();
 

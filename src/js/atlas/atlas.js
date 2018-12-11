@@ -24,6 +24,9 @@ const privateMethods = {
       comparedAgencies,
       compareMode,
       updateComparedAgencies,
+      years,
+      allNationalMapData,
+      indicator,
     } = props;
 
     const {
@@ -104,6 +107,9 @@ const privateMethods = {
       updateHighlightedAgencies,
       jumpToMsa,
       mapContainer,
+      years,
+      allNationalMapData,
+      indicator,
     });
 
     mapFeatures.set('states', states);
@@ -381,6 +387,9 @@ class Atlas {
       jumpToMsa,
       updateComparedAgencies,
       mapContainer,
+      years,
+      allNationalMapData,
+      indicator,
     } = privateProps.get(this);
     const {
       setInteractions,
@@ -395,6 +404,9 @@ class Atlas {
       jumpToMsa,
       updateComparedAgencies,
       mapContainer,
+      years,
+      allNationalMapData,
+      indicator,
     });
   }
 
