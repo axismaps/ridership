@@ -19,11 +19,17 @@ def msa_population():
     )
 
     ta_raw = pd.read_csv('data/output/ta.csv')
-    ta = ta_raw[ta_raw.display is True].filter(items=['taid', 'msaid'])
+    ta = ta_raw[ta_raw['display']].filter(
+        items=['taid', 'msaid']
+    ).rename(index=str, columns={'taid': 'Project ID'})
 
-    merge = pd.merge(pop, ta, how='right', left_on='CBSA', right_on='msaid')
+    merge = pd.merge(
+        pop, ta, how='right', left_on='CBSA', right_on='msaid'
+    ).drop(columns=['msaid', 'CBSA'])
 
-    return merge
+    group = merge.groupby('Project ID')
+
+    return group.sum().stack()
 
 def download_census():
     c = Census(settings.CENSUS_API)
@@ -97,5 +103,5 @@ def download_census():
         replace_data('census', indexes, 'census.csv')
 
 if __name__ == "__main__":
-    # print msa_population()
-    print download_census()
+    print msa_population()
+    # print download_census()

@@ -141,6 +141,11 @@ const dataMethods = {
           value: 'failures',
           summaryType: 'mean',
         },
+        {
+          text: 'Ridership per Capita',
+          value: 'capita',
+          summaryType: 'mean',
+        },
       ];
 
       indicatorList.forEach((indicator) => {

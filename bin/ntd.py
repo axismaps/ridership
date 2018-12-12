@@ -1,6 +1,7 @@
 import pandas as pd
 from numpy import inf
 from numpy import nan
+from acs import msa_population
 from meta import clean_ta
 from maintenance import load_maintenance
 from carto import replace_data
@@ -96,6 +97,9 @@ stacks['trip_length'] = pd.Series(stacks['pmt'] / stacks['upt'], name='trip_leng
 
 # Miles between failures
 stacks['failures'] = pd.Series(stacks['pmt'] / load_maintenance(), name='failures')
+
+# Ridership per capita
+stacks['capita'] = pd.Series(stacks['upt'] / msa_population(), name='capita')
 
 # Delete extra indicators
 del stacks['vrh']
