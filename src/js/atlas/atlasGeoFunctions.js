@@ -350,7 +350,12 @@ const atlasMethods = {
               html,
             })
             .draw();
-          drawMSASparkline({ msa, indicator, container: dataProbe.getContainer().select('.data-probe__sparkline-container') });
+          drawMSASparkline({
+            msa,
+            indicator,
+            highlightedId: d.globalId,
+            container: dataProbe.getContainer().select('.data-probe__sparkline-container'),
+          });
         } else {
           tooltip.remove();
           const ids = comparedAgencies.map(a => a.globalId);
