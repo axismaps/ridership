@@ -11,7 +11,7 @@ const sparkLineFunctions = {
       .append('svg')
       .attr('class', 'sidebar__sparkline-svg')
       .styles({
-        width: `${width + 2 * margin}px`,
+        width: `${width + 3 * margin}px`,
         height: `${height + 2 * margin}px`,
       });
   },
@@ -40,6 +40,7 @@ const sparkLineFunctions = {
     svg,
     scales,
     margin,
+    indicatorData,
   }) {
     const {
       xScale,
@@ -48,34 +49,30 @@ const sparkLineFunctions = {
     svg.append('rect')
       .attr('class', 'sparkline-background')
       .attrs({
-        width: '100%',
+        x: 3 * margin,
+        width: xScale.range()[1],
         height: '100%',
       });
+
     const axis = d3.axisLeft()
       .scale(yScale)
       .ticks(2)
-      .tickFormat((number) => {
-        if (number < 10) return d3.format('.2r')(number);
-        if (number < 1000) return d3.format('d')(number);
-        if (number < 1000000) return `${number / 1000}K`;
-        if (number < 1000000000) return `${number / 1000000}M`;
-        return `${number / 1000000000}B`;
-      })
+      .tickFormat(d3.format(indicatorData.format))
       .tickSize(xScale.range()[1] + 2 * margin);
 
     const axisContainer = svg.append('g')
-      .attr('transform', `translate(${xScale.range()[1] + 2 * margin},${margin})`)
+      .attr('transform', `translate(${xScale.range()[1] + 3 * margin},${margin})`)
       .attr('class', 'sparkline-axis')
       .call(axis);
 
     axisContainer.selectAll('text')
       .attrs({
         'text-anchor': 'start',
-        x: -(xScale.range()[1] + 2 * margin) + 5,
+        x: -(xScale.range()[1] + 3 * margin) + 5,
         dy: '-.32em',
       });
 
-    return axisContainer;
+    return axis;
   },
   drawLine({
     indicatorData,
@@ -94,7 +91,7 @@ const sparkLineFunctions = {
 
     const g = svg.append('g')
       .attr('class', 'sidebar__sparkline-path-container')
-      .attr('transform', `translate(${margin},${margin})`);
+      .attr('transform', `translate(${3 * margin},${margin})`);
 
     g.selectAll('path')
       .data(indicatorData.agencies)
@@ -139,15 +136,13 @@ const sparkLineFunctions = {
         bottom: window.innerHeight - clientY + 10,
         width: 250,
       };
-      const x = clientX - svg.select('.sidebar__sparkline-path').node().getBoundingClientRect().left;
+      const x = clientX - svg.select('.sparkline-background').node().getBoundingClientRect().left;
       const year = Math.min(Math.round(xScale.invert(x)), xScale.domain()[1]);
-      const i = year - xScale.domain()[0];
-      if (d.agencies[0].summaries[i] === undefined) return;
-      const format = (number) => {
-        if (number < 100) return d3.format('.2r')(number);
-        return d3.format(',d')(number);
-      };
-      const displayValue = d.agencies[0].summaries[i].indicatorSummary === null ? 'N/A' : format(d.agencies[0].summaries[i].indicatorSummary);
+      const summary = d.agencies[0].summaries.find(s => s.year === year);
+      if (summary === undefined) return;
+      const displayValue = summary.indicatorSummary === null
+        ? 'N/A'
+        : d3.format(d.format)(summary.indicatorSummary);
       const html = `
           <div class="data-probe__row"><span class="data-probe__field">${year}</span></div>
           <div class="data-probe__row">${displayValue}</div>
@@ -163,7 +158,7 @@ const sparkLineFunctions = {
       svg.select('circle')
         .attrs({
           cx: xScale(year),
-          cy: yScale(d.agencies[0].summaries[i].indicatorSummary),
+          cy: yScale(summary.indicatorSummary),
         })
         .style('display', 'block');
     })
@@ -182,11 +177,11 @@ const sparkLineFunctions = {
     height,
     margin,
     indicatorData,
+    axis,
   }) {
     svg
       .transition()
       .styles({
-        width: `${width + 2 * margin}px`,
         height: `${height + 2 * margin}px`,
       });
 
@@ -204,27 +199,17 @@ const sparkLineFunctions = {
       .transition()
       .attr('d', d => lineGenerator(d.summaries));
 
-    if (expanded) {
-      const axis = d3.axisLeft()
-        .scale(yScale)
-        .ticks(4)
-        .tickFormat((number) => {
-          if (number < 10) return d3.format('.2r')(number);
-          if (number < 1000) return d3.format('d')(number);
-          if (number < 1000000) return `${number / 1000}K`;
-          if (number < 1000000000) return `${number / 1000000}M`;
-          return `${number / 1000000000}B`;
-        })
-        .tickSize(xScale.range()[1] + 2 * margin);
+    axis
+      .scale(yScale)
+      .ticks(expanded ? 4 : 2);
 
-      svg.select('g.sparkline-axis')
-        .call(axis)
-        .selectAll('text').attrs({
-          'text-anchor': 'start',
-          x: -(xScale.range()[1] + 2 * margin) + 5,
-          dy: '-.32em',
-        });
-    }
+    svg.select('g.sparkline-axis')
+      .call(axis)
+      .selectAll('text').attrs({
+        'text-anchor': 'start',
+        x: -(xScale.range()[1] + 2 * margin) + 5,
+        dy: '-.32em',
+      });
 
     return line;
   },

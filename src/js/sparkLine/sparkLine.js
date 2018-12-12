@@ -41,6 +41,7 @@ const privateMethods = {
       svg,
       scales,
       margin,
+      indicatorData,
     });
 
     const line = drawLine({
@@ -157,6 +158,7 @@ class SparkLine {
       expanded,
       line,
       dataProbe,
+      axis,
     } = props;
 
     const scales = getScales({
@@ -179,6 +181,7 @@ class SparkLine {
       height,
       margin,
       indicatorData,
+      axis,
     });
 
     updateInteractions({
