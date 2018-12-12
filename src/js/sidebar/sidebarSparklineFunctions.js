@@ -3,11 +3,22 @@ import SparkLine from '../sparkLine/sparkLine';
 const sidebarPureFunctions = {
   drawMSASparklineLegend({
     contentContainer,
+    indicatorSummaries,
   }) {
-    contentContainer
+    const { agencies } = indicatorSummaries
+      .find(d => d.value === 'upt');
+    const legendContainer = contentContainer
       .append('div')
       .attr('class', 'sidebar__sparkline-legend-container')
       .text('');
+
+    legendContainer
+      .selectAll('.sidebar__sparkline-legend-row')
+      .data(agencies)
+      .enter()
+      .append('div')
+      .attr('class', 'sidebar__sparkline-legend-row')
+      .text(d => d.taName);
   },
   drawSparkLineRows({
     contentContainer,
