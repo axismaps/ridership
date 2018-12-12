@@ -173,6 +173,7 @@ const privateMethods = {
       drawSparkLineRows,
       drawSparkLineTitles,
       drawSparkLines,
+      drawSparkLineExpandButtons,
     } = sparklineFunctions;
     console.log('drawNationalSparklines', indicatorSummaries);
 
@@ -183,7 +184,7 @@ const privateMethods = {
 
     const sparkTitles = drawSparkLineTitles({
       sparkRows,
-      updateExpandedIndicator,
+      updateIndicator,
     });
 
     const sparkLines = drawSparkLines({
@@ -194,6 +195,11 @@ const privateMethods = {
       dataProbe,
       updateIndicator,
       currentScale,
+    });
+
+    drawSparkLineExpandButtons({
+      sparkRows,
+      updateExpandedIndicator,
     });
 
     Object.assign(props, {

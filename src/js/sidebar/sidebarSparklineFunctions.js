@@ -47,15 +47,13 @@ const sidebarPureFunctions = {
   },
   drawSparkLineTitles({
     sparkRows,
-    updateExpandedIndicator,
+    updateIndicator,
   }) {
     return sparkRows
       .append('div')
       .attr('class', 'sidebar__sparkline-title')
       .text(d => d.text)
-      .on('click', (d) => {
-        updateExpandedIndicator(d);
-      });
+      .on('click', updateIndicator);
   },
   drawSparkLines({
     sparkRows,
@@ -83,6 +81,22 @@ const sidebarPureFunctions = {
         sparkLines.push(sparkLine);
       });
     return sparkLines;
+  },
+  drawSparkLineExpandButtons({
+    sparkRows,
+    updateExpandedIndicator,
+  }) {
+    const buttons = sparkRows
+      .append('div')
+      .attr('class', 'sidebar__sparkline-expand')
+      .on('click', (d) => {
+        updateExpandedIndicator(d);
+      });
+
+    buttons.append('i')
+      .attr('class', 'fas fa-chevron-down');
+
+    return buttons;
   },
   updateCurrentSparklineIndicator() {
 

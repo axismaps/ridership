@@ -55,6 +55,10 @@
   margin-left: 30px;
 }
 
+.sidebar__sparkline-title {
+  flex: 1;
+}
+
 .sidebar__sparkline-title, .sidebar__pcp-row {
   color: #666666;
   cursor: pointer;
@@ -91,6 +95,27 @@
 
 .sidebar__sparkline-row.expanded {
   height: 190px;
+}
+
+.sidebar__sparkline-expand {
+  visibility: hidden;
+  cursor: pointer;
+  padding: 0 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar__sparkline-row:hover .sidebar__sparkline-expand, .sidebar__sparkline-row.expanded .sidebar__sparkline-expand {
+  visibility: visible;
+}
+
+.sidebar__sparkline-row .sidebar__sparkline-expand .fa-chevron-down {
+  transition: transform .4s;
+}
+
+.sidebar__sparkline-row.expanded  .sidebar__sparkline-expand .fa-chevron-down{
+  transform: rotate(180deg);
 }
 
 .sidebar__sparkline-container {
