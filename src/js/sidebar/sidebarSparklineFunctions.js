@@ -4,20 +4,35 @@ const sidebarPureFunctions = {
   drawMSASparklineLegend({
     contentContainer,
     indicatorSummaries,
+    taFilter,
   }) {
     const { agencies } = indicatorSummaries
       .find(d => d.value === 'upt');
+    console.log('agencies', agencies);
     const legendContainer = contentContainer
       .append('div')
       .attr('class', 'sidebar__sparkline-legend-container')
       .text('');
 
-    legendContainer
+    const rows = legendContainer
       .selectAll('.sidebar__sparkline-legend-row')
       .data(agencies)
       .enter()
       .append('div')
-      .attr('class', 'sidebar__sparkline-legend-row')
+      .attr('class', 'sidebar__sparkline-legend-row');
+      // .text(d => d.taName);
+
+    rows.append('div')
+      .attr('class', 'sidebar__sparkline-legend-check')
+      .html((d) => {
+        if (taFilter.has(d.taId)) {
+          return '<i class="fas fa-square"></i>';
+        }
+        return '<i class="fas fa-check-square"></i>';
+      });
+
+    rows.append('div')
+      .attr('class', 'sidebar__sparkline-legend-text')
       .text(d => d.taName);
   },
   drawSparkLineRows({
