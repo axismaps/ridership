@@ -1,4 +1,4 @@
-import pureFunctions from './sidebarSparklineFunctions';
+import sparklineFunctions from './sidebarSparklineFunctions';
 import pcpFunctions from './sidebarParallelCoordinatePlotFunctions';
 import DataProbe from '../dataProbe/dataProbe';
 
@@ -19,15 +19,36 @@ const privateMethods = {
     setTopButtonStatus.call(this);
     if (currentScale === 'national') {
       drawNationalContent.call(this);
-      this.updateCurrentIndicator();
     } else {
       drawMSAContent.call(this);
     }
+  },
+  drawMSAContent() {
+    const props = privateProps.get(this);
+    const {
+      contentContainer,
+      currentSidebarView,
+    } = props;
+    const {
+      drawNationalContent,
+    } = privateMethods;
+    const {
+      drawMSASparklineLegend,
+    } = sparklineFunctions;
+    if (currentSidebarView === 'sparklines') {
+      drawMSASparklineLegend({
+        contentContainer,
+      });
+    }
+
+    drawNationalContent.call(this);
+    this.updateCurrentIndicator();
   },
   clearContent() {
     const {
       contentContainer,
     } = privateProps.get(this);
+    console.log('clear content');
     contentContainer.selectAll('div').remove();
   },
   setTopButtonEvents() {
@@ -74,7 +95,7 @@ const privateMethods = {
   drawNationalContent() {
     const {
       currentSidebarView,
-      comparedAgencies,
+      // comparedAgencies,
     } = privateProps.get(this);
     const {
       drawNationalSparkLines,
@@ -87,10 +108,9 @@ const privateMethods = {
     } else {
       drawNationalParallelPlot.call(this);
     }
+    this.updateCurrentIndicator();
   },
-  drawMSAContent() {
-    console.log('draw msa sidebar');
-  },
+
   drawNationalCompareList() {
     const props = privateProps.get(this);
 
@@ -141,13 +161,14 @@ const privateMethods = {
       updateIndicator,
       updateExpandedIndicator,
       dataProbe,
+      currentScale,
     } = props;
 
     const {
       drawSparkLineRows,
       drawSparkLineTitles,
       drawSparkLines,
-    } = pureFunctions;
+    } = sparklineFunctions;
     console.log('drawNationalSparklines', indicatorSummaries);
 
     const sparkRows = drawSparkLineRows({
@@ -167,6 +188,7 @@ const privateMethods = {
       currentIndicator,
       dataProbe,
       updateIndicator,
+      currentScale,
     });
 
     Object.assign(props, {
@@ -275,7 +297,7 @@ class Sidebar {
   updateExpandedIndicator() {
     const {
       updateExpandedSparkline,
-    } = pureFunctions;
+    } = sparklineFunctions;
 
     const {
       sparkRows,

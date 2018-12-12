@@ -87,7 +87,7 @@ const sparkLineFunctions = {
       .attr('class', 'sidebar__sparkline-path')
       // .style('stroke', d => (d.color !== undefined ? d.color : 'black'))
       .each(function setColor(d) {
-        if (d.color !== undefined) {
+        if (color) {
           d3.select(this)
             .styles({
               stroke: d.color,

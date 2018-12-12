@@ -58,54 +58,54 @@ const getNationalIndicatorSummaries = function getNationalIndicatorSummaries({ d
 };
 
 const getMSAIndicatorSummaries = function getMSAIndicatorSummaries({ data }) {
-  const largestAgencyColor = '#644497';
-  const colors = [
-    '#00ad91',
-    '#ff5e4d',
-    '#eb52d6',
-    '#ff9d2e',
-    '#8c6112',
-    '#0f8fff',
-    '#33a02c',
-    '#c2ab00',
-    '#707070',
-    '#bc80bd',
-  ];
+  // const largestAgencyColor = '#644497';
+  // const colors = [
+  //   '#00ad91',
+  //   '#ff5e4d',
+  //   '#eb52d6',
+  //   '#ff9d2e',
+  //   '#8c6112',
+  //   '#0f8fff',
+  //   '#33a02c',
+  //   '#c2ab00',
+  //   '#707070',
+  //   '#bc80bd',
+  // ];
   const currentMSA = this.get('msa');
   const allNationalMapData = data.get('allNationalMapData');
   const agencies = allNationalMapData.find(d => d.msaId === currentMSA.msaId).ta;
 
-  const averageUPTs = agencies.reduce((accumulator, d) => {
-    accumulator[d.taId] = d3.mean(d.ntd, dd => dd.upt);
-    return accumulator;
-  }, {});
+  // const averageUPTs = agencies.reduce((accumulator, d) => {
+  //   accumulator[d.taId] = d3.mean(d.ntd, dd => dd.upt);
+  //   return accumulator;
+  // }, {});
 
-  const largestAgency = agencies.reduce((accumulator, d) => {
-    if (averageUPTs[d.taId] > averageUPTs[accumulator.taId]) {
-      return d;
-    }
-    return accumulator;
-  })
-    .taId;
+  // const largestAgency = agencies.reduce((accumulator, d) => {
+  //   if (averageUPTs[d.taId] > averageUPTs[accumulator.taId]) {
+  //     return d;
+  //   }
+  //   return accumulator;
+  // })
+  //   .taId;
 
-  const agencyColors = agencies.reduce((accumulator, agency, i) => {
-    if (agency.taId === largestAgency) {
-      accumulator[agency.taId] = largestAgencyColor;
-    } else {
-      accumulator[agency.taId] = colors[i];
-    }
-    return accumulator;
-  }, {});
+  // const agencyColors = agencies.reduce((accumulator, agency, i) => {
+  //   if (agency.taId === largestAgency) {
+  //     accumulator[agency.taId] = largestAgencyColor;
+  //   } else {
+  //     accumulator[agency.taId] = colors[i];
+  //   }
+  //   return accumulator;
+  // }, {});
   const indicators = data.get('indicators');
 
-  console.log('agencyColors', agencyColors);
+  // console.log('agencyColors', agencyColors);
   const indicatorSummaries = [];
 
   indicators.forEach((indicator, key) => {
     const indicatorCopy = Object.assign({}, indicator);
     const agenciesWithSummaries = agencies.map((agency) => {
       const agencyCopy = Object.assign({
-        color: agencyColors[agency.taId],
+        // color: agencyColors[agency.taId],
       }, agency);
       agencyCopy.summaries = agency.ntd
         .map(d => ({

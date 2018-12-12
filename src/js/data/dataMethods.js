@@ -37,7 +37,7 @@ const dataMethods = {
       };
     });
 
-    const ta = rawTa.rows.map((record) => {
+    const ta = rawTa.rows.map((record, i) => {
       const {
         msaid,
         taid,
@@ -52,6 +52,53 @@ const dataMethods = {
         taShort: tashort,
       };
     });
+
+    // {
+    //   /**
+    //    * Add colors to all agencies
+    //    * @private
+    //    */
+    //   const largestAgencyColor = '#644497';
+    //   const colors = [
+    //     '#00ad91',
+    //     '#ff5e4d',
+    //     '#eb52d6',
+    //     '#ff9d2e',
+    //     '#8c6112',
+    //     '#0f8fff',
+    //     '#33a02c',
+    //     '#c2ab00',
+    //     '#707070',
+    //     '#bc80bd',
+    //   ];
+    //   msa.forEach((metro) => {
+    //     const agencies = ta.filter(d => d.msaId === metro.msaId);
+    //     console.log('agencies', agencies);
+    //     const averageUPTs = agencies.reduce((accumulator, d) => {
+    //       accumulator[d.taId] = d3.mean(d.ntd, dd => dd.upt);
+    //       return accumulator;
+    //     }, {});
+    //     const largestAgency = agencies.reduce((accumulator, d) => {
+    //       if (averageUPTs[d.taId] > averageUPTs[accumulator.taId]) {
+    //         return d;
+    //       }
+    //       return accumulator;
+    //     })
+    //       .taId;
+    //     let agenciesAssigned = 0;
+    //     agencies.forEach((agency) => {
+    //       if (agency.taId === largestAgency) {
+    //         /* eslint-disable no-param-reassign */
+    //         agency.color = largestAgencyColor;
+    //       } else {
+    //         agency.color = colors[agenciesAssigned];
+    //         /* eslint-enable no-param-reassign */
+    //         agenciesAssigned += 1;
+    //       }
+    //     });
+    //   });
+    // }
+    // console.log('ta', ta);
 
     const ntd = rawNtd.rows.map((record) => {
       const cleanRecord = Object.assign({}, record);
@@ -253,12 +300,25 @@ const dataMethods = {
     ntd,
     ta,
   }) {
+    const largestAgencyColor = '#644497';
+    const colors = [
+      '#00ad91',
+      '#ff5e4d',
+      '#eb52d6',
+      '#ff9d2e',
+      '#8c6112',
+      '#0f8fff',
+      '#33a02c',
+      '#c2ab00',
+      '#707070',
+      '#bc80bd',
+    ];
     let globalId = 1;
     return msa.map((metro) => {
       const metroCopy = Object.assign({}, metro);
       metroCopy.globalId = globalId;
       globalId += 1;
-      metroCopy.ta = ta.filter(agency => agency.msaId === metro.msaId)
+      const agencies = ta.filter(agency => agency.msaId === metro.msaId)
         .map((agency) => {
           const agencyCopy = Object.assign({}, agency);
           agencyCopy.globalId = globalId;
@@ -274,6 +334,30 @@ const dataMethods = {
             });
           return agencyCopy;
         });
+      const averageUPTs = agencies.reduce((accumulator, d) => {
+        accumulator[d.taId] = d3.mean(d.ntd, dd => dd.upt);
+        return accumulator;
+      }, {});
+      const largestAgency = agencies.reduce((accumulator, d) => {
+        if (averageUPTs[d.taId] > averageUPTs[accumulator.taId]) {
+          return d;
+        }
+        return accumulator;
+      })
+        .taId;
+      let agenciesAssigned = 0;
+      agencies.forEach((agency) => {
+        if (agency.taId === largestAgency) {
+          /* eslint-disable no-param-reassign */
+          agency.color = largestAgencyColor;
+        } else {
+          agency.color = colors[agenciesAssigned];
+          /* eslint-enable no-param-reassign */
+          agenciesAssigned += 1;
+        }
+      });
+
+      metroCopy.ta = agencies;
       return metroCopy;
     });
   },

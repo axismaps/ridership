@@ -1,6 +1,14 @@
 import SparkLine from '../sparkLine/sparkLine';
 
 const sidebarPureFunctions = {
+  drawMSASparklineLegend({
+    contentContainer,
+  }) {
+    const legendContainer = contentContainer
+      .append('div')
+      .attr('class', 'sidebar__sparkline-legend-container')
+      .text('LEGEND');
+  },
   drawSparkLineRows({
     contentContainer,
     indicatorSummaries,
@@ -28,6 +36,7 @@ const sidebarPureFunctions = {
     yearRange,
     dataProbe,
     updateIndicator,
+    currentScale,
   }) {
     const sparkLines = [];
 
@@ -43,7 +52,7 @@ const sidebarPureFunctions = {
           indicatorData: d,
           yearRange,
           dataProbe,
-          // selected: currentIndicator.value === d.value,
+          color: currentScale === 'msa',
         });
         sparkLines.push(sparkLine);
       });
