@@ -86,28 +86,28 @@
   cursor: pointer;
 }
 
-.sidebar__sparkline-background {
+.sidebar .sparkline-background {
   fill: $body--background;
   display: none;
   opacity: 0;
   transition: opacity .4s;
 }
 
-.sidebar__sparkline-axis,
-.sidebar__sparkline-axis path.domain {
+.sidebar .sparkline-axis,
+.sidebar .sparkline-axis path.domain {
   display: none;
 }
 
-.sidebar__sparkline-axis g.tick line {
+.sidebar .sparkline-axis g.tick line {
   stroke: white;
 }
 
-.sidebar__sparkline-axis g.tick text {
+.sidebar .sparkline-axis g.tick text {
   fill: $main-blue;
 }
 
-.sidebar__sparkline-row.expanded .sidebar__sparkline-background,
-.sidebar__sparkline-row.expanded .sidebar__sparkline-axis {
+.sidebar__sparkline-row.expanded .sparkline-background,
+.expanded .sparkline-axis {
   display: block;
   opacity: 1;
 }
