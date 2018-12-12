@@ -9,12 +9,14 @@ const getMSADropdown = ({ data, state }) => new MSADropdown({
   contentContainer: d3.select('.msa-dropdown__content'),
   updateMSA: (newMSA) => {
     const currentMSA = state.get('msa');
+    console.log('currentMSA', currentMSA);
 
     if (currentMSA === null || currentMSA.msaId !== newMSA.msaId) {
       if (state.get('scale') === 'national') {
         state.update({
-          msa: newMSA,
           scale: 'msa',
+          msa: newMSA,
+
         });
       } else {
         state.update({
