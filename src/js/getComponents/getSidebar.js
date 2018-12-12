@@ -12,6 +12,7 @@ const getSidebar = ({ data, state }) => new Sidebar({
   yearRange: data.get('yearRange'),
   comparedAgencies: state.get('comparedAgencies'),
   currentScale: state.get('scale'),
+  taFilter: state.get('taFilter'),
   contentContainer: d3.select('.sidebar__content'),
   compareContainer: d3.select('.sidebar__compare-list'),
   topRowContainer: d3.select('.sidebar__top-row'),
@@ -49,6 +50,18 @@ const getSidebar = ({ data, state }) => new Sidebar({
   },
   updateCompareMode: (compareMode) => {
     state.update({ compareMode });
+  },
+  updateTAFilter(newAgency) {
+    const currentTAFilter = state.get('taFilter');
+    /**
+     * Make copy of current taFilter, add/remove new filter
+     * @private
+     */
+    if (currentTAFilter.has(newAgency)) {
+      state.update({ taFilter: new Set(currentTAFilter).delete(newAgency) });
+    } else {
+      state.update({ taFilter: new Set(currentTAFilter).add(newAgency) });
+    }
   },
 });
 

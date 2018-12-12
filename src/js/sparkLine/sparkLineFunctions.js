@@ -96,7 +96,7 @@ const sparkLineFunctions = {
       .attr('class', 'sidebar__sparkline-path-container')
       .attr('transform', `translate(${margin},${margin})`);
 
-    const line = g.selectAll('path')
+    g.selectAll('path')
       .data(indicatorData.agencies)
       .enter()
       .append('path')

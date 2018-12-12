@@ -28,6 +28,8 @@ const privateMethods = {
     const {
       contentContainer,
       currentSidebarView,
+      indicatorSummaries,
+      taFilter,
     } = props;
     const {
       drawNationalContent,
@@ -36,8 +38,11 @@ const privateMethods = {
       drawMSASparklineLegend,
     } = sparklineFunctions;
     if (currentSidebarView === 'sparklines') {
+      console.log('summaries', indicatorSummaries);
       drawMSASparklineLegend({
         contentContainer,
+        indicatorSummaries,
+        taFilter,
       });
     }
 

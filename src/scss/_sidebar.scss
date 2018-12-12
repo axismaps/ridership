@@ -65,6 +65,17 @@
   font-weight: 600;
 }
 
+.sidebar__sparkline-legend-row {
+  margin-bottom: 8px;
+  margin-left: 10px;
+  display: flex;
+
+}
+
+.sidebar__sparkline-legend-text {
+  margin-left: 10px;
+}
+
 .sidebar__sparkline-row {
   display: flex;
   align-items: center;

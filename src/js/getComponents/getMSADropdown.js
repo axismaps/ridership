@@ -13,8 +13,9 @@ const getMSADropdown = ({ data, state }) => new MSADropdown({
     if (currentMSA === null || currentMSA.msaId !== newMSA.msaId) {
       if (state.get('scale') === 'national') {
         state.update({
-          msa: newMSA,
           scale: 'msa',
+          msa: newMSA,
+
         });
       } else {
         state.update({
