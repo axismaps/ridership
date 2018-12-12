@@ -117,5 +117,63 @@
     "key": "income",
     "var": "B19013_001E",
     "upload": true
+  },
+  {
+    "name": "Households",
+    "key": "households",
+    "var": "B11001_001E"
+  },
+  {
+    "name": "Households with No Vehicle",
+    "key": "no_vehicle",
+    "var": "B08201_002E"
+  },
+  {
+    "name": "Percent Households with No Vehicle",
+    "key": "no_vehicle_pct",
+    "numerator": "no_vehicle",
+    "denominator": "households",
+    "upload": true
+  },
+  {
+    "name": "Workers 16 years and over",
+    "key": "workers",
+    "var": "B08101_001E"
+  },
+  {
+    "name": "Commute by Driving Alone",
+    "key": "drive",
+    "var": "B08101_009E"
+  },
+  {
+    "name": "Commute by Carpool",
+    "key": "carpool",
+    "var": "B08101_017E"
+  },
+  {
+    "name": "Commute by Public Transit",
+    "key": "transit",
+    "var": "B08101_025E"
+  },
+  {
+    "name": "Percent Commute by Driving",
+    "key": "drive_pct",
+    "numerator": "drive",
+    "denominator": "workers",
+    "upload": true
+  },
+  {
+    "name": "Percent Commute by Carpooling",
+    "key": "carpool_pct",
+    "numerator": "carpool",
+    "denominator": "workers",
+    "upload": true
+  },
+  {
+    "name": "Percent Commute by Public Transit",
+    "key": "transit_pct",
+    "numerator": "transit",
+    "denominator": "workers",
+    "upload": true
   }
 ]
