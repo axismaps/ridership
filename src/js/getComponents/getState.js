@@ -20,6 +20,7 @@ const getState = ({ data }) => {
     expandedIndicator: null,
     comparedAgencies: [],
     compareMode: false,
+    taFilter: new Set(), // agencies to filter out in msa-scale map and charts
   });
 
   Object.assign(

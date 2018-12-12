@@ -29,6 +29,7 @@ const privateMethods = {
       contentContainer,
       currentSidebarView,
       indicatorSummaries,
+      taFilter,
     } = props;
     const {
       drawNationalContent,
@@ -41,6 +42,7 @@ const privateMethods = {
       drawMSASparklineLegend({
         contentContainer,
         indicatorSummaries,
+        taFilter,
       });
     }
 

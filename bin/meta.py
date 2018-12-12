@@ -3,6 +3,19 @@ import pandas as pd
 import geopandas as gpd
 from carto import replace_data
 
+COLORS = [
+    '#00ad91',
+    '#ff5e4d',
+    '#eb52d6',
+    '#ff9d2e',
+    '#8c6112',
+    '#0f8fff',
+    '#33a02c',
+    '#c2ab00',
+    '#707070',
+    '#bc80bd'
+]
+
 def clean_ta(ta, drop):
     # Remove missing NTD ID's
     ta = ta.dropna(how='all')
@@ -55,11 +68,31 @@ def main():
     merge = pd.merge(agencies, csa, how='inner', on=['name_match', 'state_match'])
 
     # Export TA metadata
-    ta_header = ['taid', 'taname', 'tashort', 'msaid', 'display']
-    merge[['Project ID', 'Agency Name', 'Reporter Acronym', 'GEOID', 'display']].to_csv(
-        'data/output/ta.csv', index=False,
-        header=ta_header)
-    replace_data('ta', ta_header, 'ta.csv')
+    tamerge = merge[
+        ['Project ID', 'Agency Name', 'Reporter Acronym', 'GEOID', 'display']
+    ].rename(
+        columns={
+            'Project ID': 'taid',
+            'Agency Name': 'taname',
+            'Reporter Acronym': 'tashort',
+            'GEOID': 'msaid'
+        }
+    )
+
+    prev_msa = 0
+    color_count = 0
+    for i, row in tamerge.iterrows():
+        if row.msaid == prev_msa:
+            color_count += 1
+            if color_count >= len(COLORS):
+                color_count = 0
+        else:
+            color_count = 0
+            prev_msa = row.msaid
+        tamerge.at[i, 'msa_color'] = COLORS[color_count]
+
+    tamerge.to_csv('data/output/ta.csv', index=False)
+    replace_data('ta', ['taid', 'taname', 'tashort', 'msaid', 'display', 'msa_color'], 'ta.csv')
 
     # Export MSA metadata
     msa_header = ['name', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy']

@@ -14,7 +14,7 @@ def gas_prices():
     ta_raw = pd.read_csv('data/output/ta.csv')
     ta = ta_raw[ta_raw['display']]
     merge2 = pd.merge(
-      ta, merge1, how='left', on='msaid'
+        ta, merge1, how='left', on='msaid'
     ).rename(
         index=str, columns={'taid': 'Project ID'}
     ).drop(
