@@ -150,36 +150,57 @@ const dataMethods = {
 
     const censusFields = [
       {
-        text: 'Percentage Asian',
-        value: 'asian_pct',
-      },
-      {
-        text: 'Percentage Black',
-        value: 'black_pct',
-      },
-      {
-        text: 'Percentage Latino',
-        value: 'latino_pct',
-      },
-      {
-        text: 'Percentage White',
-        value: 'white_pct',
-      },
-      {
-        text: 'Percentage Foreign born',
-        value: 'foreign_pct',
-      },
-      {
-        text: 'Population over 75',
-        value: 'over75',
-      },
-      {
-        text: 'Population',
+        text: 'Total Population',
         value: 'pop',
       },
       {
-        text: 'Income',
+        text: 'Population Density',
+        value: 'density',
+        upload: true,
+      },
+      {
+        text: 'Percent Foreign Born',
+        value: 'foreign_pct',
+      },
+      {
+        text: 'Percent White',
+        value: 'white_pct',
+      },
+      {
+        text: 'Percent Black',
+        value: 'black_pct',
+      },
+      {
+        text: 'Percent Asian',
+        value: 'asian_pct',
+      },
+      {
+        text: 'Percent Hispanic/Latino',
+        value: 'latino_pct',
+      },
+      {
+        text: 'Population Age 75+',
+        value: 'over75',
+      },
+      {
+        text: 'Median Household Income',
         value: 'income',
+      },
+      {
+        text: 'Percent Households with No Vehicle',
+        value: 'no_vehicle_pct',
+      },
+      {
+        text: 'Percent Commute by Driving',
+        value: 'drive_pct',
+      },
+      {
+        text: 'Percent Commute by Carpooling',
+        value: 'carpool_pct',
+      },
+      {
+        text: 'Percent Commute by Public Transit',
+        value: 'transit_pct',
       },
     ];
 
