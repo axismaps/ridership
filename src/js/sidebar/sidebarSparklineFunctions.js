@@ -4,10 +4,10 @@ const sidebarPureFunctions = {
   drawMSASparklineLegend({
     contentContainer,
   }) {
-    const legendContainer = contentContainer
+    contentContainer
       .append('div')
       .attr('class', 'sidebar__sparkline-legend-container')
-      .text('LEGEND');
+      .text('');
   },
   drawSparkLineRows({
     contentContainer,
