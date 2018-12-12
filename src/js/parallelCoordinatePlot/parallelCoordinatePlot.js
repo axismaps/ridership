@@ -87,7 +87,7 @@ class ParallelCoordinatePlot {
       yearRange: null,
       margins: [30, 15],
       currentIndicator: null,
-      maxValue: 200,
+      maxValue: 100,
       highlightedAgencies: [],
       color: () => 'rgb(0,0,0)',
     });
