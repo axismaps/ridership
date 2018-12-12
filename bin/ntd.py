@@ -98,7 +98,6 @@ stacks['trip_length'] = pd.Series(stacks['pmt'] / stacks['upt'], name='trip_leng
 stacks['failures'] = pd.Series(stacks['pmt'] / load_maintenance(), name='failures')
 
 # Delete extra indicators
-del stacks['fares']
 del stacks['vrh']
 del stacks['drm']
 del stacks['voms']
