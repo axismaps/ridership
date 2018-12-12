@@ -4,7 +4,7 @@ from meta import make_match_state
 def gas_prices():
     pr = pd.read_csv('data/ntd/pr_all.csv')
     prices = pr[pr['MSN'] == 'MGACD'].drop(
-      columns=[str(x) for x in range(1970, 2006)]
+        columns=[str(x) for x in range(1970, 2006)]
     )
 
     msa = pd.read_csv('data/output/msa.csv')
@@ -16,9 +16,9 @@ def gas_prices():
     merge2 = pd.merge(
       ta, merge1, how='left', on='msaid'
     ).rename(
-      index=str, columns={'taid': 'Project ID'}
+        index=str, columns={'taid': 'Project ID'}
     ).drop(
-      columns=['msaid', 'display', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy']
+        columns=['msaid', 'display', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy']
     )
 
     group = merge2.groupby('Project ID')
