@@ -146,6 +146,11 @@ const dataMethods = {
           value: 'capita',
           summaryType: 'mean',
         },
+        {
+          text: 'Statewide Gas Prices',
+          value: 'gas',
+          summaryType: 'mean',
+        },
       ];
 
       indicatorList.forEach((indicator) => {

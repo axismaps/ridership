@@ -2,6 +2,7 @@ import pandas as pd
 from numpy import inf
 from numpy import nan
 from acs import msa_population
+from eia import gas_prices
 from meta import clean_ta
 from maintenance import load_maintenance
 from carto import replace_data
@@ -100,6 +101,9 @@ stacks['failures'] = pd.Series(stacks['pmt'] / load_maintenance(), name='failure
 
 # Ridership per capita
 stacks['capita'] = pd.Series(stacks['upt'] / msa_population(), name='capita')
+
+# Gas prices
+stacks['gas'] = pd.Series(gas_prices(), name='gas')
 
 # Delete extra indicators
 del stacks['vrh']
