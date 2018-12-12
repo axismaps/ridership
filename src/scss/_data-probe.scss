@@ -40,3 +40,20 @@
   font-weight: 350;
   margin-top: 10px;
 }
+
+.data-probe .sparkline-background {
+  fill: none;
+}
+
+.data-probe .sparkline-axis path.domain {
+  display: none;
+}
+
+.data-probe .sparkline-axis g.tick line {
+  stroke: $body--background;
+  stroke-width: 2;
+}
+
+.data-probe .sparkline-axis g.tick text {
+  fill: $main-blue;
+}

@@ -77,6 +77,7 @@ class SparkLine {
       yearRange: null,
       expanded: false,
       selected: false,
+      highlightedId: null,
     });
 
     const {
@@ -126,6 +127,15 @@ class SparkLine {
     }
 
     return this;
+  }
+
+  updateHighlighted() {
+    const {
+      highlightedId,
+      line,
+    } = privateProps.get(this);
+
+    line.classed('sidebar__sparkline-path--highlighted', d => d.globalId === highlightedId);
   }
 
   updateSize() {

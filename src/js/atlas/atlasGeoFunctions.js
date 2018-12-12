@@ -333,7 +333,7 @@ const atlasMethods = {
             <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
             <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
             <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}%</div>
-            <div class="data-probe__sparkline-container"></div>
+            <div class="data-probe__sparkline-container expanded"></div>
             <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
           ` : `
             <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.taName}</span></div>
@@ -341,7 +341,7 @@ const atlasMethods = {
             <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
             <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
             <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}%</div>
-            <div class="data-probe__sparkline-container"></div>
+            <div class="data-probe__sparkline-container expanded"></div>
             <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
           `;
           dataProbe
@@ -350,7 +350,12 @@ const atlasMethods = {
               html,
             })
             .draw();
-          drawMSASparkline({ msa, indicator, container: dataProbe.getContainer().select('.data-probe__sparkline-container') });
+          drawMSASparkline({
+            msa,
+            indicator,
+            highlightedId: d.globalId,
+            container: dataProbe.getContainer().select('.data-probe__sparkline-container'),
+          });
         } else {
           tooltip.remove();
           const ids = comparedAgencies.map(a => a.globalId);

@@ -21,6 +21,7 @@ const atlasHelperFunctions = {
     msa,
     indicator,
     container,
+    highlightedId,
   }) {
     const indicatorData = Object.assign({}, indicator);
     indicatorData.agencies = msa.ta.map((ta) => {
@@ -42,6 +43,7 @@ const atlasHelperFunctions = {
           indicatorSummary,
         };
       });
+      agencyCopy.color = globalId === highlightedId ? 'black' : 'rgba(0,0,0,.25)';
       return agencyCopy;
     });
 
