@@ -89,10 +89,10 @@ def main():
         else:
             color_count = 0
             prev_msa = row.msaid
-        tamerge.at[i, 'color'] = COLORS[color_count]
+        tamerge.at[i, 'msa_color'] = COLORS[color_count]
 
     tamerge.to_csv('data/output/ta.csv', index=False)
-    replace_data('ta', ['taid', 'taname', 'tashort', 'msaid', 'display', 'color'], 'ta.csv')
+    replace_data('ta', ['taid', 'taname', 'tashort', 'msaid', 'display', 'msa_color'], 'ta.csv')
 
     # Export MSA metadata
     msa_header = ['name', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy']

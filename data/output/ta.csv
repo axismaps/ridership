@@ -1,4 +1,4 @@
-taid,taname,tashort,msaid,display,color
+taid,taname,tashort,msaid,display,msa_color
 1,New York City Transit,NYC Transit,35620,True,#00ad91
 1,MTA New York City Transit,NYCT,35620,False,#ff5e4d
 2,New Jersey Transit Corporation,NJ TRANSIT,35620,True,#eb52d6
