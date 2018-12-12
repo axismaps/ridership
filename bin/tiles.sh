@@ -1,6 +1,7 @@
 mapshaper data/geojson/transit/**/routes.geojson combine-files \
   -merge-layers force \
-  -filter-fields color,high_frequency,name,operated_by_name,tags,vehicle_type \
+  -join data/output/ta.csv keys=operated_by_name,taname unmatched \
+  -filter-fields taid,color,high_frequency,name,operated_by_name,tags,vehicle_type \
   -o data/output/routes.geojson
 
 mapshaper data/geojson/transit/**/stops.geojson combine-files \
