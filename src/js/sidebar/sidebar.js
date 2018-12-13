@@ -38,7 +38,6 @@ const privateMethods = {
       drawMSASparklineLegend,
     } = sparklineFunctions;
     if (currentSidebarView === 'sparklines') {
-      console.log('summaries', indicatorSummaries);
       drawMSASparklineLegend({
         contentContainer,
         indicatorSummaries,
@@ -53,7 +52,6 @@ const privateMethods = {
     const {
       contentContainer,
     } = privateProps.get(this);
-    console.log('clear content');
     contentContainer.selectAll('div').remove();
   },
   setTopButtonEvents() {
@@ -175,7 +173,6 @@ const privateMethods = {
       drawSparkLines,
       drawSparkLineExpandButtons,
     } = sparklineFunctions;
-    console.log('drawNationalSparklines', indicatorSummaries);
 
     const sparkRows = drawSparkLineRows({
       contentContainer,

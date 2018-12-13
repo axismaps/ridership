@@ -73,11 +73,22 @@
   margin-bottom: 8px;
   margin-left: 10px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.sidebar__sparkline-legend-row-left {
+  display: flex;
+  align-items: center;
 }
 
 .sidebar__sparkline-legend-text {
   margin-left: 10px;
+  max-width: 200px;
+}
+
+.sidebar__sparkline-legend-swatch-container {
+  margin-right: 30px;
 }
 
 .sidebar__sparkline-row {
