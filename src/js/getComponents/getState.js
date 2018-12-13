@@ -1,6 +1,7 @@
 import State from '../state/state';
 import getGetCurrentTractGeo from '../stateMethods/stateGetCurrentTractGeoJSON';
 import getGetCurrentIndicatorSummaries from '../stateMethods/stateGetCurrentIndicatorSummaries';
+import getGetAllAgenciesForCurrentMSA from '../stateMethods/stateGetAllMSAAgencies';
 
 const getState = ({ data }) => {
   const state = new State({
@@ -291,6 +292,8 @@ const getState = ({ data }) => {
   };
 
   state.getCurrentIndicatorSummaries = getGetCurrentIndicatorSummaries({ data });
+
+  state.getAllAgenciesForCurrentMSA = getGetAllAgenciesForCurrentMSA({ data });
 
   return state;
 };

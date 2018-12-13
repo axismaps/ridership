@@ -3,6 +3,7 @@ import Sidebar from '../sidebar/sidebar';
 const getSidebar = ({ data, state }) => new Sidebar({
   indicatorSummaries: state.getCurrentIndicatorSummaries(),
   agenciesData: state.getCurrentAgenciesData(),
+  currentAgencies: state.getAllAgenciesForCurrentMSA(),
   currentIndicator: state.get('indicator'),
   currentIndicatorDisabled: false, // disable ability to select sparklines, for msa-scale
   nationalDataView: state.get('nationalDataView'),

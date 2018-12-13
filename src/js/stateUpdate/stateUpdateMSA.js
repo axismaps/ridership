@@ -5,12 +5,17 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
     histogram,
     sidebar,
   } = components;
-  const indicatorSummaries = this.getCurrentIndicatorSummaries();
+  // const indicatorSummaries = this.getCurrentIndicatorSummaries();
+  // sidebar
+  //   .config({
+  //     indicatorSummaries,
+  //   })
+  //   .updateData();
+
   sidebar
     .config({
-      indicatorSummaries,
-    })
-    .updateData();
+      currentAgencies: this.getAllAgenciesForCurrentMSA(),
+    });
 
   this.update({
     taFilter: new Set(),

@@ -3,16 +3,15 @@ import SparkLine from '../sparkLine/sparkLine';
 const sidebarSparkLineFunctions = {
   drawMSASparkLineLegend({
     contentContainer,
-    indicatorSummaries,
+    // indicatorSummaries,
     taFilter,
     updateTAFilter,
     logTAChecks,
+    currentAgencies,
   }) {
     const {
       setSparkLineLegendChecks,
     } = sidebarSparkLineFunctions;
-    const { agencies } = indicatorSummaries
-      .find(d => d.value === 'upt');
 
     const legendContainer = contentContainer
       .append('div')
@@ -20,7 +19,7 @@ const sidebarSparkLineFunctions = {
 
     const rows = legendContainer
       .selectAll('.sidebar__sparkline-legend-row')
-      .data(agencies)
+      .data(currentAgencies)
       .enter()
       .append('div')
       .attr('class', 'sidebar__sparkline-legend-row');

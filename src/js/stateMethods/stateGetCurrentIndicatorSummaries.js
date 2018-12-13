@@ -59,6 +59,7 @@ const getNationalIndicatorSummaries = function getNationalIndicatorSummaries({ d
 
 const getMSAIndicatorSummaries = function getMSAIndicatorSummaries({ data }) {
   const currentMSA = this.get('msa');
+  const currentTAFilter = this.get('taFilter');
   const allNationalMapData = data.get('allNationalMapData');
   const agencies = allNationalMapData.find(d => d.msaId === currentMSA.msaId).ta;
 
@@ -70,18 +71,20 @@ const getMSAIndicatorSummaries = function getMSAIndicatorSummaries({ data }) {
 
   indicators.forEach((indicator, key) => {
     const indicatorCopy = Object.assign({}, indicator);
-    const agenciesWithSummaries = agencies.map((agency) => {
-      const agencyCopy = Object.assign({
+    const agenciesWithSummaries = agencies
+      .filter(agency => !currentTAFilter.has(agency.taId))
+      .map((agency) => {
+        const agencyCopy = Object.assign({
 
-      }, agency);
-      agencyCopy.summaries = agency.ntd
-        .map(d => ({
-          year: d.year,
-          indicatorSummary: d[key],
-        }))
-        .filter(d => d.indicatorSummary !== null && d.indicatorSummary !== undefined);
-      return agencyCopy;
-    });
+        }, agency);
+        agencyCopy.summaries = agency.ntd
+          .map(d => ({
+            year: d.year,
+            indicatorSummary: d[key],
+          }))
+          .filter(d => d.indicatorSummary !== null && d.indicatorSummary !== undefined);
+        return agencyCopy;
+      });
     indicatorCopy.agencies = agenciesWithSummaries;
     indicatorSummaries.push(indicatorCopy);
   });

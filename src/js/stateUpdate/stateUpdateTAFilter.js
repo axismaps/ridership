@@ -3,12 +3,14 @@ const getStateUpdateTAFilter = ({ components }) => function updateTAFilter() {
     sidebar,
   } = components;
   const taFilter = this.get('taFilter');
+  const indicatorSummaries = this.getCurrentIndicatorSummaries();
 
   sidebar
     .config({
+      indicatorSummaries,
       taFilter,
     })
-    .updateTAFilter();
+    .updateData();
 };
 
 export default getStateUpdateTAFilter;

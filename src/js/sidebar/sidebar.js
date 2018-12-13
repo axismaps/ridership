@@ -28,7 +28,8 @@ const privateMethods = {
     const {
       contentContainer,
       currentSidebarView,
-      indicatorSummaries,
+      // indicatorSummaries,
+      currentAgencies,
       taFilter,
       updateTAFilter,
     } = props;
@@ -42,7 +43,8 @@ const privateMethods = {
       drawMSASparkLineLegend({
         updateTAFilter,
         contentContainer,
-        indicatorSummaries,
+        // indicatorSummaries,
+        currentAgencies,
         taFilter,
         logTAChecks: (checks) => {
           props.checks = checks;
