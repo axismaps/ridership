@@ -6,11 +6,14 @@
   height: calc(100vh - #{$sidebar--top});
   width: $sidebar--width;
   border-top-right-radius: $sidebar--border-radius;
-  overflow: auto;
+  // overflow: auto;
 }
 
+$sidebar-content--margin-top: 20px;
 .sidebar__outer-content {
-  margin-top: 20px;
+  margin-top: $sidebar-content--margin-top;
+  height: calc(100vh - #{$sidebar--top + $panel__top-row--height + $sidebar-content--margin-top});
+  overflow: auto;
 }
 
 .sidebar__content {

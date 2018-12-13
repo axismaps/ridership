@@ -5,26 +5,29 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
     histogram,
     sidebar,
   } = components;
-  // const indicatorSummaries = this.getCurrentIndicatorSummaries();
-  // sidebar
-  //   .config({
-  //     indicatorSummaries,
-  //   })
-  //   .updateData();
 
+  this.set('taFilter', new Set());
+
+  const taFilter = this.get('taFilter');
+
+  const indicatorSummaries = this.getCurrentIndicatorSummaries();
+  const currentAgencies = this.getAllAgenciesForCurrentMSA();
   sidebar
     .config({
-      currentAgencies: this.getAllAgenciesForCurrentMSA(),
-    });
+      indicatorSummaries,
+      currentAgencies,
+      taFilter,
+    })
+    .updateData();
 
-  this.update({
-    taFilter: new Set(),
-  });
   this.getCurrentTractGeo((tractGeo) => {
+    console.log('GET TRACT GEO');
     msaAtlas
       .config({
         msa,
         tractGeo,
+        currentAgencies,
+        taFilter,
       })
       .updateMSA();
 

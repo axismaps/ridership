@@ -1,6 +1,7 @@
 const getStateUpdateTAFilter = ({ components }) => function updateTAFilter() {
   const {
     sidebar,
+    msaAtlas,
   } = components;
   const taFilter = this.get('taFilter');
   const indicatorSummaries = this.getCurrentIndicatorSummaries();
@@ -11,6 +12,11 @@ const getStateUpdateTAFilter = ({ components }) => function updateTAFilter() {
       taFilter,
     })
     .updateData();
+
+  msaAtlas
+    .config({
+      taFilter,
+    });
 };
 
 export default getStateUpdateTAFilter;
