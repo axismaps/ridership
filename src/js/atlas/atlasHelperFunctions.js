@@ -24,33 +24,49 @@ const atlasHelperFunctions = {
     highlightedId,
   }) {
     const indicatorData = Object.assign({}, indicator);
-    indicatorData.agencies = msa.ta.map((ta) => {
-      const {
-        msaId,
-        taId,
-        globalId,
-      } = ta;
-      const agencyCopy = {
-        msaId,
-        taId,
-        globalId,
-      };
-      agencyCopy.summaries = ta.ntd.map((d) => {
+    if (msa.globalId === highlightedId) {
+      indicatorData.agencies = [{
+        msaId: msa.msaId,
+        globalId: msa.globalId,
+        color: 'rgba(0,0,0,1)',
+      }];
+      indicatorData.agencies[0].summaries = msa.ta[0].ntd.map((d) => {
         const { year } = d;
-        const indicatorSummary = d[indicator.value];
-        return {
-          year,
-          indicatorSummary,
-        };
+        const indicatorSummary = d3[indicator.summaryType](
+          msa.ta.map(ta => ta.ntd.find(record => record.year === year)[indicator.value]),
+        );
+        return { year, indicatorSummary };
       });
-      agencyCopy.color = globalId === highlightedId ? 'black' : 'rgba(0,0,0,.25)';
-      return agencyCopy;
-    });
+    } else {
+      indicatorData.agencies = msa.ta.map((ta) => {
+        const {
+          msaId,
+          taId,
+          globalId,
+        } = ta;
+        const agencyCopy = {
+          msaId,
+          taId,
+          globalId,
+        };
+        agencyCopy.summaries = ta.ntd.map((d) => {
+          const { year } = d;
+          const indicatorSummary = d[indicator.value];
+          return {
+            year,
+            indicatorSummary,
+          };
+        });
+        agencyCopy.color = globalId === highlightedId || msa.globalId === highlightedId ? 'rgba(0,0,0,1)' : 'rgba(0,0,0,.25)';
+        return agencyCopy;
+      });
+    }
 
     return new SparkLine({
       container,
       indicatorData,
       yearRange: [2006, 2017],
+      color: true,
     });
   },
 };
