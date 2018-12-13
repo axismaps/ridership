@@ -312,7 +312,6 @@ const histogramFunctions = {
     height,
     padding,
   }) {
-    console.log('UPDATE BARS');
     bars
       .data(histogramData, d => d.index)
       .transition()

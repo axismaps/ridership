@@ -3,6 +3,7 @@ const getStateUpdateTAFilter = ({ components }) => function updateTAFilter() {
     sidebar,
   } = components;
   const taFilter = this.get('taFilter');
+
   sidebar
     .config({
       taFilter,

@@ -174,8 +174,6 @@ class Histogram {
       updateMSA,
     } = histogramFunctions;
 
-    console.log('currentScale', currentScale);
-
     if (currentScale === 'national') {
       updateNational({
         bars,

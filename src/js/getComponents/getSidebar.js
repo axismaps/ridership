@@ -53,14 +53,19 @@ const getSidebar = ({ data, state }) => new Sidebar({
   },
   updateTAFilter(newAgency) {
     const currentTAFilter = state.get('taFilter');
+
     /**
      * Make copy of current taFilter, add/remove new filter
      * @private
      */
     if (currentTAFilter.has(newAgency)) {
-      state.update({ taFilter: new Set(currentTAFilter).delete(newAgency) });
+      const filterCopy = new Set(currentTAFilter);
+      filterCopy.delete(newAgency);
+      state.update({ taFilter: filterCopy });
     } else {
-      state.update({ taFilter: new Set(currentTAFilter).add(newAgency) });
+      const filterCopy = new Set(currentTAFilter);
+      filterCopy.add(newAgency);
+      state.update({ taFilter: filterCopy });
     }
   },
 });

@@ -30,18 +30,23 @@ const privateMethods = {
       currentSidebarView,
       indicatorSummaries,
       taFilter,
+      updateTAFilter,
     } = props;
     const {
       drawNationalContent,
     } = privateMethods;
     const {
-      drawMSASparklineLegend,
+      drawMSASparkLineLegend,
     } = sparklineFunctions;
     if (currentSidebarView === 'sparklines') {
-      drawMSASparklineLegend({
+      drawMSASparkLineLegend({
+        updateTAFilter,
         contentContainer,
         indicatorSummaries,
         taFilter,
+        logTAChecks: (checks) => {
+          props.checks = checks;
+        },
       });
     }
 
@@ -377,6 +382,22 @@ class Sidebar {
         .updateHighlight();
     }
 
+    return this;
+  }
+
+  updateTAFilter() {
+    const {
+      checks,
+      taFilter,
+    } = privateProps.get(this);
+    const {
+      setSparkLineLegendChecks,
+    } = sparklineFunctions;
+
+    setSparkLineLegendChecks({
+      checks,
+      taFilter,
+    });
     return this;
   }
 }

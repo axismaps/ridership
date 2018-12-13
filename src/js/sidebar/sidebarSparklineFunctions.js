@@ -1,18 +1,22 @@
 import SparkLine from '../sparkLine/sparkLine';
 
-const sidebarPureFunctions = {
-  drawMSASparklineLegend({
+const sidebarSparkLineFunctions = {
+  drawMSASparkLineLegend({
     contentContainer,
     indicatorSummaries,
     taFilter,
+    updateTAFilter,
+    logTAChecks,
   }) {
+    const {
+      setSparkLineLegendChecks,
+    } = sidebarSparkLineFunctions;
     const { agencies } = indicatorSummaries
       .find(d => d.value === 'upt');
-    console.log('agencies', agencies);
+
     const legendContainer = contentContainer
       .append('div')
-      .attr('class', 'sidebar__sparkline-legend-container')
-      .text('');
+      .attr('class', 'sidebar__sparkline-legend-container');
 
     const rows = legendContainer
       .selectAll('.sidebar__sparkline-legend-row')
@@ -28,14 +32,13 @@ const sidebarPureFunctions = {
     const rowsRight = rows.append('div')
       .attr('class', 'sidebar__sparkline-legend-row-right');
 
-    rowsLeft.append('div')
+    const checks = rowsLeft.append('div')
       .attr('class', 'sidebar__sparkline-legend-check')
-      .html((d) => {
-        if (taFilter.has(d.taId)) {
-          return '<i class="fas fa-square"></i>';
-        }
-        return '<i class="fas fa-check-square"></i>';
+      .on('click', (d) => {
+        updateTAFilter(d.taId);
       });
+
+    logTAChecks(checks);
 
     rowsLeft.append('div')
       .attr('class', 'sidebar__sparkline-legend-text')
@@ -57,6 +60,22 @@ const sidebarPureFunctions = {
         y: 0,
         fill: d => d.color,
       });
+
+    setSparkLineLegendChecks({
+      checks,
+      taFilter,
+    });
+  },
+  setSparkLineLegendChecks({
+    checks,
+    taFilter,
+  }) {
+    checks.html((d) => {
+      if (taFilter.has(d.taId)) {
+        return '<i class="fas fa-square"></i>';
+      }
+      return '<i class="fas fa-check-square"></i>';
+    });
   },
   drawSparkLineRows({
     contentContainer,
@@ -142,4 +161,4 @@ const sidebarPureFunctions = {
   },
 };
 
-export default sidebarPureFunctions;
+export default sidebarSparkLineFunctions;

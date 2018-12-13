@@ -11,6 +11,10 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
       indicatorSummaries,
     })
     .updateData();
+
+  this.update({
+    taFilter: new Set(),
+  });
   this.getCurrentTractGeo((tractGeo) => {
     msaAtlas
       .config({
