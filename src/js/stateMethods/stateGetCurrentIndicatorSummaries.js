@@ -15,7 +15,7 @@ const getNationalIndicatorSummaries = function getNationalIndicatorSummaries({ d
   const indicatorSummaries = [];
   {
     const recordsPerYear = new Map();
-    for (let i = 0; i < yearRange[1] - yearRange[0]; i += 1) {
+    for (let i = 0; i <= yearRange[1] - yearRange[0]; i += 1) {
       const year = yearRange[0] + i;
       const recordsForYear = records.filter(d => d.year === year);
       recordsPerYear.set(year, recordsForYear);
@@ -32,7 +32,7 @@ const getNationalIndicatorSummaries = function getNationalIndicatorSummaries({ d
         }]
         : comparedAgencies.map(a => Object.assign({ summaries: [] }, a));
       agencies.forEach((agency) => {
-        for (let i = 0; i < yearRange[1] - yearRange[0]; i += 1) {
+        for (let i = 0; i <= yearRange[1] - yearRange[0]; i += 1) {
           const year = yearRange[0] + i;
           const recordsForYear = recordsPerYear.get(year)
             .filter(d => d[key] !== null

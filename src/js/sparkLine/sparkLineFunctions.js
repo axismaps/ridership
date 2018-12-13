@@ -9,7 +9,7 @@ const sparkLineFunctions = {
       .append('svg')
       .attr('class', 'sidebar__sparkline-svg')
       .styles({
-        width: `${width + 4 * margin}px`,
+        width: `${width + 4 * margin + 10}px`,
         height: `${height + 2 * margin}px`,
       });
   },
