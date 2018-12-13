@@ -101,7 +101,7 @@ const dataMethods = {
           text: 'Farebox Recovery',
           value: 'recovery',
           summaryType: 'sum',
-          format: ',.2p',
+          format: '.2r',
         },
         {
           text: 'Bus Ridership',
