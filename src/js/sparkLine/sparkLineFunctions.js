@@ -1,5 +1,3 @@
-
-
 const sparkLineFunctions = {
   drawSVG({
     container,
@@ -11,7 +9,7 @@ const sparkLineFunctions = {
       .append('svg')
       .attr('class', 'sidebar__sparkline-svg')
       .styles({
-        width: `${width + 3 * margin}px`,
+        width: `${width + 4 * margin}px`,
         height: `${height + 2 * margin}px`,
       });
   },
@@ -49,7 +47,7 @@ const sparkLineFunctions = {
     svg.append('rect')
       .attr('class', 'sparkline-background')
       .attrs({
-        x: 3 * margin,
+        x: 4 * margin,
         width: xScale.range()[1],
         height: '100%',
       });
@@ -57,20 +55,19 @@ const sparkLineFunctions = {
     const axis = d3.axisLeft()
       .scale(yScale)
       .ticks(2)
-      .tickFormat(d3.format(indicatorData.format))
-      .tickSize(xScale.range()[1] + 2 * margin);
+      .tickFormat((d) => {
+        const digits = Math.min(9, Math.floor(Math.log10(d) / 3) * 3);
+        const suffixes = ['', 'k', 'M', 'B'];
+        if (digits < 3) return d3.format(indicatorData.format)(d);
+        const shortNumber = +d3.format('.2f')(d / (10 ** digits));
+        return (indicatorData.format.includes('$') ? '$' : '') + shortNumber + suffixes[digits / 3] + (indicatorData.format.includes('%') ? '%' : '');
+      })
+      .tickSize(xScale.range()[1] + 5);
 
     const axisContainer = svg.append('g')
-      .attr('transform', `translate(${xScale.range()[1] + 3 * margin},${margin})`)
+      .attr('transform', `translate(${xScale.range()[1] + 4 * margin},${margin})`)
       .attr('class', 'sparkline-axis')
       .call(axis);
-
-    axisContainer.selectAll('text')
-      .attrs({
-        'text-anchor': 'start',
-        x: -(xScale.range()[1] + 3 * margin) + 5,
-        dy: '-.32em',
-      });
 
     return axis;
   },
@@ -91,7 +88,7 @@ const sparkLineFunctions = {
 
     const g = svg.append('g')
       .attr('class', 'sidebar__sparkline-path-container')
-      .attr('transform', `translate(${3 * margin},${margin})`);
+      .attr('transform', `translate(${4 * margin},${margin})`);
 
     g.selectAll('path')
       .data(indicatorData.agencies)
@@ -204,14 +201,7 @@ const sparkLineFunctions = {
       .ticks(expanded ? 4 : 2);
 
     svg.select('g.sparkline-axis')
-      .call(axis)
-      .selectAll('text').attrs({
-        'text-anchor': 'start',
-        x: -(xScale.range()[1] + 2 * margin) + 5,
-        dy: '-.32em',
-      });
-
-    return line;
+      .call(axis);
   },
 };
 

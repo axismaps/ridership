@@ -15,7 +15,7 @@
 
 .sidebar__content {
   padding-left: 20px;
-  padding-right: 20px;
+  // padding-right: 20px;
   // padding-top: 20px;
 }
 
@@ -62,6 +62,7 @@
 .sidebar__sparkline-title, .sidebar__pcp-row {
   color: #666666;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .sidebar__sparkline-title--selected, .sidebar__pcp-row--selected {
@@ -119,6 +120,7 @@
   height: 100%;
   display: flex;
   align-items: center;
+  color: #666;
 }
 
 .sidebar__sparkline-row:hover .sidebar__sparkline-expand, .sidebar__sparkline-row.expanded .sidebar__sparkline-expand {
@@ -153,7 +155,7 @@
 }
 
 .sidebar .sparkline-axis g.tick text {
-  fill: $main-blue;
+  fill: #666;
 }
 
 .sidebar__sparkline-row.expanded .sparkline-background,

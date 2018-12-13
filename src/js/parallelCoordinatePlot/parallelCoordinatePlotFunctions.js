@@ -167,7 +167,7 @@ const parallelCoordinatePlotFunctions = {
   }) {
     const axis = d3.axisTop()
       .scale(xScale)
-      .tickFormat(d => `${d > 0 ? '+' : ''}${d}%`)
+      .tickFormat(d3.format('+d'))
       .ticks(3);
 
     return svg.select('g.axis').call(axis);

@@ -295,7 +295,7 @@ const atlasMethods = {
     } else {
       mapContainer.on('mouseover.compare mousemove.compare mouseout.compare', null);
     }
-    const formatPct = d3.format(',d');
+    const formatPct = number => (number === null ? 'N/A' : `${d3.format(',d')(number)}%`);
     agencies
       .on('mouseout', () => {
         dataProbe.remove();
@@ -327,12 +327,12 @@ const atlasMethods = {
         if (compareMode === false) {
           const { globalId } = d;
           const msa = getMSAData({ allNationalMapData, globalId });
-          const format = number => (number === null ? 'N/A' : number);
+          const format = number => (number === null ? 'N/A' : d3.format(indicator.format)(number));
           const html = nationalDataView === 'msa' ? `
             <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.name}</span></div>
             <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
             <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
-            <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}%</div>
+            <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
             <div class="data-probe__sparkline-container expanded"></div>
             <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
           ` : `
@@ -340,7 +340,7 @@ const atlasMethods = {
             <div class="data-probe__row">${d.msaName}</div>            
             <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
             <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
-            <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}%</div>
+            <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
             <div class="data-probe__sparkline-container expanded"></div>
             <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
           `;
@@ -350,12 +350,14 @@ const atlasMethods = {
               html,
             })
             .draw();
-          drawMSASparkline({
-            msa,
-            indicator,
-            highlightedId: d.globalId,
-            container: dataProbe.getContainer().select('.data-probe__sparkline-container'),
-          });
+          if (d.pctChange !== null) {
+            drawMSASparkline({
+              msa,
+              indicator,
+              highlightedId: d.globalId,
+              container: dataProbe.getContainer().select('.data-probe__sparkline-container'),
+            });
+          }
         } else {
           tooltip.remove();
           const ids = comparedAgencies.map(a => a.globalId);
