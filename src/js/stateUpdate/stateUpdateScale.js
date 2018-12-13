@@ -45,6 +45,9 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
       })
       .updateCurrentIndicator()
       .updateData();
+    this.update({
+      taFilter: new Set(),
+    });
   }
 
   if (scale === 'msa') {
