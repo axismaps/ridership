@@ -107,9 +107,18 @@ const sparkLineFunctions = {
       })
       .attr('d', d => lineGenerator(d.summaries));
 
-    g.append('circle')
-      .attr('r', 5)
+    const circles = g.append('g')
+      .attr('class', 'sparkline-circles')
+      .selectAll('circle')
+      .data(indicatorData.agencies);
+
+    circles.enter()
+      .append('circle')
+      .attr('r', 3)
+      .style('fill', '#333')
       .style('display', 'none');
+
+    circles.exit().remove();
 
     return g.selectAll('path');
   },
@@ -118,7 +127,7 @@ const sparkLineFunctions = {
     scales,
     dataProbe,
   }) {
-    return svg.on('mousemove', (d) => {
+    return svg.select('.sparkline-background').on('mousemove', (d) => {
       dataProbe.remove();
       const {
         xScale,
@@ -135,13 +144,15 @@ const sparkLineFunctions = {
       };
       const x = clientX - svg.select('.sparkline-background').node().getBoundingClientRect().left;
       const year = Math.min(Math.round(xScale.invert(x)), xScale.domain()[1]);
-      const summary = d.agencies[0].summaries.find(s => s.year === year);
-      if (summary === undefined) return;
-      const displayValue = summary.indicatorSummary === null
-        ? 'N/A'
-        : d3.format(d.format)(summary.indicatorSummary);
+      const format = value => (value === null
+        ? 'N/A' : d3.format(d.format)(value));
+      const summaries = d.agencies.map(a => a.summaries.find(s => s.year === year));
+      const allValues = summaries.filter(s => s !== undefined).map(s => s.indicatorSummary);
+      const aggregatedValue = allValues.length === 0 ? null : d3[d.summaryType](allValues);
+      const displayValue = format(aggregatedValue);
+      const disaplayAggregation = d.agencies.length > 1 ? d.summaryType : '';
       const html = `
-          <div class="data-probe__row"><span class="data-probe__field">${year}</span></div>
+          <div class="data-probe__row"><span class="data-probe__field">${year} ${disaplayAggregation}</span></div>
           <div class="data-probe__row">${displayValue}</div>
           <div class="data-probe__row data-probe__msa-text">Click to show on map</div>
         `;
@@ -152,16 +163,17 @@ const sparkLineFunctions = {
         })
         .draw();
 
-      svg.select('circle')
+      svg.selectAll('circle')
         .attrs({
           cx: xScale(year),
-          cy: yScale(summary.indicatorSummary),
+          cy: (circleData, i) => (summaries[i] === undefined
+            ? 0 : yScale(summaries[i].indicatorSummary)),
         })
-        .style('display', 'block');
+        .style('display', (circleData, i) => (summaries[i] !== undefined && summaries[i].indicatorSummary !== null ? 'block' : 'none'));
     })
       .on('mouseout', () => {
         dataProbe.remove();
-        svg.select('circle')
+        svg.selectAll('circle')
           .style('display', 'none');
       });
   },
