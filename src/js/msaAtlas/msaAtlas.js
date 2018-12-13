@@ -11,6 +11,7 @@ const privateMethods = {
       msaMapContainer,
       msa,
       tractGeo,
+      taLayers,
       currentCensusField,
     } = props;
 
@@ -25,6 +26,16 @@ const privateMethods = {
       msa,
       tractGeo,
       currentCensusField,
+      logInitialFilters: () => {
+        const initialFilters = taLayers.reduce((accumulator, layerId) => {
+          accumulator[layerId] = msaAtlas.getFilter(layerId);
+          return accumulator;
+        }, {});
+        props.initialFilters = initialFilters;
+      },
+      updateAgencyLayers: () => {
+        this.updateAgencyLayers();
+      },
     });
 
     Object.assign(props, { msaAtlas, loaded: true });
@@ -39,6 +50,13 @@ class MSAAtlas {
 
     privateProps.set(this, {
       loaded: false,
+      taLayers: [
+        'rail case',
+        'rail top',
+        'ferry',
+        'bus high freq',
+        'bus',
+      ],
     });
 
     this.config(config);
@@ -62,6 +80,7 @@ class MSAAtlas {
     if (scale === 'msa' && !loaded) {
       init.call(this);
     }
+    return this;
   }
 
   updateMSA() {
@@ -78,7 +97,7 @@ class MSAAtlas {
 
     if (!loaded) {
       init.call(this);
-      return;
+      return this;
     }
 
     const {
@@ -91,6 +110,10 @@ class MSAAtlas {
       tractGeo,
       currentCensusField,
     });
+
+    this.updateAgencyLayers();
+
+    return this;
   }
 
   updateData() {
@@ -106,7 +129,7 @@ class MSAAtlas {
 
     if (!loaded) {
       init.call(this);
-      return;
+      return this;
     }
 
     const {
@@ -117,6 +140,30 @@ class MSAAtlas {
       msaAtlas,
       tractGeo,
       currentCensusField,
+    });
+    return this;
+  }
+
+  updateAgencyLayers() {
+    const {
+      msaAtlas,
+      initialFilters,
+      currentAgencies,
+      taLayers,
+      taFilter,
+    } = privateProps.get(this);
+
+    const agenciesToShow = currentAgencies
+      .map(d => d.taId)
+      .filter(d => !taFilter.has(d))
+      .map(d => Number(d));
+
+    taLayers.forEach((layerId) => {
+      const filterCopy = [
+        ...initialFilters[layerId],
+        ['in', 'taid', ...agenciesToShow],
+      ];
+      msaAtlas.setFilter(layerId, filterCopy);
     });
   }
 }

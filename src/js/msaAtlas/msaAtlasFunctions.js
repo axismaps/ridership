@@ -4,6 +4,8 @@ const msaAtlasFunctions = {
     msa,
     tractGeo,
     currentCensusField,
+    logInitialFilters,
+    updateAgencyLayers,
   }) {
     const {
       initSite,
@@ -22,8 +24,10 @@ const msaAtlasFunctions = {
           tractGeo,
           currentCensusField,
         });
+        logInitialFilters(msaAtlas.getStyle());
         msaMapContainer
           .classed('atlas__msa-map-container--loaded', true);
+        updateAgencyLayers();
       });
 
     return msaAtlas;
@@ -44,7 +48,6 @@ const msaAtlasFunctions = {
       msa,
     });
     drawTracts({
-
       msaAtlas,
       tractGeo,
       currentCensusField,

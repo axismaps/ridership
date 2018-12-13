@@ -16,7 +16,8 @@ const getStateUpdateTAFilter = ({ components }) => function updateTAFilter() {
   msaAtlas
     .config({
       taFilter,
-    });
+    })
+    .updateAgencyLayers();
 };
 
 export default getStateUpdateTAFilter;

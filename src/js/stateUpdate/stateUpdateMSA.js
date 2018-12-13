@@ -5,6 +5,7 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
     histogram,
     sidebar,
   } = components;
+  console.log('update msa');
 
   this.set('taFilter', new Set());
 
@@ -21,7 +22,6 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
     .updateData();
 
   this.getCurrentTractGeo((tractGeo) => {
-    console.log('GET TRACT GEO');
     msaAtlas
       .config({
         msa,
