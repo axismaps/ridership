@@ -223,6 +223,7 @@ const privateMethods = {
       updateIndicator,
       updateHighlightedAgencies,
       years,
+      currentScale,
     } = props;
 
     const {
@@ -236,6 +237,7 @@ const privateMethods = {
     });
 
     const pcp = drawPcp({
+      currentScale,
       pcpContainer,
       agenciesData,
       indicatorSummaries,
@@ -348,6 +350,7 @@ class Sidebar {
       agenciesData,
       currentSidebarView,
       // indicatorSummaries,
+      currentScale,
     } = privateProps.get(this);
 
     const {
@@ -359,6 +362,7 @@ class Sidebar {
       pcp
         .config({
           agenciesData,
+          msaScale: currentScale === 'msa',
         })
         .updateData();
       drawNationalCompareList.call(this);

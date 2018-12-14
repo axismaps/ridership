@@ -23,13 +23,16 @@ const sidebarPureFunctions = {
     dataProbe,
     updateIndicator,
     updateHighlightedAgencies,
+    currentScale,
   }) {
+    console.log('currentScale', currentScale);
     return new ParallelCoordinatePlot({
       pcpContainer,
       agenciesData,
       indicatorSummaries,
       dataProbe,
       updateIndicator,
+      msaScale: currentScale === 'msa',
       updateHighlightedAgencies,
     });
   },

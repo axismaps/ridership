@@ -93,8 +93,8 @@ const parallelCoordinatePlotFunctions = {
     dataProbe,
     updateHighlightedAgencies,
     color,
+    msaScale,
   }) {
-    // console.log('agenciesData', agenciesData);
     const lineGenerator = d3.line()
       .x(d => xScale(d.pctChange))
       .y((d, i) => i * indicatorHeight);
@@ -107,7 +107,8 @@ const parallelCoordinatePlotFunctions = {
       .enter()
       .append('path')
       .style('fill', 'none')
-      .style('stroke', color)
+      .style('stroke', d => (msaScale ? d.color : color()))
+      // .style('stroke', color)
       .style('stroke-opacity', 0)
       .attr('class', 'pcp-line')
       .attr('d', d => lineGenerator(d.indicators))
@@ -120,9 +121,11 @@ const parallelCoordinatePlotFunctions = {
 
     lines.exit().remove();
 
-    const mergedLines = newLines.merge(lines);
+    const mergedLines = newLines
+      .merge(lines);
 
     mergedLines
+
       .on('mouseover', (d) => {
         updateHighlightedAgencies([d]);
       })
@@ -159,8 +162,9 @@ const parallelCoordinatePlotFunctions = {
       })
       .transition()
       .attr('d', d => lineGenerator(d.indicators))
+      .style('stroke', d => (msaScale ? d.color : color()))
       .style('stroke-opacity', agenciesData.length < 15 ? 0.75 : 0.1);
-
+    console.log('msaScale', msaScale);
     return mergedLines;
   },
   drawAxis({

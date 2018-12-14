@@ -27,6 +27,7 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
           taName,
           taShort,
           globalId,
+          color,
         } = agency;
         const agencyCopy = {
           msaId,
@@ -34,6 +35,7 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
           taName,
           taShort,
           globalId,
+          color,
         };
         const agencyIndicators = indicatorSummaries.map((indicator) => {
           const {
