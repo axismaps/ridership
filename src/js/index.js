@@ -4,6 +4,7 @@ import getAtlas from './getComponents/getAtlas';
 import getMSAAtlas from './getComponents/getMSAAtlas';
 import getIndicatorDropdown from './getComponents/getIndicatorDropdown';
 import getCompareDropdown from './getComponents/getCompareDropdown';
+import getSearchDropdown from './getComponents/getSearchDropdown';
 import getDataviewDropdown from './getComponents/getDataviewDropdown';
 import getSliderDropdown from './getComponents/getSliderDropdown';
 import getSidebar from './getComponents/getSidebar';
@@ -37,6 +38,7 @@ const app = {
     components.indicatorDropdown = getIndicatorDropdown({ state, data });
     components.sliderDropdown = getSliderDropdown({ state, data });
     components.compareDropdown = getCompareDropdown({ state, data });
+    components.searchDropdown = getSearchDropdown({ state, data });
     components.msaDropdown = getMSADropdown({ state, data });
     components.dataViewDropdown = getDataviewDropdown({ state });
     components.sidebar = getSidebar({ state, data });

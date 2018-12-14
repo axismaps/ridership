@@ -4,6 +4,7 @@ const getStateUpdateNationalDataView = ({ components }) => function updateNation
     atlas,
     histogram,
     sidebar,
+    searchDropdown,
   } = components;
 
   const nationalDataView = this.get('nationalDataView');
@@ -34,6 +35,11 @@ const getStateUpdateNationalDataView = ({ components }) => function updateNation
       agenciesData,
     })
     .updateData();
+
+  searchDropdown.config({
+    nationalDataView,
+  })
+    .update();
 };
 
 export default getStateUpdateNationalDataView;
