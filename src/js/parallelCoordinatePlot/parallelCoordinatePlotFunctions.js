@@ -4,9 +4,10 @@ const parallelCoordinatePlotFunctions = {
     pcpContainer,
     indicatorSummaries,
     indicatorHeight,
-    margins,
+    // margins,
     updateIndicator,
   }) {
+    console.log('indicatorSummaries', indicatorSummaries);
     const indicatorsContainer = pcpContainer.append('div')
       .attr('class', 'sidebar__pcp-labels');
 
@@ -93,6 +94,7 @@ const parallelCoordinatePlotFunctions = {
     updateHighlightedAgencies,
     color,
   }) {
+    console.log('agenciesData', agenciesData);
     const lineGenerator = d3.line()
       .x(d => xScale(d.pctChange))
       .y((d, i) => i * indicatorHeight);

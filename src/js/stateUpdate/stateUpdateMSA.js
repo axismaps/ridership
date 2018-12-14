@@ -5,7 +5,6 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
     histogram,
     sidebar,
   } = components;
-  console.log('update msa');
 
   this.set('taFilter', new Set());
 
@@ -13,11 +12,13 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
 
   const indicatorSummaries = this.getCurrentIndicatorSummaries();
   const currentAgencies = this.getAllAgenciesForCurrentMSA();
+  const agenciesData = this.getCurrentAgenciesData();
   sidebar
     .config({
       indicatorSummaries,
       currentAgencies,
       taFilter,
+      agenciesData,
     })
     .updateData();
 
