@@ -53,9 +53,8 @@ const pureMethods = {
         contentOuterContainer
           .classed('dropdown-content--open', true);
 
-
         const rows = contentContainer.selectAll('.search-dropdown__content-row')
-          .data(results, d => d.globalId);
+          .data(results, d => (d === undefined ? null : d.globalId));
 
         rows.enter()
           .append('div')
