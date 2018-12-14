@@ -37,6 +37,7 @@ const pureMethods = {
     contentContainer,
     contentOuterContainer,
     nationalDataView,
+    updateSearchResult,
   }) {
     const { doSearch } = pureMethods;
 
@@ -59,14 +60,14 @@ const pureMethods = {
         rows.enter()
           .append('div')
           .attr('class', 'search-dropdown__content-row')
-          .text(d => d.name || d.taName)
+          .html(d => `<i class="fas fa-binoculars"></i> ${d.name || d.taName}`)
           .on('mousedown', () => {
             d3.event.stopPropagation();
           })
-          .on('click', () => {
+          .on('click', (d) => {
             // select result
             // show selected entity in button
-
+            updateSearchResult(d);
             d3.select('.outer-container').classed('search-active', false);
             d3.select('body').on('click.search keydown.search', null);
             contentOuterContainer
@@ -128,6 +129,14 @@ const pureMethods = {
         if (a.taName > b.taName) { return 1; }
         return 0;
       });
+  },
+
+  setButtonText({
+    toggleButton,
+    searchResult,
+  }) {
+    if (searchResult === null) return;
+    toggleButton.select('.atlas__search-dropdown-result-text').text(searchResult.name || searchResult.taName);
   },
 
 };

@@ -23,6 +23,7 @@ const getState = ({ data }) => {
     expandedIndicator: null,
     comparedAgencies: [],
     compareMode: false,
+    searchResult: null,
     taFilter: new Set(), // agencies to filter out in msa-scale map and charts
   });
 

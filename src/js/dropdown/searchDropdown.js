@@ -30,9 +30,6 @@ const privateMethods = {
       toggleButton,
       contentContainer,
       contentOuterContainer,
-      updateSearchResult,
-      allNationalMapData,
-      nationalDataView,
     });
 
     setSearchEvent({
@@ -41,6 +38,7 @@ const privateMethods = {
       contentContainer,
       contentOuterContainer,
       nationalDataView,
+      updateSearchResult,
     });
 
     props.searchInput = searchInput;
@@ -48,7 +46,9 @@ const privateMethods = {
     setContentVisibility.call(this);
 
     toggleButton.select('.fa-times-circle').on('click', () => {
+      d3.event.stopPropagation();
       updateSearchResult(null);
+      d3.select('.outer-container').classed('search-active', false);
     });
 
     setContentPosition.call(this);
@@ -80,10 +80,14 @@ class SearchDropdown {
       contentContainer,
       contentOuterContainer,
       nationalDataView,
+      toggleButton,
+      searchResult,
+      updateSearchResult,
     } = privateProps.get(this);
 
     const {
       setSearchEvent,
+      setButtonText,
     } = pureMethods;
 
     setSearchEvent({
@@ -92,7 +96,16 @@ class SearchDropdown {
       contentContainer,
       contentOuterContainer,
       nationalDataView,
+      updateSearchResult,
     });
+
+    setButtonText({
+      toggleButton,
+      searchResult,
+    });
+
+    d3.select('.outer-container').classed('search-result', searchResult !== null);
+
     return this;
   }
 }
