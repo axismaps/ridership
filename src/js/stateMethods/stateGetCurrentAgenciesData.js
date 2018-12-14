@@ -7,8 +7,10 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
   const inYears = d => d.year >= years[0] && d.year <= years[1];
   const comparedAgencies = this.get('comparedAgencies');
   const nationalDataView = this.get('nationalDataView');
+  const currentScale = this.get('scale');
+  const currentMSA = this.get('msa');
 
-  if (nationalDataView === 'ta') {
+  if (nationalDataView === 'ta' || currentScale === 'msa') {
     const taIds = comparedAgencies.map(d => d.taId);
     return nationalMapData.map(msa => msa.ta
       .filter((agency) => {
@@ -62,7 +64,13 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
         return agencyCopy;
       }))
       .filter(msa => msa.length > 0)
-      .reduce((accumulator, msa) => [...accumulator, ...msa], []);
+      .reduce((accumulator, msa) => [...accumulator, ...msa], [])
+      .filter((ta) => {
+        if (currentScale === 'msa') {
+          return ta.msaId === currentMSA.msaId;
+        }
+        return true;
+      });
   }
 
   // by MSA

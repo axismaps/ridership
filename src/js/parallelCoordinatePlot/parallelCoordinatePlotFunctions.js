@@ -94,7 +94,7 @@ const parallelCoordinatePlotFunctions = {
     updateHighlightedAgencies,
     color,
   }) {
-    console.log('agenciesData', agenciesData);
+    // console.log('agenciesData', agenciesData);
     const lineGenerator = d3.line()
       .x(d => xScale(d.pctChange))
       .y((d, i) => i * indicatorHeight);
