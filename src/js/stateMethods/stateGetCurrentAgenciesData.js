@@ -3,6 +3,7 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
   const indicatorSummaries = this.getCurrentIndicatorSummaries();
 
   const years = this.get('years');
+  const taFilter = this.get('taFilter');
 
   const inYears = d => d.year >= years[0] && d.year <= years[1];
   const comparedAgencies = this.get('comparedAgencies');
@@ -20,6 +21,7 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
         }
         return include;
       })
+      .filter(agency => !taFilter.has(agency.taId))
       .map((agency) => {
         const {
           msaId,

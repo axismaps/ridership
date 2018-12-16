@@ -8,21 +8,24 @@ const privateProps = new WeakMap();
 const privateMethods = {
   drawContent() {
     const {
-      currentScale,
+      currentSidebarView,
     } = privateProps.get(this);
     const {
-      drawNationalContent,
-      drawMSAContent,
       clearContent,
       setTopButtonStatus,
+      drawNationalSparkLines,
+      drawNationalParallelPlot,
+      drawNationalCompareList,
     } = privateMethods;
     clearContent.call(this);
     setTopButtonStatus.call(this);
-    if (currentScale === 'national') {
-      drawNationalContent.call(this);
+    drawNationalCompareList.call(this);
+    if (currentSidebarView === 'sparklines') {
+      drawNationalSparkLines.call(this);
     } else {
-      drawMSAContent.call(this);
+      drawNationalParallelPlot.call(this);
     }
+    this.updateCurrentIndicator();
   },
   drawMSASparkLineLegend() {
     const props = privateProps.get(this);
@@ -47,23 +50,11 @@ const privateMethods = {
       },
     });
   },
-  drawMSAContent() {
-    const {
-      drawNationalContent,
-      // drawMSASparkLineLegend,
-    } = privateMethods;
-
-
-    // drawMSASparkLineLegend.call(this);
-
-    drawNationalContent.call(this);
-    this.updateCurrentIndicator();
-  },
   clearContent() {
     const {
       contentContainer,
     } = privateProps.get(this);
-    console.log('clear content');
+
     contentContainer.selectAll('div').remove();
   },
   setTopButtonEvents() {
@@ -106,24 +97,6 @@ const privateMethods = {
       .classed('sidebar__top-button--active', currentSidebarView === 'parallel');
     sparkLineButtonContainer
       .classed('sidebar__top-button--active', currentSidebarView === 'sparklines');
-  },
-  drawNationalContent() {
-    const {
-      currentSidebarView,
-      // comparedAgencies,
-    } = privateProps.get(this);
-    const {
-      drawNationalSparkLines,
-      drawNationalParallelPlot,
-      drawNationalCompareList,
-    } = privateMethods;
-    drawNationalCompareList.call(this);
-    if (currentSidebarView === 'sparklines') {
-      drawNationalSparkLines.call(this);
-    } else {
-      drawNationalParallelPlot.call(this);
-    }
-    this.updateCurrentIndicator();
   },
 
   drawNationalCompareList() {
@@ -240,6 +213,7 @@ const privateMethods = {
       contentContainer,
       years,
     });
+
 
     const pcp = drawPcp({
       currentScale,
@@ -375,9 +349,6 @@ class Sidebar {
       drawMSASparkLineLegend.call(this);
     }
     if (currentSidebarView === 'parallel') {
-      // if (msaScale) {
-      //   drawMSASparkLineLegend.call(this);
-      // }
       pcp
         .config({
           agenciesData,

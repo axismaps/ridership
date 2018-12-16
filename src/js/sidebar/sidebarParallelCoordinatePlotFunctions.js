@@ -25,7 +25,6 @@ const sidebarPureFunctions = {
     updateHighlightedAgencies,
     currentScale,
   }) {
-    console.log('currentScale', currentScale);
     return new ParallelCoordinatePlot({
       pcpContainer,
       agenciesData,
