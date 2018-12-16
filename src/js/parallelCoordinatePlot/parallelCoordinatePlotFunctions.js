@@ -7,7 +7,6 @@ const parallelCoordinatePlotFunctions = {
     // margins,
     updateIndicator,
   }) {
-    console.log('indicatorSummaries', indicatorSummaries);
     const indicatorsContainer = pcpContainer.append('div')
       .attr('class', 'sidebar__pcp-labels');
 
@@ -164,7 +163,7 @@ const parallelCoordinatePlotFunctions = {
       .attr('d', d => lineGenerator(d.indicators))
       .style('stroke', d => (msaScale ? d.color : color()))
       .style('stroke-opacity', agenciesData.length < 15 ? 0.75 : 0.1);
-    console.log('msaScale', msaScale);
+
     return mergedLines;
   },
   drawAxis({

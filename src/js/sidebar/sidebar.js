@@ -1,6 +1,7 @@
 import sparklineFunctions from './sidebarSparklineFunctions';
 import pcpFunctions from './sidebarParallelCoordinatePlotFunctions';
 import DataProbe from '../dataProbe/dataProbe';
+import agencyLegendFunctions from './sidebarAgenciesLegendFunctions';
 
 const privateProps = new WeakMap();
 
@@ -23,34 +24,37 @@ const privateMethods = {
       drawMSAContent.call(this);
     }
   },
-  drawMSAContent() {
+  drawMSASparkLineLegend() {
     const props = privateProps.get(this);
     const {
+      updateTAFilter,
       contentContainer,
-      currentSidebarView,
-      // indicatorSummaries,
       currentAgencies,
       taFilter,
-      updateTAFilter,
+      legendContainer,
     } = props;
     const {
-      drawNationalContent,
-    } = privateMethods;
-    const {
       drawMSASparkLineLegend,
-    } = sparklineFunctions;
-    if (currentSidebarView === 'sparklines') {
-      drawMSASparkLineLegend({
-        updateTAFilter,
-        contentContainer,
-        // indicatorSummaries,
-        currentAgencies,
-        taFilter,
-        logTAChecks: (checks) => {
-          props.checks = checks;
-        },
-      });
-    }
+    } = agencyLegendFunctions;
+    drawMSASparkLineLegend({
+      legendContainer,
+      updateTAFilter,
+      contentContainer,
+      currentAgencies,
+      taFilter,
+      logTAChecks: (checks) => {
+        props.checks = checks;
+      },
+    });
+  },
+  drawMSAContent() {
+    const {
+      drawNationalContent,
+      // drawMSASparkLineLegend,
+    } = privateMethods;
+
+
+    // drawMSASparkLineLegend.call(this);
 
     drawNationalContent.call(this);
     this.updateCurrentIndicator();
@@ -59,6 +63,7 @@ const privateMethods = {
     const {
       contentContainer,
     } = privateProps.get(this);
+    console.log('clear content');
     contentContainer.selectAll('div').remove();
   },
   setTopButtonEvents() {
@@ -351,14 +356,28 @@ class Sidebar {
       currentSidebarView,
       // indicatorSummaries,
       currentScale,
+      legendContainer,
     } = privateProps.get(this);
 
     const {
       drawContent,
       drawNationalCompareList,
+      drawMSASparkLineLegend,
     } = privateMethods;
-
+    const {
+      clearLegend,
+    } = agencyLegendFunctions;
+    clearLegend({
+      legendContainer,
+    });
+    const msaScale = currentScale === 'msa';
+    if (msaScale) {
+      drawMSASparkLineLegend.call(this);
+    }
     if (currentSidebarView === 'parallel') {
+      // if (msaScale) {
+      //   drawMSASparkLineLegend.call(this);
+      // }
       pcp
         .config({
           agenciesData,
@@ -391,21 +410,21 @@ class Sidebar {
     return this;
   }
 
-  updateTAFilter() {
-    const {
-      checks,
-      taFilter,
-    } = privateProps.get(this);
-    const {
-      setSparkLineLegendChecks,
-    } = sparklineFunctions;
+  // updateTAFilter() {
+  //   const {
+  //     checks,
+  //     taFilter,
+  //   } = privateProps.get(this);
+  //   const {
+  //     setSparkLineLegendChecks,
+  //   } = sparklineFunctions;
 
-    setSparkLineLegendChecks({
-      checks,
-      taFilter,
-    });
-    return this;
-  }
+  //   setSparkLineLegendChecks({
+  //     checks,
+  //     taFilter,
+  //   });
+  //   return this;
+  // }
 }
 
 export default Sidebar;
