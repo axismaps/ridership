@@ -83,7 +83,7 @@ print'Created stacks for ' + str(stacks.keys())
 
 # Calculate derived values
 # Average fares
-stacks['fares'] = pd.Series(stacks['fares'] / stacks['upt'], name='fares')
+stacks['avg_fare'] = pd.Series(stacks['fares'] / stacks['upt'], name='avg_fare')
 
 # Average speed
 stacks['speed'] = pd.Series(stacks['vrm'] / stacks['vrh'], name='speed')
