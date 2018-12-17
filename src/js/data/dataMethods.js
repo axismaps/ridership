@@ -207,8 +207,8 @@ const dataMethods = {
         value: 'latino_pct',
       },
       {
-        text: 'Population Age 75+',
-        value: 'over75',
+        text: 'Percent Population Age 75+',
+        value: 'over75_pct',
       },
       {
         text: 'Median Household Income',

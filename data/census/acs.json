@@ -109,7 +109,13 @@
     "key": "over75",
     "sum": [
       "m75", "m80", "m85", "f75", "f80", "f85"
-    ],
+    ]
+  },
+  {
+    "name": "Percent Population Over 75",
+    "key": "over75_pct",
+    "numerator": "over75",
+    "denominator": "pop",
     "upload": true
   },
   {

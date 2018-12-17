@@ -103,5 +103,4 @@ def download_census():
         replace_data('census', indexes, 'census.csv')
 
 if __name__ == "__main__":
-    print msa_population()
-    # print download_census()
+    download_census()

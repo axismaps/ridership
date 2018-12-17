@@ -9,6 +9,7 @@
     "data": "npm run data:clean && npm run data:meta && npm run data:tracts",
     "data:clean": "python bin/ntd.py",
     "data:meta": "python bin/meta.py",
+    "data:census": "python bin/acs.py",
     "data:tiles": "./bin/tiles.sh",
     "data:tracts": "./bin/tracts.sh && python bin/buffer.py",
     "test": "echo \"Error: no test specified\" && exit 1"
