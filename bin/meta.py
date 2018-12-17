@@ -24,7 +24,9 @@ def clean_ta(ta, drop):
     ta['Project ID'] = ta['Project ID'].combine_first(
         ta['"Other" primary Project ID']
     ).astype('int32')
-    ta['Agency Name'] = ta['Agency Name'].combine_first(
+    ta['taname'] = ta['Display Name'].combine_first(
+        ta['Agency Name']
+    ).combine_first(
         ta['Reporter Acronym']
     )
 
@@ -69,11 +71,11 @@ def main():
 
     # Export TA metadata
     tamerge = merge[
-        ['Project ID', 'Agency Name', 'Reporter Acronym', 'GEOID', 'display']
+        ['Project ID', 'taname', 'Agency Name', 'Reporter Acronym', 'GEOID', 'display']
     ].rename(
         columns={
             'Project ID': 'taid',
-            'Agency Name': 'taname',
+            'Agency Name': 'talong',
             'Reporter Acronym': 'tashort',
             'GEOID': 'msaid'
         }
@@ -96,7 +98,7 @@ def main():
         tamerge.at[i, 'msa_color'] = COLORS[color_count]
 
     tamerge.to_csv('data/output/ta.csv', index=False)
-    replace_data('ta', ['taid', 'taname', 'tashort', 'msaid', 'display', 'msa_color'], 'ta.csv')
+    replace_data('ta', ['taid', 'taname', 'talong', 'tashort', 'msaid', 'display', 'msa_color'], 'ta.csv')
 
     # Export MSA metadata
     msa_header = ['name', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy']

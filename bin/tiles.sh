@@ -1,6 +1,6 @@
 mapshaper data/geojson/transit/**/routes.geojson combine-files \
   -merge-layers force \
-  -join data/output/ta.csv keys=operated_by_name,taname \
+  -join data/output/ta.csv keys=operated_by_name,talong \
   -filter "taid != null" \
   -filter-fields taid,msa_color,high_frequency,name,operated_by_name,tags,vehicle_type \
   -o data/output/routes_match_long.geojson
@@ -14,7 +14,7 @@ mapshaper data/geojson/transit/**/routes.geojson combine-files \
 
 mapshaper data/geojson/transit/**/routes.geojson combine-files \
   -merge-layers force \
-  -join data/output/ta.csv keys=operated_by_name,taname \
+  -join data/output/ta.csv keys=operated_by_name,talong \
   -filter "taid == null" \
   -filter-fields high_frequency,name,operated_by_name,tags,vehicle_type \
   -join data/output/ta.csv keys=operated_by_name,tashort \
