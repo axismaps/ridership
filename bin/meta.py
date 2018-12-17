@@ -77,13 +77,17 @@ def main():
             'Reporter Acronym': 'tashort',
             'GEOID': 'msaid'
         }
-    )
+    ).sort_values(by=['taid'])
 
     prev_msa = 0
+    prev_taid = 0
     color_count = 0
     for i, row in tamerge.iterrows():
-        if row.msaid == prev_msa:
+        if row.taid == prev_taid:
+            pass
+        elif row.msaid == prev_msa:
             color_count += 1
+            prev_taid = row.taid
             if color_count >= len(COLORS):
                 color_count = 0
         else:
