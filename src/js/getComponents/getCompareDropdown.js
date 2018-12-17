@@ -14,8 +14,11 @@ const getCompareDropdown = ({ state, data }) => new CompareDropdown({
       });
     }
     const updateList = matches ? [] : newCompare;
-    state.update({ compareMode: updateList.length > 0 });
-    state.update({ comparedAgencies: updateList });
+    state.update({
+      compareMode: updateList.length > 0,
+      comparedAgencies: updateList,
+      searchResult: null,
+    });
   },
   updateNationalDataView: (newView) => {
     const nationalDataView = state.get('nationalDataView');

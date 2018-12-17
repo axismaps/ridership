@@ -125,6 +125,7 @@ class Histogram {
       },
       barSpacing: 5,
       highlightedAgencies: [],
+      searchResult: null,
       dataProbe: new DataProbe({
         container: d3.select('.outer-container'),
       }),
@@ -221,6 +222,21 @@ class Histogram {
       const barIds = d.records.map(agency => agency.globalId);
       const highlightIds = highlightedAgencies.map(agency => agency.globalId);
       return highlightIds.some(id => barIds.includes(id));
+    });
+
+    return this;
+  }
+
+  updateSearchResult() {
+    const {
+      bars,
+      searchResult,
+    } = privateProps.get(this);
+
+    bars.classed('search-result', (d) => {
+      if (searchResult === null) return false;
+      const barIds = d.records.map(agency => agency.globalId);
+      return barIds.includes(searchResult.globalId);
     });
 
     return this;

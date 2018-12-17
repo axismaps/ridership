@@ -441,6 +441,15 @@ class Atlas {
       return highlightIds.includes(d.globalId);
     });
   }
+
+  updateSearchResult() {
+    const {
+      agencies,
+      searchResult,
+    } = privateProps.get(this);
+
+    agencies.classed('search-result', d => searchResult !== null && d.globalId === searchResult.globalId);
+  }
 }
 
 export default Atlas;

@@ -11,21 +11,25 @@ const getStateUpdateSearchResult = ({ components }) => function updateSearchResu
   atlas
     .config({
       searchResult,
-    });
+    })
+    .updateSearchResult();
 
   histogram
     .config({
       searchResult,
-    });
+    })
+    .updateSearchResult();
 
   sidebar
     .config({
       searchResult,
-    });
+    })
+    .updateSearchResult();
 
-  searchDropdown.config({
-    searchResult,
-  })
+  searchDropdown
+    .config({
+      searchResult,
+    })
     .update();
 };
 

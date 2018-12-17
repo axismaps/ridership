@@ -21,7 +21,7 @@
   cursor: pointer;
 }
 
-.histogram__svg rect:hover, .histogram__svg rect.highlight {
+.histogram__svg rect:hover, .histogram__svg rect.highlight, .histogram__svg rect.search-result {
   stroke: black;
   stroke-width: 2px;
 }

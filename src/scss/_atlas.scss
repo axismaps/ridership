@@ -80,7 +80,8 @@
 .atlas__census-dropdown-button-text,
 .atlas__indicator-dropdown-button-text,
 .atlas__year-slider-button-text,
-.atlas__compare-dropdown-button-text {
+.atlas__compare-dropdown-button-text,
+.atlas__search-dropdown-result-text {
   margin-right: 5px;
 }
 
@@ -110,7 +111,7 @@
   cursor: pointer;
 }
 
-.map__agency:hover, .map__agency.highlight, .map__agency.compared {
+.map__agency:hover, .map__agency.highlight, .map__agency.compared, .map__agency.search-result {
   fill-opacity: 0.95;
   stroke: black;
   stroke-width: 2px;

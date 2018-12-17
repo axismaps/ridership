@@ -22,6 +22,9 @@ const getAtlas = ({ data, state }) => new Atlas({
 
       scale: 'msa',
       msa,
+      searchResult: null,
+      compareMode: false,
+      comparedAgencies: [],
     });
   },
   updateHighlightedAgencies: (newHighlight) => {

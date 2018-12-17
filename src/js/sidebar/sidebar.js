@@ -202,6 +202,7 @@ const privateMethods = {
       updateHighlightedAgencies,
       years,
       currentScale,
+      searchResult,
     } = props;
 
     const {
@@ -229,6 +230,8 @@ const privateMethods = {
       pcpContainer,
       pcp,
     });
+
+    this.updateSearchResult();
   },
 };
 
@@ -242,8 +245,9 @@ class Sidebar {
     privateProps.set(this, {
       dataProbe: new DataProbe({
         container: d3.select('.outer-container'),
-        highlightedAgencies: [],
       }),
+      highlightedAgencies: [],
+      searchResult: null,
     });
 
     this.config(config);
@@ -376,6 +380,24 @@ class Sidebar {
           highlightedAgencies,
         })
         .updateHighlight();
+    }
+
+    return this;
+  }
+
+  updateSearchResult() {
+    const {
+      pcp,
+      searchResult,
+      currentSidebarView,
+    } = privateProps.get(this);
+
+    if (currentSidebarView === 'parallel') {
+      pcp
+        .config({
+          searchResult,
+        })
+        .updateSearchResult();
     }
 
     return this;

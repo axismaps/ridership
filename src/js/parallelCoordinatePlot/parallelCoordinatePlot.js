@@ -92,6 +92,7 @@ class ParallelCoordinatePlot {
       msaScale: null,
       maxValue: 100,
       highlightedAgencies: [],
+      searchResult: null,
       color: () => 'rgb(0,0,0)',
     });
 
@@ -179,6 +180,17 @@ class ParallelCoordinatePlot {
       const highlightIds = highlightedAgencies.map(agency => agency.globalId);
       return highlightIds.includes(d.globalId);
     });
+
+    return this;
+  }
+
+  updateSearchResult() {
+    const {
+      lines,
+      searchResult,
+    } = privateProps.get(this);
+
+    lines.classed('search-result', d => searchResult !== null && searchResult.globalId === d.globalId);
 
     return this;
   }
