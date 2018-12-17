@@ -2,7 +2,7 @@ taid,taname,talong,tashort,msaid,display,msa_color
 1,NYCT,New York City Transit,NYC Transit,35620,True,#00ad91
 1,MTA New York City Transit,MTA New York City Transit,NYCT,35620,False,#00ad91
 1,MTA Bus Company,MTA Bus Company,MTABUS,35620,False,#00ad91
-2,NJTransit,New Jersey Transit Corporation,NJ TRANSIT,35620,True,#ff5e4d
+2,NJTransit,New Jersey Transit,NJ TRANSIT,35620,True,#ff5e4d
 3,Long Island Rail Road,MTA Long Island Rail Road,MTA LIRR,35620,True,#eb52d6
 4,PATH,Port Authority Trans-Hudson Corporation,PATH,35620,True,#ff9d2e
 5,Metro-North Railroad,MTA Metro-North Railroad,MTA MNR,35620,True,#8c6112
@@ -136,9 +136,9 @@ taid,taname,talong,tashort,msaid,display,msa_color
 22,Chicago Other,,Chicago Other,16980,True,#ff9d2e
 22,East Chicago Transit,East Chicago Transit,ECT,16980,False,#ff9d2e
 23,Miami-Dade Transit,Miami-Dade Transit,Miami-Dade Transit,33100,True,#00ad91
-24,Broward County Transit Division,Broward County Transit Division,Broward County Transit Division,33100,True,#ff5e4d
+24,Broward County Transit Division,Broward County Transit,Broward County Transit Division,33100,True,#ff5e4d
 25,PalmTran,"Board of County Commissioners, Palm Beach County, PalmTran",PalmTran,33100,True,#eb52d6
-26,TRI-Rail,South Florida Regional Transportation Authority,TRI-Rail,33100,True,#ff9d2e
+26,Tri-Rail,South Florida Regional Transportation Authority,Tri-Rail,33100,True,#ff9d2e
 27,City of Coral Springs,City of Coral Springs,,33100,False,#8c6112
 27,City of Hollywood,City of Hollywood,,33100,False,#8c6112
 27,City of Deerfield Beach/ North East Focal Point Senior Center,City of Deerfield Beach/ North East Focal Point Senior Center,,33100,False,#8c6112
@@ -273,7 +273,7 @@ taid,taname,talong,tashort,msaid,display,msa_color
 64,Seattle Other,,Seattle Other,42660,True,#0f8fff
 64,Seattle Center Monorail Transit,Seattle Center Monorail Transit,SMS,42660,False,#0f8fff
 64,Everett Transit,Everett Transit,ET,42660,False,#0f8fff
-65,San Diego Metropolitan Transit System,San Diego Metropolitan Transit System,San Diego MTS,41740,True,#00ad91
+65,Metropolitan Transit System,Metropolitan Transit System,San Diego MTS,41740,True,#00ad91
 66,North County Transit District,North County Transit District,NCTD,41740,True,#ff5e4d
 67,San Diego Association of Governments,San Diego Association of Governments,SANDAG,41740,True,#eb52d6
 68,Metro Transit,Metro Transit,Metro Transit,33460,True,#00ad91
