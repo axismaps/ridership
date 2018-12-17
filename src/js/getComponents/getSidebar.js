@@ -15,6 +15,7 @@ const getSidebar = ({ data, state }) => new Sidebar({
   currentScale: state.get('scale'),
   taFilter: state.get('taFilter'),
   contentContainer: d3.select('.sidebar__content'),
+  legendContainer: d3.select('.sidebar__agency-legend'),
   compareContainer: d3.select('.sidebar__compare-list'),
   topRowContainer: d3.select('.sidebar__top-row'),
   parallelButtonContainer: d3.select('.sidebar__parallel-button'),

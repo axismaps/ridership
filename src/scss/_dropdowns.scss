@@ -29,16 +29,25 @@
 
 .msa-dropdown__content-row,
 .indicator-dropdown__content-row,
-.compare-dropdown__content-row {
+.compare-dropdown__content-row,
+.search-dropdown__content-row {
   margin-top: 15px;
   cursor: pointer;
+}
+
+.search-dropdown__content-row {
+  padding-left: 10px;
+  text-indent: -10px;
+  margin-left: 10px;
 }
 
 .indicator-dropdown__content-row:hover,
 .indicator-dropdown__content-row--highlighted,
 .compare-dropdown__content-row:hover,
 .compare-dropdown__content-row--highlighted,
-.compare .atlas__compare-dropdown-button {
+.search-dropdown__content-row:hover,
+.compare .atlas__compare-dropdown-button,
+.search-result .atlas__search-dropdown-button {
   color: $header__title-row--background;
   font-weight: 600;
 }
@@ -48,15 +57,44 @@
   overflow-y: auto;
 }
 
-.atlas__compare-dropdown-button .fa-times-circle, .compare .atlas__compare-dropdown-button .fa-angle-down {
+.atlas__compare-dropdown-button .fa-times-circle, 
+.compare .atlas__compare-dropdown-button .fa-angle-down,
+.atlas__search-dropdown-button .fa-times-circle,
+.atlas__search-dropdown-button input,
+.search-active .atlas__search-dropdown-button .atlas__search-dropdown-button-text,
+.search-result .atlas__search-dropdown-button .atlas__search-dropdown-button-text,
+.atlas__search-dropdown-button .atlas__search-dropdown-result-text {
   display: none;
 }
 
-.compare .atlas__compare-dropdown-button .fa-times-circle {
+.compare .atlas__compare-dropdown-button .fa-times-circle,
+.search-result .atlas__search-dropdown-button .fa-times-circle,
+.search-result .atlas__search-dropdown-button .atlas__search-dropdown-result-text,
+.search-active .atlas__search-dropdown-button input {
   display: inline;
 }
 
 .compare-dropdown__content-row:last-child {
   padding-top: 15px;
   border-top: 1px solid #ccc;
+}
+
+.search-active .atlas__compare-dropdown-button {
+  display: none;
+}
+
+.atlas__search-dropdown-button .atlas__search-dropdown-result-text {
+  max-width: 120px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.atlas__search-dropdown-button input {
+  width: 220px;
+  height: 30px;
+  font-size: 15px;
+  line-height: 30px;
+  border: none;
+  outline: none;
 }

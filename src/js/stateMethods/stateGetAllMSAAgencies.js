@@ -5,6 +5,7 @@ const getGetAllAgenciesForCurrentMSA = ({ data }) => function getAllAgenciesForC
    */
   const currentMSA = this.get('msa');
   const ta = data.get('ta');
+
   if (currentMSA === null) return null;
   return ta
     .filter(d => d.msaId === currentMSA.msaId);

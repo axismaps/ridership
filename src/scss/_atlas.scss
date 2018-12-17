@@ -53,15 +53,21 @@
 }
 
 .atlas__year-slider-button,
-.atlas__compare-dropdown-button {
+.atlas__compare-dropdown-button,
+.atlas__search-dropdown-button {
   margin-left: 50px;
+}
+
+.search .atlas__search-dropdown-button {
+  margin-left: 10px;
 }
 
 .atlas__distance-dropdown-button,
 .atlas__census-dropdown-button,
 .atlas__indicator-dropdown-button,
 .atlas__year-slider-button,
-.atlas__compare-dropdown-button {
+.atlas__compare-dropdown-button,
+.atlas__search-dropdown-button {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -125,6 +131,7 @@
 .outer-container--msa {
   .atlas__indicator-dropdown-button,
   .atlas__compare-dropdown-button,
+  .atlas__search-dropdown-button,
   .atlas__map-container {
     display: none;
   }

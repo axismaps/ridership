@@ -1,64 +1,60 @@
 import sparklineFunctions from './sidebarSparklineFunctions';
 import pcpFunctions from './sidebarParallelCoordinatePlotFunctions';
 import DataProbe from '../dataProbe/dataProbe';
+import agencyLegendFunctions from './sidebarAgenciesLegendFunctions';
 
 const privateProps = new WeakMap();
 
 const privateMethods = {
   drawContent() {
     const {
-      currentScale,
+      currentSidebarView,
     } = privateProps.get(this);
     const {
-      drawNationalContent,
-      drawMSAContent,
       clearContent,
       setTopButtonStatus,
+      drawNationalSparkLines,
+      drawNationalParallelPlot,
+      drawNationalCompareList,
     } = privateMethods;
     clearContent.call(this);
     setTopButtonStatus.call(this);
-    if (currentScale === 'national') {
-      drawNationalContent.call(this);
+    drawNationalCompareList.call(this);
+    if (currentSidebarView === 'sparklines') {
+      drawNationalSparkLines.call(this);
     } else {
-      drawMSAContent.call(this);
+      drawNationalParallelPlot.call(this);
     }
+    this.updateCurrentIndicator();
   },
-  drawMSAContent() {
+  drawMSASparkLineLegend() {
     const props = privateProps.get(this);
     const {
+      updateTAFilter,
       contentContainer,
-      currentSidebarView,
-      // indicatorSummaries,
       currentAgencies,
       taFilter,
-      updateTAFilter,
+      legendContainer,
     } = props;
     const {
-      drawNationalContent,
-    } = privateMethods;
-    const {
       drawMSASparkLineLegend,
-    } = sparklineFunctions;
-    if (currentSidebarView === 'sparklines') {
-      drawMSASparkLineLegend({
-        updateTAFilter,
-        contentContainer,
-        // indicatorSummaries,
-        currentAgencies,
-        taFilter,
-        logTAChecks: (checks) => {
-          props.checks = checks;
-        },
-      });
-    }
-
-    drawNationalContent.call(this);
-    this.updateCurrentIndicator();
+    } = agencyLegendFunctions;
+    drawMSASparkLineLegend({
+      legendContainer,
+      updateTAFilter,
+      contentContainer,
+      currentAgencies,
+      taFilter,
+      logTAChecks: (checks) => {
+        props.checks = checks;
+      },
+    });
   },
   clearContent() {
     const {
       contentContainer,
     } = privateProps.get(this);
+
     contentContainer.selectAll('div').remove();
   },
   setTopButtonEvents() {
@@ -101,24 +97,6 @@ const privateMethods = {
       .classed('sidebar__top-button--active', currentSidebarView === 'parallel');
     sparkLineButtonContainer
       .classed('sidebar__top-button--active', currentSidebarView === 'sparklines');
-  },
-  drawNationalContent() {
-    const {
-      currentSidebarView,
-      // comparedAgencies,
-    } = privateProps.get(this);
-    const {
-      drawNationalSparkLines,
-      drawNationalParallelPlot,
-      drawNationalCompareList,
-    } = privateMethods;
-    drawNationalCompareList.call(this);
-    if (currentSidebarView === 'sparklines') {
-      drawNationalSparkLines.call(this);
-    } else {
-      drawNationalParallelPlot.call(this);
-    }
-    this.updateCurrentIndicator();
   },
 
   drawNationalCompareList() {
@@ -223,6 +201,7 @@ const privateMethods = {
       updateIndicator,
       updateHighlightedAgencies,
       years,
+      currentScale,
     } = props;
 
     const {
@@ -235,7 +214,9 @@ const privateMethods = {
       years,
     });
 
+
     const pcp = drawPcp({
+      currentScale,
       pcpContainer,
       agenciesData,
       indicatorSummaries,
@@ -348,17 +329,30 @@ class Sidebar {
       agenciesData,
       currentSidebarView,
       // indicatorSummaries,
+      currentScale,
+      legendContainer,
     } = privateProps.get(this);
 
     const {
       drawContent,
       drawNationalCompareList,
+      drawMSASparkLineLegend,
     } = privateMethods;
-
+    const {
+      clearLegend,
+    } = agencyLegendFunctions;
+    clearLegend({
+      legendContainer,
+    });
+    const msaScale = currentScale === 'msa';
+    if (msaScale) {
+      drawMSASparkLineLegend.call(this);
+    }
     if (currentSidebarView === 'parallel') {
       pcp
         .config({
           agenciesData,
+          msaScale: currentScale === 'msa',
         })
         .updateData();
       drawNationalCompareList.call(this);
@@ -387,21 +381,21 @@ class Sidebar {
     return this;
   }
 
-  updateTAFilter() {
-    const {
-      checks,
-      taFilter,
-    } = privateProps.get(this);
-    const {
-      setSparkLineLegendChecks,
-    } = sparklineFunctions;
+  // updateTAFilter() {
+  //   const {
+  //     checks,
+  //     taFilter,
+  //   } = privateProps.get(this);
+  //   const {
+  //     setSparkLineLegendChecks,
+  //   } = sparklineFunctions;
 
-    setSparkLineLegendChecks({
-      checks,
-      taFilter,
-    });
-    return this;
-  }
+  //   setSparkLineLegendChecks({
+  //     checks,
+  //     taFilter,
+  //   });
+  //   return this;
+  // }
 }
 
 export default Sidebar;

@@ -23,6 +23,7 @@ const sidebarPureFunctions = {
     dataProbe,
     updateIndicator,
     updateHighlightedAgencies,
+    currentScale,
   }) {
     return new ParallelCoordinatePlot({
       pcpContainer,
@@ -30,6 +31,7 @@ const sidebarPureFunctions = {
       indicatorSummaries,
       dataProbe,
       updateIndicator,
+      msaScale: currentScale === 'msa',
       updateHighlightedAgencies,
     });
   },

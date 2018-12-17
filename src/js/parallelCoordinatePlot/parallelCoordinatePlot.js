@@ -17,6 +17,7 @@ const privateMethods = {
       updateHighlightedAgencies,
       maxValue,
       color,
+      msaScale,
     } = props;
 
     const {
@@ -59,6 +60,7 @@ const privateMethods = {
       dataProbe,
       updateHighlightedAgencies,
       color,
+      msaScale,
     });
 
     const axis = drawAxis({
@@ -87,6 +89,7 @@ class ParallelCoordinatePlot {
       yearRange: null,
       margins: [30, 15],
       currentIndicator: null,
+      msaScale: null,
       maxValue: 100,
       highlightedAgencies: [],
       color: () => 'rgb(0,0,0)',
@@ -120,6 +123,7 @@ class ParallelCoordinatePlot {
       maxValue,
       color,
       updateHighlightedAgencies,
+      msaScale,
     } = privateProps.get(this);
 
     const xScale = getXScale({
@@ -138,6 +142,7 @@ class ParallelCoordinatePlot {
       dataProbe,
       color,
       updateHighlightedAgencies,
+      msaScale,
     });
 
     drawAxis({

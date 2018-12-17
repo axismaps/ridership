@@ -41,6 +41,7 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
     sidebar
       .config({
         indicatorSummaries: this.getCurrentIndicatorSummaries(),
+        agenciesData: this.getCurrentAgenciesData(),
         currentIndicatorDisabled: false,
       })
       .updateCurrentIndicator()

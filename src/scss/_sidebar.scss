@@ -18,7 +18,7 @@ $sidebar-content--margin-top: 20px;
 
 .sidebar__content {
   padding-left: 20px;
-  // padding-right: 20px;
+  padding-right: 20px;
   // padding-top: 20px;
 }
 
@@ -119,7 +119,7 @@ $sidebar-content--margin-top: 20px;
 .sidebar__sparkline-expand {
   visibility: hidden;
   cursor: pointer;
-  padding: 0 10px;
+  padding: 0 5px;
   height: 100%;
   display: flex;
   align-items: center;
