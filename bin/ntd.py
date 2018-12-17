@@ -11,17 +11,19 @@ from carto import replace_data
 TA = pd.read_excel('data/meta/Transit_Agencies_for_Visualization.xlsx',
                    sheet_name='TC AgencyList')
 NTD22_RAW = pd.read_excel('data/ntd/TS2.2TimeSeriesSysWideOpexpSvc_2.xlsx',
-                          sheet_name=['UPT', 'VRM', 'FARES', 'VRH', 'Total OE',
+                          sheet_name=['UPT', 'VRM', 'VRH',
                                       'DRM', 'VOMS', 'PMT'])
 NTD21_RAW = pd.read_excel('data/ntd/TS2.1TimeSeriesOpExpSvcModeTOS_3.xlsx',
-                          sheet_name='UPT')
+                          sheet_name=['UPT', 'FARES', 'OpExp Total'])
 
 print 'Data successfully loaded from Excel'
 
 ntd21 = {}
 ntd22 = {}
 
-NTD21_RAW = NTD21_RAW.dropna(subset=['NTD ID'])
+for i in NTD21_RAW:
+    ntd21[i] = NTD21_RAW[i].dropna(subset=['NTD ID'])
+
 for i in NTD22_RAW:
     ntd22[i] = NTD22_RAW[i].dropna(subset=['NTD ID'])
 
@@ -30,10 +32,12 @@ def filterByMode(dframe, modes):
 
 # Filter bus data by required modes
 BUS_MODES = ['MB', 'RB', 'CB', 'TB']
-ntd21['bus'] = filterByMode(NTD21_RAW, BUS_MODES)
+ntd21['bus'] = filterByMode(ntd21['UPT'], BUS_MODES)
 
 RAIL_MODES = ['CC', 'CR', 'HR', 'LR', 'MG', 'SR', 'YR']
-ntd21['rail'] = filterByMode(NTD21_RAW, RAIL_MODES)
+ntd21['rail'] = filterByMode(ntd21['UPT'], RAIL_MODES)
+
+del ntd21['UPT']
 
 # Drop unused columns
 col22 = ['Last Report Year', 'Legacy NTD ID', 'Agency Name', 'Agency Status',
@@ -85,7 +89,7 @@ stacks['fares'] = pd.Series(stacks['fares'] / stacks['upt'], name='fares')
 stacks['speed'] = pd.Series(stacks['vrm'] / stacks['vrh'], name='speed')
 
 # Farebox recovery
-stacks['recovery'] = pd.Series(stacks['fares'] / stacks['total_oe'], name='recovery')
+stacks['recovery'] = pd.Series(stacks['fares'] / stacks['opexp_total'], name='recovery')
 
 # Vehicle revenue miles per ride
 stacks['vrm_per_ride'] = pd.Series(stacks['vrm'] / stacks['upt'], name='vrm_per_ride')

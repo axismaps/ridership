@@ -117,7 +117,7 @@ const dataMethods = {
         },
         {
           text: 'Operating Expenses (total)',
-          value: 'total_oe',
+          value: 'opexp_total',
           summaryType: 'sum',
           format: '$,d',
         },
