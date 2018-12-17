@@ -95,7 +95,9 @@ stacks['recovery'] = pd.Series(stacks['fares'] / stacks['opexp_total'], name='re
 stacks['vrm_per_ride'] = pd.Series(stacks['vrm'] / stacks['upt'], name='vrm_per_ride')
 
 # Average headways
-stacks['headways'] = pd.Series((stacks['drm'] / stacks['speed']) / stacks['voms'] * 60, name='headways')
+stacks['headways'] = pd.Series(
+    ((stacks['drm'] / stacks['speed']) / stacks['voms']) * 60, name='headways'
+)
 
 # Average trip length
 stacks['trip_length'] = pd.Series(stacks['pmt'] / stacks['upt'], name='trip_length')
