@@ -1,51 +1,51 @@
 taid,taname,talong,tashort,msaid,display,msa_color
 1,NYCT,New York City Transit,NYC Transit,35620,True,#00ad91
-1,MTA New York City Transit,MTA New York City Transit,NYCT,35620,False,#ff5e4d
-1,MTA Bus Company,MTA Bus Company,MTABUS,35620,False,#ff5e4d
-2,NJTransit,New Jersey Transit Corporation,NJ TRANSIT,35620,True,#eb52d6
-3,Long Island Rail Road,MTA Long Island Rail Road,MTA LIRR,35620,True,#ff9d2e
-4,PATH,Port Authority Trans-Hudson Corporation,PATH,35620,True,#8c6112
-5,Metro-North Railroad,MTA Metro-North Railroad,MTA MNR,35620,True,#0f8fff
-6,Westchester County Bee-Line System,Westchester County Bee-Line System,Westchester County Bee-Line System,35620,True,#33a02c
-7,Nassau Inter County Express,Nassau Inter County Express,Nassau Inter County Express,35620,True,#c2ab00
-8,NYC DOT,New York City Department of Transportation,NYCDOT,35620,True,#707070
-9,Adirondack Transit Lines,Adirondack Transit Lines,Adirondack Trailways,35620,False,#bc80bd
-9,Monsey New Square Trails Corporation,Monsey New Square Trails Corporation,,35620,False,#bc80bd
-9,Community Transit,Community Transit,Community Transit,35620,False,#bc80bd
-9,Somerset County Transportation,Somerset County Transportation,SCT,35620,False,#bc80bd
-9,Long Beach Bus,Long Beach Bus,Long Beach Bus,35620,False,#bc80bd
-9,Middlesex County Area Transit,Middlesex County Area Transit,MCAT,35620,False,#bc80bd
-9,Bergen County Community Transportation,Bergen County Community Transportation,BCCT,35620,False,#bc80bd
-9,EZ Ride,EZ Ride,EZ Ride,35620,False,#bc80bd
-9,Essex County Division of Training and Employment,Essex County Division of Training and Employment,ECDTE,35620,False,#bc80bd
-9,Huntington Area Rapid Transit,Huntington Area Rapid Transit,HART,35620,False,#bc80bd
-9,Putnam County Transit,Putnam County Transit,PART,35620,False,#bc80bd
-9,County of Hunterdon,County of Hunterdon,HCLink,35620,False,#bc80bd
-9,Olympia Trails Bus Company,Olympia Trails Bus Company,Coach USA,35620,False,#bc80bd
-9,County of Morris,County of Morris,MAPS,35620,False,#bc80bd
-9,Kaser Bus Service,Kaser Bus Service,Kaser,35620,False,#bc80bd
-9,Village of Spring Valley Bus,Village of Spring Valley Bus,Spring Valley Jitney,35620,False,#bc80bd
-9,Saddle River Trail,Saddle River Trail,STR,35620,False,#bc80bd
-9,Broadway Bus Corporation,Broadway Bus Corporation,,35620,False,#bc80bd
-9,Clarkstown Mini-Trans,Clarkstown Mini-Trans,,35620,False,#bc80bd
-9,Private Transportation Corporation,Private Transportation Corporation,,35620,False,#bc80bd
-9,New York City Other,,New York City Other,35620,True,#bc80bd
-9,Staten Island Railway,Staten Island Railway,SIRTOA,35620,False,#bc80bd
-9,NY Waterway,NY Waterway,Port Imperial Ferry Corporation,35620,False,#bc80bd
-9,Hampton Jitney,Hampton Jitney,,35620,False,#bc80bd
-9,Orange-Newark-Elizabeth,Orange-Newark-Elizabeth,Coach USA,35620,False,#bc80bd
-9,Suffolk County DPW - Transportation,Suffolk County DPW - Transportation,ST,35620,False,#bc80bd
-9,Hudson Transit Lines,Hudson Transit Lines,Short Line,35620,False,#bc80bd
-9,A&C Bus Corporation & Montgomery & Westside Owners Association,A&C Bus Corporation & Montgomery & Westside Owners Association,,35620,False,#bc80bd
-9,Academy Lines,Academy Lines,,35620,False,#bc80bd
-9,Suburban Transit Corporation,Suburban Transit Corporation,Coach USA,35620,False,#bc80bd
-9,Transport of Rockland,Transport of Rockland,TOR,35620,False,#bc80bd
-9,Rockland Coaches,Rockland Coaches,,35620,False,#bc80bd
-9,DeCamp Bus Lines,DeCamp Bus Lines,,35620,False,#bc80bd
-9,NYC Economic Development Corporation,NYC Economic Development Corporation,NYCEDC,35620,False,#bc80bd
-9,BillyBey Ferry Company,BillyBey Ferry Company,,35620,False,#bc80bd
-9,Lakeland Bus Lines,Lakeland Bus Lines,,35620,False,#bc80bd
-9,Trans-Bridge Lines,Trans-Bridge Lines,,35620,False,#bc80bd
+1,MTA New York City Transit,MTA New York City Transit,NYCT,35620,False,#00ad91
+1,MTA Bus Company,MTA Bus Company,MTABUS,35620,False,#00ad91
+2,NJTransit,New Jersey Transit Corporation,NJ TRANSIT,35620,True,#ff5e4d
+3,Long Island Rail Road,MTA Long Island Rail Road,MTA LIRR,35620,True,#eb52d6
+4,PATH,Port Authority Trans-Hudson Corporation,PATH,35620,True,#ff9d2e
+5,Metro-North Railroad,MTA Metro-North Railroad,MTA MNR,35620,True,#8c6112
+6,Westchester County Bee-Line System,Westchester County Bee-Line System,Westchester County Bee-Line System,35620,True,#0f8fff
+7,Nassau Inter County Express,Nassau Inter County Express,Nassau Inter County Express,35620,True,#33a02c
+8,NYC DOT,New York City Department of Transportation,NYCDOT,35620,True,#c2ab00
+9,Adirondack Transit Lines,Adirondack Transit Lines,Adirondack Trailways,35620,False,#707070
+9,Monsey New Square Trails Corporation,Monsey New Square Trails Corporation,,35620,False,#707070
+9,Community Transit,Community Transit,Community Transit,35620,False,#707070
+9,Somerset County Transportation,Somerset County Transportation,SCT,35620,False,#707070
+9,Long Beach Bus,Long Beach Bus,Long Beach Bus,35620,False,#707070
+9,Middlesex County Area Transit,Middlesex County Area Transit,MCAT,35620,False,#707070
+9,Bergen County Community Transportation,Bergen County Community Transportation,BCCT,35620,False,#707070
+9,EZ Ride,EZ Ride,EZ Ride,35620,False,#707070
+9,Essex County Division of Training and Employment,Essex County Division of Training and Employment,ECDTE,35620,False,#707070
+9,Huntington Area Rapid Transit,Huntington Area Rapid Transit,HART,35620,False,#707070
+9,Putnam County Transit,Putnam County Transit,PART,35620,False,#707070
+9,County of Hunterdon,County of Hunterdon,HCLink,35620,False,#707070
+9,Olympia Trails Bus Company,Olympia Trails Bus Company,Coach USA,35620,False,#707070
+9,County of Morris,County of Morris,MAPS,35620,False,#707070
+9,Kaser Bus Service,Kaser Bus Service,Kaser,35620,False,#707070
+9,Village of Spring Valley Bus,Village of Spring Valley Bus,Spring Valley Jitney,35620,False,#707070
+9,Saddle River Trail,Saddle River Trail,STR,35620,False,#707070
+9,Broadway Bus Corporation,Broadway Bus Corporation,,35620,False,#707070
+9,Clarkstown Mini-Trans,Clarkstown Mini-Trans,,35620,False,#707070
+9,Private Transportation Corporation,Private Transportation Corporation,,35620,False,#707070
+9,New York City Other,,New York City Other,35620,True,#707070
+9,Staten Island Railway,Staten Island Railway,SIRTOA,35620,False,#707070
+9,NY Waterway,NY Waterway,Port Imperial Ferry Corporation,35620,False,#707070
+9,Hampton Jitney,Hampton Jitney,,35620,False,#707070
+9,Orange-Newark-Elizabeth,Orange-Newark-Elizabeth,Coach USA,35620,False,#707070
+9,Suffolk County DPW - Transportation,Suffolk County DPW - Transportation,ST,35620,False,#707070
+9,Hudson Transit Lines,Hudson Transit Lines,Short Line,35620,False,#707070
+9,A&C Bus Corporation & Montgomery & Westside Owners Association,A&C Bus Corporation & Montgomery & Westside Owners Association,,35620,False,#707070
+9,Academy Lines,Academy Lines,,35620,False,#707070
+9,Suburban Transit Corporation,Suburban Transit Corporation,Coach USA,35620,False,#707070
+9,Transport of Rockland,Transport of Rockland,TOR,35620,False,#707070
+9,Rockland Coaches,Rockland Coaches,,35620,False,#707070
+9,DeCamp Bus Lines,DeCamp Bus Lines,,35620,False,#707070
+9,NYC Economic Development Corporation,NYC Economic Development Corporation,NYCEDC,35620,False,#707070
+9,BillyBey Ferry Company,BillyBey Ferry Company,,35620,False,#707070
+9,Lakeland Bus Lines,Lakeland Bus Lines,,35620,False,#707070
+9,Trans-Bridge Lines,Trans-Bridge Lines,,35620,False,#707070
 10,LA Metro,Los Angeles County Metropolitan Transportation Authority,LA Metro,31080,True,#00ad91
 11,Orange County Transportation Authority,Orange County Transportation Authority,OCTA,31080,True,#ff5e4d
 12,Long Beach Transit,Long Beach Transit,LBT,31080,True,#eb52d6
