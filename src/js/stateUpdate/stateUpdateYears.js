@@ -24,6 +24,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
   histogram
     .config({
       nationalMapData,
+      years,
     });
   if (scale === 'national') {
     histogram.updateData();

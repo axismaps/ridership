@@ -459,18 +459,70 @@ const histogramFunctions = {
         dataProbe.remove();
       });
   },
-  drawXAxisLabel({
-    svg,
+  drawAxisLabels({
+    container,
     width,
+    height,
     padding,
   }) {
     const chartWidth = width - padding.left - padding.right;
+    const chartHeight = height - padding.top - padding.bottom;
+    const xAxisLabel = container.append('div')
+      .styles({
+        position: 'absolute',
+        left: `${padding.left}px`,
+        top: `${height - (padding.bottom / 2)}px`,
+        width: `${chartWidth}px`,
+        'text-align': 'center',
+        'font-size': 12,
+        'font-weight': 350,
+      })
+      .text('X AXIS LABEL');
+
+    const yAxisLabel = container.append('div')
+      .styles({
+        position: 'absolute',
+        left: `${-25}px`,
+        top: `${(padding.top / 2) + (chartHeight / 2)}px`,
+        width: `${chartHeight + 50}px`,
+        'text-align': 'center',
+        transform: 'rotate(-90deg)',
+        'transform-origin': 'center',
+        'font-size': 12,
+        'font-weight': 350,
+      })
+      .text('Y AXIS LABEL');
+
+    return {
+      xAxisLabel,
+      yAxisLabel,
+    };
   },
-  // updateXAxisLabel({
+  updateAxisLabelText({
+    xAxisLabel,
+    yAxisLabel,
+    currentIndicator,
+    currentScale,
+    years,
+    currentCensusField,
+  }) {
+    console.log('currentSCale', currentScale);
+    const isNational = currentScale === 'national';
+    const yText = isNational
+      ? 'Number of transit agencies'
+      : 'Number of census tracdts';
+    const xText = isNational
+      ? `${currentIndicator.text} (% change, ${years[0]}-${years[1]})`
+      : `${currentCensusField.text} (% change, ${years[0]}-${years[1]})`;
 
-  // }) {
+    yAxisLabel
+      .text(yText);
 
-  // },
+    xAxisLabel
+      .text(xText);
+
+    console.log('currentIndicator', currentIndicator);
+  },
   updateMSA({
     tractGeo,
     bucketCount,

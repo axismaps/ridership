@@ -17,6 +17,9 @@ const privateMethods = {
       container,
       updateHighlightedAgencies,
       dataProbe,
+      currentIndicator,
+      currentScale,
+      years,
     } = props;
 
     const {
@@ -26,6 +29,8 @@ const privateMethods = {
       drawBars,
       drawAxes,
       drawAverageLine,
+      drawAxisLabels,
+      updateAxisLabelText,
     } = histogramFunctions;
 
     const {
@@ -82,6 +87,24 @@ const privateMethods = {
       height,
     });
 
+    const {
+      xAxisLabel,
+      yAxisLabel,
+    } = drawAxisLabels({
+      container,
+      width,
+      height,
+      padding,
+    });
+
+    updateAxisLabelText({
+      xAxisLabel,
+      yAxisLabel,
+      currentIndicator,
+      currentScale,
+      years,
+    });
+
     Object.assign(props, {
       bars,
       xAxis,
@@ -89,6 +112,8 @@ const privateMethods = {
       svg,
       nationalAverageGroup,
       nationalAverageText,
+      xAxisLabel,
+      yAxisLabel,
     });
   },
   setDimensions() {
@@ -166,15 +191,26 @@ class Histogram {
       currentCensusField,
       dataProbe,
       currentIndicator,
+      years,
+      xAxisLabel,
+      yAxisLabel,
     } = privateProps.get(this);
 
     const {
       updateNational,
       updateMSA,
+      updateAxisLabelText,
     } = histogramFunctions;
 
-    console.log('currentIndicator', currentIndicator);
-
+    updateAxisLabelText({
+      xAxisLabel,
+      yAxisLabel,
+      currentIndicator,
+      currentScale,
+      years,
+      currentCensusField,
+    });
+    console.log('currentCensusField', currentCensusField);
     if (currentScale === 'national') {
       updateNational({
         bars,
