@@ -24,6 +24,7 @@ const getStateUpdateIndicator = ({ components }) => function updateIndicator() {
 
   histogram
     .config({
+      currentIndicator: indicator,
       nationalMapData,
     })
     .updateData();

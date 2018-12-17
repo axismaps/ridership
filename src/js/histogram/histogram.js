@@ -83,9 +83,6 @@ const privateMethods = {
     });
 
     Object.assign(props, {
-      // xScale,
-      // yScale,
-      // histogramData,
       bars,
       xAxis,
       yAxis,
@@ -121,7 +118,7 @@ class Histogram {
         top: 30,
         bottom: 65,
         left: 85,
-        right: 250,
+        right: 20,
       },
       barSpacing: 5,
       highlightedAgencies: [],
@@ -168,12 +165,15 @@ class Histogram {
       tractGeo,
       currentCensusField,
       dataProbe,
+      currentIndicator,
     } = privateProps.get(this);
 
     const {
       updateNational,
       updateMSA,
     } = histogramFunctions;
+
+    console.log('currentIndicator', currentIndicator);
 
     if (currentScale === 'national') {
       updateNational({

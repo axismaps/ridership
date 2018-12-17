@@ -64,7 +64,7 @@ const sparkLineFunctions = {
       })
       .tickSize(xScale.range()[1] + 5);
 
-    const axisContainer = svg.append('g')
+    svg.append('g')
       .attr('transform', `translate(${xScale.range()[1] + 4 * margin},${margin})`)
       .attr('class', 'sparkline-axis')
       .call(axis);
@@ -182,7 +182,6 @@ const sparkLineFunctions = {
     svg,
     line,
     scales,
-    width,
     height,
     margin,
     indicatorData,

@@ -459,6 +459,18 @@ const histogramFunctions = {
         dataProbe.remove();
       });
   },
+  drawXAxisLabel({
+    svg,
+    width,
+    padding,
+  }) {
+    const chartWidth = width - padding.left - padding.right;
+  },
+  // updateXAxisLabel({
+
+  // }) {
+
+  // },
   updateMSA({
     tractGeo,
     bucketCount,
