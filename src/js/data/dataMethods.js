@@ -86,16 +86,16 @@ const dataMethods = {
     {
       const indicatorList = [
         {
+          text: 'Average Fares',
+          value: 'avg_fare',
+          summaryType: 'mean',
+          format: '$.2f',
+        },
+        {
           text: 'Average Headways',
           value: 'headways',
           summaryType: 'mean',
           format: '.2r',
-        },
-        {
-          text: 'Average Fares',
-          value: 'fares',
-          summaryType: 'mean',
-          format: '$.2f',
         },
         {
           text: 'Farebox Recovery',
