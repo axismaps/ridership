@@ -210,7 +210,7 @@ class Histogram {
       years,
       currentCensusField,
     });
-    console.log('currentCensusField', currentCensusField);
+
     if (currentScale === 'national') {
       updateNational({
         bars,
@@ -276,6 +276,15 @@ class Histogram {
     });
 
     return this;
+  }
+
+  updateSize() {
+    const {
+      setDimensions,
+    } = privateMethods;
+    setDimensions.call(this);
+    console.log('update histogram size');
+    // this.updateData();
   }
 }
 

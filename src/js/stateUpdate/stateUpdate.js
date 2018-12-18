@@ -11,6 +11,7 @@ import getStateUpdateCensusField from './stateUpdateCensusField';
 import getStateUpdateDistanceFilter from './stateUpdateDistanceFilter';
 import getStateUpdateNationalDataView from './stateUpdateNationalDataView';
 import getStateUpdateTAFilter from './stateUpdateTAFilter';
+import getStateUpdateScreenSize from './stateUpdateScreenSize';
 
 const initStateUpdateListeners = ({ components, data }) => {
   const { state } = components;
@@ -29,6 +30,7 @@ const initStateUpdateListeners = ({ components, data }) => {
     distanceFilter: getStateUpdateDistanceFilter({ components, data }),
     nationalDataView: getStateUpdateNationalDataView({ components }),
     taFilter: getStateUpdateTAFilter({ components, data }),
+    screenSize: getStateUpdateScreenSize({ components }),
   });
 };
 

@@ -25,6 +25,10 @@ const getState = ({ data }) => {
     compareMode: false,
     searchResult: null,
     taFilter: new Set(), // agencies to filter out in msa-scale map and charts
+    screenSize: {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    },
   });
 
   Object.assign(

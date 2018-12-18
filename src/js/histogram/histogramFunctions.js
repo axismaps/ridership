@@ -506,7 +506,6 @@ const histogramFunctions = {
     years,
     currentCensusField,
   }) {
-    console.log('currentSCale', currentScale);
     const isNational = currentScale === 'national';
     const yText = isNational
       ? 'Number of transit agencies'
@@ -520,8 +519,6 @@ const histogramFunctions = {
 
     xAxisLabel
       .text(xText);
-
-    console.log('currentIndicator', currentIndicator);
   },
   updateMSA({
     tractGeo,

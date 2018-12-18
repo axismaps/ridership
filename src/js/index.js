@@ -27,6 +27,7 @@ const app = {
       this.data = data;
       this.initComponents();
       this.initStateUpdateListeners();
+      this.initScreenResizeListener();
     });
   },
   initComponents() {
@@ -50,6 +51,17 @@ const app = {
   initStateUpdateListeners() {
     const { components, data } = this;
     initStateUpdateListeners({ components, data });
+  },
+  initScreenResizeListener() {
+    const { state } = this.components;
+    d3.select(window).on('resize', () => {
+      state.update({
+        screenSize: {
+          width: window.innerWidth,
+          height: window.innerHeight,
+        },
+      });
+    });
   },
 };
 
