@@ -12,8 +12,7 @@ const exportMehods = {
         });
       });
 
-    return new Promise((resolve, reject) => {
-      document.createElement('canvas');
+    return new Promise((resolve) => {
       const canvas = d3.select('body').append('canvas')
         .style('display', 'none')
         .node();
