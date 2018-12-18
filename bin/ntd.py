@@ -1,12 +1,16 @@
+#%%
 import pandas as pd
 from numpy import inf
 from numpy import nan
-from acs import msa_population
-from eia import gas_prices
-from meta import clean_ta
-from maintenance import load_maintenance
-from carto import replace_data
+from bin.acs import msa_population
+from bin.eia import gas_prices
+from bin.meta import clean_ta
+from bin.maintenance import load_maintenance
+from bin.carto import replace_data
 
+print 'All modules loaded'
+
+#%%
 # Load the excel data:
 TA = pd.read_excel('data/meta/Transit_Agencies_for_Visualization.xlsx',
                    sheet_name='TC AgencyList')
@@ -18,6 +22,7 @@ NTD21_RAW = pd.read_excel('data/ntd/TS2.1TimeSeriesOpExpSvcModeTOS_3.xlsx',
 
 print 'Data successfully loaded from Excel'
 
+#%%
 ntd21 = {}
 ntd22 = {}
 
@@ -47,9 +52,13 @@ col21 = ['Last Report Year', 'Legacy NTD ID', 'Agency Name', 'Agency Status',
          'Reporter Type', 'City', 'State', 'Census Year', 'UZA Name', 'Mode', 'Service',
          'Mode Status', 'UZA', 'UZA Area SQ Miles', 'UZA Population', '2017 Status']
 
-TA_DROP = ['ShowIndividual', '"Other" primary Project ID', 'Primary UZA',
-           'UZA Name', 'Agency Name', 'Reporter Acronym', 'display']
+TA_DROP = ['ShowIndividual', 'Primary UZA', 'UZA Name', 'Agency Name',
+           'Reporter Acronym', 'display']
 ta_clean = clean_ta(TA, TA_DROP)
+other_ta = ta_clean[pd.notnull(
+    ta_clean['"Other" primary Project ID']
+)]['Project ID'].unique().tolist()
+ta_clean = ta_clean.drop(columns=['"Other" primary Project ID'])
 
 datasets = {}
 
@@ -61,6 +70,7 @@ for i in ntd22:
 
 print 'Loaded and cleaned data for: ' + str(datasets.keys())
 
+#%%
 # Merge the data with TA metadata
 def ntd_merge(dframe, d_name):
     # Merge dataframes
@@ -81,29 +91,37 @@ for name, df in datasets.items():
 
 print'Created stacks for ' + str(stacks.keys())
 
+#%%
 # Calculate derived values
 # Average fares
 stacks['avg_fare'] = pd.Series(stacks['fares'] / stacks['upt'], name='avg_fare')
+stacks['avg_fare'].drop(labels=other_ta, inplace=True)
 
 # Average speed
 stacks['speed'] = pd.Series(stacks['vrm'] / stacks['vrh'], name='speed')
+stacks['speed'].drop(labels=other_ta, inplace=True)
 
 # Farebox recovery
 stacks['recovery'] = pd.Series(stacks['fares'] / stacks['opexp_total'], name='recovery')
+stacks['recovery'].drop(labels=other_ta, inplace=True)
 
 # Vehicle revenue miles per ride
 stacks['vrm_per_ride'] = pd.Series(stacks['vrm'] / stacks['upt'], name='vrm_per_ride')
+stacks['vrm_per_ride'].drop(labels=other_ta, inplace=True)
 
 # Average headways
 stacks['headways'] = pd.Series(
     ((stacks['drm'] / stacks['speed']) / stacks['voms']) * 60, name='headways'
 )
+stacks['headways'].drop(labels=other_ta, inplace=True)
 
 # Average trip length
 stacks['trip_length'] = pd.Series(stacks['pmt'] / stacks['upt'], name='trip_length')
+stacks['trip_length'].drop(labels=other_ta, inplace=True)
 
 # Miles between failures
 stacks['failures'] = pd.Series(stacks['pmt'] / load_maintenance(), name='failures')
+stacks['failures'].drop(labels=other_ta, inplace=True)
 
 # Ridership per capita
 stacks['capita'] = pd.Series(stacks['upt'] / msa_population(), name='capita')
@@ -119,6 +137,7 @@ del stacks['pmt']
 
 print 'Calculated values for ' + str(stacks.keys())
 
+#%%
 # Removing zeroes and Infinities
 indexes = ['id', 'year']
 export = pd.concat(stacks.values(), axis=1).replace([inf, 0], nan)
@@ -126,7 +145,9 @@ export = pd.concat(stacks.values(), axis=1).replace([inf, 0], nan)
 #Export to CSV
 export.to_csv('data/output/ntd.csv', index_label=indexes)
 
-indexes.extend(export.columns.values)
+print 'Data exported to CSV'
 
+#%%
 # Upload to Carto
+indexes.extend(export.columns.values)
 replace_data('ntd', indexes, 'ntd.csv')
