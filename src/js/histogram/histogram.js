@@ -286,6 +286,18 @@ class Histogram {
     console.log('update histogram size');
     // this.updateData();
   }
+
+  export() {
+    const {
+      exportMethods,
+      svg,
+    } = privateProps.get(this);
+
+    const svgNode = svg.node();
+    const { SVGtoCanvas } = exportMethods;
+
+    return SVGtoCanvas({ svgNode });
+  }
 }
 
 export default Histogram;

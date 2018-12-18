@@ -1,4 +1,5 @@
 import Atlas from '../atlas/atlas';
+import exportMethods from '../export/exportMethods';
 
 const getAtlas = ({ data, state }) => new Atlas({
   mapContainer: d3.select('.atlas__map-container'),
@@ -14,6 +15,7 @@ const getAtlas = ({ data, state }) => new Atlas({
   compareMode: state.get('compareMode'),
   comparedAgencies: state.get('comparedAgencies'),
   years: state.get('years'),
+  exportMethods,
   jumpToMsa: (agency) => {
     const msa = data.get('msa')
       .find(d => d.msaId === agency.msaId);

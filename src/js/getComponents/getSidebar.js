@@ -1,6 +1,8 @@
 import Sidebar from '../sidebar/sidebar';
+import exportMethods from '../export/exportMethods';
 
 const getSidebar = ({ data, state }) => new Sidebar({
+  exportMethods,
   indicatorSummaries: state.getCurrentIndicatorSummaries(),
   agenciesData: state.getCurrentAgenciesData(),
   currentAgencies: state.getAllAgenciesForCurrentMSA(),

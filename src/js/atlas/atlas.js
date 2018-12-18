@@ -210,6 +210,7 @@ class Atlas {
       layers: null,
       nationalMapData: null,
       mapFeatures: new Map(),
+      searchResult: null,
       dataProbe: new DataProbe({
         container: d3.select('.outer-container'),
       }),
@@ -449,6 +450,19 @@ class Atlas {
     } = privateProps.get(this);
 
     agencies.classed('search-result', d => searchResult !== null && d.globalId === searchResult.globalId);
+  }
+
+  export() {
+    const {
+      exportMethods,
+      mapSVG,
+      scale,
+    } = privateProps.get(this);
+
+    const svgNode = mapSVG.node();
+    const { SVGtoCanvas } = exportMethods;
+
+    return SVGtoCanvas({ svgNode });
   }
 }
 
