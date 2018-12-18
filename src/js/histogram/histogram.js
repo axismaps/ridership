@@ -26,6 +26,7 @@ const privateMethods = {
       getHistogramData,
       getScales,
       drawSVG,
+      setSVGSize,
       drawBars,
       drawAxes,
       drawAverageLine,
@@ -40,6 +41,7 @@ const privateMethods = {
       nationalMapData,
       bucketCount,
     });
+
     const { xScale, yScale } = getScales({
       padding,
       histogramData,
@@ -50,6 +52,11 @@ const privateMethods = {
 
     const svg = drawSVG({
       container,
+
+    });
+
+    setSVGSize({
+      svg,
       width,
       height,
     });
@@ -114,6 +121,8 @@ const privateMethods = {
       nationalAverageText,
       xAxisLabel,
       yAxisLabel,
+      histogramData,
+      nationalAverage,
     });
   },
   setDimensions() {
@@ -172,6 +181,7 @@ class Histogram {
   }
 
   updateData() {
+    const props = privateProps.get(this);
     const {
       bars,
       changeColorScale,
@@ -194,13 +204,17 @@ class Histogram {
       years,
       xAxisLabel,
       yAxisLabel,
-    } = privateProps.get(this);
+    } = props;
+
 
     const {
       updateNational,
       updateMSA,
       updateAxisLabelText,
+      getHistogramData,
+      getMSAHistogramData,
     } = histogramFunctions;
+
 
     updateAxisLabelText({
       xAxisLabel,
@@ -210,9 +224,18 @@ class Histogram {
       years,
       currentCensusField,
     });
-
     if (currentScale === 'national') {
+      const {
+        histogramData,
+        nationalAverage,
+      } = getHistogramData({
+        nationalMapData,
+        bucketCount,
+        nationalDataView,
+      });
       updateNational({
+        histogramData,
+        nationalAverage,
         bars,
         changeColorScale,
         nationalMapData,
@@ -228,8 +251,15 @@ class Histogram {
         nationalDataView,
         dataProbe,
       });
+      Object.assign(props, { histogramData, nationalAverage });
     } else if (currentScale === 'msa') {
+      const histogramData = getMSAHistogramData({
+        tractGeo,
+        bucketCount,
+        currentCensusField,
+      });
       updateMSA({
+        histogramData,
         tractGeo,
         bucketCount,
         currentCensusField,
@@ -243,6 +273,7 @@ class Histogram {
         nationalAverageGroup,
         dataProbe,
       });
+      Object.assign(props, { histogramData });
     }
 
     return this;
@@ -282,9 +313,74 @@ class Histogram {
     const {
       setDimensions,
     } = privateMethods;
+    const {
+      setSVGSize,
+      updateAxes,
+      getScales,
+      resizeBars,
+      resizeAverageLine,
+      resizeXAxisLabel,
+    } = histogramFunctions;
+
     setDimensions.call(this);
-    console.log('update histogram size');
-    // this.updateData();
+
+    const {
+      width,
+      height,
+      svg,
+      padding,
+      histogramData,
+      xAxis,
+      yAxis,
+      bars,
+      barSpacing,
+      nationalAverage,
+      nationalAverageGroup,
+      xAxisLabel,
+    } = privateProps.get(this);
+
+    setSVGSize({
+      width,
+      height,
+      svg,
+    });
+    const { yScale, xScale } = getScales({
+      padding,
+      histogramData,
+      width,
+      height,
+    });
+
+    updateAxes({
+      xScale,
+      yScale,
+      xAxis,
+      yAxis,
+      padding,
+      transition: 0,
+    });
+
+    resizeBars({
+      bars,
+      xScale,
+      padding,
+      histogramData,
+      barSpacing,
+    });
+
+    resizeAverageLine({
+      padding,
+      xScale,
+      nationalAverage,
+      nationalAverageGroup,
+    });
+
+    resizeXAxisLabel({
+      xAxisLabel,
+      width,
+      padding,
+      height,
+    });
   }
 }
 
