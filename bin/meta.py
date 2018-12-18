@@ -89,12 +89,12 @@ def main():
             pass
         elif row.msaid == prev_msa:
             color_count += 1
-            prev_taid = row.taid
             if color_count >= len(COLORS):
                 color_count = 0
         else:
             color_count = 0
             prev_msa = row.msaid
+        prev_taid = row.taid
         tamerge.at[i, 'msa_color'] = COLORS[color_count]
 
     tamerge.to_csv('data/output/ta.csv', index=False)
