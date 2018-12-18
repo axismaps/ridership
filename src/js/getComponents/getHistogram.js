@@ -13,6 +13,7 @@ const getHistogram = ({ data, state }) => new Histogram({
   },
   currentScale: state.get('scale'),
   currentCensusField: state.get('censusField'),
+  years: state.get('years'),
 });
 
 export default getHistogram;

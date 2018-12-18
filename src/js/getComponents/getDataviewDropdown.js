@@ -1,6 +1,6 @@
 import DataViewDropdown from '../dropdown/dataviewDropdown';
 
-const getDataviewDropdown = ({ state, data }) => new DataViewDropdown({
+const getDataviewDropdown = ({ state }) => new DataViewDropdown({
   contentContainer: d3.select('.header__data-view-container'),
   nationalDataView: state.get('nationalDataView'),
   updateNationalDataView: (newView) => {
