@@ -382,6 +382,18 @@ class Histogram {
       height,
     });
   }
+
+  export() {
+    const {
+      exportMethods,
+      svg,
+    } = privateProps.get(this);
+
+    const svgNode = svg.node();
+    const { SVGtoCanvas } = exportMethods;
+
+    return SVGtoCanvas({ svgNode });
+  }
 }
 
 export default Histogram;

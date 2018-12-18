@@ -1,4 +1,5 @@
 import Histogram from '../histogram/histogram';
+import exportMethods from '../export/exportMethods';
 
 const getHistogram = ({ data, state }) => new Histogram({
   changeColorScale: data.get('changeColorScale'),
@@ -14,6 +15,7 @@ const getHistogram = ({ data, state }) => new Histogram({
   currentScale: state.get('scale'),
   currentCensusField: state.get('censusField'),
   years: state.get('years'),
+  exportMethods,
 });
 
 export default getHistogram;

@@ -4,7 +4,10 @@
   "globals": {
     "d3": false,
     "window": false,
-    "mapboxgl": false
+    "mapboxgl": false,
+    "Blob": false,
+    "Image": false,
+    "XMLSerializer": false,
   },
   "env": {
     "jest/globals": true

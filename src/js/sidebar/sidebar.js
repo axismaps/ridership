@@ -403,6 +403,12 @@ class Sidebar {
     return this;
   }
 
+  export() {
+    const {
+      exportMethods,
+    } = privateProps.get(this);
+  }
+
   // updateTAFilter() {
   //   const {
   //     checks,
