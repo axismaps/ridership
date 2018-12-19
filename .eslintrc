@@ -8,9 +8,11 @@
     "Blob": false,
     "Image": false,
     "XMLSerializer": false,
+    "document": false,
   },
   "env": {
-    "jest/globals": true
+    "jest/globals": true,
+    "browser": true
   },
   "rules": {
     "max-lines": "warn",
