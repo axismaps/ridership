@@ -1,3 +1,5 @@
+import headerButtonMethods from './headerButtonMethods';
+
 const privateProps = new WeakMap();
 
 const privateMethods = {
@@ -6,10 +8,15 @@ const privateMethods = {
     const {
       exportButton,
       exportComponents,
+      exportMethods,
     } = props;
 
+    const {
+      assembleExport,
+    } = headerButtonMethods;
+
     exportButton.on('click', () => {
-      exportComponents(console.log);
+      exportComponents(assembleExport);
     });
   },
 };

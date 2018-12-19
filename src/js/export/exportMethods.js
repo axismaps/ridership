@@ -2,28 +2,38 @@ const exportMehods = {
   SVGtoCanvas({
     svgNode,
   }) {
-    d3.select(svgNode).selectAll('path, circle, rect')
+    const bbox = svgNode.getBoundingClientRect();
+    const {
+      width,
+      height,
+    } = bbox;
+    d3.select(svgNode)
+      .attrs({
+        width,
+        height,
+      })
+      .selectAll('path, circle, rect, line, text')
       .each(function addInline() {
         const style = window.getComputedStyle(this);
-        const { fill, stroke } = style;
+        const {
+          fill, stroke, fontFamily, fontSize, fontStyle, fontWeight, display,
+        } = style;
         d3.select(this).styles({
           fill,
           stroke,
+          display,
+          'font-family': fontFamily,
+          'font-weight': fontWeight,
+          'font-size': fontSize,
+          'font-style': fontStyle,
         });
       });
 
     return new Promise((resolve) => {
-      const canvas = d3.select('body').append('canvas')
-        .style('display', 'none')
-        .node();
-      const bbox = svgNode.getBoundingClientRect();
-      const {
-        width,
-        height,
-      } = bbox;
-      canvas.width = width;
-      canvas.height = height;
-      const ctx = canvas.getContext('2d');
+      const canvasNode = document.createElement('canvas');
+      canvasNode.width = width;
+      canvasNode.height = height;
+      const ctx = canvasNode.getContext('2d');
       const DOMURL = window.URL || window.webkitURL || window;
       const svgString = new XMLSerializer().serializeToString(svgNode);
       const img = new Image();
@@ -34,7 +44,7 @@ const exportMehods = {
       img.onload = () => {
         ctx.drawImage(img, 0, 0);
         DOMURL.revokeObjectURL(url);
-        resolve(canvas);
+        resolve(canvasNode);
       };
     });
   },
