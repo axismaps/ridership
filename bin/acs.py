@@ -67,7 +67,6 @@ def download_census():
                     ).set_index(indexes)
                     df = csv.groupby(level=csv.index.names).last()
                     acs.append(df)
-
                 else:
                     frames = []
                     errors = []
@@ -125,10 +124,10 @@ def download_census():
                         combined[d['key']] = combined[d['key']] + combined[s]
                 else:
                     combined[d['key']] = combined[d['numerator']].divide(
-                                            combined[d['denominator']],
-                                            fill_value=0
-                                        )
-                                        
+                        combined[d['denominator']],
+                        fill_value=0
+                    )
+
                     if 'scale' in d:
                         combined[d['key']] = combined[d['key']] * d['scale']
 
