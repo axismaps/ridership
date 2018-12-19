@@ -161,7 +161,7 @@ class Histogram {
       width: null,
       height: null,
       container: null,
-      bucketCount: 16,
+      bucketCount: 32,
       padding: {
         top: 30,
         bottom: 65,

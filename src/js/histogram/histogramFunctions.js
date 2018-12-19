@@ -28,7 +28,7 @@ const histogramFunctions = {
       .domain(xDomain)
       .range(xRange);
 
-    const yScale = d3.scaleLinear()
+    const yScale = d3.scaleSqrt()
       .domain(yDomain)
       .range(yRange);
     return {
