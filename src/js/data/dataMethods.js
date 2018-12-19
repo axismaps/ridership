@@ -86,22 +86,23 @@ const dataMethods = {
     {
       const indicatorList = [
         {
-          text: 'Average Fares',
+          text: 'Average Fare',
           value: 'avg_fare',
           summaryType: 'mean',
           format: '$.2f',
         },
         {
-          text: 'Average Headways',
+          text: 'Average Service Headway',
           value: 'headways',
           summaryType: 'mean',
           format: '.2r',
+          unit: 'min',
         },
         {
           text: 'Farebox Recovery',
           value: 'recovery',
-          summaryType: 'sum',
-          format: '.2r',
+          summaryType: 'mean',
+          format: '.2p',
         },
         {
           text: 'Bus Ridership',
@@ -116,49 +117,54 @@ const dataMethods = {
           format: ',d',
         },
         {
-          text: 'Operating Expenses (total)',
+          text: 'Operating Expenses',
           value: 'opexp_total',
           summaryType: 'sum',
           format: '$,d',
         },
         {
-          text: 'Vehicle Revenue Miles (per ride)',
+          text: 'Vehicle Revenue Miles per trip',
           value: 'vrm_per_ride',
           summaryType: 'mean',
           format: '.2f',
+          unit: 'mi per trip',
         },
         {
           text: 'Average Trip Length',
           value: 'trip_length',
           summaryType: 'mean',
           format: '.2f',
+          unit: 'mi',
         },
         {
-          text: 'Unlinked Passenger Trips',
+          text: 'Transit Ridership',
           value: 'upt',
           summaryType: 'sum',
           format: ',d',
         },
         {
-          text: 'Average Speed',
+          text: 'Average Vehicle Speed',
           value: 'speed',
           summaryType: 'mean',
           format: '.2f',
+          unit: 'mph',
         },
         {
-          text: 'Vehicle Revenue Miles (total)',
+          text: 'Vehicle Revenue Miles',
           value: 'vrm',
           summaryType: 'sum',
           format: ',d',
+          unit: 'mi',
         },
         {
           text: 'Miles Between Failures',
           value: 'failures',
           summaryType: 'mean',
           format: ',d',
+          unit: 'mi',
         },
         {
-          text: 'Ridership per Capita',
+          text: 'Trips Per Person',
           value: 'capita',
           summaryType: 'mean',
           format: '.2f',
@@ -168,6 +174,7 @@ const dataMethods = {
           value: 'gas',
           summaryType: 'mean',
           format: '$.2f',
+          unit: 'per gallon',
         },
       ];
 
