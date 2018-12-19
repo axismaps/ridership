@@ -1,8 +1,8 @@
 import os.path
 import re
 import json
+import grequests
 import pandas as pd
-from census import Census
 from carto import replace_data
 import settings
 
@@ -31,12 +31,28 @@ def msa_population():
 
     return group.sum().stack()
 
+def process_result(i, y, var, indexes, frames):
+    result = pd.DataFrame(i.json())
+    result.columns = result.iloc[0]
+    result = result.reindex(result.index.drop(0))
+    result['GEOID'] = pd.Series(
+        result['state'] + result['county'] + result['tract']
+    ).astype(str)
+    result['year'] = y
+    out = result.set_index(indexes)
+    df = out.groupby(level=out.index.names).last()
+    frames.append(df[var])
+    return frames
+
 def download_census():
-    c = Census(settings.CENSUS_API)
     geo = pd.read_csv('data/geojson/tracts/cbsa_crosswalk.csv', dtype={'GEOID': object})
     counties = geo.drop_duplicates(
         ['STATEFP', 'COUNTYFP', 'msaid']
-    ).sort_values(['STATEFP', 'COUNTYFP'])
+    )
+    counties = counties.groupby('STATEFP')[['STATEFP', 'COUNTYFP', 'msaid']].apply(
+        lambda x: x.set_index('COUNTYFP').to_dict(orient='index')
+    ).to_dict()
+
     indexes = ['GEOID', 'year']
 
     with open('data/census/acs.json', "r") as read_file:
@@ -49,25 +65,38 @@ def download_census():
                     csv = pd.read_csv(
                         filename, dtype={'GEOID': object}
                     ).set_index(indexes)
-                    acs.append(csv)
-
+                    df = csv.groupby(level=csv.index.names).last()
+                    acs.append(df)
                 else:
                     frames = []
-                    for y in range(2010, 2016):
-                        for i, row in counties.iterrows():
-                            res = c.acs5.state_county_tract(r['var'], row['STATEFP'],
-                                                            row['COUNTYFP'], Census.ALL, year=y)
-                            if res:
-                                result = pd.DataFrame(res)
-                                result['GEOID'] = pd.Series(
-                                    result['state'] + result['county'] + result['tract']
-                                ).astype(str)
-                                result['year'] = y
-                                out = result.set_index(indexes)
-                                frames.append(out[r['var']])
-                                print 'Loaded:', r['name'], row['STATEFP'], row['COUNTYFP'], y, i
-                            else:
-                                print 'Empty:', r['name'], row['STATEFP'], row['COUNTYFP'], y, i
+                    errors = []
+                    for y in range(2010, 2017):
+                        for s in counties:
+                            urls = errors
+                            errors = []
+                            for c in counties[s]:
+                                urls.append('https://api.census.gov/data/' + str(y) + \
+                                '/acs/acs5?get=' + r['var'] + '&for=tract:*&in=state:' + \
+                                str(s).zfill(2) + '%20county:' + str(c).zfill(3) + '&key=' + \
+                                settings.CENSUS_API)
+
+                            rs = (grequests.get(u) for u in urls)
+                            res = grequests.map(rs)
+
+                            for i in res:
+                                try:
+                                    frames = process_result(i, y, r['var'], indexes, frames)
+                                except:
+                                    try:
+                                        print i.text
+                                        errors.append(i.url)
+                                    except:
+                                        pass
+
+                            print 'Loaded:', r['name'], y, s
+                            print '-----'
+                            if errors:
+                                print 'Retrying', len(errors), 'errors'
 
                     ind = pd.Series(pd.concat(frames), name=r['key'])
                     ind.to_csv(filename, header=r['key'])
@@ -85,6 +114,7 @@ def download_census():
         indexes.append('msaid')
 
         for d in meta:
+            print d['name']
             if 'upload' in d and d['upload']:
                 indexes.append(d['key'])
             if 'var' not in d:
@@ -93,8 +123,11 @@ def download_census():
                     for s in d['sum']:
                         combined[d['key']] = combined[d['key']] + combined[s]
                 else:
-                    combined[d['key']] = combined[d['numerator']].astype(int) / \
-                                        combined[d['denominator']].astype(int)
+                    combined[d['key']] = combined[d['numerator']].divide(
+                        combined[d['denominator']],
+                        fill_value=0
+                    )
+
                     if 'scale' in d:
                         combined[d['key']] = combined[d['key']] * d['scale']
 

@@ -237,6 +237,14 @@ const dataMethods = {
         text: 'Percent Commute by Public Transit',
         value: 'transit_pct',
       },
+      {
+        text: 'Job Density',
+        value: 'job_density',
+      },
+      {
+        text: 'Job and Population Density',
+        value: 'job_pop_density',
+      },
     ];
 
     const distanceFilters = [

@@ -1,6 +1,8 @@
 .ipynb_checkpoints/*
 .vscode/*
 node_modules/*
+data/census/lodes/crosswalks/*
+data/census/lodes/wac/*
 data/output/*.geojson
 data/output/*.mbtiles*
 data/output/*.gz
