@@ -36,11 +36,12 @@ for s in states:
         wcsv = wac[:-3]
         if not os.path.isfile(wac) and not os.path.isfile(wcsv):
             wc = requests.get(WAC.substitute(state=abbr, year=y))
-            with open(wac, 'wb') as f:
-                f.write(wc.content)
-                f.close()
+            if wc.status_code == 200:
+                with open(wac, 'wb') as f:
+                    f.write(wc.content)
+                    f.close()
 
-        if not os.path.isfile(wcsv):
+        if not os.path.isfile(wcsv) and os.path.isfile(wac):
             with gzip.open(wac, 'rb') as f:
                 with open(wcsv, 'w') as c:
                     c.write(f.read())
