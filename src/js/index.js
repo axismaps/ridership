@@ -10,6 +10,7 @@ import getSliderDropdown from './getComponents/getSliderDropdown';
 import getSidebar from './getComponents/getSidebar';
 import getHistogram from './getComponents/getHistogram';
 import getMSADropdown from './getComponents/getMSADropdown';
+import getHeaderButtons from './getComponents/getHeaderButtons';
 import getLayout from './getComponents/getLayout';
 import getCensusDropdown from './getComponents/getCensusDropdown';
 import getDistanceDropdown from './getComponents/getDistanceDropdown';
@@ -47,6 +48,7 @@ const app = {
     components.msaAtlas = getMSAAtlas({ state, data });
     components.censusDropdown = getCensusDropdown({ state, data });
     components.distanceDropdown = getDistanceDropdown({ state, data });
+    components.headerButtons = getHeaderButtons({ state, data, components });
   },
   initStateUpdateListeners() {
     const { components, data } = this;

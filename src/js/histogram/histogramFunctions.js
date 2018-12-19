@@ -1,4 +1,4 @@
-const axisFunctions = {
+const localFunctions = {
   getXAxisGenerator({ xScale }) {
     return d3.axisBottom(xScale);
   },
@@ -20,6 +20,44 @@ const axisFunctions = {
     const formatPercent = d3.format('.1%');
     nationalAverageText
       .text(`National Change: ${formatPercent(nationalAverage / 100)}`);
+  },
+  getBarPositions({
+    xScale,
+    padding,
+    histogramData,
+    barSpacing,
+  }) {
+    const count = histogramData.length;
+    const rectWidth = ((xScale.range()[1] - xScale.range()[0]) / count) - barSpacing;
+    return {
+      x: (d, i) => padding.left + ((rectWidth + barSpacing) * i),
+      width: rectWidth,
+    };
+  },
+  getAverageLinePosition({
+    padding,
+    xScale,
+    nationalAverage,
+  }) {
+    return {
+      transform: `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`,
+    };
+  },
+  getXAxisLabelPosition({
+    width,
+    height,
+    padding,
+  }) {
+    const chartWidth = width - padding.left - padding.right;
+    return {
+      position: 'absolute',
+      left: `${padding.left}px`,
+      top: `${height - (padding.bottom / 2)}px`,
+      width: `${chartWidth}px`,
+      'text-align': 'center',
+      'font-size': 12,
+      'font-weight': 350,
+    };
   },
 };
 
@@ -92,6 +130,7 @@ const histogramFunctions = {
     const xScale = d3.scaleLinear()
       .domain(xDomain)
       .range(xRange);
+
     const yScale = d3.scaleLinear()
       .domain(yDomain)
       .range(yRange);
@@ -102,16 +141,20 @@ const histogramFunctions = {
   },
   drawSVG({
     container,
-    width,
-    height,
   }) {
     return container
       .append('svg')
-      .attr('class', 'histogram__svg')
-      .styles({
-        width: `${width}px`,
-        height: `${height}px`,
-      });
+      .attr('class', 'histogram__svg');
+  },
+  setSVGSize({
+    svg,
+    width,
+    height,
+  }) {
+    svg.styles({
+      width: `${width}px`,
+      height: `${height}px`,
+    });
   },
   addNationalBarMouseEvents({
     bars,
@@ -158,25 +201,29 @@ const histogramFunctions = {
       addNationalBarMouseEvents,
     } = histogramFunctions;
 
+    const {
+      getBarPositions,
+    } = localFunctions;
 
-    const count = histogramData.length;
-
-    const rectWidth = ((xScale.range()[1] - xScale.range()[0]) / count) - barSpacing;
+    const positionAttrs = getBarPositions({
+      xScale,
+      padding,
+      histogramData,
+      barSpacing,
+    });
 
     const bars = svg
       .selectAll('.histogram__bar')
       .data(histogramData, d => d.index)
       .enter()
       .append('rect')
-      .attrs({
+      .attrs(Object.assign({
         y: d => (height - padding.bottom) - yScale(d.count),
-        x: (d, i) => padding.left + ((rectWidth + barSpacing) * i),
-        width: rectWidth,
         height: d => yScale(d.count),
         fill: d => changeColorScale((d.bucket[1] + d.bucket[0]) / 2),
         stroke: '#999999',
         'stroke-width': 1,
-      });
+      }, positionAttrs));
 
     addNationalBarMouseEvents({
       bars,
@@ -196,7 +243,7 @@ const histogramFunctions = {
     const {
       getYAxisGenerator,
       getXAxisGenerator,
-    } = axisFunctions;
+    } = localFunctions;
     const xAxis = svg
       .append('g')
       .attrs({
@@ -211,6 +258,7 @@ const histogramFunctions = {
         class: 'histogram__axis',
       })
       .call(getYAxisGenerator({ xScale, yScale }));
+    // console.log('yAxis', yAxis);
     return { xAxis, yAxis };
   },
   drawAverageLine({
@@ -222,7 +270,7 @@ const histogramFunctions = {
   }) {
     const {
       updateNationalAverageText,
-    } = axisFunctions;
+    } = localFunctions;
 
     const nationalAverageGroup = svg
       .append('g')
@@ -266,7 +314,8 @@ const histogramFunctions = {
   }) {
     const {
       updateNationalAverageText,
-    } = axisFunctions;
+      getAverageLinePosition,
+    } = localFunctions;
 
     updateNationalAverageText({
       nationalAverageText,
@@ -277,7 +326,27 @@ const histogramFunctions = {
       .style('opacity', 1)
       .transition()
       .duration(500)
-      .attr('transform', `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`);
+      .attrs(getAverageLinePosition({
+        padding,
+        xScale,
+        nationalAverage,
+      }));
+  },
+  resizeAverageLine({
+    padding,
+    xScale,
+    nationalAverage,
+    nationalAverageGroup,
+  }) {
+    const {
+      getAverageLinePosition,
+    } = localFunctions;
+    nationalAverageGroup
+      .attrs(getAverageLinePosition({
+        padding,
+        xScale,
+        nationalAverage,
+      }));
   },
   hideAverageLine({
     nationalAverageGroup,
@@ -290,18 +359,24 @@ const histogramFunctions = {
     yScale,
     xAxis,
     yAxis,
+    padding,
+    transition = 500,
   }) {
     const {
       getYAxisGenerator,
       getXAxisGenerator,
-    } = axisFunctions;
+    } = localFunctions;
 
-    yAxis.transition()
-      .duration(500)
+    yAxis
+      .attrs({
+        transform: `translate(${padding.left + xScale.range()[1]}, ${padding.top})`,
+      })
+      .transition()
+      .duration(transition)
       .call(getYAxisGenerator({ xScale, yScale }));
 
     xAxis.transition()
-      .duration(500)
+      .duration(transition)
       .call(getXAxisGenerator({ xScale }));
   },
   updateBars({
@@ -324,11 +399,28 @@ const histogramFunctions = {
         'stroke-width': 1,
       });
   },
+  resizeBars({
+    bars,
+    xScale,
+    padding,
+    histogramData,
+    barSpacing,
+  }) {
+    const {
+      getBarPositions,
+    } = localFunctions;
+    bars.attrs(getBarPositions({
+      xScale,
+      padding,
+      histogramData,
+      barSpacing,
+    }));
+  },
   updateNational({
     bars,
     changeColorScale,
-    nationalMapData,
-    bucketCount,
+    // nationalMapData,
+    // bucketCount,
     padding,
     width,
     height,
@@ -337,11 +429,13 @@ const histogramFunctions = {
     nationalAverageText,
     yAxis,
     updateHighlightedAgencies,
-    nationalDataView,
+    // nationalDataView,
     dataProbe,
+    histogramData,
+    nationalAverage,
   }) {
     const {
-      getHistogramData,
+      // getHistogramData,
       updateBars,
       getScales,
       updateAxes,
@@ -349,14 +443,14 @@ const histogramFunctions = {
       addNationalBarMouseEvents,
     } = histogramFunctions;
 
-    const {
-      histogramData,
-      nationalAverage,
-    } = getHistogramData({
-      nationalMapData,
-      bucketCount,
-      nationalDataView,
-    });
+    // const {
+    //   histogramData,
+    //   nationalAverage,
+    // } = getHistogramData({
+    //   nationalMapData,
+    //   bucketCount,
+    //   nationalDataView,
+    // });
 
     const { yScale, xScale } = getScales({
       padding,
@@ -370,6 +464,7 @@ const histogramFunctions = {
       yScale,
       xAxis,
       yAxis,
+      padding,
     });
 
     updateBars({
@@ -465,19 +560,19 @@ const histogramFunctions = {
     height,
     padding,
   }) {
-    const chartWidth = width - padding.left - padding.right;
+    const {
+      getXAxisLabelPosition,
+    } = localFunctions;
+
     const chartHeight = height - padding.top - padding.bottom;
+
     const xAxisLabel = container.append('div')
-      .styles({
-        position: 'absolute',
-        left: `${padding.left}px`,
-        top: `${height - (padding.bottom / 2)}px`,
-        width: `${chartWidth}px`,
-        'text-align': 'center',
-        'font-size': 12,
-        'font-weight': 350,
-      })
-      .text('X AXIS LABEL');
+      .styles(getXAxisLabelPosition({
+        height,
+        width,
+        padding,
+      }));
+
 
     const yAxisLabel = container.append('div')
       .styles({
@@ -490,13 +585,28 @@ const histogramFunctions = {
         'transform-origin': 'center',
         'font-size': 12,
         'font-weight': 350,
-      })
-      .text('Y AXIS LABEL');
+      });
+
 
     return {
       xAxisLabel,
       yAxisLabel,
     };
+  },
+  resizeXAxisLabel({
+    xAxisLabel,
+    width,
+    padding,
+    height,
+  }) {
+    const {
+      getXAxisLabelPosition,
+    } = localFunctions;
+    xAxisLabel.styles(getXAxisLabelPosition({
+      height,
+      width,
+      padding,
+    }));
   },
   updateAxisLabelText({
     xAxisLabel,
@@ -521,9 +631,9 @@ const histogramFunctions = {
       .text(xText);
   },
   updateMSA({
-    tractGeo,
-    bucketCount,
-    currentCensusField,
+    // tractGeo,
+    // bucketCount,
+    // currentCensusField,
     padding,
     width,
     height,
@@ -533,20 +643,16 @@ const histogramFunctions = {
     nationalAverageGroup,
     changeColorScale,
     dataProbe,
+    histogramData,
   }) {
     const {
-      getMSAHistogramData,
+      // getMSAHistogramData,
       getScales,
       updateAxes,
       updateBars,
       hideAverageLine,
       addMSABarMouseEvents,
     } = histogramFunctions;
-    const histogramData = getMSAHistogramData({
-      tractGeo,
-      bucketCount,
-      currentCensusField,
-    });
 
     const { yScale, xScale } = getScales({
       padding,
@@ -556,6 +662,7 @@ const histogramFunctions = {
     });
 
     updateAxes({
+      padding,
       xScale,
       yScale,
       xAxis,
