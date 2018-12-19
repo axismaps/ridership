@@ -7,7 +7,7 @@
     "mapboxgl": false,
     "Blob": false,
     "Image": false,
-    "XMLSerializer": false,
+    "XMLSerializer": false
   },
   "env": {
     "jest/globals": true

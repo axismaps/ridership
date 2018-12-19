@@ -5,7 +5,6 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
     histogram,
     sidebar,
   } = components;
-  console.log('UPDATE MSA', msa);
 
   this.set('taFilter', new Set());
 

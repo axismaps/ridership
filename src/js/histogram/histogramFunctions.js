@@ -1,110 +1,7 @@
-const localFunctions = {
-  getXAxisGenerator({ xScale }) {
-    return d3.axisBottom(xScale);
-  },
-  getYAxisGenerator({
-    xScale,
-    yScale,
-  }) {
-    const yScaleReversed = d3.scaleLinear()
-      .domain(yScale.domain())
-      .range([yScale.range()[1], yScale.range()[0]]);
-    return d3.axisLeft(yScaleReversed)
-      .tickSize(xScale.range()[1])
-      .ticks(4);
-  },
-  updateNationalAverageText({
-    nationalAverageText,
-    nationalAverage,
-  }) {
-    const formatPercent = d3.format('.1%');
-    nationalAverageText
-      .text(`National Change: ${formatPercent(nationalAverage / 100)}`);
-  },
-  getBarPositions({
-    xScale,
-    padding,
-    histogramData,
-    barSpacing,
-  }) {
-    const count = histogramData.length;
-    const rectWidth = ((xScale.range()[1] - xScale.range()[0]) / count) - barSpacing;
-    return {
-      x: (d, i) => padding.left + ((rectWidth + barSpacing) * i),
-      width: rectWidth,
-    };
-  },
-  getAverageLinePosition({
-    padding,
-    xScale,
-    nationalAverage,
-  }) {
-    return {
-      transform: `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`,
-    };
-  },
-  getXAxisLabelPosition({
-    width,
-    height,
-    padding,
-  }) {
-    const chartWidth = width - padding.left - padding.right;
-    return {
-      position: 'absolute',
-      left: `${padding.left}px`,
-      top: `${height - (padding.bottom / 2)}px`,
-      width: `${chartWidth}px`,
-      'text-align': 'center',
-      'font-size': 12,
-      'font-weight': 350,
-    };
-  },
-};
+import localFunctions from './histogramLocalFunctions';
 
 const histogramFunctions = {
-  getHistogramData({
-    nationalMapData,
-    bucketCount,
-    nationalDataView,
-  }) {
-    const allAgencies = nationalDataView === 'msa' ? nationalMapData.slice()
-      : nationalMapData
-        .reduce((accumulator, msa) => [...accumulator, ...msa.ta], [])
-        .filter(d => d.pctChange < 500);
 
-    const nationalAverage = d3.mean(allAgencies, d => d.pctChange);
-
-    const changeSpan = d3.extent(allAgencies, d => d.pctChange);
-
-    const bucketSize = (changeSpan[1] - changeSpan[0]) / bucketCount;
-
-    const histogramData = new Array(bucketCount)
-      .fill(null)
-      .map((d, i) => {
-        const bucket = [
-          changeSpan[0] + (i * bucketSize),
-          changeSpan[0] + (i * bucketSize) + bucketSize,
-        ];
-        const agencies = allAgencies
-          .filter((agency) => {
-            if (i === 0) {
-              return agency.pctChange >= bucket[0]
-                && agency.pctChange - bucket[1] <= 0.00001;
-            }
-            return agency.pctChange > bucket[0]
-              && agency.pctChange - bucket[1] <= 0.00001;
-          });
-        // const bucket = {};
-        // bucket.index = i;
-        return {
-          bucket,
-          records: agencies,
-          count: agencies.length,
-          index: i,
-        };
-      });
-    return { histogramData, nationalAverage };
-  },
   getScales({
     width,
     height,
@@ -146,16 +43,7 @@ const histogramFunctions = {
       .append('svg')
       .attr('class', 'histogram__svg');
   },
-  setSVGSize({
-    svg,
-    width,
-    height,
-  }) {
-    svg.styles({
-      width: `${width}px`,
-      height: `${height}px`,
-    });
-  },
+
   addNationalBarMouseEvents({
     bars,
     updateHighlightedAgencies,
@@ -269,7 +157,7 @@ const histogramFunctions = {
     height,
   }) {
     const {
-      updateNationalAverageText,
+      getNationalAverageText,
     } = localFunctions;
 
     const nationalAverageGroup = svg
@@ -286,10 +174,8 @@ const histogramFunctions = {
         y: -8,
       });
 
-    updateNationalAverageText({
-      nationalAverageText,
-      nationalAverage,
-    });
+    nationalAverageText
+      .text(getNationalAverageText({ nationalAverage }));
 
     nationalAverageGroup
       .append('line')
@@ -305,229 +191,16 @@ const histogramFunctions = {
       nationalAverageText,
     };
   },
-  updateAverageLine({
-    nationalAverageGroup,
-    nationalAverage,
-    xScale,
-    padding,
-    nationalAverageText,
-  }) {
-    const {
-      updateNationalAverageText,
-      getAverageLinePosition,
-    } = localFunctions;
 
-    updateNationalAverageText({
-      nationalAverageText,
-      nationalAverage,
-    });
 
-    nationalAverageGroup
-      .style('opacity', 1)
-      .transition()
-      .duration(500)
-      .attrs(getAverageLinePosition({
-        padding,
-        xScale,
-        nationalAverage,
-      }));
-  },
-  resizeAverageLine({
-    padding,
-    xScale,
-    nationalAverage,
-    nationalAverageGroup,
-  }) {
-    const {
-      getAverageLinePosition,
-    } = localFunctions;
-    nationalAverageGroup
-      .attrs(getAverageLinePosition({
-        padding,
-        xScale,
-        nationalAverage,
-      }));
-  },
   hideAverageLine({
     nationalAverageGroup,
   }) {
     nationalAverageGroup
       .style('opacity', 0);
   },
-  updateAxes({
-    xScale,
-    yScale,
-    xAxis,
-    yAxis,
-    padding,
-    transition = 500,
-  }) {
-    const {
-      getYAxisGenerator,
-      getXAxisGenerator,
-    } = localFunctions;
 
-    yAxis
-      .attrs({
-        transform: `translate(${padding.left + xScale.range()[1]}, ${padding.top})`,
-      })
-      .transition()
-      .duration(transition)
-      .call(getYAxisGenerator({ xScale, yScale }));
 
-    xAxis.transition()
-      .duration(transition)
-      .call(getXAxisGenerator({ xScale }));
-  },
-  updateBars({
-    bars,
-    histogramData,
-    yScale,
-    changeColorScale,
-    height,
-    padding,
-  }) {
-    bars
-      .data(histogramData, d => d.index)
-      .transition()
-      .duration(500)
-      .attrs({
-        height: d => yScale(d.count),
-        y: d => (height - padding.bottom) - yScale(d.count),
-        fill: d => changeColorScale((d.bucket[1] + d.bucket[0]) / 2),
-        stroke: '#999999',
-        'stroke-width': 1,
-      });
-  },
-  resizeBars({
-    bars,
-    xScale,
-    padding,
-    histogramData,
-    barSpacing,
-  }) {
-    const {
-      getBarPositions,
-    } = localFunctions;
-    bars.attrs(getBarPositions({
-      xScale,
-      padding,
-      histogramData,
-      barSpacing,
-    }));
-  },
-  updateNational({
-    bars,
-    changeColorScale,
-    // nationalMapData,
-    // bucketCount,
-    padding,
-    width,
-    height,
-    xAxis,
-    nationalAverageGroup,
-    nationalAverageText,
-    yAxis,
-    updateHighlightedAgencies,
-    // nationalDataView,
-    dataProbe,
-    histogramData,
-    nationalAverage,
-  }) {
-    const {
-      // getHistogramData,
-      updateBars,
-      getScales,
-      updateAxes,
-      updateAverageLine,
-      addNationalBarMouseEvents,
-    } = histogramFunctions;
-
-    // const {
-    //   histogramData,
-    //   nationalAverage,
-    // } = getHistogramData({
-    //   nationalMapData,
-    //   bucketCount,
-    //   nationalDataView,
-    // });
-
-    const { yScale, xScale } = getScales({
-      padding,
-      histogramData,
-      width,
-      height,
-    });
-
-    updateAxes({
-      xScale,
-      yScale,
-      xAxis,
-      yAxis,
-      padding,
-    });
-
-    updateBars({
-      height,
-      padding,
-      bars,
-      histogramData,
-      yScale,
-      changeColorScale,
-      updateHighlightedAgencies,
-      dataProbe,
-    });
-
-    addNationalBarMouseEvents({
-      bars,
-      updateHighlightedAgencies,
-      dataProbe,
-    });
-
-    updateAverageLine({
-      nationalAverageGroup,
-      nationalAverage,
-      nationalAverageText,
-      xScale,
-      padding,
-    });
-  },
-  getMSAHistogramData({
-    tractGeo,
-    bucketCount,
-    currentCensusField,
-  }) {
-    const tracts = tractGeo.features.map(d => d.properties);
-    const changeSpan = d3.extent(tracts, d => d[currentCensusField.value] * 100);
-
-    const bucketSize = (changeSpan[1] - changeSpan[0]) / bucketCount;
-    const msaHistogramData = new Array(bucketCount)
-      .fill(null)
-      .map((d, i) => {
-        const bucket = [
-          changeSpan[0] + (i * bucketSize),
-          changeSpan[0] + (i * bucketSize) + bucketSize,
-        ];
-        const records = tracts
-          .filter((tract) => {
-            if (i === 0) {
-              return tract[currentCensusField.value] * 100 >= bucket[0]
-                && tract[currentCensusField.value] * 100 - bucket[1] <= 0.00001;
-            }
-            return tract[currentCensusField.value] * 100 > bucket[0]
-              && tract[currentCensusField.value] * 100 - bucket[1] <= 0.00001;
-          });
-        // const bucket = {};
-        // bucket.index = i;
-        return {
-          bucket,
-          records,
-          count: records.length,
-          index: i,
-        };
-      });
-    return msaHistogramData;
-  },
   addMSABarMouseEvents({
     bars,
     dataProbe,
@@ -593,100 +266,8 @@ const histogramFunctions = {
       yAxisLabel,
     };
   },
-  resizeXAxisLabel({
-    xAxisLabel,
-    width,
-    padding,
-    height,
-  }) {
-    const {
-      getXAxisLabelPosition,
-    } = localFunctions;
-    xAxisLabel.styles(getXAxisLabelPosition({
-      height,
-      width,
-      padding,
-    }));
-  },
-  updateAxisLabelText({
-    xAxisLabel,
-    yAxisLabel,
-    currentIndicator,
-    currentScale,
-    years,
-    currentCensusField,
-  }) {
-    const isNational = currentScale === 'national';
-    const yText = isNational
-      ? 'Number of transit agencies'
-      : 'Number of census tracdts';
-    const xText = isNational
-      ? `${currentIndicator.text} (% change, ${years[0]}-${years[1]})`
-      : `${currentCensusField.text} (% change, ${years[0]}-${years[1]})`;
 
-    yAxisLabel
-      .text(yText);
 
-    xAxisLabel
-      .text(xText);
-  },
-  updateMSA({
-    // tractGeo,
-    // bucketCount,
-    // currentCensusField,
-    padding,
-    width,
-    height,
-    xAxis,
-    yAxis,
-    bars,
-    nationalAverageGroup,
-    changeColorScale,
-    dataProbe,
-    histogramData,
-  }) {
-    const {
-      // getMSAHistogramData,
-      getScales,
-      updateAxes,
-      updateBars,
-      hideAverageLine,
-      addMSABarMouseEvents,
-    } = histogramFunctions;
-
-    const { yScale, xScale } = getScales({
-      padding,
-      histogramData,
-      width,
-      height,
-    });
-
-    updateAxes({
-      padding,
-      xScale,
-      yScale,
-      xAxis,
-      yAxis,
-    });
-
-    updateBars({
-      bars,
-      histogramData,
-      yScale,
-      changeColorScale,
-      height,
-      padding,
-    });
-
-    addMSABarMouseEvents({
-      bars,
-      dataProbe,
-    });
-
-    hideAverageLine({
-      nationalAverageGroup,
-    });
-  },
 };
 
 export default histogramFunctions;
