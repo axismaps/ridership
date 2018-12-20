@@ -12,16 +12,26 @@ const exportMehods = {
         width,
         height,
       })
-      .selectAll('path, circle, rect, line, text')
+      .selectAll('path, circle, rect, line, text, g')
       .each(function addInline() {
         const style = window.getComputedStyle(this);
         const {
-          fill, stroke, fontFamily, fontSize, fontStyle, fontWeight, display,
+          fill,
+          stroke,
+          fontFamily,
+          fontSize,
+          fontStyle,
+          fontWeight,
+          display,
+          visibility,
+          opacity,
         } = style;
         d3.select(this).styles({
           fill,
           stroke,
           display,
+          visibility,
+          opacity,
           'font-family': fontFamily,
           'font-weight': fontWeight,
           'font-size': fontSize,

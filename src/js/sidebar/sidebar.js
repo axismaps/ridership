@@ -406,7 +406,104 @@ class Sidebar {
   export() {
     const {
       exportMethods,
+      sparkRows,
+      currentSidebarView,
+      pcpContainer,
     } = privateProps.get(this);
+
+    const { SVGtoCanvas } = exportMethods;
+
+    if (currentSidebarView === 'sparklines') {
+      const promises = [];
+      sparkRows.each(function exportSparkline() {
+        const svgNode = d3.select(this).select('svg').node();
+        const title = d3.select(this).select('.sidebar__sparkline-title');
+        promises.push(new Promise((resolve) => {
+          SVGtoCanvas({ svgNode })
+            .then((canvas) => {
+              const rowCanvas = document.createElement('canvas');
+              rowCanvas.width = 420;
+              rowCanvas.height = canvas.height;
+              const ctx = rowCanvas.getContext('2d');
+              ctx.drawImage(canvas, rowCanvas.width - canvas.width, 0);
+              ctx.font = '15px Mark, Arial, sans-serif';
+              ctx.fillStyle = '#666';
+              ctx.textBaseline = 'middle';
+
+              const lines = [];
+              const words = title.text().split(' ');
+              words.forEach((word) => {
+                if (lines.length === 0) {
+                  lines.push(word);
+                } else {
+                  const newLine = `${lines[lines.length - 1]} ${word}`;
+                  if (ctx.measureText(newLine).width > rowCanvas.width - canvas.width - 15 && newLine.includes(' ')) {
+                    lines.push(word);
+                  } else {
+                    lines[lines.length - 1] = newLine;
+                  }
+                }
+              });
+
+              lines.forEach((line, i) => {
+                const y = 30 - (9 * lines.length / 2) + i * 18;
+                ctx.fillText(line, 0, y);
+              });
+
+              resolve(rowCanvas);
+            });
+        }));
+      });
+
+      const finalCanvas = document.createElement('canvas');
+      finalCanvas.width = 420;
+      finalCanvas.height = sparkRows.size() * 60;
+      const ctx = finalCanvas.getContext('2d');
+      return new Promise((resolve) => {
+        Promise.all(promises).then((results) => {
+          results.forEach((rowCanvas, i) => {
+            ctx.drawImage(rowCanvas, 0, i * 60);
+          });
+          resolve(finalCanvas);
+        });
+      });
+    }
+
+    const svgNode = pcpContainer.select('svg').node();
+    return new Promise((resolve) => {
+      SVGtoCanvas({ svgNode }).then((canvas) => {
+        const finalCanvas = document.createElement('canvas');
+        finalCanvas.width = 420;
+        finalCanvas.height = canvas.height;
+        const ctx = finalCanvas.getContext('2d');
+        ctx.drawImage(canvas, finalCanvas.width - canvas.width - 15, 0);
+        ctx.font = '15px Mark, Arial, sans-serif';
+        ctx.fillStyle = '#666';
+        ctx.textBaseline = 'middle';
+        pcpContainer.selectAll('.sidebar__pcp-row').each(function drawTitle(d, row) {
+          const lines = [];
+          const words = d3.select(this).select('p').text().split(' ');
+          words.forEach((word) => {
+            if (lines.length === 0) {
+              lines.push(word);
+            } else {
+              const newLine = `${lines[lines.length - 1]} ${word}`;
+              if (ctx.measureText(newLine).width > 180 && newLine.includes(' ')) {
+                lines.push(word);
+              } else {
+                lines[lines.length - 1] = newLine;
+              }
+            }
+          });
+
+          lines.forEach((line, i) => {
+            const y = 30 - (9 * lines.length / 2) + i * 18 + row * 60;
+            ctx.fillText(line, 0, y);
+          });
+        });
+        resolve(finalCanvas);
+      });
+    });
   }
 
   // updateTAFilter() {
