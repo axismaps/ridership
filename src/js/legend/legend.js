@@ -7,10 +7,33 @@ const privateMethods = {
 
     const {
       container,
+      // width,
+      // height,
+    } = props;
+
+    const setDimension = (dim) => {
+      const currentValue = props[dim];
+      if (currentValue !== undefined && currentValue !== null) {
+        return;
+      }
+      props[dim] = container
+        .node()
+        .getBoundingClientRect()[dim];
+    };
+
+    [
+      'width',
+      'height',
+    ].forEach((dim) => {
+      setDimension(dim);
+    });
+
+    const {
       width,
       height,
     } = props;
 
+    console.log('DIM', width, height);
     props.svg = container
       .append('svg')
       .styles({
@@ -49,7 +72,7 @@ class Legend {
       legendOn,
     } = props;
     container
-      .classed('footer__atlas-legend--hidden', legendOn);
+      .classed('footer__atlas-legend--hidden', !legendOn);
   }
 }
 

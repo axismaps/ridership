@@ -6,9 +6,12 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
     distanceDropdown,
     histogram,
     sidebar,
+    legend,
   } = components;
 
   const scale = this.get('scale');
+
+  const legendOn = scale === 'national';
 
   layout
     .config({
@@ -27,10 +30,19 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
       scale,
     });
 
+  legend
+    .config({ legendOn })
+    .updateScale();
+
   histogram
     .config({
       currentScale: scale,
-    });
+      legendOn,
+    })
+    .setLegendStatus()
+    .updateSize();
+
+
   sidebar
     .config({
       currentScale: scale,

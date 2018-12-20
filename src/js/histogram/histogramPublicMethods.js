@@ -229,6 +229,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     } = privateProps.get(this);
     container
       .classed('histogram--legend-on', legendOn);
+    return this;
   },
 
   export() {
