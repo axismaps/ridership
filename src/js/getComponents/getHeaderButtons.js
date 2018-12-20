@@ -7,10 +7,13 @@ const getHeaderButtons = ({ state, data, components }) => new HeaderButtons({
       atlas,
       sidebar,
       histogram,
+      msaAtlas,
     } = components;
 
+    const atlasPromise = state.get('scale') === 'national' ? atlas.export() : msaAtlas.export();
+
     Promise.all([
-      atlas.export(),
+      atlasPromise,
       sidebar.export(),
       histogram.export(),
     ]).then(([atlasImage, sidebarImage, histogramImage]) => {

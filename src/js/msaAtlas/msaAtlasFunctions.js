@@ -15,6 +15,7 @@ const msaAtlasFunctions = {
       style: 'mapbox://styles/axismaps/cjnvwmhic2ark2sp7fmjuwhf7',
       center: [-71.038412, 42.355046],
       zoom: 10.5,
+      preserveDrawingBuffer: true,
     })
       .on('load', () => {
         initSite({

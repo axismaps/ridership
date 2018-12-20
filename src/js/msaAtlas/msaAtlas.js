@@ -166,6 +166,14 @@ class MSAAtlas {
       msaAtlas.setFilter(layerId, filterCopy);
     });
   }
+
+  export() {
+    const {
+      msaAtlas,
+    } = privateProps.get(this);
+
+    return Promise.resolve(msaAtlas.getCanvas());
+  }
 }
 
 export default MSAAtlas;
