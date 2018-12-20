@@ -10,6 +10,9 @@
 
 .footer__atlas-legend {
   height: 100%;
-  width: 200px;
+  width: $legend--width;
+}
+
+.footer__atlas-legend--hidden {
   display: none;
 }

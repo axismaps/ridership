@@ -15,6 +15,7 @@ const getHistogram = ({ data, state }) => new Histogram({
   currentScale: state.get('scale'),
   currentCensusField: state.get('censusField'),
   years: state.get('years'),
+  legendOn: state.get('scale') === 'national',
   exportMethods,
 });
 

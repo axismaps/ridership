@@ -152,6 +152,9 @@ const privateMethods = {
 
     Object.assign(props, { width, height });
   },
+  setLegendStatus() {
+
+  },
 };
 
 class Histogram {
@@ -175,6 +178,7 @@ class Histogram {
         container: d3.select('.outer-container'),
       }),
       currentScale: 'national',
+      legendOn: false,
     });
     const {
       init,
