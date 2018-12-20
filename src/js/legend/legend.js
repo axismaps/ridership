@@ -33,7 +33,6 @@ const privateMethods = {
       height,
     } = props;
 
-    console.log('DIM', width, height);
     props.svg = container
       .append('svg')
       .styles({

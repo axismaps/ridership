@@ -15,6 +15,7 @@ const getAtlas = ({ data, state }) => new Atlas({
   compareMode: state.get('compareMode'),
   comparedAgencies: state.get('comparedAgencies'),
   years: state.get('years'),
+  radiusScale: data.get('radiusScale'),
   exportMethods,
   jumpToMsa: (agency) => {
     const msa = data.get('msa')

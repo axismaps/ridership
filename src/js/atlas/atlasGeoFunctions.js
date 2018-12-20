@@ -127,22 +127,22 @@ const atlasMethods = {
     mapSVG.call(zoom);
   },
 
-  getRadiusScale({
-    nationalMapData,
-  }) {
-    const {
-      getAllAgencies,
-    } = atlasHelperFunctions;
+  // getRadiusScale({
+  //   nationalMapData,
+  // }) {
+  //   const {
+  //     getAllAgencies,
+  //   } = atlasHelperFunctions;
 
 
-    const allAgencies = getAllAgencies({ nationalMapData });
+  //   const allAgencies = getAllAgencies({ nationalMapData });
 
-    const values = allAgencies.map(d => d.upt2017);
+  //   const values = allAgencies.map(d => d.upt2017);
 
-    return d3.scaleSqrt()
-      .domain(d3.extent(values))
-      .range([5, 35]);
-  },
+  //   return d3.scaleSqrt()
+  //     .domain(d3.extent(values))
+  //     .range([5, 35]);
+  // },
 
   getAgenciesTable({
     nationalMapData,

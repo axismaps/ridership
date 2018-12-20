@@ -9,6 +9,7 @@ const dataMethods = {
 
     const {
       getAllNationalMapData,
+      getRadiusScale,
       // getIndicatorSummaries,
     } = dataMethods;
 
@@ -68,6 +69,8 @@ const dataMethods = {
       ntd,
       ta,
     });
+
+    const radiusScale = getRadiusScale({ ntd });
 
     const yearRange = d3.extent(ntd, d => d.year);
 
@@ -266,6 +269,7 @@ const dataMethods = {
 
     const data = new Map();
 
+    data.set('radiusScale', radiusScale);
     data.set('msa', msa);
     data.set('ntd', ntd);
     data.set('ta', ta);
@@ -325,6 +329,18 @@ const dataMethods = {
         const data = cleanData({ rawData });
         callback(data);
       });
+  },
+  getRadiusScale({
+    ntd,
+  }) {
+    const ntd2017 = ntd
+      .filter(d => d.year === 2017);
+
+    const domain = d3.extent(ntd2017, d => d.upt);
+
+    return d3.scaleSqrt()
+      .domain(domain)
+      .range([5, 35]);
   },
 };
 

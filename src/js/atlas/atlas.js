@@ -1,4 +1,4 @@
-import atlasMethods from './atlasGeoFunctions';
+import atlasGeoFunctions from './atlasGeoFunctions';
 import atlasNationalFunctions from './atlasNationalFunctions';
 import DataProbe from '../dataProbe/dataProbe';
 import atlasMSAFunctions from './atlasMsaFunctions';
@@ -23,7 +23,7 @@ const privateMethods = {
       nationalDataView,
       comparedAgencies,
       compareMode,
-      updateComparedAgencies,
+      // updateComparedAgencies,
       years,
       allNationalMapData,
       indicator,
@@ -38,18 +38,18 @@ const privateMethods = {
       setZoomEvents,
       getInitialScaleTranslate,
       setInteractions,
-    } = atlasMethods;
+    } = atlasGeoFunctions;
     const {
       drawAgencies,
       drawStates,
     } = atlasNationalFunctions;
 
     const {
-      setRadiusScale,
+      // setRadiusScale,
       toggleNationalLayers,
     } = privateMethods;
 
-    setRadiusScale.call(this);
+    // setRadiusScale.call(this);
 
     const {
       radiusScale,
@@ -149,14 +149,14 @@ const privateMethods = {
 
     toggleNationalLayers.call(this);
   },
-  setRadiusScale() {
-    const props = privateProps.get(this);
-    const { nationalMapData } = props;
+  // setRadiusScale() {
+  //   const props = privateProps.get(this);
+  //   const { nationalMapData } = props;
 
-    const { getRadiusScale } = atlasMethods;
+  //   const { getRadiusScale } = atlasGeoFunctions;
 
-    props.radiusScale = getRadiusScale({ nationalMapData });
-  },
+  //   props.radiusScale = getRadiusScale({ nationalMapData });
+  // },
   drawMSA() {
     const {
       msa,
@@ -249,7 +249,7 @@ class Atlas {
       // drawAgencies,
       // updateAgencyRadii,
       setAgencyColors,
-    } = atlasMethods;
+    } = atlasGeoFunctions;
 
     // updateAgencyRadii({
     //   nationalMapData,
@@ -283,7 +283,7 @@ class Atlas {
     const {
       // drawAgencies,
       setAgencyColors,
-    } = atlasMethods;
+    } = atlasGeoFunctions;
 
     setAgencyColors({
       agencies,
@@ -394,7 +394,7 @@ class Atlas {
     } = privateProps.get(this);
     const {
       setInteractions,
-    } = atlasMethods;
+    } = atlasGeoFunctions;
     setInteractions({
       agencies,
       dataProbe,

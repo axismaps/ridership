@@ -1,9 +1,9 @@
 import Legend from '../legend/legend';
 
-const getLegend = ({ state }) => new Legend({
+const getLegend = ({ state, data }) => new Legend({
   legendOn: state.get('scale') === 'national',
   container: d3.select('.footer__atlas-legend'),
-  // width:
+  radiusScale: data.get('radiusScale'),
 });
 
 export default getLegend;
