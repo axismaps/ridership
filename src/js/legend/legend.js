@@ -1,15 +1,22 @@
+import legendFunctions from './legendFunctions';
+
 const privateProps = new WeakMap();
 
 const privateMethods = {
 
-  drawSVG() {
+  init() {
     const props = privateProps.get(this);
 
     const {
       container,
-      // width,
-      // height,
+      radiusScale,
     } = props;
+
+    const {
+      drawSVG,
+      drawCircles,
+      drawDescription,
+    } = legendFunctions;
 
     const setDimension = (dim) => {
       const currentValue = props[dim];
@@ -33,30 +40,43 @@ const privateMethods = {
       height,
     } = props;
 
-    props.svg = container
-      .append('svg')
-      .styles({
-        width: `${width}px`,
-        height: `${height}px`,
-      });
+    const svg = drawSVG({
+      container,
+      width,
+      height,
+    });
+
+    drawCircles({
+      svg,
+      width,
+      height,
+      radiusScale,
+    });
+
+    drawDescription({
+      container,
+      height,
+      width,
+    });
   },
 };
 
 class Legend {
   constructor(config) {
     const {
-      drawSVG,
+      init,
     } = privateMethods;
 
     privateProps.set(this, {
       legendOn: true,
       width: null,
       height: null,
+      radiusScale: null,
     });
 
     this.config(config);
     this.updateScale();
-    drawSVG.call(this);
+    init.call(this);
   }
 
   config(config) {

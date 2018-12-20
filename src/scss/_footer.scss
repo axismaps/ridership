@@ -11,8 +11,28 @@
 .footer__atlas-legend {
   height: 100%;
   width: $legend--width;
+  position: relative;
 }
 
 .footer__atlas-legend--hidden {
   display: none;
+}
+
+.legend__circle {
+  fill: none;
+  stroke: #999999;
+  stroke-width: 1px;
+}
+
+.legend__label {
+  font-size: 10px;
+  font-weight: 350;
+}
+
+.legend__description {
+  font-size: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  text-align: center;
 }

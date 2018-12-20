@@ -327,6 +327,7 @@ const atlasMethods = {
         if (compareMode === false) {
           const { globalId } = d;
           const msa = getMSAData({ allNationalMapData, globalId });
+
           const format = number => (number === null ? 'N/A'
             : (d3.format(indicator.format)(number) + (indicator.unit || '')));
           const html = nationalDataView === 'msa' ? `
