@@ -14,6 +14,7 @@ import getHeaderButtons from './getComponents/getHeaderButtons';
 import getLayout from './getComponents/getLayout';
 import getCensusDropdown from './getComponents/getCensusDropdown';
 import getDistanceDropdown from './getComponents/getDistanceDropdown';
+import getLegend from './getComponents/getLegend';
 import initStateUpdateListeners from './stateUpdate/stateUpdate';
 
 require('../scss/index.scss');
@@ -49,6 +50,7 @@ const app = {
     components.censusDropdown = getCensusDropdown({ state, data });
     components.distanceDropdown = getDistanceDropdown({ state, data });
     components.headerButtons = getHeaderButtons({ state, data, components });
+    components.legend = getLegend({ state, data });
   },
   initStateUpdateListeners() {
     const { components, data } = this;

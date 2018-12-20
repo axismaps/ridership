@@ -7,6 +7,11 @@
   // right: 0px;
   // width: calc(100% - #{$atlas--left});
   // height: $histogram--height;
+  // flex-grow: 2;
+}
+
+.histogram--legend-on {
+  width: calc(100% - #{legend--width});
 }
 
 .histogram__average-line {
