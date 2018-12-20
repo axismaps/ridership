@@ -324,54 +324,43 @@ const atlasMethods = {
           bottom: window.innerHeight - clientY + 10,
           width: 300,
         };
-        if (compareMode === false) {
-          const { globalId } = d;
-          const msa = getMSAData({ allNationalMapData, globalId });
-          const format = number => (number === null ? 'N/A'
-            : (d3.format(indicator.format)(number) + (indicator.unit || '')));
-          const html = nationalDataView === 'msa' ? `
-            <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.name}</span></div>
-            <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
-            <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
-            <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
-            <div class="data-probe__sparkline-container expanded"></div>
-            <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
-          ` : `
-            <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.taName}</span></div>
-            <div class="data-probe__row">${d.msaName}</div>            
-            <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
-            <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
-            <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
-            <div class="data-probe__sparkline-container expanded"></div>
-            <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
-          `;
-          dataProbe
-            .config({
-              pos,
-              html,
-            })
-            .draw();
-          if (d.pctChange !== null) {
-            drawMSASparkline({
-              msa,
-              indicator,
-              highlightedId: d.globalId,
-              container: dataProbe.getContainer().select('.data-probe__sparkline-container'),
-            });
-          }
-        } else {
-          tooltip.remove();
-          const ids = comparedAgencies.map(a => a.globalId);
-          const html = ` 
-            <div class="data-probe__row"><span class="data-probe__field">${d.name || d.taName}</span></div>
-            <div class="data-probe__row">${ids.includes(d.globalId) ? 'Remove from' : 'Add to'} comparison</div>
-          `;
-          dataProbe
-            .config({
-              pos,
-              html,
-            })
-            .draw();
+        tooltip.remove();
+        const ids = comparedAgencies.map(a => a.globalId);
+        const { globalId } = d;
+        const msa = getMSAData({ allNationalMapData, globalId });
+        const format = number => (number === null ? 'N/A'
+          : (d3.format(indicator.format)(number) + (indicator.unit || '')));
+        const clickText = compareMode === false ? 'Click to jump to this MSA'
+          : `Click to ${ids.includes(d.globalId) ? 'remove from' : 'add to'} comparison`;
+        const html = nationalDataView === 'msa' ? `
+          <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.name}</span></div>
+          <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
+          <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
+          <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
+          <div class="data-probe__sparkline-container expanded"></div>
+          <div class="data-probe__row data-probe__msa-text">${clickText}</div>
+        ` : `
+          <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.taName}</span></div>
+          <div class="data-probe__row">${d.msaName}</div>            
+          <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
+          <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
+          <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
+          <div class="data-probe__sparkline-container expanded"></div>
+          <div class="data-probe__row data-probe__msa-text">${clickText}</div>
+        `;
+        dataProbe
+          .config({
+            pos,
+            html,
+          })
+          .draw();
+        if (d.pctChange !== null) {
+          drawMSASparkline({
+            msa,
+            indicator,
+            highlightedId: d.globalId,
+            container: dataProbe.getContainer().select('.data-probe__sparkline-container'),
+          });
         }
         updateHighlightedAgencies([d]);
       });
