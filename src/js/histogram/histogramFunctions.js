@@ -59,7 +59,7 @@ const histogramFunctions = {
       };
       const html = `
         <div class="data-probe__row"><span class="data-probe__field">${d.records.length} transit authorit${d.records.length > 1 ? 'ies' : 'y'}</span></div>
-        <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' – ')}</div>
+        <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' to ')}</div>
       `;
       dataProbe
         .config({

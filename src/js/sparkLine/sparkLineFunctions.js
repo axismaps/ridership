@@ -145,7 +145,8 @@ const sparkLineFunctions = {
       const x = clientX - svg.select('.sparkline-background').node().getBoundingClientRect().left;
       const year = Math.min(Math.round(xScale.invert(x)), xScale.domain()[1]);
       const format = value => (value === null
-        ? 'N/A' : d3.format(d.format)(value));
+        ? 'N/A'
+        : (d3.format(d.format)(value) + (d.unit || '')));
       const summaries = d.agencies.map(a => a.summaries.find(s => s.year === year));
       const allValues = summaries.filter(s => s !== undefined).map(s => s.indicatorSummary);
       const aggregatedValue = allValues.length === 0 ? null : d3[d.summaryType](allValues);

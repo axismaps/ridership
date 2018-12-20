@@ -96,7 +96,7 @@ const dataMethods = {
           value: 'headways',
           summaryType: 'mean',
           format: '.2r',
-          unit: 'min',
+          unit: ' min',
         },
         {
           text: 'Farebox Recovery',
@@ -127,14 +127,14 @@ const dataMethods = {
           value: 'vrm_per_ride',
           summaryType: 'mean',
           format: '.2f',
-          unit: 'mi per trip',
+          unit: ' mi per trip',
         },
         {
           text: 'Average Trip Length',
           value: 'trip_length',
           summaryType: 'mean',
           format: '.2f',
-          unit: 'mi',
+          unit: ' mi',
         },
         {
           text: 'Transit Ridership',
@@ -147,21 +147,21 @@ const dataMethods = {
           value: 'speed',
           summaryType: 'mean',
           format: '.2f',
-          unit: 'mph',
+          unit: ' mph',
         },
         {
           text: 'Vehicle Revenue Miles',
           value: 'vrm',
           summaryType: 'sum',
           format: ',d',
-          unit: 'mi',
+          unit: ' mi',
         },
         {
           text: 'Miles Between Failures',
           value: 'failures',
           summaryType: 'mean',
           format: ',d',
-          unit: 'mi',
+          unit: ' mi',
         },
         {
           text: 'Trips Per Person',
@@ -174,7 +174,7 @@ const dataMethods = {
           value: 'gas',
           summaryType: 'mean',
           format: '$.2f',
-          unit: 'per gallon',
+          unit: ' per gallon',
         },
       ];
 
