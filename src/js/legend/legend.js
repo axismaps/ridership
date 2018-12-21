@@ -58,6 +58,10 @@ const privateMethods = {
       height,
       width,
     });
+
+    Object.assign(props, {
+      svg,
+    });
   },
 };
 
@@ -92,6 +96,32 @@ class Legend {
     } = props;
     container
       .classed('footer__atlas-legend--hidden', !legendOn);
+  }
+
+  export() {
+    const {
+      exportMethods,
+      svg,
+    } = privateProps.get(this);
+
+    const svgNode = svg.node();
+    const { SVGtoCanvas } = exportMethods;
+
+    return SVGtoCanvas({ svgNode }).then((canvas) => {
+      const finalCanvas = document.createElement('canvas');
+      finalCanvas.width = canvas.width || 1;
+      finalCanvas.height = canvas.height || 1;
+      if (canvas.width === 0) return Promise.resolve(finalCanvas); // empty image for local view
+      const ctx = finalCanvas.getContext('2d');
+      ctx.drawImage(canvas, 0, 0);
+      ctx.font = '12px Mark, Arial, sans-serif';
+      ctx.fillStyle = '#333';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'bottom;';
+      ctx.fillText('Millions of unlinked', canvas.width / 2, 115);
+      ctx.fillText('passenger trips (UPT)', canvas.width / 2, 130);
+      return Promise.resolve(finalCanvas);
+    });
   }
 }
 

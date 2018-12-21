@@ -3,6 +3,7 @@ const headerButtonMethods = {
     atlasImage,
     sidebarImage,
     histogramImage,
+    legendImage,
   }) {
     const canvasNode = document.createElement('canvas');
     const margin = 20;
@@ -15,8 +16,10 @@ const headerButtonMethods = {
     ctx.fillStyle = '#fff';
     ctx.fillRect(0, 0, canvasNode.width, canvasNode.height);
     ctx.drawImage(sidebarImage, margin, margin);
-    ctx.drawImage(atlasImage, sidebarImage.width + 2 * margin, margin);
-    ctx.drawImage(histogramImage, sidebarImage.width + 2 * margin, atlasImage.height + margin);
+    const atlasX = sidebarImage.width + 2 * margin;
+    ctx.drawImage(atlasImage, atlasX, margin);
+    ctx.drawImage(histogramImage, atlasX, atlasImage.height + margin);
+    ctx.drawImage(legendImage, atlasX + histogramImage.width, atlasImage.height + margin);
     const link = document.createElement('a');
     link.download = 'TransitCenterRidershipVisualization.png';
     link.href = canvasNode.toDataURL('image/png;base64');
