@@ -52,6 +52,10 @@
   cursor: pointer;
 }
 
+.outer-container--msa .header__data-view-container {
+  display: none;
+}
+
 .header__data-view-button {
   padding: 0 10px;
   cursor: pointer;
