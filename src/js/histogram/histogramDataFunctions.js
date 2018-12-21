@@ -24,6 +24,7 @@ const dataFunctions = {
         ];
         const agencies = allAgencies
           .filter((agency) => {
+            if (agency.pctChange === null) return false;
             if (i === 0) {
               return agency.pctChange >= bucket[0]
                 && agency.pctChange - bucket[1] <= 0.00001;
