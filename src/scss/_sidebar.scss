@@ -99,6 +99,36 @@ $sidebar-content--margin-top: 20px;
   margin-right: 30px;
 }
 
+.sidebar__sparkline-axis-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sidebar__sparkline-axis {
+  width: $sidebar__sparkline--width;
+  margin-right: 50px;
+}
+
+.sidebar__sparkline-axis--hidden {
+  display: none;
+}
+
+.sidebar__sparkline-axis-years {
+  display: flex;
+  justify-content: space-between;
+  color: #666666;
+  font-size: 12px;
+  font-weight: 350;
+}
+
+.sidebar__sparkline-axis-ticks {
+  height: 10px;
+  border-left: 1px solid #666666;
+  border-right: 1px solid #666666;
+  margin-top: 5px;
+}
+
 .sidebar__sparkline-row {
   display: flex;
   align-items: center;
@@ -200,7 +230,7 @@ $sidebar-content--margin-top: 20px;
 }
 
 .sidebar__pcp-row {
-  width:180px;
+  width: $sidebar__sparkline--width;
   display: flex;
   align-items: center;
   white-space: normal;

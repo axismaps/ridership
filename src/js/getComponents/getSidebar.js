@@ -21,6 +21,9 @@ const getSidebar = ({ data, state }) => new Sidebar({
   compareContainer: d3.select('.sidebar__compare-list'),
   topRowContainer: d3.select('.sidebar__top-row'),
   parallelButtonContainer: d3.select('.sidebar__parallel-button'),
+  sparkLineAxisYear1: d3.select('.sidebar__sparkline-axis-year1'),
+  sparkLineAxisYear2: d3.select('.sidebar__sparkline-axis-year2'),
+  sparkLineAxisContainer: d3.select('.sidebar__sparkline-axis'),
   sparkLineButtonContainer: d3.select('.sidebar__sparkline-button'),
   updateIndicator: (newIndicator) => {
     const currentIndicator = state.get('indicator');

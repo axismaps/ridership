@@ -37,6 +37,7 @@ const dataMethods = {
         name,
       };
     });
+    console.log('msa', msa);
 
     const ta = rawTa.rows.map((record) => {
       const {
@@ -57,12 +58,15 @@ const dataMethods = {
         color: msa_color,
       };
     });
+    console.log('ta', ta);
 
     const ntd = rawNtd.rows.map((record) => {
       const cleanRecord = Object.assign({}, record);
       cleanRecord.taId = record.id.toString();
       return cleanRecord;
     });
+
+    console.log('ntd', ntd);
 
     const allNationalMapData = getAllNationalMapData({
       msa,
@@ -326,6 +330,7 @@ const dataMethods = {
       d3.json('data/states.json'),
     ])
       .then((rawData) => {
+        console.log('rawData', rawData);
         const data = cleanData({ rawData });
         callback(data);
       });

@@ -1,6 +1,13 @@
 import SparkLine from '../sparkLine/sparkLine';
 
 const sidebarSparkLineFunctions = {
+  toggleSparkLineAxis({
+    sparkLineAxisContainer,
+    sparkLineView,
+  }) {
+    sparkLineAxisContainer
+      .classed('sidebar__sparkline-axis--hidden', !sparkLineView);
+  },
   drawSparkLineRows({
     contentContainer,
     indicatorSummaries,
