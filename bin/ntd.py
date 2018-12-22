@@ -2,11 +2,11 @@
 import pandas as pd
 from numpy import inf
 from numpy import nan
-from bin.acs import msa_population
-from bin.eia import gas_prices
-from bin.meta import clean_ta
-from bin.maintenance import load_maintenance
-from bin.carto import replace_data
+from acs import msa_population
+from eia import gas_prices
+from meta import clean_ta
+from maintenance import load_maintenance
+from carto import replace_data
 
 print 'All modules loaded'
 
@@ -127,7 +127,7 @@ stacks['failures'].drop(labels=other_ta, inplace=True)
 stacks['capita'] = pd.Series(stacks['upt'] / msa_population(), name='capita')
 
 # Gas prices
-stacks['gas'] = pd.Series(gas_prices(), name='gas')
+stacks['gas'] = gas_prices()
 
 # Delete extra indicators
 del stacks['vrh']
