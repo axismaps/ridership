@@ -129,6 +129,51 @@
   display: none;
 }
 
+$zoom--border-radius: 5px;
+$zoom--border: 1px solid #cccccc;
+
+.atlas__zoom-container {
+  position: absolute;
+  left: 20px;
+  top: 20px + $panel__top-row--height;
+  width: 30px;
+  border: $zoom--border;
+  border-radius: $zoom--border-radius;
+  font-size: 12px;
+}
+
+.atlas__zoom-button {
+  height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1A1A1A;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.atlas__zoom-button:hover {
+  background: #fafafa;
+}
+
+.atlas__zoom-in {
+  border-top-left-radius: $zoom--border-radius;
+  border-top-right-radius: $zoom--border-radius;
+}
+
+.atlas__zoom-out {
+  border-bottom-left-radius: $zoom--border-radius;
+  border-bottom-right-radius: $zoom--border-radius;
+}
+
+.atlas__zoom-break {
+  height: 1px;
+  background: #CCCCCC;
+  width: 100%;
+}
+
 .outer-container--msa {
   .atlas__indicator-dropdown-button,
   .atlas__compare-dropdown-button,
