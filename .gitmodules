@@ -1,3 +1,6 @@
 [submodule "src/js/state"]
 	path = src/js/state
 	url = https://github.com/axismaps/state.git
+[submodule "bin/transitland"]
+	path = bin/transitland
+	url = https://github.com/interline-io/transitland-frequency-exports.git
