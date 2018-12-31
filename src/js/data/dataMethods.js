@@ -118,7 +118,7 @@ const dataMethods = {
           unit: ' mi',
         },
         {
-          text: 'Average Service Headway',
+          text: 'Minimum Headways',
           value: 'headways',
           summaryType: 'mean',
           format: '.1f',

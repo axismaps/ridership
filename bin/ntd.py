@@ -109,7 +109,7 @@ stacks['recovery'].drop(labels=other_ta, inplace=True)
 stacks['vrm_per_ride'] = pd.Series(stacks['vrm'] / stacks['upt'], name='vrm_per_ride')
 stacks['vrm_per_ride'].drop(labels=other_ta, inplace=True)
 
-# Average headways
+# Minimum headways
 stacks['headways'] = pd.Series(
     ((stacks['drm'] / stacks['speed']) / stacks['voms']) * 60, name='headways'
 )
