@@ -9,6 +9,7 @@ const privateMethods = {
   drawContent() {
     const {
       currentSidebarView,
+      sparkLineAxisContainer,
     } = privateProps.get(this);
     const {
       clearContent,
@@ -17,10 +18,18 @@ const privateMethods = {
       drawNationalParallelPlot,
       drawNationalCompareList,
     } = privateMethods;
+    const {
+      toggleSparkLineAxis,
+    } = sparklineFunctions;
+    const sparkLineView = currentSidebarView === 'sparklines';
     clearContent.call(this);
     setTopButtonStatus.call(this);
+    toggleSparkLineAxis({
+      sparkLineAxisContainer,
+      sparkLineView,
+    });
     drawNationalCompareList.call(this);
-    if (currentSidebarView === 'sparklines') {
+    if (sparkLineView) {
       drawNationalSparkLines.call(this);
     } else {
       drawNationalParallelPlot.call(this);
@@ -256,6 +265,16 @@ const privateMethods = {
 
     return lines;
   },
+  setSparkLineAxisDates() {
+    const {
+      sparkLineAxisYear1,
+      sparkLineAxisYear2,
+      yearRange,
+    } = privateProps.get(this);
+    sparkLineAxisYear1.text(yearRange[0]);
+    sparkLineAxisYear2.text(yearRange[1]);
+  },
+
 };
 
 class Sidebar {
@@ -263,6 +282,7 @@ class Sidebar {
     const {
       drawContent,
       setTopButtonEvents,
+      setSparkLineAxisDates,
     } = privateMethods;
 
     privateProps.set(this, {
@@ -275,6 +295,7 @@ class Sidebar {
 
     this.config(config);
     setTopButtonEvents.call(this);
+    setSparkLineAxisDates.call(this);
     drawContent.call(this);
   }
 

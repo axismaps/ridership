@@ -24,7 +24,14 @@ VALID_VAL_KEYS = [
 def format_data(df):
     ind = list(set(df.keys()).intersection(VALID_ID_KEYS))[0]
     val = list(set(df.keys()).intersection(VALID_VAL_KEYS))[0]
-    m = df[[ind, val]].rename(index=str, columns={ind: 'NTD ID'})
+    if ind == 'Trs_Id':
+        df['NTD ID'] = df[ind].apply(
+            lambda x: str(x).zfill(4)[:1] + '0' + str(x).zfill(4)[1:]
+        ).astype(int)
+        m = df[['NTD ID', val]]
+    else:
+        m = df[[ind, val]].rename(index=str, columns={ind: 'NTD ID'})
+
     m['maintenance'] = pd.to_numeric(m[val], errors='coerce').fillna(value=0)
     group = m[['NTD ID', 'maintenance']].groupby('NTD ID').sum().stack()
     return group
@@ -48,6 +55,7 @@ def load_maintenance():
     ta_clean = clean_ta(TA, TA_DROP)
 
     years = load_excel(ta_clean)
+    years.to_csv('data/output/maintenance.csv')
     return years
 
 if __name__ == "__main__":

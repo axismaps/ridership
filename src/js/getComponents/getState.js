@@ -29,6 +29,7 @@ const getState = ({ data }) => {
       width: window.innerWidth,
       height: window.innerHeight,
     },
+    currentZoom: null,
   });
 
   Object.assign(
