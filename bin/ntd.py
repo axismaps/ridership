@@ -94,7 +94,8 @@ print'Created stacks for ' + str(stacks.keys())
 
 # Create MSA stacks
 msa_stacks = {}
-ta_msa = pd.read_csv('data/output/ta.csv', usecols=['taid', 'msaid']).drop_duplicates()
+ta_export = pd.read_csv('data/output/ta.csv', usecols=['taid', 'msaid', 'taname'])
+ta_msa = ta_export[['taid', 'msaid']].drop_duplicates()
 for i in stacks:
     m = pd.DataFrame(
         stacks[i].copy().reset_index()
@@ -102,6 +103,7 @@ for i in stacks:
         ta_msa, left_on='Project ID', right_on='taid'
     )[[i, 'level_1', 'msaid']]
     msa_stacks[i] = m.groupby(['msaid', 'level_1']).sum()
+    msa_stacks[i].rename_axis(['msaid', None], inplace=True)
 
 # Calculate derived values
 # Average fares
@@ -140,9 +142,12 @@ msa_stacks['headways'] = pd.Series(
 )
 stacks['headways'].drop(labels=other_ta, inplace=True)
 
+#%%
 # Average trip length
 stacks['trip_length'] = pd.Series(stacks['pmt'] / stacks['upt'], name='trip_length')
-msa_stacks['trip_length'] = pd.Series(msa_stacks['pmt']['pmt'] / msa_stacks['upt']['upt'], name='trip_length')
+msa_stacks['trip_length'] = pd.Series(
+    msa_stacks['pmt']['pmt'] / msa_stacks['upt']['upt'], name='trip_length'
+)
 stacks['trip_length'].drop(labels=other_ta, inplace=True)
 
 # Miles between failures
@@ -152,12 +157,15 @@ stacks['failures'].drop(labels=other_ta, inplace=True)
 
 # Ridership per capita
 stacks['capita'] = pd.Series(stacks['upt'] / msa_population(), name='capita')
-msa_stacks['capita'] = pd.Series(name='capita')
+msa_stacks['capita'] = pd.Series(
+    msa_stacks['upt']['upt'] / msa_population(True), name='capita'
+)
 
 # Gas prices
 stacks['gas'] = gas_prices()
-msa_stacks['gas'] = pd.Series(name='gas')
+msa_stacks['gas'] = gas_prices(True)
 
+#%%
 # Delete extra indicators
 del stacks['vrh']
 del stacks['drm']
@@ -179,6 +187,9 @@ export_msa = pd.concat(msa_stacks.values(), axis=1).replace([inf, 0], nan)
 #Export to CSV
 export.to_csv('data/output/ntd.csv', index_label=indexes)
 export_msa.to_csv('data/output/ntd_msa.csv', index_label=indexes)
+
+# Export formatted CSV
+export.rename_axis(['taid', 'year']).reset_index().merge(ta_export, on='taid').to_csv('data/output/transit_data.csv')
 
 print 'Data exported to CSV'
 

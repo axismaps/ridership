@@ -6,7 +6,7 @@ import pandas as pd
 from carto import replace_data
 import settings
 
-def msa_population():
+def msa_population(msa=False):
     pop_raw = pd.read_csv('data/census/csa-est2017-alldata.csv')
     pop = pop_raw[
         (pd.isnull(pop_raw['MDIV'])) & (pd.isnull(pop_raw['STCOU']))
@@ -23,13 +23,14 @@ def msa_population():
         items=['taid', 'msaid']
     ).rename(index=str, columns={'taid': 'Project ID'})
 
+    id_drop = 'Project ID' if msa else 'msaid'
+    id_keep = 'msaid' if msa else 'Project ID'
+
     merge = pd.merge(
         pop, ta, how='right', left_on='CBSA', right_on='msaid'
-    ).drop(columns=['msaid', 'CBSA'])
+    ).drop(columns=[id_drop, 'CBSA'])
 
-    group = merge.groupby('Project ID')
-
-    return group.sum().stack()
+    return merge.drop_duplicates().groupby(id_keep).sum().stack()
 
 def process_result(i, y, var, indexes, frames):
     result = pd.DataFrame(i.json())
