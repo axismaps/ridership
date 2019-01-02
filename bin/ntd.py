@@ -141,6 +141,7 @@ msa_stacks['headways'] = pd.Series(
 )
 stacks['headways'].drop(labels=other_ta, inplace=True)
 
+#%%
 # Average trip length
 stacks['trip_length'] = pd.Series(stacks['pmt'] / stacks['upt'], name='trip_length')
 msa_stacks['trip_length'] = pd.Series(
@@ -161,8 +162,9 @@ msa_stacks['capita'] = pd.Series(
 
 # Gas prices
 stacks['gas'] = gas_prices()
-msa_stacks['gas'] = pd.Series(name='gas')
+msa_stacks['gas'] = gas_prices(True)
 
+#%%
 # Delete extra indicators
 del stacks['vrh']
 del stacks['drm']
