@@ -457,12 +457,30 @@ class Atlas {
       exportMethods,
       mapSVG,
       scale,
+      years,
+      indicator,
+      nationalDataView,
     } = privateProps.get(this);
+
 
     const svgNode = mapSVG.node();
     const { SVGtoCanvas } = exportMethods;
 
-    return SVGtoCanvas({ svgNode });
+    return SVGtoCanvas({ svgNode })
+      .then((canvas) => {
+        const headerHeight = 40;
+        const fullCavnas = document.createElement('canvas');
+        fullCavnas.width = canvas.width;
+        fullCavnas.height = canvas.height + headerHeight;
+        const ctx = fullCavnas.getContext('2d');
+        ctx.fillStyle = '#2D74ED';
+        ctx.font = '18px Mark, Arial, sans-serif';
+        ctx.textBaseline = 'middle';
+        const dataViewDisplay = nationalDataView === 'ta' ? 'transit agency' : 'MSA';
+        ctx.fillText(`${indicator.text} (% change, ${years.join('–')}) by ${dataViewDisplay}`, 10, headerHeight / 2, canvas.width - 20);
+        ctx.drawImage(canvas, 0, headerHeight);
+        return Promise.resolve(fullCavnas);
+      });
   }
 }
 

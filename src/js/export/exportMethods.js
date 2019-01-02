@@ -25,6 +25,7 @@ const exportMehods = {
           display,
           visibility,
           opacity,
+          strokeWidth,
         } = style;
         d3.select(this).styles({
           fill,
@@ -36,6 +37,7 @@ const exportMehods = {
           'font-weight': fontWeight,
           'font-size': fontSize,
           'font-style': fontStyle,
+          'stroke-width': strokeWidth,
         });
       });
 

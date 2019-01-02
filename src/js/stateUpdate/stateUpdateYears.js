@@ -51,6 +51,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
     msaAtlas
       .config({
         tractGeo,
+        years,
       })
       .updateData();
 

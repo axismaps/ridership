@@ -455,6 +455,7 @@ class Sidebar {
       pcpContainer,
       legendContainer,
       compareContainer,
+      yearRange,
     } = privateProps.get(this);
 
     const {
@@ -490,7 +491,7 @@ class Sidebar {
         });
       });
     } else if (compareRows.size() > 0) {
-      legendCanvas.height = compareContainer.node().offsetHeight;
+      legendCanvas.height = compareRows.size() * 18;
       legendCtx.font = '15px Mark, Arial, sans-serif';
       legendCtx.textBaseline = 'bottom';
       legendCtx.fillStyle = '#666';
@@ -540,7 +541,7 @@ class Sidebar {
               });
 
               lines.forEach((line, i) => {
-                const y = 30 - (9 * lines.length / 2) + i * 18;
+                const y = rowCanvas.height / 2 - (9 * lines.length / 2) + i * 18;
                 ctx.fillText(line, 0, y);
               });
 
@@ -550,11 +551,28 @@ class Sidebar {
       });
 
       graphicsCanvas.width = 420;
-      graphicsCanvas.height = sparkRows.size() * 60;
       const ctx = graphicsCanvas.getContext('2d');
+
       return Promise.all(promises).then((results) => {
-        results.forEach((rowCanvas, i) => {
-          ctx.drawImage(rowCanvas, 0, i * 60);
+        const graphicsHeight = results.reduce((height, rowCanvas) => rowCanvas.height + height, 0);
+        graphicsCanvas.height = graphicsHeight + 20;
+        ctx.strokeStyle = '#666';
+        ctx.lineWidth = 1;
+        ctx.moveTo(graphicsCanvas.width - 190, 15);
+        ctx.lineTo(graphicsCanvas.width - 190, 25);
+        ctx.moveTo(graphicsCanvas.width - 10, 15);
+        ctx.lineTo(graphicsCanvas.width - 10, 25);
+        ctx.stroke();
+        ctx.font = '12px Mark, Arial, sans-serif';
+        ctx.fillStyle = '#666';
+        ctx.textBaseline = 'bottom';
+        ctx.fillText(yearRange[0], graphicsCanvas.width - 190, 15);
+        ctx.textAlign = 'right';
+        ctx.fillText(yearRange[1], graphicsCanvas.width - 10, 15);
+        let y = 0;
+        results.forEach((rowCanvas) => {
+          ctx.drawImage(rowCanvas, 0, y + 20);
+          y += rowCanvas.height;
         });
         const finalCanvas = document.createElement('canvas');
         finalCanvas.width = graphicsCanvas.width;

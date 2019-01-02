@@ -9,6 +9,7 @@ const getMSAAtlas = ({ state, data }) => new MSAAtlas({
   distanceFilter: state.get('distanceFilter'),
   agenciesData: state.getCurrentAgenciesData(),
   taFilter: state.get('taFilter'),
+  years: state.get('years'),
 });
 
 export default getMSAAtlas;

@@ -170,9 +170,26 @@ class MSAAtlas {
   export() {
     const {
       msaAtlas,
+      currentCensusField,
+      msa,
+      years,
     } = privateProps.get(this);
 
-    return Promise.resolve(msaAtlas.getCanvas());
+    return Promise.resolve(msaAtlas.getCanvas())
+      .then((canvas) => {
+        const headerHeight = 40;
+        const fullCavnas = document.createElement('canvas');
+        fullCavnas.width = canvas.width;
+        fullCavnas.height = canvas.height + headerHeight;
+        const ctx = fullCavnas.getContext('2d');
+        ctx.fillStyle = '#2D74ED';
+        ctx.font = '18px Mark, Arial, sans-serif';
+        ctx.textBaseline = 'middle';
+        console.log(currentCensusField, msa);
+        ctx.fillText(`${currentCensusField.text} (% change, ${years.join('–')}), ${msa.name}`, 10, headerHeight / 2, canvas.width - 20);
+        ctx.drawImage(canvas, 0, headerHeight);
+        return Promise.resolve(fullCavnas);
+      });
   }
 }
 
