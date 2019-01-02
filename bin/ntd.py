@@ -94,7 +94,8 @@ print'Created stacks for ' + str(stacks.keys())
 
 # Create MSA stacks
 msa_stacks = {}
-ta_msa = pd.read_csv('data/output/ta.csv', usecols=['taid', 'msaid']).drop_duplicates()
+ta_export = pd.read_csv('data/output/ta.csv', usecols=['taid', 'msaid', 'taname'])
+ta_msa = ta_export[['taid', 'msaid']].drop_duplicates()
 for i in stacks:
     m = pd.DataFrame(
         stacks[i].copy().reset_index()
@@ -186,6 +187,9 @@ export_msa = pd.concat(msa_stacks.values(), axis=1).replace([inf, 0], nan)
 #Export to CSV
 export.to_csv('data/output/ntd.csv', index_label=indexes)
 export_msa.to_csv('data/output/ntd_msa.csv', index_label=indexes)
+
+# Export formatted CSV
+export.rename_axis(['taid', 'year']).reset_index().merge(ta_export, on='taid').to_csv('data/output/transit_data.csv')
 
 print 'Data exported to CSV'
 

@@ -29,6 +29,11 @@
   cursor: pointer;
 }
 
+.header__title-button a{
+  color: white;
+  text-decoration: none;
+}
+
 .header__menu-row {
   height: $header__menu-row--height;
   // background: $header__menu-row--background;
