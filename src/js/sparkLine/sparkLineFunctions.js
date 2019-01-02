@@ -116,7 +116,8 @@ const sparkLineFunctions = {
       .append('circle')
       .attr('r', 3)
       .style('fill', '#333')
-      .style('display', 'none');
+      .style('display', 'none')
+      .attr('pointer-events', 'none');
 
     circles.exit().remove();
 
@@ -127,7 +128,7 @@ const sparkLineFunctions = {
     scales,
     dataProbe,
   }) {
-    return svg.select('.sparkline-background').on('mousemove', (d) => {
+    return svg.on('mousemove', (d) => {
       dataProbe.remove();
       const {
         xScale,
@@ -148,13 +149,17 @@ const sparkLineFunctions = {
         ? 'N/A'
         : (d3.format(d.format)(value) + (d.unit || '')));
       const summaries = d.agencies.map(a => a.summaries.find(s => s.year === year));
-      const allValues = summaries.filter(s => s !== undefined).map(s => s.indicatorSummary);
-      const aggregatedValue = allValues.length === 0 ? null : d3[d.summaryType](allValues);
-      const displayValue = format(aggregatedValue);
-      const disaplayAggregation = d.agencies.length > 1 ? d.summaryType : '';
+      const displayValues = d.agencies.map((agency) => {
+        const summaryData = agency.summaries.find(s => s.year === year);
+        const summary = summaryData ? summaryData.indicatorSummary : null;
+        if (agency.globalId === 'all') return format(summary);
+        return `<span class="data-probe__field">${(agency.name || agency.taShort)}:</span> ${format(summary)}`;
+      })
+        .map(val => `<div class="data-probe__row">${val}</div>`)
+        .join('');
       const html = `
-          <div class="data-probe__row"><span class="data-probe__field">${year} ${disaplayAggregation}</span></div>
-          <div class="data-probe__row">${displayValue}</div>
+          <div class="data-probe__row"><span class="data-probe__field">${year}</span></div>
+          ${displayValues}
           <div class="data-probe__row data-probe__msa-text">Click to show on map</div>
         `;
       dataProbe
@@ -172,7 +177,7 @@ const sparkLineFunctions = {
         })
         .style('display', (circleData, i) => (summaries[i] !== undefined && summaries[i].indicatorSummary !== null ? 'block' : 'none'));
     })
-      .on('mouseout', () => {
+      .on('mouseleave', () => {
         dataProbe.remove();
         svg.selectAll('circle')
           .style('display', 'none');
