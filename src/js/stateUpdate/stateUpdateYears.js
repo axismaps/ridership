@@ -20,7 +20,8 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
       nationalMapData,
       years,
     })
-    .updateYears();
+    .updateYears()
+    .updateInteractions();
 
   histogram
     .config({
