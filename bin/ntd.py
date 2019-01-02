@@ -1,12 +1,13 @@
+"""Primary script for loading and parsing NTD data"""
 #%%
 import pandas as pd
 from numpy import inf
 from numpy import nan
-from acs import msa_population
-from eia import gas_prices
-from meta import clean_ta
-from maintenance import load_maintenance
-from carto import replace_data
+from bin.acs import msa_population
+from bin.eia import gas_prices
+from bin.meta import clean_ta
+from bin.maintenance import load_maintenance
+from bin.carto import replace_data
 
 print 'All modules loaded'
 
@@ -92,31 +93,52 @@ for name, df in datasets.items():
 print'Created stacks for ' + str(stacks.keys())
 
 #%%
+# Create MSA stacks
+msa_stacks = {}
+ta_msa = pd.read_csv('data/output/ta.csv', usecols=['taid', 'msaid']).drop_duplicates()
+for i in stacks:
+    m = pd.DataFrame(
+        stacks[i].copy().reset_index()
+    ).merge(
+        ta_msa, left_on='Project ID', right_on='taid'
+    )[[i, 'level_1', 'msaid']]
+    print m
+    msa_stacks[i] = m.groupby(['msaid', 'level_1']).sum()
+
+print msa_stacks
+
+#%%
 # Calculate derived values
 # Average fares
 stacks['avg_fare'] = pd.Series(stacks['fares'] / stacks['upt'], name='avg_fare')
+msa_stacks['avg_fare'] = msa_stacks['fares'] / msa_stacks['upt']
 stacks['avg_fare'].drop(labels=other_ta, inplace=True)
 
 # Average speed
 stacks['speed'] = pd.Series(stacks['vrm'] / stacks['vrh'], name='speed')
+msa_stacks['speed'] = msa_stacks['vrm'] / msa_stacks['vrh']
 stacks['speed'].drop(labels=other_ta, inplace=True)
 
 # Farebox recovery
 stacks['recovery'] = pd.Series(stacks['fares'] / stacks['opexp_total'], name='recovery')
+msa_stacks['recovery'] = msa_stacks['fares'] / msa_stacks['opexp_total']
 stacks['recovery'].drop(labels=other_ta, inplace=True)
 
 # Vehicle revenue miles per ride
 stacks['vrm_per_ride'] = pd.Series(stacks['vrm'] / stacks['upt'], name='vrm_per_ride')
+msa_stacks['vrm_per_ride'] = msa_stacks['vrm'] / msa_stacks['upt']
 stacks['vrm_per_ride'].drop(labels=other_ta, inplace=True)
 
 # Minimum headways
 stacks['headways'] = pd.Series(
     ((stacks['drm'] / stacks['speed']) / stacks['voms']) * 60, name='headways'
 )
+msa_stacks['headways'] = ((msa_stacks['drm'] / msa_stacks['speed']) / msa_stacks['voms']) * 60
 stacks['headways'].drop(labels=other_ta, inplace=True)
 
 # Average trip length
 stacks['trip_length'] = pd.Series(stacks['pmt'] / stacks['upt'], name='trip_length')
+msa_stacks['trip_length'] = msa_stacks['pmt'] / msa_stacks['upt']
 stacks['trip_length'].drop(labels=other_ta, inplace=True)
 
 # Miles between failures
@@ -134,6 +156,10 @@ del stacks['vrh']
 del stacks['drm']
 del stacks['voms']
 del stacks['pmt']
+del msa_stacks['vrh']
+del msa_stacks['drm']
+del msa_stacks['voms']
+del msa_stacks['pmt']
 
 print 'Calculated values for ' + str(stacks.keys())
 
@@ -141,9 +167,13 @@ print 'Calculated values for ' + str(stacks.keys())
 # Removing zeroes and Infinities
 indexes = ['id', 'year']
 export = pd.concat(stacks.values(), axis=1).replace([inf, 0], nan)
+export_msa = pd.concat(msa_stacks.values(), axis=1).replace([inf, 0], nan)
+print msa_stacks.values()
+print export_msa
 
 #Export to CSV
 export.to_csv('data/output/ntd.csv', index_label=indexes)
+export_msa.to_csv('data/output/ntd_msa.csv', index_label=indexes)
 
 print 'Data exported to CSV'
 
