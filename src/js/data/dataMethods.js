@@ -182,7 +182,7 @@ const dataMethods = {
           text: 'Vehicle Revenue Miles per trip',
           value: 'vrm_per_ride',
           summaryType: 'mean',
-          format: '.1f',
+          format: '.2f',
           unit: ' mi per trip',
         },
         {
