@@ -80,6 +80,7 @@ const dataMethods = {
       msa,
       ntd,
       ta,
+      msaNtd,
     });
 
     const radiusScale = getRadiusScale({ ntd });
@@ -301,12 +302,20 @@ const dataMethods = {
   getAllNationalMapData({
     msa,
     ntd,
+    msaNtd,
     ta,
   }) {
     let globalId = 1;
     return msa.map((metro) => {
       const metroCopy = Object.assign({}, metro);
       metroCopy.globalId = globalId;
+      metroCopy.ntd = msaNtd
+        .filter(d => d.msaId === metro.msaId)
+        .map((d) => {
+          const ntdCopy = Object.assign({}, d);
+          ntdCopy.cent = metro.cent;
+          return ntdCopy;
+        });
       globalId += 1;
       const agencies = ta.filter(agency => agency.msaId === metro.msaId)
         .map((agency) => {
