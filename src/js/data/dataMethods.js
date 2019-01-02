@@ -155,8 +155,7 @@ const dataMethods = {
           text: 'Farebox Recovery',
           value: 'recovery',
           summaryType: 'mean',
-          format: '.1',
-          unit: '%',
+          format: '.1%',
         },
         {
           text: 'Miles Between Failures',
