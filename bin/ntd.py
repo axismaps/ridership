@@ -102,6 +102,7 @@ for i in stacks:
         ta_msa, left_on='Project ID', right_on='taid'
     )[[i, 'level_1', 'msaid']]
     msa_stacks[i] = m.groupby(['msaid', 'level_1']).sum()
+    msa_stacks[i].rename_axis(['msaid', None], inplace=True)
 
 # Calculate derived values
 # Average fares
@@ -142,7 +143,9 @@ stacks['headways'].drop(labels=other_ta, inplace=True)
 
 # Average trip length
 stacks['trip_length'] = pd.Series(stacks['pmt'] / stacks['upt'], name='trip_length')
-msa_stacks['trip_length'] = pd.Series(msa_stacks['pmt']['pmt'] / msa_stacks['upt']['upt'], name='trip_length')
+msa_stacks['trip_length'] = pd.Series(
+    msa_stacks['pmt']['pmt'] / msa_stacks['upt']['upt'], name='trip_length'
+)
 stacks['trip_length'].drop(labels=other_ta, inplace=True)
 
 # Miles between failures
@@ -152,7 +155,9 @@ stacks['failures'].drop(labels=other_ta, inplace=True)
 
 # Ridership per capita
 stacks['capita'] = pd.Series(stacks['upt'] / msa_population(), name='capita')
-msa_stacks['capita'] = pd.Series(name='capita')
+msa_stacks['capita'] = pd.Series(
+    msa_stacks['upt']['upt'] / msa_population(True), name='capita'
+)
 
 # Gas prices
 stacks['gas'] = gas_prices()
