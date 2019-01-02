@@ -57,27 +57,15 @@ const getGetCurrentNationalMapData = ({ data }) => function getCurrentNationalMa
       })
       .filter(agency => agency.uptTotal !== 0);
 
-    const msaFirstRecords = msa.ta.map((ta) => {
-      const record = ta.ntd.find(d => d.year === years[0])[indicator.value];
-      return record;
-    })
-      .filter(d => d !== null);
-    const msaLastRecords = msa.ta.map((ta) => {
-      const record = ta.ntd.find(d => d.year === years[1])[indicator.value];
-      return record;
-    })
-      .filter(d => d !== null);
-    msaCopy.upt2017 = d3.sum(msaCopy.ta.map(ta => ta.upt2017));
-    const summaries = [
-      d3[indicator.summaryType](msaFirstRecords) || null,
-      d3[indicator.summaryType](msaLastRecords) || null,
-    ];
-    if (!summaries.includes(null)) {
-      msaCopy.pctChange = 100 * (summaries[1] - summaries[0]) / summaries[0];
+    const msaFirstRecord = msa.ntd.find(d => d.year === years[0])[indicator.value];
+    const msaLastRecord = msa.ntd.find(d => d.year === years[1])[indicator.value];
+    msaCopy.upt2017 = msa.ntd.find(d => d.year === 2017).upt;
+    if (![msaFirstRecord, msaLastRecord].includes(null)) {
+      msaCopy.pctChange = 100 * (msaLastRecord - msaFirstRecord) / msaFirstRecord;
     } else {
       msaCopy.pctChange = null;
     }
-    msaCopy.firstAndLast = summaries;
+    msaCopy.firstAndLast = [msaFirstRecord, msaLastRecord];
     return msaCopy;
   })
     .filter(msa => msa.ta.length > 0);
