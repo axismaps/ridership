@@ -33,6 +33,8 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       years,
       xAxisLabel,
       yAxisLabel,
+      nationalNtd,
+      nationalData,
     } = props;
 
 
@@ -65,6 +67,9 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
         nationalMapData,
         bucketCount,
         nationalDataView,
+        nationalNtd,
+        nationalData,
+        years,
       });
       updateNational({
         histogramData,

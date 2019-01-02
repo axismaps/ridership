@@ -34,6 +34,7 @@ for i in NTD22_RAW:
     ntd22[i] = NTD22_RAW[i].dropna(subset=['NTD ID'])
 
 def filterByMode(dframe, modes):
+    """Filters NTD data by a list of modes (bus / rail)"""
     return dframe[dframe['Mode'].isin(modes)]
 
 # Filter bus data by required modes
@@ -74,6 +75,7 @@ print 'Loaded and cleaned data for: ' + str(datasets.keys())
 #%%
 # Merge the data with TA metadata
 def ntd_merge(dframe, d_name):
+    """Merges with TA data and creates a grouped / summed stack"""
     # Merge dataframes
     merge = pd.merge(ta_clean, dframe, how='left', on='NTD ID')
     group = merge.drop(columns=['NTD ID']).groupby('Project ID')
@@ -94,6 +96,7 @@ print'Created stacks for ' + str(stacks.keys())
 
 # Create MSA stacks
 msa_stacks = {}
+national_values = pd.DataFrame(pd.Series(list(range(2006, 2018)), name='year'))
 ta_export = pd.read_csv('data/output/ta.csv', usecols=['taid', 'msaid', 'taname'])
 ta_msa = ta_export[['taid', 'msaid']].drop_duplicates()
 for i in stacks:
@@ -104,10 +107,16 @@ for i in stacks:
     )[[i, 'level_1', 'msaid']]
     msa_stacks[i] = m.groupby(['msaid', 'level_1']).sum()
     msa_stacks[i].rename_axis(['msaid', None], inplace=True)
+    national = m.groupby('level_1').sum().drop(columns=['msaid']).reset_index()
+    national['year'] = national['level_1'].astype(int)
+    national_values = national_values.merge(national[['year', i]], on='year')
+
+national_values.set_index('year', inplace=True)
 
 # Calculate derived values
 # Average fares
 stacks['avg_fare'] = pd.Series(stacks['fares'] / stacks['upt'], name='avg_fare')
+national_values['avg_fare'] = national_values['fares'] / national_values['upt']
 msa_stacks['avg_fare'] = pd.Series(
     msa_stacks['fares']['fares'] / msa_stacks['upt']['upt'], name='avg_fare'
 )
@@ -115,11 +124,13 @@ stacks['avg_fare'].drop(labels=other_ta, inplace=True)
 
 # Average speed
 stacks['speed'] = pd.Series(stacks['vrm'] / stacks['vrh'], name='speed')
+national_values['speed'] = national_values['vrm'] / national_values['vrh']
 msa_stacks['speed'] = pd.Series(msa_stacks['vrm']['vrm'] / msa_stacks['vrh']['vrh'], name='speed')
 stacks['speed'].drop(labels=other_ta, inplace=True)
 
 # Farebox recovery
 stacks['recovery'] = pd.Series(stacks['fares'] / stacks['opexp_total'], name='recovery')
+national_values['recovery'] = national_values['fares'] / national_values['opexp_total']
 msa_stacks['recovery'] = pd.Series(
     msa_stacks['fares']['fares'] / msa_stacks['opexp_total']['opexp_total'], name='recovery'
 )
@@ -127,6 +138,7 @@ stacks['recovery'].drop(labels=other_ta, inplace=True)
 
 # Vehicle revenue miles per ride
 stacks['vrm_per_ride'] = pd.Series(stacks['vrm'] / stacks['upt'], name='vrm_per_ride')
+national_values['vrm_per_ride'] = national_values['vrm'] / national_values['upt']
 msa_stacks['vrm_per_ride'] = pd.Series(
     msa_stacks['vrm']['vrm'] / msa_stacks['upt']['upt'], name='vrm_per_ride'
 )
@@ -136,6 +148,9 @@ stacks['vrm_per_ride'].drop(labels=other_ta, inplace=True)
 stacks['headways'] = pd.Series(
     ((stacks['drm'] / stacks['speed']) / stacks['voms']) * 60, name='headways'
 )
+national_values['headways'] = (
+    (national_values['drm'] / national_values['speed']) / national_values['voms']
+) * 60
 msa_stacks['headways'] = pd.Series(
     ((msa_stacks['drm']['drm'] / msa_stacks['speed']) / msa_stacks['voms']['voms']) * 60,
     name='headways'
@@ -145,6 +160,7 @@ stacks['headways'].drop(labels=other_ta, inplace=True)
 #%%
 # Average trip length
 stacks['trip_length'] = pd.Series(stacks['pmt'] / stacks['upt'], name='trip_length')
+national_values['trip_length'] = national_values['pmt'] / national_values['upt']
 msa_stacks['trip_length'] = pd.Series(
     msa_stacks['pmt']['pmt'] / msa_stacks['upt']['upt'], name='trip_length'
 )
@@ -175,6 +191,7 @@ del msa_stacks['vrh']
 del msa_stacks['drm']
 del msa_stacks['voms']
 del msa_stacks['pmt']
+national_values.drop(columns=['vrh', 'drm', 'voms', 'pmt'], inplace=True)
 
 print 'Calculated values for ' + str(stacks.keys())
 
@@ -187,9 +204,12 @@ export_msa = pd.concat(msa_stacks.values(), axis=1).replace([inf, 0], nan)
 #Export to CSV
 export.to_csv('data/output/ntd.csv', index_label=indexes)
 export_msa.to_csv('data/output/ntd_msa.csv', index_label=indexes)
+national_values.to_csv('data/output/ntd_national.csv')
 
 # Export formatted CSV
-export.rename_axis(['taid', 'year']).reset_index().merge(ta_export, on='taid').to_csv('data/output/transit_data.csv')
+export.rename_axis(['taid', 'year']).reset_index().merge(
+    ta_export, on='taid'
+).to_csv('data/output/transit_data.csv')
 
 print 'Data exported to CSV'
 
@@ -198,3 +218,7 @@ print 'Data exported to CSV'
 indexes.extend(export.columns.values)
 replace_data('ntd', indexes, 'ntd.csv')
 replace_data('ntd_msa', indexes, 'ntd_msa.csv')
+
+national_index = list(national_values)
+national_index.insert(0, 'year')
+replace_data('ntd_national', national_index, 'ntd_national.csv')

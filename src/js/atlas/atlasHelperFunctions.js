@@ -30,12 +30,13 @@ const atlasHelperFunctions = {
         globalId: msa.globalId,
         color: 'rgba(0,0,0,1)',
       }];
-      indicatorData.agencies[0].summaries = msa.ta[0].ntd.map((d) => {
+      indicatorData.agencies[0].summaries = msa.ntd.map((d) => {
         const { year } = d;
-        const indicatorSummary = d3[indicator.summaryType](
-          msa.ta.map(ta => ta.ntd.find(record => record.year === year)[indicator.value]),
-        );
-        return { year, indicatorSummary };
+        const indicatorSummary = d[indicator.value];
+        return {
+          year,
+          indicatorSummary,
+        };
       });
     } else {
       indicatorData.agencies = msa.ta.map((ta) => {
