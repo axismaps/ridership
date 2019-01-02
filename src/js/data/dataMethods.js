@@ -5,6 +5,7 @@ const dataMethods = {
       rawMsa,
       rawNtd,
       rawStates,
+      rawMsaNtd,
     ] = rawData;
 
     const {
@@ -68,6 +69,13 @@ const dataMethods = {
 
     console.log('ntd', ntd);
 
+    const msaNtd = rawMsaNtd.rows.map((record) => {
+      const cleanRecord = Object.assign({}, record);
+      cleanRecord.msaId = record.id.toString();
+      return cleanRecord;
+    });
+
+    console.log('msaNtd', msaNtd);
     const allNationalMapData = getAllNationalMapData({
       msa,
       ntd,
@@ -118,7 +126,7 @@ const dataMethods = {
           unit: ' mi',
         },
         {
-          text: 'Average Service Headway',
+          text: 'Minimum Headways',
           value: 'headways',
           summaryType: 'mean',
           format: '.1f',
@@ -277,6 +285,7 @@ const dataMethods = {
     data.set('msa', msa);
     data.set('ntd', ntd);
     data.set('ta', ta);
+    data.set('msaNtd', msaNtd);
     data.set('statesTopo', rawStates);
     data.set('allNationalMapData', allNationalMapData);
     data.set('yearRange', yearRange);
@@ -328,6 +337,7 @@ const dataMethods = {
       d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20msa'),
       d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd'),
       d3.json('data/states.json'),
+      d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd_msa'),
     ])
       .then((rawData) => {
         console.log('rawData', rawData);
