@@ -3,13 +3,16 @@ const dataFunctions = {
     nationalMapData,
     bucketCount,
     nationalDataView,
+    nationalNtd,
+    nationalData,
+    years,
   }) {
     const allAgencies = nationalDataView === 'msa' ? nationalMapData.slice()
       : nationalMapData
         .reduce((accumulator, msa) => [...accumulator, ...msa.ta], [])
         .filter(d => d.pctChange < 500);
 
-    const nationalAverage = d3.mean(allAgencies, d => d.pctChange);
+    const nationalAverage = nationalData.pctChange;
 
     const changeSpan = d3.extent(allAgencies, d => d.pctChange);
 

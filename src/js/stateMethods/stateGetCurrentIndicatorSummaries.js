@@ -1,5 +1,33 @@
 const getNationalIndicatorSummaries = function getNationalIndicatorSummaries({ data }) {
   const comparedAgencies = this.get('comparedAgencies');
+  const yearRange = data.get('yearRange');
+  const indicators = data.get('indicators');
+  const indicatorSummaries = [];
+  if (comparedAgencies.length === 0) {
+    const records = data.get('nationalNtd');
+    indicators.forEach((indicator, key) => {
+      const indicatorCopy = Object.assign({}, indicator);
+      const summaries = records.map((record) => {
+        const {
+          year,
+        } = record;
+
+        const indicatorSummary = record[key];
+
+        return { year, indicatorSummary };
+      })
+        .filter(s => s.indicatorSummary !== null);
+      indicatorCopy.agencies = [{
+        taId: 'all',
+        msaId: 'all',
+        globalId: 'all',
+        summaries,
+      }];
+
+      indicatorSummaries.push(indicatorCopy);
+    });
+    return indicatorSummaries;
+  }
   const nationalDataView = this.get('nationalDataView');
   const allNationalMapData = data.get('allNationalMapData');
   const taRecords = allNationalMapData.map((msa) => {
@@ -10,52 +38,6 @@ const getNationalIndicatorSummaries = function getNationalIndicatorSummaries({ d
     .reduce((accumulator, msa) => [...accumulator, ...msa], []);
   const msaRecords = allNationalMapData.map(msa => msa.ntd)
     .reduce((accumulator, msa) => [...accumulator, ...msa], []);
-  const yearRange = data.get('yearRange');
-  const indicators = data.get('indicators');
-  const indicatorSummaries = [];
-  if (comparedAgencies.length === 0) {
-    // to do: return national data values instead of all this
-    const records = taRecords;
-    const recordsPerYear = new Map();
-    for (let i = 0; i <= yearRange[1] - yearRange[0]; i += 1) {
-      const year = yearRange[0] + i;
-      const recordsForYear = records.filter(d => d.year === year);
-      recordsPerYear.set(year, recordsForYear);
-    }
-    indicators.forEach((indicator, key) => {
-      const indicatorCopy = Object.assign({}, indicator);
-      indicatorCopy.agencies = [];
-      const agencies = comparedAgencies.length === 0
-        ? [{
-          taId: 'all',
-          msaId: 'all',
-          globalId: 'all',
-          summaries: [],
-        }]
-        : comparedAgencies.map(a => Object.assign({ summaries: [] }, a));
-      agencies.forEach((agency) => {
-        for (let i = 0; i <= yearRange[1] - yearRange[0]; i += 1) {
-          const year = yearRange[0] + i;
-          const recordsForYear = recordsPerYear.get(year)
-            .filter(d => d[key] !== null
-              && Number.isFinite(d[key])
-              && (agency[`${nationalDataView}Id`] === 'all' || agency[`${nationalDataView}Id`] === d[`${nationalDataView}Id`]));
-          const indicatorSummary = d3[indicator.summaryType](recordsForYear, d => d[key]);
-          const summary = {
-            year,
-            indicatorSummary,
-          };
-          if (indicatorSummary !== undefined) {
-            agency.summaries.push(summary);
-          }
-        }
-        indicatorCopy.agencies.push(agency);
-      });
-
-      indicatorSummaries.push(indicatorCopy);
-    });
-    return indicatorSummaries;
-  }
   const idField = `${nationalDataView}Id`;
   const ids = comparedAgencies.map(d => d[idField]);
   const records = (nationalDataView === 'ta' ? taRecords : msaRecords)

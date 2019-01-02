@@ -12,6 +12,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
   // const nationalMapData = data.get('nationalMapData');
   // console.log('update years', years);
   const nationalMapData = this.getCurrentNationalMapData();
+  const nationalData = this.getCurrentNationalData();
   const agenciesData = this.getCurrentAgenciesData();
 
   atlas
@@ -25,6 +26,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
     .config({
       nationalMapData,
       years,
+      nationalData,
     });
   if (scale === 'national') {
     histogram.updateData();

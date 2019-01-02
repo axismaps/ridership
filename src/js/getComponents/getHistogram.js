@@ -5,7 +5,9 @@ const getHistogram = ({ data, state }) => new Histogram({
   changeColorScale: data.get('changeColorScale'),
   container: d3.select('.histogram'),
   nationalMapData: state.getCurrentNationalMapData(),
+  nationalData: state.getCurrentNationalData(),
   nationalDataView: state.get('nationalDataView'),
+  nationalNtd: data.get('nationalNtd'),
   currentIndicator: state.get('indicator'),
   msaProbe: state.get('msaProbe'),
   updateHighlightedAgencies: (newHighlight) => {

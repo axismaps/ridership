@@ -7,6 +7,7 @@ const getStateUpdateIndicator = ({ components }) => function updateIndicator() {
   } = components;
   const indicator = this.get('indicator');
   const nationalMapData = this.getCurrentNationalMapData();
+  const nationalData = this.getCurrentNationalData();
 
   indicatorDropdown
     .config({
@@ -26,6 +27,7 @@ const getStateUpdateIndicator = ({ components }) => function updateIndicator() {
     .config({
       currentIndicator: indicator,
       nationalMapData,
+      nationalData,
     })
     .updateData();
 

@@ -6,6 +6,7 @@ const dataMethods = {
       rawNtd,
       rawStates,
       rawMsaNtd,
+      rawNationalNtd,
     ] = rawData;
 
     const {
@@ -74,6 +75,8 @@ const dataMethods = {
       cleanRecord.msaId = record.id.toString();
       return cleanRecord;
     });
+
+    const nationalNtd = rawNationalNtd.rows;
 
     console.log('msaNtd', msaNtd);
     const allNationalMapData = getAllNationalMapData({
@@ -286,6 +289,7 @@ const dataMethods = {
     data.set('ntd', ntd);
     data.set('ta', ta);
     data.set('msaNtd', msaNtd);
+    data.set('nationalNtd', nationalNtd);
     data.set('statesTopo', rawStates);
     data.set('allNationalMapData', allNationalMapData);
     data.set('yearRange', yearRange);
@@ -346,6 +350,7 @@ const dataMethods = {
       d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd'),
       d3.json('data/states.json'),
       d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd_msa'),
+      d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd_national'),
     ])
       .then((rawData) => {
         console.log('rawData', rawData);
