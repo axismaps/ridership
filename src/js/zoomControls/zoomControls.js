@@ -31,6 +31,13 @@ class ZoomControls {
     Object.assign(privateProps.get(this), config);
     return this;
   }
+
+  updateCurrentZoom() {
+    const {
+      currentZoom,
+    } = privateProps.get(this);
+    console.log('currentZoom', currentZoom);
+  }
 }
 
 export default ZoomControls;

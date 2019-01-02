@@ -4,10 +4,28 @@ const getZoomControls = ({ state, components }) => new ZoomControls({
   zoomInButton: d3.select('.atlas__zoom-in'),
   zoomOutButton: d3.select('.atlas__zoom-out'),
   onZoomIn() {
-    console.log('zoom in');
+    const {
+      atlas,
+      msaAtlas,
+    } = components;
+    const scale = state.get('scale');
+    if (scale === 'national') {
+      atlas.zoomIn();
+    } else if (scale === 'msa') {
+      msaAtlas.zoomIn();
+    }
   },
   onZoomOut() {
-    console.log('zoom out');
+    const {
+      atlas,
+      msaAtlas,
+    } = components;
+    const scale = state.get('scale');
+    if (scale === 'national') {
+      atlas.zoomOut();
+    } else if (scale === 'msa') {
+      msaAtlas.zoomOut();
+    }
   },
   currentZoom: state.get('currentZoom'),
   currentScale: state.get('scale'),

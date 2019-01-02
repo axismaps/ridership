@@ -1,6 +1,5 @@
 import atlasHelperFunctions from './atlasHelperFunctions';
 import atlasNationalFunctions from './atlasNationalFunctions';
-import atlasMSAFunctions from './atlasMsaFunctions';
 import DataProbe from '../dataProbe/dataProbe';
 
 const atlasMethods = {
@@ -71,25 +70,20 @@ const atlasMethods = {
     initialTranslate,
     projectionModify,
     setCurrentTransform,
-    getScale,
   }) {
     const {
       zoomAgencies,
       zoomStates,
     } = atlasNationalFunctions;
-    const {
-      zoomTracts,
-    } = atlasMSAFunctions;
+
     return () => {
       const { transform } = d3.event;
+      console.log('transform', transform);
       setCurrentTransform(transform);
-
-      const scale = getScale();
 
       const agencies = mapFeatures.get('agencies');
       const states = mapFeatures.get('states');
 
-      const tracts = mapFeatures.get('tracts');
       /**
        * Re-project cluster nodes.
        * Everything else is scaled w/ un-modified original projection
@@ -99,31 +93,31 @@ const atlasMethods = {
         .translate([(initialTranslate[0] * transform.k) + transform.x,
           (initialTranslate[1] * transform.k) + transform.y])
         .scale(initialScale * transform.k);
-      if (scale === 'national') {
-        zoomStates({
-          states,
-          transform,
-        });
 
-        zoomAgencies({
-          agencies,
-          projectionModify,
-        });
-      } else if (scale === 'msa') {
-        zoomTracts({
-          tracts,
-          transform,
-        });
-      }
+      zoomStates({
+        states,
+        transform,
+      });
+
+      zoomAgencies({
+        agencies,
+        projectionModify,
+      });
     };
   },
-  setZoomEvents({
+  getZoom({
     zoomed,
+    scaleExtent,
+  }) {
+    console.log('extent', scaleExtent);
+    return d3.zoom()
+      .scaleExtent(scaleExtent)
+      .on('zoom', zoomed);
+  },
+  setZoomEvents({
+    zoom,
     mapSVG,
   }) {
-    const zoom = d3.zoom()
-      .scaleExtent([1, 8])
-      .on('zoom', zoomed);
     mapSVG.call(zoom);
   },
 

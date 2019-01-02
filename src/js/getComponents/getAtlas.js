@@ -37,6 +37,10 @@ const getAtlas = ({ data, state }) => new Atlas({
   updateComparedAgencies: (comparedAgencies) => {
     state.update({ comparedAgencies });
   },
+  onZoom(newZoom) {
+    state.update({ currentZoom: newZoom });
+  },
+  scaleExtent: data.get('scaleExtent').national,
 });
 
 export default getAtlas;
