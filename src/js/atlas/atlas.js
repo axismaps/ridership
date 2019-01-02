@@ -151,6 +151,7 @@ const privateMethods = {
       projectionModify,
       geoPath,
       radiusScale,
+      zoom,
     });
 
     toggleNationalLayers.call(this);
@@ -445,16 +446,26 @@ class Atlas {
 
   zoomIn() {
     const {
-      onZoom,
+      // onZoom,
+      zoom,
+      mapSVG,
     } = privateProps.get(this);
-    onZoom('zoom in');
+
+    mapSVG.transition()
+      .duration(500)
+      .call(zoom.scaleBy, 2);
   }
 
   zoomOut() {
     const {
-      onZoom,
+      // onZoom,
+      zoom,
+      mapSVG,
     } = privateProps.get(this);
-    onZoom('zoom out');
+
+    mapSVG.transition()
+      .duration(500)
+      .call(zoom.scaleBy, 0.5);
   }
 
   export() {

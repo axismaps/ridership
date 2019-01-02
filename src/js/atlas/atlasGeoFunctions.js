@@ -78,7 +78,7 @@ const atlasMethods = {
 
     return () => {
       const { transform } = d3.event;
-      console.log('transform', transform);
+
       setCurrentTransform(transform);
 
       const agencies = mapFeatures.get('agencies');
@@ -109,7 +109,6 @@ const atlasMethods = {
     zoomed,
     scaleExtent,
   }) {
-    console.log('extent', scaleExtent);
     return d3.zoom()
       .scaleExtent(scaleExtent)
       .on('zoom', zoomed);
