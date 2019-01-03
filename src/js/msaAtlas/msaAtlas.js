@@ -13,6 +13,8 @@ const privateMethods = {
       tractGeo,
       taLayers,
       currentCensusField,
+      scaleExtent,
+      onZoom,
     } = props;
 
     if (scale === 'national') return;
@@ -22,9 +24,11 @@ const privateMethods = {
     } = msaAtlasFunctions;
 
     const msaAtlas = drawAtlas({
+      onZoom,
       msaMapContainer,
       msa,
       tractGeo,
+      scaleExtent,
       currentCensusField,
       logInitialFilters: () => {
         const initialFilters = taLayers.reduce((accumulator, layerId) => {

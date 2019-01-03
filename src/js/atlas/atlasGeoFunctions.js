@@ -70,6 +70,7 @@ const atlasMethods = {
     initialTranslate,
     projectionModify,
     setCurrentTransform,
+    onZoom,
   }) {
     const {
       zoomAgencies,
@@ -93,6 +94,8 @@ const atlasMethods = {
         .translate([(initialTranslate[0] * transform.k) + transform.x,
           (initialTranslate[1] * transform.k) + transform.y])
         .scale(initialScale * transform.k);
+
+      onZoom(transform.k);
 
       zoomStates({
         states,
@@ -120,23 +123,6 @@ const atlasMethods = {
     mapSVG.call(zoom);
   },
 
-  // getRadiusScale({
-  //   nationalMapData,
-  // }) {
-  //   const {
-  //     getAllAgencies,
-  //   } = atlasHelperFunctions;
-
-
-  //   const allAgencies = getAllAgencies({ nationalMapData });
-
-  //   const values = allAgencies.map(d => d.upt2017);
-
-  //   return d3.scaleSqrt()
-  //     .domain(d3.extent(values))
-  //     .range([5, 35]);
-  // },
-
   getAgenciesTable({
     nationalMapData,
     nationalDataView,
@@ -156,53 +142,24 @@ const atlasMethods = {
   },
   getUpdatedNodes({
     nodes,
+    msaNodes,
     nationalMapData,
     nationalDataView,
-    // radiusScale,
   }) {
     const {
       getAgenciesTable,
     } = atlasMethods;
 
     const agenciesTable = getAgenciesTable({ nationalMapData, nationalDataView });
-
-    return nodes
+    const nodesToUse = nationalDataView === 'ta' ? nodes : msaNodes;
+    return nodesToUse
       .map((node) => {
         const nodeCopy = Object.assign({}, node);
         const agency = agenciesTable[node.globalId];
         if (agency === undefined) return nodeCopy;
         nodeCopy.pctChange = agency.pctChange;
         nodeCopy.firstAndLast = agency.firstAndLast;
-        // nodeCopy.uptTotal = agency.uptTotal;
-        // nodeCopy.radius = radiusScale(agency.uptTotal);
         return nodeCopy;
-      });
-  },
-  updateAgencyRadii({
-    agencies,
-    // radiusScale,
-    nationalMapData,
-    nodes,
-    changeColorScale,
-    nationalDataView,
-  }) {
-    const {
-      getUpdatedNodes,
-    } = atlasMethods;
-    const updatedNodes = getUpdatedNodes({
-      nodes,
-      nationalMapData,
-      nationalDataView,
-      // radiusScale,
-    });
-    // console.log('updatednodes', updatedNodes);
-    agencies
-      .data(updatedNodes, d => d.taId)
-      .transition()
-      .duration(500)
-      .attrs({
-        // r: d => d.radius,
-        fill: d => (d.pctChange === null ? 'lightgrey' : changeColorScale(d.pctChange)),
       });
   },
   setAgencyColors({
@@ -210,17 +167,17 @@ const atlasMethods = {
     changeColorScale,
     nationalMapData,
     nodes,
+    msaNodes,
     nationalDataView,
-    // radiusScale,
   }) {
     const {
       getUpdatedNodes,
     } = atlasMethods;
     const updatedNodes = getUpdatedNodes({
       nodes,
+      msaNodes,
       nationalMapData,
       nationalDataView,
-      // radiusScale,
     });
 
     agencies

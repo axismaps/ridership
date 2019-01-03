@@ -1,6 +1,6 @@
 import ZoomControls from '../zoomControls/zoomControls';
 
-const getZoomControls = ({ state, components }) => new ZoomControls({
+const getZoomControls = ({ state, data, components }) => new ZoomControls({
   zoomInButton: d3.select('.atlas__zoom-in'),
   zoomOutButton: d3.select('.atlas__zoom-out'),
   onZoomIn() {
@@ -27,6 +27,7 @@ const getZoomControls = ({ state, components }) => new ZoomControls({
       msaAtlas.zoomOut();
     }
   },
+  scaleExtent: data.get('scaleExtent'),
   currentZoom: state.get('currentZoom'),
   currentScale: state.get('scale'),
 });

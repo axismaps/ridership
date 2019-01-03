@@ -24,12 +24,16 @@ const sparkLineFunctions = {
       .reduce((accumulator, d) => [...accumulator, ...d], []);
     const xDomain = yearRange;
     const yDomain = d3.extent(values, d => d.indicatorSummary);
+    const maxes = agencies.map(a => d3.max(a.summaries, s => s.indicatorSummary))
+      .sort((a, b) => b - a);
+    const hasOutlier = maxes.length > 1 && maxes[0] / maxes[1] > 2;
+    const yScale = hasOutlier ? d3.scalePow().exponent(0.001) : d3.scaleLinear();
 
     return {
       xScale: d3.scaleLinear()
         .domain(xDomain)
         .range([0, width]),
-      yScale: d3.scaleLinear()
+      yScale: yScale
         .domain(yDomain)
         .range([height, 0]),
     };

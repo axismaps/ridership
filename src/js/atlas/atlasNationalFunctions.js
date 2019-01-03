@@ -22,24 +22,17 @@ const atlasNationalFunctions = {
         'stroke-width': 1.5,
       });
   },
-  drawAgencies({
+  setAgencyNodes({
     nationalMapData,
-    layer,
-    projectionModify,
-    changeColorScale,
-    logSimulationNodes,
-    // dataProbe,
     radiusScale,
-    // jumpToMsa,
-    // updateHighlightedAgencies,
+    projectionModify,
+    logSimulationNodes,
   }) {
     const {
       getAllAgencies,
     } = atlasHelperFunctions;
 
     const allAgencies = getAllAgencies({ nationalMapData });
-
-
     const nodes = allAgencies.map(agency => ({
       msaId: agency.msaId,
       taId: agency.taId,
@@ -57,10 +50,28 @@ const atlasNationalFunctions = {
       firstAndLast: agency.firstAndLast,
     }));
 
+
+    const simulation = d3.forceSimulation()
+      .force('x', d3.forceX().x(d => d.x))
+      .force('y', d3.forceY().y(d => d.y))
+      .force('collide', d3.forceCollide(d => d.radius))
+      .nodes(nodes)
+      .stop();
+
+    for (let i = 0; i < 300; i += 1) {
+      simulation.tick();
+    }
+
+
+    logSimulationNodes(nodes);
+  },
+  drawAgencies({
+    layer,
+    changeColorScale,
+    nodes,
+  }) {
     const agencies = layer.selectAll('.map__agency')
       .data(nodes, d => d.globalId);
-
-    // const formatPct = d3.format(',d');
 
     const newAgencies = agencies
       .enter()
@@ -77,34 +88,16 @@ const atlasNationalFunctions = {
         fill: d => changeColorScale(d.pctChange),
       });
 
-    const layoutTick = () => {
-      mergedAgencies
-        .transition()
-        .duration(500)
-        .attrs({
-          cx: d => d.x,
-          cy: d => d.y,
-          r: d => d.radius,
-          fill: d => (d.pctChange === null ? 'lightgrey' : changeColorScale(d.pctChange)),
-        });
-    };
 
-    const simulation = d3.forceSimulation()
-      .force('x', d3.forceX().x(d => d.x))
-      .force('y', d3.forceY().y(d => d.y))
-      // .force('collide', d3.forceCollide(d => d.radius * 0.8))
-      .force('collide', d3.forceCollide(d => d.radius))
-      .nodes(nodes)
-      .stop();
-
-    for (let i = 0; i < 300; i += 1) {
-      simulation.tick();
-    }
-
-    layoutTick();
-    if (logSimulationNodes !== undefined) {
-      logSimulationNodes(nodes);
-    }
+    mergedAgencies
+      .transition()
+      .duration(500)
+      .attrs({
+        // cx: d => d.x,
+        // cy: d => d.y,
+        r: d => d.radius,
+        fill: d => (d.pctChange === null ? 'lightgrey' : changeColorScale(d.pctChange)),
+      });
 
 
     return mergedAgencies;
@@ -144,18 +137,13 @@ const atlasNationalFunctions = {
       'stroke-width': 1.5 / transform.k,
     });
   },
-  drawMSAs({
+  setMSANodes({
     nationalMapData,
-    layer,
-    projectionModify,
-    changeColorScale,
-    logSimulationNodes,
-    // dataProbe,
     radiusScale,
-    // jumpToMsa,
-    // updateHighlightedAgencies,
+    projectionModify,
+    logSimulationNodes,
   }) {
-    const nodes = nationalMapData.map(msa => ({
+    const msaNodes = nationalMapData.map(msa => ({
       msaId: msa.msaId,
       radius: radiusScale(msa.upt2017),
       x: projectionModify(msa.cent)[0],
@@ -170,10 +158,26 @@ const atlasNationalFunctions = {
       firstAndLast: msa.firstAndLast,
     }));
 
-    const msas = layer.selectAll('.map__agency')
-      .data(nodes, d => d.globalId);
+    const simulation = d3.forceSimulation()
+      .force('x', d3.forceX().x(d => d.x))
+      .force('y', d3.forceY().y(d => d.y))
+      // .force('collide', d3.forceCollide(d => d.radius * 0.8))
+      .force('collide', d3.forceCollide(d => d.radius))
+      .nodes(msaNodes)
+      .stop();
 
-    // const formatPct = d3.format(',d');
+    for (let i = 0; i < 300; i += 1) {
+      simulation.tick();
+    }
+    logSimulationNodes(msaNodes);
+  },
+  drawMSAs({
+    layer,
+    changeColorScale,
+    msaNodes,
+  }) {
+    const msas = layer.selectAll('.map__agency')
+      .data(msaNodes, d => d.globalId);
 
     const newMSAa = msas
       .enter()
@@ -183,41 +187,20 @@ const atlasNationalFunctions = {
 
     const mergedMSAs = newMSAa.merge(msas)
       .attrs({
-        cx: d => d.xOriginal,
-        cy: d => d.yOriginal,
         r: 0,
         class: 'map__agency',
         fill: d => changeColorScale(d.pctChange),
       });
 
-    const layoutTick = () => {
-      mergedMSAs
-        .transition()
-        .duration(500)
-        .attrs({
-          cx: d => d.x,
-          cy: d => d.y,
-          r: d => d.radius,
-          fill: d => (d.pctChange === null ? 'lightgrey' : changeColorScale(d.pctChange)),
-        });
-    };
 
-    const simulation = d3.forceSimulation()
-      .force('x', d3.forceX().x(d => d.x))
-      .force('y', d3.forceY().y(d => d.y))
-      // .force('collide', d3.forceCollide(d => d.radius * 0.8))
-      .force('collide', d3.forceCollide(d => d.radius))
-      .nodes(nodes)
-      .stop();
+    mergedMSAs
+      .transition()
+      .duration(500)
+      .attrs({
+        r: d => d.radius,
+        fill: d => (d.pctChange === null ? 'lightgrey' : changeColorScale(d.pctChange)),
+      });
 
-    for (let i = 0; i < 300; i += 1) {
-      simulation.tick();
-    }
-
-    layoutTick();
-    if (logSimulationNodes !== undefined) {
-      logSimulationNodes(nodes);
-    }
 
     return mergedMSAs;
   },

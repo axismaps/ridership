@@ -6,6 +6,8 @@ const msaAtlasFunctions = {
     currentCensusField,
     logInitialFilters,
     updateAgencyLayers,
+    scaleExtent,
+    onZoom,
   }) {
     const {
       initSite,
@@ -15,8 +17,13 @@ const msaAtlasFunctions = {
       style: 'mapbox://styles/axismaps/cjnvwmhic2ark2sp7fmjuwhf7',
       center: [-71.038412, 42.355046],
       zoom: 10.5,
+      minZoom: scaleExtent[0],
+      maxZoom: scaleExtent[1],
       preserveDrawingBuffer: true,
     })
+      .on('zoom', () => {
+        onZoom(msaAtlas.getZoom());
+      })
       .on('load', () => {
         initSite({
 

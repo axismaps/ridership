@@ -8,7 +8,6 @@ const getStateUpdateCurrentZoom = ({ components }) => function updateCurrentZoom
       currentZoom,
     })
     .updateCurrentZoom();
-  console.log('zoom?', currentZoom);
 };
 
 export default getStateUpdateCurrentZoom;

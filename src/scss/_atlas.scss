@@ -154,6 +154,12 @@ $zoom--border: 1px solid #cccccc;
   cursor: pointer;
 }
 
+.atlas__zoom-button--disabled {
+  cursor: default;
+  pointer-events: none;
+  color: lightgrey;
+}
+
 .atlas__zoom-button:hover {
   background: #fafafa;
 }

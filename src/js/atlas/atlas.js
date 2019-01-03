@@ -27,6 +27,7 @@ const privateMethods = {
       allNationalMapData,
       indicator,
       scaleExtent,
+      onZoom,
     } = props;
 
     const {
@@ -41,6 +42,9 @@ const privateMethods = {
       setInteractions,
     } = atlasGeoFunctions;
     const {
+      zoomAgencies,
+      setMSANodes,
+      setAgencyNodes,
       drawAgencies,
       drawStates,
     } = atlasNationalFunctions;
@@ -83,6 +87,26 @@ const privateMethods = {
       geoPath,
     });
 
+    setAgencyNodes({
+      nationalMapData,
+      radiusScale,
+      projectionModify,
+      logSimulationNodes: (newNodes) => {
+        props.nodes = newNodes;
+      },
+    });
+
+    const { nodes } = props;
+
+    setMSANodes({
+      nationalMapData,
+      radiusScale,
+      projectionModify,
+      logSimulationNodes: (newNodes) => {
+        props.msaNodes = newNodes;
+      },
+    });
+
 
     const agencies = drawAgencies({
       jumpToMsa,
@@ -94,9 +118,12 @@ const privateMethods = {
       changeColorScale,
       projectionModify,
       updateHighlightedAgencies,
-      logSimulationNodes: (nodes) => {
-        props.nodes = nodes;
-      },
+      nodes,
+    });
+
+    zoomAgencies({
+      agencies,
+      projectionModify,
     });
 
     setInteractions({
@@ -117,6 +144,7 @@ const privateMethods = {
     mapFeatures.set('agencies', agencies);
 
     const zoomed = getZoomed({
+      onZoom,
       // states,
       // agencies,
       // getAgencies: () => props.agencies,
@@ -214,6 +242,8 @@ class Atlas {
     this.config(config);
 
     init.call(this);
+
+    this.setZoom();
   }
 
   config(config) {
@@ -231,32 +261,22 @@ class Atlas {
 
     const {
       nationalMapData,
-      // radiusScale,
       agencies,
       nodes,
       changeColorScale,
       nationalDataView,
     } = props;
     const {
-      // drawAgencies,
-      // updateAgencyRadii,
       setAgencyColors,
     } = atlasGeoFunctions;
 
-    // updateAgencyRadii({
-    //   nationalMapData,
-    //   radiusScale,
-    //   agencies,
-    //   nodes,
-    //   changeColorScale,
-    // });
+
     setAgencyColors({
       agencies,
       changeColorScale,
       nationalMapData,
       nodes,
       nationalDataView,
-      // radiusScale,
     });
 
     return this;
@@ -269,8 +289,8 @@ class Atlas {
       changeColorScale,
       agencies,
       nodes,
+      msaNodes,
       nationalDataView,
-      // radiusScale,
     } = props;
     const {
       // drawAgencies,
@@ -282,8 +302,8 @@ class Atlas {
       changeColorScale,
       nationalMapData,
       nodes,
+      msaNodes,
       nationalDataView,
-      // radiusScale,
     });
 
     return this;
@@ -303,17 +323,30 @@ class Atlas {
       layers,
       projection,
       projectionModify,
-      comparedAgencies,
-      compareMode,
+      // comparedAgencies,
+      // compareMode,
+      nodes,
+      msaNodes,
     } = props;
 
     const {
       drawAgencies,
       drawMSAs,
+      zoomAgencies,
     } = atlasNationalFunctions;
+    const {
+      getUpdatedNodes,
+    } = atlasGeoFunctions;
 
+    const updatedNodes = getUpdatedNodes({
+      nodes,
+      msaNodes,
+      nationalMapData,
+      nationalDataView,
+    });
+    let agencies;
     if (nationalDataView === 'ta') {
-      const agencies = drawAgencies({
+      agencies = drawAgencies({
         jumpToMsa,
         radiusScale,
         dataProbe,
@@ -323,17 +356,22 @@ class Atlas {
         changeColorScale,
         projectionModify,
         updateHighlightedAgencies,
-        logSimulationNodes: (nodes) => {
-          props.nodes = nodes;
+        nodes: updatedNodes,
+        logSimulationNodes: (newNodes) => {
+          props.nodes = newNodes;
         },
       });
 
+      zoomAgencies({
+        agencies,
+        projectionModify,
+      });
       mapFeatures.set('agencies', agencies);
       Object.assign(props, {
         agencies,
       });
     } else {
-      const msas = drawMSAs({
+      agencies = drawMSAs({
         jumpToMsa,
         radiusScale,
         dataProbe,
@@ -343,13 +381,18 @@ class Atlas {
         changeColorScale,
         projectionModify,
         updateHighlightedAgencies,
-        logSimulationNodes: (nodes) => {
-          props.nodes = nodes;
+        msaNodes: updatedNodes,
+        logSimulationNodes: (newNodes) => {
+          props.msaNodes = newNodes;
         },
       });
-      mapFeatures.set('agencies', msas);
+      mapFeatures.set('agencies', agencies);
+      zoomAgencies({
+        agencies,
+        projectionModify,
+      });
       Object.assign(props, {
-        agencies: msas,
+        agencies,
       });
     }
 
@@ -407,22 +450,6 @@ class Atlas {
     return this;
   }
 
-  // updateScale() {
-  //   const props = privateProps.get(this);
-  //   const {
-  //     scale,
-  //   } = props;
-  //   const {
-  //     drawMSA,
-  //     toggleNationalLayers,
-  //   } = privateMethods;
-
-  //   if (scale === 'msa') {
-  //     drawMSA.call(this);
-  //     toggleNationalLayers.call(this);
-  //   }
-  // }
-
   updateHighlight() {
     const {
       agencies,
@@ -446,7 +473,6 @@ class Atlas {
 
   zoomIn() {
     const {
-      // onZoom,
       zoom,
       mapSVG,
     } = privateProps.get(this);
@@ -458,7 +484,6 @@ class Atlas {
 
   zoomOut() {
     const {
-      // onZoom,
       zoom,
       mapSVG,
     } = privateProps.get(this);
@@ -468,11 +493,19 @@ class Atlas {
       .call(zoom.scaleBy, 0.5);
   }
 
+  setZoom() {
+    const {
+      onZoom,
+      transform,
+    } = privateProps.get(this);
+    onZoom(transform.k);
+  }
+
   export() {
     const {
       exportMethods,
       mapSVG,
-      scale,
+      // scale,
       years,
       indicator,
       nationalDataView,
