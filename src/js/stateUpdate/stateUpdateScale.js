@@ -1,6 +1,7 @@
 const getStateUpdateScale = ({ components }) => function updateScale() {
   const {
     layout,
+    atlas,
     msaAtlas,
     censusDropdown,
     distanceDropdown,
@@ -64,6 +65,9 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
       })
       .updateCurrentIndicator()
       .updateData();
+
+    atlas.setZoom();
+
     this.update({
       taFilter: new Set(),
     });

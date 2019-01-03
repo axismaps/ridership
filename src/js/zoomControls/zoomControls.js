@@ -22,6 +22,7 @@ const privateMethods = {
       currentZoom,
       currentScale,
     } = privateProps.get(this);
+
     const threshold = 0.0000001;
     const currentScaleExtent = scaleExtent[currentScale];
     zoomInButton
@@ -36,11 +37,14 @@ class ZoomControls {
   constructor(config) {
     const {
       setClickListeners,
+      updateButtonStatus,
     } = privateMethods;
     privateProps.set(this, {});
+
     this.config(config);
 
     setClickListeners.call(this);
+    updateButtonStatus.call(this);
   }
 
   config(config) {

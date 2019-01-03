@@ -216,6 +216,8 @@ class Atlas {
     this.config(config);
 
     init.call(this);
+
+    this.setZoom();
   }
 
   config(config) {
@@ -305,8 +307,8 @@ class Atlas {
       layers,
       projection,
       projectionModify,
-      comparedAgencies,
-      compareMode,
+      // comparedAgencies,
+      // compareMode,
     } = props;
 
     const {
@@ -448,7 +450,6 @@ class Atlas {
 
   zoomIn() {
     const {
-      // onZoom,
       zoom,
       mapSVG,
     } = privateProps.get(this);
@@ -456,13 +457,10 @@ class Atlas {
     mapSVG.transition()
       .duration(500)
       .call(zoom.scaleBy, 2);
-
-    // onZoom(zoom.scale());
   }
 
   zoomOut() {
     const {
-      // onZoom,
       zoom,
       mapSVG,
     } = privateProps.get(this);
@@ -470,6 +468,14 @@ class Atlas {
     mapSVG.transition()
       .duration(500)
       .call(zoom.scaleBy, 0.5);
+  }
+
+  setZoom() {
+    const {
+      onZoom,
+      transform,
+    } = privateProps.get(this);
+    onZoom(transform.k);
   }
 
   export() {
