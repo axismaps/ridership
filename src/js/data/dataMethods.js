@@ -284,7 +284,7 @@ const dataMethods = {
 
     const scaleExtent = {
       national: [1, 8],
-      msa: [8, 15],
+      msa: [6, 18],
     };
 
     const data = new Map();

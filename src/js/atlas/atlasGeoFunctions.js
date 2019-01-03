@@ -70,6 +70,7 @@ const atlasMethods = {
     initialTranslate,
     projectionModify,
     setCurrentTransform,
+    onZoom,
   }) {
     const {
       zoomAgencies,
@@ -93,6 +94,8 @@ const atlasMethods = {
         .translate([(initialTranslate[0] * transform.k) + transform.x,
           (initialTranslate[1] * transform.k) + transform.y])
         .scale(initialScale * transform.k);
+
+      onZoom(transform.k);
 
       zoomStates({
         states,

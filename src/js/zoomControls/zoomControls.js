@@ -14,6 +14,22 @@ const privateMethods = {
     zoomOutButton
       .on('click', onZoomOut);
   },
+  updateButtonStatus() {
+    const {
+      zoomInButton,
+      zoomOutButton,
+      scaleExtent,
+      currentZoom,
+      currentScale,
+    } = privateProps.get(this);
+    const threshold = 0.0000001;
+    const currentScaleExtent = scaleExtent[currentScale];
+    zoomInButton
+      .classed('atlas__zoom-button--disabled', () => currentScaleExtent[1] - currentZoom <= threshold);
+
+    zoomOutButton
+      .classed('atlas__zoom-button--disabled', () => currentZoom - currentScaleExtent[0] <= threshold);
+  },
 };
 
 class ZoomControls {
@@ -33,10 +49,8 @@ class ZoomControls {
   }
 
   updateCurrentZoom() {
-    const {
-      currentZoom,
-    } = privateProps.get(this);
-    console.log('currentZoom', currentZoom);
+    const { updateButtonStatus } = privateMethods;
+    updateButtonStatus.call(this);
   }
 }
 

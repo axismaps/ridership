@@ -27,6 +27,7 @@ const privateMethods = {
       allNationalMapData,
       indicator,
       scaleExtent,
+      onZoom,
     } = props;
 
     const {
@@ -117,6 +118,7 @@ const privateMethods = {
     mapFeatures.set('agencies', agencies);
 
     const zoomed = getZoomed({
+      onZoom,
       // states,
       // agencies,
       // getAgencies: () => props.agencies,
@@ -454,6 +456,8 @@ class Atlas {
     mapSVG.transition()
       .duration(500)
       .call(zoom.scaleBy, 2);
+
+    // onZoom(zoom.scale());
   }
 
   zoomOut() {

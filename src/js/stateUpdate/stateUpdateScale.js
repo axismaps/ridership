@@ -7,11 +7,17 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
     histogram,
     sidebar,
     legend,
+    zoomControls,
   } = components;
 
   const scale = this.get('scale');
 
   const legendOn = scale === 'national';
+
+  zoomControls
+    .config({
+      currentScale: scale,
+    });
 
   layout
     .config({
