@@ -1,7 +1,6 @@
 import atlasGeoFunctions from './atlasGeoFunctions';
 import atlasNationalFunctions from './atlasNationalFunctions';
 import DataProbe from '../dataProbe/dataProbe';
-import atlasMSAFunctions from './atlasMsaFunctions';
 
 const privateProps = new WeakMap();
 
@@ -27,6 +26,7 @@ const privateMethods = {
       years,
       allNationalMapData,
       indicator,
+      scaleExtent,
     } = props;
 
     const {
@@ -34,6 +34,7 @@ const privateMethods = {
       getGeoProps,
       drawLayers,
       // drawStates,
+      getZoom,
       getZoomed,
       setZoomEvents,
       getInitialScaleTranslate,
@@ -130,8 +131,13 @@ const privateMethods = {
       },
     });
 
-    setZoomEvents({
+    const zoom = getZoom({
       zoomed,
+      scaleExtent,
+    });
+
+    setZoomEvents({
+      zoom,
       mapSVG,
     });
 
@@ -145,6 +151,7 @@ const privateMethods = {
       projectionModify,
       geoPath,
       radiusScale,
+      zoom,
     });
 
     toggleNationalLayers.call(this);
@@ -157,27 +164,7 @@ const privateMethods = {
 
   //   props.radiusScale = getRadiusScale({ nationalMapData });
   // },
-  drawMSA() {
-    const {
-      msa,
-      tractTopo,
-      layers,
-      geoPath,
-      mapFeatures,
-    } = privateProps.get(this);
-    const {
-      drawTracts,
-    } = atlasMSAFunctions;
 
-    const tracts = drawTracts({
-      tractTopo,
-      msa,
-      layers,
-      geoPath,
-    });
-
-    mapFeatures.set('tracts', tracts);
-  },
   toggleNationalLayers() {
     const {
       layers,
@@ -214,6 +201,11 @@ class Atlas {
       dataProbe: new DataProbe({
         container: d3.select('.outer-container'),
       }),
+      transform: {
+        k: 1,
+        x: 0,
+        y: 0,
+      },
     });
     const {
       init,
@@ -415,21 +407,21 @@ class Atlas {
     return this;
   }
 
-  updateScale() {
-    const props = privateProps.get(this);
-    const {
-      scale,
-    } = props;
-    const {
-      drawMSA,
-      toggleNationalLayers,
-    } = privateMethods;
+  // updateScale() {
+  //   const props = privateProps.get(this);
+  //   const {
+  //     scale,
+  //   } = props;
+  //   const {
+  //     drawMSA,
+  //     toggleNationalLayers,
+  //   } = privateMethods;
 
-    if (scale === 'msa') {
-      drawMSA.call(this);
-      toggleNationalLayers.call(this);
-    }
-  }
+  //   if (scale === 'msa') {
+  //     drawMSA.call(this);
+  //     toggleNationalLayers.call(this);
+  //   }
+  // }
 
   updateHighlight() {
     const {
@@ -450,6 +442,30 @@ class Atlas {
     } = privateProps.get(this);
 
     agencies.classed('search-result', d => searchResult !== null && d.globalId === searchResult.globalId);
+  }
+
+  zoomIn() {
+    const {
+      // onZoom,
+      zoom,
+      mapSVG,
+    } = privateProps.get(this);
+
+    mapSVG.transition()
+      .duration(500)
+      .call(zoom.scaleBy, 2);
+  }
+
+  zoomOut() {
+    const {
+      // onZoom,
+      zoom,
+      mapSVG,
+    } = privateProps.get(this);
+
+    mapSVG.transition()
+      .duration(500)
+      .call(zoom.scaleBy, 0.5);
   }
 
   export() {

@@ -6,6 +6,7 @@ const dataMethods = {
       rawNtd,
       rawStates,
       rawMsaNtd,
+      rawNationalNtd,
     ] = rawData;
 
     const {
@@ -75,11 +76,14 @@ const dataMethods = {
       return cleanRecord;
     });
 
+    const nationalNtd = rawNationalNtd.rows;
+
     console.log('msaNtd', msaNtd);
     const allNationalMapData = getAllNationalMapData({
       msa,
       ntd,
       ta,
+      msaNtd,
     });
 
     const radiusScale = getRadiusScale({ ntd });
@@ -155,8 +159,7 @@ const dataMethods = {
           text: 'Farebox Recovery',
           value: 'recovery',
           summaryType: 'mean',
-          format: '.1',
-          unit: '%',
+          format: '.1%',
         },
         {
           text: 'Miles Between Failures',
@@ -182,7 +185,7 @@ const dataMethods = {
           text: 'Vehicle Revenue Miles per trip',
           value: 'vrm_per_ride',
           summaryType: 'mean',
-          format: '.1f',
+          format: '.2f',
           unit: ' mi per trip',
         },
         {
@@ -279,13 +282,20 @@ const dataMethods = {
 
     ];
 
+    const scaleExtent = {
+      national: [1, 8],
+      msa: [8, 15],
+    };
+
     const data = new Map();
+
 
     data.set('radiusScale', radiusScale);
     data.set('msa', msa);
     data.set('ntd', ntd);
     data.set('ta', ta);
     data.set('msaNtd', msaNtd);
+    data.set('nationalNtd', nationalNtd);
     data.set('statesTopo', rawStates);
     data.set('allNationalMapData', allNationalMapData);
     data.set('yearRange', yearRange);
@@ -295,6 +305,7 @@ const dataMethods = {
     data.set('cachedTractData', new Map());
     data.set('censusFields', censusFields);
     data.set('distanceFilters', distanceFilters);
+    data.set('scaleExtent', scaleExtent);
     console.log('data', data);
 
     return data;
@@ -302,12 +313,20 @@ const dataMethods = {
   getAllNationalMapData({
     msa,
     ntd,
+    msaNtd,
     ta,
   }) {
     let globalId = 1;
     return msa.map((metro) => {
       const metroCopy = Object.assign({}, metro);
       metroCopy.globalId = globalId;
+      metroCopy.ntd = msaNtd
+        .filter(d => d.msaId === metro.msaId)
+        .map((d) => {
+          const ntdCopy = Object.assign({}, d);
+          ntdCopy.cent = metro.cent;
+          return ntdCopy;
+        });
       globalId += 1;
       const agencies = ta.filter(agency => agency.msaId === metro.msaId)
         .map((agency) => {
@@ -338,6 +357,7 @@ const dataMethods = {
       d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd'),
       d3.json('data/states.json'),
       d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd_msa'),
+      d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd_national'),
     ])
       .then((rawData) => {
         console.log('rawData', rawData);

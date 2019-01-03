@@ -4,6 +4,7 @@ import getGetCurrentIndicatorSummaries from '../stateMethods/stateGetCurrentIndi
 import getGetAllAgenciesForCurrentMSA from '../stateMethods/stateGetAllMSAAgencies';
 import getGetCurrentAgenciesData from '../stateMethods/stateGetCurrentAgenciesData';
 import getGetCurrentNationalMapData from '../stateMethods/stateGetCurrentNationalMapData';
+import getGetCurrentNationalData from '../stateMethods/stateGetCurrentNationalData';
 
 const getState = ({ data }) => {
   const state = new State({
@@ -40,6 +41,7 @@ const getState = ({ data }) => {
       getCurrentAgenciesData: getGetCurrentAgenciesData({ data }),
       getCurrentIndicatorSummaries: getGetCurrentIndicatorSummaries({ data }),
       getAllAgenciesForCurrentMSA: getGetAllAgenciesForCurrentMSA({ data }),
+      getCurrentNationalData: getGetCurrentNationalData({ data }),
     },
   );
 

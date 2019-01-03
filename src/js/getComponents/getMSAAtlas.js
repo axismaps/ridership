@@ -10,6 +10,10 @@ const getMSAAtlas = ({ state, data }) => new MSAAtlas({
   agenciesData: state.getCurrentAgenciesData(),
   taFilter: state.get('taFilter'),
   years: state.get('years'),
+  onZoom(newZoom) {
+    state.update({ currentZoom: newZoom });
+  },
+  scaleExtent: data.get('scaleExtent').msa,
 });
 
 export default getMSAAtlas;

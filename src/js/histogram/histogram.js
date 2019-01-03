@@ -24,6 +24,9 @@ const privateMethods = {
       currentIndicator,
       currentScale,
       years,
+      nationalNtd,
+      nationalDataView,
+      nationalData,
     } = props;
 
     const {
@@ -54,6 +57,10 @@ const privateMethods = {
     } = getHistogramData({
       nationalMapData,
       bucketCount,
+      nationalDataView,
+      nationalData,
+      nationalNtd,
+      years,
     });
 
     const { xScale, yScale } = getScales({

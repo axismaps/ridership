@@ -153,7 +153,7 @@ const sparkLineFunctions = {
         const summaryData = agency.summaries.find(s => s.year === year);
         const summary = summaryData ? summaryData.indicatorSummary : null;
         if (agency.globalId === 'all') return format(summary);
-        return `<span class="data-probe__field">${(agency.name || agency.taShort)}:</span> ${format(summary)}`;
+        return `<span class="data-probe__field">${(agency.name || agency.taShort || agency.taName)}:</span> ${format(summary)}`;
       })
         .map(val => `<div class="data-probe__row">${val}</div>`)
         .join('');

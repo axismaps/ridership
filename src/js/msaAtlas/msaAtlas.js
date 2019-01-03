@@ -167,6 +167,20 @@ class MSAAtlas {
     });
   }
 
+  zoomIn() {
+    const {
+      msaAtlas,
+    } = privateProps.get(this);
+    msaAtlas.zoomIn();
+  }
+
+  zoomOut() {
+    const {
+      msaAtlas,
+    } = privateProps.get(this);
+    msaAtlas.zoomOut();
+  }
+
   export() {
     const {
       msaAtlas,
