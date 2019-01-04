@@ -45,7 +45,7 @@ VALID_TIME_KEYS = [
     '  Time_Period_Desc'
 ]
 
-def format_maintenance_data(df, keys, col):
+def format_maintenance_data(df, keys, col, y):
     """Take maintenance data from excel and return as key / value pairs"""
     # Get indicator column and value column based on matching key list
     ind = list(set(df.keys()).intersection(VALID_ID_KEYS))[0]
@@ -56,7 +56,7 @@ def format_maintenance_data(df, keys, col):
         df = df[df[time].str.contains('Annual Total')]
 
     # Convert old TRS ID to new NTD ID and create new df as subselection
-    if ind == 'Trs_Id':
+    if ind == 'Trs_Id' or y == '2013':
         df['NTD ID'] = df[ind].apply(
             lambda x: str(x).zfill(4)[:1] + '0' + str(x).zfill(4)[1:]
         ).astype(int)
@@ -80,13 +80,13 @@ def load_excel(tas):
         for i in files:
             y = re.search(r"^\d{4}", i)
             if y:
-                print i
                 year = y.group(0)
                 h = 1 if i == '2014 Service.xlsx' or i == '2013 Service_0.xlsx' else 0
                 df[year] = format_maintenance_data(
                     pd.read_excel(d['dir'] + i, header=h),
                     d['keys'],
-                    m
+                    m,
+                    year
                 )
         merge = pd.merge(df, tas, how='inner', on='NTD ID').drop(columns='NTD ID')
         failures[m] = merge.groupby('Project ID').sum().stack()
