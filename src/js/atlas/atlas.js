@@ -498,7 +498,7 @@ class Atlas {
       zoom,
       mapSVG,
     } = privateProps.get(this);
-    console.log('zoom bounds');
+
     mapSVG.transition()
       .duration(750)
       .call(zoom.transform, d3.zoomIdentity);

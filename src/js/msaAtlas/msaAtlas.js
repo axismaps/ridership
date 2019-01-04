@@ -30,6 +30,9 @@ const privateMethods = {
       tractGeo,
       scaleExtent,
       currentCensusField,
+      saveCamera: (camera) => {
+        props.camera = camera;
+      },
       logInitialFilters: () => {
         const initialFilters = taLayers.reduce((accumulator, layerId) => {
           accumulator[layerId] = msaAtlas.getFilter(layerId);
@@ -88,13 +91,14 @@ class MSAAtlas {
   }
 
   updateMSA() {
+    const props = privateProps.get(this);
     const {
       msaAtlas,
       loaded,
       tractGeo,
       currentCensusField,
       msa,
-    } = privateProps.get(this);
+    } = props;
     const {
       init,
     } = privateMethods;
@@ -113,6 +117,9 @@ class MSAAtlas {
       msaAtlas,
       tractGeo,
       currentCensusField,
+      saveCamera: (camera) => {
+        props.camera = camera;
+      },
     });
 
     this.updateAgencyLayers();
@@ -183,6 +190,14 @@ class MSAAtlas {
       msaAtlas,
     } = privateProps.get(this);
     msaAtlas.zoomOut();
+  }
+
+  zoomBounds() {
+    const {
+      camera,
+      msaAtlas,
+    } = privateProps.get(this);
+    msaAtlas.easeTo(Object.assign({}, camera, { duration: 750 }));
   }
 
   export() {
