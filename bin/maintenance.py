@@ -53,8 +53,8 @@ def format_maintenance_data(df, keys, col):
 
     if col == 'service':
         time = list(set(df.keys()).intersection(VALID_TIME_KEYS))[0]
-        df = df[df[time] == 'Annual Total']
-    
+        df = df[df[time].str.contains('Annual Total')]
+
     # Convert old TRS ID to new NTD ID and create new df as subselection
     if ind == 'Trs_Id':
         df['NTD ID'] = df[ind].apply(
@@ -66,6 +66,7 @@ def format_maintenance_data(df, keys, col):
 
     # Convert data to numeric, turning all missing values to 0
     m[col] = pd.to_numeric(m[val], errors='coerce').fillna(value=0)
+    m['NTD ID'] = pd.to_numeric(m['NTD ID'], errors='coerce')
     # Group and stack by NTD ID
     group = m[['NTD ID', col]].groupby('NTD ID').sum().stack()
     return group
@@ -79,6 +80,7 @@ def load_excel(tas):
         for i in files:
             y = re.search(r"^\d{4}", i)
             if y:
+                print i
                 year = y.group(0)
                 h = 1 if i == '2014 Service.xlsx' or i == '2013 Service_0.xlsx' else 0
                 df[year] = format_maintenance_data(
