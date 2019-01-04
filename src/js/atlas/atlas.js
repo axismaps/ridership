@@ -493,6 +493,17 @@ class Atlas {
       .call(zoom.scaleBy, 0.5);
   }
 
+  zoomBounds() {
+    const {
+      zoom,
+      mapSVG,
+    } = privateProps.get(this);
+    console.log('zoom bounds');
+    mapSVG.transition()
+      .duration(750)
+      .call(zoom.transform, d3.zoomIdentity);
+  }
+
   setZoom() {
     const {
       onZoom,
