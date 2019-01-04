@@ -130,20 +130,30 @@
 }
 
 $zoom--border-radius: 5px;
+$zoom--size: 30px;
 $zoom--border: 1px solid #cccccc;
 
-.atlas__zoom-container {
+.atlas__nav-container {
   position: absolute;
   left: 20px;
   top: 20px + $panel__top-row--height;
-  width: 30px;
+}
+
+.atlas__bounds-button-outer,
+.atlas__zoom-container {
+  width: $zoom--size;
   border: $zoom--border;
   border-radius: $zoom--border-radius;
   font-size: 12px;
 }
 
+.atlas__bounds-button-outer {
+  margin-bottom: 5px;
+}
+
+.atlas__bounds-button,
 .atlas__zoom-button {
-  height: 30px;
+  height: $zoom--size;
   width: 100%;
   display: flex;
   align-items: center;
@@ -154,12 +164,17 @@ $zoom--border: 1px solid #cccccc;
   cursor: pointer;
 }
 
+.atlas__bounds-button {
+  border-radius: $zoom--border-radius;
+}
+
 .atlas__zoom-button--disabled {
   cursor: default;
   pointer-events: none;
   color: lightgrey;
 }
 
+.atlas__bounds-button:hover,
 .atlas__zoom-button:hover {
   background: #fafafa;
 }
