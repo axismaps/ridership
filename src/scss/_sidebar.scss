@@ -255,13 +255,13 @@ $sidebar-content--margin-top: 20px;
 path.pcp-line {
   fill: none;
   stroke: 'black';
-  stroke-width: .5;
+  stroke-width: 1;
   cursor: pointer;
 }
 
 path.pcp-line:hover, path.pcp-line.highlight, path.pcp-line.search-result {
   stroke-opacity: 1 !important;
-  stroke-width: 2;
+  stroke-width: 3;
 }
 
 .sidebar__compare-row {
