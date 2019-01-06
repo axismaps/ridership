@@ -13,7 +13,6 @@
   height: $panel__top-row--height;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -48,13 +47,21 @@
 .atlas__census-dropdown-button,
 .atlas__indicator-dropdown-button {
   margin-left: 10px;
-  color: $header__title-row--background;
-  font-weight: 600;
+}
+
+.atlas__census-dropdown-button:hover,
+.atlas__indicator-dropdown-button:hover,
+.atlas__year-slider-button:hover,
+.atlas__compare-dropdown-button:hover,
+.atlas__search-dropdown-button:hover,
+.atlas__distance-dropdown-button:hover {
+  color: $main-blue;
 }
 
 .atlas__year-slider-button,
 .atlas__compare-dropdown-button,
-.atlas__search-dropdown-button {
+.atlas__search-dropdown-button,
+.atlas__distance-dropdown-button {
   margin-left: 50px;
 }
 

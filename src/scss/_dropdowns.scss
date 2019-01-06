@@ -45,15 +45,21 @@
   color: #666;
 }
 
+.msa-dropdown__content-row:hover,
 .indicator-dropdown__content-row:hover,
-.indicator-dropdown__content-row--highlighted,
+
 .compare-dropdown__content-row:hover,
-.compare-dropdown__content-row--highlighted,
 .search-dropdown__content-row:hover,
 .compare .atlas__compare-dropdown-button,
 .search-result .atlas__search-dropdown-button {
   color: $header__title-row--background;
+}
+
+.msa-dropdown__content-row--highlighted,
+.indicator-dropdown__content-row--highlighted,
+.compare-dropdown__content-row--highlighted {
   font-weight: 600;
+  color: $header__title-row--background;
 }
 
 .msa-dropdown__content-container {
