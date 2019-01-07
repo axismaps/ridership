@@ -118,7 +118,7 @@ const msaAtlasFunctions = {
       layout: {},
       paint: {
         'fill-color': ['get', `${currentCensusField.value}-color`],
-        // 'fill-opacity': 0.5,
+        'fill-opacity': 0.5,
       },
     };
     msaAtlas.addLayer(tractLayer, 'building');
