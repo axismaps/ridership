@@ -90,8 +90,9 @@ def load_excel(tas):
                 )
         merge = pd.merge(df, tas, how='inner', on='NTD ID').drop(columns='NTD ID')
         failures[m] = merge.groupby('Project ID').sum().stack()
+        failures[m] = failures[m].rename(m)
 
-    return failures['service'] / failures['maintenance']
+    return failures
 
 def load_maintenance():
     """Load maintenance data, join to TAs and return for combining with other NTD data"""
@@ -103,9 +104,7 @@ def load_maintenance():
     ta_clean = clean_ta(TA, TA_DROP)
 
     # Send TAs to be combined with maintenance data then export to CSV
-    years = load_excel(ta_clean)
-    years.to_csv('data/output/maintenance.csv')
-    return years
+    return load_excel(ta_clean)
 
 if __name__ == "__main__":
     print load_maintenance()

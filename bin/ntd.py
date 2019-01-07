@@ -84,7 +84,7 @@ def ntd_merge(dframe, d_name):
     s_t = group.sum().stack()
     return s_t.rename(d_name)
 
-stacks = {}
+stacks = load_maintenance()
 
 for name, df in datasets.items():
     n = name.replace(' ', '_').lower()
@@ -94,6 +94,7 @@ for name, df in datasets.items():
 
 print'Created stacks for ' + str(stacks.keys())
 
+#%%
 # Create MSA stacks
 msa_stacks = {}
 national_values = pd.DataFrame(pd.Series(list(range(2006, 2018)), name='year'))
@@ -113,6 +114,7 @@ for i in stacks:
 
 national_values.set_index('year', inplace=True)
 
+#%%
 # Calculate derived values
 # Average fares
 stacks['avg_fare'] = pd.Series(stacks['fares'] / stacks['upt'], name='avg_fare')
@@ -167,9 +169,14 @@ msa_stacks['trip_length'] = pd.Series(
 stacks['trip_length'].drop(labels=other_ta, inplace=True)
 
 # Miles between failures
-stacks['failures'] = pd.Series(stacks['pmt'] / load_maintenance(), name='failures')
-msa_stacks['failures'] = pd.Series(name='failures')
-stacks['failures'].drop(labels=other_ta, inplace=True)
+stacks['failures'] = stacks['service'] / stacks['maintenance']
+national_values['failures'] = national_values['service'] / national_values['maintenance']
+stacks['failures'] = stacks['failures'].rename('failures')
+national_values['failures'] = national_values['failures'].rename('failures')
+msa_stacks['failures'] = pd.Series(
+    msa_stacks['service']['service'] / msa_stacks['maintenance']['maintenance'],
+    name='failures'
+)
 
 # Ridership per capita
 stacks['capita'] = pd.Series(stacks['upt'] / msa_population(), name='capita')
@@ -187,11 +194,18 @@ del stacks['vrh']
 del stacks['drm']
 del stacks['voms']
 del stacks['pmt']
+del stacks['service']
+del stacks['maintenance']
 del msa_stacks['vrh']
 del msa_stacks['drm']
 del msa_stacks['voms']
 del msa_stacks['pmt']
-national_values.drop(columns=['vrh', 'drm', 'voms', 'pmt'], inplace=True)
+del msa_stacks['service']
+del msa_stacks['maintenance']
+national_values.drop(
+    columns=['vrh', 'drm', 'voms', 'pmt', 'service', 'maintenance'],
+    inplace=True
+)
 
 print 'Calculated values for ' + str(stacks.keys())
 
