@@ -35,14 +35,12 @@ $sidebar-content--margin-top: 20px;
 
 .sidebar__top-button:hover {
   color: $main-blue;
-  font-weight: 600;
 }
 
 .sidebar__top-button--active,
  {
   color: $main-blue;
   font-weight: 600;
-  border-bottom: 4px solid $main-blue;
   height: calc(100% - 4px);
 
   .sidebar__top-button-text, i {
@@ -75,7 +73,7 @@ $sidebar-content--margin-top: 20px;
 
 .sidebar__sparkline-legend-row {
   margin-bottom: 8px;
-  margin-left: 10px;
+  margin-left: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -96,7 +94,7 @@ $sidebar-content--margin-top: 20px;
 }
 
 .sidebar__sparkline-legend-swatch-container {
-  margin-right: 30px;
+  margin-right: 50px;
 }
 
 .sidebar__sparkline-axis-row {
@@ -214,7 +212,7 @@ $sidebar-content--margin-top: 20px;
 }
 
 .sidebar__pcp-header p {
-  width: 220px;
+  width: 250px;
   text-align: center;
   font-size: 12px;
   margin: 0;
@@ -257,13 +255,13 @@ $sidebar-content--margin-top: 20px;
 path.pcp-line {
   fill: none;
   stroke: 'black';
-  stroke-width: .5;
+  stroke-width: 1;
   cursor: pointer;
 }
 
 path.pcp-line:hover, path.pcp-line.highlight, path.pcp-line.search-result {
   stroke-opacity: 1 !important;
-  stroke-width: 2;
+  stroke-width: 3;
 }
 
 .sidebar__compare-row {

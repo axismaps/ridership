@@ -5,14 +5,19 @@ const privateMethods = {
     const {
       zoomInButton,
       zoomOutButton,
+      zoomBoundsButton,
       onZoomIn,
       onZoomOut,
+      onZoomBounds,
     } = privateProps.get(this);
     zoomInButton
       .on('click', onZoomIn);
 
     zoomOutButton
       .on('click', onZoomOut);
+
+    zoomBoundsButton
+      .on('click', onZoomBounds);
   },
   updateButtonStatus() {
     const {

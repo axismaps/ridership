@@ -8,6 +8,7 @@ const msaAtlasFunctions = {
     updateAgencyLayers,
     scaleExtent,
     onZoom,
+    saveCamera,
   }) {
     const {
       initSite,
@@ -26,7 +27,7 @@ const msaAtlasFunctions = {
       })
       .on('load', () => {
         initSite({
-
+          saveCamera,
           msaAtlas,
           msa,
           tractGeo,
@@ -45,6 +46,7 @@ const msaAtlasFunctions = {
     msa,
     tractGeo,
     currentCensusField,
+    saveCamera,
   }) {
     const {
       jumpToMSA,
@@ -54,6 +56,7 @@ const msaAtlasFunctions = {
     jumpToMSA({
       msaAtlas,
       msa,
+      saveCamera,
     });
     drawTracts({
       msaAtlas,
@@ -64,6 +67,7 @@ const msaAtlasFunctions = {
   jumpToMSA({
     msaAtlas,
     msa,
+    saveCamera,
   }) {
     const {
       maxX,
@@ -75,6 +79,7 @@ const msaAtlasFunctions = {
     const ne = new mapboxgl.LngLat(maxX, maxY);
     const bounds = new mapboxgl.LngLatBounds(sw, ne);
     const camera = msaAtlas.cameraForBounds(bounds);
+    saveCamera(camera);
     msaAtlas.jumpTo(camera);
   },
   drawTracts({

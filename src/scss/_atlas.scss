@@ -13,7 +13,6 @@
   height: $panel__top-row--height;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -48,13 +47,21 @@
 .atlas__census-dropdown-button,
 .atlas__indicator-dropdown-button {
   margin-left: 10px;
-  color: $header__title-row--background;
-  font-weight: 600;
+}
+
+.atlas__census-dropdown-button:hover,
+.atlas__indicator-dropdown-button:hover,
+.atlas__year-slider-button:hover,
+.atlas__compare-dropdown-button:hover,
+.atlas__search-dropdown-button:hover,
+.atlas__distance-dropdown-button:hover {
+  color: $main-blue;
 }
 
 .atlas__year-slider-button,
 .atlas__compare-dropdown-button,
-.atlas__search-dropdown-button {
+.atlas__search-dropdown-button,
+.atlas__distance-dropdown-button {
   margin-left: 50px;
 }
 
@@ -130,20 +137,30 @@
 }
 
 $zoom--border-radius: 5px;
+$zoom--size: 30px;
 $zoom--border: 1px solid #cccccc;
 
-.atlas__zoom-container {
+.atlas__nav-container {
   position: absolute;
   left: 20px;
   top: 20px + $panel__top-row--height;
-  width: 30px;
+}
+
+.atlas__bounds-button-outer,
+.atlas__zoom-container {
+  width: $zoom--size;
   border: $zoom--border;
   border-radius: $zoom--border-radius;
   font-size: 12px;
 }
 
+.atlas__bounds-button-outer {
+  margin-bottom: 5px;
+}
+
+.atlas__bounds-button,
 .atlas__zoom-button {
-  height: 30px;
+  height: $zoom--size;
   width: 100%;
   display: flex;
   align-items: center;
@@ -154,12 +171,17 @@ $zoom--border: 1px solid #cccccc;
   cursor: pointer;
 }
 
+.atlas__bounds-button {
+  border-radius: $zoom--border-radius;
+}
+
 .atlas__zoom-button--disabled {
   cursor: default;
   pointer-events: none;
   color: lightgrey;
 }
 
+.atlas__bounds-button:hover,
 .atlas__zoom-button:hover {
   background: #fafafa;
 }
