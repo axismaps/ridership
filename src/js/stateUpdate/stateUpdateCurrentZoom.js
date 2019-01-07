@@ -3,6 +3,7 @@ const getStateUpdateCurrentZoom = ({ components }) => function updateCurrentZoom
     zoomControls,
   } = components;
   const currentZoom = this.get('currentZoom');
+
   zoomControls
     .config({
       currentZoom,

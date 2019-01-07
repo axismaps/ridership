@@ -40,7 +40,12 @@ const getZoomControls = ({ state, data, components }) => new ZoomControls({
       msaAtlas.zoomBounds();
     }
   },
-  scaleExtent: data.get('scaleExtent'),
+  // scaleExtent: {
+  //   national: data.get('nationalScaleExtent'),
+  //   msa: state.get('msaScaleExtent'),
+  // },
+  nationalScaleExtent: data.get('nationalScaleExtent'),
+  msaScaleExtent: state.get('msaScaleExtent'),
   currentZoom: state.get('currentZoom'),
   currentScale: state.get('scale'),
 });

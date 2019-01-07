@@ -13,6 +13,7 @@ import getStateUpdateNationalDataView from './stateUpdateNationalDataView';
 import getStateUpdateTAFilter from './stateUpdateTAFilter';
 import getStateUpdateScreenSize from './stateUpdateScreenSize';
 import getStateUpdateCurrentZoom from './stateUpdateCurrentZoom';
+import getStateUpdateMSAScaleExtent from './stateUpdateMSAScaleExtent';
 
 const initStateUpdateListeners = ({ components, data }) => {
   const { state } = components;
@@ -33,6 +34,7 @@ const initStateUpdateListeners = ({ components, data }) => {
     taFilter: getStateUpdateTAFilter({ components, data }),
     screenSize: getStateUpdateScreenSize({ components }),
     currentZoom: getStateUpdateCurrentZoom({ components }),
+    msaScaleExtent: getStateUpdateMSAScaleExtent({ components }),
   });
 };
 

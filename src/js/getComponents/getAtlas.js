@@ -40,7 +40,7 @@ const getAtlas = ({ data, state }) => new Atlas({
   onZoom(newZoom) {
     state.update({ currentZoom: newZoom });
   },
-  scaleExtent: data.get('scaleExtent').national,
+  scaleExtent: data.get('nationalScaleExtent'),
 });
 
 export default getAtlas;

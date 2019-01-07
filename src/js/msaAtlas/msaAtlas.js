@@ -15,6 +15,7 @@ const privateMethods = {
       currentCensusField,
       scaleExtent,
       onZoom,
+      setMinScale,
     } = props;
 
     if (scale === 'national') return;
@@ -33,6 +34,8 @@ const privateMethods = {
       saveCamera: (camera) => {
         props.camera = camera;
       },
+      setMinScale,
+      getCurrentCamera: () => props.camera,
       logInitialFilters: () => {
         const initialFilters = taLayers.reduce((accumulator, layerId) => {
           accumulator[layerId] = msaAtlas.getFilter(layerId);
@@ -98,6 +101,7 @@ class MSAAtlas {
       tractGeo,
       currentCensusField,
       msa,
+      setMinScale,
     } = props;
     const {
       init,
@@ -117,6 +121,7 @@ class MSAAtlas {
       msaAtlas,
       tractGeo,
       currentCensusField,
+      setMinScale,
       saveCamera: (camera) => {
         props.camera = camera;
       },
@@ -198,6 +203,15 @@ class MSAAtlas {
       msaAtlas,
     } = privateProps.get(this);
     msaAtlas.easeTo(Object.assign({}, camera, { duration: 750 }));
+  }
+
+  updateExtents() {
+    const {
+      msaAtlas,
+      scaleExtent,
+    } = privateProps.get(this);
+    msaAtlas.setMinZoom(scaleExtent[0]);
+    msaAtlas.setMaxZoom(scaleExtent[1]);
   }
 
   export() {

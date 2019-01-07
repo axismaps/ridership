@@ -282,10 +282,7 @@ const dataMethods = {
 
     ];
 
-    const scaleExtent = {
-      national: [1, 8],
-      msa: [6, 18],
-    };
+    const nationalScaleExtent = [1, 8];
 
     const data = new Map();
 
@@ -305,7 +302,7 @@ const dataMethods = {
     data.set('cachedTractData', new Map());
     data.set('censusFields', censusFields);
     data.set('distanceFilters', distanceFilters);
-    data.set('scaleExtent', scaleExtent);
+    data.set('nationalScaleExtent', nationalScaleExtent);
     console.log('data', data);
 
     return data;

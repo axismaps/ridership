@@ -13,7 +13,12 @@ const getMSAAtlas = ({ state, data }) => new MSAAtlas({
   onZoom(newZoom) {
     state.update({ currentZoom: newZoom });
   },
-  scaleExtent: data.get('scaleExtent').msa,
+  setMinScale(newMinScale) {
+    const currentScaleExtent = state.get('msaScaleExtent');
+    const newExtent = [newMinScale, currentScaleExtent[1]];
+    state.update({ msaScaleExtent: newExtent });
+  },
+  // scaleExtent: data.get('scaleExtent').msa,
 });
 
 export default getMSAAtlas;
