@@ -10,7 +10,7 @@ const msaAtlasFunctions = {
     onZoom,
     saveCamera,
     setMinScale,
-    getCurrentCamera,
+    // getCurrentCamera,
   }) {
     const {
       initSite,
@@ -28,9 +28,9 @@ const msaAtlasFunctions = {
         onZoom(msaAtlas.getZoom());
       })
       .on('load', () => {
+        console.log('layers', msaAtlas.getStyle());
         initSite({
           saveCamera,
-
           msaAtlas,
           msa,
           tractGeo,
