@@ -19,7 +19,6 @@ $sidebar-content--margin-top: 20px;
 .sidebar__content {
   padding-left: 20px;
   padding-right: 20px;
-  // padding-top: 20px;
 }
 
 .sidebar__top-button-outer {
@@ -72,11 +71,11 @@ $sidebar-content--margin-top: 20px;
 }
 
 .sidebar__sparkline-legend-row {
-  margin-bottom: 8px;
-  margin-left: 20px;
+  margin: 0px 40px 0px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #ccc;
 }
 
 .sidebar__sparkline-legend-row-left {
@@ -85,7 +84,7 @@ $sidebar-content--margin-top: 20px;
 }
 
 .sidebar__sparkline-legend-text {
-  margin-left: 10px;
+  margin: 8px 0px 8px 10px;
   max-width: 200px;
 }
 
@@ -94,7 +93,7 @@ $sidebar-content--margin-top: 20px;
 }
 
 .sidebar__sparkline-legend-swatch-container {
-  margin-right: 50px;
+  margin-right: 10px;
 }
 
 .sidebar__sparkline-axis-row {
