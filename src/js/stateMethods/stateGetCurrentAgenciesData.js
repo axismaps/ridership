@@ -1,3 +1,8 @@
+/**
+ * Data for PCP
+ * @orivate
+ */
+
 const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData() {
   const nationalMapData = data.get('allNationalMapData');
   const indicatorSummaries = this.getCurrentIndicatorSummaries();

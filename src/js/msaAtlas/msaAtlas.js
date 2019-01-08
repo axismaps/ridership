@@ -11,7 +11,7 @@ const privateMethods = {
       msaMapContainer,
       msa,
       tractGeo,
-      taLayers,
+      // taLayers,
       currentCensusField,
       scaleExtent,
       onZoom,
@@ -36,12 +36,18 @@ const privateMethods = {
       },
       setMinScale,
       getCurrentCamera: () => props.camera,
-      logInitialFilters: () => {
-        const initialFilters = taLayers.reduce((accumulator, layerId) => {
-          accumulator[layerId] = msaAtlas.getFilter(layerId);
-          return accumulator;
-        }, {});
+      logInitialFilters: (style) => {
+        const taLayers = style.layers
+          .filter(d => d.id.includes('transit'))
+          .map(d => d.id);
+        const initialFilters = taLayers
+          .reduce((accumulator, layerId) => {
+            accumulator[layerId] = msaAtlas.getFilter(layerId);
+            return accumulator;
+          }, {});
+        console.log('initialFilters??', initialFilters);
         props.initialFilters = initialFilters;
+        props.taLayers = taLayers;
       },
       updateAgencyLayers: () => {
         this.updateAgencyLayers();
@@ -60,13 +66,13 @@ class MSAAtlas {
 
     privateProps.set(this, {
       loaded: false,
-      taLayers: [
-        'rail case',
-        'rail top',
-        'ferry',
-        'bus high freq',
-        'bus',
-      ],
+      // taLayers: [
+      //   'rail case',
+      //   'rail top',
+      //   'ferry',
+      //   'bus high freq',
+      //   'bus',
+      // ],
     });
 
     this.config(config);
