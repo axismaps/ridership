@@ -4,7 +4,32 @@ import re
 import pandas as pd
 from meta import clean_ta
 
-DIR = 'data/ntd/maintenance/'
+DIRS = {
+    'maintenance': {
+        'dir': 'data/ntd/maintenance/',
+        'keys': [
+            'Major Failures',
+            'Major_Failure_Num',
+            'mechanical_failures',
+            'Major mechanical system failures',
+            'Mechanical_Failures',
+            '  mechanical_failures'
+        ]
+    },
+    'service': {
+        'dir': 'data/ntd/service/',
+        'keys': [
+            'Actual Vehicle Miles',
+            'Total actual miles',
+            'Actual Vehicles/Passenger Car Miles',
+            'Actual Vehicles/ Passenger Car Miles',
+            'Pass_Car_Miles_Num',
+            'Vehicle_Or_Train_Miles',
+            'vehicle_Or_Train_Miles'
+        ]
+    }
+}
+
 # Various TA ID's used by the different files
 VALID_ID_KEYS = [
     'Trs_Id',
@@ -14,24 +39,24 @@ VALID_ID_KEYS = [
     '5 Digit NTDID'
 ]
 
-# Different value column names in each file
-VALID_VAL_KEYS = [
-    'Major Failures',
-    'Major_Failure_Num',
-    'mechanical_failures',
-    'Major mechanical system failures',
-    'Mechanical_Failures',
-    '  mechanical_failures'
+VALID_TIME_KEYS = [
+    'Time Period',
+    'Time_Period_Desc',
+    '  Time_Period_Desc'
 ]
 
-def format_data(df):
+def format_maintenance_data(df, keys, col, y):
     """Take maintenance data from excel and return as key / value pairs"""
     # Get indicator column and value column based on matching key list
     ind = list(set(df.keys()).intersection(VALID_ID_KEYS))[0]
-    val = list(set(df.keys()).intersection(VALID_VAL_KEYS))[0]
+    val = list(set(df.keys()).intersection(keys))[0]
+
+    if col == 'service':
+        time = list(set(df.keys()).intersection(VALID_TIME_KEYS))[0]
+        df = df[df[time].str.contains('Annual Total')]
 
     # Convert old TRS ID to new NTD ID and create new df as subselection
-    if ind == 'Trs_Id':
+    if ind == 'Trs_Id' or y == '2013':
         df['NTD ID'] = df[ind].apply(
             lambda x: str(x).zfill(4)[:1] + '0' + str(x).zfill(4)[1:]
         ).astype(int)
@@ -40,23 +65,34 @@ def format_data(df):
         m = df[[ind, val]].rename(index=str, columns={ind: 'NTD ID'})
 
     # Convert data to numeric, turning all missing values to 0
-    m['maintenance'] = pd.to_numeric(m[val], errors='coerce').fillna(value=0)
+    m[col] = pd.to_numeric(m[val], errors='coerce').fillna(value=0)
+    m['NTD ID'] = pd.to_numeric(m['NTD ID'], errors='coerce')
     # Group and stack by NTD ID
-    group = m[['NTD ID', 'maintenance']].groupby('NTD ID').sum().stack()
+    group = m[['NTD ID', col]].groupby('NTD ID').sum().stack()
     return group
 
 def load_excel(tas):
     """Creates maintenance data by looping through directory and formatting excel data"""
-    maintenance = pd.DataFrame()
-    files = os.listdir(DIR)
-    for i in files:
-        year = re.search(r"^\d{4}", i).group(0)
-        maintenance[year] = format_data(pd.read_excel(DIR + i))
+    failures = {}
+    for m, d in DIRS.iteritems():
+        df = pd.DataFrame()
+        files = os.listdir(d['dir'])
+        for i in files:
+            y = re.search(r"^\d{4}", i)
+            if y:
+                year = y.group(0)
+                h = 1 if i == '2014 Service.xlsx' or i == '2013 Service_0.xlsx' else 0
+                df[year] = format_maintenance_data(
+                    pd.read_excel(d['dir'] + i, header=h),
+                    d['keys'],
+                    m,
+                    year
+                )
+        merge = pd.merge(df, tas, how='inner', on='NTD ID').drop(columns='NTD ID')
+        failures[m] = merge.groupby('Project ID').sum().stack()
+        failures[m] = failures[m].rename(m)
 
-    # Merge with TA data and stack / sum by project ID
-    merge = pd.merge(maintenance, tas, how='inner', on='NTD ID').drop(columns='NTD ID')
-    stack = merge.groupby('Project ID').sum().stack()
-    return stack
+    return failures
 
 def load_maintenance():
     """Load maintenance data, join to TAs and return for combining with other NTD data"""
@@ -68,9 +104,7 @@ def load_maintenance():
     ta_clean = clean_ta(TA, TA_DROP)
 
     # Send TAs to be combined with maintenance data then export to CSV
-    years = load_excel(ta_clean)
-    years.to_csv('data/output/maintenance.csv')
-    return years
+    return load_excel(ta_clean)
 
 if __name__ == "__main__":
     print load_maintenance()

@@ -181,7 +181,8 @@ $sidebar-content--margin-top: 20px;
 }
 
 .sidebar .sparkline-axis,
-.sidebar .sparkline-axis path.domain {
+.sidebar .sparkline-axis path.domain,
+.sidebar .sparkline-y-label {
   display: none;
 }
 
@@ -194,7 +195,8 @@ $sidebar-content--margin-top: 20px;
 }
 
 .sidebar__sparkline-row.expanded .sparkline-background,
-.expanded .sparkline-axis {
+.expanded .sparkline-axis,
+.expanded .sparkline-y-label {
   display: block !important;
   opacity: 1 !important;
 }

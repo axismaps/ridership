@@ -73,6 +73,20 @@ const sparkLineFunctions = {
       .attr('class', 'sparkline-axis')
       .call(axis);
 
+    if (indicatorData.unit) {
+      svg.append('text')
+        .attr('class', 'sparkline-y-label')
+        .text(indicatorData.unit)
+        .attr('x', 20)
+        .attr('y', yScale.range()[0] / 2 + margin)
+        .style('text-anchor', 'middle')
+        .style('dominant-baseline', 'middle')
+        .attr('transform-origin', `20 ${yScale.range()[0] / 2 + margin}`)
+        .attr('transform', 'rotate(-90)')
+        .style('font-size', '12px')
+        .style('fill', '#666');
+    }
+
     return axis;
   },
   drawLine({
@@ -223,6 +237,10 @@ const sparkLineFunctions = {
 
     svg.select('g.sparkline-axis')
       .call(axis);
+
+    svg.select('.sparkline-y-label')
+      .attr('transform-origin', `20 ${yScale.range()[0] / 2 + margin}`)
+      .attr('y', yScale.range()[0] / 2 + margin);
   },
 };
 
