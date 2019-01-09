@@ -12,6 +12,7 @@
     "data:census": "python bin/acs.py",
     "data:tiles": "./bin/tiles.sh",
     "data:tracts": "./bin/tracts.sh && python bin/buffer.py",
+    "deploy": "./bin/deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
