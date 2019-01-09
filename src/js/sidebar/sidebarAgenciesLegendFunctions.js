@@ -15,6 +15,7 @@ const sidebarLegendFunctions = {
     // const legendContainer = d3.select('.sidebar__agency-legend');
     // .append('div')
     // .attr('class', 'sidebar__sparkline-legend-container');
+    console.log('currentAgencies', currentAgencies);
 
     const rows = legendContainer
       .selectAll('.sidebar__sparkline-legend-row')

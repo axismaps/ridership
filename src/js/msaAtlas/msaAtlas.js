@@ -66,13 +66,7 @@ class MSAAtlas {
 
     privateProps.set(this, {
       loaded: false,
-      // taLayers: [
-      //   'rail case',
-      //   'rail top',
-      //   'ferry',
-      //   'bus high freq',
-      //   'bus',
-      // ],
+      taLayers: null,
     });
 
     this.config(config);

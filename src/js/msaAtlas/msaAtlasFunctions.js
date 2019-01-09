@@ -28,7 +28,6 @@ const msaAtlasFunctions = {
         onZoom(msaAtlas.getZoom());
       })
       .on('load', () => {
-        console.log('layers', msaAtlas.getStyle());
         initSite({
           saveCamera,
           msaAtlas,
