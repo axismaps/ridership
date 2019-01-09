@@ -7,6 +7,7 @@ const dataMethods = {
       rawStates,
       rawMsaNtd,
       rawNationalNtd,
+      rawInvisibleTa,
     ] = rawData;
 
     const {
@@ -14,6 +15,8 @@ const dataMethods = {
       getRadiusScale,
       // getIndicatorSummaries,
     } = dataMethods;
+
+    console.log('rawInvisibleTa', rawInvisibleTa);
 
     const msa = rawMsa.rows.map((record) => {
       const {
@@ -41,7 +44,7 @@ const dataMethods = {
     });
     console.log('msa', msa);
 
-    const ta = rawTa.rows.map((record) => {
+    const cleanTa = (record) => {
       const {
         msaid,
         taid,
@@ -59,6 +62,14 @@ const dataMethods = {
         taShort: tashort,
         color: msa_color,
       };
+    };
+
+    const invisibleTa = rawInvisibleTa.rows.map(record => cleanTa(record));
+
+    const ta = rawTa.rows.map((record) => {
+      const cleanRecord = cleanTa(record);
+      cleanRecord.subTa = invisibleTa.filter(d => d.taId === cleanRecord.taId);
+      return cleanRecord;
     });
     console.log('ta', ta);
 
@@ -282,10 +293,7 @@ const dataMethods = {
 
     ];
 
-    const scaleExtent = {
-      national: [1, 8],
-      msa: [6, 18],
-    };
+    const nationalScaleExtent = [1, 8];
 
     const data = new Map();
 
@@ -305,7 +313,7 @@ const dataMethods = {
     data.set('cachedTractData', new Map());
     data.set('censusFields', censusFields);
     data.set('distanceFilters', distanceFilters);
-    data.set('scaleExtent', scaleExtent);
+    data.set('nationalScaleExtent', nationalScaleExtent);
     console.log('data', data);
 
     return data;
@@ -358,6 +366,7 @@ const dataMethods = {
       d3.json('data/states.json'),
       d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd_msa'),
       d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd_national'),
+      d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20ta%20WHERE%20display%20%3D%20false'),
     ])
       .then((rawData) => {
         console.log('rawData', rawData);

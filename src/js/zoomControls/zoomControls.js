@@ -23,13 +23,17 @@ const privateMethods = {
     const {
       zoomInButton,
       zoomOutButton,
-      scaleExtent,
+      // scaleExtent,
+      msaScaleExtent,
+      nationalScaleExtent,
       currentZoom,
       currentScale,
     } = privateProps.get(this);
 
     const threshold = 0.0000001;
-    const currentScaleExtent = scaleExtent[currentScale];
+    const currentScaleExtent = currentScale === 'national'
+      ? nationalScaleExtent
+      : msaScaleExtent;
     zoomInButton
       .classed('atlas__zoom-button--disabled', () => currentScaleExtent[1] - currentZoom <= threshold);
 

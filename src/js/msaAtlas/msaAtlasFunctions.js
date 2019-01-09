@@ -6,9 +6,11 @@ const msaAtlasFunctions = {
     currentCensusField,
     logInitialFilters,
     updateAgencyLayers,
-    scaleExtent,
+    // scaleExtent,
     onZoom,
     saveCamera,
+    setMinScale,
+    // getCurrentCamera,
   }) {
     const {
       initSite,
@@ -18,8 +20,8 @@ const msaAtlasFunctions = {
       style: 'mapbox://styles/axismaps/cjnvwmhic2ark2sp7fmjuwhf7',
       center: [-71.038412, 42.355046],
       zoom: 10.5,
-      minZoom: scaleExtent[0],
-      maxZoom: scaleExtent[1],
+      // minZoom: scaleExtent[0],
+      // maxZoom: scaleExtent[1],
       preserveDrawingBuffer: true,
     })
       .on('zoom', () => {
@@ -32,7 +34,10 @@ const msaAtlasFunctions = {
           msa,
           tractGeo,
           currentCensusField,
+          setMinScale,
         });
+        // const camera = getCurrentCamera();
+        // setMinScale(camera.zoom);
         logInitialFilters(msaAtlas.getStyle());
         msaMapContainer
           .classed('atlas__msa-map-container--loaded', true);
@@ -47,6 +52,7 @@ const msaAtlasFunctions = {
     tractGeo,
     currentCensusField,
     saveCamera,
+    setMinScale,
   }) {
     const {
       jumpToMSA,
@@ -57,6 +63,8 @@ const msaAtlasFunctions = {
       msaAtlas,
       msa,
       saveCamera,
+
+      setMinScale,
     });
     drawTracts({
       msaAtlas,
@@ -68,6 +76,7 @@ const msaAtlasFunctions = {
     msaAtlas,
     msa,
     saveCamera,
+    setMinScale,
   }) {
     const {
       maxX,
@@ -80,7 +89,10 @@ const msaAtlasFunctions = {
     const bounds = new mapboxgl.LngLatBounds(sw, ne);
     const camera = msaAtlas.cameraForBounds(bounds);
     saveCamera(camera);
+    setMinScale(camera.zoom);
+    msaAtlas.setMaxBounds(null);
     msaAtlas.jumpTo(camera);
+    msaAtlas.setMaxBounds(msaAtlas.getBounds());
   },
   drawTracts({
     msaAtlas,
@@ -105,7 +117,7 @@ const msaAtlasFunctions = {
       layout: {},
       paint: {
         'fill-color': ['get', `${currentCensusField.value}-color`],
-        // 'fill-opacity': 0.5,
+        'fill-opacity': 0.5,
       },
     };
     msaAtlas.addLayer(tractLayer, 'building');

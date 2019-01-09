@@ -11,10 +11,11 @@ const privateMethods = {
       msaMapContainer,
       msa,
       tractGeo,
-      taLayers,
+      // taLayers,
       currentCensusField,
       scaleExtent,
       onZoom,
+      setMinScale,
     } = props;
 
     if (scale === 'national') return;
@@ -33,12 +34,20 @@ const privateMethods = {
       saveCamera: (camera) => {
         props.camera = camera;
       },
-      logInitialFilters: () => {
-        const initialFilters = taLayers.reduce((accumulator, layerId) => {
-          accumulator[layerId] = msaAtlas.getFilter(layerId);
-          return accumulator;
-        }, {});
+      setMinScale,
+      getCurrentCamera: () => props.camera,
+      logInitialFilters: (style) => {
+        const taLayers = style.layers
+          .filter(d => d.id.includes('transit'))
+          .map(d => d.id);
+        const initialFilters = taLayers
+          .reduce((accumulator, layerId) => {
+            accumulator[layerId] = msaAtlas.getFilter(layerId);
+            return accumulator;
+          }, {});
+        console.log('initialFilters??', initialFilters);
         props.initialFilters = initialFilters;
+        props.taLayers = taLayers;
       },
       updateAgencyLayers: () => {
         this.updateAgencyLayers();
@@ -57,13 +66,7 @@ class MSAAtlas {
 
     privateProps.set(this, {
       loaded: false,
-      taLayers: [
-        'rail case',
-        'rail top',
-        'ferry',
-        'bus high freq',
-        'bus',
-      ],
+      taLayers: null,
     });
 
     this.config(config);
@@ -98,6 +101,7 @@ class MSAAtlas {
       tractGeo,
       currentCensusField,
       msa,
+      setMinScale,
     } = props;
     const {
       init,
@@ -117,6 +121,7 @@ class MSAAtlas {
       msaAtlas,
       tractGeo,
       currentCensusField,
+      setMinScale,
       saveCamera: (camera) => {
         props.camera = camera;
       },
@@ -198,6 +203,15 @@ class MSAAtlas {
       msaAtlas,
     } = privateProps.get(this);
     msaAtlas.easeTo(Object.assign({}, camera, { duration: 750 }));
+  }
+
+  updateExtents() {
+    const {
+      msaAtlas,
+      scaleExtent,
+    } = privateProps.get(this);
+    msaAtlas.setMinZoom(scaleExtent[0]);
+    msaAtlas.setMaxZoom(scaleExtent[1]);
   }
 
   export() {

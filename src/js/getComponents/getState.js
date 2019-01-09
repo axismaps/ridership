@@ -31,6 +31,7 @@ const getState = ({ data }) => {
       height: window.innerHeight,
     },
     currentZoom: null,
+    msaScaleExtent: [8, 15],
   });
 
   Object.assign(
