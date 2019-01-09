@@ -141,7 +141,7 @@ const dataMethods = {
           unit: ' mi',
         },
         {
-          text: 'Minimum Headways',
+          text: 'Average Service Headway',
           value: 'headways',
           summaryType: 'mean',
           format: '.1f',
@@ -180,7 +180,7 @@ const dataMethods = {
           unit: ' mi',
         },
         {
-          text: 'Statewide Gas Prices',
+          text: 'Statewide Gas Price',
           value: 'gas',
           summaryType: 'mean',
           format: '$.2f',
@@ -193,7 +193,7 @@ const dataMethods = {
           format: '.1f',
         },
         {
-          text: 'Vehicle Revenue Miles per trip',
+          text: 'Vehicle Revenue Miles Per Trip',
           value: 'vrm_per_ride',
           summaryType: 'mean',
           format: '.1f',
