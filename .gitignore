@@ -11,3 +11,4 @@ data/output/*.gz
 dist
 scratch
 bin/settings.py
+.env

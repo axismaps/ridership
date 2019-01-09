@@ -34,3 +34,7 @@ mapshaper data/geojson/transit/**/stops.geojson combine-files \
   -o data/output/stops.geojson
 
 tippecanoe data/output/*.geojson -aD -aG -ab -ai -f -o data/output/transit.mbtiles
+
+source .env
+
+mapbox upload axismaps.axj75ry4 data/output/transit.mbtiles
