@@ -71,7 +71,6 @@ const dataMethods = {
       cleanRecord.subTa = invisibleTa.filter(d => d.taId === cleanRecord.taId);
       return cleanRecord;
     });
-    console.log('ta', ta);
 
     const ntd = rawNtd.rows.map((record) => {
       const cleanRecord = Object.assign({}, record);
