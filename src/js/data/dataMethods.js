@@ -137,7 +137,7 @@ const dataMethods = {
           text: 'Vehicle Revenue Miles',
           value: 'vrm',
           summaryType: 'sum',
-          format: ',.1f',
+          format: ',d',
           unit: ' mi',
         },
         {
@@ -196,14 +196,14 @@ const dataMethods = {
           text: 'Vehicle Revenue Miles per trip',
           value: 'vrm_per_ride',
           summaryType: 'mean',
-          format: '.2f',
+          format: '.1f',
           unit: ' mi per trip',
         },
         {
           text: 'Average Trip Length',
           value: 'trip_length',
           summaryType: 'mean',
-          format: '.2f',
+          format: '.1f',
           unit: ' mi',
         },
       ];
@@ -217,63 +217,90 @@ const dataMethods = {
       {
         text: 'Total Population',
         value: 'pop',
+        format: ',d',
       },
       {
         text: 'Population Density',
         value: 'density',
         upload: true,
+        format: ',d',
       },
       {
         text: 'Percent Foreign Born',
         value: 'foreign_pct',
+        format: '.1f',
+        unit: '%',
       },
       {
         text: 'Percent White',
         value: 'white_pct',
+        format: '.1f',
+        unit: '%',
       },
       {
         text: 'Percent Black',
         value: 'black_pct',
+        format: '.1f',
+        unit: '%',
       },
       {
         text: 'Percent Asian',
         value: 'asian_pct',
+        format: '.1f',
+        unit: '%',
       },
       {
         text: 'Percent Hispanic/Latino',
         value: 'latino_pct',
+        format: '.1f',
+        unit: '%',
       },
       {
         text: 'Percent Population Age 75+',
         value: 'over75_pct',
+        format: '.1f',
+        unit: '%',
       },
       {
         text: 'Median Household Income',
         value: 'income',
+        format: '$,d',
       },
       {
         text: 'Percent Households with No Vehicle',
         value: 'no_vehicle_pct',
+        format: '.1f',
+        unit: '%',
       },
       {
         text: 'Percent Commute by Driving',
         value: 'drive_pct',
+        format: '.1f',
+        unit: '%',
       },
       {
         text: 'Percent Commute by Carpooling',
         value: 'carpool_pct',
+        format: '.1f',
+        unit: '%',
       },
       {
         text: 'Percent Commute by Public Transit',
         value: 'transit_pct',
+        format: '.1f',
+        unit: '%',
       },
       {
         text: 'Job Density',
         value: 'job_density',
+        format: ',d',
+        unit: 'per sq mi',
       },
       {
         text: 'Job and Population Density',
         value: 'job_pop_density',
+        format: ',d',
+        unit: 'per sq mi',
       },
     ];
 
