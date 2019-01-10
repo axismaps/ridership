@@ -14,6 +14,7 @@ const privateMethods = {
       dataProbe,
       margin,
       color,
+      interactive,
     } = props;
 
     const {
@@ -57,6 +58,7 @@ const privateMethods = {
       svg,
       scales,
       dataProbe,
+      interactive,
     });
 
     Object.assign(props, {
@@ -79,6 +81,7 @@ class SparkLine {
       expanded: false,
       selected: false,
       highlightedId: null,
+      interactive: true,
     });
 
     const {
@@ -159,6 +162,7 @@ class SparkLine {
       line,
       dataProbe,
       axis,
+      interactive,
     } = props;
 
     const scales = getScales({
@@ -188,6 +192,7 @@ class SparkLine {
       svg,
       scales,
       dataProbe,
+      interactive,
     });
 
     return this;

@@ -68,6 +68,7 @@ const atlasHelperFunctions = {
       indicatorData,
       yearRange: [2006, 2017],
       color: true,
+      interactive: false,
     });
   },
 };
