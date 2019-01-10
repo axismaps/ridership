@@ -27,6 +27,7 @@ const privateMethods = {
       nationalNtd,
       nationalDataView,
       nationalData,
+      distanceFilter,
     } = props;
 
     const {
@@ -55,6 +56,7 @@ const privateMethods = {
       histogramData,
       nationalAverage,
     } = getHistogramData({
+      distanceFilter,
       nationalMapData,
       bucketCount,
       nationalDataView,

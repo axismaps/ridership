@@ -3,9 +3,9 @@ const dataFunctions = {
     nationalMapData,
     bucketCount,
     nationalDataView,
-    nationalNtd,
+    // nationalNtd,
     nationalData,
-    years,
+    // years,
   }) {
     const allAgencies = nationalDataView === 'msa' ? nationalMapData.slice()
       : nationalMapData
@@ -50,8 +50,16 @@ const dataFunctions = {
     tractGeo,
     bucketCount,
     currentCensusField,
+    distanceFilter,
   }) {
-    const tracts = tractGeo.features.map(d => d.properties);
+    const tracts = tractGeo.features
+      .map(d => d.properties)
+      .filter((d) => {
+        if (distanceFilter !== null) {
+          return d.dist <= distanceFilter.value;
+        }
+        return true;
+      });
     const changeSpan = d3.extent(tracts, d => d[currentCensusField.value] * 100);
 
     const bucketSize = (changeSpan[1] - changeSpan[0]) / bucketCount;
