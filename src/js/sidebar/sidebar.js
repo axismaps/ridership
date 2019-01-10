@@ -54,8 +54,12 @@ const privateMethods = {
       contentContainer,
       currentAgencies,
       taFilter,
-      logTAChecks: (checks) => {
+      saveTAChecks: (checks) => {
         props.checks = checks;
+      },
+      getOpenDropdowns: () => props.openedSubDropdowns,
+      setOpenDropdowns: (newDropdownList) => {
+        props.openedSubDropdowns = newDropdownList;
       },
     });
   },
@@ -291,6 +295,7 @@ class Sidebar {
       }),
       highlightedAgencies: [],
       searchResult: null,
+      openedSubDropdowns: [],
     });
 
     this.config(config);
@@ -372,6 +377,7 @@ class Sidebar {
   }
 
   updateData() {
+    const props = privateProps.get(this);
     const {
       pcp,
       agenciesData,
@@ -379,7 +385,7 @@ class Sidebar {
       // indicatorSummaries,
       currentScale,
       legendContainer,
-    } = privateProps.get(this);
+    } = props;
 
     const {
       drawContent,
@@ -391,6 +397,9 @@ class Sidebar {
     } = agencyLegendFunctions;
     clearLegend({
       legendContainer,
+      resetOpenDropdowns: () => {
+        props.openedSubDropdowns = [];
+      },
     });
     const msaScale = currentScale === 'msa';
     if (msaScale) {

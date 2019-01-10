@@ -96,9 +96,34 @@ $sidebar-content--margin-top: 20px;
   margin-right: 10px;
 }
 
+.sidebar__sparkline-legend-dropdown-container {
+  width: 20px;
+}
+
+.sidebar__sparkline-legend-dropdown-button {
+  cursor: pointer;
+}
+
+.sidebar__sparkline-legend-dropdown-button > .fa-caret-down {
+  display: none;
+}
+
+.sidebar__sparkline-legend-dropdown--open > .fa-caret-right {
+  display: none;
+}
+
+.sidebar__sparkline-legend-dropdown--open > .fa-caret-down {
+  display: block;
+}
+
+.sidebar__sparkline-legend-dropdown--hidden,
+.sidebar__sparkline-legend-sub-agencies--hidden {
+  display: none;
+}
+
 .sidebar__sparkline-legend-sub-agency {
   font-size: 12px;
-  margin: 15px 0px 0px 40px;
+  margin: 15px 0px 0px 65px;
 }
 
 .sidebar__sparkline-axis-row {

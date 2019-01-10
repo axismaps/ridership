@@ -3,19 +3,16 @@ const sidebarLegendFunctions = {
     // contentContainer,
     taFilter,
     updateTAFilter,
-    logTAChecks,
+    saveTAChecks,
     currentAgencies,
     legendContainer,
+    getOpenDropdowns,
+    setOpenDropdowns,
   }) {
     const {
       setSparkLineLegendChecks,
     } = sidebarLegendFunctions;
 
-
-    // const legendContainer = d3.select('.sidebar__agency-legend');
-    // .append('div')
-    // .attr('class', 'sidebar__sparkline-legend-container');
-    console.log('currentAgencies', currentAgencies);
 
     const rowContainers = legendContainer
       .selectAll('.sidebar__sparkline-legend-row-outer')
@@ -35,24 +32,14 @@ const sidebarLegendFunctions = {
     const rowsRight = rows.append('div')
       .attr('class', 'sidebar__sparkline-legend-row-right');
 
-    const dropdownButtons = rowsLeft.append('div')
+    const dropdownButtonContainers = rowsLeft.append('div')
       .attr('class', 'sidebar__sparkline-legend-dropdown-container')
-      .append('div')
-      .attr('class', 'sidebar__sparkline-legend-dropdown-button')
-      .html(`
-        <i class="fas fa-caret-right"></i>
-        <i class="fas fa-caret-down"></i>
-      `);
-
-    rowsLeft.append('div')
-      .attr('class', 'sidebar__sparkline-legend-check')
-      .on('click', (d) => {
-        updateTAFilter(d.taId);
-      });
+      .append('div');
 
     const subAgencyContainers = rowContainers
       .append('div')
-      .attr('class', 'sidebar__sparkline-legend-sub-agencies');
+      .attr('class', 'sidebar__sparkline-legend-sub-agencies')
+      .classed('sidebar__sparkline-legend-sub-agencies--hidden', true);
     subAgencyContainers
       .each(function drawSubAgencies(d) {
         d3.select(this)
@@ -63,10 +50,42 @@ const sidebarLegendFunctions = {
           .attr('class', 'sidebar__sparkline-legend-sub-agency')
           .text(dd => dd.taName);
       });
+    dropdownButtonContainers
+      .append('div')
+      .attr('class', 'sidebar__sparkline-legend-dropdown-button')
+      .classed('sidebar__sparkline-legend-dropdown--hidden', d => d.subTa.length === 0)
+      .classed('sidebar__sparkline-legend-dropdown--open', false)
+      .html(`
+        <i class="fas fa-caret-right"></i>
+        <i class="fas fa-caret-down"></i>
+      `)
+      .on('click', function setButtonStatus(d) {
+        const opened = getOpenDropdowns();
+
+        if (opened.includes(d.taId)) {
+          setOpenDropdowns(opened.filter(dd => dd !== d.taId));
+        } else {
+          setOpenDropdowns([...opened, d.taId]);
+        }
+        const newOpened = getOpenDropdowns();
+
+        d3.select(this)
+          .classed('sidebar__sparkline-legend-dropdown--open', newOpened.includes(d.taId));
+
+        subAgencyContainers
+          .classed('sidebar__sparkline-legend-sub-agencies--hidden', !newOpened.includes(d.taId));
+      });
+
+    rowsLeft.append('div')
+      .attr('class', 'sidebar__sparkline-legend-check')
+      .on('click', (d) => {
+        updateTAFilter(d.taId);
+      });
+
 
     const checks = legendContainer.selectAll('.sidebar__sparkline-legend-check');
 
-    logTAChecks(checks);
+    saveTAChecks(checks);
 
     rowsLeft.append('div')
       .attr('class', 'sidebar__sparkline-legend-text')
@@ -107,10 +126,13 @@ const sidebarLegendFunctions = {
   },
   clearLegend({
     legendContainer,
+    resetOpenDropdowns,
   }) {
     legendContainer
       .selectAll('.sidebar__sparkline-legend-row-outer')
       .remove();
+
+    resetOpenDropdowns([]);
   },
 };
 
