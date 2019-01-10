@@ -456,10 +456,14 @@ class Atlas {
       highlightedAgencies,
     } = privateProps.get(this);
 
-    agencies.classed('highlight', (d) => {
-      const highlightIds = highlightedAgencies.map(agency => agency.globalId);
-      return highlightIds.includes(d.globalId);
-    });
+    const highlightIds = highlightedAgencies.map(agency => agency.globalId);
+
+    agencies.classed('highlight', d => highlightIds.includes(d.globalId))
+      .classed('map__agency-dim', (d) => {
+        if (highlightIds.length === 0) return false;
+        const othersInMSA = agencies.filter(a => a.msaId === d.msaId).data();
+        return othersInMSA.some(a => highlightIds.includes(a.globalId)) === false;
+      });
   }
 
   updateSearchResult() {

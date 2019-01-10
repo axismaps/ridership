@@ -124,6 +124,10 @@
   stroke-width: 2px;
 }
 
+.map__agency-dim {
+  opacity: .25 !important;
+}
+
 .compare .map__agency:hover {
   cursor: url('/img/add.svg'), auto;
 }

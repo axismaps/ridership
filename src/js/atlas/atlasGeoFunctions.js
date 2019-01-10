@@ -250,6 +250,7 @@ const atlasMethods = {
       .on('mouseout', () => {
         dataProbe.remove();
         updateHighlightedAgencies([]);
+        agencies.classed('map__agency-dim', false);
       })
       .on('click', (d) => {
         if (compareMode === false) {
@@ -267,6 +268,7 @@ const atlasMethods = {
         }
       })
       .on('mouseover', (d) => {
+        agencies.classed('map__agency-dim', false);
         d3.event.stopPropagation();
         const { clientX, clientY } = d3.event;
         const pos = {
@@ -298,6 +300,8 @@ const atlasMethods = {
           <div class="data-probe__sparkline-container expanded"></div>
           <div class="data-probe__row data-probe__msa-text">${clickText}</div>
         `;
+        agencies.filter(a => a.msaId !== d.msaId)
+          .classed('map__agency-dim', true);
         dataProbe
           .config({
             pos,
