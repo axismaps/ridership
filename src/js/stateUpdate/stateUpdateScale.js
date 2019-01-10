@@ -1,10 +1,10 @@
+import setAllDropdownPositions from '../dropdown/setDropdownPositions';
+
 const getStateUpdateScale = ({ components }) => function updateScale() {
   const {
     layout,
     atlas,
     msaAtlas,
-    censusDropdown,
-    distanceDropdown,
     histogram,
     sidebar,
     legend,
@@ -25,12 +25,6 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
       scale,
     })
     .updateScale();
-
-  censusDropdown
-    .resetMenuPosition();
-
-  distanceDropdown
-    .resetMenuPosition();
 
   msaAtlas
     .config({
@@ -80,6 +74,8 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
       })
       .updateCurrentIndicator();
   }
+
+  setAllDropdownPositions({ components });
 };
 
 export default getStateUpdateScale;

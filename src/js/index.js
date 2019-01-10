@@ -39,15 +39,17 @@ const app = {
     components.state = state;
     components.layout = getLayout({ state, data });
     components.atlas = getAtlas({ data, state });
+
+
+    components.sidebar = getSidebar({ state, data });
+    components.histogram = getHistogram({ state, data });
+    components.msaAtlas = getMSAAtlas({ state, data });
     components.indicatorDropdown = getIndicatorDropdown({ state, data });
     components.sliderDropdown = getSliderDropdown({ state, data });
     components.compareDropdown = getCompareDropdown({ state, data });
     components.searchDropdown = getSearchDropdown({ state, data });
     components.msaDropdown = getMSADropdown({ state, data });
     components.dataViewDropdown = getDataviewDropdown({ state });
-    components.sidebar = getSidebar({ state, data });
-    components.histogram = getHistogram({ state, data });
-    components.msaAtlas = getMSAAtlas({ state, data });
     components.censusDropdown = getCensusDropdown({ state, data });
     components.distanceDropdown = getDistanceDropdown({ state, data });
     components.headerButtons = getHeaderButtons({ state, data, components });

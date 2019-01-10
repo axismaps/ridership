@@ -1,5 +1,6 @@
 import CensusDropdown from '../dropdown/indicatorDropdown';
 
+
 const getCensusDropdown = ({ data, state }) => new CensusDropdown({
   indicator: state.get('censusField'),
   updateIndicator: (newIndicator) => {

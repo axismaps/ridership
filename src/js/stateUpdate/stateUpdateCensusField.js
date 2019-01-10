@@ -1,3 +1,5 @@
+import setAllDropdownPositions from '../dropdown/setDropdownPositions';
+
 const getStateUpdateCensusField = ({ components }) => function updateCensusField() {
   const censusField = this.get('censusField');
   const {
@@ -26,6 +28,8 @@ const getStateUpdateCensusField = ({ components }) => function updateCensusField
       })
       .updateData();
   });
+
+  setAllDropdownPositions({ components });
 };
 
 export default getStateUpdateCensusField;
