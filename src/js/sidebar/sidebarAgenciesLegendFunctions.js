@@ -73,7 +73,7 @@ const sidebarLegendFunctions = {
           .classed('sidebar__sparkline-legend-dropdown--open', newOpened.includes(d.taId));
 
         subAgencyContainers
-          .classed('sidebar__sparkline-legend-sub-agencies--hidden', !newOpened.includes(d.taId));
+          .classed('sidebar__sparkline-legend-sub-agencies--hidden', dd => !newOpened.includes(dd.taId));
       });
 
     rowsLeft.append('div')
