@@ -291,7 +291,7 @@ path.pcp-line {
 }
 
 path.pcp-line:hover, path.pcp-line.highlight, path.pcp-line.search-result {
-  stroke-opacity: 1 !important;
+  opacity: 1 !important;
   stroke-width: 3;
 }
 
