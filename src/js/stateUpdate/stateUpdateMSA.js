@@ -1,18 +1,28 @@
 const getStateUpdateMSA = ({ components }) => function updateMSA() {
-  const msa = this.get('msa');
   const {
     msaAtlas,
     histogram,
     sidebar,
+    msaDropdown,
   } = components;
 
   this.set('taFilter', new Set());
 
-  const taFilter = this.get('taFilter');
+  const msa = this.get('msa');
 
+  msaDropdown
+    .config({
+      currentMSA: msa,
+    })
+    .update();
+
+  if (msa === null) return;
+
+  const taFilter = this.get('taFilter');
   const indicatorSummaries = this.getCurrentIndicatorSummaries();
   const currentAgencies = this.getAllAgenciesForCurrentMSA();
   const agenciesData = this.getCurrentAgenciesData();
+
   sidebar
     .config({
       indicatorSummaries,

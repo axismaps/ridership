@@ -64,6 +64,7 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
 
     this.update({
       taFilter: new Set(),
+      msa: null,
     });
   }
 

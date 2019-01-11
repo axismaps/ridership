@@ -25,11 +25,13 @@ const privateMethods = {
     setContentVisibility.call(this);
     setContentPosition.call(this);
 
-    drawContent({
+    const msaRows = drawContent({
       contentContainer,
       msaList,
       updateMSA,
     });
+
+    Object.assign(props, { msaRows });
   },
 };
 
@@ -49,6 +51,28 @@ class MSADropdown {
   config(config) {
     Object.assign(privateProps.get(this), config);
     return this;
+  }
+
+  update() {
+    const {
+      msaRows,
+      currentMSA,
+      toggleButton,
+    } = privateProps.get(this);
+    const {
+      setButtonText,
+      highlightCurrentMSA,
+    } = msaDropdownFunctions;
+
+    setButtonText({
+      toggleButton,
+      currentMSA,
+    });
+
+    highlightCurrentMSA({
+      msaRows,
+      currentMSA,
+    });
   }
 }
 
