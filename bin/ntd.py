@@ -3,11 +3,11 @@
 import pandas as pd
 from numpy import inf
 from numpy import nan
-from bin.acs import msa_population
-from bin.eia import gas_prices
-from bin.meta import clean_ta
-from bin.maintenance import load_maintenance
-from bin.carto import replace_data
+from acs import msa_population
+from eia import gas_prices
+from meta import clean_ta
+from maintenance import load_maintenance
+from carto import replace_data
 
 print 'All modules loaded'
 
@@ -184,6 +184,9 @@ stacks['capita'] = pd.Series(stacks['upt'] / msa_population(), name='capita')
 msa_stacks['capita'] = pd.Series(
     msa_stacks['upt']['upt'] / msa_population(True), name='capita'
 )
+pop = msa_population(True).reset_index()
+pop['year'] = pop['level_1'].astype(int)
+national_values['capita'] = national_values['upt'] / pop[['year', 0]].groupby('year').sum()[0]
 
 # Gas prices
 stacks['gas'] = gas_prices()
@@ -233,10 +236,10 @@ print 'Data exported to CSV'
 
 #%%
 # Upload to Carto
-# indexes.extend(export.columns.values)
-# replace_data('ntd', indexes, 'ntd.csv')
-# replace_data('ntd_msa', indexes, 'ntd_msa.csv')
+indexes.extend(export.columns.values)
+replace_data('ntd', indexes, 'ntd.csv')
+replace_data('ntd_msa', indexes, 'ntd_msa.csv')
 
-# national_index = list(national_values)
-# national_index.insert(0, 'year')
-# replace_data('ntd_national', national_index, 'ntd_national.csv')
+national_index = list(national_values)
+national_index.insert(0, 'year')
+replace_data('ntd_national', national_index, 'ntd_national.csv')

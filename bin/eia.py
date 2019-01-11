@@ -29,7 +29,7 @@ def gas_prices(msa_level=False):
     ).drop(
         columns=[id_drop, 'display', 'centx', 'centy', 'minx', 'miny', 'maxx', 'maxy',
                  'talong', 'tashort', 'msa_color', 'name', 'State', 'Data_Status', 'MSN'
-        ]
+                ]
     ).drop_duplicates(subset=[id_keep])
 
     print merge2.columns
