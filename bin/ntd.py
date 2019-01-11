@@ -3,11 +3,11 @@
 import pandas as pd
 from numpy import inf
 from numpy import nan
-from acs import msa_population
-from eia import gas_prices
-from meta import clean_ta
-from maintenance import load_maintenance
-from carto import replace_data
+from bin.acs import msa_population
+from bin.eia import gas_prices
+from bin.meta import clean_ta
+from bin.maintenance import load_maintenance
+from bin.carto import replace_data
 
 print 'All modules loaded'
 
@@ -159,7 +159,6 @@ msa_stacks['headways'] = pd.Series(
 )
 stacks['headways'].drop(labels=other_ta, inplace=True)
 
-#%%
 # Average trip length
 stacks['trip_length'] = pd.Series(stacks['pmt'] / stacks['upt'], name='trip_length')
 national_values['trip_length'] = national_values['pmt'] / national_values['upt']
@@ -178,6 +177,8 @@ msa_stacks['failures'] = pd.Series(
     name='failures'
 )
 
+#%%
+
 # Ridership per capita
 stacks['capita'] = pd.Series(stacks['upt'] / msa_population(), name='capita')
 msa_stacks['capita'] = pd.Series(
@@ -187,6 +188,9 @@ msa_stacks['capita'] = pd.Series(
 # Gas prices
 stacks['gas'] = gas_prices()
 msa_stacks['gas'] = gas_prices(True)
+national_gas = gas_prices(True).reset_index()
+national_gas['year'] = national_gas['Year'].apply(lambda x: int(x))
+national_values['gas'] = national_gas[['year', 'gas']].groupby('year').mean()
 
 #%%
 # Delete extra indicators
@@ -229,10 +233,10 @@ print 'Data exported to CSV'
 
 #%%
 # Upload to Carto
-indexes.extend(export.columns.values)
-replace_data('ntd', indexes, 'ntd.csv')
-replace_data('ntd_msa', indexes, 'ntd_msa.csv')
+# indexes.extend(export.columns.values)
+# replace_data('ntd', indexes, 'ntd.csv')
+# replace_data('ntd_msa', indexes, 'ntd_msa.csv')
 
-national_index = list(national_values)
-national_index.insert(0, 'year')
-replace_data('ntd_national', national_index, 'ntd_national.csv')
+# national_index = list(national_values)
+# national_index.insert(0, 'year')
+# replace_data('ntd_national', national_index, 'ntd_national.csv')
