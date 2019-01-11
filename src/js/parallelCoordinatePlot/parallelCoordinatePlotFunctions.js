@@ -61,7 +61,7 @@ const parallelCoordinatePlotFunctions = {
       .attr('class', 'probe-dot')
       .attr('transform', `translate(${margins[1]},${margins[0]})`)
       .append('circle')
-      .attr('r', 5)
+      .attr('r', 3)
       .style('display', 'none');
 
     return svg;
