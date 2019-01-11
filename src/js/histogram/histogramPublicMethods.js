@@ -35,6 +35,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       yAxisLabel,
       nationalNtd,
       nationalData,
+      distanceFilter,
     } = props;
 
 
@@ -95,6 +96,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
         tractGeo,
         bucketCount,
         currentCensusField,
+        distanceFilter,
       });
       updateMSA({
         histogramData,

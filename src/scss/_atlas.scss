@@ -84,6 +84,7 @@
   margin-right: 5px;
 }
 
+.header__msa-dropdown-text,
 .atlas__census-dropdown-button-text,
 .atlas__indicator-dropdown-button-text,
 .atlas__year-slider-button-text,
@@ -122,6 +123,10 @@
   fill-opacity: 0.95;
   stroke: black;
   stroke-width: 2px;
+}
+
+.map__agency-dim {
+  opacity: .25 !important;
 }
 
 .compare .map__agency:hover {

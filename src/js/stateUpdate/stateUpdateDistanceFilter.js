@@ -2,6 +2,7 @@ const getStateUpdateDistanceFilter = ({ components }) => function updateDistance
   const {
     distanceDropdown,
     msaAtlas,
+    histogram,
   } = components;
   const distanceFilter = this.get('distanceFilter');
   // const msa = this.get('msa');
@@ -12,6 +13,7 @@ const getStateUpdateDistanceFilter = ({ components }) => function updateDistance
     })
     .update();
 
+
   // msaAtlas
   //   .config({
   //     distanceFilter,
@@ -20,6 +22,13 @@ const getStateUpdateDistanceFilter = ({ components }) => function updateDistance
   this.getCurrentTractGeo((tractGeo) => {
     msaAtlas
       .config({
+        tractGeo,
+      })
+      .updateData();
+
+    histogram
+      .config({
+        distanceFilter,
         tractGeo,
       })
       .updateData();

@@ -1,3 +1,5 @@
+import setAllDropdownPositions from '../dropdown/setDropdownPositions';
+
 const getStateUpdateIndicator = ({ components }) => function updateIndicator() {
   const {
     indicatorDropdown,
@@ -36,6 +38,8 @@ const getStateUpdateIndicator = ({ components }) => function updateIndicator() {
       currentIndicator: indicator,
     })
     .updateCurrentIndicator();
+
+  setAllDropdownPositions({ components });
 };
 
 export default getStateUpdateIndicator;

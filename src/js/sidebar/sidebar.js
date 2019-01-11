@@ -215,7 +215,8 @@ const privateMethods = {
       updateHighlightedAgencies,
       years,
       currentScale,
-      searchResult,
+      // searchResult,
+      updateMSA,
     } = props;
 
     const {
@@ -237,6 +238,7 @@ const privateMethods = {
       dataProbe,
       updateIndicator,
       updateHighlightedAgencies,
+      updateMSA,
     });
 
     Object.assign(props, {

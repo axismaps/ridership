@@ -75,6 +75,21 @@ const getSidebar = ({ data, state }) => new Sidebar({
       state.update({ taFilter: filterCopy });
     }
   },
+  updateMSA: (pcpLine) => {
+    const currentMSA = state.get('msa');
+    const newMSA = data.get('msa')
+      .find(d => pcpLine.msaId === d.msaId);
+
+    if (currentMSA === null || currentMSA.msaId !== newMSA.msaId) {
+      if (state.get('scale') === 'national') {
+        state.update({
+          scale: 'msa',
+          msa: newMSA,
+
+        });
+      }
+    }
+  },
 });
 
 export default getSidebar;

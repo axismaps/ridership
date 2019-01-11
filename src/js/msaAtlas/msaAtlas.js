@@ -45,7 +45,6 @@ const privateMethods = {
             accumulator[layerId] = msaAtlas.getFilter(layerId);
             return accumulator;
           }, {});
-        console.log('initialFilters??', initialFilters);
         props.initialFilters = initialFilters;
         props.taLayers = taLayers;
       },
