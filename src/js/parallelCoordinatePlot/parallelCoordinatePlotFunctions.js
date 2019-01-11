@@ -93,8 +93,8 @@ const parallelCoordinatePlotFunctions = {
     updateHighlightedAgencies,
     color,
     msaScale,
+    updateMSA,
   }) {
-    console.log('agenciesData--PCP', agenciesData);
     const lineGenerator = d3.line()
       .x(d => xScale(d.pctChange))
       .y((d, i) => i * indicatorHeight);
@@ -117,6 +117,9 @@ const parallelCoordinatePlotFunctions = {
         svg.select('.probe-dot circle')
           .style('display', 'none');
         updateHighlightedAgencies([]);
+      })
+      .on('click', (d) => {
+        updateMSA(d);
       });
 
     lines.exit().remove();

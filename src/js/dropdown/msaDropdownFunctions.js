@@ -26,7 +26,6 @@ const msaDropdownFunctions = {
     toggleButton,
     currentMSA,
   }) {
-    console.log('currentMSA', currentMSA);
     toggleButton
       .text(currentMSA === null ? 'Select an MSA' : currentMSA.name);
   },
