@@ -189,7 +189,7 @@ msa_stacks['capita'] = pd.Series(
 stacks['gas'] = gas_prices()
 msa_stacks['gas'] = gas_prices(True)
 national_gas = gas_prices(True).reset_index()
-national_gas['year'] = national_gas['Year'].apply(lambda x: int(x))
+national_gas['year'] = national_gas['Year'].astype(int)
 national_values['gas'] = national_gas[['year', 'gas']].groupby('year').mean()
 
 #%%
