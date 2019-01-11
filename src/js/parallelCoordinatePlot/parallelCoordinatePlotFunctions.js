@@ -147,7 +147,7 @@ const parallelCoordinatePlotFunctions = {
         const html = `
           <div class="data-probe__row"><span class="data-probe__field">${d.taName || d.name}</span></div>
           <div class="data-probe__row">${d.indicators[closest].text}: ${displayValue}</div>
-          <div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>
+          ${!msaScale ? '<div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>' : ''}
         `;
         dataProbe
           .config({
