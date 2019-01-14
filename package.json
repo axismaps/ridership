@@ -10,7 +10,7 @@
     "data:clean": "python bin/ntd.py",
     "data:meta": "python bin/meta.py",
     "data:census": "python bin/acs.py",
-    "data:tiles": "./bin/tiles.sh",
+    "data:tiles": "python bin/meta.py && ./bin/tiles.sh",
     "data:tracts": "./bin/tracts.sh && python bin/buffer.py",
     "data:transit": "python bin/transit.py",
     "deploy": "./bin/deploy.sh",

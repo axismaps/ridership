@@ -4,16 +4,15 @@ import geopandas as gpd
 from carto import replace_data
 
 COLORS = [
-    '#00ad91',
-    '#ff5e4d',
-    '#eb52d6',
-    '#ff9d2e',
-    '#8c6112',
     '#0f8fff',
-    '#33a02c',
+    '#ff5e4d',
+    '#8c6112',
+    '#ff9d2e',
     '#c2ab00',
+    '#33a02c',
+    '#eb52d6',
     '#707070',
-    '#bc80bd'
+    '#00ad91'
 ]
 
 def clean_ta(ta, drop):
