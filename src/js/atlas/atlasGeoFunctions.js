@@ -282,8 +282,8 @@ const atlasMethods = {
         const msa = getMSAData({ allNationalMapData, globalId });
         const format = number => (number === null ? 'N/A'
           : (d3.format(indicator.format)(number) + (indicator.unit || '')));
-        const clickText = compareMode === false ? 'Click to jump to this MSA'
-          : `Click to ${ids.includes(d.globalId) ? 'remove from' : 'add to'} comparison`;
+        const clickText = compareMode === false ? 'Click the point to jump to this MSA'
+          : `Click the point to ${ids.includes(d.globalId) ? 'remove from' : 'add to'} comparison`;
         const html = nationalDataView === 'msa' ? `
           <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.name}</span></div>
           <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
