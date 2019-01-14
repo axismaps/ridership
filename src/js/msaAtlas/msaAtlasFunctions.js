@@ -11,6 +11,7 @@ const msaAtlasFunctions = {
     saveCamera,
     setMinScale,
     // getCurrentCamera,
+    getCurrentCensusField,
     dataProbe,
   }) {
     let lastFeatureId = null;
@@ -38,10 +39,18 @@ const msaAtlasFunctions = {
           width: 200,
         };
         if (feature.properties.id !== lastFeatureId && feature.layer.id === 'tract-fill') {
+          console.log('field', getCurrentCensusField());
           lastFeatureId = feature.properties.id;
           dataProbe.remove();
-
-          const html = `<div>${feature.properties.id}</div>`;
+          console.log('feature', feature);
+          const censusField = getCurrentCensusField();
+          const { id } = feature.properties;
+          const html = `
+            <div class="msa-probe__tract-row">Tract ${id.slice(-5, -3)}.${id.slice(-3)}</div>
+            <div class="msa-probe__indicator-row">
+              <span class="msa-probe__indicator">${censusField.text}:</span> ${Math.round(feature.properties[censusField.value] * 100)}%
+            </div>
+            `;
           dataProbe
             .config({
               pos,

@@ -39,6 +39,7 @@ const privateMethods = {
       },
       setMinScale,
       getCurrentCamera: () => props.camera,
+      getCurrentCensusField: () => props.currentCensusField,
       logInitialFilters: (style) => {
         const taLayers = style.layers
           .filter(d => d.id.includes('transit'))

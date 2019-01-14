@@ -323,7 +323,6 @@ const dataMethods = {
 
     const data = new Map();
 
-    console.log('msa', msa);
     data.set('radiusScale', radiusScale);
     data.set('msa', msa);
     data.set('ntd', ntd);
