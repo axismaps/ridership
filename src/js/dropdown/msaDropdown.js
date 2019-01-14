@@ -25,6 +25,7 @@ const privateMethods = {
     setContentVisibility.call(this);
     setContentPosition.call(this);
 
+
     const msaRows = drawContent({
       contentContainer,
       msaList,
@@ -32,6 +33,8 @@ const privateMethods = {
     });
 
     Object.assign(props, { msaRows });
+
+    this.update();
   },
 };
 

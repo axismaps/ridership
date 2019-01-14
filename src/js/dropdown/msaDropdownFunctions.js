@@ -19,7 +19,7 @@ const msaDropdownFunctions = {
   }) {
     msaRows
       .classed('msa-dropdown__content-row--highlighted', d => (currentMSA === null
-        ? false
+        ? d.msaId === 'average'
         : currentMSA.msaId === d.msaId));
   },
   setButtonText({
@@ -27,7 +27,7 @@ const msaDropdownFunctions = {
     currentMSA,
   }) {
     toggleButton
-      .text(currentMSA === null ? 'Select an MSA' : currentMSA.name);
+      .text(currentMSA === null ? 'National Average' : currentMSA.name);
   },
 };
 
