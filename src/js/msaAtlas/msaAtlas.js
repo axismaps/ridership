@@ -1,4 +1,5 @@
 import msaAtlasFunctions from './msaAtlasFunctions';
+import DataProbe from '../dataProbe/dataProbe';
 
 const privateProps = new WeakMap();
 
@@ -15,6 +16,7 @@ const privateMethods = {
       currentCensusField,
       scaleExtent,
       onZoom,
+      dataProbe,
       setMinScale,
     } = props;
 
@@ -25,6 +27,7 @@ const privateMethods = {
     } = msaAtlasFunctions;
 
     const msaAtlas = drawAtlas({
+      dataProbe,
       onZoom,
       msaMapContainer,
       msa,
@@ -66,6 +69,9 @@ class MSAAtlas {
     privateProps.set(this, {
       loaded: false,
       taLayers: null,
+      dataProbe: new DataProbe({
+        container: d3.select('.outer-container'),
+      }),
     });
 
     this.config(config);

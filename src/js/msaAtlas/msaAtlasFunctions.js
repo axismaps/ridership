@@ -11,7 +11,9 @@ const msaAtlasFunctions = {
     saveCamera,
     setMinScale,
     // getCurrentCamera,
+    dataProbe,
   }) {
+    let lastFeatureId = null;
     const {
       initSite,
     } = msaAtlasFunctions;
@@ -24,6 +26,35 @@ const msaAtlasFunctions = {
       // maxZoom: scaleExtent[1],
       preserveDrawingBuffer: true,
     })
+      .on('mousemove', 'tract-fill', (d) => {
+        const feature = msaAtlas.queryRenderedFeatures(d.point)[0];
+        const offset = 15;
+        const containerPos = d3.select('.atlas__msa-map-container')
+          .node()
+          .getBoundingClientRect();
+        const pos = {
+          left: d.point.x + offset + containerPos.left,
+          bottom: (window.innerHeight - d.point.y - containerPos.top) + offset,
+          width: 200,
+        };
+        if (feature.properties.id !== lastFeatureId && feature.layer.id === 'tract-fill') {
+          lastFeatureId = feature.properties.id;
+          dataProbe.remove();
+
+          const html = `<div>${feature.properties.id}</div>`;
+          dataProbe
+            .config({
+              pos,
+              html,
+            })
+            .draw();
+        } else {
+          dataProbe.setPos(pos);
+        }
+      })
+      .on('mouseleave', 'tract-fill', () => {
+        dataProbe.remove();
+      })
       .on('zoom', () => {
         onZoom(msaAtlas.getZoom());
       })
