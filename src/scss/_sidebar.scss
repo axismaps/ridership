@@ -230,6 +230,10 @@ $sidebar-content--margin-top: 20px;
   opacity: 1 !important;
 }
 
+.sidebar .expanded .sparkline-year-axis {
+  display: none !important;
+}
+
 .sidebar__sparkline-path {
   stroke: #666666;
   stroke-width: 1px;

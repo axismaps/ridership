@@ -89,6 +89,27 @@ const sparkLineFunctions = {
 
     return axis;
   },
+  drawYearAxis({
+    svg,
+    scales,
+    margin,
+  }) {
+    const {
+      xScale,
+      yScale,
+    } = scales;
+    console.log(xScale.domain(), xScale.range(), yScale.range());
+    const yearAxis = d3.axisBottom()
+      .scale(xScale)
+      .tickValues(xScale.domain())
+      .tickFormat(d3.format('d'));
+    svg.append('g')
+      .attr('transform', `translate(${4 * margin},${margin + yScale.range()[0] - 5})`)
+      .attr('class', 'sparkline-axis sparkline-year-axis')
+      .call(yearAxis);
+
+    return yearAxis;
+  },
   drawLine({
     indicatorData,
     svg,

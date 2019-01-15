@@ -58,6 +58,14 @@
   fill: #666;
 }
 
+.data-probe .sparkline-year-axis g.tick text {
+  text-anchor: start;
+}
+
+.data-probe .sparkline-year-axis g.tick:last-child text {
+  text-anchor: end;
+}
+
 .msa-probe__tract-row {
   font-size: 16px;
   font-weight: bold;
