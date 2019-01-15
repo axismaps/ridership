@@ -98,7 +98,7 @@ const sparkLineFunctions = {
       xScale,
       yScale,
     } = scales;
-    console.log(xScale.domain(), xScale.range(), yScale.range());
+
     const yearAxis = d3.axisBottom()
       .scale(xScale)
       .tickValues(xScale.domain())

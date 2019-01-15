@@ -38,11 +38,23 @@ const msaAtlasFunctions = {
           bottom: (window.innerHeight - d.point.y - containerPos.top) + offset,
           width: 200,
         };
-        if (feature.properties.id !== lastFeatureId && feature.layer.id === 'tract-fill') {
-          console.log('field', getCurrentCensusField());
-          lastFeatureId = feature.properties.id;
+        if (feature.id !== lastFeatureId && feature.layer.id === 'tract-fill') {
+          if (lastFeatureId !== null) {
+            msaAtlas.setFeatureState({
+              source: 'tracts',
+              id: lastFeatureId,
+            },
+            { hover: false });
+          }
+
+          lastFeatureId = feature.id;
           dataProbe.remove();
-          console.log('feature', feature);
+
+          msaAtlas.setFeatureState({
+            source: 'tracts',
+            id: lastFeatureId,
+          },
+          { hover: true });
           const censusField = getCurrentCensusField();
           const { id } = feature.properties;
           const html = `
@@ -62,6 +74,12 @@ const msaAtlasFunctions = {
         }
       })
       .on('mouseleave', 'tract-fill', () => {
+        msaAtlas.setFeatureState({
+          source: 'tracts',
+          id: lastFeatureId,
+        },
+        { hover: false });
+        lastFeatureId = null;
         dataProbe.remove();
       })
       .on('zoom', () => {
@@ -148,6 +166,7 @@ const msaAtlasFunctions = {
       });
     } else {
       msaAtlas.removeLayer('tract-fill');
+      msaAtlas.removeLayer('tract-outline');
       currentTractSource.setData(tractGeo);
     }
     const tractLayer = {
@@ -160,7 +179,29 @@ const msaAtlasFunctions = {
         'fill-opacity': 0.5,
       },
     };
+
+    const tractOutlineLayer = {
+      id: 'tract-outline',
+      type: 'line',
+      source: 'tracts',
+      layout: {
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': '#000000',
+        'line-width': 3,
+
+        'line-opacity': [
+          'case',
+          ['boolean', ['feature-state', 'hover'], false],
+          1,
+          0,
+        ],
+      },
+    };
+
     msaAtlas.addLayer(tractLayer, 'building');
+    msaAtlas.addLayer(tractOutlineLayer, 'road-label-small');
   },
 };
 
