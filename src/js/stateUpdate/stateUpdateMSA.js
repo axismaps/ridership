@@ -4,15 +4,25 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
     histogram,
     sidebar,
     msaDropdown,
+    distanceDropdown,
   } = components;
 
   this.set('taFilter', new Set());
 
   const msa = this.get('msa');
+  this.set('distanceFilter', null);
+  const distanceFilter = this.get('distanceFilter');
+  console.log('distanceFilter', distanceFilter);
 
   msaDropdown
     .config({
       currentMSA: msa,
+    })
+    .update();
+
+  distanceDropdown
+    .config({
+      indicator: distanceFilter,
     })
     .update();
 
@@ -44,6 +54,7 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
 
     histogram
       .config({
+        distanceFilter,
         msa,
         tractGeo,
       })
