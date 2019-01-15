@@ -586,11 +586,11 @@ class Sidebar {
           y += rowCanvas.height;
         });
         const finalCanvas = document.createElement('canvas');
-        finalCanvas.width = graphicsCanvas.width;
-        finalCanvas.height = legendCanvas.height + graphicsCanvas.height;
+        finalCanvas.width = graphicsCanvas.width + 40;
+        finalCanvas.height = legendCanvas.height + graphicsCanvas.height + 40;
         const finalCtx = finalCanvas.getContext('2d');
-        finalCtx.drawImage(legendCanvas, 0, 0);
-        finalCtx.drawImage(graphicsCanvas, 0, legendHeight);
+        finalCtx.drawImage(legendCanvas, 20, 20);
+        finalCtx.drawImage(graphicsCanvas, 20, 20 + legendHeight);
         return Promise.resolve(finalCanvas);
       });
     }
@@ -627,11 +627,11 @@ class Sidebar {
         });
       });
       const finalCanvas = document.createElement('canvas');
-      finalCanvas.width = graphicsCanvas.width;
-      finalCanvas.height = legendCanvas.height + graphicsCanvas.height;
+      finalCanvas.width = graphicsCanvas.width + 40;
+      finalCanvas.height = legendCanvas.height + graphicsCanvas.height + 40;
       const finalCtx = finalCanvas.getContext('2d');
-      finalCtx.drawImage(legendCanvas, 0, 0);
-      finalCtx.drawImage(graphicsCanvas, 0, legendHeight);
+      finalCtx.drawImage(legendCanvas, 20, 20);
+      finalCtx.drawImage(graphicsCanvas, 20, 20 + legendHeight);
       return Promise.resolve(finalCanvas);
     });
   }

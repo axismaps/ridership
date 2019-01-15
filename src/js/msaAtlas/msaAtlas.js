@@ -232,15 +232,17 @@ class MSAAtlas {
       .then((canvas) => {
         const headerHeight = 40;
         const fullCavnas = document.createElement('canvas');
-        fullCavnas.width = canvas.width;
+        fullCavnas.width = canvas.width + 40;
         fullCavnas.height = canvas.height + headerHeight;
         const ctx = fullCavnas.getContext('2d');
-        ctx.fillStyle = '#2D74ED';
-        ctx.font = '18px Mark, Arial, sans-serif';
+        ctx.fillStyle = '#000';
+        ctx.font = 'bold 18px Mark, Arial, sans-serif';
         ctx.textBaseline = 'middle';
-        console.log(currentCensusField, msa);
-        ctx.fillText(`${currentCensusField.text} (% change, ${years.join('–')}), ${msa.name}`, 10, headerHeight / 2, canvas.width - 20);
-        ctx.drawImage(canvas, 0, headerHeight);
+        ctx.fillText(`${currentCensusField.text} (% change, ${years.join('–')}), `, 20, headerHeight / 2);
+        const x = ctx.measureText(`${currentCensusField.text} (% change, ${years.join('–')}), `).width + 20;
+        ctx.font = '18px Mark, Arial, sans-serif';
+        ctx.fillText(msa.name, x, headerHeight / 2);
+        ctx.drawImage(canvas, 20, headerHeight);
         return Promise.resolve(fullCavnas);
       });
   }
