@@ -36,7 +36,7 @@ const msaAtlasFunctions = {
         const pos = {
           left: d.point.x + offset + containerPos.left,
           bottom: (window.innerHeight - d.point.y - containerPos.top) + offset,
-          width: 200,
+          width: 275,
         };
         if (feature.id !== lastFeatureId && feature.layer.id === 'tract-fill') {
           if (lastFeatureId !== null) {
@@ -55,10 +55,18 @@ const msaAtlasFunctions = {
             id: lastFeatureId,
           },
           { hover: true });
+          const s = d3.formatSpecifier('f');
+          s.precision = d3.precisionFixed(0.01);
+          const f = d3.format(s);
           const censusField = getCurrentCensusField();
           const { id } = feature.properties;
+          const firstNum = Number(id.slice(-5, -2));
+          const secondNum = Number(id.slice(-2)) / 100;
+          const tractNum = secondNum !== 0
+            ? f(firstNum + secondNum)
+            : firstNum;
           const html = `
-            <div class="msa-probe__tract-row">Tract ${id.slice(-5, -3)}.${id.slice(-3)}</div>
+            <div class="msa-probe__tract-row">Tract ${tractNum}</div>
             <div class="msa-probe__indicator-row">
               <span class="msa-probe__indicator">${censusField.text}:</span> ${Math.round(feature.properties[censusField.value] * 100)}%
             </div>
