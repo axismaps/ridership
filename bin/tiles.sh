@@ -24,6 +24,7 @@ mapshaper data/geojson/transit/**/routes.geojson combine-files \
 
 mapshaper data/output/routes_match*.geojson combine-files \
   -merge-layers force \
+  -filter "operated_by_name != 'Amtrak'" \
   -o data/output/routes.geojson
 
 rm data/output/routes_match*.geojson
