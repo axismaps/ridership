@@ -28,8 +28,8 @@ const getMSADropdown = ({ data, state }) => new MSADropdown({
     if (currentMSA === null || currentMSA.msaId !== newMSA.msaId) {
       if (state.get('scale') === 'national') {
         const years = state.get('years');
-        if (years[0] < 2010) {
-          state.update({ years: [2010, years[1]] });
+        if (years[0] < 2010 || years[1] > 2016) {
+          state.update({ years: [d3.max([2010, years[0]]), d3.min([2016, years[1]])] });
         }
         state.update({
           scale: 'msa',

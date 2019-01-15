@@ -88,6 +88,20 @@ class SliderDropdown {
 
     setToggleButtonText.call(this);
   }
+
+  updateYearRange() {
+    const {
+      yearRange,
+      slider,
+    } = privateProps.get(this);
+    slider
+      .config({
+        valueRange: yearRange,
+      })
+      .updateValueRange()
+      .update();
+    return this;
+  }
 }
 
 Object.assign(

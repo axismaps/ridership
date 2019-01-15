@@ -246,6 +246,14 @@ class slider {
     setHandlePositions.call(this, currentValues);
     setActiveTrackPosition.call(this, currentValues);
   }
+
+  updateValueRange() {
+    const {
+      updateScaleValueRange,
+    } = privateMethods;
+    updateScaleValueRange.call(this);
+    return this;
+  }
 }
 
 Object.assign(
