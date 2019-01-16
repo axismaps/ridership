@@ -1,11 +1,7 @@
 .atlas__outer-container {
   @include panel();
-  position: absolute;
-  right: 0;
-  top: $sidebar--top;
+  position: relative;
   height: calc(100vh - #{$sidebar--top} - #{$histogram--height});
-  width: calc(100% - #{$atlas--left});
-  min-width: calc(#{$atlas--min-width} - 10px);
   border-top-left-radius: $sidebar--border-radius;
 }
 

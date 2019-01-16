@@ -7,11 +7,13 @@ $body--background: #DFE9FC;
 
 $gray-hover: #F5F5F5;
 
-$sidebar--width: 460px;
-$sidebar--max-width: 33%;
+$sidebar--width: 33%;
+$sidebar--max-width: 460px;
+$sidebar--min-width: 340px;
 $sidebar--border-radius: 5px;
 
-$atlas--min-width: 67%;
+$atlas--width: 67%;
+$atlas--margin-left: 10px;
 
 $header__title-row--height: 70px;
 $header__menu-row--height: 50px;
@@ -27,8 +29,8 @@ $panel__top-row--height: 50px;
 
 // ------------- derived variables ---------------
 
-$atlas--left: $sidebar--width + $atlas--left-margin;
 $sidebar--top: $header__title-row--height + $header__menu-row--height;
+$atlas--min-left: $sidebar--max-width + $atlas--margin-left;
 
 @mixin panel() {
   background: white;

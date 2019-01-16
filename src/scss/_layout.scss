@@ -1,3 +1,16 @@
 body {
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content-container, .right-content-container {
+  display: flex;
+}
+
+.right-content-container {
+  flex-direction: column;
+  margin-left: $atlas--margin-left;
+  flex: 1;
+  min-width: calc(100% - #{$atlas--min-left});
 }

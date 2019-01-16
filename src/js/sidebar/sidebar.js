@@ -163,6 +163,7 @@ const privateMethods = {
       updateExpandedIndicator,
       dataProbe,
       currentScale,
+      width,
     } = props;
 
     const {
@@ -190,6 +191,7 @@ const privateMethods = {
       dataProbe,
       updateIndicator,
       currentScale,
+      width,
     });
 
     drawSparkLineExpandButtons({
@@ -280,6 +282,19 @@ const privateMethods = {
     sparkLineAxisYear1.text(yearRange[0]);
     sparkLineAxisYear2.text(yearRange[1]);
   },
+  setDimensions() {
+    const props = privateProps.get(this);
+    const {
+      contentContainer,
+    } = props;
+    const {
+      width,
+      height,
+    } = contentContainer.node()
+      .getBoundingClientRect();
+
+    Object.assign(props, { width, height });
+  },
 
 };
 
@@ -289,6 +304,7 @@ class Sidebar {
       drawContent,
       setTopButtonEvents,
       setSparkLineAxisDates,
+      setDimensions,
     } = privateMethods;
 
     privateProps.set(this, {
@@ -298,9 +314,19 @@ class Sidebar {
       highlightedAgencies: [],
       searchResult: null,
       openedSubDropdowns: [],
+      width: null,
+      height: null,
     });
 
     this.config(config);
+    setDimensions.call(this);
+
+    const {
+      width,
+      sparkLineAxisContainer,
+    } = privateProps.get(this);
+
+    sparkLineAxisContainer.style('width', `${width * 0.4}px`);
     setTopButtonEvents.call(this);
     setSparkLineAxisDates.call(this);
     drawContent.call(this);
@@ -454,6 +480,25 @@ class Sidebar {
         })
         .updateSearchResult();
     }
+
+    return this;
+  }
+
+  updateSize() {
+    const {
+      drawContent,
+      setDimensions,
+    } = privateMethods;
+
+    setDimensions.call(this);
+    drawContent.call(this);
+
+    const {
+      width,
+      sparkLineAxisContainer,
+    } = privateProps.get(this);
+
+    sparkLineAxisContainer.style('width', `${width * 0.4}px`);
 
     return this;
   }

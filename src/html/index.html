@@ -9,9 +9,13 @@
 <body>
   <div class="outer-container outer-container--national">
     <%= require('html-loader!./header.html') %>
-    <%= require('html-loader!./atlas.html') %>
-    <%= require('html-loader!./sidebar.html') %>
-    <%= require('html-loader!./footer.html') %>
+    <div class="main-content-container">
+      <%= require('html-loader!./sidebar.html') %>
+      <div class="right-content-container">
+        <%= require('html-loader!./atlas.html') %>
+        <%= require('html-loader!./footer.html') %>
+      </div>
+    </div>
   </div>
   <script src="d3/d3.min.js"></script>
   <script src="d3/d3-selection-multi.min.js"></script>

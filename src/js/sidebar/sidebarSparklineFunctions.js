@@ -34,6 +34,7 @@ const sidebarSparkLineFunctions = {
     dataProbe,
     updateIndicator,
     currentScale,
+    width,
   }) {
     const sparkLines = [];
 
@@ -45,6 +46,7 @@ const sidebarSparkLineFunctions = {
         const container = d3.select(this);
 
         const sparkLine = new SparkLine({
+          width: width * 0.4,
           container,
           indicatorData: d,
           yearRange,

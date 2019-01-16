@@ -1,11 +1,9 @@
 .sidebar__outer-container {
   @include panel();
-  position: absolute;
-  left: 0px;
-  top: $sidebar--top;
   height: calc(100vh - #{$sidebar--top});
   width: $sidebar--width;
   max-width: $sidebar--max-width;
+  min-width: $sidebar--min-width;
   border-top-right-radius: $sidebar--border-radius;
   // overflow: auto;
 }
@@ -134,12 +132,11 @@ $sidebar-content--margin-top: 20px;
 .sidebar__sparkline-axis-row {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
 }
 
 .sidebar__sparkline-axis {
   width: $sidebar__sparkline--width;
-  margin-right: 50px;
+  margin-left: calc(60% - 55px);
 }
 
 .sidebar__sparkline-axis--hidden {
@@ -181,6 +178,7 @@ $sidebar-content--margin-top: 20px;
 .sidebar__sparkline-expand {
   visibility: hidden;
   cursor: pointer;
+  width: 15px;
   padding: 0 5px;
   height: 100%;
   display: flex;
