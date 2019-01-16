@@ -1,2 +1,6 @@
-@import 'header-mobile';
-@import 'sidebar-mobile';
+@media (max-width: 700px),
+(max-device-width: 823px) and (orientation: landscape),
+(max-device-height: 823px) and (orientation: portrait) {
+  @import 'header-mobile';
+  @import 'sidebar-mobile';
+}
