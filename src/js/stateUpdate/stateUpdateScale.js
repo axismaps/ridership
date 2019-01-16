@@ -1,6 +1,6 @@
 import setAllDropdownPositions from '../dropdown/setDropdownPositions';
 
-const getStateUpdateScale = ({ components }) => function updateScale() {
+const getStateUpdateScale = ({ components, data }) => function updateScale() {
   const {
     layout,
     atlas,
@@ -9,11 +9,18 @@ const getStateUpdateScale = ({ components }) => function updateScale() {
     sidebar,
     legend,
     zoomControls,
+    sliderDropdown,
   } = components;
 
   const scale = this.get('scale');
 
   const legendOn = scale === 'national';
+
+  sliderDropdown
+    .config({
+      yearRange: scale === 'national' ? data.get('yearRange') : data.get('msaYearRange'),
+    })
+    .updateYearRange();
 
   zoomControls
     .config({

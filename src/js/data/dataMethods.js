@@ -99,6 +99,7 @@ const dataMethods = {
     const radiusScale = getRadiusScale({ ntd });
 
     const yearRange = d3.extent(ntd, d => d.year);
+    const msaYearRange = [2010, 2016];
 
     const changeColorScale = d3.scaleThreshold()
       .domain([-25, -5, 5, 25])
@@ -332,6 +333,7 @@ const dataMethods = {
     data.set('statesTopo', rawStates);
     data.set('allNationalMapData', allNationalMapData);
     data.set('yearRange', yearRange);
+    data.set('msaYearRange', msaYearRange);
     data.set('changeColorScale', changeColorScale);
     data.set('indicators', indicators);
     data.set('cachedTractGeoJSON', new Map());

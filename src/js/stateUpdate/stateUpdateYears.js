@@ -48,13 +48,17 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
     .updateYears()
     .updateData();
 
+  msaAtlas
+    .config({
+      years,
+    });
+
   if (msa === null || scale === 'national') return;
 
   this.getCurrentTractGeo((tractGeo) => {
     msaAtlas
       .config({
         tractGeo,
-        years,
       })
       .updateData();
 

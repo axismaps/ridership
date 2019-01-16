@@ -17,7 +17,7 @@ const getState = ({ data }) => {
     agenciesOn: true,
     nationalDataView: 'ta', // ta or msa
     scale: 'national', // national or msa,
-    censusField: { text: 'Income', value: 'income' },
+    censusField: { text: 'Median Household Income', value: 'income' },
     distanceFilter: null,
     highlightedAgencies: [], // agencies highlighted on map/histogram/chart(s) mouseover,
     highlightedTracts: [], // tracts highlighted on map/histogram/chart mouseover

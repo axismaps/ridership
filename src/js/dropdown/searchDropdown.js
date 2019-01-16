@@ -105,6 +105,7 @@ class SearchDropdown {
     });
 
     d3.select('.outer-container').classed('search-result', searchResult !== null);
+    searchInput.attr('placeholder', nationalDataView === 'ta' ? 'Agency name...' : 'MSA name...');
 
     return this;
   }

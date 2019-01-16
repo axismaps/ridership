@@ -23,6 +23,7 @@ const privateMethods = {
       getScales,
       drawAxis,
       updateInteractions,
+      drawYearAxis,
     } = sparkLineFunctions;
     const svg = drawSVG({
       container,
@@ -43,6 +44,12 @@ const privateMethods = {
       scales,
       margin,
       indicatorData,
+    });
+
+    const yearAxis = drawYearAxis({
+      svg,
+      scales,
+      margin,
     });
 
     const line = drawLine({
@@ -66,6 +73,7 @@ const privateMethods = {
       scales,
       line,
       axis,
+      yearAxis,
     });
   },
 };
