@@ -5,6 +5,7 @@
   top: $sidebar--top;
   height: calc(100vh - #{$sidebar--top});
   width: $sidebar--width;
+  max-width: $sidebar--max-width;
   border-top-right-radius: $sidebar--border-radius;
   // overflow: auto;
 }

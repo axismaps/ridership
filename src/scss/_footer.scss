@@ -4,6 +4,7 @@
   bottom: 0px;
   right: 0px;
   width: calc(100% - #{$atlas--left});
+  min-width: calc(#{$atlas--min-width} - 10px);
   height: $histogram--height;
   display: flex;
 }
