@@ -12,6 +12,7 @@ const msaAtlasFunctions = {
     setMinScale,
     // getCurrentCamera,
     getCurrentCensusField,
+    getYears,
     dataProbe,
   }) {
     let lastFeatureId = null;
@@ -60,6 +61,7 @@ const msaAtlasFunctions = {
           const f = d3.format(s);
           const censusField = getCurrentCensusField();
           const { id } = feature.properties;
+          const years = getYears();
           const firstNum = Number(id.slice(-5, -2));
           const secondNum = Number(id.slice(-2)) / 100;
           const tractNum = secondNum !== 0
@@ -68,7 +70,7 @@ const msaAtlasFunctions = {
           const html = `
             <div class="msa-probe__tract-row">Tract ${tractNum}</div>
             <div class="msa-probe__indicator-row">
-              <span class="msa-probe__indicator">${censusField.text}:</span> ${Math.round(feature.properties[censusField.value] * 100)}%
+              <span class="msa-probe__indicator">${years[0]}-${years[1]} (% change):</span> ${Math.round(feature.properties[censusField.value] * 100)}%
             </div>
             `;
           dataProbe
