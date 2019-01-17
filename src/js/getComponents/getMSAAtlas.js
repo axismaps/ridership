@@ -18,9 +18,9 @@ const getMSAAtlas = ({ state, data }) => new MSAAtlas({
     const newExtent = [newMinScale, currentScaleExtent[1]];
     state.update({ msaScaleExtent: newExtent });
   },
-  updateStateHighlightedTractValue(highlightedTractValue) {
+  updateStateHighlightedTracts(highlightedTracts) {
     state.update({
-      highlightedTractValue,
+      highlightedTracts,
     });
   },
   // scaleExtent: data.get('scaleExtent').msa,

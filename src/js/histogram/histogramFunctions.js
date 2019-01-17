@@ -48,11 +48,11 @@ const histogramFunctions = {
     bars,
     updateHighlightedAgencies,
     dataProbe,
-    getCurrentScale,
   }) {
     bars.on('mouseover', (d) => {
-      console.log('scale', getCurrentScale());
       updateHighlightedAgencies(d.records);
+
+
       const { clientX, clientY } = d3.event;
       const pos = {
         left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
@@ -86,7 +86,6 @@ const histogramFunctions = {
     barSpacing,
     updateHighlightedAgencies,
     dataProbe,
-    getCurrentScale,
   }) {
     const {
       addNationalBarMouseEvents,
@@ -120,7 +119,6 @@ const histogramFunctions = {
       bars,
       updateHighlightedAgencies,
       dataProbe,
-      getCurrentScale,
     });
 
     return bars;
@@ -208,8 +206,10 @@ const histogramFunctions = {
   addMSABarMouseEvents({
     bars,
     dataProbe,
+    updateHighlightedTracts,
   }) {
     bars.on('mouseover', (d) => {
+      updateHighlightedTracts(d.records);
       const { clientX, clientY } = d3.event;
       const pos = {
         left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
@@ -229,6 +229,7 @@ const histogramFunctions = {
     })
       .on('mouseout', () => {
         dataProbe.remove();
+        updateHighlightedTracts([]);
       });
   },
   drawAxisLabels({

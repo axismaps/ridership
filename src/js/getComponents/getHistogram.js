@@ -14,6 +14,9 @@ const getHistogram = ({ data, state }) => new Histogram({
     const highlights = newHighlight || [];
     state.update({ highlightedAgencies: highlights });
   },
+  updateHighlightedTracts: (newHighlight) => {
+    state.update({ highlightedTracts: newHighlight });
+  },
   currentScale: state.get('scale'),
   currentCensusField: state.get('censusField'),
   distanceFilter: state.get('distanceFilter'),

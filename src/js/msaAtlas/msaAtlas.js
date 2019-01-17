@@ -18,7 +18,7 @@ const privateMethods = {
       onZoom,
       dataProbe,
       setMinScale,
-      updateStateHighlightedTractValue,
+      updateStateHighlightedTracts,
     } = props;
 
     if (scale === 'national') return;
@@ -28,7 +28,7 @@ const privateMethods = {
     } = msaAtlasFunctions;
 
     const msaAtlas = drawAtlas({
-      updateStateHighlightedTractValue,
+      updateStateHighlightedTracts,
       dataProbe,
       onZoom,
       msaMapContainer,
@@ -225,6 +225,37 @@ class MSAAtlas {
     } = privateProps.get(this);
     msaAtlas.setMinZoom(scaleExtent[0]);
     msaAtlas.setMaxZoom(scaleExtent[1]);
+  }
+
+  updateHighlightedTracts() {
+    const {
+      highlightedTracts,
+      tractHovering,
+      msaAtlas,
+    } = privateProps.get(this);
+
+    if (tractHovering) return;
+
+    const highlightedGeoIds = highlightedTracts.map(d => d.id);
+    const features = msaAtlas.queryRenderedFeatures({
+      layers: ['tract-fill'],
+    });
+
+    features.forEach((feature) => {
+      if (highlightedGeoIds.includes(feature.properties.id)) {
+        msaAtlas.setFeatureState({
+          source: 'tracts',
+          id: feature.id,
+        },
+        { hover: true });
+      } else {
+        msaAtlas.setFeatureState({
+          source: 'tracts',
+          id: feature.id,
+        },
+        { hover: false });
+      }
+    });
   }
 
   export() {

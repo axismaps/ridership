@@ -12,7 +12,7 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
   const msa = this.get('msa');
   this.set('distanceFilter', null);
   const distanceFilter = this.get('distanceFilter');
-  console.log('distanceFilter', distanceFilter);
+
 
   msaDropdown
     .config({

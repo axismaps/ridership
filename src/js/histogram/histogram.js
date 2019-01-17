@@ -27,6 +27,7 @@ const privateMethods = {
       nationalNtd,
       nationalDataView,
       nationalData,
+      updateHighlightedTracts,
     } = props;
 
     const {
@@ -101,8 +102,8 @@ const privateMethods = {
       width,
       barSpacing,
       updateHighlightedAgencies,
+      updateHighlightedTracts,
       dataProbe,
-      getCurrentScale: () => props.currentScale,
     });
 
     const {

@@ -164,9 +164,6 @@ const updateFunctions = {
       .text(xText);
   },
   updateMSA({
-    // tractGeo,
-    // bucketCount,
-    // currentCensusField,
     padding,
     width,
     height,
@@ -177,6 +174,7 @@ const updateFunctions = {
     changeColorScale,
     dataProbe,
     histogramData,
+    updateHighlightedTracts,
   }) {
     const {
       // getMSAHistogramData,
@@ -218,6 +216,7 @@ const updateFunctions = {
     addMSABarMouseEvents({
       bars,
       dataProbe,
+      updateHighlightedTracts,
     });
 
     hideAverageLine({

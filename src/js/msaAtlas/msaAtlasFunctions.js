@@ -15,7 +15,7 @@ const msaAtlasFunctions = {
     getYears,
     dataProbe,
     setHoverStatus,
-    updateStateHighlightedTractValue,
+    updateStateHighlightedTracts,
   }) {
     let lastFeatureId = null;
     const {
@@ -65,8 +65,8 @@ const msaAtlasFunctions = {
           const f = d3.format(s);
           const censusField = getCurrentCensusField();
           const tractValue = feature.properties[censusField.value];
-          // updateStateHighlightedTractValue(tractValue * 100);
-          updateStateHighlightedTractValue(feature.properties);
+          // updateStateHighlightedTracts(tractValue * 100);
+          updateStateHighlightedTracts([feature.properties]);
           const { id } = feature.properties;
           const years = getYears();
           const firstNum = Number(id.slice(-5, -2));
@@ -98,8 +98,9 @@ const msaAtlasFunctions = {
         { hover: false });
         lastFeatureId = null;
         dataProbe.remove();
+
+        updateStateHighlightedTracts([]);
         setHoverStatus(false);
-        updateStateHighlightedTractValue(null);
       })
       .on('zoom', () => {
         onZoom(msaAtlas.getZoom());

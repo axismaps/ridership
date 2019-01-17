@@ -36,6 +36,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       nationalNtd,
       nationalData,
       distanceFilter,
+      updateHighlightedTracts,
     } = props;
 
 
@@ -112,6 +113,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
         changeColorScale,
         nationalAverageGroup,
         dataProbe,
+        updateHighlightedTracts,
       });
       Object.assign(props, { histogramData });
     }
@@ -239,17 +241,22 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     return this;
   },
 
-  updateHighlightedTractValue() {
+  updateHighlightedTracts() {
     const {
       bars,
-      highlightedTractValue,
+      highlightedTracts,
     } = privateProps.get(this);
-    console.log('highlighted', highlightedTractValue);
 
-    bars.classed('highlight', d => (highlightedTractValue !== null
-      ? d.records.map(dd => dd.id)
-        .includes(highlightedTractValue.id)
-      : false));
+    bars.classed('highlight', (d) => {
+      const barIds = d.records.map(tract => tract.id);
+      const highlightIds = highlightedTracts.map(tract => tract.id);
+      return barIds.some(id => highlightIds.includes(id));
+    });
+
+    // bars.classed('highlight', d => (highlightedTracts !== null
+    //   ? d.records.map(dd => dd.id)
+    //     .includes(highlightedTracts.id)
+    //   : false));
   },
 
   export() {
