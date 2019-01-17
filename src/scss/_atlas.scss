@@ -14,10 +14,20 @@
   padding-right: 20px;
 }
 
+.atlas__top-row {
+  // justify-content: space-between;
+}
+
 .atlas__top-row-left {
   display: flex;
   height: 100%;
   align-items: center;
+}
+
+.atlas__top-row-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .atlas__back-button {
@@ -46,6 +56,7 @@
   margin-left: 10px;
 }
 
+.atlas__distance-dropdown-clear:hover,
 .atlas__census-dropdown-button:hover,
 .atlas__indicator-dropdown-button:hover,
 .atlas__year-slider-button:hover,
@@ -77,8 +88,17 @@
   cursor: pointer;
 }
 
-.atlas__distance-dropdown-button > i {
+.atlas__distance-dropdown-button > i.fa-filter {
   margin-right: 5px;
+}
+
+.atlas__distance-dropdown-clear {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.atlas__distance-dropdown-clear--hidden {
+  display: none;
 }
 
 .header__msa-dropdown-text,
@@ -214,6 +234,7 @@ $zoom--border: 1px solid #cccccc;
 }
 
 .outer-container--national {
+  .atlas__distance-dropdown-clear,
   .atlas__distance-dropdown-button,
   .atlas__census-dropdown-button,
   .atlas__back-button,

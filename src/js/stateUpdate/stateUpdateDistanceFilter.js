@@ -3,6 +3,7 @@ const getStateUpdateDistanceFilter = ({ components }) => function updateDistance
     distanceDropdown,
     msaAtlas,
     histogram,
+    layout,
   } = components;
   const distanceFilter = this.get('distanceFilter');
   // const msa = this.get('msa');
@@ -12,6 +13,12 @@ const getStateUpdateDistanceFilter = ({ components }) => function updateDistance
       indicator: distanceFilter,
     })
     .update();
+
+  layout
+    .config({
+      distanceFilter,
+    })
+    .updateDistanceFilter();
 
 
   // msaAtlas

@@ -4,6 +4,7 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
     histogram,
     sidebar,
     msaDropdown,
+    layout,
     distanceDropdown,
   } = components;
 
@@ -25,6 +26,12 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
       indicator: distanceFilter,
     })
     .update();
+
+  layout
+    .config({
+      distanceFilter,
+    })
+    .updateDistanceFilter();
 
   if (msa === null) return;
 
