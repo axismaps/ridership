@@ -184,6 +184,20 @@ const privateMethods = {
 
     toggleNationalLayers.call(this);
   },
+
+  setDimensions() {
+    const props = privateProps.get(this);
+    const {
+      mapContainer,
+    } = props;
+    const {
+      width,
+      height,
+    } = mapContainer.node()
+      .getBoundingClientRect();
+
+    Object.assign(props, { width, height });
+  },
   // setRadiusScale() {
   //   const props = privateProps.get(this);
   //   const { nationalMapData } = props;
@@ -514,6 +528,25 @@ class Atlas {
       transform,
     } = privateProps.get(this);
     onZoom(transform.k);
+  }
+
+  updateSize() {
+    const {
+      setDimensions,
+    } = privateMethods;
+
+    setDimensions.call(this);
+
+    const {
+      mapSVG,
+      width,
+      height,
+    } = privateProps.get(this);
+
+    mapSVG.styles({
+      width: `${width}px`,
+      height: `${height}px`,
+    });
   }
 
   export() {
