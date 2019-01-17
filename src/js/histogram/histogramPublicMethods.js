@@ -239,6 +239,24 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     return this;
   },
 
+  updateHighlightedTractValue() {
+    const {
+      bars,
+      highlightedTractValue,
+    } = privateProps.get(this);
+
+    bars.classed('highlight', (d, i) => {
+      if (highlightedTractValue === null) return false;
+      const [min, max] = d.bucket;
+      if (i === 0) {
+        return highlightedTractValue >= min
+          && highlightedTractValue - max <= 0.00001;
+      }
+      return highlightedTractValue > min
+        && highlightedTractValue - max <= 0.00001;
+    });
+  },
+
   export() {
     const {
       exportMethods,

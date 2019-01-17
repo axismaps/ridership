@@ -14,6 +14,8 @@ const msaAtlasFunctions = {
     getCurrentCensusField,
     getYears,
     dataProbe,
+    setHoverStatus,
+    updateStateHighlightedTractValue,
   }) {
     let lastFeatureId = null;
     const {
@@ -29,6 +31,7 @@ const msaAtlasFunctions = {
       preserveDrawingBuffer: true,
     })
       .on('mousemove', 'tract-fill', (d) => {
+        setHoverStatus(true);
         const feature = msaAtlas.queryRenderedFeatures(d.point)[0];
         const offset = 15;
         const containerPos = d3.select('.atlas__msa-map-container')
@@ -40,6 +43,7 @@ const msaAtlasFunctions = {
           width: 275,
         };
         if (feature.id !== lastFeatureId && feature.layer.id === 'tract-fill') {
+          // console.log('feature', feature);
           if (lastFeatureId !== null) {
             msaAtlas.setFeatureState({
               source: 'tracts',
@@ -60,6 +64,8 @@ const msaAtlasFunctions = {
           s.precision = d3.precisionFixed(0.01);
           const f = d3.format(s);
           const censusField = getCurrentCensusField();
+          const tractValue = feature.properties[censusField.value];
+          updateStateHighlightedTractValue(tractValue * 100);
           const { id } = feature.properties;
           const years = getYears();
           const firstNum = Number(id.slice(-5, -2));
@@ -70,7 +76,7 @@ const msaAtlasFunctions = {
           const html = `
             <div class="msa-probe__tract-row">Tract ${tractNum}</div>
             <div class="msa-probe__indicator-row">
-              <span class="msa-probe__indicator">${years[0]}-${years[1]} (% change):</span> ${Math.round(feature.properties[censusField.value] * 100)}%
+              <span class="msa-probe__indicator">${years[0]}-${years[1]} (% change):</span> ${Math.round(tractValue * 100)}%
             </div>
             `;
           dataProbe
@@ -91,6 +97,8 @@ const msaAtlasFunctions = {
         { hover: false });
         lastFeatureId = null;
         dataProbe.remove();
+        setHoverStatus(false);
+        updateStateHighlightedTractValue(null);
       })
       .on('zoom', () => {
         onZoom(msaAtlas.getZoom());

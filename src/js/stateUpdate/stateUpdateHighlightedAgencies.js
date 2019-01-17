@@ -6,6 +6,7 @@ const getStateUpdateHighlightedAgencies = ({ components }) => function updateHig
   } = components;
 
   const highlightedAgencies = this.get('highlightedAgencies');
+  console.log('highlighted', highlightedAgencies);
 
   atlas
     .config({

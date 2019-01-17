@@ -20,7 +20,7 @@ const getState = ({ data }) => {
     censusField: { text: 'Median Household Income', value: 'income' },
     distanceFilter: null,
     highlightedAgencies: [], // agencies highlighted on map/histogram/chart(s) mouseover,
-    highlightedTracts: [], // tracts highlighted on map/histogram/chart mouseover
+    highlightedTractValue: [], // tracts highlighted on map/histogram/chart mouseover
     expandedIndicator: null,
     comparedAgencies: [],
     compareMode: false,

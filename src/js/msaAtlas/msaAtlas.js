@@ -18,6 +18,7 @@ const privateMethods = {
       onZoom,
       dataProbe,
       setMinScale,
+      updateStateHighlightedTractValue,
     } = props;
 
     if (scale === 'national') return;
@@ -27,6 +28,7 @@ const privateMethods = {
     } = msaAtlasFunctions;
 
     const msaAtlas = drawAtlas({
+      updateStateHighlightedTractValue,
       dataProbe,
       onZoom,
       msaMapContainer,
@@ -40,6 +42,9 @@ const privateMethods = {
       setMinScale,
       getCurrentCamera: () => props.camera,
       getCurrentCensusField: () => props.currentCensusField,
+      setHoverStatus: (status) => {
+        props.tractHovering = status;
+      },
       getYears: () => props.years,
       logInitialFilters: (style) => {
         const taLayers = style.layers
@@ -74,6 +79,7 @@ class MSAAtlas {
       dataProbe: new DataProbe({
         container: d3.select('.outer-container'),
       }),
+      tractHovering: false,
     });
 
     this.config(config);
