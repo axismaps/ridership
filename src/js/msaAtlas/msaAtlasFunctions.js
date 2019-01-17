@@ -65,7 +65,8 @@ const msaAtlasFunctions = {
           const f = d3.format(s);
           const censusField = getCurrentCensusField();
           const tractValue = feature.properties[censusField.value];
-          updateStateHighlightedTractValue(tractValue * 100);
+          // updateStateHighlightedTractValue(tractValue * 100);
+          updateStateHighlightedTractValue(feature.properties);
           const { id } = feature.properties;
           const years = getYears();
           const firstNum = Number(id.slice(-5, -2));

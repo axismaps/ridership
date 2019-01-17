@@ -244,17 +244,12 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       bars,
       highlightedTractValue,
     } = privateProps.get(this);
+    console.log('highlighted', highlightedTractValue);
 
-    bars.classed('highlight', (d, i) => {
-      if (highlightedTractValue === null) return false;
-      const [min, max] = d.bucket;
-      if (i === 0) {
-        return highlightedTractValue >= min
-          && highlightedTractValue - max <= 0.00001;
-      }
-      return highlightedTractValue > min
-        && highlightedTractValue - max <= 0.00001;
-    });
+    bars.classed('highlight', d => (highlightedTractValue !== null
+      ? d.records.map(dd => dd.id)
+        .includes(highlightedTractValue.id)
+      : false));
   },
 
   export() {

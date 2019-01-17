@@ -102,6 +102,7 @@ const privateMethods = {
       barSpacing,
       updateHighlightedAgencies,
       dataProbe,
+      getCurrentScale: () => props.currentScale,
     });
 
     const {

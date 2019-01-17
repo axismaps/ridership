@@ -48,8 +48,10 @@ const histogramFunctions = {
     bars,
     updateHighlightedAgencies,
     dataProbe,
+    getCurrentScale,
   }) {
     bars.on('mouseover', (d) => {
+      console.log('scale', getCurrentScale());
       updateHighlightedAgencies(d.records);
       const { clientX, clientY } = d3.event;
       const pos = {
@@ -84,6 +86,7 @@ const histogramFunctions = {
     barSpacing,
     updateHighlightedAgencies,
     dataProbe,
+    getCurrentScale,
   }) {
     const {
       addNationalBarMouseEvents,
@@ -117,6 +120,7 @@ const histogramFunctions = {
       bars,
       updateHighlightedAgencies,
       dataProbe,
+      getCurrentScale,
     });
 
     return bars;
