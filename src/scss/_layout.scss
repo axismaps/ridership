@@ -14,3 +14,7 @@ body {
   flex: 1;
   min-width: calc(100% - #{$atlas--min-left});
 }
+
+.mobile {
+  display: none;
+}

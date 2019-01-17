@@ -1,0 +1,17 @@
+.atlas__outer-container {
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 60px);
+}
+
+.atlas__msa-map-container,
+.atlas__map-container {
+  height: auto;
+  flex: 1;
+}
+
+.atlas__compare-dropdown-button,
+.atlas__search-dropdown-button {
+  display: none;
+}

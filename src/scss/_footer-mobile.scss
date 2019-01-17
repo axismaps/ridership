@@ -1,0 +1,27 @@
+.footer {
+  height: auto;
+}
+
+.footer__histogram, .footer__atlas-legend {
+  display: none;
+}
+
+.footer__modal-buttons.mobile {
+  display: flex;
+  height: 60px;
+  background: white;
+  width: 100%;
+  border-top: 1px solid #ccc;
+}
+
+.footer__modal-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  border-left: 1px solid #ccc;
+}
+
+.footer__modal-button:first-child {
+  border-left: none;
+}

@@ -1,6 +1,26 @@
-@media (max-width: 700px),
+@media (max-width: 500px),
 (max-device-width: 823px) and (orientation: landscape),
 (max-device-height: 823px) and (orientation: portrait) {
+  
+  .desktop {
+    display: none;
+  }
+
+  .dropdown-content {
+    display: none;
+  }
+
+  .main-content-container {
+    height: calc(100% - 70px);
+  }
+
+  .right-content-container {
+    margin: 0;
+    height: 100%;
+  }
+
   @import 'header-mobile';
   @import 'sidebar-mobile';
+  @import 'atlas-mobile';
+  @import 'footer-mobile';
 }
