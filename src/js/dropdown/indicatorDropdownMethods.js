@@ -20,6 +20,32 @@ const pureMethods = {
     return indicatorRows;
   },
 
+  drawMobileContent({
+    indicator,
+    indicators,
+    toggleButton,
+    updateIndicator,
+  }) {
+    const indicatorList = Array.from(indicators.values());
+
+    const dropdown = toggleButton.select('select');
+
+    dropdown.selectAll('option')
+      .data(indicatorList)
+      .enter()
+      .append('option')
+      .html(d => d.text)
+      .attr('value', d => d.value)
+      .attr('selected', d => (indicator === null ? false : d.value === indicator.value));
+
+    return dropdown
+      .on('change', function dropdownChange() {
+        const { value } = this;
+        const selectedIndicator = indicators.get(value);
+        updateIndicator(selectedIndicator);
+      });
+  },
+
   setButtonText({
     indicator,
     toggleButtonText,
@@ -29,10 +55,18 @@ const pureMethods = {
   },
   highlightCurrentIndicator({
     indicatorRows,
+    mobileSelect,
     indicator,
   }) {
     indicatorRows
       .classed('indicator-dropdown__content-row--highlighted', d => (indicator === null ? false : d.value === indicator.value));
+    if (mobileSelect.size()) {
+      const selectNode = mobileSelect.node();
+      selectNode.value = indicator === null ? null : indicator.value;
+      mobileSelect
+        .selectAll('option')
+        .attr('selected', d => (indicator === null ? false : d.value === indicator.value));
+    }
   },
 };
 

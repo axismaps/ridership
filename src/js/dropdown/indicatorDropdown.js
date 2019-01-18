@@ -11,6 +11,7 @@ const privateMethods = {
       indicators,
       contentContainer,
       indicator,
+      toggleButton,
       toggleButtonText,
       updateIndicator,
       defaultText,
@@ -24,6 +25,7 @@ const privateMethods = {
 
     const {
       drawContent,
+      drawMobileContent,
       setButtonText,
       highlightCurrentIndicator,
     } = pureMethods;
@@ -45,12 +47,21 @@ const privateMethods = {
       updateIndicator,
     });
 
+    const mobileSelect = drawMobileContent({
+      indicator,
+      indicators,
+      toggleButton,
+      updateIndicator,
+    });
+
     highlightCurrentIndicator({
       indicatorRows,
+      mobileSelect,
       indicator,
     });
 
     props.indicatorRows = indicatorRows;
+    props.mobileSelect = mobileSelect;
   },
 };
 
@@ -82,11 +93,13 @@ class IndicatorDropdown {
       indicator,
       toggleButtonText,
       defaultText,
+      mobileSelect,
     } = privateProps.get(this);
 
     highlightCurrentIndicator({
       indicatorRows,
       indicator,
+      mobileSelect,
     });
 
     setButtonText({
