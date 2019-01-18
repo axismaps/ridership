@@ -214,6 +214,7 @@ const atlasMethods = {
     years,
     allNationalMapData,
     indicator,
+    mobile,
   }) {
     const {
       getMSAData,
@@ -222,6 +223,46 @@ const atlasMethods = {
     const tooltip = new DataProbe({
       container: d3.select('.outer-container'),
     });
+    const formatPct = number => (number === null ? 'N/A' : `${d3.format(',d')(number)}%`);
+    const drawProbe = (d) => {
+      d3.event.stopPropagation();
+      const { clientX, clientY } = d3.event;
+      const pos = {
+        left: clientX < window.innerWidth - 310 ? (clientX + 10) : clientX - 310,
+        bottom: window.innerHeight - clientY + 10,
+        width: 300,
+      };
+      tooltip.remove();
+      const ids = comparedAgencies.map(a => a.globalId);
+
+
+      const format = number => (number === null ? 'N/A'
+        : (d3.format(indicator.format)(number) + (indicator.unit || '')));
+      const clickText = compareMode === false ? 'Click the point to jump to this MSA'
+        : `Click the point to ${ids.includes(d.globalId) ? 'remove from' : 'add to'} comparison`;
+      const html = nationalDataView === 'msa' ? `
+          <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.name}</span></div>
+          <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
+          <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
+          <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
+          <div class="data-probe__sparkline-container expanded"></div>
+          <div class="data-probe__row data-probe__msa-text">${clickText}</div>
+        ` : `
+          <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.taName}</span></div>
+          <div class="data-probe__row">${d.msaName}</div>            
+          <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
+          <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
+          <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
+          <div class="data-probe__sparkline-container expanded"></div>
+          <div class="data-probe__row data-probe__msa-text">${clickText}</div>
+        `;
+      dataProbe
+        .config({
+          pos,
+          html,
+        })
+        .draw();
+    };
     if (compareMode === true) {
       mapContainer
         .on('mouseover.compare', () => {
@@ -258,7 +299,7 @@ const atlasMethods = {
     } else {
       mapContainer.on('mouseover.compare mousemove.compare mouseout.compare', null);
     }
-    const formatPct = number => (number === null ? 'N/A' : `${d3.format(',d')(number)}%`);
+
     agencies
       .on('mouseout', () => {
         dataProbe.remove();
@@ -266,6 +307,10 @@ const atlasMethods = {
         agencies.classed('map__agency-dim', false);
       })
       .on('click', (d) => {
+        if (mobile) {
+          drawProbe(d);
+          return;
+        }
         if (compareMode === false) {
           jumpToMsa(d);
         } else {
@@ -281,46 +326,14 @@ const atlasMethods = {
         }
       })
       .on('mouseover', (d) => {
-        agencies.classed('map__agency-dim', false);
-        d3.event.stopPropagation();
-        const { clientX, clientY } = d3.event;
-        const pos = {
-          left: clientX < window.innerWidth - 310 ? (clientX + 10) : clientX - 310,
-          bottom: window.innerHeight - clientY + 10,
-          width: 300,
-        };
-        tooltip.remove();
-        const ids = comparedAgencies.map(a => a.globalId);
+        if (mobile) return;
         const { globalId } = d;
         const msa = getMSAData({ allNationalMapData, globalId });
-        const format = number => (number === null ? 'N/A'
-          : (d3.format(indicator.format)(number) + (indicator.unit || '')));
-        const clickText = compareMode === false ? 'Click the point to jump to this MSA'
-          : `Click the point to ${ids.includes(d.globalId) ? 'remove from' : 'add to'} comparison`;
-        const html = nationalDataView === 'msa' ? `
-          <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.name}</span></div>
-          <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
-          <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
-          <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
-          <div class="data-probe__sparkline-container expanded"></div>
-          <div class="data-probe__row data-probe__msa-text">${clickText}</div>
-        ` : `
-          <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.taName}</span></div>
-          <div class="data-probe__row">${d.msaName}</div>            
-          <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
-          <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
-          <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
-          <div class="data-probe__sparkline-container expanded"></div>
-          <div class="data-probe__row data-probe__msa-text">${clickText}</div>
-        `;
+        agencies.classed('map__agency-dim', false);
+
         agencies.filter(a => a.msaId !== d.msaId)
           .classed('map__agency-dim', true);
-        dataProbe
-          .config({
-            pos,
-            html,
-          })
-          .draw();
+        drawProbe(d);
         if (d.pctChange !== null) {
           drawMSASparkline({
             msa,

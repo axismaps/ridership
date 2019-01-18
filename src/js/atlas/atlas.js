@@ -143,6 +143,7 @@ const privateMethods = {
       years,
       allNationalMapData,
       indicator,
+      mobile,
     });
 
     mapFeatures.set('states', states);
