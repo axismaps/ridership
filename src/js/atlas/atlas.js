@@ -28,6 +28,7 @@ const privateMethods = {
       indicator,
       scaleExtent,
       onZoom,
+      mobile,
     } = props;
 
     const {
@@ -64,7 +65,11 @@ const privateMethods = {
       geoPath,
       projection,
       projectionModify,
-    } = getGeoProps({ width, height });
+    } = getGeoProps({
+      width,
+      height,
+      mobile,
+    });
 
     const {
       initialTranslate,

@@ -2,6 +2,7 @@ import Atlas from '../atlas/atlas';
 import exportMethods from '../export/exportMethods';
 
 const getAtlas = ({ data, state }) => new Atlas({
+  mobile: state.get('mobile'),
   mapContainer: d3.select('.atlas__map-container'),
   statesTopo: data.get('statesTopo'),
   nationalMapData: state.getCurrentNationalMapData(),
