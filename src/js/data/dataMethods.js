@@ -321,6 +321,7 @@ const dataMethods = {
     ];
 
     const nationalScaleExtent = [1, 8];
+    const nationalScaleExtentMobile = [0.5, 8];
 
     const data = new Map();
 

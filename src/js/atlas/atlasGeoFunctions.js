@@ -20,13 +20,26 @@ const atlasMethods = {
   getGeoProps({
     width,
     height,
+    mobile,
   }) {
+    const initialScale = d3.min([width, height]) * 1.25;
     const projection = d3.geoAlbersUsa()
       .translate([width / 2, height / 2]);
 
     const projectionModify = d3.geoAlbersUsa()
       .translate([width / 2, height / 2]);
-
+    /**
+     * instead of doing this we should just calculate scale based on viewport + USA bounds
+     * @private
+     */
+    if (mobile) {
+      [
+        projection,
+        projectionModify,
+      ].forEach((prop) => {
+        prop.scale(initialScale);
+      });
+    }
     const geoPath = d3.geoPath()
       .projection(projection);
 
