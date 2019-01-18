@@ -13,6 +13,7 @@ const privateMethods = {
       years,
       updateYears,
       contentContainer,
+      toggleButton,
     } = props;
 
     const {
@@ -24,6 +25,7 @@ const privateMethods = {
 
     const {
       getSlider,
+      getMobileModal,
     } = sliderPureMethods;
 
     setContentPosition.call(this);
@@ -39,7 +41,14 @@ const privateMethods = {
       contentContainer,
     });
 
-    Object.assign(props, { slider });
+    const modal = getMobileModal({
+      toggleButton,
+      yearRange,
+      years,
+      updateYears,
+    });
+
+    Object.assign(props, { slider, modal });
   },
   setToggleButtonText() {
     const {

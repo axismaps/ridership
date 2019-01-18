@@ -32,6 +32,17 @@
   height: 100%;
 }
 
+
+.atlas__top-row .mobile-modal select {
+  display: block;
+  opacity: 1;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  margin: 15px 0;
+}
+
 .atlas__indicator-dropdown-button, .atlas__census-dropdown-button, .atlas__year-slider-button {
   margin: 0;
   flex: 1;
