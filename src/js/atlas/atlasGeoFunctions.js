@@ -308,6 +308,7 @@ const atlasMethods = {
       })
       .on('click', (d) => {
         if (mobile) {
+          dataProbe.remove();
           drawProbe(d);
           return;
         }

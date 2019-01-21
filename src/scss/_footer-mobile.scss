@@ -1,5 +1,6 @@
 .footer {
   height: auto;
+  z-index: 500;
 }
 
 .footer__histogram, .footer__atlas-legend {
@@ -8,7 +9,7 @@
 
 .footer__modal-buttons.mobile {
   display: flex;
-  height: 60px;
+  height: $footer-mobile--height;
   background: white;
   width: 100%;
   border-top: 1px solid #ccc;
