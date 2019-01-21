@@ -238,8 +238,14 @@ const atlasMethods = {
 
       const format = number => (number === null ? 'N/A'
         : (d3.format(indicator.format)(number) + (indicator.unit || '')));
-      const clickText = compareMode === false ? 'Click the point to jump to this MSA'
-        : `Click the point to ${ids.includes(d.globalId) ? 'remove from' : 'add to'} comparison`;
+      let clickText;
+      if (mobile) {
+        clickText = 'Jump to this MSA';
+      } else {
+        clickText = compareMode === false
+          ? 'Click the point to jump to this MSA'
+          : `Click the point to ${ids.includes(d.globalId) ? 'remove from' : 'add to'} comparison`;
+      }
       const html = nationalDataView === 'msa' ? `
           <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.name}</span></div>
           <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
@@ -262,6 +268,13 @@ const atlasMethods = {
           html,
         })
         .draw();
+      if (mobile) {
+        d3.select('.data-probe__msa-text')
+          .on('click', () => {
+            dataProbe.remove();
+            jumpToMsa(d);
+          });
+      }
     };
     if (compareMode === true) {
       mapContainer
@@ -302,6 +315,7 @@ const atlasMethods = {
 
     agencies
       .on('mouseout', () => {
+        if (mobile) return;
         dataProbe.remove();
         updateHighlightedAgencies([]);
         agencies.classed('map__agency-dim', false);
