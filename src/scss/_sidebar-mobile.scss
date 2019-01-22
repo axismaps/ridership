@@ -1,3 +1,14 @@
 .sidebar {
   display: none;
+  position: absolute;
+  z-index: 5000;
+  width: 100%;
+}
+
+.sidebar__pcp-container .sidebar__pcp-labels {
+  width: calc(100% - 220px);
+}
+
+.sidebar__pcp-row {
+  width: 100%;
 }
