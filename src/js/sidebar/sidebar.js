@@ -316,6 +316,7 @@ class Sidebar {
       openedSubDropdowns: [],
       width: null,
       height: null,
+      mobileSidebarOpen: false,
     });
 
     this.config(config);
@@ -501,6 +502,13 @@ class Sidebar {
     sparkLineAxisContainer.style('width', `${width * 0.4}px`);
 
     return this;
+  }
+
+  updateToggle() {
+    const {
+      mobileSidebarOpen,
+    } = privateProps.get(this);
+    console.log('mobileSidebarOpen?', mobileSidebarOpen);
   }
 
   export() {

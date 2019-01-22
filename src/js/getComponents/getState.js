@@ -8,7 +8,7 @@ import getGetCurrentNationalData from '../stateMethods/stateGetCurrentNationalDa
 
 const getState = ({ data }) => {
   const state = new State({
-    sidebarOpen: false,
+    mobileSidebarOpen: false,
     mobile: window.matchMedia('(max-width: 700px), (max-device-width: 823px) and (orientation: landscape), (max-device-height: 823px) and (orientation: portrait)').matches,
     msa: null, // for msa view
     msaProbe: null, // probed msa in national view

@@ -15,6 +15,7 @@ import getStateUpdateScreenSize from './stateUpdateScreenSize';
 import getStateUpdateCurrentZoom from './stateUpdateCurrentZoom';
 import getStateUpdateMSAScaleExtent from './stateUpdateMSAScaleExtent';
 import getStateUpdateHighlightedTracts from './stateUpdateHighlightedTracts';
+import getStateUpdateMobileSidebarOpen from './stateUpdateMobileSidebarOpen';
 
 const initStateUpdateListeners = ({ components, data }) => {
   const { state } = components;
@@ -37,6 +38,7 @@ const initStateUpdateListeners = ({ components, data }) => {
     screenSize: getStateUpdateScreenSize({ components }),
     currentZoom: getStateUpdateCurrentZoom({ components }),
     msaScaleExtent: getStateUpdateMSAScaleExtent({ components }),
+    mobileSidebarOpen: getStateUpdateMobileSidebarOpen({ components }),
   });
 };
 
