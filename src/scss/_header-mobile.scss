@@ -13,7 +13,8 @@
 
 .header__spark-menu-block {
   position: absolute;
-  top: 135px;
+  // top: 135px;
+  top: $sidebar-mobile--top + 15px;
   z-index: 1000;
 }
 
