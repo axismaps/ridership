@@ -41,6 +41,10 @@
 
   .mobile-done {
     appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    outline: none;
+    border: none;
     font-size: 24px;
     color: $main-blue;
   }

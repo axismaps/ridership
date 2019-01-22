@@ -43,7 +43,7 @@
   position: relative;
   width: auto;
   text-align: center;
-  font-size: 18px;
+  font-size: 28px;
   margin: 15px 0;
   -webkit-appearance: none;
   outline: none;
@@ -55,6 +55,8 @@
 
 .atlas__top-row .mobile-modal select + i {
   margin-left: -20px;
+  font-size: 28px;
+  color: #666;
 }
 
 .atlas__top-row .mobile-modal > * {
@@ -64,7 +66,12 @@
 .atlas__top-row .mobile-modal p {
   margin: 0;
   font-size: 18px;
+}
+
+.atlas__top-row .mobile-modal p:first-child {
+  font-size: 24px;
   font-weight: 600;
+  margin-top: 25px;
 }
 
 .atlas__top-row .mobile-modal p:first-child, .atlas__top-row .mobile-modal .mobile-done {
