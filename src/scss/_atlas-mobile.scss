@@ -34,13 +34,37 @@
 
 
 .atlas__top-row .mobile-modal select {
-  display: block;
+  display: inline;
   opacity: 1;
   position: relative;
-  width: 100%;
+  width: auto;
   text-align: center;
   font-size: 18px;
   margin: 15px 0;
+  -webkit-appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  margin: 5px 10px 50px 0;
+  padding-right: 20px;
+}
+
+.atlas__top-row .mobile-modal select + i {
+  margin-left: -20px;
+}
+
+.atlas__top-row .mobile-modal > * {
+  flex: 0;
+}
+
+.atlas__top-row .mobile-modal p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.atlas__top-row .mobile-modal p:first-child, .atlas__top-row .mobile-modal .mobile-done {
+  flex: 1;
 }
 
 .atlas__census-dropdown-button,
