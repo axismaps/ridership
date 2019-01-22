@@ -54,7 +54,7 @@
   width: 120px;
   text-align: center;
   background-color: transparent;
-  color: #000 !important;
+  color: #666 !important;
   border-radius: 5px;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .header__data-view-button--highlighted {
-  color: #000;
+  color: #000 !important;
   font-weight: normal;
   background-color: white;
   border-right: 1px solid #ccc;
