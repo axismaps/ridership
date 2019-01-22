@@ -23,6 +23,7 @@ const getHistogram = ({ data, state }) => new Histogram({
   years: state.get('years'),
   legendOn: state.get('scale') === 'national',
   exportMethods,
+  mobile: state.get('mobile'),
 });
 
 export default getHistogram;
