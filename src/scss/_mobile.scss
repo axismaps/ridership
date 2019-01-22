@@ -11,7 +11,8 @@
   }
 
   .main-content-container {
-    height: calc(100% - 70px);
+    // height: calc(100% - 70px);
+    height: calc(100vh - #{$header__title-row-mobile--height});
   }
 
   .right-content-container {

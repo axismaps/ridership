@@ -152,13 +152,20 @@ const privateMethods = {
     const props = privateProps.get(this);
     const {
       container,
+      mobile,
     } = props;
-    const {
-      width,
-      height,
-    } = container.node()
-      .getBoundingClientRect();
-
+    let width;
+    let height;
+    if (mobile) {
+      width = window.innerWidth;
+      height = window.innerHeight;
+    } else {
+      ({
+        width,
+        height,
+      } = container.node()
+        .getBoundingClientRect());
+    }
     Object.assign(props, { width, height });
   },
   setLegendStatus() {

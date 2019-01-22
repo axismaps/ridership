@@ -29,6 +29,7 @@ const localFunctions = {
     barSpacing,
   }) {
     const count = histogramData.length;
+    console.log('xScaleRange', xScale.range());
     const rectWidth = ((xScale.range()[1] - xScale.range()[0]) / count) - barSpacing;
     return {
       x: (d, i) => padding.left + ((rectWidth + barSpacing) * i),

@@ -2,7 +2,10 @@
   border-radius: 0;
   display: flex;
   flex-direction: column;
-  height: calc(100% - 60px);
+  // height: calc(100% - 60px);
+  // height: 100vh;
+  height: 100%;
+  // height: calc(100vh - #{$header__title-row-mobile--height});
 }
 
 .atlas__msa-map-container,
