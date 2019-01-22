@@ -9,10 +9,14 @@
 .atlas__map-container {
   height: auto;
   flex: 1;
+  height: calc(100% - 125px)
 }
 
 .atlas__top-row {
   padding: 0;
+  position: relative;
+  margin-bottom: 65px;
+  border-bottom: 1px solid #ccc;
 }
 
 .atlas__top-row-left {
@@ -68,14 +72,24 @@
 }
 
 .atlas__census-dropdown-button,
-.atlas__indicator-dropdown-button, .atlas__census-dropdown-button, .atlas__year-slider-button {
+.atlas__indicator-dropdown-button,
+.atlas__year-slider-button {
   margin: 0;
   flex: 1;
   justify-content: center;
   position: relative;
   height: 100%;
+  padding: 0 10px;
+}
+
+.atlas__year-slider-button {
+  border-left: 1px solid #ccc;
 }
 
 .atlas__top-button:hover {
   color: $main-text-color;
+}
+
+.atlas__nav-container {
+  top: 120px;
 }
