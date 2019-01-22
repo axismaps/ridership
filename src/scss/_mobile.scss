@@ -40,6 +40,12 @@
     right: 15px;
   }
 
+  .mobile-done {
+    appearance: none;
+    font-size: 24px;
+    color: $main-blue;
+  }
+
 
   @import 'header-mobile';
   @import 'sidebar-mobile';

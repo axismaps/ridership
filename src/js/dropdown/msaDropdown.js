@@ -8,6 +8,7 @@ const privateMethods = {
   init() {
     const {
       drawContent,
+      drawMobileContent,
     } = msaDropdownFunctions;
     const {
       setMenuToggleEvents,
@@ -19,6 +20,7 @@ const privateMethods = {
       contentContainer,
       msaList,
       updateMSA,
+      mobileSelect,
     } = props;
 
     setMenuToggleEvents.call(this);
@@ -29,6 +31,12 @@ const privateMethods = {
     const msaRows = drawContent({
       contentContainer,
       msaList,
+      updateMSA,
+    });
+
+    drawMobileContent({
+      msaList,
+      mobileSelect,
       updateMSA,
     });
 
@@ -61,6 +69,7 @@ class MSADropdown {
       msaRows,
       currentMSA,
       toggleButton,
+      mobileSelect,
     } = privateProps.get(this);
     const {
       setButtonText,
@@ -75,6 +84,7 @@ class MSADropdown {
     highlightCurrentMSA({
       msaRows,
       currentMSA,
+      mobileSelect,
     });
   }
 }

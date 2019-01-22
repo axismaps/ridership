@@ -13,6 +13,7 @@ const getMSADropdown = ({ data, state }) => new MSADropdown({
   ],
   contentOuterContainer: d3.select('.msa-dropdown__content-container'),
   contentContainer: d3.select('.msa-dropdown__content'),
+  mobileSelect: d3.select('.header__jump-to-container select'),
   updateMSA: (newMSA) => {
     const currentMSA = state.get('msa');
     const currentScale = state.get('scale');

@@ -87,7 +87,7 @@ const sliderPureMethods = {
       modal.classed('open', true);
     });
 
-    modal.select('.modal-close').on('touchend', () => {
+    modal.selectAll('.modal-close, .mobile-done').on('touchend', () => {
       d3.event.stopPropagation();
       modal.classed('open', false);
     });
