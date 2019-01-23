@@ -24,9 +24,9 @@
     display: flex;
     position: fixed;
     background: white;
-    top: #{$header__title-row--height};
+    top: #{$header__title-row-mobile--height};
     left: 0;
-    height: calc(100% - #{$header__title-row--height});
+    height: calc(100% - #{$header__title-row-mobile--height});
     width: 100%;
     z-index: 1000;
     flex-direction: column;

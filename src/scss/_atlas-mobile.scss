@@ -4,7 +4,8 @@
   flex-direction: column;
   // height: calc(100% - 60px);
   // height: 100vh;
-  height: 100%;
+  height: auto;
+  flex: 1;
   // height: calc(100vh - #{$header__title-row-mobile--height});
 }
 
@@ -90,6 +91,10 @@
   position: relative;
   height: 100%;
   padding: 0 10px;
+}
+
+.outer-container--sidebar .atlas__indicator-dropdown-button {
+  display: none;
 }
 
 .atlas__year-slider-button {
