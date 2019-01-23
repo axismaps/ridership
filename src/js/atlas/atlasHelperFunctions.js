@@ -58,6 +58,14 @@ const atlasHelperFunctions = {
             indicatorSummary,
           };
         });
+        const mean = d3.mean(agencyCopy.summaries, s => s.indicatorSummary);
+        const stDev = d3.deviation(agencyCopy.summaries, s => s.indicatorSummary);
+        const scale = value => (value - mean) / stDev;
+        Object.assign(agencyCopy, {
+          mean,
+          stDev,
+          scale,
+        });
         agencyCopy.color = globalId === highlightedId || msa.globalId === highlightedId ? 'rgba(0,0,0,1)' : 'rgba(0,0,0,.25)';
         return agencyCopy;
       });

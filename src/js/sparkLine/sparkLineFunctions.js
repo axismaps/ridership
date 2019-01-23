@@ -23,17 +23,13 @@ const sparkLineFunctions = {
     const values = agencies.map(d => d.summaries)
       .reduce((accumulator, d) => [...accumulator, ...d], []);
     const xDomain = yearRange;
-    const yDomain = d3.extent(values, d => d.indicatorSummary);
-    const maxes = agencies.map(a => d3.max(a.summaries, s => s.indicatorSummary))
-      .sort((a, b) => b - a);
-    const hasOutlier = maxes.length > 1 && maxes[0] / maxes[1] > 2;
-    const yScale = hasOutlier ? d3.scalePow().exponent(0.001) : d3.scaleLinear();
+    const yDomain = agencies.length > 1 ? [-2, 2] : d3.extent(values, d => d.indicatorSummary);
 
     return {
       xScale: d3.scaleLinear()
         .domain(xDomain)
         .range([0, width]),
-      yScale: yScale
+      yScale: d3.scaleLinear()
         .domain(yDomain)
         .range([height, 0]),
     };
@@ -60,6 +56,7 @@ const sparkLineFunctions = {
       .scale(yScale)
       .ticks(2)
       .tickFormat((d) => {
+        if (indicatorData.agencies.length > 1) return d;
         const digits = Math.min(9, Math.floor(Math.log10(d) / 3) * 3);
         const suffixes = ['', 'k', 'M', 'B'];
         if (digits < 3) return d3.format(indicatorData.format)(d);
@@ -144,7 +141,12 @@ const sparkLineFunctions = {
             });
         }
       })
-      .attr('d', d => lineGenerator(d.summaries));
+      .attr('d', (d) => {
+        if (indicatorData.agencies.length > 1) {
+          lineGenerator.y(s => yScale(d.scale(s.indicatorSummary)));
+        }
+        return lineGenerator(d.summaries);
+      });
 
     const circles = g.append('g')
       .attr('class', 'sparkline-circles')
@@ -213,8 +215,12 @@ const sparkLineFunctions = {
       svg.selectAll('circle')
         .attrs({
           cx: xScale(year),
-          cy: (circleData, i) => (summaries[i] === undefined
-            ? 0 : yScale(summaries[i].indicatorSummary)),
+          cy: (circleData, i) => {
+            if (summaries[i] === undefined) return 0;
+            return d.agencies.length > 1
+              ? yScale(d.agencies[i].scale(summaries[i].indicatorSummary))
+              : yScale(summaries[i].indicatorSummary);
+          },
         })
         .style('display', (circleData, i) => (summaries[i] !== undefined && summaries[i].indicatorSummary !== null ? 'block' : 'none'));
     })
@@ -252,7 +258,12 @@ const sparkLineFunctions = {
     line
       .data(indicatorData.agencies)
       .transition()
-      .attr('d', d => lineGenerator(d.summaries));
+      .attr('d', (d) => {
+        if (indicatorData.agencies.length > 1) {
+          lineGenerator.y(s => yScale(d.scale(s.indicatorSummary)));
+        }
+        return lineGenerator(d.summaries);
+      });
 
     axis
       .scale(yScale)
