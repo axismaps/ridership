@@ -169,7 +169,7 @@ const sparkLineFunctions = {
     interactive,
   }) {
     if (interactive === false) return svg;
-    return svg.on('mousemove', (d) => {
+    return svg.on('mousemove click', (d) => {
       dataProbe.remove();
       const {
         xScale,
