@@ -19,6 +19,7 @@ const privateMethods = {
       dataProbe,
       setMinScale,
       updateStateHighlightedTracts,
+      atlasOuterContainer,
     } = props;
 
     if (scale === 'national') return;
@@ -32,6 +33,7 @@ const privateMethods = {
       dataProbe,
       onZoom,
       msaMapContainer,
+      atlasOuterContainer,
       msa,
       tractGeo,
       scaleExtent,
@@ -115,6 +117,7 @@ class MSAAtlas {
       currentCensusField,
       msa,
       setMinScale,
+      atlasOuterContainer,
     } = props;
     const {
       init,
@@ -124,6 +127,8 @@ class MSAAtlas {
       init.call(this);
       return this;
     }
+
+    console.log(msa);
 
     const {
       initSite,
@@ -138,6 +143,7 @@ class MSAAtlas {
       saveCamera: (camera) => {
         props.camera = camera;
       },
+      atlasOuterContainer,
     });
 
     this.updateAgencyLayers();
