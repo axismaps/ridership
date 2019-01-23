@@ -16,6 +16,7 @@ import getCensusDropdown from './getComponents/getCensusDropdown';
 import getDistanceDropdown from './getComponents/getDistanceDropdown';
 import getLegend from './getComponents/getLegend';
 import getZoomControls from './getComponents/getZoomControls';
+import getMobileFooter from './getComponents/getMobileFooter';
 import initStateUpdateListeners from './stateUpdate/stateUpdate';
 
 require('../scss/index.scss');
@@ -55,6 +56,7 @@ const app = {
     components.headerButtons = getHeaderButtons({ state, data, components });
     components.zoomControls = getZoomControls({ state, data, components });
     components.legend = getLegend({ state, data });
+    components.mobileFooter = getMobileFooter({ state });
   },
   initStateUpdateListeners() {
     const { components, data } = this;

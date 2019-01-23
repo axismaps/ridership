@@ -60,6 +60,14 @@ class Layout {
     clearDistanceButton
       .classed('atlas__distance-dropdown-clear--hidden', distanceFilter === null);
   }
+
+  updateSidebarToggle() {
+    const {
+      mobileSidebarOpen,
+      outerContainer,
+    } = privateProps.get(this);
+    outerContainer.classed('outer-container--sidebar', mobileSidebarOpen);
+  }
 }
 
 export default Layout;
