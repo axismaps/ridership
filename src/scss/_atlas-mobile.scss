@@ -4,7 +4,8 @@
   flex-direction: column;
   // height: calc(100% - 60px);
   // height: 100vh;
-  height: 100%;
+  height: auto;
+  flex: 1;
   // height: calc(100vh - #{$header__title-row-mobile--height});
 }
 
@@ -92,6 +93,11 @@
   padding: 0 10px;
 }
 
+.outer-container--sidebar .atlas__indicator-dropdown-button,
+.outer-container--sidebar .atlas__census-dropdown-button {
+  display: none;
+}
+
 .atlas__year-slider-button {
   border-left: 1px solid #ccc;
 }
@@ -102,4 +108,36 @@
 
 .atlas__nav-container {
   top: 120px;
+}
+
+.atlas__back-button {
+  position: absolute;
+  top: 65px;
+  left: 15px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 40px;
+  justify-content: center;
+  line-height: 40px;
+  height: 40px;
+  padding: 0;
+  color: #000;
+}
+
+.atlas__back-button > i {
+  margin: 0;
+}
+
+.outer-container--msa .atlas__msa-name.mobile {
+  display: flex;
+  position: absolute;
+  top: 55px;
+  font-size: 14px;
+  width: calc(100% - 140px);
+  left: 70px;
+  line-height: 16px;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
 }

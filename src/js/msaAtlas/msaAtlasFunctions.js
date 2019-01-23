@@ -1,6 +1,7 @@
 const msaAtlasFunctions = {
   drawAtlas({
     msaMapContainer,
+    atlasOuterContainer,
     msa,
     tractGeo,
     currentCensusField,
@@ -113,6 +114,7 @@ const msaAtlasFunctions = {
           tractGeo,
           currentCensusField,
           setMinScale,
+          atlasOuterContainer,
         });
         // const camera = getCurrentCamera();
         // setMinScale(camera.zoom);
@@ -121,6 +123,8 @@ const msaAtlasFunctions = {
           .classed('atlas__msa-map-container--loaded', true);
         updateAgencyLayers();
       });
+
+    atlasOuterContainer.select('.atlas__msa-name').text(msa.name);
 
     return msaAtlas;
   },
@@ -131,6 +135,7 @@ const msaAtlasFunctions = {
     currentCensusField,
     saveCamera,
     setMinScale,
+    atlasOuterContainer,
   }) {
     const {
       jumpToMSA,
@@ -149,6 +154,7 @@ const msaAtlasFunctions = {
       tractGeo,
       currentCensusField,
     });
+    atlasOuterContainer.select('.atlas__msa-name').text(msa.name);
   },
   jumpToMSA({
     msaAtlas,
