@@ -162,6 +162,18 @@ $zoom--border: 1px solid #cccccc;
   top: 20px + $panel__top-row--height;
 }
 
+.atlas__histogram-button-outer {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 500;
+}
+
+.atlas__histogram-button-outer.mobile {
+  display: block;
+}
+
+.atlas__histogram-button-outer,
 .atlas__bounds-button-outer,
 .atlas__zoom-container {
   width: $zoom--size;
@@ -174,6 +186,7 @@ $zoom--border: 1px solid #cccccc;
   margin-bottom: 5px;
 }
 
+.atlas__histogram-button,
 .atlas__bounds-button,
 .atlas__zoom-button {
   height: $zoom--size;
@@ -187,6 +200,7 @@ $zoom--border: 1px solid #cccccc;
   cursor: pointer;
 }
 
+.atlas__histogram-button,
 .atlas__bounds-button {
   border-radius: $zoom--border-radius;
 }
@@ -197,6 +211,7 @@ $zoom--border: 1px solid #cccccc;
   color: lightgrey;
 }
 
+.atlas__histogram-button:hover,
 .atlas__bounds-button:hover,
 .atlas__zoom-button:hover {
   background: #fafafa;
