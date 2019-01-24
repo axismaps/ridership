@@ -4,6 +4,7 @@ const getStateUpdateSidebarView = ({ components }) => function updateSidebarView
     mobileFooter,
   } = components;
   const sidebarView = this.get('sidebarView');
+
   sidebar
     .config({
       sidebarView,
@@ -12,7 +13,8 @@ const getStateUpdateSidebarView = ({ components }) => function updateSidebarView
   mobileFooter
     .config({
       sidebarView,
-    });
+    })
+    .updateSidebarView();
 };
 
 export default getStateUpdateSidebarView;
