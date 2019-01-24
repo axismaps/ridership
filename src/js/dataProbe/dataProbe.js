@@ -55,6 +55,11 @@ class DataProbe {
       .attr('class', 'data-probe__inner')
       .html(html);
 
+    props.probe
+      .append('i')
+      .attr('class', 'fas fa-times mobile')
+      .on('click', () => this.remove());
+
     if (leader) {
       props.probe
         .append('div')
