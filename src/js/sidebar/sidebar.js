@@ -8,7 +8,7 @@ const privateProps = new WeakMap();
 const privateMethods = {
   drawContent() {
     const {
-      currentSidebarView,
+      sidebarView,
       sparkLineAxisContainer,
       width,
     } = privateProps.get(this);
@@ -22,7 +22,7 @@ const privateMethods = {
     const {
       toggleSparkLineAxis,
     } = sparklineFunctions;
-    const sparkLineView = currentSidebarView === 'sparklines';
+    const sparkLineView = sidebarView === 'sparkLines';
     clearContent.call(this);
     setTopButtonStatus.call(this);
     sparkLineAxisContainer.style('width', `${width * 0.4}px`);
@@ -84,9 +84,9 @@ const privateMethods = {
       drawContent,
     } = privateMethods;
     const setNewView = (newView) => {
-      const currentView = props.currentSidebarView;
+      const currentView = props.sidebarView;
       if (newView === currentView) return;
-      props.currentSidebarView = newView;
+      props.sidebarView = newView;
       drawContent.call(this);
     };
     parallelButtonContainer
@@ -96,7 +96,7 @@ const privateMethods = {
 
     sparkLineButtonContainer
       .on('click', () => {
-        setNewView('sparklines');
+        setNewView('sparkLines');
       });
 
     compareContainer.select('.sidebar__compare-clear-button')
@@ -104,14 +104,14 @@ const privateMethods = {
   },
   setTopButtonStatus() {
     const {
-      currentSidebarView,
+      sidebarView,
       parallelButtonContainer,
       sparkLineButtonContainer,
     } = privateProps.get(this);
     parallelButtonContainer
-      .classed('sidebar__top-button--active', currentSidebarView === 'parallel');
+      .classed('sidebar__top-button--active', sidebarView === 'parallel');
     sparkLineButtonContainer
-      .classed('sidebar__top-button--active', currentSidebarView === 'sparklines');
+      .classed('sidebar__top-button--active', sidebarView === 'sparkLines');
   },
 
   drawNationalCompareList() {
@@ -346,11 +346,11 @@ class Sidebar {
       sparkLines,
       sparkTitles,
       pcp,
-      currentSidebarView,
+      sidebarView,
       currentIndicatorDisabled,
     } = privateProps.get(this);
 
-    if (currentSidebarView === 'sparklines') {
+    if (sidebarView === 'sparkLines') {
       sparkTitles
         .classed('sidebar__sparkline-title--selected', d => currentIndicator.value === d.value
         && !currentIndicatorDisabled);
@@ -382,10 +382,10 @@ class Sidebar {
     const {
       sparkRows,
       sparkLines,
-      currentSidebarView,
+      sidebarView,
       expandedIndicator,
     } = privateProps.get(this);
-    if (currentSidebarView === 'sparklines') {
+    if (sidebarView === 'sparkLines') {
       updateExpandedSparkline({
         sparkRows,
         sparkLines,
@@ -412,7 +412,7 @@ class Sidebar {
     const {
       pcp,
       agenciesData,
-      currentSidebarView,
+      sidebarView,
       // indicatorSummaries,
       currentScale,
       legendContainer,
@@ -436,7 +436,7 @@ class Sidebar {
     if (msaScale) {
       drawMSASparkLineLegend.call(this);
     }
-    if (currentSidebarView === 'parallel') {
+    if (sidebarView === 'parallel') {
       pcp
         .config({
           agenciesData,
@@ -455,10 +455,10 @@ class Sidebar {
     const {
       pcp,
       highlightedAgencies,
-      currentSidebarView,
+      sidebarView,
     } = privateProps.get(this);
 
-    if (currentSidebarView === 'parallel') {
+    if (sidebarView === 'parallel') {
       pcp
         .config({
           highlightedAgencies,
@@ -473,10 +473,10 @@ class Sidebar {
     const {
       pcp,
       searchResult,
-      currentSidebarView,
+      sidebarView,
     } = privateProps.get(this);
 
-    if (currentSidebarView === 'parallel') {
+    if (sidebarView === 'parallel') {
       pcp
         .config({
           searchResult,
@@ -520,15 +520,27 @@ class Sidebar {
       setDimensions.call(this);
       drawContent.call(this);
     }
+  }
 
-    console.log('mobileSidebarOpen?', mobileSidebarOpen);
+  updateView() {
+    const {
+      sidebarView,
+    } = privateProps.get(this);
+
+    const {
+      drawContent,
+    } = privateMethods;
+
+    if (sidebarView !== null) {
+      drawContent.call(this);
+    }
   }
 
   export() {
     const {
       exportMethods,
       sparkRows,
-      currentSidebarView,
+      sidebarView,
       pcpContainer,
       legendContainer,
       compareContainer,
@@ -589,7 +601,7 @@ class Sidebar {
       legendCanvas.height = 1;
     }
 
-    if (currentSidebarView === 'sparklines') {
+    if (sidebarView === 'sparkLines') {
       const promises = [];
       sparkRows.each(function exportSparkline() {
         const svgNode = d3.select(this).select('svg').node();
