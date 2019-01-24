@@ -31,16 +31,18 @@ const privateMethods = {
       sparkLineButton,
       pcpButton,
       sidebarView,
+      mobileSidebarOpen,
     } = privateProps.get(this);
+
     const highlightClass = 'footer__modal-button--highlighted';
     mapButton
-      .classed(highlightClass, sidebarView === null);
+      .classed(highlightClass, sidebarView === null || !mobileSidebarOpen);
 
     sparkLineButton
-      .classed(highlightClass, sidebarView === 'sparkLines');
+      .classed(highlightClass, sidebarView === 'sparkLines' && mobileSidebarOpen);
 
     pcpButton
-      .classed(highlightClass, sidebarView === 'pcp');
+      .classed(highlightClass, sidebarView === 'pcp' && mobileSidebarOpen);
   },
 };
 

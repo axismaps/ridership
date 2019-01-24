@@ -4,6 +4,7 @@ const getMobileFooter = ({ state }) => new MobileFooter({
   mapButton: d3.select('.footer__map-modal-button'),
   sparkLineButton: d3.select('.footer__sparkline-modal-button'),
   pcpButton: d3.select('.footer__pcp-modal-button'),
+  mobileSidebarOpen: state.get('mobileSidebarOpen'),
   sidebarView: state.get('sidebarView'),
   toggleFooter({ sidebarView }) {
     const currentSidebarView = state.get('sidebarView');
