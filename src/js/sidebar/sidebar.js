@@ -10,6 +10,7 @@ const privateMethods = {
     const {
       currentSidebarView,
       sparkLineAxisContainer,
+      width,
     } = privateProps.get(this);
     const {
       clearContent,
@@ -24,6 +25,7 @@ const privateMethods = {
     const sparkLineView = currentSidebarView === 'sparklines';
     clearContent.call(this);
     setTopButtonStatus.call(this);
+    sparkLineAxisContainer.style('width', `${width * 0.4}px`);
     toggleSparkLineAxis({
       sparkLineAxisContainer,
       sparkLineView,
@@ -508,6 +510,17 @@ class Sidebar {
     const {
       mobileSidebarOpen,
     } = privateProps.get(this);
+
+    const {
+      drawContent,
+      setDimensions,
+    } = privateMethods;
+
+    if (mobileSidebarOpen) {
+      setDimensions.call(this);
+      drawContent.call(this);
+    }
+
     console.log('mobileSidebarOpen?', mobileSidebarOpen);
   }
 

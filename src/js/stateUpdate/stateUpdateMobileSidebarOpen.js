@@ -1,6 +1,6 @@
 const getStateUpdateMobileSidebarOpen = ({ components }) => function updateMobileSidebarOpen() {
   const {
-    // sidebar,
+    sidebar,
     layout,
   } = components;
 
@@ -15,11 +15,11 @@ const getStateUpdateMobileSidebarOpen = ({ components }) => function updateMobil
     })
     .updateSidebarToggle();
 
-  // sidebar
-  //   .config({
-  //     mobileSidebarOpen,
-  //   })
-  //   .updateToggle();
+  sidebar
+    .config({
+      mobileSidebarOpen,
+    })
+    .updateToggle();
 };
 
 export default getStateUpdateMobileSidebarOpen;
