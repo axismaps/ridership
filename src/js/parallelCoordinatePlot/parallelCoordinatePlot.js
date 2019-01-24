@@ -19,6 +19,7 @@ const privateMethods = {
       color,
       msaScale,
       updateMSA,
+      mobile,
     } = props;
 
     const {
@@ -63,6 +64,7 @@ const privateMethods = {
       color,
       msaScale,
       updateMSA,
+      mobile,
     });
 
     const axis = drawAxis({
@@ -128,6 +130,7 @@ class ParallelCoordinatePlot {
       updateHighlightedAgencies,
       msaScale,
       updateMSA,
+      mobile,
     } = privateProps.get(this);
 
     const xScale = getXScale({
@@ -148,6 +151,7 @@ class ParallelCoordinatePlot {
       color,
       updateHighlightedAgencies,
       msaScale,
+      mobile,
     });
 
     drawAxis({

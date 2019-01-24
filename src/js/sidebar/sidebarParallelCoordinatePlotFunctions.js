@@ -25,8 +25,10 @@ const sidebarPureFunctions = {
     updateHighlightedAgencies,
     currentScale,
     updateMSA,
+    mobile,
   }) {
     return new ParallelCoordinatePlot({
+      mobile,
       pcpContainer,
       updateMSA,
       agenciesData,

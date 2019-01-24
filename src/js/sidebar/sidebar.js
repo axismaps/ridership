@@ -223,6 +223,7 @@ const privateMethods = {
       currentScale,
       // searchResult,
       updateMSA,
+      mobile,
     } = props;
 
     const {
@@ -245,6 +246,7 @@ const privateMethods = {
       updateIndicator,
       updateHighlightedAgencies,
       updateMSA,
+      mobile,
     });
 
     Object.assign(props, {

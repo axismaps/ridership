@@ -94,6 +94,7 @@ const parallelCoordinatePlotFunctions = {
     color,
     msaScale,
     updateMSA,
+    mobile,
   }) {
     const lineGenerator = d3.line()
       .x(d => xScale(d.pctChange))
@@ -113,13 +114,14 @@ const parallelCoordinatePlotFunctions = {
       .attr('class', 'pcp-line')
       .attr('d', d => lineGenerator(d.indicators))
       .on('mouseout', () => {
+        if (mobile) return;
         dataProbe.remove();
         svg.select('.probe-dot circle')
           .style('display', 'none');
         updateHighlightedAgencies([]);
       })
       .on('click', (d) => {
-        updateMSA(d);
+        if (mobile !== true) updateMSA(d);
       });
 
     lines.exit().remove();
@@ -144,10 +146,16 @@ const parallelCoordinatePlotFunctions = {
         const svgTop = svg.select('g.pcp-lines').node().getBoundingClientRect().top;
         const closest = Math.round((clientY - svgTop) / indicatorHeight);
         const displayValue = d.indicators[closest].pctChange === null ? 'N/A' : (`${Math.round(d.indicators[closest].pctChange)}%`);
+        let clickText;
+        if (mobile) {
+          clickText = 'Jump to this MSA';
+        } else {
+          clickText = 'Click to jump to this MSA';
+        }
         const html = `
           <div class="data-probe__row"><span class="data-probe__field">${d.taName || d.name}</span></div>
           <div class="data-probe__row">${d.indicators[closest].text}: ${displayValue}</div>
-          ${!msaScale ? '<div class="data-probe__row data-probe__msa-text">Click to jump to this MSA</div>' : ''}
+          ${!msaScale ? `<div class="data-probe__row data-probe__msa-text">${clickText}</div>` : ''}
         `;
         dataProbe
           .config({
@@ -162,6 +170,13 @@ const parallelCoordinatePlotFunctions = {
           })
           .style('display', 'block')
           .style('fill', color(d));
+        if (mobile) {
+          d3.select('.data-probe__msa-text')
+            .on('click', () => {
+              updateMSA(d);
+              dataProbe.remove();
+            });
+        }
       })
       .transition()
       .attr('d', d => lineGenerator(d.indicators))
