@@ -186,37 +186,41 @@ const sparkLineFunctions = {
       };
       const x = clientX - svg.select('.sparkline-background').node().getBoundingClientRect().left;
       const year = Math.min(Math.round(xScale.invert(x)), xScale.domain()[1]);
-      const format = value => (value === null
-        ? 'N/A'
-        : (d3.format(d.format)(value) + (d.unit || '')));
-      const summaries = d.agencies.map(a => a.summaries.find(s => s.year === year));
-      const displayValues = d.agencies.map((agency) => {
-        const summaryData = agency.summaries.find(s => s.year === year);
-        const summary = summaryData ? summaryData.indicatorSummary : null;
-        if (agency.globalId === 'all') return format(summary);
-        return `<span class="data-probe__field">${(agency.name || agency.taShort || agency.taName)}:</span> ${format(summary)}`;
-      })
-        .map(val => `<div class="data-probe__row">${val}</div>`)
-        .join('');
-      const html = `
-          <div class="data-probe__row"><span class="data-probe__field">${year}</span></div>
-          ${displayValues}
-          <div class="data-probe__row data-probe__msa-text">Click to show on map</div>
-        `;
-      dataProbe
-        .config({
-          pos,
-          html,
+      if (year >= xScale.domain()[0] && year <= xScale.domain()[1]) {
+        const format = value => (value === null
+          ? 'N/A'
+          : (d3.format(d.format)(value) + (d.unit || '')));
+        const summaries = d.agencies.map(a => a.summaries.find(s => s.year === year));
+        const displayValues = d.agencies.map((agency) => {
+          const summaryData = agency.summaries.find(s => s.year === year);
+          const summary = summaryData ? summaryData.indicatorSummary : null;
+          if (agency.globalId === 'all') return format(summary);
+          return `<span class="data-probe__field">${(agency.name || agency.taShort || agency.taName)}:</span> ${format(summary)}`;
         })
-        .draw();
+          .map(val => `<div class="data-probe__row">${val}</div>`)
+          .join('');
+        const html = `
+            <div class="data-probe__row"><span class="data-probe__field">${year}</span></div>
+            ${displayValues}
+            <div class="data-probe__row data-probe__msa-text desktop">Click to show on map</div>
+          `;
+        dataProbe
+          .config({
+            pos,
+            html,
+          })
+          .draw();
 
-      svg.selectAll('circle')
-        .attrs({
-          cx: xScale(year),
-          cy: (circleData, i) => (summaries[i] === undefined
-            ? 0 : yScale(summaries[i].indicatorSummary)),
-        })
-        .style('display', (circleData, i) => (summaries[i] !== undefined && summaries[i].indicatorSummary !== null ? 'block' : 'none'));
+        svg.selectAll('circle')
+          .attrs({
+            cx: xScale(year),
+            cy: (circleData, i) => (summaries[i] === undefined
+              ? 0 : yScale(summaries[i].indicatorSummary)),
+          })
+          .style('display', (circleData, i) => (summaries[i] !== undefined && summaries[i].indicatorSummary !== null ? 'block' : 'none'));
+      } else {
+        svg.selectAll('circle').style('display', 'none');
+      }
     })
       .on('mouseleave', () => {
         dataProbe.remove();

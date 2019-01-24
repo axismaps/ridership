@@ -166,6 +166,7 @@ const privateMethods = {
       dataProbe,
       currentScale,
       width,
+      mobile,
     } = props;
 
     const {
@@ -194,6 +195,7 @@ const privateMethods = {
       updateIndicator,
       currentScale,
       width,
+      mobile,
     });
 
     drawSparkLineExpandButtons({

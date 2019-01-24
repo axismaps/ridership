@@ -2,6 +2,7 @@ import Sidebar from '../sidebar/sidebar';
 import exportMethods from '../export/exportMethods';
 
 const getSidebar = ({ data, state }) => new Sidebar({
+  mobile: state.get('mobile'),
   mobileSidebarOpen: state.get('mobileSidebarOpen'),
   exportMethods,
   indicatorSummaries: state.getCurrentIndicatorSummaries(),
