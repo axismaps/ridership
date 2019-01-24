@@ -31,11 +31,20 @@
   width: 100%;
 }
 
+.sidebar__sparkline-row {
+  margin-bottom: 10px;
+}
+
 .sidebar__sparkline-expand {
   visibility: visible;
 }
 
 .sidebar__sparkline-legend-row {
   font-size: 14px;
+  line-height: 14px;
+}
+
+.sidebar__sparkline-title, .sidebar__pcp-row {
+  font-size: 13px;
   line-height: 14px;
 }

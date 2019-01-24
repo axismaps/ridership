@@ -8,7 +8,8 @@ const getStateUpdateSidebarView = ({ components }) => function updateSidebarView
   sidebar
     .config({
       sidebarView,
-    });
+    })
+    .updateView();
 
   mobileFooter
     .config({
