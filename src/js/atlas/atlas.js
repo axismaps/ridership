@@ -446,6 +446,7 @@ class Atlas {
       years,
       allNationalMapData,
       indicator,
+      mobile,
     } = privateProps.get(this);
     const {
       setInteractions,
@@ -463,6 +464,7 @@ class Atlas {
       years,
       allNationalMapData,
       indicator,
+      mobile,
     });
   }
 
