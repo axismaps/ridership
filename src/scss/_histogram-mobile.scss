@@ -1,13 +1,23 @@
-.outer-container--histogram .histogram-mobile {
+.outer-container--histogram .histogram-mobile,
+.outer-container--histogram .header__histogram-back {
   display: block;
+}
+
+.header__histogram-back {
+  cursor: pointer;
+}
+
+.header__histogram-back i.fa-angle-left {
+  margin-right: 10px;
 }
 
 .histogram-mobile {
   position: absolute;
   left: 0px;
   bottom: 0px;
-  height: calc(100% - 115px);
+  // height: calc(100% - 115px);
+  height: calc(100% - 160px);
   width: 100%;
-  z-index: 1000;
+  z-index: 500;
   background: white;
 }

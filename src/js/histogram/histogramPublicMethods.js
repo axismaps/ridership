@@ -37,8 +37,11 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       nationalData,
       distanceFilter,
       updateHighlightedTracts,
+      mobile,
+      mobileHistogramOpen,
     } = props;
 
+    if (mobile && !mobileHistogramOpen) return this;
 
     const {
 
@@ -140,8 +143,10 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     const {
       bars,
       searchResult,
+      mobile,
+      mobileHistogramOpen,
     } = privateProps.get(this);
-
+    if (mobile && !mobileHistogramOpen) return this;
     bars.classed('search-result', (d) => {
       if (searchResult === null) return false;
       const barIds = d.records.map(agency => agency.globalId);
@@ -185,7 +190,11 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       nationalAverage,
       nationalAverageGroup,
       xAxisLabel,
+      mobile,
+      mobileHistogramOpen,
     } = privateProps.get(this);
+
+    if (mobile && !mobileHistogramOpen) return;
 
     setSVGSize({
       width,

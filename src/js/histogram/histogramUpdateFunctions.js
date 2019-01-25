@@ -149,6 +149,7 @@ const updateFunctions = {
     years,
     currentCensusField,
   }) {
+    console.log('currentCensus', currentCensusField);
     const isNational = currentScale === 'national';
     const yText = isNational
       ? 'Number of transit agencies'

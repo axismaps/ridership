@@ -18,15 +18,17 @@ const privateMethods = {
     clearDistanceButton
       .on('click', clearDistanceFilter);
   },
-  initHistogramButtonListener() {
+  initHistogramButtonListeners() {
     const {
       openHistogram,
       histogramButton,
+      histogramBackButton,
+      closeHistogram,
     } = privateProps.get(this);
     histogramButton
-      .on('click', () => {
-        openHistogram();
-      });
+      .on('click', openHistogram);
+    histogramBackButton
+      .on('click', closeHistogram);
   },
 };
 
@@ -35,7 +37,7 @@ class Layout {
     const {
       initBackButtonListener,
       initClearDistanceButton,
-      initHistogramButtonListener,
+      initHistogramButtonListeners,
     } = privateMethods;
     privateProps.set(this, {});
     this.config(config);
@@ -44,7 +46,7 @@ class Layout {
 
     initBackButtonListener.call(this);
     initClearDistanceButton.call(this);
-    initHistogramButtonListener.call(this);
+    initHistogramButtonListeners.call(this);
   }
 
   config(config) {

@@ -28,6 +28,9 @@ const privateMethods = {
       nationalDataView,
       nationalData,
       updateHighlightedTracts,
+      tractGeo,
+      currentCensusField,
+      distanceFilter,
     } = props;
 
     const {
@@ -42,6 +45,7 @@ const privateMethods = {
 
     const {
       getHistogramData,
+      getMSAHistogramData,
     } = dataFunctions;
 
     const {
@@ -52,17 +56,28 @@ const privateMethods = {
       setSVGSize,
     } = resizeFunctions;
 
-    const {
-      histogramData,
-      nationalAverage,
-    } = getHistogramData({
-      nationalMapData,
-      bucketCount,
-      nationalDataView,
-      nationalData,
-      nationalNtd,
-      years,
-    });
+    let histogramData;
+    let nationalAverage;
+    if (currentScale === 'national') {
+      ({
+        histogramData,
+        nationalAverage,
+      } = getHistogramData({
+        nationalMapData,
+        bucketCount,
+        nationalDataView,
+        nationalData,
+        nationalNtd,
+        years,
+      }));
+    } else {
+      histogramData = getMSAHistogramData({
+        tractGeo,
+        bucketCount,
+        currentCensusField,
+        distanceFilter,
+      });
+    }
 
     const { xScale, yScale } = getScales({
       padding,
@@ -105,17 +120,21 @@ const privateMethods = {
       updateHighlightedTracts,
       dataProbe,
     });
+    let nationalAverageGroup;
+    let nationalAverageText;
+    if (currentScale === 'national') {
+      ({
+        nationalAverageGroup,
+        nationalAverageText,
+      } = drawAverageLine({
+        svg,
+        nationalAverage,
+        xScale,
+        padding,
+        height,
+      }));
+    }
 
-    const {
-      nationalAverageGroup,
-      nationalAverageText,
-    } = drawAverageLine({
-      svg,
-      nationalAverage,
-      xScale,
-      padding,
-      height,
-    });
 
     const {
       xAxisLabel,
@@ -133,6 +152,7 @@ const privateMethods = {
       currentIndicator,
       currentScale,
       years,
+      currentCensusField,
     });
 
     Object.assign(props, {
@@ -152,20 +172,8 @@ const privateMethods = {
     const props = privateProps.get(this);
     const {
       container,
-      // mobile,
     } = props;
-    // let width;
-    // let height;
-    // if (mobile) {
-    //   width = window.innerWidth;
-    //   height = window.innerHeight;
-    // } else {
-      // ({
-      //   width,
-      //   height,
-      // } = container.node()
-      //   .getBoundingClientRect());
-    // }
+
     const {
       width,
       height,

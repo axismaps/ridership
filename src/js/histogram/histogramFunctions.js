@@ -158,6 +158,7 @@ const histogramFunctions = {
     padding,
     height,
   }) {
+    console.log('DRAW AVERAGE LINE');
     const {
       getNationalAverageText,
     } = localFunctions;
@@ -179,6 +180,7 @@ const histogramFunctions = {
     nationalAverageText
       .text(getNationalAverageText({ nationalAverage }));
 
+    console.log('???', height - padding.bottom - padding.top);
     nationalAverageGroup
       .append('line')
       .attrs({
