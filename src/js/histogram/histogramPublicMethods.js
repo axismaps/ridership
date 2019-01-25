@@ -259,6 +259,10 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     //   : false));
   },
 
+  updateToggle() {
+    console.log('updatehistotoggle');
+  },
+
   export() {
     const {
       exportMethods,

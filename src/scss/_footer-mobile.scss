@@ -7,6 +7,10 @@
   display: none;
 }
 
+.outer-container--histogram .footer__histogram {
+  display: block;
+}
+
 .footer__modal-buttons.mobile {
   display: flex;
   height: $footer-mobile--height;
