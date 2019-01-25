@@ -95,8 +95,8 @@ const dataMethods = {
       ta,
       msaNtd,
     });
-
     const radiusScale = getRadiusScale({ ntd });
+
 
     const yearRange = d3.extent(ntd, d => d.year);
     const msaYearRange = [2010, 2016];

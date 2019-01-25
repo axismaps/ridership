@@ -31,6 +31,7 @@ const privateMethods = {
       tractGeo,
       currentCensusField,
       distanceFilter,
+      mobile,
     } = props;
 
     const {
@@ -144,6 +145,7 @@ const privateMethods = {
       width,
       height,
       padding,
+      mobile,
     });
 
     updateAxisLabelText({
@@ -191,18 +193,25 @@ const privateMethods = {
 
 class Histogram {
   constructor(config) {
+    const { mobile } = config;
     privateProps.set(this, {
       changeColorScale: null,
       width: null,
       height: null,
       container: null,
-      bucketCount: 32,
-      padding: {
+      bucketCount: !mobile ? 32 : 16,
+      padding: !mobile ? {
         top: 30,
         bottom: 65,
         left: 85,
         right: 20,
-      },
+      }
+        : {
+          top: 100,
+          bottom: 250,
+          left: 85,
+          right: 20,
+        },
       barSpacing: 5,
       highlightedAgencies: [],
       searchResult: null,
@@ -219,9 +228,9 @@ class Histogram {
     } = privateMethods;
 
     this.config(config);
-    const {
-      mobile,
-    } = privateProps.get(this);
+
+    const props = privateProps.get(this);
+
     if (!mobile) {
       setDimensions.call(this);
       init.call(this);

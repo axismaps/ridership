@@ -49,12 +49,13 @@ const localFunctions = {
     width,
     height,
     padding,
+    mobile,
   }) {
     const chartWidth = width - padding.left - padding.right;
     return {
       position: 'absolute',
       left: `${padding.left}px`,
-      top: `${height - (padding.bottom / 2)}px`,
+      top: `${!mobile ? height - (padding.bottom / 2) : height - padding.bottom + 30}px`,
       width: `${chartWidth}px`,
       'text-align': 'center',
       'font-size': 12,
