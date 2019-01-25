@@ -422,7 +422,7 @@ taid,taname,talong,tashort,msaid,display,msa_color
 134,Town of Cary,Town of Cary,GoCary,39580,False,#ff5e4d
 135,COTPA,Central Oklahoma Transportation and Parking Authority,COTPA,36420,True,#0f8fff
 136,Citylink,City of Edmond,Citylink,36420,True,#ff5e4d
-137,Sun Tran,City of Tucson,Sun Tran,46060,True,#0f8fff
+137,SunTran,City of Tucson,SunTran,46060,True,#0f8fff
 138,Tucson Other,,Tucson Other,46060,True,#ff5e4d
 138,Pima Association of Governments,Pima Association of Governments,PAG,46060,False,#ff5e4d
 138,Town of Oro Valley - Transit Services Division,Town of Oro Valley - Transit Services Division,SunShutDNR,46060,False,#ff5e4d
