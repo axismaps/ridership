@@ -38,10 +38,12 @@ const pureMethods = {
       .attr('value', d => d.value)
       .attr('selected', d => (indicator === null ? false : d.value === indicator.value));
 
+    console.log(indicatorList);
+
     return dropdown
       .on('change', function dropdownChange() {
         const { value } = this;
-        const selectedIndicator = indicators.get(value);
+        const selectedIndicator = indicatorList.find(i => i.value === value);
         updateIndicator(selectedIndicator);
       });
   },
