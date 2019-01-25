@@ -158,7 +158,6 @@ const histogramFunctions = {
     padding,
     height,
   }) {
-    console.log('DRAW AVERAGE LINE');
     const {
       getNationalAverageText,
     } = localFunctions;
@@ -180,7 +179,6 @@ const histogramFunctions = {
     nationalAverageText
       .text(getNationalAverageText({ nationalAverage }));
 
-    console.log('???', height - padding.bottom - padding.top);
     nationalAverageGroup
       .append('line')
       .attrs({
@@ -200,6 +198,7 @@ const histogramFunctions = {
   hideAverageLine({
     nationalAverageGroup,
   }) {
+    if (nationalAverageGroup === undefined) return;
     nationalAverageGroup
       .style('opacity', 0);
   },
@@ -239,6 +238,7 @@ const histogramFunctions = {
     width,
     height,
     padding,
+    mobile,
   }) {
     const {
       getXAxisLabelPosition,
@@ -251,13 +251,14 @@ const histogramFunctions = {
         height,
         width,
         padding,
+        mobile,
       }));
 
 
     const yAxisLabel = container.append('div')
       .styles({
         position: 'absolute',
-        left: `${-25}px`,
+        left: `${mobile ? -130 : -25}px`,
         top: `${(padding.top / 2) + (chartHeight / 2)}px`,
         width: `${chartHeight + 50}px`,
         'text-align': 'center',
