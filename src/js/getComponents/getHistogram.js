@@ -4,7 +4,7 @@ import exportMethods from '../export/exportMethods';
 const getHistogram = ({ data, state }) => new Histogram({
   mobileHistogramOpen: state.get('mobileHistogramOpen'),
   changeColorScale: data.get('changeColorScale'),
-  container: d3.select('.histogram'),
+  container: state.get('mobile') ? d3.select('.histogram-mobile') : d3.select('.histogram'),
   nationalMapData: state.getCurrentNationalMapData(),
   nationalData: state.getCurrentNationalData(),
   nationalDataView: state.get('nationalDataView'),

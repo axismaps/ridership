@@ -1,0 +1,13 @@
+.outer-container--histogram .histogram-mobile {
+  display: block;
+}
+
+.histogram-mobile {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: calc(100% - 115px);
+  width: 100%;
+  z-index: 1000;
+  background: white;
+}

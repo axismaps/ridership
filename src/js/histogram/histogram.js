@@ -152,24 +152,32 @@ const privateMethods = {
     const props = privateProps.get(this);
     const {
       container,
-      mobile,
+      // mobile,
     } = props;
-    let width;
-    let height;
-    if (mobile) {
-      width = window.innerWidth;
-      height = window.innerHeight;
-    } else {
-      ({
-        width,
-        height,
-      } = container.node()
-        .getBoundingClientRect());
-    }
+    // let width;
+    // let height;
+    // if (mobile) {
+    //   width = window.innerWidth;
+    //   height = window.innerHeight;
+    // } else {
+      // ({
+      //   width,
+      //   height,
+      // } = container.node()
+      //   .getBoundingClientRect());
+    // }
+    const {
+      width,
+      height,
+    } = container.node()
+      .getBoundingClientRect();
     Object.assign(props, { width, height });
   },
-  setLegendStatus() {
-
+  clearSVG() {
+    const {
+      svg,
+    } = privateProps.get(this);
+    svg.remove();
   },
 };
 
@@ -203,9 +211,14 @@ class Histogram {
     } = privateMethods;
 
     this.config(config);
+    const {
+      mobile,
+    } = privateProps.get(this);
+    if (!mobile) {
+      setDimensions.call(this);
+      init.call(this);
+    }
 
-    setDimensions.call(this);
-    init.call(this);
     // drawBars.call(this);
   }
 }

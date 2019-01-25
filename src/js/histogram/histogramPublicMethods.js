@@ -260,7 +260,21 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
   },
 
   updateToggle() {
-    console.log('updatehistotoggle');
+    const {
+      mobileHistogramOpen,
+    } = privateProps.get(this);
+    const {
+      setDimensions,
+      init,
+      clearSVG,
+    } = privateMethods;
+
+    if (mobileHistogramOpen) {
+      setDimensions.call(this);
+      init.call(this);
+    } else {
+      clearSVG.call(this);
+    }
   },
 
   export() {

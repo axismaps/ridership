@@ -7,9 +7,14 @@
   display: none;
 }
 
-.outer-container--histogram .footer__histogram {
-  display: block;
-}
+// .outer-container--histogram .footer__histogram {
+//   display: block;
+//   position: absolute;
+//   bottom: 10px;
+//   left: 0px;
+//   height: calc(100% - 165px);
+//   width: 100%;
+// }
 
 .footer__modal-buttons.mobile {
   display: flex;

@@ -5,7 +5,7 @@ const getUpdateMobileHistogram = ({ components }) => function updateMobileHistog
   } = components;
 
   const mobileHistogramOpen = this.get('mobileHistogramOpen');
-  console.log('open?', mobileHistogramOpen);
+
   layout.config({
     mobileHistogramOpen,
   })

@@ -102,8 +102,6 @@ const histogramFunctions = {
       barSpacing,
     });
 
-    console.log('posAttrs', positionAttrs);
-
     const bars = svg
       .selectAll('.histogram__bar')
       .data(histogramData, d => d.index)
