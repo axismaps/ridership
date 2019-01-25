@@ -50,6 +50,9 @@
     color: $main-blue;
   }
 
+  .fa-info-circle {
+    margin-right: 0;
+  }
 
   @import 'header-mobile';
   @import 'sidebar-mobile';
