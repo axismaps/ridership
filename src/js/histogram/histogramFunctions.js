@@ -273,8 +273,6 @@ const histogramFunctions = {
       yAxisLabel,
     };
   },
-
-
 };
 
 export default histogramFunctions;

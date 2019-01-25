@@ -3,6 +3,8 @@ import Layout from '../layout/layout';
 const getLayout = ({ state }) => new Layout({
   scale: state.get('scale'),
   outerContainer: d3.select('.outer-container'),
+  histogramButton: d3.select('.atlas__histogram-button-outer'),
+  mobileHistogramOpen: state.get('mobileHistogramOpen'),
   backButton: d3.select('.atlas__back-button'),
   distanceFilter: state.get('distanceFilter'),
   clearDistanceButton: d3.select('.atlas__distance-dropdown-clear'),
@@ -16,6 +18,9 @@ const getLayout = ({ state }) => new Layout({
     state.update({
       distanceFilter: null,
     });
+  },
+  openHistogram: () => {
+    state.update({ mobileHistogramOpen: true });
   },
 });
 
