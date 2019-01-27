@@ -186,8 +186,12 @@ const privateMethods = {
   clearSVG() {
     const {
       svg,
+      xAxisLabel,
+      yAxisLabel,
     } = privateProps.get(this);
     svg.remove();
+    xAxisLabel.remove();
+    yAxisLabel.remove();
   },
 };
 
