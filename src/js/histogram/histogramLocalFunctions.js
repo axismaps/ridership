@@ -24,6 +24,8 @@ const localFunctions = {
   },
   getBarPositions({
     xScale,
+    yScale,
+    height,
     padding,
     histogramData,
     barSpacing,
@@ -34,6 +36,8 @@ const localFunctions = {
     return {
       x: (d, i) => padding.left + ((rectWidth + barSpacing) * i),
       width: rectWidth,
+      y: d => (height - padding.bottom) - yScale(d.count),
+      height: d => yScale(d.count),
     };
   },
   getAverageLinePosition({

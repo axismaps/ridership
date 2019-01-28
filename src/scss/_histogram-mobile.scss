@@ -1,6 +1,23 @@
-.outer-container--histogram .histogram-mobile,
-.outer-container--histogram .header__histogram-back {
+.footer__histogram {
+  display: none;
+  width: 100%;
+  height: 50%;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.outer-container--histogram .header__histogram-back,
+.outer-container--histogram .footer__histogram
+ {
   display: block;
+}
+
+@media (orientation: landscape) {
+  .outer-container--histogram .footer__histogram {
+    width: calc(100% - 200px);
+    margin-bottom: 0;
+    height: 75%;
+  }
 }
 
 .header__histogram-back {
@@ -16,7 +33,7 @@
   left: 0px;
   bottom: 0px;
   // height: calc(100% - 115px);
-  height: calc(100% - 160px);
+  height: $histogram--height;
   width: 100%;
   z-index: 400;
   background: white;

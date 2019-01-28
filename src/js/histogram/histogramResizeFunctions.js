@@ -14,6 +14,8 @@ const resizeFunctions = {
   resizeBars({
     bars,
     xScale,
+    yScale,
+    height,
     padding,
     histogramData,
     barSpacing,
@@ -26,11 +28,14 @@ const resizeFunctions = {
       padding,
       histogramData,
       barSpacing,
+      yScale,
+      height,
     }));
   },
   resizeAverageLine({
     padding,
     xScale,
+    height,
     nationalAverage,
     nationalAverageGroup,
   }) {
@@ -46,6 +51,8 @@ const resizeFunctions = {
     nationalAverageGroup
       .select('text')
       .attr('x', Math.max(0, 70 - xScale(nationalAverage)));
+    nationalAverageGroup.select('line')
+      .attr('y2', height - padding.bottom - padding.top);
   },
   resizeXAxisLabel({
     xAxisLabel,
@@ -61,6 +68,20 @@ const resizeFunctions = {
       width,
       padding,
     }));
+  },
+
+  resizeYAxisLabel({
+    yAxisLabel,
+    height,
+    padding,
+    mobile,
+  }) {
+    const chartHeight = height - padding.top - padding.bottom;
+    yAxisLabel.styles({
+      left: `${mobile ? (padding.left - chartHeight - 50) / 2 - 10 : -25}px`,
+      top: `${(padding.top / (mobile ? 1 : 2)) + (chartHeight / 2)}px`,
+      width: `${chartHeight + 50}px`,
+    });
   },
 };
 

@@ -174,6 +174,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       resizeBars,
       resizeAverageLine,
       resizeXAxisLabel,
+      resizeYAxisLabel,
     } = resizeFunctions;
 
     setDimensions.call(this);
@@ -191,6 +192,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       nationalAverage,
       nationalAverageGroup,
       xAxisLabel,
+      yAxisLabel,
       mobile,
       mobileHistogramOpen,
     } = privateProps.get(this);
@@ -214,6 +216,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       yScale,
       xAxis,
       yAxis,
+      height,
       padding,
       transition: 0,
     });
@@ -221,6 +224,8 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     resizeBars({
       bars,
       xScale,
+      yScale,
+      height,
       padding,
       histogramData,
       barSpacing,
@@ -229,6 +234,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     resizeAverageLine({
       padding,
       xScale,
+      height,
       nationalAverage,
       nationalAverageGroup,
     });
@@ -236,6 +242,13 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     resizeXAxisLabel({
       xAxisLabel,
       width,
+      padding,
+      height,
+    });
+
+    resizeYAxisLabel({
+      yAxisLabel,
+      mobile,
       padding,
       height,
     });

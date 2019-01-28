@@ -213,8 +213,8 @@ class Histogram {
         right: 20,
       }
         : {
-          top: 100,
-          bottom: 250,
+          top: 30,
+          bottom: 50,
           left: 50,
           right: 40,
         },

@@ -101,6 +101,8 @@ const histogramFunctions = {
 
     const positionAttrs = getBarPositions({
       xScale,
+      yScale,
+      height,
       padding,
       histogramData,
       barSpacing,
@@ -135,6 +137,7 @@ const histogramFunctions = {
     padding,
     height,
   }) {
+    console.log('axesss');
     const {
       getYAxisGenerator,
       getXAxisGenerator,
@@ -171,7 +174,6 @@ const histogramFunctions = {
       .append('g')
       .style('pointer-events', 'none')
       .attr('transform', `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`);
-    console.log(nationalAverage, xScale.domain(), xScale.range());
 
     const nationalAverageText = nationalAverageGroup
       .append('text')

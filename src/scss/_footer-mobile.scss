@@ -8,35 +8,30 @@
   position: absolute;
   width: 100%;
   bottom: 0;
-}
-
-.footer__histogram {
-  display: none;
+  height: calc(100% - 160px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer__atlas-legend {
-  position: absolute;
   visibility: hidden;
+  position: absolute;
   pointer-events: none;
-  height: 175px;
   width: 175px;
+  height: 175px;
 }
 
 .outer-container--histogram .footer__atlas-legend {
   visibility: visible;
-  z-index: 400;
-  bottom: 0;
-  margin-left: calc(50% - 88px);
+  position: relative;
 }
 
-// .outer-container--histogram .footer__histogram {
-//   display: block;
-//   position: absolute;
-//   bottom: 10px;
-//   left: 0px;
-//   height: calc(100% - 165px);
-//   width: 100%;
-// }
+@media (orientation: landscape) {
+  .outer-container--histogram .footer {
+    flex-direction: row;
+  }
+}
 
 .footer__modal-buttons.mobile {
   display: flex;

@@ -132,6 +132,13 @@
   display: block;
 }
 
+@media (orientation: landscape) {
+  .atlas__histogram-button-outer.mobile {
+    right: 20px;
+    left: auto;
+  }
+}
+
 .atlas__back-button > i {
   margin: 0;
 }

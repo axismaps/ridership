@@ -36,6 +36,7 @@ const updateFunctions = {
     yScale,
     xAxis,
     yAxis,
+    height,
     padding,
     transition = 500,
   }) {
@@ -52,7 +53,11 @@ const updateFunctions = {
       .duration(transition)
       .call(getYAxisGenerator({ xScale, yScale }));
 
-    xAxis.transition()
+    xAxis
+      .attrs({
+        transform: `translate(${padding.left}, ${height - padding.bottom})`,
+      })
+      .transition()
       .duration(transition)
       .call(getXAxisGenerator({ xScale }));
   },
@@ -119,6 +124,7 @@ const updateFunctions = {
       xAxis,
       yAxis,
       padding,
+      height,
     });
 
     updateBars({
@@ -210,6 +216,7 @@ const updateFunctions = {
       yScale,
       xAxis,
       yAxis,
+      height,
     });
 
     updateBars({
