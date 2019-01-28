@@ -120,6 +120,7 @@ const privateMethods = {
       updateHighlightedAgencies,
       updateHighlightedTracts,
       dataProbe,
+      nationalDataView,
     });
     let nationalAverageGroup;
     let nationalAverageText;
@@ -155,6 +156,7 @@ const privateMethods = {
       currentScale,
       years,
       currentCensusField,
+      nationalDataView,
     });
 
     Object.assign(props, {
@@ -213,8 +215,8 @@ class Histogram {
         : {
           top: 100,
           bottom: 250,
-          left: 85,
-          right: 20,
+          left: 50,
+          right: 40,
         },
       barSpacing: 5,
       highlightedAgencies: [],

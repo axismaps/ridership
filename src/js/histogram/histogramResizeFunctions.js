@@ -43,6 +43,9 @@ const resizeFunctions = {
         xScale,
         nationalAverage,
       }));
+    nationalAverageGroup
+      .select('text')
+      .attr('x', Math.max(0, 70 - xScale(nationalAverage)));
   },
   resizeXAxisLabel({
     xAxisLabel,

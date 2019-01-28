@@ -48,6 +48,7 @@ const histogramFunctions = {
     bars,
     updateHighlightedAgencies,
     dataProbe,
+    nationalDataView,
   }) {
     bars.on('mouseover', (d) => {
       updateHighlightedAgencies(d.records);
@@ -59,8 +60,10 @@ const histogramFunctions = {
         bottom: window.innerHeight - clientY + 10,
         width: 250,
       };
+      const entities = nationalDataView === 'ta' ? (`transit authorit${d.records.length > 1 ? 'ies' : 'y'}`)
+        : (`MSA${d.records.length > 1 ? 's' : ''}`);
       const html = `
-        <div class="data-probe__row"><span class="data-probe__field">${d.records.length} transit authorit${d.records.length > 1 ? 'ies' : 'y'}</span></div>
+        <div class="data-probe__row"><span class="data-probe__field">${d.records.length} ${entities}</span></div>
         <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' to ')}</div>
       `;
       dataProbe
@@ -86,6 +89,7 @@ const histogramFunctions = {
     barSpacing,
     updateHighlightedAgencies,
     dataProbe,
+    nationalDataView,
   }) {
     const {
       addNationalBarMouseEvents,
@@ -119,6 +123,7 @@ const histogramFunctions = {
       bars,
       updateHighlightedAgencies,
       dataProbe,
+      nationalDataView,
     });
 
     return bars;
@@ -166,13 +171,14 @@ const histogramFunctions = {
       .append('g')
       .style('pointer-events', 'none')
       .attr('transform', `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`);
+    console.log(nationalAverage, xScale.domain(), xScale.range());
 
     const nationalAverageText = nationalAverageGroup
       .append('text')
       .attrs({
         class: 'histogram__average-text',
         'text-anchor': 'middle',
-        x: 0,
+        x: Math.max(0, 70 - xScale(nationalAverage)),
         y: -8,
       });
 
@@ -258,8 +264,8 @@ const histogramFunctions = {
     const yAxisLabel = container.append('div')
       .styles({
         position: 'absolute',
-        left: `${mobile ? -130 : -25}px`,
-        top: `${(padding.top / 2) + (chartHeight / 2)}px`,
+        left: `${mobile ? (padding.left - chartHeight - 50) / 2 - 10 : -25}px`,
+        top: `${(padding.top / (mobile ? 1 : 2)) + (chartHeight / 2)}px`,
         width: `${chartHeight + 50}px`,
         'text-align': 'center',
         transform: 'rotate(-90deg)',

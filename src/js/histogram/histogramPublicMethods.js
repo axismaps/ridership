@@ -63,6 +63,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       currentScale,
       years,
       currentCensusField,
+      nationalDataView,
     });
     if (currentScale === 'national') {
       const {
