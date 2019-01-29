@@ -12,7 +12,7 @@ const getSidebar = ({ data, state }) => new Sidebar({
   currentIndicatorDisabled: false, // disable ability to select sparklines, for msa-scale
   nationalDataView: state.get('nationalDataView'),
   expandedIndicator: state.get('expandedIndicator'),
-  sidebarView: 'sparkLines',
+  sidebarView: state.get('sidebarView'),
   years: state.get('years'),
   yearRange: data.get('yearRange'),
   comparedAgencies: state.get('comparedAgencies'),

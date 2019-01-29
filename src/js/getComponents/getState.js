@@ -8,9 +8,20 @@ import getGetCurrentNationalData from '../stateMethods/stateGetCurrentNationalDa
 
 const getState = ({ data }) => {
   console.log('embedded?', data.get('params').has('embed'));
+  const params = data.get('params');
+  const embedded = params.has('embed');
+  const embed = params.get('embed');
+  const isSidebar = embed === 'sidebarsparklines' || embed === 'sidebarpcp';
+  let sidebarView;
+  if (!isSidebar || embed === 'sidebarsparklines') {
+    sidebarView = 'sparkLines';
+  } else if (embed === 'sidebarpcp') {
+    sidebarView = 'pcp';
+  }
+  console.log('view', sidebarView);
   const state = new State({
-    embedded: data.get('params').has('embed'),
-    sidebarView: 'sparkLines',
+    embedded,
+    sidebarView,
     mobileSidebarOpen: false,
     mobileHistogramOpen: false,
     mobile: window.matchMedia('(max-width: 700px), (max-device-width: 823px) and (orientation: landscape), (max-device-height: 823px) and (orientation: portrait)').matches,
