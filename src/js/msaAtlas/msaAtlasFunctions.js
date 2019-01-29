@@ -31,9 +31,25 @@ const msaAtlasFunctions = {
       // maxZoom: scaleExtent[1],
       preserveDrawingBuffer: true,
     })
-      .on('mousemove', 'tract-fill', (d) => {
+      .on('mousemove', (d) => {
         setHoverStatus(true);
-        const feature = msaAtlas.queryRenderedFeatures(d.point)[0];
+        const queried = msaAtlas.queryRenderedFeatures(d.point)
+          .filter(feature => feature.layer.id === 'tract-fill');
+        if (queried.length === 0) {
+          if (lastFeatureId === null) return;
+          msaAtlas.setFeatureState({
+            source: 'tracts',
+            id: lastFeatureId,
+          },
+          { hover: false });
+          lastFeatureId = null;
+          dataProbe.remove();
+
+          updateStateHighlightedTracts([]);
+          setHoverStatus(false);
+          return;
+        }
+        const feature = queried[0];
         const offset = 15;
         const containerPos = d3.select('.atlas__msa-map-container')
           .node()
@@ -91,7 +107,8 @@ const msaAtlasFunctions = {
           dataProbe.setPos(pos);
         }
       })
-      .on('mouseleave', 'tract-fill', () => {
+      .on('mouseout', () => {
+        if (lastFeatureId === null) return;
         msaAtlas.setFeatureState({
           source: 'tracts',
           id: lastFeatureId,
