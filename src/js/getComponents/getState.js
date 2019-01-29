@@ -1,3 +1,4 @@
+import { isArray } from 'util';
 import State from '../state/state';
 import getGetCurrentTractGeo from '../stateMethods/stateGetCurrentTractGeoJSON';
 import getGetCurrentIndicatorSummaries from '../stateMethods/stateGetCurrentIndicatorSummaries';
@@ -6,22 +7,47 @@ import getGetCurrentAgenciesData from '../stateMethods/stateGetCurrentAgenciesDa
 import getGetCurrentNationalMapData from '../stateMethods/stateGetCurrentNationalMapData';
 import getGetCurrentNationalData from '../stateMethods/stateGetCurrentNationalData';
 
-const getState = ({ data }) => {
-  console.log('embedded?', data.get('params').has('embed'));
+const defaultYears = [2008, 2015];
+
+const getEmbedOverrideProps = ({ data }) => {
+  const embedOverrideProps = {};
+
   const params = data.get('params');
   const embedded = params.has('embed');
-  const embed = params.get('embed');
-  const isSidebar = embed === 'sidebarsparklines' || embed === 'sidebarpcp';
-  let sidebarView;
-  if (!isSidebar || embed === 'sidebarsparklines') {
-    sidebarView = 'sparkLines';
-  } else if (embed === 'sidebarpcp') {
-    sidebarView = 'pcp';
+  if (!embedded) return {};
+
+  embedOverrideProps.embedded = embedded;
+
+  if (params.has('sidebarView')) {
+    const sidebarView = params.get('sidebarView');
+    Object.assign(embedOverrideProps, {
+      sidebarView: sidebarView === 'sparklines' ? 'sparkLines' : sidebarView,
+    });
   }
-  console.log('view', sidebarView);
-  const state = new State({
+  if (params.has('years')) {
+    const years = params.get('years')
+      .split('|')
+      .map(d => Math.Number(d));
+    if (isArray(years)
+      && years.length === 2
+      && years.every(d => d >= defaultYears[0] && d <= defaultYears[1])) {
+      Object.assign(embedOverrideProps, { years });
+    }
+  }
+
+  Object.assign(embedOverrideProps, {
     embedded,
-    sidebarView,
+  });
+
+  console.log('override', embedOverrideProps);
+
+  return embedOverrideProps;
+};
+
+const getState = ({ data }) => {
+  const defaultStateProps = {
+    embedded: false,
+    sidebarView: 'sparkLines',
     mobileSidebarOpen: false,
     mobileHistogramOpen: false,
     mobile: window.matchMedia('(max-width: 700px), (max-device-width: 823px) and (orientation: landscape), (max-device-height: 823px) and (orientation: portrait)').matches,
@@ -29,7 +55,7 @@ const getState = ({ data }) => {
     msaProbe: null, // probed msa in national view
     indicator: data.get('indicators').get('upt'),
     // years: data.get('yearRange'),
-    years: [2008, 2015],
+    years: defaultYears,
     agenciesOn: true,
     nationalDataView: 'ta', // ta or msa
     scale: 'national', // national or msa,
@@ -48,7 +74,10 @@ const getState = ({ data }) => {
     },
     currentZoom: null,
     msaScaleExtent: [8, 15],
-  });
+  };
+  const embedOverrideProps = getEmbedOverrideProps({ data });
+
+  const state = new State(Object.assign(defaultStateProps, embedOverrideProps));
 
   Object.assign(
     state,
