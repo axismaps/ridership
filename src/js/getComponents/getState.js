@@ -7,7 +7,9 @@ import getGetCurrentNationalMapData from '../stateMethods/stateGetCurrentNationa
 import getGetCurrentNationalData from '../stateMethods/stateGetCurrentNationalData';
 
 const getState = ({ data }) => {
+  console.log('embedded?', data.get('params').has('embed'));
   const state = new State({
+    embedded: data.get('params').has('embed'),
     sidebarView: 'sparkLines',
     mobileSidebarOpen: false,
     mobileHistogramOpen: false,

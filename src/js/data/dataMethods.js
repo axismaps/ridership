@@ -322,7 +322,9 @@ const dataMethods = {
     ];
 
     const nationalScaleExtent = [1, 8];
-    const nationalScaleExtentMobile = [0.5, 8];
+    // const nationalScaleExtentMobile = [0.5, 8];
+
+    const params = new URLSearchParams(window.location.search);
 
     const data = new Map();
 
@@ -344,6 +346,7 @@ const dataMethods = {
     data.set('censusFields', censusFields);
     data.set('distanceFilters', distanceFilters);
     data.set('nationalScaleExtent', nationalScaleExtent);
+    data.set('params', params);
     console.log('data', data);
 
     return data;

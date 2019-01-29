@@ -30,6 +30,17 @@ const privateMethods = {
     histogramBackButton
       .on('click', closeHistogram);
   },
+  setEmbedStatus() {
+    const {
+      embedded,
+      params,
+      outerContainer,
+    } = privateProps.get(this);
+
+    outerContainer
+      .classed('embed', embedded)
+      .classed(`embed--${params.get('embed')}`, embedded);
+  },
 };
 
 class Layout {
@@ -38,6 +49,7 @@ class Layout {
       initBackButtonListener,
       initClearDistanceButton,
       initHistogramButtonListeners,
+      setEmbedStatus,
     } = privateMethods;
     privateProps.set(this, {});
     this.config(config);
@@ -47,6 +59,7 @@ class Layout {
     initBackButtonListener.call(this);
     initClearDistanceButton.call(this);
     initHistogramButtonListeners.call(this);
+    setEmbedStatus.call(this);
   }
 
   config(config) {
