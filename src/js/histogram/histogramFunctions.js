@@ -137,7 +137,6 @@ const histogramFunctions = {
     padding,
     height,
   }) {
-    console.log('axesss');
     const {
       getYAxisGenerator,
       getXAxisGenerator,
