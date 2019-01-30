@@ -39,7 +39,19 @@ const privateMethods = {
 
     outerContainer
       .classed('embed', embedded)
-      .classed(`embed--${params.get('embed')}`, embedded);
+      .classed(`embed--${params.get('embed')}`, embedded)
+      .classed('embed--dropdowns-off', () => {
+        const dropdownsOff = params.get('dropdownsOff');
+
+        return dropdownsOff !== undefined
+          && dropdownsOff === 'true';
+      })
+      .classed('embed--histogram-off', () => {
+        const histogramOff = params.get('histogramOff');
+
+        return histogramOff !== undefined
+          && histogramOff === 'true';
+      });
   },
 };
 

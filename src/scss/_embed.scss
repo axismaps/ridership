@@ -26,7 +26,7 @@
   }
 }
 
-// histogramOn, dropdownsOn
+// histogramOff, dropdownsOff
 
 .outer-container.embed--atlas {
   .header,
@@ -42,5 +42,23 @@
   }
   .right-content-container {
     margin: 0px;
+  }
+}
+
+.outer-container.embed--dropdowns-off {
+  .atlas__top-row {
+    display: none;
+  }
+  .atlas__map-container {
+    height: 100%;
+  }
+}
+
+.outer-container.embed--histogram-off {
+  .footer {
+    display: none;
+  }
+  .atlas__outer-container {
+    height: 100vh;
   }
 }

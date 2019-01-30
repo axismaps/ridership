@@ -35,6 +35,12 @@ const getEmbedOverrideProps = ({ data }) => {
     }
   }
 
+  if (params.has('dropdownsOn')) {
+    Object.assign(embedOverrideProps, {
+      embedDropdownsOn: params.get('dropdownsOn'),
+    });
+  }
+
   Object.assign(embedOverrideProps, {
     embedded,
   });
@@ -47,6 +53,7 @@ const getEmbedOverrideProps = ({ data }) => {
 const getState = ({ data }) => {
   const defaultStateProps = {
     embedded: false,
+    // embedDropdownsOn: true,
     sidebarView: 'sparkLines',
     mobileSidebarOpen: false,
     mobileHistogramOpen: false,
