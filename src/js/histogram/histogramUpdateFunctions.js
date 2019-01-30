@@ -26,12 +26,17 @@ const updateFunctions = {
         xScale,
         nationalAverage,
       }));
+
+    nationalAverageGroup
+      .select('text')
+      .attr('x', Math.max(0, 70 - xScale(nationalAverage)));
   },
   updateAxes({
     xScale,
     yScale,
     xAxis,
     yAxis,
+    height,
     padding,
     transition = 500,
   }) {
@@ -48,7 +53,11 @@ const updateFunctions = {
       .duration(transition)
       .call(getYAxisGenerator({ xScale, yScale }));
 
-    xAxis.transition()
+    xAxis
+      .attrs({
+        transform: `translate(${padding.left}, ${height - padding.bottom})`,
+      })
+      .transition()
       .duration(transition)
       .call(getXAxisGenerator({ xScale }));
   },
@@ -87,6 +96,7 @@ const updateFunctions = {
     dataProbe,
     histogramData,
     nationalAverage,
+    nationalDataView,
   }) {
     const {
 
@@ -114,6 +124,7 @@ const updateFunctions = {
       xAxis,
       yAxis,
       padding,
+      height,
     });
 
     updateBars({
@@ -131,6 +142,7 @@ const updateFunctions = {
       bars,
       updateHighlightedAgencies,
       dataProbe,
+      nationalDataView,
     });
 
     updateAverageLine({
@@ -148,11 +160,13 @@ const updateFunctions = {
     currentScale,
     years,
     currentCensusField,
+    nationalDataView,
   }) {
+    console.log('currentCensus', currentCensusField);
     const isNational = currentScale === 'national';
     const yText = isNational
-      ? 'Number of transit agencies'
-      : 'Number of census tracdts';
+      ? `Number of ${nationalDataView === 'ta' ? 'transit agencies' : 'MSAs'}`
+      : 'Number of census tracts';
     const xText = isNational
       ? `${currentIndicator.text} (% change, ${years[0]}-${years[1]})`
       : `${currentCensusField.text} (% change, ${years[0]}-${years[1]})`;
@@ -202,6 +216,7 @@ const updateFunctions = {
       yScale,
       xAxis,
       yAxis,
+      height,
     });
 
     updateBars({

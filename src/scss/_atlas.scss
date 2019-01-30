@@ -166,11 +166,7 @@ $zoom--border: 1px solid #cccccc;
   position: absolute;
   left: 20px;
   bottom: 20px;
-  z-index: 500;
-}
-
-.atlas__histogram-button-outer.mobile {
-  display: block;
+  z-index: 400;
 }
 
 .atlas__histogram-button-outer,

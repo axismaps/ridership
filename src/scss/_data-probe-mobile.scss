@@ -5,7 +5,12 @@
   width: 100% !important;
   bottom : $footer-mobile--height !important;
   left: 0px !important;
-  z-index: 400;
+  z-index: 401;
+}
+
+.outer-container--histogram .data-probe {
+  bottom: 0 !important;
+  z-index: 501;
 }
 
 .data-probe__msa-text {
@@ -19,4 +24,8 @@
   position: absolute;
   top: 10px;
   right: 10px;
+}
+
+.data-probe span.mobile {
+  display: inline;
 }

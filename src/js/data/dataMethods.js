@@ -95,8 +95,9 @@ const dataMethods = {
       ta,
       msaNtd,
     });
-
     const radiusScale = getRadiusScale({ ntd });
+    const mobileRadiusScale = getRadiusScale({ ntd }).range([2, 20]);
+
 
     const yearRange = d3.extent(ntd, d => d.year);
     const msaYearRange = [2010, 2016];
@@ -321,11 +322,14 @@ const dataMethods = {
     ];
 
     const nationalScaleExtent = [1, 8];
-    const nationalScaleExtentMobile = [0.5, 8];
+    // const nationalScaleExtentMobile = [0.5, 8];
+
+    const params = new URLSearchParams(window.location.search);
 
     const data = new Map();
 
     data.set('radiusScale', radiusScale);
+    data.set('mobileRadiusScale', mobileRadiusScale);
     data.set('msa', msa);
     data.set('ntd', ntd);
     data.set('ta', ta);
@@ -342,6 +346,7 @@ const dataMethods = {
     data.set('censusFields', censusFields);
     data.set('distanceFilters', distanceFilters);
     data.set('nationalScaleExtent', nationalScaleExtent);
+    data.set('params', params);
     console.log('data', data);
 
     return data;

@@ -8,7 +8,7 @@ const privateMethods = {
     const {
       exportButton,
       exportComponents,
-      exportMethods,
+      // exportMethods,
     } = props;
 
     const {

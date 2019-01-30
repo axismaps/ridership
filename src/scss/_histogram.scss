@@ -10,6 +10,10 @@
   // flex-grow: 0;
 }
 
+.histogram-mobile {
+  display: none;
+}
+
 .histogram--legend-on {
   width: calc(100% - #{$legend--width});
   // width: 50%;

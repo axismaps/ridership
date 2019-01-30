@@ -18,6 +18,29 @@ const privateMethods = {
     clearDistanceButton
       .on('click', clearDistanceFilter);
   },
+  initHistogramButtonListeners() {
+    const {
+      openHistogram,
+      histogramButton,
+      histogramBackButton,
+      closeHistogram,
+    } = privateProps.get(this);
+    histogramButton
+      .on('click', openHistogram);
+    histogramBackButton
+      .on('click', closeHistogram);
+  },
+  setEmbedStatus() {
+    const {
+      embedded,
+      params,
+      outerContainer,
+    } = privateProps.get(this);
+
+    outerContainer
+      .classed('embed', embedded)
+      .classed(`embed--${params.get('embed')}`, embedded);
+  },
 };
 
 class Layout {
@@ -25,6 +48,8 @@ class Layout {
     const {
       initBackButtonListener,
       initClearDistanceButton,
+      initHistogramButtonListeners,
+      setEmbedStatus,
     } = privateMethods;
     privateProps.set(this, {});
     this.config(config);
@@ -33,6 +58,8 @@ class Layout {
 
     initBackButtonListener.call(this);
     initClearDistanceButton.call(this);
+    initHistogramButtonListeners.call(this);
+    setEmbedStatus.call(this);
   }
 
   config(config) {
@@ -67,6 +94,15 @@ class Layout {
       outerContainer,
     } = privateProps.get(this);
     outerContainer.classed('outer-container--sidebar', mobileSidebarOpen);
+  }
+
+  updateHistogramToggle() {
+    const {
+      outerContainer,
+      mobileHistogramOpen,
+    } = privateProps.get(this);
+    outerContainer
+      .classed('outer-container--histogram', mobileHistogramOpen);
   }
 }
 

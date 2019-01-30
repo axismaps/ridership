@@ -200,7 +200,7 @@ const sparkLineFunctions = {
           .map(val => `<div class="data-probe__row">${val}</div>`)
           .join('');
         const html = `
-            <div class="data-probe__row"><span class="data-probe__field">${year}</span></div>
+            <div class="data-probe__row"><span class="data-probe__field">${year}</span><span class="mobile"> ${d.text}</span></div>
             ${displayValues}
             <div class="data-probe__row data-probe__msa-text desktop">Click to show on map</div>
           `;

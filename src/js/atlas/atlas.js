@@ -283,6 +283,7 @@ class Atlas {
       nationalMapData,
       agencies,
       nodes,
+      msaNodes,
       changeColorScale,
       nationalDataView,
     } = props;
@@ -296,6 +297,7 @@ class Atlas {
       changeColorScale,
       nationalMapData,
       nodes,
+      msaNodes,
       nationalDataView,
     });
 

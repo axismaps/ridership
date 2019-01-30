@@ -37,8 +37,11 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       nationalData,
       distanceFilter,
       updateHighlightedTracts,
+      mobile,
+      mobileHistogramOpen,
     } = props;
 
+    if (mobile && !mobileHistogramOpen) return this;
 
     const {
 
@@ -60,6 +63,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       currentScale,
       years,
       currentCensusField,
+      nationalDataView,
     });
     if (currentScale === 'national') {
       const {
@@ -140,8 +144,10 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     const {
       bars,
       searchResult,
+      mobile,
+      mobileHistogramOpen,
     } = privateProps.get(this);
-
+    if (mobile && !mobileHistogramOpen) return this;
     bars.classed('search-result', (d) => {
       if (searchResult === null) return false;
       const barIds = d.records.map(agency => agency.globalId);
@@ -168,6 +174,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       resizeBars,
       resizeAverageLine,
       resizeXAxisLabel,
+      resizeYAxisLabel,
     } = resizeFunctions;
 
     setDimensions.call(this);
@@ -185,7 +192,12 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       nationalAverage,
       nationalAverageGroup,
       xAxisLabel,
+      yAxisLabel,
+      mobile,
+      mobileHistogramOpen,
     } = privateProps.get(this);
+
+    if (mobile && !mobileHistogramOpen) return;
 
     setSVGSize({
       width,
@@ -204,6 +216,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       yScale,
       xAxis,
       yAxis,
+      height,
       padding,
       transition: 0,
     });
@@ -211,6 +224,8 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     resizeBars({
       bars,
       xScale,
+      yScale,
+      height,
       padding,
       histogramData,
       barSpacing,
@@ -219,6 +234,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     resizeAverageLine({
       padding,
       xScale,
+      height,
       nationalAverage,
       nationalAverageGroup,
     });
@@ -226,6 +242,13 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     resizeXAxisLabel({
       xAxisLabel,
       width,
+      padding,
+      height,
+    });
+
+    resizeYAxisLabel({
+      yAxisLabel,
+      mobile,
       padding,
       height,
     });
@@ -257,6 +280,24 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     //   ? d.records.map(dd => dd.id)
     //     .includes(highlightedTracts.id)
     //   : false));
+  },
+
+  updateToggle() {
+    const {
+      mobileHistogramOpen,
+    } = privateProps.get(this);
+    const {
+      setDimensions,
+      init,
+      clearSVG,
+    } = privateMethods;
+
+    if (mobileHistogramOpen) {
+      setDimensions.call(this);
+      init.call(this);
+    } else {
+      clearSVG.call(this);
+    }
   },
 
   export() {

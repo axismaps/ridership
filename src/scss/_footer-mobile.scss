@@ -3,8 +3,34 @@
   z-index: 500;
 }
 
-.footer__histogram, .footer__atlas-legend {
-  display: none;
+.outer-container--histogram .footer {
+  z-index: 501;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: calc(100% - 160px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__atlas-legend {
+  visibility: hidden;
+  position: absolute;
+  pointer-events: none;
+  width: 175px;
+  height: 175px;
+}
+
+.outer-container--histogram .footer__atlas-legend {
+  visibility: visible;
+  position: relative;
+}
+
+@media (orientation: landscape) {
+  .outer-container--histogram .footer {
+    flex-direction: row;
+  }
 }
 
 .footer__modal-buttons.mobile {
@@ -13,6 +39,10 @@
   background: white;
   width: 100%;
   border-top: 1px solid #ccc;
+}
+
+.outer-container--histogram .footer__modal-buttons {
+  display: none;
 }
 
 .footer__modal-button {

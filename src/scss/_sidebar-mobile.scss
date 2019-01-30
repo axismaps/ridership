@@ -1,8 +1,9 @@
 .sidebar {
   display: none;
   position: absolute;
-  z-index: 300;
+  z-index: 401;
   width: 100%;
+  max-width: 100%;
   height: calc(100vh - 225px);
   margin-top: 115px;
   box-shadow: none;

@@ -128,8 +128,6 @@ class MSAAtlas {
       return this;
     }
 
-    console.log(msa);
-
     const {
       initSite,
     } = msaAtlasFunctions;

@@ -24,16 +24,20 @@ const localFunctions = {
   },
   getBarPositions({
     xScale,
+    yScale,
+    height,
     padding,
     histogramData,
     barSpacing,
   }) {
     const count = histogramData.length;
-    console.log('xScaleRange', xScale.range());
+
     const rectWidth = ((xScale.range()[1] - xScale.range()[0]) / count) - barSpacing;
     return {
       x: (d, i) => padding.left + ((rectWidth + barSpacing) * i),
       width: rectWidth,
+      y: d => (height - padding.bottom) - yScale(d.count),
+      height: d => yScale(d.count),
     };
   },
   getAverageLinePosition({
@@ -49,12 +53,13 @@ const localFunctions = {
     width,
     height,
     padding,
+    mobile,
   }) {
     const chartWidth = width - padding.left - padding.right;
     return {
       position: 'absolute',
       left: `${padding.left}px`,
-      top: `${height - (padding.bottom / 2)}px`,
+      top: `${!mobile ? height - (padding.bottom / 2) : height - padding.bottom + 30}px`,
       width: `${chartWidth}px`,
       'text-align': 'center',
       'font-size': 12,

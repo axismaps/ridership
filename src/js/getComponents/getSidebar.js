@@ -12,7 +12,7 @@ const getSidebar = ({ data, state }) => new Sidebar({
   currentIndicatorDisabled: false, // disable ability to select sparklines, for msa-scale
   nationalDataView: state.get('nationalDataView'),
   expandedIndicator: state.get('expandedIndicator'),
-  sidebarView: 'sparkLines',
+  sidebarView: state.get('sidebarView'),
   years: state.get('years'),
   yearRange: data.get('yearRange'),
   comparedAgencies: state.get('comparedAgencies'),
@@ -84,6 +84,10 @@ const getSidebar = ({ data, state }) => new Sidebar({
 
     if (currentMSA === null || currentMSA.msaId !== newMSA.msaId) {
       if (state.get('scale') === 'national') {
+        const years = state.get('years');
+        if (years[0] < 2010 || years[1] > 2016) {
+          state.update({ years: [d3.max([2010, years[0]]), d3.min([2016, years[1]])] });
+        }
         state.update({
           scale: 'msa',
           msa: newMSA,
