@@ -25,3 +25,15 @@
     height: calc(100% - 20px);
   }
 }
+
+// histogramOn, dropdownsOn
+
+.outer-container.embed--atlas {
+  .header,
+  // .right-content-container,
+  .sidebar,
+  .atlas__compare-dropdown-button,
+   {
+    display: none;
+  }
+}
