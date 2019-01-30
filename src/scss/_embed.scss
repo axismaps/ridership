@@ -36,4 +36,11 @@
    {
     display: none;
   }
+
+  .atlas__outer-container {
+    height: calc(100vh - #{$histogram--height});
+  }
+  .right-content-container {
+    margin: 0px;
+  }
 }
