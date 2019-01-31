@@ -36,7 +36,6 @@ const app = {
   },
   initComponents() {
     const { components, data } = this;
-
     const state = getState({ components, data });
     components.state = state;
     components.layout = getLayout({ state, data });

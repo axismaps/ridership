@@ -21,12 +21,14 @@ const getStateUpdateCensusField = ({ components }) => function updateCensusField
         tractGeo,
       })
       .updateData();
-    histogram
-      .config({
-        currentCensusField: censusField,
-        tractGeo,
-      })
-      .updateData();
+    if (histogram !== null) {
+      histogram
+        .config({
+          currentCensusField: censusField,
+          tractGeo,
+        })
+        .updateData();
+    }
   });
 
   setAllDropdownPositions({ components });

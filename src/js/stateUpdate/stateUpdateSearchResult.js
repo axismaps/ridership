@@ -13,12 +13,14 @@ const getStateUpdateSearchResult = ({ components }) => function updateSearchResu
       searchResult,
     })
     .updateSearchResult();
+  if (histogram !== null) {
+    histogram
+      .config({
+        searchResult,
+      })
+      .updateSearchResult();
+  }
 
-  histogram
-    .config({
-      searchResult,
-    })
-    .updateSearchResult();
 
   sidebar
     .config({

@@ -25,11 +25,11 @@ const getEmbedOverrideProps = ({ data }) => {
     }
   }
 
-  if (params.has('dropdownsOn')) {
-    Object.assign(embedOverrideProps, {
-      embedDropdownsOn: params.get('dropdownsOn'),
-    });
-  }
+  // if (params.has('dropdownsOn')) {
+  //   Object.assign(embedOverrideProps, {
+  //     embedDropdownsOn: params.get('dropdownsOn'),
+  //   });
+  // }
 
   if (params.get('embed') === 'msaAtlas'
     || params.get('scale') === 'msa') {

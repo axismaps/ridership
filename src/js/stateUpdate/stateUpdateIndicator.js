@@ -24,14 +24,16 @@ const getStateUpdateIndicator = ({ components }) => function updateIndicator() {
     })
     .updateNationalMapData()
     .updateInteractions();
+  if (histogram !== null) {
+    histogram
+      .config({
+        currentIndicator: indicator,
+        nationalMapData,
+        nationalData,
+      })
+      .updateData();
+  }
 
-  histogram
-    .config({
-      currentIndicator: indicator,
-      nationalMapData,
-      nationalData,
-    })
-    .updateData();
 
   sidebar
     .config({

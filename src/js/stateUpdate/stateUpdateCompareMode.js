@@ -21,11 +21,13 @@ const getStateUpdateCompareMode = ({ components }) => function updateCompareMode
       compareMode,
     })
     .updateInteractions();
+  if (histogram !== null) {
+    histogram
+      .config({
+        compareMode,
+      });
+  }
 
-  histogram
-    .config({
-      compareMode,
-    });
 
   sidebar
     .config({

@@ -23,14 +23,16 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
     .updateYears()
     .updateInteractions();
 
-  histogram
-    .config({
-      nationalMapData,
-      years,
-      nationalData,
-    });
-  if (scale === 'national') {
-    histogram.updateData();
+  if (histogram !== null) {
+    histogram
+      .config({
+        nationalMapData,
+        years,
+        nationalData,
+      });
+    if (scale === 'national') {
+      histogram.updateData();
+    }
   }
 
 
@@ -61,12 +63,13 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
         tractGeo,
       })
       .updateData();
-
-    histogram
-      .config({
-        tractGeo,
-      })
-      .updateData();
+    if (histogram !== null) {
+      histogram
+        .config({
+          tractGeo,
+        })
+        .updateData();
+    }
   });
 };
 

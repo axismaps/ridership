@@ -12,12 +12,14 @@ const getStateUpdateHighlightedAgencies = ({ components }) => function updateHig
       highlightedAgencies,
     })
     .updateHighlight();
+  if (histogram !== null) {
+    histogram
+      .config({
+        highlightedAgencies,
+      })
+      .updateHighlight();
+  }
 
-  histogram
-    .config({
-      highlightedAgencies,
-    })
-    .updateHighlight();
 
   // sliderDropdown
   //   .config({
