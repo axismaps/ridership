@@ -236,12 +236,15 @@ class Histogram {
 
     this.config(config);
 
-    const props = privateProps.get(this);
+    // const props = privateProps.get(this);
 
     if (!mobile) {
       setDimensions.call(this);
       init.call(this);
     }
+
+    this.setLegendStatus();
+    this.updateSize();
 
     // drawBars.call(this);
   }

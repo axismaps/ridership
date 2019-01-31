@@ -42,6 +42,7 @@ const resizeFunctions = {
     const {
       getAverageLinePosition,
     } = localFunctions;
+    if (nationalAverageGroup === undefined) return;
     nationalAverageGroup
       .attrs(getAverageLinePosition({
         padding,
