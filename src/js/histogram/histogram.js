@@ -72,6 +72,7 @@ const privateMethods = {
         years,
       }));
     } else {
+      if (tractGeo === undefined || tractGeo === null) return;
       histogramData = getMSAHistogramData({
         tractGeo,
         bucketCount,

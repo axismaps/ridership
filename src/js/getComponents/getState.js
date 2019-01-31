@@ -7,50 +7,10 @@ import getGetCurrentAgenciesData from '../stateMethods/stateGetCurrentAgenciesDa
 import getGetCurrentNationalMapData from '../stateMethods/stateGetCurrentNationalMapData';
 import getGetCurrentNationalData from '../stateMethods/stateGetCurrentNationalData';
 
-const defaultYears = [2008, 2015];
-
-const getEmbedOverrideProps = ({ data }) => {
-  const embedOverrideProps = {};
-
-  const params = data.get('params');
-  const embedded = params.has('embed');
-  if (!embedded) return {};
-
-  embedOverrideProps.embedded = embedded;
-
-  if (params.has('sidebarView')) {
-    const sidebarView = params.get('sidebarView');
-    Object.assign(embedOverrideProps, {
-      sidebarView: sidebarView === 'sparklines' ? 'sparkLines' : sidebarView,
-    });
-  }
-  if (params.has('years')) {
-    const years = params.get('years')
-      .split('|')
-      .map(d => Math.Number(d));
-    if (isArray(years)
-      && years.length === 2
-      && years.every(d => d >= defaultYears[0] && d <= defaultYears[1])) {
-      Object.assign(embedOverrideProps, { years });
-    }
-  }
-
-  if (params.has('dropdownsOn')) {
-    Object.assign(embedOverrideProps, {
-      embedDropdownsOn: params.get('dropdownsOn'),
-    });
-  }
-
-  Object.assign(embedOverrideProps, {
-    embedded,
-  });
-
-  console.log('override', embedOverrideProps);
-
-  return embedOverrideProps;
-};
+import getEmbedOverrideProps from '../stateMethods/stateGetEmbedOverrideProps';
 
 const getState = ({ data }) => {
+  const defaultYears = data.get('defaultYears');
   const defaultStateProps = {
     embedded: false,
     // embedDropdownsOn: true,

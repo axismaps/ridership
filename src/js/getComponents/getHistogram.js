@@ -1,7 +1,8 @@
 import Histogram from '../histogram/histogram';
 import exportMethods from '../export/exportMethods';
 
-const getHistogram = ({ data, state }) => new Histogram({
+const getHistogram = ({ data, state, tractGeo }) => new Histogram({
+  tractGeo,
   mobileHistogramOpen: state.get('mobileHistogramOpen'),
   changeColorScale: data.get('changeColorScale'),
   container: d3.select('.histogram'),

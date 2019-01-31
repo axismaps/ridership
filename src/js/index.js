@@ -44,8 +44,16 @@ const app = {
 
 
     components.sidebar = getSidebar({ state, data });
-    components.histogram = getHistogram({ state, data });
-    components.msaAtlas = getMSAAtlas({ state, data });
+    if (state.get('scale') === 'msa') {
+      state.getCurrentTractGeo((tractGeo) => {
+        components.histogram = getHistogram({ state, data, tractGeo });
+        components.msaAtlas = getMSAAtlas({ state, data, tractGeo });
+      });
+    } else {
+      components.histogram = getHistogram({ state, data });
+      components.msaAtlas = getMSAAtlas({ state, data });
+    }
+
     components.indicatorDropdown = getIndicatorDropdown({ state, data });
     components.sliderDropdown = getSliderDropdown({ state, data });
     components.compareDropdown = getCompareDropdown({ state, data });

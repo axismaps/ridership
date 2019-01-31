@@ -34,6 +34,7 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
     .updateDistanceFilter();
 
   if (msa === null) return;
+  console.log('msa', msa);
 
   const taFilter = this.get('taFilter');
   const indicatorSummaries = this.getCurrentIndicatorSummaries();

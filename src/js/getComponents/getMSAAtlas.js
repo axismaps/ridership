@@ -1,6 +1,7 @@
 import MSAAtlas from '../msaAtlas/msaAtlas';
 
-const getMSAAtlas = ({ state, data }) => new MSAAtlas({
+const getMSAAtlas = ({ state, data, tractGeo }) => new MSAAtlas({
+  tractGeo,
   scale: state.get('scale'),
   msa: state.get('msa'),
   msaList: data.get('msa'),
@@ -8,7 +9,8 @@ const getMSAAtlas = ({ state, data }) => new MSAAtlas({
   atlasOuterContainer: d3.select('.atlas__outer-container'),
   currentCensusField: state.get('censusField'),
   distanceFilter: state.get('distanceFilter'),
-  agenciesData: state.getCurrentAgenciesData(),
+  // agenciesData: state.getCurrentAgenciesData(),
+  currentAgencies: state.getAllAgenciesForCurrentMSA(),
   taFilter: state.get('taFilter'),
   years: state.get('years'),
   onZoom(newZoom) {

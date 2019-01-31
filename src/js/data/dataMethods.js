@@ -326,6 +326,8 @@ const dataMethods = {
 
     const params = new URLSearchParams(window.location.search);
 
+    const defaultYears = [2008, 2015];
+
     const data = new Map();
 
     data.set('radiusScale', radiusScale);
@@ -347,6 +349,7 @@ const dataMethods = {
     data.set('distanceFilters', distanceFilters);
     data.set('nationalScaleExtent', nationalScaleExtent);
     data.set('params', params);
+    data.set('defaultYears', defaultYears);
     console.log('data', data);
 
     return data;
