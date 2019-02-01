@@ -4,6 +4,7 @@ const getEmbedOverrideProps = ({ data }) => {
 
   const params = data.get('params');
   const embedded = params.has('embed');
+  const embed = params.get('embed');
   if (!embedded) return {};
 
   embedOverrideProps.embedded = embedded;
@@ -25,27 +26,47 @@ const getEmbedOverrideProps = ({ data }) => {
     }
   }
 
-  // if (params.has('dropdownsOn')) {
-  //   Object.assign(embedOverrideProps, {
-  //     embedDropdownsOn: params.get('dropdownsOn'),
-  //   });
-  // }
+  if (params.has('indicator')) {
+    const indicatorValue = params.get('indicator');
+    const indicatorList = data.get('indicators');
 
-  if (params.get('embed') === 'msaAtlas'
+    if (embed === 'sidebar') {
+      // override data.indicators here
+      const indicatorValues = indicatorValue.split('|');
+      // const newIndicatorList = indicatorList.filter(d => indicatorValues.includes(d.value));
+      const newIndicatorList = new Map();
+
+      indicatorValues.forEach((value) => {
+        newIndicatorList.set(value, indicatorList.get(value));
+      });
+
+      data.set('indicators', newIndicatorList);
+    } else if (embed === 'atlas') {
+      Object.assign(embedOverrideProps, {
+        indicator: indicatorList.get(indicatorValue),
+      });
+    } else if (embed === 'msaAtlas') {
+      Object.assign(embedOverrideProps, {
+        censusField: data.get('censusFields')
+          .find(d => d.value === indicatorValue),
+      });
+    }
+  }
+
+  if (embed === 'msaAtlas'
     || params.get('scale') === 'msa') {
     const msaId = params.get('msa');
-    const censusFieldValue = params.get('censusField');
-    if (msaId !== undefined
-        && censusFieldValue !== undefined) {
+    // const censusFieldValue = params.get('indicator');
+    if (msaId !== undefined) {
       const msa = data.get('msa')
         .find(d => d.msaId === msaId);
-      const censusField = data.get('censusFields')
-        .find(d => d.value === censusFieldValue);
+      // const censusField = data.get('censusFields')
+      //   .find(d => d.value === censusFieldValue);
 
       Object.assign(embedOverrideProps, {
         scale: 'msa',
         msa,
-        censusField,
+        // censusField,
       });
       if (!params.has('years')) {
         Object.assign(embedOverrideProps, {
