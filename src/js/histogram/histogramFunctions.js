@@ -251,9 +251,10 @@ const histogramFunctions = {
       getXAxisLabelPosition,
     } = localFunctions;
 
-    const chartHeight = height - padding.top - padding.bottom;
+    // const chartHeight = height - padding.top - padding.bottom;
 
     const xAxisLabel = container.append('div')
+      .attr('class', 'histogram__x-axis-label')
       .styles(getXAxisLabelPosition({
         height,
         width,
@@ -263,11 +264,15 @@ const histogramFunctions = {
 
 
     const yAxisLabel = container.append('div')
+      .attr('class', 'histogram__y-axis-label')
+      .append('div')
+
       .styles({
-        position: 'absolute',
-        left: `${mobile ? (padding.left - chartHeight - 50) / 2 - 10 : -25}px`,
-        top: `${(padding.top / (mobile ? 1 : 2)) + (chartHeight / 2)}px`,
-        width: `${chartHeight + 50}px`,
+        position: 'relative',
+        // position: 'absolute',
+        // left: `${mobile ? (padding.left - chartHeight - 50) / 2 - 10 : -25}px`,
+        // top: `${(padding.top / (mobile ? 1 : 2)) + (chartHeight / 2)}px`,
+        // width: `${chartHeight + 50}px`,
         'text-align': 'center',
         transform: 'rotate(-90deg)',
         'transform-origin': 'center',

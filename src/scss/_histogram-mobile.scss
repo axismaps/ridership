@@ -38,3 +38,20 @@
   z-index: 400;
   background: white;
 }
+
+.histogram__y-axis-label {
+  position: absolute;
+  width: $histogram--height ;
+  left: -(($histogram--height ) / 2) + 20px;
+  top: ($histogram--height  / 2) + 50px;
+  // left: -45vh !important;
+  // left: calc(-50vh + 20px);
+  // top: 40vh !important;
+  // width: 20px !important;
+}
+
+@media (orientation: landscape) {
+  .histogram__y-axis-label {
+    top: ($histogram--height / 2) - 20;
+  }
+}

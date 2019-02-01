@@ -73,15 +73,15 @@ const resizeFunctions = {
 
   resizeYAxisLabel({
     yAxisLabel,
-    height,
-    padding,
-    mobile,
+    // height,
+    // padding,
+    // mobile,
   }) {
-    const chartHeight = height - padding.top - padding.bottom;
+    // const chartHeight = height - padding.top - padding.bottom;
     yAxisLabel.styles({
-      left: `${mobile ? (padding.left - chartHeight - 50) / 2 - 10 : -25}px`,
-      top: `${(padding.top / (mobile ? 1 : 2)) + (chartHeight / 2)}px`,
-      width: `${chartHeight + 50}px`,
+      // left: `${mobile ? (padding.left - chartHeight - 50) / 2 - 10 : -25}px`,
+      // top: `${(padding.top / (mobile ? 1 : 2)) + (chartHeight / 2)}px`,
+      // width: `${chartHeight + 50}px`,
     });
   },
 };

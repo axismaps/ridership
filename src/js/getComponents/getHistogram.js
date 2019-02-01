@@ -28,7 +28,7 @@ const getHistogram = ({ data, state, tractGeo }) => {
     currentCensusField: state.get('censusField'),
     distanceFilter: state.get('distanceFilter'),
     years: state.get('years'),
-    legendOn: state.get('scale') === 'national',
+    legendOn: state.get('scale') === 'national' && params.get('embed') !== 'histogram',
     exportMethods,
     mobile: state.get('mobile'),
   });

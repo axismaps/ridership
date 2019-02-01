@@ -67,3 +67,28 @@
     height: 100vh;
   }
 }
+
+.outer-container.embed--histogram {
+  .header,
+  .atlas,
+  .footer__atlas-legend,
+  .sidebar {
+    display: none;
+  }
+
+  .footer {
+    height: 100%;
+  }
+
+  .right-content-container {
+    margin: 0px;
+  }
+  .histogram__y-axis-label {
+    position: absolute;
+    width: 100vh;
+    // left: -45vh !important;
+    left: calc(-50vh + 20px);
+    top: 40vh !important;
+    // width: 20px !important;
+  }
+}
