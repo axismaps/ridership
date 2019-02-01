@@ -5,7 +5,7 @@ const getHistogram = ({ data, state, tractGeo }) => {
   const params = data.get('params');
   const embed = params.get('embed');
   if (params.get('histogramOff') === 'true'
-  || (embed !== 'histogram' && embed !== 'atlas' && embed !== 'msaAtlas')) return null;
+  || (embed !== 'histogram' && embed !== 'atlas' && embed !== 'msaAtlas' && state.get('embedded'))) return null;
   return new Histogram({
     tractGeo,
     mobileHistogramOpen: state.get('mobileHistogramOpen'),
