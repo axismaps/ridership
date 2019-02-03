@@ -4,9 +4,15 @@ const getStateUpdateScreenSize = ({ components }) => function updateScreenSize()
     sidebar,
     atlas,
   } = components;
-  histogram.updateSize();
-  sidebar.updateSize();
-  atlas.updateSize();
+  [
+    histogram,
+    sidebar,
+    atlas,
+  ].forEach((component) => {
+    if (component !== null) {
+      component.updateSize();
+    }
+  });
 };
 
 export default getStateUpdateScreenSize;
