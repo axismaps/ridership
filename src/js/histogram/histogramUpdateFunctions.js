@@ -162,7 +162,6 @@ const updateFunctions = {
     currentCensusField,
     nationalDataView,
   }) {
-    console.log('currentCensus', currentCensusField);
     const isNational = currentScale === 'national';
     const yText = isNational
       ? `Number of ${nationalDataView === 'ta' ? 'transit agencies' : 'MSAs'}`

@@ -236,7 +236,6 @@ class Histogram {
 
     this.config(config);
 
-    // const props = privateProps.get(this);
 
     if (!mobile) {
       setDimensions.call(this);

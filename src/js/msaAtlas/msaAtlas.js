@@ -23,7 +23,7 @@ const privateMethods = {
     } = props;
 
     if (scale === 'national') return;
-    console.log('tractGeo', tractGeo);
+
     const {
       drawAtlas,
     } = msaAtlasFunctions;

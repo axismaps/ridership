@@ -16,8 +16,6 @@ const dataMethods = {
       // getIndicatorSummaries,
     } = dataMethods;
 
-    console.log('rawInvisibleTa', rawInvisibleTa);
-
     const msa = rawMsa.rows.map((record) => {
       const {
         centx,
@@ -42,7 +40,6 @@ const dataMethods = {
         name,
       };
     });
-    console.log('msa', msa);
 
     const cleanTa = (record) => {
       const {
@@ -78,7 +75,6 @@ const dataMethods = {
       return cleanRecord;
     });
 
-    console.log('ntd', ntd);
 
     const msaNtd = rawMsaNtd.rows.map((record) => {
       const cleanRecord = Object.assign({}, record);
@@ -88,7 +84,6 @@ const dataMethods = {
 
     const nationalNtd = rawNationalNtd.rows;
 
-    console.log('msaNtd', msaNtd);
     const allNationalMapData = getAllNationalMapData({
       msa,
       ntd,
@@ -350,7 +345,7 @@ const dataMethods = {
     data.set('nationalScaleExtent', nationalScaleExtent);
     data.set('params', params);
     data.set('defaultYears', defaultYears);
-    console.log('data', data);
+
 
     return data;
   },
@@ -405,7 +400,6 @@ const dataMethods = {
       d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20ta%20WHERE%20display%20%3D%20false'),
     ])
       .then((rawData) => {
-        console.log('rawData', rawData);
         const data = cleanData({ rawData });
         callback(data);
       });

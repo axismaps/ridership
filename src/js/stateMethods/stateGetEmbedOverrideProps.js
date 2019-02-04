@@ -9,6 +9,8 @@ const getEmbedOverrideProps = ({ data }) => {
 
   embedOverrideProps.embedded = embedded;
 
+  embedOverrideProps.mobile = false;
+
   if (params.has('sidebarView')) {
     const sidebarView = params.get('sidebarView');
     Object.assign(embedOverrideProps, {
@@ -80,7 +82,6 @@ const getEmbedOverrideProps = ({ data }) => {
     embedded,
   });
 
-  console.log('override', embedOverrideProps);
 
   return embedOverrideProps;
 };

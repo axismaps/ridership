@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>TransitCenter Ridership Visualization</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</head>
+<style>
+  .atlas {
+    width: 600px;
+    height: 600px;
+  }
+
+  .sidebar-sparklines,
+  .sidebar-select-sparklines {
+    width: 440px;
+  }
+
+  .sidebar-sparklines {
+    height: 800px;
+  }
+
+  .sidebar-select-sparklines {
+    height: 300px;
+  }
+
+  .histogram {
+    width: 800px;
+    height: 300px;
+  }
+</style>
+<body>
+
+  <p>
+    National map
+  </p>
+  <iframe src="index.html?embed=atlas&indicator=bus" class="atlas"></iframe>
+
+  <p>
+    National map, no menus or histogram
+  </p>
+  <iframe src="index.html?embed=atlas&indicator=bus&histogramOff=true&dropdownsOff=true" class="atlas"></iframe>
+<!-- 
+  National MSA map
+ -->
+  <p>
+    MSA map
+  </p>
+  <iframe src="index.html?embed=msaAtlas&msa=16980&indicator=pop" class="atlas"></iframe>
+
+  <p>
+    MSA map, no menus or histogram
+  </p>
+  <iframe src="index.html?embed=msaAtlas&msa=16980&indicator=pop&histogramOff=true&dropdownsOff=true" class="atlas"></iframe>
+
+  <!-- 
+    National map
+    National sparklines
+    MSA sparklines
+   -->
+  <p>
+    Sidebar, national scale, sparklines
+  </p>
+  <iframe src="index.html?embed=sidebar&sidebarView=sparklines" class="sidebar-sparklines"></iframe>
+
+  <p>
+    Sidebar, national scale, select sparklines
+  </p>
+  <iframe src="index.html?embed=sidebar&sidebarView=sparklines&indicator=vrm|bus|rail" class="sidebar-select-sparklines"></iframe>
+
+  <p>
+    Sidebar, msa scale, sparklines
+  </p>
+  <iframe src="index.html?embed=sidebar&sidebarView=sparklines&scale=msa&msa=16980" class="sidebar-sparklines"></iframe>
+
+  <p>
+      Histogram
+    </p>
+    <iframe src="index.html?embed=histogram" class="histogram"></iframe>
+</body>
+</html>
