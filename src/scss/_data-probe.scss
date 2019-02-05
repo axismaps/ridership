@@ -1,6 +1,7 @@
 .data-probe {
-  z-index: 1000;
+  
   @include popup-outer();
+  z-index: 1000;
 }
 
 .data-probe__inner {
