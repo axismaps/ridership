@@ -1,0 +1,38 @@
+
+.loader {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+
+
+.outer-container.loading {
+  .loader {
+    opacity: 1;
+    pointer-events: auto;
+    
+    
+  }
+}
+
+
+
+.loader__inner {
+
+}
+
+.loader__icon {
+  
+}

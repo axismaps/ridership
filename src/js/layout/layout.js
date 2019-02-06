@@ -116,6 +116,16 @@ class Layout {
     outerContainer
       .classed('outer-container--histogram', mobileHistogramOpen);
   }
+
+  updateLoading() {
+    const {
+      loading,
+      outerContainer,
+    } = privateProps.get(this);
+
+    outerContainer
+      .classed('loading', loading);
+  }
 }
 
 export default Layout;

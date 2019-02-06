@@ -1,6 +1,7 @@
 import Layout from '../layout/layout';
 
 const getLayout = ({ state, data }) => new Layout({
+  loading: state.get('loading'),
   scale: state.get('scale'),
   outerContainer: d3.select('.outer-container'),
   histogramButton: d3.select('.atlas__histogram-button-outer'),

@@ -1,4 +1,3 @@
-import { isArray } from 'util';
 import State from '../state/state';
 import getGetCurrentTractGeo from '../stateMethods/stateGetCurrentTractGeoJSON';
 import getGetCurrentIndicatorSummaries from '../stateMethods/stateGetCurrentIndicatorSummaries';
@@ -12,6 +11,7 @@ import getEmbedOverrideProps from '../stateMethods/stateGetEmbedOverrideProps';
 const getState = ({ data }) => {
   const defaultYears = data.get('defaultYears');
   const defaultStateProps = {
+    loading: true,
     embedded: false,
     // embedDropdownsOn: true,
     sidebarView: 'sparkLines',

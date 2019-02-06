@@ -18,6 +18,7 @@ import getStateUpdateHighlightedTracts from './stateUpdateHighlightedTracts';
 import getStateUpdateMobileSidebarOpen from './stateUpdateMobileSidebarOpen';
 import getStateUpdateSidebarView from './stateUpdateSidebarView';
 import getStateUpdateMobileHistogramOpen from './stateUpdateMobileHistogramOpen';
+import getStateUpdateLoading from './stateUpdateLoading';
 
 const initStateUpdateListeners = ({ components, data }) => {
   const { state } = components;
@@ -43,6 +44,7 @@ const initStateUpdateListeners = ({ components, data }) => {
     mobileSidebarOpen: getStateUpdateMobileSidebarOpen({ components }),
     mobileHistogramOpen: getStateUpdateMobileHistogramOpen({ components }),
     sidebarView: getStateUpdateSidebarView({ components }),
+    loading: getStateUpdateLoading({ components }),
   });
 };
 

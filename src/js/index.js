@@ -32,6 +32,7 @@ const app = {
       this.initComponents();
       this.initStateUpdateListeners();
       this.initScreenResizeListener();
+      this.components.state.update({ loading: false });
     });
   },
   initComponents() {
