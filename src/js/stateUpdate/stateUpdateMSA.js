@@ -49,7 +49,7 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
       agenciesData,
     })
     .updateData();
-
+  this.update({ loading: true });
   this.getCurrentTractGeo((tractGeo) => {
     msaAtlas
       .config({
@@ -67,6 +67,8 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
         tractGeo,
       })
       .updateData();
+
+    this.update({ loading: false });
   });
 };
 
