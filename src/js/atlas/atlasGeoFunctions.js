@@ -215,6 +215,7 @@ const atlasMethods = {
     allNationalMapData,
     indicator,
     mobile,
+    embedded,
   }) {
     const {
       getMSAData,
@@ -321,6 +322,7 @@ const atlasMethods = {
         agencies.classed('map__agency-dim', false);
       })
       .on('click', (d) => {
+        if (embedded) return;
         if (mobile) {
           dataProbe.remove();
           drawProbe(d);

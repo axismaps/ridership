@@ -29,6 +29,7 @@ const privateMethods = {
       scaleExtent,
       onZoom,
       mobile,
+      embedded,
     } = props;
 
     const {
@@ -144,6 +145,7 @@ const privateMethods = {
       allNationalMapData,
       indicator,
       mobile,
+      embedded,
     });
 
     mapFeatures.set('states', states);
@@ -449,11 +451,13 @@ class Atlas {
       allNationalMapData,
       indicator,
       mobile,
+      embedded,
     } = privateProps.get(this);
     const {
       setInteractions,
     } = atlasGeoFunctions;
     setInteractions({
+      embedded,
       agencies,
       dataProbe,
       nationalDataView,
