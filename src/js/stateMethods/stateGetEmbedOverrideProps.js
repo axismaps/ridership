@@ -28,14 +28,18 @@ const getEmbedOverrideProps = ({ data }) => {
     }
   }
 
+
+  /**
+   * process indicator param
+   */
   if (params.has('indicator')) {
     const indicatorValue = params.get('indicator');
     const indicatorList = data.get('indicators');
+    const scale = params.get('scale');
 
     if (embed === 'sidebar') {
-      // override data.indicators here
       const indicatorValues = indicatorValue.split('|');
-      // const newIndicatorList = indicatorList.filter(d => indicatorValues.includes(d.value));
+
       const newIndicatorList = new Map();
 
       indicatorValues.forEach((value) => {
@@ -43,11 +47,11 @@ const getEmbedOverrideProps = ({ data }) => {
       });
 
       data.set('indicators', newIndicatorList);
-    } else if (embed === 'atlas') {
+    } else if (embed === 'atlas' || (embed === 'histogram' && scale === 'national')) {
       Object.assign(embedOverrideProps, {
         indicator: indicatorList.get(indicatorValue),
       });
-    } else if (embed === 'msaAtlas') {
+    } else if (embed === 'msaAtlas' || (embed === 'histogram' && scale === 'msa')) {
       Object.assign(embedOverrideProps, {
         censusField: data.get('censusFields')
           .find(d => d.value === indicatorValue),
@@ -55,20 +59,21 @@ const getEmbedOverrideProps = ({ data }) => {
     }
   }
 
+  /**
+   * msa-scale embeds
+   * @private
+   */
   if (embed === 'msaAtlas'
     || params.get('scale') === 'msa') {
     const msaId = params.get('msa');
-    // const censusFieldValue = params.get('indicator');
+
     if (msaId !== undefined) {
       const msa = data.get('msa')
         .find(d => d.msaId === msaId);
-      // const censusField = data.get('censusFields')
-      //   .find(d => d.value === censusFieldValue);
 
       Object.assign(embedOverrideProps, {
         scale: 'msa',
         msa,
-        // censusField,
       });
       if (!params.has('years')) {
         Object.assign(embedOverrideProps, {
