@@ -7,9 +7,11 @@ const getEmbedOverrideProps = ({ data }) => {
   const embed = params.get('embed');
   if (!embedded) return {};
 
-  embedOverrideProps.embedded = embedded;
-
-  embedOverrideProps.mobile = false;
+  Object.assign(embedOverrideProps, {
+    embedded,
+    embed,
+    mobile: false,
+  });
 
   if (params.has('sidebarView')) {
     const sidebarView = params.get('sidebarView');
@@ -47,6 +49,9 @@ const getEmbedOverrideProps = ({ data }) => {
       });
 
       data.set('indicators', newIndicatorList);
+      Object.assign(embedOverrideProps, {
+        indicator: null,
+      });
     } else if (embed === 'atlas' || (embed === 'histogram' && scale === 'national')) {
       Object.assign(embedOverrideProps, {
         indicator: indicatorList.get(indicatorValue),
@@ -82,10 +87,6 @@ const getEmbedOverrideProps = ({ data }) => {
       }
     }
   }
-
-  Object.assign(embedOverrideProps, {
-    embedded,
-  });
 
 
   return embedOverrideProps;

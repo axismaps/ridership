@@ -3,6 +3,7 @@ import exportMethods from '../export/exportMethods';
 
 const getSidebar = ({ data, state }) => new Sidebar({
   mobile: state.get('mobile'),
+  embedded: state.get('embedded') && state.get('embed') === 'sidebar',
   mobileSidebarOpen: state.get('mobileSidebarOpen'),
   exportMethods,
   indicatorSummaries: state.getCurrentIndicatorSummaries(),

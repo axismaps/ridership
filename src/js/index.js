@@ -40,10 +40,11 @@ const app = {
     const state = getState({ components, data });
     components.state = state;
     components.layout = getLayout({ state, data });
+    components.sidebar = getSidebar({ state, data });
+    if (state.get('embed') === 'sidebar') return;
     components.atlas = getAtlas({ data, state });
 
 
-    components.sidebar = getSidebar({ state, data });
     if (state.get('scale') === 'msa') {
       state.getCurrentTractGeo((tractGeo) => {
         components.histogram = getHistogram({ state, data, tractGeo });

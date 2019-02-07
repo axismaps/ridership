@@ -13,6 +13,7 @@ const getState = ({ data }) => {
   const defaultStateProps = {
     loading: true,
     embedded: false,
+    embed: null,
     // embedDropdownsOn: true,
     sidebarView: 'sparkLines',
     mobileSidebarOpen: false,

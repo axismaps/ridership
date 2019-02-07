@@ -11,6 +11,7 @@ const privateMethods = {
       sidebarView,
       sparkLineAxisContainer,
       width,
+      embedded,
     } = privateProps.get(this);
     const {
       clearContent,
@@ -36,6 +37,7 @@ const privateMethods = {
     } else {
       drawNationalParallelPlot.call(this);
     }
+    if (embedded) return;
     this.updateCurrentIndicator();
   },
   drawMSASparkLineLegend() {
@@ -167,6 +169,7 @@ const privateMethods = {
       currentScale,
       width,
       mobile,
+      embedded,
     } = props;
 
     const {
@@ -196,6 +199,7 @@ const privateMethods = {
       currentScale,
       width,
       mobile,
+      embedded,
     });
 
     drawSparkLineExpandButtons({

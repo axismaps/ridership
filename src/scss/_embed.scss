@@ -7,6 +7,7 @@
   .header,
   .right-content-container,
   .sidebar__top-row,
+  .dropdown-content,
    {
     display: none;
   }
@@ -27,6 +28,7 @@
 
   .sidebar__outer-content {
     padding-top: 20px;
+    top: 0px;
     height: calc(100% - 20px);
   }
 }

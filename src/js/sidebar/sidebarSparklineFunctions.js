@@ -36,6 +36,7 @@ const sidebarSparkLineFunctions = {
     currentScale,
     width,
     mobile,
+    embedded,
   }) {
     const sparkLines = [];
 
@@ -43,7 +44,8 @@ const sidebarSparkLineFunctions = {
       .append('div')
       .attr('class', 'sidebar__sparkline-container')
       .on('click', (d) => {
-        if (mobile !== true) updateIndicator(d);
+        if (mobile || embedded) return;
+        updateIndicator(d);
       })
       .each(function drawSparkline(d) {
         const container = d3.select(this);
