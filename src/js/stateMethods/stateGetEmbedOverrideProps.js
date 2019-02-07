@@ -64,6 +64,12 @@ const getEmbedOverrideProps = ({ data }) => {
     }
   }
 
+  if (params.has('nationalDataView')) {
+    Object.assign(embedOverrideProps, {
+      nationalDataView: params.get('nationalDataView'),
+    });
+  }
+
   /**
    * msa-scale embeds
    * @private

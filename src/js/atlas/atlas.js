@@ -46,6 +46,7 @@ const privateMethods = {
     const {
       zoomAgencies,
       setMSANodes,
+      drawMSAs,
       setAgencyNodes,
       drawAgencies,
       drawStates,
@@ -102,7 +103,6 @@ const privateMethods = {
       },
     });
 
-    const { nodes } = props;
 
     setMSANodes({
       nationalMapData,
@@ -113,19 +113,38 @@ const privateMethods = {
       },
     });
 
-
-    const agencies = drawAgencies({
-      jumpToMsa,
-      radiusScale,
-      dataProbe,
-      layer: layers.agencies,
-      nationalMapData,
-      projection,
-      changeColorScale,
-      projectionModify,
-      updateHighlightedAgencies,
-      nodes,
-    });
+    const { nodes, msaNodes } = props;
+    let agencies;
+    if (nationalDataView === 'ta') {
+      agencies = drawAgencies({
+        jumpToMsa,
+        radiusScale,
+        dataProbe,
+        layer: layers.agencies,
+        nationalMapData,
+        projection,
+        changeColorScale,
+        projectionModify,
+        updateHighlightedAgencies,
+        nodes,
+      });
+    } else {
+      agencies = drawMSAs({
+        jumpToMsa,
+        radiusScale,
+        dataProbe,
+        layer: layers.agencies,
+        nationalMapData,
+        projection,
+        changeColorScale,
+        projectionModify,
+        updateHighlightedAgencies,
+        msaNodes,
+        logSimulationNodes: (newNodes) => {
+          props.msaNodes = newNodes;
+        },
+      });
+    }
 
     zoomAgencies({
       agencies,
