@@ -9,7 +9,7 @@ const getStateUpdateScreenSize = ({ components }) => function updateScreenSize()
     sidebar,
     atlas,
   ].forEach((component) => {
-    if (component !== null) {
+    if (component !== null && component !== undefined) {
       component.updateSize();
     }
   });
