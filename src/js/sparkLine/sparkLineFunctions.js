@@ -167,6 +167,7 @@ const sparkLineFunctions = {
     scales,
     dataProbe,
     interactive,
+    embedded,
   }) {
     if (interactive === false) return svg;
     return svg.on('mousemove click', (d) => {
@@ -199,11 +200,13 @@ const sparkLineFunctions = {
         })
           .map(val => `<div class="data-probe__row">${val}</div>`)
           .join('');
-        const html = `
+        let html = `
             <div class="data-probe__row"><span class="data-probe__field">${year}</span><span class="mobile"> ${d.text}</span></div>
             ${displayValues}
-            <div class="data-probe__row data-probe__msa-text desktop">Click to show on map</div>
           `;
+        if (!embedded) {
+          html += '<div class="data-probe__row data-probe__msa-text desktop">Click to show on map</div>';
+        }
         dataProbe
           .config({
             pos,

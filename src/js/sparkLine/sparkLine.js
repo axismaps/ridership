@@ -15,6 +15,7 @@ const privateMethods = {
       margin,
       color,
       interactive,
+      embedded,
     } = props;
 
     const {
@@ -66,6 +67,7 @@ const privateMethods = {
       scales,
       dataProbe,
       interactive,
+      embedded,
     });
 
     Object.assign(props, {
