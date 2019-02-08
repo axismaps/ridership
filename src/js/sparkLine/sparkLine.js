@@ -16,6 +16,7 @@ const privateMethods = {
       color,
       interactive,
       embedded,
+      currentScale,
     } = props;
 
     const {
@@ -68,6 +69,7 @@ const privateMethods = {
       dataProbe,
       interactive,
       embedded,
+      currentScale,
     });
 
     Object.assign(props, {

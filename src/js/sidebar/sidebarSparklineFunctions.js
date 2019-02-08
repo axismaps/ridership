@@ -57,6 +57,7 @@ const sidebarSparkLineFunctions = {
           yearRange,
           dataProbe,
           embedded,
+          currentScale,
           color: currentScale === 'msa',
         });
         sparkLines.push(sparkLine);
