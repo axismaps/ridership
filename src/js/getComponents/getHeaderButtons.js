@@ -1,7 +1,7 @@
 import exportMethods from '../export/exportMethods';
 import HeaderButtons from '../header/headerButtons';
 
-const getHeaderButtons = ({ state, data, components }) => new HeaderButtons({
+const getHeaderButtons = ({ state, components }) => new HeaderButtons({
   exportComponents: (callback) => {
     const {
       atlas,

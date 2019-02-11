@@ -6,7 +6,7 @@ const getCompareDropdown = ({ state, data }) => new CompareDropdown({
   nationalMapData: data.get('allNationalMapData'),
   updateComparedAgencies: (newCompare) => {
     const comparedAgencies = state.get('comparedAgencies');
-    const nationalDataView = state.get('nationalDataView');
+
     let matches = newCompare.length === comparedAgencies.length;
     if (matches) {
       newCompare.forEach((ta, i) => {

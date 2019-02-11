@@ -146,7 +146,6 @@ const dataMethods = {
     data.set('params', params);
     data.set('defaultYears', defaultYears);
 
-
     return data;
   },
   getAllNationalMapData({
