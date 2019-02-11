@@ -142,10 +142,10 @@ msa_stacks['recovery'] = pd.Series(
 stacks['recovery'].drop(labels=other_ta, inplace=True)
 
 # Vehicle revenue miles per ride
-stacks['vrm_per_ride'] = pd.Series(stacks['vrm'] / stacks['upt'], name='vrm_per_ride')
-national_values['vrm_per_ride'] = national_values['vrm'] / national_values['upt']
+stacks['vrm_per_ride'] = pd.Series(stacks['upt'] / stacks['vrm'], name='vrm_per_ride')
+national_values['vrm_per_ride'] = national_values['upt'] / national_values['vrm']
 msa_stacks['vrm_per_ride'] = pd.Series(
-    msa_stacks['vrm']['vrm'] / msa_stacks['upt']['upt'], name='vrm_per_ride'
+    msa_stacks['upt']['upt'] / msa_stacks['vrm']['vrm'], name='vrm_per_ride'
 )
 stacks['vrm_per_ride'].drop(labels=other_ta, inplace=True)
 
