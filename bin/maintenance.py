@@ -45,6 +45,11 @@ VALID_TIME_KEYS = [
     '  Time_Period_Desc'
 ]
 
+def convert_ntd_id(series):
+    return series.apply(
+        lambda x: str(x).zfill(4)[:1] + '0' + str(x).zfill(4)[1:]
+    ).astype(int)
+
 def format_maintenance_data(df, keys, col, y):
     """Take maintenance data from excel and return as key / value pairs"""
     # Get indicator column and value column based on matching key list
@@ -57,9 +62,7 @@ def format_maintenance_data(df, keys, col, y):
 
     # Convert old TRS ID to new NTD ID and create new df as subselection
     if ind == 'Trs_Id' or y == '2013':
-        df['NTD ID'] = df[ind].apply(
-            lambda x: str(x).zfill(4)[:1] + '0' + str(x).zfill(4)[1:]
-        ).astype(int)
+        df['NTD ID'] = convert_ntd_id(df[ind])
         m = df[['NTD ID', val]]
     else:
         m = df[[ind, val]].rename(index=str, columns={ind: 'NTD ID'})

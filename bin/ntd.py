@@ -3,10 +3,10 @@
 import pandas as pd
 from numpy import inf
 from numpy import nan
-from acs import msa_population
 from eia import gas_prices
 from meta import clean_ta
 from maintenance import load_maintenance
+from population import get_population
 from carto import replace_data
 
 print 'All modules loaded'
@@ -85,6 +85,8 @@ def ntd_merge(dframe, d_name):
     return s_t.rename(d_name)
 
 stacks = load_maintenance()
+stacks['population'] = get_population()
+stacks['population'] = stacks['population'].rename('population')
 
 for name, df in datasets.items():
     n = name.replace(' ', '_').lower()
@@ -110,7 +112,8 @@ for i in stacks:
     msa_stacks[i].rename_axis(['msaid', None], inplace=True)
     national = m.groupby('level_1').sum().drop(columns=['msaid']).reset_index()
     national['year'] = national['level_1'].astype(int)
-    national_values = national_values.merge(national[['year', i]], on='year')
+    national_values = national_values.merge(national[['year', i]], how='left', on='year')
+    print national_values
 
 national_values.set_index('year', inplace=True)
 
@@ -139,10 +142,10 @@ msa_stacks['recovery'] = pd.Series(
 stacks['recovery'].drop(labels=other_ta, inplace=True)
 
 # Vehicle revenue miles per ride
-stacks['vrm_per_ride'] = pd.Series(stacks['vrm'] / stacks['upt'], name='vrm_per_ride')
-national_values['vrm_per_ride'] = national_values['vrm'] / national_values['upt']
+stacks['vrm_per_ride'] = pd.Series(stacks['upt'] / stacks['vrm'], name='vrm_per_ride')
+national_values['vrm_per_ride'] = national_values['upt'] / national_values['vrm']
 msa_stacks['vrm_per_ride'] = pd.Series(
-    msa_stacks['vrm']['vrm'] / msa_stacks['upt']['upt'], name='vrm_per_ride'
+    msa_stacks['upt']['upt'] / msa_stacks['vrm']['vrm'], name='vrm_per_ride'
 )
 stacks['vrm_per_ride'].drop(labels=other_ta, inplace=True)
 
@@ -180,13 +183,11 @@ msa_stacks['failures'] = pd.Series(
 #%%
 
 # Ridership per capita
-stacks['capita'] = pd.Series(stacks['upt'] / msa_population(), name='capita')
+stacks['capita'] = pd.Series(stacks['upt'] / stacks['population'], name='capita')
 msa_stacks['capita'] = pd.Series(
-    msa_stacks['upt']['upt'] / msa_population(True), name='capita'
+    msa_stacks['upt']['upt'] / msa_stacks['population']['population'], name='capita'
 )
-pop = msa_population(True).reset_index()
-pop['year'] = pop['level_1'].astype(int)
-national_values['capita'] = national_values['upt'] / pop[['year', 0]].groupby('year').sum()[0]
+national_values['capita'] = national_values['upt'] / national_values['population']
 
 # Gas prices
 stacks['gas'] = gas_prices()
@@ -203,14 +204,16 @@ del stacks['voms']
 del stacks['pmt']
 del stacks['service']
 del stacks['maintenance']
+del stacks['population']
 del msa_stacks['vrh']
 del msa_stacks['drm']
 del msa_stacks['voms']
 del msa_stacks['pmt']
 del msa_stacks['service']
 del msa_stacks['maintenance']
+del msa_stacks['population']
 national_values.drop(
-    columns=['vrh', 'drm', 'voms', 'pmt', 'service', 'maintenance'],
+    columns=['vrh', 'drm', 'voms', 'pmt', 'service', 'maintenance', 'population'],
     inplace=True
 )
 
