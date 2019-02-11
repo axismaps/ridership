@@ -26,6 +26,12 @@ FILES = {
         'id': '5 Digit NTD ID',
         'legacy': False,
         'ind': 'Service Area Pop'
+    },
+    2017: {
+        'file': 'data/meta/2017 Agency Info_1.xlsx',
+        'id': 'NTD ID',
+        'legacy': False,
+        'ind': 'Service Area Pop'
     }
 }
 
