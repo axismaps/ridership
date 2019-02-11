@@ -1,36 +1,9 @@
 import os.path
-import re
 import json
 import grequests
 import pandas as pd
 from carto import replace_data
 import settings
-
-def msa_population(msa=False):
-    pop_raw = pd.read_csv('data/census/csa-est2017-alldata.csv')
-    pop = pop_raw[
-        (pd.isnull(pop_raw['MDIV'])) & (pd.isnull(pop_raw['STCOU']))
-    ].dropna(
-        subset=['CBSA']
-    ).filter(
-        regex="^(CBSA|POPESTIMATE)"
-    ).rename(
-        columns=lambda x: re.sub('^POPESTIMATE', '', x)
-    )
-
-    ta_raw = pd.read_csv('data/output/ta.csv')
-    ta = ta_raw[ta_raw['display']].filter(
-        items=['taid', 'msaid']
-    ).rename(index=str, columns={'taid': 'Project ID'})
-
-    id_drop = 'Project ID' if msa else 'msaid'
-    id_keep = 'msaid' if msa else 'Project ID'
-
-    merge = pd.merge(
-        pop, ta, how='right', left_on='CBSA', right_on='msaid'
-    ).drop(columns=[id_drop, 'CBSA'])
-
-    return merge.drop_duplicates().groupby(id_keep).sum().stack()
 
 def process_result(i, y, var, indexes, frames):
     result = pd.DataFrame(i.json())
