@@ -12,6 +12,12 @@
   display: block;
 }
 
+.outer-container--histogram {
+  .atlas__back-button {
+    display: none;
+  }
+}
+
 @media (orientation: landscape) {
   .outer-container--histogram .footer__histogram {
     width: calc(100% - 200px);
