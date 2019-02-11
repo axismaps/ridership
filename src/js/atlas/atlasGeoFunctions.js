@@ -22,6 +22,7 @@ const atlasMethods = {
     width,
     height,
     mobile,
+    embedded,
   }) {
     const initialScale = d3.min([width, height]) * 1.25;
     const projection = d3.geoAlbersUsa()
@@ -33,7 +34,7 @@ const atlasMethods = {
      * instead of doing this we should just calculate scale based on viewport + USA bounds
      * @private
      */
-    if (mobile) {
+    if (mobile || embedded) {
       [
         projection,
         projectionModify,

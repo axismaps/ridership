@@ -68,6 +68,7 @@ const privateMethods = {
       width,
       height,
       mobile,
+      embedded,
     });
 
     const {
