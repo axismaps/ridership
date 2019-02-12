@@ -130,6 +130,13 @@
 
 .atlas__histogram-button-outer.mobile {
   display: block;
+  width: auto;
+  padding: 0 10px;
+  line-height: 30px;
+}
+
+.atlas__histogram-button i {
+  margin-right: 5px;
 }
 
 @media (orientation: landscape) {
