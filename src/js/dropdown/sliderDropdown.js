@@ -82,18 +82,30 @@ class SliderDropdown {
   updateYears() {
     const {
       years,
+      yearRange,
       slider,
+      modal,
     } = privateProps.get(this);
 
     const {
       setToggleButtonText,
     } = privateMethods;
 
+    const {
+      updateMobileModal,
+    } = sliderPureMethods;
+
     slider
       .config({
         currentValues: years,
       })
       .update();
+
+    updateMobileModal({
+      modal,
+      yearRange,
+      years,
+    });
 
     setToggleButtonText.call(this);
   }
@@ -102,7 +114,20 @@ class SliderDropdown {
     const {
       yearRange,
       slider,
+      years,
+      modal,
     } = privateProps.get(this);
+
+    const {
+      updateMobileModal,
+    } = sliderPureMethods;
+
+    updateMobileModal({
+      modal,
+      yearRange,
+      years,
+    });
+
     slider
       .config({
         valueRange: yearRange,
