@@ -15,7 +15,8 @@ def process_result(i, y, var, indexes, frames):
     result['year'] = y
     out = result.set_index(indexes)
     df = out.groupby(level=out.index.names).last()
-    frames.append(df[var])
+    data = pd.to_numeric(df[var])
+    frames.append(data[data >= 0])
     return frames
 
 def download_census():
