@@ -96,6 +96,11 @@
   padding: 0 10px;
 }
 
+.atlas__census-dropdown-button-text,
+.atlas__indicator-dropdown-button-text {
+  white-space: normal;
+}
+
 .outer-container--sidebar .atlas__indicator-dropdown-button,
 .outer-container--sidebar .atlas__census-dropdown-button {
   display: none;

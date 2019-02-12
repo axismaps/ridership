@@ -1,6 +1,10 @@
 @media (max-width: 500px),
 (max-device-width: 823px) and (orientation: landscape),
 (max-device-height: 823px) and (orientation: portrait) {
+
+  body {
+    min-width: 300px;
+  }
   
   .desktop {
     display: none;

@@ -102,6 +102,10 @@
 .atlas__compare-dropdown-button-text,
 .atlas__search-dropdown-result-text {
   margin-right: 5px;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .atlas__msa-map-container,

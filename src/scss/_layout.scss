@@ -2,6 +2,8 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
+  min-width: 1220px;
+  overflow-x: auto;
 }
 
 .main-content-container, .right-content-container {
