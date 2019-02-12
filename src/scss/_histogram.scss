@@ -50,8 +50,9 @@
 .histogram__y-axis-label {
   position: absolute;
   width: $histogram--height * 0.9;
-  left: -(($histogram--height * 0.9) / 2) + 35px;
+  left: -(($histogram--height * 0.9) / 2) + 55px;
   top: (($histogram--height * 0.9) / 2) - 15px;
+  max-width: 120px;
   // left: -45vh !important;
   // left: calc(-50vh + 20px);
   // top: 40vh !important;

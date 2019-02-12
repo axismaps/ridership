@@ -121,7 +121,7 @@ const dataMethods = {
 
     const params = new URLSearchParams(window.location.search);
 
-    const defaultYears = [2008, 2015];
+    const defaultYears = [2006, 2017];
 
     const data = new Map();
 

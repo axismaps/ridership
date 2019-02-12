@@ -49,14 +49,14 @@ const sliderPureMethods = {
     const endSelect = modal.select('select.atlas__year-end');
 
     startSelect.selectAll('option')
-      .data(d3.range.apply(null, yearRange).slice(0, -1))
+      .data(d3.range.apply(null, yearRange))
       .enter()
       .append('option')
       .attr('value', d => d)
       .html(d => d);
 
     endSelect.selectAll('option')
-      .data(d3.range.apply(null, yearRange).slice(1))
+      .data(d3.range.apply(null, yearRange).slice(1).concat(yearRange[1]))
       .enter()
       .append('option')
       .attr('value', d => d)
@@ -93,6 +93,25 @@ const sliderPureMethods = {
     });
 
     return modal;
+  },
+
+  updateMobileModal({
+    modal,
+    yearRange,
+    years,
+  }) {
+    const startSelect = modal.select('select.atlas__year-start');
+    const endSelect = modal.select('select.atlas__year-end');
+
+    startSelect.selectAll('option')
+      .attr('disabled', d => (d >= yearRange[0] && d <= yearRange[1] - 1 ? null : 'disabled'));
+    endSelect.selectAll('option')
+      .attr('disabled', d => (d >= yearRange[0] + 1 && d <= yearRange[1] ? null : 'disabled'));
+
+    const startNode = startSelect.node();
+    const endNode = endSelect.node();
+
+    [startNode.value, endNode.value] = years;
   },
 };
 

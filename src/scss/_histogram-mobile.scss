@@ -50,6 +50,7 @@
   width: $histogram--height ;
   left: -(($histogram--height ) / 2) + 20px;
   top: ($histogram--height  / 2) + 50px;
+  max-width: none;
   // left: -45vh !important;
   // left: calc(-50vh + 20px);
   // top: 40vh !important;
