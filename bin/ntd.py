@@ -57,9 +57,14 @@ col21 = ['Last Report Year', 'Legacy NTD ID', 'Agency Name', 'Agency Status',
 TA_DROP = ['ShowIndividual', 'Primary UZA', 'UZA Name', 'Agency Name',
            'Reporter Acronym', 'display']
 ta_clean = clean_ta(TA, TA_DROP)
+
+# Creating list of combined TAs and removing big ones
 other_ta = ta_clean[pd.notnull(
     ta_clean['"Other" primary Project ID']
 )]['Project ID'].unique().tolist()
+other_ta.remove(1)
+other_ta.remove(21)
+
 ta_clean = ta_clean.drop(columns=['"Other" primary Project ID'])
 
 datasets = {}
