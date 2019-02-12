@@ -108,3 +108,17 @@
   border: none;
   outline: none;
 }
+
+.year-slider__content {
+  display: flex;
+  align-items: center;
+}
+
+.year-slider__content p.label {
+  margin: 0;
+  font-size: 14px;
+}
+
+.year-slider__content svg {
+  margin: 0 10px;
+}
