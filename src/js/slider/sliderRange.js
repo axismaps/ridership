@@ -8,6 +8,8 @@ const privateMethods = {
     const {
       setScale,
       updateScale,
+      drawLabels,
+      updateLabels,
       drawSvg,
       updateSvgSize,
       drawDetectionTrack,
@@ -24,6 +26,8 @@ const privateMethods = {
 
     setScale.call(this);
     updateScale.call(this);
+    drawLabels.call(this);
+    updateLabels.call(this);
     drawSvg.call(this);
     updateSvgSize.call(this);
     drawDetectionTrack.call(this);
@@ -250,8 +254,10 @@ class slider {
   updateValueRange() {
     const {
       updateScaleValueRange,
+      updateLabels,
     } = privateMethods;
     updateScaleValueRange.call(this);
+    updateLabels.call(this);
     return this;
   }
 }

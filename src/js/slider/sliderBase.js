@@ -34,11 +34,37 @@ const getSliderBase = ({ privateProps }) => ({
     } = privateProps.get(this);
     scale.domain(valueRange);
   },
+  drawLabels() {
+    const props = privateProps.get(this);
+    const {
+      container,
+      valueRange,
+    } = props;
+
+    container.selectAll('p.label')
+      .data(valueRange)
+      .enter()
+      .append('p')
+      .attr('class', 'label');
+
+    props.labels = container.selectAll('p.label');
+  },
+  updateLabels() {
+    const props = privateProps.get(this);
+    const {
+      labels,
+      valueRange,
+    } = props;
+
+    labels
+      .data(valueRange)
+      .html(d => d);
+  },
   drawSvg() {
     const props = privateProps.get(this);
     const { container } = props;
 
-    props.svg = container.append('svg');
+    props.svg = container.insert('svg', ':last-child');
   },
   updateSvgSize() {
     const {
