@@ -8,6 +8,10 @@ const sidebarPureFunctions = {
     const container = contentContainer.append('div')
       .attr('class', 'sidebar__pcp-container');
 
+    container.append('p')
+      .attr('class', 'mobile sidebar__pcp-title')
+      .html('Parallel Cooordinate Plot');
+
     container.append('div')
       .attr('class', 'sidebar__pcp-header')
       .append('p')
