@@ -213,8 +213,8 @@ taid,taname,talong,tashort,msaid,display,msa_color
 43,Atlanta Regional Commission,Atlanta Regional Commission,ARC,12060,False,#ff5e4d
 43,Center for Pan Asian Community Services,Center for Pan Asian Community Services,CPACS,12060,False,#ff5e4d
 43,Cherokee County Board of Commissioners,Cherokee County Board of Commissioners,CATS,12060,False,#ff5e4d
-43,Douglas County Rideshare,Douglas County Rideshare,Rideshare,12060,False,#ff5e4d
 43,Enterprise Rideshare,Enterprise Rideshare,,12060,False,#ff5e4d
+43,Douglas County Rideshare,Douglas County Rideshare,Rideshare,12060,False,#ff5e4d
 43,vRide - Atlanta,vRide - Atlanta,,12060,False,#ff5e4d
 43,City of Atlanta DPW - Transit Division,City of Atlanta DPW - Transit Division,COA DPW,12060,False,#ff5e4d
 43,Gwinnett County Board of Commissioners,Gwinnett County Board of Commissioners,GCT,12060,False,#ff5e4d
@@ -306,10 +306,10 @@ taid,taname,talong,tashort,msaid,display,msa_color
 78,Loop Trolley Transportation Development District,Loop Trolley Transportation Development District,,41180,False,#ff5e4d
 79,Omnitrans,Omnitrans,OMNI,40140,True,#0f8fff
 80,Riverside Transit Agency,Riverside Transit Agency,RTA,40140,True,#ff5e4d
-81,City of Riverside Special Transportation,City of Riverside Special Transportation,City of Riverside,40140,False,#8c6112
-81,Riverside County Transportation Commission,Riverside County Transportation Commission,RCTC 5307 Recipient,40140,False,#8c6112
 81,Riverside-San Bernardino Other,,Riverside-San Bernardino Other,40140,True,#8c6112
 81,City of Corona,City of Corona,CCTS,40140,False,#8c6112
+81,City of Riverside Special Transportation,City of Riverside Special Transportation,City of Riverside,40140,False,#8c6112
+81,Riverside County Transportation Commission,Riverside County Transportation Commission,RCTC 5307 Recipient,40140,False,#8c6112
 82,RTC of Southern Nevada,Regional Transportation Commission of Southern Nevada,RTC,29820,True,#0f8fff
 83,Las Vegas Monorail Company,Las Vegas Monorail Company,LVMC,29820,True,#ff5e4d
 84,TriMet,Tri-County Metropolitan Transportation District of Oregon,TriMet,38900,True,#0f8fff
@@ -319,8 +319,8 @@ taid,taname,talong,tashort,msaid,display,msa_color
 87,South Metro Area Regional Transit,South Metro Area Regional Transit,SMART,38900,False,#ff9d2e
 87,Ride Connection,Ride Connection,,38900,False,#ff9d2e
 88,GCRTA,The Greater Cleveland Regional Transit Authority,GCRTA,17460,True,#0f8fff
-89,Laketran,Laketran,,17460,False,#ff5e4d
 89,Cleveland Other,,Cleveland Other,17460,True,#ff5e4d
+89,Laketran,Laketran,,17460,False,#ff5e4d
 89,Medina County Public Transit,Medina County Public Transit,MCPT,17460,False,#ff5e4d
 90,VIA,VIA Metropolitan Transit,VIA,41700,True,#0f8fff
 91,Alamo Regional Transit,Alamo Area Council of Governments,Alamo Regional Transit,41700,True,#ff5e4d
@@ -426,6 +426,7 @@ taid,taname,talong,tashort,msaid,display,msa_color
 138,Tucson Other,,Tucson Other,46060,True,#ff5e4d
 138,Pima Association of Governments,Pima Association of Governments,PAG,46060,False,#ff5e4d
 138,Town of Oro Valley - Transit Services Division,Town of Oro Valley - Transit Services Division,SunShutDNR,46060,False,#ff5e4d
+139,Honolulu DTS,City and County of Honolulu Department of Transportation Services,DTS,46520,True,#0f8fff
 140,MAX Transit,Birmingham-Jefferson County Transit Authority,MAX,13820,True,#0f8fff
 141,RPCGB,Regional Planning Commission of Greater Birmingham,RPCGB,13820,True,#ff5e4d
 142,RTS - Monroe County,RTS - Monroe County,RGRTA,40380,True,#0f8fff
