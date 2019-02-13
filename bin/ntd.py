@@ -123,13 +123,34 @@ for i in stacks:
 national_values.set_index('year', inplace=True)
 
 #%%
+INFLATION = {
+    '2006': 1.22,
+    '2007': 1.17,
+    '2008': 1.17,
+    '2009': 1.14,
+    '2010': 1.12,
+    '2011': 1.09,
+    '2012': 1.07,
+    '2013': 1.06,
+    '2014': 1.05,
+    '2015': 1.04,
+    '2016': 1.02,
+    '2017': 1
+}
+
+def update_dollars(s):
+    for rowname, row in s.iteritems():
+        y = rowname[1] if isinstance(rowname, tuple) else rowname
+        s[rowname] = row * INFLATION[str(y)]
+    return s
+
 # Calculate derived values
 # Average fares
-stacks['avg_fare'] = pd.Series(stacks['fares'] / stacks['upt'], name='avg_fare')
-national_values['avg_fare'] = national_values['fares'] / national_values['upt']
-msa_stacks['avg_fare'] = pd.Series(
+stacks['avg_fare'] = update_dollars(pd.Series(stacks['fares'] / stacks['upt'], name='avg_fare'))
+national_values['avg_fare'] = update_dollars(national_values['fares'] / national_values['upt'])
+msa_stacks['avg_fare'] = update_dollars(pd.Series(
     msa_stacks['fares']['fares'] / msa_stacks['upt']['upt'], name='avg_fare'
-)
+))
 stacks['avg_fare'].drop(labels=other_ta, inplace=True)
 
 # Average speed
@@ -195,8 +216,8 @@ msa_stacks['capita'] = pd.Series(
 national_values['capita'] = national_values['upt'] / national_values['population']
 
 # Gas prices
-stacks['gas'] = gas_prices()
-msa_stacks['gas'] = gas_prices(True)
+stacks['gas'] = update_dollars(gas_prices())
+msa_stacks['gas'] = update_dollars(gas_prices(True))
 national_gas = gas_prices(True).reset_index()
 national_gas['year'] = national_gas['Year'].astype(int)
 national_values['gas'] = national_gas[['year', 'gas']].groupby('year').mean()
