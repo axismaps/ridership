@@ -108,25 +108,44 @@ const histogramFunctions = {
       barSpacing,
     });
 
-    const bars = svg
+    const barsSelection = svg
       .selectAll('.histogram__bar')
-      .data(histogramData, d => d.index)
+      .data(histogramData, d => d.index);
+
+    const barsEnter = barsSelection
       .enter()
       .append('rect')
       .attrs(Object.assign({
-        y: d => (height - padding.bottom) - yScale(d.count),
+        // y: d => (height - padding.bottom) - yScale(d.count),
+        // height: d => yScale(d.count),
+        // fill: d => changeColorScale((d.bucket[1] + d.bucket[0]) / 2),
+        // stroke: '#999999',
+        // 'stroke-width': 1,
+        class: 'histogram__bar',
+        height: 0,
+      }, positionAttrs));
+
+    addNationalBarMouseEvents({
+      bars: barsEnter,
+      updateHighlightedAgencies,
+      dataProbe,
+      nationalDataView,
+    });
+    console.log('draw bars');
+    barsSelection.exit().remove();
+
+    const bars = barsEnter
+      .merge(barsSelection)
+      .transition()
+      .duration(500)
+      .attrs(Object.assign({
         height: d => yScale(d.count),
+        y: d => (height - padding.bottom) - yScale(d.count),
         fill: d => changeColorScale((d.bucket[1] + d.bucket[0]) / 2),
         stroke: '#999999',
         'stroke-width': 1,
       }, positionAttrs));
 
-    addNationalBarMouseEvents({
-      bars,
-      updateHighlightedAgencies,
-      dataProbe,
-      nationalDataView,
-    });
 
     return bars;
   },

@@ -146,6 +146,9 @@ const dataMethods = {
     data.set('params', params);
     data.set('defaultYears', defaultYears);
 
+
+    console.log('dtaa', data);
+
     return data;
   },
   getAllNationalMapData({

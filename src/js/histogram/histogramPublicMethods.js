@@ -40,6 +40,8 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       updateHighlightedTracts,
       mobile,
       mobileHistogramOpen,
+      svg,
+      barSpacing,
     } = props;
 
     if (mobile && !mobileHistogramOpen) return this;
@@ -95,6 +97,11 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
         updateHighlightedAgencies,
         nationalDataView,
         dataProbe,
+        svg,
+        barSpacing,
+        setBars: (newBars) => {
+          props.bars = newBars;
+        },
       });
       Object.assign(props, { histogramData, nationalAverage });
     } else if (currentScale === 'msa') {

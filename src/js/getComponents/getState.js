@@ -24,6 +24,7 @@ const getState = ({ data }) => {
     indicator: data.get('indicators').get('upt'),
     // years: data.get('yearRange'),
     years: defaultYears,
+    // years: [2006, 2016],
     agenciesOn: true,
     nationalDataView: 'ta', // ta or msa
     scale: 'national', // national or msa,

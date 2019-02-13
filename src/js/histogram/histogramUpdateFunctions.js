@@ -83,7 +83,8 @@ const updateFunctions = {
   },
 
   updateNational({
-    bars,
+    // bars,
+    setBars,
     changeColorScale,
     padding,
     width,
@@ -97,16 +98,18 @@ const updateFunctions = {
     histogramData,
     nationalAverage,
     nationalDataView,
+    svg,
+    barSpacing,
   }) {
     const {
 
       getScales,
-
-      addNationalBarMouseEvents,
+      drawBars,
+      // addNationalBarMouseEvents,
     } = histogramFunctions;
 
     const {
-      updateBars,
+      // updateBars,
       updateAxes,
       updateAverageLine,
     } = updateFunctions;
@@ -126,24 +129,37 @@ const updateFunctions = {
       padding,
       height,
     });
-
-    updateBars({
-      height,
-      padding,
-      bars,
-      histogramData,
+    const bars = drawBars({
+      svg,
+      xScale,
       yScale,
       changeColorScale,
-      updateHighlightedAgencies,
-      dataProbe,
-    });
-
-    addNationalBarMouseEvents({
-      bars,
+      padding,
+      height,
+      histogramData,
+      barSpacing,
       updateHighlightedAgencies,
       dataProbe,
       nationalDataView,
     });
+    setBars(bars);
+    // updateBars({
+    //   height,
+    //   padding,
+    //   bars,
+    //   histogramData,
+    //   yScale,
+    //   changeColorScale,
+    //   updateHighlightedAgencies,
+    //   dataProbe,
+    // });
+
+    // addNationalBarMouseEvents({
+    //   bars,
+    //   updateHighlightedAgencies,
+    //   dataProbe,
+    //   nationalDataView,
+    // });
 
     updateAverageLine({
       nationalAverageGroup,
