@@ -160,6 +160,7 @@ const privateMethods = {
       nationalDataView,
     });
 
+
     Object.assign(props, {
       bars,
       xAxis,

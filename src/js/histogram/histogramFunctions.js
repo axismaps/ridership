@@ -51,6 +51,7 @@ const histogramFunctions = {
     nationalDataView,
   }) {
     bars.on('mouseover', (d) => {
+      console.log(d);
       updateHighlightedAgencies(d.records);
 
 
@@ -131,11 +132,12 @@ const histogramFunctions = {
       dataProbe,
       nationalDataView,
     });
-    console.log('draw bars');
+
     barsSelection.exit().remove();
 
     const bars = barsEnter
-      .merge(barsSelection)
+      .merge(barsSelection);
+    bars
       .transition()
       .duration(500)
       .attrs(Object.assign({
@@ -145,8 +147,6 @@ const histogramFunctions = {
         stroke: '#999999',
         'stroke-width': 1,
       }, positionAttrs));
-
-
     return bars;
   },
   drawAxes({
