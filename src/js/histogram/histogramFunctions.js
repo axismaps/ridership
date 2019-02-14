@@ -88,14 +88,8 @@ const histogramFunctions = {
     height,
     histogramData,
     barSpacing,
-    updateHighlightedAgencies,
-    dataProbe,
-    nationalDataView,
-  }) {
-    const {
-      addNationalBarMouseEvents,
-    } = histogramFunctions;
 
+  }) {
     const {
       getBarPositions,
     } = localFunctions;

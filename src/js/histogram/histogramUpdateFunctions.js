@@ -226,7 +226,6 @@ const updateFunctions = {
 
     const {
       updateAxes,
-      updateBars,
     } = updateFunctions;
 
     const { yScale, xScale } = getScales({
