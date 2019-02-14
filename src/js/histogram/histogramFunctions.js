@@ -237,7 +237,7 @@ const histogramFunctions = {
   }) {
     bars.on('mouseover', (d) => {
       updateHighlightedTracts(d.records);
-      console.log('over');
+
       const { clientX, clientY } = d3.event;
       const pos = {
         left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,

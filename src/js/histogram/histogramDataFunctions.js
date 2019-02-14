@@ -135,7 +135,7 @@ const dataFunctions = {
     //       index: i,
     //     };
     //   });
-    console.log('msaHistogramData', msaHistogramData);
+
     return msaHistogramData;
   },
 };

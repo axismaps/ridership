@@ -241,6 +241,7 @@ class MSAAtlas {
     if (tractHovering) return;
 
     const highlightedGeoIds = highlightedTracts.map(d => d.id);
+
     const features = msaAtlas.queryRenderedFeatures({
       layers: ['tract-fill'],
     });
