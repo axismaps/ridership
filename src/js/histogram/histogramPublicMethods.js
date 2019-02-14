@@ -126,6 +126,8 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
         nationalAverageGroup,
         dataProbe,
         updateHighlightedTracts,
+        svg,
+        barSpacing,
       });
       Object.assign(props, { histogramData });
     }

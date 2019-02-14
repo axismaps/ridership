@@ -6,6 +6,7 @@ const getUpdateHighlightedTracts = ({ components }) => function updateHighlighte
 
   const highlightedTracts = this.get('highlightedTracts');
 
+  console.log('highlightedTracts', highlightedTracts);
   msaAtlas
     .config({
       highlightedTracts,

@@ -42,6 +42,7 @@ const privateMethods = {
       drawAxes,
       drawAverageLine,
       drawAxisLabels,
+      addNationalBarMouseEvents,
     } = histogramFunctions;
 
     const {
@@ -120,6 +121,14 @@ const privateMethods = {
       barSpacing,
       updateHighlightedAgencies,
       updateHighlightedTracts,
+      dataProbe,
+      nationalDataView,
+    });
+
+    addNationalBarMouseEvents({
+      // bars: barsEnter,
+      bars,
+      updateHighlightedAgencies,
       dataProbe,
       nationalDataView,
     });

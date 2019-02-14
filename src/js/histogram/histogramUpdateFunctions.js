@@ -105,7 +105,7 @@ const updateFunctions = {
 
       getScales,
       drawBars,
-      // addNationalBarMouseEvents,
+      addNationalBarMouseEvents,
     } = histogramFunctions;
 
     const {
@@ -143,6 +143,13 @@ const updateFunctions = {
       nationalDataView,
     });
     setBars(bars);
+    addNationalBarMouseEvents({
+      // bars: barsEnter,
+      bars,
+      updateHighlightedAgencies,
+      dataProbe,
+      nationalDataView,
+    });
     // updateBars({
     //   height,
     //   padding,
@@ -198,17 +205,21 @@ const updateFunctions = {
     height,
     xAxis,
     yAxis,
-    bars,
+    // bars,
     nationalAverageGroup,
     changeColorScale,
     dataProbe,
     histogramData,
     updateHighlightedTracts,
+    svg,
+    barSpacing,
+    updateHighlightedAgencies,
+    nationalDataView,
   }) {
     const {
       // getMSAHistogramData,
       getScales,
-
+      drawBars,
       hideAverageLine,
       addMSABarMouseEvents,
     } = histogramFunctions;
@@ -234,13 +245,27 @@ const updateFunctions = {
       height,
     });
 
-    updateBars({
-      bars,
-      histogramData,
+    // updateBars({
+    //   bars,
+    //   histogramData,
+    //   yScale,
+    //   changeColorScale,
+    //   height,
+    //   padding,
+    // });
+
+    const bars = drawBars({
+      svg,
+      xScale,
       yScale,
       changeColorScale,
-      height,
       padding,
+      height,
+      histogramData,
+      barSpacing,
+      updateHighlightedAgencies,
+      dataProbe,
+      nationalDataView,
     });
 
     addMSABarMouseEvents({
