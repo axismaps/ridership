@@ -117,21 +117,9 @@ const histogramFunctions = {
       .enter()
       .append('rect')
       .attrs(Object.assign({
-        // y: d => (height - padding.bottom) - yScale(d.count),
-        // height: d => yScale(d.count),
-        // fill: d => changeColorScale((d.bucket[1] + d.bucket[0]) / 2),
-        // stroke: '#999999',
-        // 'stroke-width': 1,
         class: 'histogram__bar',
         height: 0,
       }, positionAttrs));
-
-    // addNationalBarMouseEvents({
-    //   bars: barsEnter,
-    //   updateHighlightedAgencies,
-    //   dataProbe,
-    //   nationalDataView,
-    // });
 
     barsSelection.exit().remove();
 

@@ -24,7 +24,7 @@ const getData = ({
     }
     return num;
   });
-  console.log('changeSpan', changeSpan);
+
 
   const getBucketSize = () => {
     const testSize = roundToFive((changeSpanUse[1] - changeSpanUse[0]) / bucketCount);
@@ -35,7 +35,7 @@ const getData = ({
 
   const bucketSize = getBucketSize();
   const histogramData = [];
-
+  const recordsTracker = [];
   let counter = 0;
   for (let i = changeSpanUse[0]; i < changeSpanUse[1]; i += bucketSize) {
     const bucket = [
@@ -46,6 +46,7 @@ const getData = ({
       .filter((record) => {
         const value = getValue(record);
         if (value === null) return false;
+        if (recordsTracker.includes(record)) return false;
         if (bucket[0] === changeSpanUse[0]) {
           return value - bucket[1] <= 0.00001;
         }
@@ -55,6 +56,7 @@ const getData = ({
         return value > bucket[0]
           && value - bucket[1] <= 0.00001;
       });
+    recordsTracker.push(...agencies);
     counter += 1;
     histogramData.push({
       bucket,

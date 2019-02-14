@@ -280,10 +280,12 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       bars,
       highlightedTracts,
     } = privateProps.get(this);
-
+    // console.log('highlighted', highlightedTracts);
+    const highlightIds = highlightedTracts.map(tract => tract.id);
+    // console.log('ids', highlightIds);
     bars.classed('highlight', (d) => {
       const barIds = d.records.map(tract => tract.id);
-      const highlightIds = highlightedTracts.map(tract => tract.id);
+
       return barIds.some(id => highlightIds.includes(id));
     });
   },
