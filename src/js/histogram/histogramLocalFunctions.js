@@ -66,6 +66,17 @@ const localFunctions = {
       'font-weight': 350,
     };
   },
+  getBucketText({ bucket }) {
+    let bucketText;
+    if (bucket[0] < -300) {
+      bucketText = '< -295%';
+    } else if (bucket[1] > 300) {
+      bucketText = '> 295%';
+    } else {
+      bucketText = bucket.map(val => `${Math.round(val)}%`).join(' to ');
+    }
+    return bucketText;
+  },
 };
 
 export default localFunctions;

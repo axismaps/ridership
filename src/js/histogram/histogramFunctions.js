@@ -50,6 +50,9 @@ const histogramFunctions = {
     dataProbe,
     nationalDataView,
   }) {
+    const {
+      getBucketText,
+    } = localFunctions;
     bars.on('mouseover', (d) => {
       console.log(d);
       updateHighlightedAgencies(d.records);
@@ -63,9 +66,11 @@ const histogramFunctions = {
       };
       const entities = nationalDataView === 'ta' ? (`transit authorit${d.records.length > 1 ? 'ies' : 'y'}`)
         : (`MSA${d.records.length > 1 ? 's' : ''}`);
+      console.log('bucket', d.bucket);
+      const { bucket } = d;
       const html = `
         <div class="data-probe__row"><span class="data-probe__field">${d.records.length} ${entities}</span></div>
-        <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' to ')}</div>
+        <div class="data-probe__row">${getBucketText({ bucket })}</div>
       `;
       dataProbe
         .config({
@@ -227,6 +232,7 @@ const histogramFunctions = {
     dataProbe,
     updateHighlightedTracts,
   }) {
+    const { getBucketText } = localFunctions;
     bars.on('mouseover', (d) => {
       updateHighlightedTracts(d.records);
 
@@ -236,9 +242,10 @@ const histogramFunctions = {
         bottom: window.innerHeight - clientY + 10,
         width: 250,
       };
+      const { bucket } = d;
       const html = `
         <div class="data-probe__row"><span class="data-probe__field">${d.records.length} census tract${d.records.length !== 1 ? 's' : ''}</span></div>
-        <div class="data-probe__row">${d.bucket.map(val => `${Math.round(val)}%`).join(' to ')}</div>
+        <div class="data-probe__row">${getBucketText({ bucket })}</div>
       `;
       dataProbe
         .config({
