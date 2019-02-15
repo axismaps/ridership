@@ -102,7 +102,7 @@ const histogramFunctions = {
       histogramData,
       barSpacing,
     });
-    // svg.selectAll('.histogram__bar').remove();
+
     const barsSelection = svg
       .selectAll('.histogram__bar')
       .data(histogramData, d => d.index);
@@ -112,10 +112,20 @@ const histogramFunctions = {
       .append('rect')
       .attrs(Object.assign({
         class: 'histogram__bar',
+      }, positionAttrs, {
         height: 0,
-      }, positionAttrs));
+        y: height - padding.bottom,
+      }));
 
-    barsSelection.exit().remove();
+    barsSelection
+      .exit()
+      .transition()
+      .duration(500)
+      .attrs({
+        height: 0,
+        y: height - padding.bottom,
+      })
+      .remove();
 
     const bars = barsEnter
       .merge(barsSelection);
