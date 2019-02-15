@@ -79,6 +79,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
         nationalNtd,
         nationalData,
         years,
+        mobile,
       });
       updateNational({
         histogramData,
@@ -110,6 +111,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
         bucketCount,
         currentCensusField,
         distanceFilter,
+        mobile,
       });
       updateMSA({
         histogramData,

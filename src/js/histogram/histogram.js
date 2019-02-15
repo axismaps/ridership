@@ -71,6 +71,7 @@ const privateMethods = {
         nationalData,
         nationalNtd,
         years,
+        mobile,
       }));
     } else {
       if (tractGeo === undefined || tractGeo === null) return;
@@ -79,6 +80,7 @@ const privateMethods = {
         bucketCount,
         currentCensusField,
         distanceFilter,
+        mobile,
       });
     }
 

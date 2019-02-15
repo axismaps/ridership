@@ -2,6 +2,7 @@ const getData = ({
   records,
   bucketCount,
   getValue,
+  mobile,
 }) => {
   const roundToFive = d => Math.round(d / 5) * 5;
   const changeSpan = d3.extent(records, getValue);
@@ -28,9 +29,18 @@ const getData = ({
 
   const getBucketSize = () => {
     const testSize = roundToFive((changeSpanUse[1] - changeSpanUse[0]) / bucketCount);
-    if (testSize < 5) return 5;
-    if (testSize > 10) return 10;
-    return testSize;
+    let bucketSize;
+    if (testSize < 5) {
+      bucketSize = 5;
+    } else if (testSize > 10) {
+      bucketSize = 10;
+    } else {
+      bucketSize = testSize;
+    }
+    if (mobile) {
+      bucketSize *= 2;
+    }
+    return bucketSize;
   };
 
   const bucketSize = getBucketSize();
@@ -74,6 +84,7 @@ const dataFunctions = {
     bucketCount,
     nationalDataView,
     nationalData,
+    mobile,
   }) {
     const allAgencies = nationalDataView === 'msa' ? nationalMapData.slice()
       : nationalMapData
@@ -86,6 +97,7 @@ const dataFunctions = {
       records: allAgencies,
       bucketCount,
       getValue: d => d.pctChange,
+      mobile,
     });
 
     return { histogramData, nationalAverage };
@@ -95,6 +107,7 @@ const dataFunctions = {
     bucketCount,
     currentCensusField,
     distanceFilter,
+    mobile,
   }) {
     const tracts = tractGeo.features
       .map(d => d.properties)
@@ -108,6 +121,7 @@ const dataFunctions = {
     const msaHistogramData = getData({
       bucketCount,
       records: tracts,
+      mobile,
       getValue: d => d[currentCensusField.value] * 100,
     });
     // const changeSpan = d3.extent(tracts, d => d[currentCensusField.value] * 100);
