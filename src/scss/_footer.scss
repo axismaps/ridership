@@ -33,3 +33,39 @@
   margin-top: 10px;
   text-align: center;
 }
+
+.footer__msa-legend {
+  // width: 600px;
+  position: relative;
+  // flex-shrink: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  font-size: 12px;
+}
+
+.msa-legend__row {
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+
+.msa-legend__icon {
+  width: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+}
+
+.msa-legend__text {
+  padding-left: 10px;
+}
+
+.outer-container--national {
+  .footer__msa-legend {
+    display: none;
+  }
+}
+

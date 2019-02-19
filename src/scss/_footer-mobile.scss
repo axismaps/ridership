@@ -14,7 +14,8 @@
   align-items: center;
 }
 
-.footer__atlas-legend {
+.footer__atlas-legend,
+.footer__msa-legend {
   visibility: hidden;
   position: absolute;
   pointer-events: none;
@@ -23,6 +24,11 @@
 }
 
 .outer-container--histogram .footer__atlas-legend {
+  visibility: visible;
+  position: relative;
+}
+
+.outer-container--histogram .footer__msa-legend {
   visibility: visible;
   position: relative;
 }

@@ -13,12 +13,23 @@
 .histogram-mobile {
   display: none;
 }
-
-.histogram--legend-on {
-  width: calc(100% - #{$legend--width});
-  // width: 50%;
-  // width: calc(100% - 175px);
+.outer-container--national {
+  .histogram--legend-on {
+    width: calc(100% - #{$legend--width});
+    // width: 50%;
+    // width: calc(100% - 175px);
+  }
 }
+
+.outer-container--msa {
+  .histogram--legend-on {
+    width: calc(100% - #{$msa-legend--width})
+  }
+  .footer__atlas-legend {
+    display: none;
+  }
+}
+
 
 .histogram__average-line {
   stroke: #666666;

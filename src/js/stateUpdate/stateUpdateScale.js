@@ -14,7 +14,7 @@ const getStateUpdateScale = ({ components, data }) => function updateScale() {
 
   const scale = this.get('scale');
 
-  const legendOn = scale === 'national';
+  // const legendOn = scale === 'national';
 
   sliderDropdown
     .config({
@@ -39,15 +39,15 @@ const getStateUpdateScale = ({ components, data }) => function updateScale() {
     });
 
   legend
-    .config({ legendOn })
+  //   .config({ legendOn })
     .updateScale();
 
   histogram
     .config({
       currentScale: scale,
-      legendOn,
+      // legendOn,
     })
-    .setLegendStatus()
+    // .setLegendStatus()
     .updateSize();
 
 
