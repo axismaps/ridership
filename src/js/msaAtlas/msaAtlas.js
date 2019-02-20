@@ -20,6 +20,7 @@ const privateMethods = {
       setMinScale,
       updateStateHighlightedTracts,
       atlasOuterContainer,
+      mobile,
     } = props;
 
     if (scale === 'national') return;
@@ -29,6 +30,7 @@ const privateMethods = {
     } = msaAtlasFunctions;
 
     const msaAtlas = drawAtlas({
+      mobile,
       updateStateHighlightedTracts,
       dataProbe,
       onZoom,

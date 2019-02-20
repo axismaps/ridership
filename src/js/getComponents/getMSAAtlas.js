@@ -1,6 +1,7 @@
 import MSAAtlas from '../msaAtlas/msaAtlas';
 
 const getMSAAtlas = ({ state, data, tractGeo }) => new MSAAtlas({
+  mobile: state.get('mobile'),
   tractGeo,
   scale: state.get('scale'),
   msa: state.get('msa'),

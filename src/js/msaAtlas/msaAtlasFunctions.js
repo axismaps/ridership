@@ -17,6 +17,7 @@ const msaAtlasFunctions = {
     dataProbe,
     setHoverStatus,
     updateStateHighlightedTracts,
+    mobile,
   }) {
     let lastFeatureId = null;
     const {
@@ -31,7 +32,12 @@ const msaAtlasFunctions = {
       // maxZoom: scaleExtent[1],
       preserveDrawingBuffer: true,
     })
+      .on('click', 'tract-fill', (d) => {
+        if (!mobile) return;
+        console.log('launch probe', d);
+      })
       .on('mousemove', 'tract-fill', (d) => {
+        if (mobile) return;
         setHoverStatus(true);
         const queried = msaAtlas.queryRenderedFeatures(d.point)
           .filter(feature => feature.layer.id === 'tract-fill');
@@ -108,6 +114,7 @@ const msaAtlasFunctions = {
         }
       })
       .on('mouseout', 'tract-fill', () => {
+        if (mobile) return;
         if (lastFeatureId === null) return;
         msaAtlas.setFeatureState({
           source: 'tracts',
