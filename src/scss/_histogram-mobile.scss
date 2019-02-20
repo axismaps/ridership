@@ -6,6 +6,15 @@
   margin-bottom: 50px;
 }
 
+.outer-container--national {
+  .histogram--legend-on {
+    // width: calc(100% - #{$legend--width});
+    width: 100%;
+    // width: 50%;
+    // width: calc(100% - 175px);
+  }
+}
+
 .outer-container--histogram .header__histogram-back,
 .outer-container--histogram .footer__histogram
  {
