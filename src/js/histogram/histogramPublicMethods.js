@@ -283,6 +283,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       highlightedTracts,
     } = privateProps.get(this);
     // console.log('highlighted', highlightedTracts);
+    if (bars === undefined || bars === null) return;
     const highlightIds = highlightedTracts.map(tract => tract.id);
     // console.log('ids', highlightIds);
     bars.classed('highlight', (d) => {

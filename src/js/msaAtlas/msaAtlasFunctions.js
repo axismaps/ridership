@@ -1,3 +1,5 @@
+
+
 const msaAtlasFunctions = {
   drawAtlas({
     msaMapContainer,
@@ -23,98 +25,16 @@ const msaAtlasFunctions = {
     const {
       initSite,
     } = msaAtlasFunctions;
-    const msaAtlas = new mapboxgl.Map({
-      container: msaMapContainer.node(),
-      style: 'mapbox://styles/axismaps/cjnvwmhic2ark2sp7fmjuwhf7',
-      center: [-71.038412, 42.355046],
-      zoom: 10.5,
-      // minZoom: scaleExtent[0],
-      // maxZoom: scaleExtent[1],
-      preserveDrawingBuffer: true,
-    })
-      .on('click', 'tract-fill', (d) => {
-        if (!mobile) return;
-        console.log('launch probe', d);
-      })
-      .on('mousemove', 'tract-fill', (d) => {
-        if (mobile) return;
-        setHoverStatus(true);
-        const queried = msaAtlas.queryRenderedFeatures(d.point)
-          .filter(feature => feature.layer.id === 'tract-fill');
-        if (queried.length === 0) {
-          if (lastFeatureId === null) return;
-          msaAtlas.setFeatureState({
-            source: 'tracts',
-            id: lastFeatureId,
-          },
-          { hover: false });
-          lastFeatureId = null;
-          dataProbe.remove();
 
-          updateStateHighlightedTracts([]);
-          setHoverStatus(false);
-          return;
-        }
-        const feature = queried[0];
-        const offset = 15;
-        const containerPos = d3.select('.atlas__msa-map-container')
-          .node()
-          .getBoundingClientRect();
-        const pos = {
-          left: d.point.x + offset + containerPos.left,
-          bottom: (window.innerHeight - d.point.y - containerPos.top) + offset,
-          width: 275,
-        };
-        if (feature.id !== lastFeatureId && feature.layer.id === 'tract-fill') {
-          // console.log('feature', feature);
-          if (lastFeatureId !== null) {
-            msaAtlas.setFeatureState({
-              source: 'tracts',
-              id: lastFeatureId,
-            },
-            { hover: false });
-          }
-
-          lastFeatureId = feature.id;
-          dataProbe.remove();
-
-          msaAtlas.setFeatureState({
-            source: 'tracts',
-            id: lastFeatureId,
-          },
-          { hover: true });
-          const s = d3.formatSpecifier('f');
-          s.precision = d3.precisionFixed(0.01);
-          const f = d3.format(s);
-          const censusField = getCurrentCensusField();
-          const tractValue = feature.properties[censusField.value];
-          // updateStateHighlightedTracts(tractValue * 100);
-          updateStateHighlightedTracts([feature.properties]);
-          const { id } = feature.properties;
-          const years = getYears();
-          const firstNum = Number(id.slice(-5, -2));
-          const secondNum = Number(id.slice(-2)) / 100;
-          const tractNum = secondNum !== 0
-            ? f(firstNum + secondNum)
-            : firstNum;
-          const html = `
-            <div class="msa-probe__tract-row">Tract ${tractNum}</div>
-            <div class="msa-probe__indicator-row">
-              <span class="msa-probe__indicator">${years[0]}-${years[1]} (% change):</span> ${Math.round(tractValue * 100)}%
-            </div>
-            `;
-          dataProbe
-            .config({
-              pos,
-              html,
-            })
-            .draw();
-        } else {
-          dataProbe.setPos(pos);
-        }
-      })
-      .on('mouseout', 'tract-fill', () => {
-        if (mobile) return;
+    const drawProbe = ({
+      d,
+      msaAtlas,
+      onProbeRemove = () => { console.log('close'); },
+    }) => {
+      setHoverStatus(true);
+      const queried = msaAtlas.queryRenderedFeatures(d.point)
+        .filter(feature => feature.layer.id === 'tract-fill');
+      if (queried.length === 0) {
         if (lastFeatureId === null) return;
         msaAtlas.setFeatureState({
           source: 'tracts',
@@ -126,6 +46,114 @@ const msaAtlasFunctions = {
 
         updateStateHighlightedTracts([]);
         setHoverStatus(false);
+        return;
+      }
+      const feature = queried[0];
+      const offset = 15;
+      const containerPos = d3.select('.atlas__msa-map-container')
+        .node()
+        .getBoundingClientRect();
+      const pos = {
+        left: d.point.x + offset + containerPos.left,
+        bottom: (window.innerHeight - d.point.y - containerPos.top) + offset,
+        width: 275,
+      };
+      if (feature.id !== lastFeatureId && feature.layer.id === 'tract-fill') {
+        // console.log('feature', feature);
+        if (lastFeatureId !== null) {
+          msaAtlas.setFeatureState({
+            source: 'tracts',
+            id: lastFeatureId,
+          },
+          { hover: false });
+        }
+
+        lastFeatureId = feature.id;
+        dataProbe.remove();
+
+        msaAtlas.setFeatureState({
+          source: 'tracts',
+          id: lastFeatureId,
+        },
+        { hover: true });
+        const s = d3.formatSpecifier('f');
+        s.precision = d3.precisionFixed(0.01);
+        const f = d3.format(s);
+        const censusField = getCurrentCensusField();
+        const tractValue = feature.properties[censusField.value];
+        // updateStateHighlightedTracts(tractValue * 100);
+        updateStateHighlightedTracts([feature.properties]);
+        const { id } = feature.properties;
+        const years = getYears();
+        const firstNum = Number(id.slice(-5, -2));
+        const secondNum = Number(id.slice(-2)) / 100;
+        const tractNum = secondNum !== 0
+          ? f(firstNum + secondNum)
+          : firstNum;
+        const html = `
+          <div class="msa-probe__tract-row">Tract ${tractNum}</div>
+          <div class="msa-probe__indicator-row">
+            <span class="msa-probe__indicator">${years[0]}-${years[1]} (% change):</span> ${Math.round(tractValue * 100)}%
+          </div>
+          `;
+        dataProbe
+          .config({
+            pos,
+            html,
+          })
+          .draw(() => {
+            onProbeRemove({ msaAtlas });
+          });
+      } else {
+        dataProbe.setPos(pos);
+      }
+    };
+
+    const onProbeRemove = ({
+      msaAtlas,
+    }) => {
+      if (lastFeatureId === null) return;
+      msaAtlas.setFeatureState({
+        source: 'tracts',
+        id: lastFeatureId,
+      },
+      { hover: false });
+      lastFeatureId = null;
+
+
+      updateStateHighlightedTracts([]);
+      setHoverStatus(false);
+    };
+
+    const msaAtlas = new mapboxgl.Map({
+      container: msaMapContainer.node(),
+      style: 'mapbox://styles/axismaps/cjnvwmhic2ark2sp7fmjuwhf7',
+      center: [-71.038412, 42.355046],
+      zoom: 10.5,
+      // minZoom: scaleExtent[0],
+      // maxZoom: scaleExtent[1],
+      preserveDrawingBuffer: true,
+    })
+      .on('click', 'tract-fill', (d) => {
+        if (!mobile) return;
+
+        drawProbe({
+          msaAtlas,
+          d,
+          onProbeRemove,
+        });
+      })
+      .on('mousemove', 'tract-fill', (d) => {
+        if (mobile) return;
+        drawProbe({
+          msaAtlas,
+          d,
+        });
+      })
+      .on('mouseout', 'tract-fill', () => {
+        if (mobile) return;
+        onProbeRemove({ msaAtlas });
+        dataProbe.remove();
       })
       .on('zoom', () => {
         onZoom(msaAtlas.getZoom());

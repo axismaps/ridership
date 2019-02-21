@@ -24,7 +24,7 @@ class DataProbe {
     return this;
   }
 
-  draw() {
+  draw(onRemove = () => { console.log('close'); }) {
     const props = privateProps.get(this);
     const {
       pos,
@@ -58,7 +58,10 @@ class DataProbe {
     props.probe
       .append('i')
       .attr('class', 'fas fa-times mobile')
-      .on('click', () => this.remove());
+      .on('click', () => {
+        onRemove();
+        this.remove();
+      });
 
     if (leader) {
       props.probe
