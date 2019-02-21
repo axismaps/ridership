@@ -118,7 +118,6 @@ for i in stacks:
     national = m.groupby('level_1').sum().drop(columns=['msaid']).reset_index()
     national['year'] = national['level_1'].astype(int)
     national_values = national_values.merge(national[['year', i]], how='left', on='year')
-    print national_values
 
 national_values.set_index('year', inplace=True)
 
