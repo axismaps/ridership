@@ -44,6 +44,7 @@ const sparkLineFunctions = {
       xScale,
       yScale,
     } = scales;
+    const { agencies } = indicatorData;
     svg.append('rect')
       .attr('class', 'sparkline-background')
       .attrs({
@@ -67,7 +68,7 @@ const sparkLineFunctions = {
 
     svg.append('g')
       .attr('transform', `translate(${xScale.range()[1] + 4 * margin},${margin})`)
-      .attr('class', 'sparkline-axis')
+      .attr('class', `sparkline-axis sparkline-axis-${agencies.length > 1 ? 'multiple' : 'single'}`)
       .call(axis);
 
     if (indicatorData.unit) {

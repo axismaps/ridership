@@ -229,6 +229,10 @@ $sidebar-content--margin-top: 20px;
   opacity: 1 !important;
 }
 
+.expanded .sparkline-axis-multiple text {
+  display: none;
+}
+
 .sidebar .expanded .sparkline-year-axis {
   display: none !important;
 }
