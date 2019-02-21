@@ -105,7 +105,7 @@ print'Created stacks for ' + str(stacks.keys())
 # Create MSA stacks
 msa_stacks = {}
 national_values = pd.DataFrame(pd.Series(list(range(2006, 2018)), name='year'))
-ta_export = pd.read_csv('data/output/ta.csv', usecols=['taid', 'msaid', 'taname'])
+ta_export = pd.read_csv('data/output/ta.csv', usecols=['taid', 'msaid', 'taname', 'display'])
 ta_msa = ta_export[['taid', 'msaid']].drop_duplicates()
 for i in stacks:
     m = pd.DataFrame(
@@ -256,9 +256,18 @@ export_msa.to_csv('data/output/ntd_msa.csv', index_label=indexes)
 national_values.to_csv('data/output/ntd_national.csv')
 
 # Export formatted CSV
-export.rename_axis(['taid', 'year']).reset_index().merge(
-    ta_export, on='taid'
-).to_csv('data/output/transit_data.csv')
+download = export.rename_axis(['taid', 'year']).reset_index().merge(
+    ta_export[ta_export['display']], on='taid'
+)
+col_order = ['taname', 'msaid', 'year', 'upt', 'bus', 'rail', 'vrm',
+             'headways', 'speed', 'opexp_total',
+             'fares', 'avg_fare', 'recovery', 'failures',
+             'gas', 'capita', 'vrm_per_ride', 'trip_length']
+col_names = ['taname', 'msaid', 'year', 'upt', 'bus_upt', 'rail_upt', 'vrm',
+             'minimum_headways', 'avg_speed', 'operating_expenses_total',
+             'fare_revenue', 'avg_fare', 'farebox_recovery', 'miles_between_failures',
+             'state_gas_price_per_gal', 'trips_per_capita', 'upt_per_vrm', 'avg_trip_length_mi']
+download[col_order].to_csv('data/output/transit_data.csv', header=col_names, index=False)
 
 print 'Data exported to CSV'
 
