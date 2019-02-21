@@ -15,6 +15,12 @@
   }
 }
 
+.outer-container--msa {
+  .histogram--legend-on {
+    width: 100%;
+  }
+}
+
 .outer-container--histogram .header__histogram-back,
 .outer-container--histogram .footer__histogram
  {

@@ -143,7 +143,6 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       highlightedAgencies,
     } = privateProps.get(this);
 
-    console.log('bars', bars);
     bars.classed('highlight', (d) => {
       const barIds = d.records.map(agency => agency.globalId);
       const highlightIds = highlightedAgencies.map(agency => agency.globalId);
