@@ -45,6 +45,13 @@ FILES = {
         'ind': 'Service_Area_Population',
         'sheet': None
     },
+    2012: {
+        'file': 'data/meta/2012_Agency_Information_0.xlsx',
+        'id': 'Trs_Id',
+        'legacy': True,
+        'ind': 'Population_Num',
+        'sheet': None
+    },
     2013: {
         'file': 'data/meta/2013 Agency Information_0.xlsx',
         'id': 'NTDID',
