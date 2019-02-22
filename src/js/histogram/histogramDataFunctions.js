@@ -4,31 +4,23 @@ const getData = ({
   getValue,
   mobile,
 }) => {
-  const roundToFive = d => Math.round(d / 5) * 5;
+  const roundToTen = d => Math.round(d / 10) * 10;
   const changeSpan = d3.extent(records, getValue);
   const changeSpanUse = changeSpan.map((d, i) => {
-    let num = roundToFive(d);
-    if (num % 10 === 0) {
-      if (i === 0) {
-        num -= 5;
-      } else if (i === 1) {
-        num += 5;
-      }
-    }
-
+    const num = roundToTen(d);
     if (i === 0 && num < -295) {
-      return -305;
+      return -300;
     }
 
     if (i === 1 && num > 295) {
-      return 305;
+      return 300;
     }
     return num;
   });
 
 
   const getBucketSize = () => {
-    const testSize = roundToFive((changeSpanUse[1] - changeSpanUse[0]) / bucketCount);
+    const testSize = roundToTen((changeSpanUse[1] - changeSpanUse[0]) / bucketCount);
     let bucketSize;
     if (testSize < 5) {
       bucketSize = 5;
