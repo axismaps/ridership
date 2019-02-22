@@ -70,8 +70,8 @@ const localFunctions = {
     let bucketText;
     if (bucket[0] < -100) {
       bucketText = `-100% to ${Math.round(bucket[1])}%`;
-    } else if (bucket[1] > 300) {
-      bucketText = '> 295%';
+    } else if (bucket[1] >= 300) {
+      bucketText = '> 290%';
     } else {
       bucketText = bucket.map(val => `${Math.round(val)}%`).join(' to ');
     }
