@@ -106,10 +106,11 @@ const dataMethods = {
     const msaYearRange = [2010, 2016];
 
     const changeColorScale = d3.scaleThreshold()
-      .domain([-25, -5, 5, 25])
+      .domain([-50, -10, 0, 10, 50])
       .range([
         '#BC4E9F',
         '#E6B4D6',
+        '#fde8f7',
         '#E2F1FD',
         '#8BD5D5',
         '#009093',
