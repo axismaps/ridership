@@ -14,6 +14,9 @@ class DataProbe {
       className: null,
       leader: false,
       container: null,
+      onRemove: () => {
+        console.log('close');
+      },
     });
 
     this.config(config);
@@ -24,13 +27,14 @@ class DataProbe {
     return this;
   }
 
-  draw(onRemove = () => { console.log('close'); }) {
+  draw() {
     const props = privateProps.get(this);
     const {
       pos,
       container,
       html,
       leader,
+      onRemove,
     } = props;
 
     const posStyle = Object.keys(pos)

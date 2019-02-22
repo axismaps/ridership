@@ -100,10 +100,11 @@ const msaAtlasFunctions = {
           .config({
             pos,
             html,
+            onRemove: () => {
+              onProbeRemove({ msaAtlas });
+            },
           })
-          .draw(() => {
-            onProbeRemove({ msaAtlas });
-          });
+          .draw();
       } else {
         dataProbe.setPos(pos);
       }
