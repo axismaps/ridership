@@ -36,7 +36,7 @@ const getGetCurrentNationalMapData = ({ data }) => function getCurrentNationalMa
 
         const noRecord = d => [0, null].includes(d);
 
-        const pctChange = noRecord(firstRecord)
+        const pctChange = noRecord(firstRecord) || noRecord(lastRecord)
           ? null
           : ((lastRecord - firstRecord)
             / firstRecord) * 100;
