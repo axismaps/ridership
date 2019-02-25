@@ -151,6 +151,7 @@ const histogramFunctions = {
     svg,
     padding,
     height,
+    width,
   }) {
     const {
       getYAxisGenerator,
@@ -170,6 +171,7 @@ const histogramFunctions = {
         class: 'histogram__axis',
       })
       .call(getYAxisGenerator({ xScale, yScale }));
+
     // console.log('yAxis', yAxis);
     return { xAxis, yAxis };
   },

@@ -72,6 +72,11 @@
   // width: 20px !important;
 }
 
+.histogram__no-data {
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+
 @media (orientation: landscape) {
   .histogram__y-axis-label {
     top: ($histogram--height / 2) - 20;

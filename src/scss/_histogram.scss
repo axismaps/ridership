@@ -70,3 +70,22 @@
   // top: 40vh !important;
   // width: 20px !important;
 }
+
+.histogram__no-data {
+  position: absolute;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+  color: #666;
+  text-align: center;
+}
+
+.histogram--empty .histogram__no-data{
+  display: flex;
+}
+
+.histogram--empty svg {
+  display: none;
+}

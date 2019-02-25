@@ -109,6 +109,7 @@ const privateMethods = {
       svg,
       padding,
       height,
+      width,
     });
 
     const bars = drawBars({
@@ -184,6 +185,9 @@ const privateMethods = {
       histogramData,
       nationalAverage,
     });
+
+    d3.select('.footer__histogram')
+      .classed('histogram--empty', histogramData.length === 0);
   },
   setDimensions() {
     const props = privateProps.get(this);

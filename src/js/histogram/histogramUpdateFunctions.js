@@ -175,6 +175,9 @@ const updateFunctions = {
       xScale,
       padding,
     });
+
+    d3.select('.footer__histogram')
+      .classed('histogram--empty', histogramData.length === 0);
   },
   updateAxisLabelText({
     xAxisLabel,
