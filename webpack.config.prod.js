@@ -95,8 +95,7 @@ module.exports = {
         to: 'mapbox-gl/mapbox-gl.css',
       },
       {
-        from: 'src/html/embedTest.html',
-        // to: ''
+        from: 'src/html/story.html',
       },
     ]),
   ],

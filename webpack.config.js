@@ -52,7 +52,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       {
-        from: 'src/html/embedTest.html',
+        from: 'src/html/story.html',
       },
     ]),
   ],
