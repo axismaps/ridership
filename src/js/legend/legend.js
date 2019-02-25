@@ -94,6 +94,7 @@ class Legend {
       container,
       legendOn,
     } = props;
+
     container
       .classed('footer__atlas-legend--hidden', !legendOn);
   }

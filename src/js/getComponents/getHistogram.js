@@ -3,6 +3,7 @@ import exportMethods from '../export/exportMethods';
 
 const getHistogram = ({ data, state, tractGeo }) => {
   const params = data.get('params');
+  console.log('leg', state.get('scale') === 'national' && params.get('embed') !== 'histogram' && !state.get('embedded'));
   const embed = params.get('embed');
   if (params.get('histogramOff') === 'true'
   || (embed !== 'histogram' && embed !== 'atlas' && embed !== 'msaAtlas' && state.get('embedded'))) return null;
@@ -28,7 +29,7 @@ const getHistogram = ({ data, state, tractGeo }) => {
     currentCensusField: state.get('censusField'),
     distanceFilter: state.get('distanceFilter'),
     years: state.get('years'),
-    legendOn: state.get('scale') === 'national' && params.get('embed') !== 'histogram',
+    legendOn: state.get('scale') === 'national' && params.get('embed') !== 'histogram' && !state.get('embedded'),
     exportMethods,
     mobile: state.get('mobile'),
   });
