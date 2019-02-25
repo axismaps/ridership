@@ -115,7 +115,9 @@ def load_population_year(pfile, nid, ind, legacy, sheet):
 def get_population():
     population = pd.DataFrame()
     for year, f in FILES.iteritems():
-        population[str(year)] = load_population_year(f['file'], f['id'], f['ind'], f['legacy'], f['sheet'])
+        population[str(year)] = load_population_year(
+            f['file'], f['id'], f['ind'], f['legacy'], f['sheet']
+        )
     p = population.groupby('Project ID').max().stack()
     return p.rename('population')
 
