@@ -84,6 +84,7 @@ const privateMethods = {
       });
     }
 
+
     const { xScale, yScale } = getScales({
       padding,
       histogramData,

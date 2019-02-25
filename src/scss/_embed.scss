@@ -1,12 +1,17 @@
 .outer-container.embed {
   min-width: initial;
   overflow: hidden;
+  // Do not display legend in embed maps
   .footer__atlas-legend {
     display: none;
   }
 
   .footer__msa-legend {
     display: none;
+  }
+
+  .histogram--legend-on {
+    width: 100%;
   }
 }
 

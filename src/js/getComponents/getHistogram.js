@@ -3,7 +3,7 @@ import exportMethods from '../export/exportMethods';
 
 const getHistogram = ({ data, state, tractGeo }) => {
   const params = data.get('params');
-  console.log('leg', state.get('scale') === 'national' && params.get('embed') !== 'histogram' && !state.get('embedded'));
+
   const embed = params.get('embed');
   if (params.get('histogramOff') === 'true'
   || (embed !== 'histogram' && embed !== 'atlas' && embed !== 'msaAtlas' && state.get('embedded'))) return null;
