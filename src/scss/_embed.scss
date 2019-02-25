@@ -1,6 +1,13 @@
 .outer-container.embed {
   min-width: initial;
   overflow: hidden;
+  .footer__atlas-legend {
+    display: none;
+  }
+
+  .footer__msa-legend {
+    display: none;
+  }
 }
 
 .outer-container.embed--sidebar {
