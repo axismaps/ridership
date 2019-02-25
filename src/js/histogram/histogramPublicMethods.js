@@ -142,7 +142,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       bars,
       highlightedAgencies,
     } = privateProps.get(this);
-
+    if (bars === undefined || bars === null) return this;
     bars.classed('highlight', (d) => {
       const barIds = d.records.map(agency => agency.globalId);
       const highlightIds = highlightedAgencies.map(agency => agency.globalId);

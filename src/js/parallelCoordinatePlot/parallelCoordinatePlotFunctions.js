@@ -99,7 +99,6 @@ const parallelCoordinatePlotFunctions = {
     const lineGenerator = d3.line()
       .x(d => xScale(d.pctChange))
       .y((d, i) => i * indicatorHeight);
-      // .defined(d => d.pctChange !== null);
 
     const lines = svg.select('g.pcp-lines').selectAll('path.pcp-line')
       .data(agenciesData, d => d.globalId);
@@ -109,7 +108,6 @@ const parallelCoordinatePlotFunctions = {
       .append('path')
       .style('fill', 'none')
       .style('stroke', d => (msaScale ? d.color : color()))
-      // .style('stroke', color)
       .style('opacity', 0)
       .attr('class', 'pcp-line')
       .attr('d', d => lineGenerator(d.indicators))
@@ -121,7 +119,9 @@ const parallelCoordinatePlotFunctions = {
         updateHighlightedAgencies([]);
       })
       .on('click', (d) => {
-        if (mobile !== true) updateMSA(d);
+        if (!mobile) updateMSA(d);
+        // move probe code to own function
+        // call here for mobile
       });
 
     lines.exit().remove();
@@ -132,9 +132,12 @@ const parallelCoordinatePlotFunctions = {
     mergedLines
 
       .on('mouseover', (d) => {
+        if (mobile) return;
+        console.log('over');
         updateHighlightedAgencies([d]);
       })
       .on('mousemove', (d) => {
+        if (mobile) return;
         dataProbe.remove();
         d3.select(this).raise();
         const { clientX, clientY } = d3.event;

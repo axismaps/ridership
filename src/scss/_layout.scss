@@ -2,8 +2,12 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  min-width: 1220px;
+  // min-width: 1220px;
   overflow-x: auto;
+}
+
+.outer-container {
+  min-width: 1220px;
 }
 
 .main-content-container, .right-content-container {

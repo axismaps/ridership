@@ -1,13 +1,13 @@
-// .outer-container.embed {
-//   bottom: auto;
-//   left: auto;
-// }
+.outer-container.embed {
+  min-width: initial;
+  overflow: hidden;
+}
 
 .outer-container.embed--sidebar {
   .header,
   .right-content-container,
   .sidebar__top-row,
-  .dropdown-content,
+  .dropdown-content
    {
     display: none;
   }
@@ -17,7 +17,7 @@
     width: 100%;
     max-width: 100%;
     height: 100%;
-    min-width: none;
+    min-width: initial;
     display: block;
   }
   
@@ -39,7 +39,7 @@
   // .right-content-container,
   .atlas__back-button,
   .sidebar,
-  .atlas__compare-dropdown-button,
+  .atlas__compare-dropdown-button
    {
     display: none;
   }
@@ -49,6 +49,7 @@
   }
   .right-content-container {
     margin: 0px;
+    min-width: initial;
   }
 }
 
