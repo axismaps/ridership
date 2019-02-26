@@ -144,29 +144,12 @@ const updateFunctions = {
     });
     setBars(bars);
     addNationalBarMouseEvents({
-      // bars: barsEnter,
       bars,
       updateHighlightedAgencies,
       dataProbe,
       nationalDataView,
     });
-    // updateBars({
-    //   height,
-    //   padding,
-    //   bars,
-    //   histogramData,
-    //   yScale,
-    //   changeColorScale,
-    //   updateHighlightedAgencies,
-    //   dataProbe,
-    // });
 
-    // addNationalBarMouseEvents({
-    //   bars,
-    //   updateHighlightedAgencies,
-    //   dataProbe,
-    //   nationalDataView,
-    // });
 
     updateAverageLine({
       nationalAverageGroup,

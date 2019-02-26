@@ -151,7 +151,6 @@ const histogramFunctions = {
     svg,
     padding,
     height,
-    width,
   }) {
     const {
       getYAxisGenerator,

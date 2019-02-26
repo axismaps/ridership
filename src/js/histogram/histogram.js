@@ -43,6 +43,7 @@ const privateMethods = {
       drawAverageLine,
       drawAxisLabels,
       addNationalBarMouseEvents,
+      addMSABarMouseEvents,
     } = histogramFunctions;
 
     const {
@@ -129,16 +130,16 @@ const privateMethods = {
       nationalDataView,
     });
 
-    addNationalBarMouseEvents({
-      // bars: barsEnter,
-      bars,
-      updateHighlightedAgencies,
-      dataProbe,
-      nationalDataView,
-    });
+
     let nationalAverageGroup;
     let nationalAverageText;
     if (currentScale === 'national') {
+      addNationalBarMouseEvents({
+        bars,
+        updateHighlightedAgencies,
+        dataProbe,
+        nationalDataView,
+      });
       ({
         nationalAverageGroup,
         nationalAverageText,
@@ -149,6 +150,12 @@ const privateMethods = {
         padding,
         height,
       }));
+    } else {
+      addMSABarMouseEvents({
+        bars,
+        dataProbe,
+        updateHighlightedTracts,
+      });
     }
 
 
