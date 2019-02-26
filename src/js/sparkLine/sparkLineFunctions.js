@@ -121,7 +121,8 @@ const sparkLineFunctions = {
     } = scales;
     const lineGenerator = d3.line()
       .x(d => xScale(d.year))
-      .y(d => yScale(d.indicatorSummary));
+      .y(d => yScale(d.indicatorSummary))
+      .defined(d => d.indicatorSummary !== null);
 
     const g = svg.append('g')
       .attr('class', 'sidebar__sparkline-path-container')
@@ -144,8 +145,10 @@ const sparkLineFunctions = {
       })
       .attr('d', (d) => {
         if (indicatorData.agencies.length > 1) {
+          if (d.scale === undefined) return '';
           lineGenerator.y(s => yScale(d.scale(s.indicatorSummary)));
         }
+
         return lineGenerator(d.summaries);
       });
 

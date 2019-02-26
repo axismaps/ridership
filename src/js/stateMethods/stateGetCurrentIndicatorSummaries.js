@@ -19,7 +19,7 @@ const getNationalIndicatorSummaries = function getNationalIndicatorSummaries({ d
         .filter(s => s.indicatorSummary !== null);
       const mean = d3.mean(summaries, s => s.indicatorSummary);
       const stDev = d3.deviation(summaries, s => s.indicatorSummary);
-      const scale = value => (value - mean) / stDev;
+      const scale = stDev === undefined ? undefined : value => (value - mean) / stDev;
       indicatorCopy.agencies = [{
         taId: 'all',
         msaId: 'all',
@@ -70,7 +70,7 @@ const getNationalIndicatorSummaries = function getNationalIndicatorSummaries({ d
       }
       const mean = d3.mean(agency.summaries, s => s.indicatorSummary);
       const stDev = d3.deviation(agency.summaries, s => s.indicatorSummary);
-      const scale = value => (value - mean) / stDev;
+      const scale = stDev === undefined ? undefined : value => (value - mean) / stDev;
       Object.assign(agency, {
         mean,
         stDev,
@@ -112,7 +112,7 @@ const getMSAIndicatorSummaries = function getMSAIndicatorSummaries({ data }) {
           .filter(d => d.indicatorSummary !== null && d.indicatorSummary !== undefined);
         const mean = d3.mean(agencyCopy.summaries, s => s.indicatorSummary);
         const stDev = d3.deviation(agencyCopy.summaries, s => s.indicatorSummary);
-        const scale = value => (value - mean) / stDev;
+        const scale = stDev === undefined ? undefined : value => (value - mean) / stDev;
         Object.assign(agencyCopy, {
           mean,
           stDev,
