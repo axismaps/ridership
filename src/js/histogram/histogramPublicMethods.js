@@ -82,6 +82,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
         mobile,
       });
       updateNational({
+        mobile,
         histogramData,
         nationalAverage,
         bars,

@@ -139,6 +139,7 @@ const privateMethods = {
         updateHighlightedAgencies,
         dataProbe,
         nationalDataView,
+        mobile,
       });
       ({
         nationalAverageGroup,
@@ -155,6 +156,7 @@ const privateMethods = {
         bars,
         dataProbe,
         updateHighlightedTracts,
+        mobile,
       });
     }
 

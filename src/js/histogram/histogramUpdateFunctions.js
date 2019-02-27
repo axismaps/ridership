@@ -100,6 +100,7 @@ const updateFunctions = {
     nationalDataView,
     svg,
     barSpacing,
+    mobile,
   }) {
     const {
 
@@ -148,6 +149,7 @@ const updateFunctions = {
       updateHighlightedAgencies,
       dataProbe,
       nationalDataView,
+      mobile,
     });
 
 
@@ -201,6 +203,7 @@ const updateFunctions = {
     barSpacing,
     updateHighlightedAgencies,
     nationalDataView,
+    mobile,
   }) {
     const {
       // getMSAHistogramData,
@@ -257,6 +260,7 @@ const updateFunctions = {
       bars,
       dataProbe,
       updateHighlightedTracts,
+      mobile,
     });
 
     hideAverageLine({
