@@ -1,5 +1,6 @@
 mapshaper data/geojson/tracts/**/*.shp combine-files \
   -merge-layers force \
+  -simplify 20% \
   -o data/geojson/tracts/us_tracts.shp
 
 mapshaper data/geojson/tracts/us_tracts.shp \
