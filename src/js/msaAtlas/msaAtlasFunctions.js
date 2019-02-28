@@ -152,7 +152,7 @@ const msaAtlasFunctions = {
         });
       })
       .on('mouseout', 'tract-fill', () => {
-        if (mobile) return;
+        // if (mobile) return;
         onProbeRemove({ msaAtlas });
         dataProbe.remove();
       })
