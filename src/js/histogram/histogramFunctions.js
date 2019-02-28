@@ -56,7 +56,8 @@ const histogramFunctions = {
     } = localFunctions;
 
     const drawProbe = (d) => {
-      updateHighlightedAgencies(d.records);
+      dataProbe.remove();
+      if (!mobile) updateHighlightedAgencies(d.records);
 
       const { clientX, clientY } = d3.event;
       const pos = {
@@ -85,14 +86,13 @@ const histogramFunctions = {
       drawProbe(d);
     })
       .on('mouseout', () => {
-        if (mobile) return;
+        // if (mobile) return;
         updateHighlightedAgencies([]);
         dataProbe.remove();
       })
       .on('click', (d) => {
         if (!mobile) return;
         drawProbe(d);
-        console.log('launch probe, highlight bar');
       });
   },
   drawBars({
