@@ -49,13 +49,15 @@ const histogramFunctions = {
     updateHighlightedAgencies,
     dataProbe,
     nationalDataView,
+    mobile,
   }) {
     const {
       getBucketText,
     } = localFunctions;
-    bars.on('mouseover', (d) => {
-      updateHighlightedAgencies(d.records);
 
+    const drawProbe = (d) => {
+      dataProbe.remove();
+      if (!mobile) updateHighlightedAgencies(d.records);
 
       const { clientX, clientY } = d3.event;
       const pos = {
@@ -77,10 +79,20 @@ const histogramFunctions = {
           html,
         })
         .draw();
+    };
+
+    bars.on('mouseover', (d) => {
+      if (mobile) return;
+      drawProbe(d);
     })
       .on('mouseout', () => {
+        // if (mobile) return;
         updateHighlightedAgencies([]);
         dataProbe.remove();
+      })
+      .on('click', (d) => {
+        if (!mobile) return;
+        drawProbe(d);
       });
   },
   drawBars({
@@ -170,6 +182,7 @@ const histogramFunctions = {
         class: 'histogram__axis',
       })
       .call(getYAxisGenerator({ xScale, yScale }));
+
     // console.log('yAxis', yAxis);
     return { xAxis, yAxis };
   },
@@ -230,9 +243,12 @@ const histogramFunctions = {
     bars,
     dataProbe,
     updateHighlightedTracts,
+    mobile,
   }) {
     const { getBucketText } = localFunctions;
+    console.log('mobile', mobile);
     bars.on('mouseover', (d) => {
+      if (mobile) return;
       updateHighlightedTracts(d.records);
 
       const { clientX, clientY } = d3.event;

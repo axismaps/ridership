@@ -100,6 +100,7 @@ const updateFunctions = {
     nationalDataView,
     svg,
     barSpacing,
+    mobile,
   }) {
     const {
 
@@ -144,29 +145,13 @@ const updateFunctions = {
     });
     setBars(bars);
     addNationalBarMouseEvents({
-      // bars: barsEnter,
       bars,
       updateHighlightedAgencies,
       dataProbe,
       nationalDataView,
+      mobile,
     });
-    // updateBars({
-    //   height,
-    //   padding,
-    //   bars,
-    //   histogramData,
-    //   yScale,
-    //   changeColorScale,
-    //   updateHighlightedAgencies,
-    //   dataProbe,
-    // });
 
-    // addNationalBarMouseEvents({
-    //   bars,
-    //   updateHighlightedAgencies,
-    //   dataProbe,
-    //   nationalDataView,
-    // });
 
     updateAverageLine({
       nationalAverageGroup,
@@ -175,6 +160,9 @@ const updateFunctions = {
       xScale,
       padding,
     });
+
+    d3.select('.footer__histogram')
+      .classed('histogram--empty', histogramData.length === 0);
   },
   updateAxisLabelText({
     xAxisLabel,
@@ -215,6 +203,7 @@ const updateFunctions = {
     barSpacing,
     updateHighlightedAgencies,
     nationalDataView,
+    mobile,
   }) {
     const {
       // getMSAHistogramData,
@@ -271,6 +260,7 @@ const updateFunctions = {
       bars,
       dataProbe,
       updateHighlightedTracts,
+      mobile,
     });
 
     hideAverageLine({

@@ -7,11 +7,18 @@ const getStateUpdateHighlightedAgencies = ({ components }) => function updateHig
 
   const highlightedAgencies = this.get('highlightedAgencies');
 
+  sidebar
+    .config({
+      highlightedAgencies,
+    })
+    .updateHighlight();
+
   atlas
     .config({
       highlightedAgencies,
     })
     .updateHighlight();
+
   if (histogram !== null) {
     histogram
       .config({
@@ -26,12 +33,6 @@ const getStateUpdateHighlightedAgencies = ({ components }) => function updateHig
   //     years,
   //   })
   //   .updateYears();
-
-  sidebar
-    .config({
-      highlightedAgencies,
-    })
-    .updateHighlight();
 };
 
 export default getStateUpdateHighlightedAgencies;

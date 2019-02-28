@@ -60,7 +60,7 @@ const atlasHelperFunctions = {
         });
         const mean = d3.mean(agencyCopy.summaries, s => s.indicatorSummary);
         const stDev = d3.deviation(agencyCopy.summaries, s => s.indicatorSummary);
-        const scale = value => (value - mean) / stDev;
+        const scale = stDev === undefined ? undefined : value => (value - mean) / stDev;
         Object.assign(agencyCopy, {
           mean,
           stDev,

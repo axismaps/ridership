@@ -43,6 +43,7 @@ const privateMethods = {
       drawAverageLine,
       drawAxisLabels,
       addNationalBarMouseEvents,
+      addMSABarMouseEvents,
     } = histogramFunctions;
 
     const {
@@ -84,6 +85,7 @@ const privateMethods = {
       });
     }
 
+
     const { xScale, yScale } = getScales({
       padding,
       histogramData,
@@ -109,6 +111,7 @@ const privateMethods = {
       svg,
       padding,
       height,
+      width,
     });
 
     const bars = drawBars({
@@ -127,16 +130,17 @@ const privateMethods = {
       nationalDataView,
     });
 
-    addNationalBarMouseEvents({
-      // bars: barsEnter,
-      bars,
-      updateHighlightedAgencies,
-      dataProbe,
-      nationalDataView,
-    });
+
     let nationalAverageGroup;
     let nationalAverageText;
     if (currentScale === 'national') {
+      addNationalBarMouseEvents({
+        bars,
+        updateHighlightedAgencies,
+        dataProbe,
+        nationalDataView,
+        mobile,
+      });
       ({
         nationalAverageGroup,
         nationalAverageText,
@@ -147,6 +151,13 @@ const privateMethods = {
         padding,
         height,
       }));
+    } else {
+      addMSABarMouseEvents({
+        bars,
+        dataProbe,
+        updateHighlightedTracts,
+        mobile,
+      });
     }
 
 
@@ -184,6 +195,9 @@ const privateMethods = {
       histogramData,
       nationalAverage,
     });
+
+    d3.select('.footer__histogram')
+      .classed('histogram--empty', histogramData.length === 0);
   },
   setDimensions() {
     const props = privateProps.get(this);
