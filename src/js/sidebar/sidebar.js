@@ -114,7 +114,7 @@ const privateMethods = {
 
     rows.exit().remove();
 
-    compareContainer.classed('visible', comparedAgencies.length > 0);
+    compareContainer.classed('visible', comparedAgencies.length > 0 && !props.embedded);
   },
   drawNationalSparkLines() {
     const props = privateProps.get(this);

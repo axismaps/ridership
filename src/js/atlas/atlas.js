@@ -205,6 +205,7 @@ const privateMethods = {
     });
 
     toggleNationalLayers.call(this);
+    this.updateCompared();
   },
 
   setDimensions() {

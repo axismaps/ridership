@@ -70,6 +70,26 @@ const getEmbedOverrideProps = ({ data }) => {
     });
   }
 
+  if (params.get('compared')) {
+    const ids = params.get('compared').split('|');
+    const nationalMapData = data.get('allNationalMapData');
+    const tas = nationalMapData.map(msa => msa.ta)
+      .reduce((accumulator, ta) => [...accumulator, ...ta], [])
+      .filter(ta => ids.includes(ta.taId));
+    const msas = nationalMapData.filter(ta => ids.includes(ta.msaId));
+    const comparedAgencies = tas.length ? tas : msas;
+    Object.assign(embedOverrideProps, {
+      comparedAgencies,
+    });
+  }
+
+  if (params.get('distanceFilter')) {
+    Object.assign(embedOverrideProps, {
+      distanceFilter: params.get('distanceFilter'),
+    });
+  }
+
+
   /**
    * msa-scale embeds
    * @private

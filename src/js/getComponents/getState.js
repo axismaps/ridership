@@ -44,6 +44,7 @@ const getState = ({ data }) => {
     currentZoom: null,
     msaScaleExtent: [8, 15],
   };
+
   const embedOverrideProps = getEmbedOverrideProps({ data });
 
   const state = new State(Object.assign(defaultStateProps, embedOverrideProps));

@@ -13,13 +13,16 @@ const getStateUpdateHighlightedAgencies = ({ components }) => function updateHig
     })
     .updateHighlight();
 
-  atlas
-    .config({
-      highlightedAgencies,
-    })
-    .updateHighlight();
+  if (atlas) {
+    atlas
+      .config({
+        highlightedAgencies,
+      })
+      .updateHighlight();
+  }
 
-  if (histogram !== null) {
+
+  if (histogram) {
     histogram
       .config({
         highlightedAgencies,
