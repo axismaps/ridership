@@ -6,10 +6,7 @@ mapshaper data/geojson/transit/**/routes.geojson combine-files \
 
 python bin/ta_names.py
 
-mapshaper data/geojson/transit/**/stops.geojson combine-files \
-  -merge-layers force \
-  -filter-fields high_frequency,name,tags \
-  -o data/output/stops.geojson
+./bin/stops.sh
 
 tippecanoe data/output/*.geojson -aD -aG -ab -ai -f -o data/output/transit.mbtiles
 
