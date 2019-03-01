@@ -84,8 +84,9 @@ const getEmbedOverrideProps = ({ data }) => {
   }
 
   if (params.get('distanceFilter')) {
+    const distanceFilter = +params.get('distanceFilter');
     Object.assign(embedOverrideProps, {
-      distanceFilter: params.get('distanceFilter'),
+      distanceFilter: data.get('distanceFilters').find(d => d.value === distanceFilter),
     });
   }
 
