@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --hot --inline",
     "build": "node_modules/.bin/webpack -p --config webpack.config.prod.js",
-    "data": "npm run data:clean && npm run data:meta && npm run data:tracts",
+    "data": "npm run data:meta && npm run data:clean && npm run data:tracts",
     "data:clean": "python bin/ntd.py",
     "data:meta": "python bin/meta.py",
     "data:census": "python bin/acs.py",
     "data:tiles": "python bin/meta.py && ./bin/tiles.sh",
-    "data:tracts": "./bin/tracts.sh && python bin/buffer.py",
+    "data:tracts": "./bin/tracts.sh && ./bin/stops.sh && python bin/buffer.py",
     "data:transit": "python bin/transit.py",
     "deploy": "./bin/deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
