@@ -246,10 +246,10 @@ const histogramFunctions = {
     mobile,
   }) {
     const { getBucketText } = localFunctions;
-    console.log('mobile', mobile);
-    bars.on('mouseover', (d) => {
-      if (mobile) return;
-      updateHighlightedTracts(d.records);
+
+    const addProbe = (d) => {
+      dataProbe.remove();
+      if (!mobile) updateHighlightedTracts(d.records);
 
       const { clientX, clientY } = d3.event;
       const pos = {
@@ -268,10 +268,18 @@ const histogramFunctions = {
           html,
         })
         .draw();
+    };
+    bars.on('mouseover', (d) => {
+      if (mobile) return;
+      addProbe(d);
     })
       .on('mouseout', () => {
         dataProbe.remove();
         updateHighlightedTracts([]);
+      })
+      .on('click', (d) => {
+        if (!mobile) return;
+        addProbe(d);
       });
   },
   drawAxisLabels({
