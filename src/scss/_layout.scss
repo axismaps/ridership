@@ -8,6 +8,7 @@ body {
 
 .outer-container {
   min-width: 1220px;
+  overflow-y: hidden;
 }
 
 .main-content-container, .right-content-container {
