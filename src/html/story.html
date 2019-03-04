@@ -33,56 +33,33 @@
   }
 </style>
 <body>
-
-  <p>
-    National map
-  </p>
+  <p>National map</p>
   <iframe src="index.html?embed=atlas&indicator=bus" class="atlas"></iframe>
 
-<p>
-    National map, by msa
-  </p>
+  <p>National map, by msa</p>
   <iframe src="http://localhost:8080/?embed=atlas&nationalDataView=msa" class="atlas"></iframe>
-  <p>
-    National map, no menus or histogram
-  </p>
+
+  <p> National map, no menus or histogram</p>
   <iframe src="index.html?embed=atlas&indicator=bus&histogramOff=true&dropdownsOff=true" class="atlas"></iframe>
-<!-- 
-  National MSA map
- -->
-  <p>
-    MSA map
-  </p>
+
+  <!-- National MSA map -->
+  <p>MSA map</p>
   <iframe src="index.html?embed=msaAtlas&msa=16980&indicator=pop" class="atlas"></iframe>
 
-  <p>
-    MSA map, no menus or histogram
-  </p>
+  <p>MSA map, no menus or histogram</p>
   <iframe src="index.html?embed=msaAtlas&msa=16980&indicator=pop&histogramOff=true&dropdownsOff=true" class="atlas"></iframe>
 
-  <!-- 
-    National map
-    National sparklines
-    MSA sparklines
-   -->
-  <p>
-    Sidebar, national scale, sparklines
-  </p>
+  <!-- National map National sparklines MSA sparklines -->
+  <p>Sidebar, national scale, sparklines</p>
   <iframe src="index.html?embed=sidebar&sidebarView=sparklines" class="sidebar-sparklines"></iframe>
 
-  <p>
-    Sidebar, national scale, select sparklines
-  </p>
+  <p>Sidebar, national scale, select sparklines</p>
   <iframe src="index.html?embed=sidebar&sidebarView=sparklines&indicator=vrm|bus|rail" class="sidebar-select-sparklines"></iframe>
 
-  <p>
-    Sidebar, msa scale, sparklines
-  </p>
+  <p>Sidebar, msa scale, sparklines</p>
   <iframe src="index.html?embed=sidebar&sidebarView=sparklines&scale=msa&msa=16980" class="sidebar-sparklines"></iframe>
 
-  <p>
-      Histogram
-    </p>
-    <iframe src="index.html?embed=histogram" class="histogram"></iframe>
+  <p>Histogram</p>
+  <iframe src="index.html?embed=histogram" class="histogram"></iframe>
 </body>
 </html>
