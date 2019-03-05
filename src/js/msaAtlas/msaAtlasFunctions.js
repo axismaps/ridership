@@ -171,6 +171,7 @@ const msaAtlasFunctions = {
         });
         // const camera = getCurrentCamera();
         // setMinScale(camera.zoom);
+        if (msaAtlas.getLayer('tracts')) msaAtlas.removeLayer('tracts');
         logInitialFilters(msaAtlas.getStyle());
         msaMapContainer
           .classed('atlas__msa-map-container--loaded', true);
