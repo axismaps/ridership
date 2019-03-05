@@ -98,7 +98,8 @@ const parallelCoordinatePlotFunctions = {
   }) {
     const lineGenerator = d3.line()
       .x(d => xScale(d.pctChange))
-      .y((d, i) => i * indicatorHeight);
+      .y((d, i) => i * indicatorHeight)
+      .defined(d => d.pctChange !== null);
 
     const lines = svg.select('g.pcp-lines').selectAll('path.pcp-line')
       .data(agenciesData, d => d.globalId);

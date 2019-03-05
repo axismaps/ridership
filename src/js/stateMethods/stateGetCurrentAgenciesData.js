@@ -56,7 +56,7 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
           const firstRecord = agency.ntd.find(d => d.year === years[0])[value];
           const lastRecord = agency.ntd.find(d => d.year === years[1])[value];
           const noRecord = d => [null].includes(d);
-          const pctChange = noRecord(firstRecord)
+          const pctChange = noRecord(firstRecord) || noRecord(lastRecord)
             ? null
             : ((lastRecord - firstRecord)
                   / firstRecord) * 100;
