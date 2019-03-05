@@ -11,12 +11,14 @@ const sidebarSparkLineFunctions = {
   drawSparkLineRows({
     contentContainer,
     indicatorSummaries,
+    expandedSparklines,
   }) {
     return contentContainer.selectAll('.sidebar__sparkline-row')
       .data(indicatorSummaries, d => d.value)
       .enter()
       .append('div')
-      .attr('class', 'sidebar__sparkline-row');
+      .attr('class', 'sidebar__sparkline-row')
+      .classed('expanded', expandedSparklines === true);
   },
   drawSparkLineTitles({
     sparkRows,
@@ -37,6 +39,7 @@ const sidebarSparkLineFunctions = {
     width,
     mobile,
     embedded,
+    expandedSparklines,
   }) {
     const sparkLines = [];
 
@@ -58,6 +61,7 @@ const sidebarSparkLineFunctions = {
           dataProbe,
           embedded,
           currentScale,
+          expanded: (expandedSparklines === true),
           color: currentScale === 'msa',
         });
         sparkLines.push(sparkLine);
@@ -67,6 +71,7 @@ const sidebarSparkLineFunctions = {
   drawSparkLineExpandButtons({
     sparkRows,
     updateExpandedIndicator,
+    expandedSparklines,
   }) {
     const buttons = sparkRows
       .append('div')
@@ -74,6 +79,8 @@ const sidebarSparkLineFunctions = {
       .on('click', (d) => {
         updateExpandedIndicator(d);
       });
+
+    if (expandedSparklines === true) buttons.style('visibility', 'hidden');
 
     buttons.append('i')
       .attr('class', 'fas fa-chevron-down');
@@ -87,8 +94,9 @@ const sidebarSparkLineFunctions = {
     sparkRows,
     sparkLines,
     expandedIndicator,
+    expandedSparklines,
   }) {
-    sparkRows.classed('expanded', d => (expandedIndicator === null ? false : expandedIndicator.value === d.value));
+    sparkRows.classed('expanded', d => (expandedSparklines === true) || (expandedIndicator === null ? false : expandedIndicator.value === d.value));
     sparkLines.forEach((sparkline) => {
       const indicator = sparkline.getIndicator();
       const expanded = expandedIndicator === null ? false

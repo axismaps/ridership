@@ -19,6 +19,10 @@ const getEmbedOverrideProps = ({ data }) => {
       sidebarView: sidebarView === 'sparklines' ? 'sparkLines' : sidebarView,
     });
   }
+  // expand sparklines
+  if (params.has('expanded')) {
+    Object.assign(embedOverrideProps, { expandedSparklines: true });
+  }
   if (params.has('years')) {
     const years = params.get('years')
       .split('|')

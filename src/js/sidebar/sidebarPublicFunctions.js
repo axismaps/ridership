@@ -55,12 +55,14 @@ const getPublicFunctions = ({
       sparkLines,
       sidebarView,
       expandedIndicator,
+      expandedSparklines,
     } = privateProps.get(this);
     if (sidebarView === 'sparkLines') {
       updateExpandedSparkline({
         sparkRows,
         sparkLines,
         expandedIndicator,
+        expandedSparklines,
       });
     }
 

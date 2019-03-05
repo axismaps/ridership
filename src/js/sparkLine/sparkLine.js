@@ -102,6 +102,10 @@ class SparkLine {
 
     this.config(config);
 
+    if (config.expanded === true) {
+      this.config({ height: 160 });
+    }
+
     init.call(this);
 
     this.updateSelected();

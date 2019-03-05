@@ -132,6 +132,7 @@ const privateMethods = {
       width,
       mobile,
       embedded,
+      expandedSparklines,
     } = props;
 
     const {
@@ -144,6 +145,7 @@ const privateMethods = {
     const sparkRows = drawSparkLineRows({
       contentContainer,
       indicatorSummaries,
+      expandedSparklines,
     });
 
     const sparkTitles = drawSparkLineTitles({
@@ -162,11 +164,13 @@ const privateMethods = {
       width,
       mobile,
       embedded,
+      expandedSparklines,
     });
 
     drawSparkLineExpandButtons({
       sparkRows,
       updateExpandedIndicator,
+      expandedSparklines,
     });
 
     Object.assign(props, {
