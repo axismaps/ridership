@@ -134,7 +134,6 @@ const parallelCoordinatePlotFunctions = {
 
       .on('mouseover', (d) => {
         if (mobile) return;
-        console.log('over');
         updateHighlightedAgencies([d]);
       })
       .on('mousemove', (d) => {

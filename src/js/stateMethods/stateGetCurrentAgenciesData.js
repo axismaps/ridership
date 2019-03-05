@@ -84,53 +84,45 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
 
   // by MSA
   const msaIds = comparedAgencies.map(d => d.msaId);
-  return nationalMapData.map((msa) => {
-    const {
-      msaId,
-      globalId,
-      name,
-    } = msa;
-    const msaCopy = {
-      msaId,
-      globalId,
-      name,
-    };
-    msaCopy.indicators = indicatorSummaries.map((indicator) => {
+  return nationalMapData
+    .filter(msa => msa.ntd.filter(inYears).length > 0)
+    .map((msa) => {
       const {
-        text,
-        value,
-      } = indicator;
-      const indicatorCopy = {
-        text,
-        value,
+        msaId,
+        globalId,
+        name,
+      } = msa;
+      const msaCopy = {
+        msaId,
+        globalId,
+        name,
       };
-      const msaFirstRecords = msa.ta.map((ta) => {
-        const record = ta.ntd.find(d => d.year === years[0])[indicator.value];
-        return record;
-      })
-        .filter(d => d !== null);
-      const msaLastRecords = msa.ta.map((ta) => {
-        const record = ta.ntd.find(d => d.year === years[1])[indicator.value];
-        return record;
-      })
-        .filter(d => d !== null);
-      if (msaFirstRecords.length > 0 && msaLastRecords.length > 0) {
-        const summaries = [
-          d3[indicator.summaryType](msaFirstRecords),
-          d3[indicator.summaryType](msaLastRecords),
-        ];
+
+      msaCopy.indicators = indicatorSummaries.map((indicator) => {
+        const {
+          text,
+          value,
+        } = indicator;
+        const indicatorCopy = {
+          text,
+          value,
+        };
+        const firstRecord = msa.ntd.find(d => d.year === years[0])[value];
+        const lastRecord = msa.ntd.find(d => d.year === years[1])[value];
+        const noRecord = d => [null].includes(d);
+        const pctChange = noRecord(firstRecord) || noRecord(lastRecord)
+          ? null
+          : ((lastRecord - firstRecord)
+                / firstRecord) * 100;
+
         Object.assign(indicatorCopy, {
-          pctChange: 100 * (summaries[1] - summaries[0]) / summaries[0],
+          pctChange,
         });
-      } else {
-        Object.assign(indicatorCopy, {
-          pctChange: null,
-        });
-      }
-      return indicatorCopy;
-    });
-    return msaCopy;
-  })
+
+        return indicatorCopy;
+      });
+      return msaCopy;
+    })
     .filter(msa => msaIds.length === 0 || msaIds.includes(msa.msaId));
 };
 
