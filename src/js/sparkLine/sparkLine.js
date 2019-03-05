@@ -11,6 +11,7 @@ const privateMethods = {
       width,
       height,
       yearRange,
+      years,
       dataProbe,
       margin,
       color,
@@ -34,11 +35,13 @@ const privateMethods = {
       margin,
     });
 
+    const yearsToUse = embedded ? years : yearRange;
+
     const scales = getScales({
       indicatorData,
       width,
       height,
-      yearRange,
+      yearRange: yearsToUse,
     });
 
     const axis = drawAxis({
@@ -94,6 +97,7 @@ class SparkLine {
       selected: false,
       highlightedId: null,
       interactive: true,
+      embedded: false,
     });
 
     const {
@@ -170,6 +174,7 @@ class SparkLine {
     const {
       indicatorData,
       yearRange,
+      years,
       width,
       height,
       margin,
@@ -179,13 +184,16 @@ class SparkLine {
       dataProbe,
       axis,
       interactive,
+      embedded,
     } = props;
+
+    const yearsToUse = embedded ? years : yearRange;
 
     const scales = getScales({
       indicatorData,
       width,
       height,
-      yearRange,
+      yearRange: yearsToUse,
     });
 
     Object.assign(props, {

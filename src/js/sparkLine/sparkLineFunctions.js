@@ -119,10 +119,11 @@ const sparkLineFunctions = {
       xScale,
       yScale,
     } = scales;
+    const domain = xScale.domain();
     const lineGenerator = d3.line()
       .x(d => xScale(d.year))
       .y(d => yScale(d.indicatorSummary))
-      .defined(d => d.indicatorSummary !== null);
+      .defined(d => d.indicatorSummary !== null && d.year >= domain[0] && d.year <= domain[1]);
 
     const g = svg.append('g')
       .attr('class', 'sidebar__sparkline-path-container')
@@ -263,9 +264,12 @@ const sparkLineFunctions = {
       yScale,
     } = scales;
 
+    const domain = xScale.domain();
+
     const lineGenerator = d3.line()
       .x(d => xScale(d.year))
-      .y(d => yScale(d.indicatorSummary));
+      .y(d => yScale(d.indicatorSummary))
+      .defined(d => d.indicatorSummary !== null && d.year >= domain[0] && d.year <= domain[1]);
 
     line
       .data(indicatorData.agencies)

@@ -26,7 +26,7 @@ const getEmbedOverrideProps = ({ data }) => {
   if (params.has('years')) {
     const years = params.get('years')
       .split('|')
-      .map(d => Math.Number(d));
+      .map(d => +d);
     if (Array.isArray(years)
       && years.length === 2
       && years.every(d => d >= defaultYears[0] && d <= defaultYears[1])) {

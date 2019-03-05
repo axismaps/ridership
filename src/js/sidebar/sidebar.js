@@ -133,6 +133,7 @@ const privateMethods = {
       mobile,
       embedded,
       expandedSparklines,
+      years,
     } = props;
 
     const {
@@ -156,6 +157,7 @@ const privateMethods = {
     const sparkLines = drawSparkLines({
       updateCurrentIndicator,
       yearRange,
+      years,
       sparkRows,
       currentIndicator,
       dataProbe,
@@ -254,9 +256,12 @@ const privateMethods = {
       sparkLineAxisYear1,
       sparkLineAxisYear2,
       yearRange,
+      years,
+      embedded,
     } = privateProps.get(this);
-    sparkLineAxisYear1.text(yearRange[0]);
-    sparkLineAxisYear2.text(yearRange[1]);
+    const yearsToUse = embedded ? years : yearRange;
+    sparkLineAxisYear1.text(yearsToUse[0]);
+    sparkLineAxisYear2.text(yearsToUse[1]);
   },
   setDimensions() {
     const props = privateProps.get(this);

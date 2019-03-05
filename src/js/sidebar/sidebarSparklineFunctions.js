@@ -33,6 +33,7 @@ const sidebarSparkLineFunctions = {
   drawSparkLines({
     sparkRows,
     yearRange,
+    years,
     dataProbe,
     updateIndicator,
     currentScale,
@@ -58,6 +59,7 @@ const sidebarSparkLineFunctions = {
           container,
           indicatorData: d,
           yearRange,
+          years,
           dataProbe,
           embedded,
           currentScale,
