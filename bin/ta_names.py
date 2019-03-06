@@ -32,8 +32,7 @@ print 'Joined with TA data'
 #%%
 ta2 = pd.read_csv('data/output/ta.csv')
 routes = routes.merge(ta2, how='left', on='taid')
-export = routes[['taid', 'msa_color', 'high_frequency', 'name', 
-                 'operated_by_name', 'vehicle_type', 'geometry']]
+export = routes[['taid', 'msa_color', 'high_frequency', 'operated_by_name', 'vehicle_type', 'geometry']]
 print 'Joined with color data'
 
 #%%
