@@ -156,6 +156,10 @@ const msaAtlasFunctions = {
         onProbeRemove({ msaAtlas });
         dataProbe.remove();
       })
+      .on('move', () => {
+        onProbeRemove({ msaAtlas });
+        dataProbe.remove();
+      })
       .on('zoom', () => {
         onZoom(msaAtlas.getZoom());
       })
