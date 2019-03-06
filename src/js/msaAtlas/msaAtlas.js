@@ -221,7 +221,7 @@ class MSAAtlas {
       camera,
       msaAtlas,
     } = privateProps.get(this);
-    msaAtlas.easeTo(Object.assign({}, camera, { duration: 750 }));
+    msaAtlas.jumpTo(Object.assign({}, camera, { duration: 750 }));
   }
 
   updateExtents() {

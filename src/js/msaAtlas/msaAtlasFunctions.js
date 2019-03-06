@@ -182,6 +182,9 @@ const msaAtlasFunctions = {
         updateAgencyLayers();
       });
 
+    msaAtlas.dragRotate.disable();
+    msaAtlas.touchZoomRotate.disableRotation();
+
     atlasOuterContainer.select('.atlas__msa-name').text(msa.name);
 
     return msaAtlas;
