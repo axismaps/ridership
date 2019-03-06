@@ -280,7 +280,7 @@ const msaAtlasFunctions = {
       },
     };
 
-    msaAtlas.addLayer(tractLayer, 'building');
+    msaAtlas.addLayer(tractLayer, 'aeroway-polygon');
     msaAtlas.addLayer(tractOutlineLayer, 'road-label-small');
   },
 };
