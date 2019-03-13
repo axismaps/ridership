@@ -11,6 +11,7 @@ const getSidebar = ({ data, state }) => new Sidebar({
   agenciesData: state.getCurrentAgenciesData(),
   currentAgencies: state.getAllAgenciesForCurrentMSA(),
   currentIndicator: state.get('indicator'),
+  selected: state.get('selected'), // = currentIndicator if shown in embed
   currentIndicatorDisabled: false, // disable ability to select sparklines, for msa-scale
   nationalDataView: state.get('nationalDataView'),
   expandedIndicator: state.get('expandedIndicator'),
@@ -30,6 +31,7 @@ const getSidebar = ({ data, state }) => new Sidebar({
   sparkLineAxisContainer: d3.select('.sidebar__sparkline-axis'),
   sparkLineButtonContainer: d3.select('.sidebar__sparkline-button'),
   updateIndicator: (newIndicator) => {
+    if (state.get('embedded')) return;
     const currentIndicator = state.get('indicator');
     if (newIndicator !== currentIndicator) {
       state.update({ indicator: newIndicator });

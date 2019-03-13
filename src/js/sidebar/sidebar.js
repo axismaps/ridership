@@ -14,6 +14,7 @@ const privateMethods = {
       sparkLineAxisContainer,
       width,
       embedded,
+      selected,
     } = privateProps.get(this);
     const {
       clearContent,
@@ -39,8 +40,7 @@ const privateMethods = {
     } else {
       drawNationalParallelPlot.call(this);
     }
-    if (embedded) return;
-    this.updateCurrentIndicator();
+    if (!embedded || selected !== undefined) this.updateCurrentIndicator();
   },
   drawMSASparkLineLegend() {
     const props = privateProps.get(this);
@@ -306,7 +306,13 @@ class Sidebar {
     const {
       width,
       sparkLineAxisContainer,
+      selected,
+      embedded,
     } = privateProps.get(this);
+
+    if (embedded && selected !== undefined) {
+      this.config({ currentIndicator: selected });
+    }
 
     sparkLineAxisContainer.style('width', `${width * 0.4}px`);
     setTopButtonEvents.call(this);

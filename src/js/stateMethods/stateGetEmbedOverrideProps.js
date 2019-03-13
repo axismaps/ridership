@@ -68,6 +68,11 @@ const getEmbedOverrideProps = ({ data }) => {
     }
   }
 
+  if (params.has('selected')) {
+    const selected = data.get('indicators').get(params.get('selected'));
+    Object.assign(embedOverrideProps, { selected });
+  }
+
   if (params.has('nationalDataView')) {
     Object.assign(embedOverrideProps, {
       nationalDataView: params.get('nationalDataView'),
