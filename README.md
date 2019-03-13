@@ -146,12 +146,12 @@ The map can be embedded on a webpage using a variety of configuration options ap
 | Parameter | Values | Use |
 |:--|:--|:--|
 | dropdownsOff | true | Removes indicator selection dropdowns from UI, forcing the map to use only the selected indicators |
-| compared |  |  |
+| compared | A pipe-separated (\|) array of taid's | Selects TAs to include in the visualization |
 | embed | atlas, msaAtlas, sidebar | Specifies the visualization component to be embedded |
 | sidebarView | sparklines, pcp | Specifies which graphic to display when `embed=sidebar` |
 | distanceFilter | 0.25, 0.5, 1 | Pre-selects the distance filter value when in MSA view |
-| indicator | Any column header found in ntd.csv or census.csv | Specifies selected indicator when map loads |
+| indicator | Any column header found in ntd.csv or census.csv | Specifies selected indicator when map loads. For sparklines / PCP, use a pipe-separated array of indicators |
 | msa | 5-digit MSA ID | Specifies MSA to use when in msaAtlas view |
 | nationalDataView | ta, msa | Toggles between TA or MSA bubbles when `embed=atlas` |
 | histogramOff | true | Removes histogram from embedded atlas |
-|  |  |  |
+| expanded | true | Start sparklines expanded |
