@@ -20,6 +20,7 @@ const msaAtlasFunctions = {
     setHoverStatus,
     updateStateHighlightedTracts,
     mobile,
+    bounds,
   }) {
     let lastFeatureId = null;
     const {
@@ -168,6 +169,7 @@ const msaAtlasFunctions = {
           saveCamera,
           msaAtlas,
           msa,
+          bounds,
           tractGeo,
           currentCensusField,
           setMinScale,
@@ -197,6 +199,7 @@ const msaAtlasFunctions = {
     saveCamera,
     setMinScale,
     atlasOuterContainer,
+    bounds,
   }) {
     const {
       jumpToMSA,
@@ -207,7 +210,7 @@ const msaAtlasFunctions = {
       msaAtlas,
       msa,
       saveCamera,
-
+      bounds,
       setMinScale,
     });
     drawTracts({
@@ -222,6 +225,7 @@ const msaAtlasFunctions = {
     msa,
     saveCamera,
     setMinScale,
+    bounds,
   }) {
     const {
       maxX,
@@ -231,8 +235,8 @@ const msaAtlasFunctions = {
     } = msa;
     const sw = new mapboxgl.LngLat(minX, minY);
     const ne = new mapboxgl.LngLat(maxX, maxY);
-    const bounds = new mapboxgl.LngLatBounds(sw, ne);
-    const camera = msaAtlas.cameraForBounds(bounds);
+    const mapBounds = bounds || new mapboxgl.LngLatBounds(sw, ne);
+    const camera = msaAtlas.cameraForBounds(mapBounds);
     saveCamera(camera);
     setMinScale(camera.zoom);
     msaAtlas.setMaxBounds(null);

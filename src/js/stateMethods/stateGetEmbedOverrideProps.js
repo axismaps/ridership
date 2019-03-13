@@ -122,6 +122,13 @@ const getEmbedOverrideProps = ({ data }) => {
         });
       }
     }
+
+    if (params.get('bounds')) {
+      const bounds = params.get('bounds').split('|').map(d => +d);
+      Object.assign(embedOverrideProps, {
+        bounds,
+      });
+    }
   }
 
 

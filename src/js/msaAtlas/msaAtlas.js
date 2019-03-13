@@ -21,6 +21,7 @@ const privateMethods = {
       updateStateHighlightedTracts,
       atlasOuterContainer,
       mobile,
+      bounds,
     } = props;
 
     if (scale === 'national') return;
@@ -37,6 +38,7 @@ const privateMethods = {
       msaMapContainer,
       atlasOuterContainer,
       msa,
+      bounds,
       tractGeo,
       scaleExtent,
       currentCensusField,
@@ -120,6 +122,7 @@ class MSAAtlas {
       msa,
       setMinScale,
       atlasOuterContainer,
+      bounds,
     } = props;
     const {
       init,
@@ -140,6 +143,7 @@ class MSAAtlas {
       tractGeo,
       currentCensusField,
       setMinScale,
+      bounds,
       saveCamera: (camera) => {
         props.camera = camera;
       },

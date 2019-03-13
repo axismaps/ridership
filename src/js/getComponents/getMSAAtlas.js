@@ -6,6 +6,7 @@ const getMSAAtlas = ({ state, data, tractGeo }) => new MSAAtlas({
   scale: state.get('scale'),
   msa: state.get('msa'),
   msaList: data.get('msa'),
+  bounds: state.get('bounds'), // for embedded maps
   msaMapContainer: d3.select('.atlas__msa-map-container'),
   atlasOuterContainer: d3.select('.atlas__outer-container'),
   currentCensusField: state.get('censusField'),
