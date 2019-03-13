@@ -11,7 +11,6 @@
 
   .atlas {
     width: 600px;
-    height: 600px;
   }
 
   .sidebar-sparklines,
@@ -33,33 +32,26 @@
   }
 </style>
 <body>
-  <p>National map</p>
-  <iframe src="index.html?embed=atlas&indicator=bus" class="atlas"></iframe>
-
-  <p>National map, by msa</p>
-  <iframe src="http://localhost:8080/?embed=atlas&nationalDataView=msa" class="atlas"></iframe>
-
-  <p> National map, no menus or histogram</p>
-  <iframe src="index.html?embed=atlas&indicator=bus&histogramOff=true&dropdownsOff=true" class="atlas"></iframe>
-
-  <!-- National MSA map -->
-  <p>MSA map</p>
-  <iframe src="index.html?embed=msaAtlas&msa=16980&indicator=pop" class="atlas"></iframe>
-
-  <p>MSA map, no menus or histogram</p>
-  <iframe src="index.html?embed=msaAtlas&msa=16980&indicator=pop&histogramOff=true&dropdownsOff=true" class="atlas"></iframe>
-
-  <!-- National map National sparklines MSA sparklines -->
-  <p>Sidebar, national scale, sparklines</p>
-  <iframe src="index.html?embed=sidebar&sidebarView=sparklines" class="sidebar-sparklines"></iframe>
-
-  <p>Sidebar, national scale, select sparklines</p>
-  <iframe src="index.html?embed=sidebar&sidebarView=sparklines&indicator=vrm|bus|rail" class="sidebar-select-sparklines"></iframe>
-
-  <p>Sidebar, msa scale, sparklines</p>
-  <iframe src="index.html?embed=sidebar&sidebarView=sparklines&scale=msa&msa=16980" class="sidebar-sparklines"></iframe>
-
-  <p>Histogram</p>
-  <iframe src="index.html?embed=histogram" class="histogram"></iframe>
+  <h1>Ridership Data Viz Story</h1>
+  <h2>National Ridership Trends</h2>
+  <iframe src="index.html?embed=sidebar&sidebarView=sparklines&indicator=upt" class="atlas"></iframe>
+  <p>Transit ridership is often discussed as a “national trend.” But each transit agency has a very different, localized ridership experience.</p>
+  <iframe src="index.html?embed=sidebar&sidebarView=sparklines&indicator=upt&years=2014|2017" class="atlas"></iframe>
+  <p>Since 2014, ridership at many transit agencies has declined. This trend is reflected in national figures.</p>
+  <iframe src="index.html?embed=sidebar&sidebarView=sparklines&indicator=upt&years=2014|2017&compared=35|37|1|10|59&expanded=true" class="atlas" height="260px"></iframe>
+  <p>A particular mix of policy, service span, and demographics influence each region’s transit ridership story. Explore the stories of Houston Metro, Maryland’s MTA, NYC Transit, LA Metro Metro, Seattle’s King County Metro and Portland’s TriMet.</p>
+  <iframe src="index.html?embed=sidebar&sidebarView=pcp&indicator=upt|bus|rail|vrm|opexp_total&years=2014|2017&compared=35|37|1|10|59&selected=bus" class="atlas" height="340px"></iframe>
+  <p>Since 2015, Seattle’s King County Metro has redesigned bus networks – while most agencies, including LA Metro, have not. Bus ridership dropped at LA Metro but grew at King County Metro, thanks to the redesign which has addressed slow zones and tweaked routes to stop near new rail connections. But agencies beware: careful redesigns will be successful, as in Seattle, and may take time to show results; Maryland’s MTA also redesigned a network in 2017 but has not grown bus ridership.</p>
+  <iframe src="index.html?embed=sidebar&sidebarView=pcp&indicator=upt|bus|rail|vrm|opexp_total&years=2014|2017&compared=35|37|1|10|59&selected=opexp_total" class="atlas" height="340px"></iframe>
+  <p>In 2016, riders served by LA Metro and King County Metro voted to expand agency funding through tax increases. Increases in operating expenses at both agencies are relatively large.</p>
+  <iframe src="index.html?embed=sidebar&sidebarView=pcp&indicator=upt|bus|rail|vrm|opexp_total&years=2012|2017&compared=35|59|60|32&selected=vrm" class="atlas" height="340px"></iframe>
+  <p>Expanding service is important to ridership, which King County Metro, Sound Transit of Seattle, DART of Dallas, and Houston Metro have done by building new rail lines since 2012. (represented by Vehicle Revenue Miles growth).</p>
+  <iframe src="index.html?embed=msaAtlas&indicator=density&msa=19100&years=2012|2016" class="atlas" height="600px"></iframe>
+  <p>And service must go through high-density areas so that many people can get to many destinations. DART’s paltry rail ridership growth compared to Houston Metro and Seattle’s agencies reflects rail placement in relatively low-density and low-growth areas.</p>
+  <iframe src="index.html?embed=sidebar&sidebarView=sparklines&years=2014|2017&compared=53|37&selected=speed" class="atlas" height="860px"></iframe>
+  <p>Transit agencies don’t need to build new rail lines or redo their entire bus networks to bolster ridership. Providing more frequent and reliable service will also entice riders to take transit more often.</p>
+  <p>Take DC’s WMATA and San Francisco’s Muni, both cities with established rail and bus networks. Transit use on Muni has grown slightly but decreased on WMATA. Muni has steadily expanded service (see Vehicle Revenue Mile growth)</p>
+  <iframe src="index.html?embed=msaAtlas&indicator=income&msa=38900&distanceFilter=0.25" class="atlas" height="600px"></iframe>
+  <p>Demographic change also impacts transit ridership. In Portland, higher-income people have moved to transit-served neighborhoods, pushing lower-income people, who are more frequent transit riders, farther from transit.</p>
 </body>
 </html>
