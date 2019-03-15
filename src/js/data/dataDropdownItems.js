@@ -67,13 +67,6 @@ const indicators = new Map();
       unit: ' mi',
     },
     {
-      text: 'Statewide Gas Price',
-      value: 'gas',
-      summaryType: 'mean',
-      format: '$.2f',
-      unit: ' per gallon',
-    },
-    {
       text: 'Trips Per Person',
       value: 'capita',
       summaryType: 'mean',
@@ -92,6 +85,13 @@ const indicators = new Map();
       summaryType: 'mean',
       format: '.1f',
       unit: ' mi',
+    },
+    {
+      text: 'Statewide Gas Price',
+      value: 'gas',
+      summaryType: 'mean',
+      format: '$.2f',
+      unit: ' per gallon',
     },
   ];
 
