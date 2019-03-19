@@ -72,9 +72,13 @@ const processGeoJSON = ({
 
     const censusChange = censusFields
       .reduce((accumulator, field) => {
-        if (census1[field.value] !== 0) {
-          accumulator[field.value] = (census2[field.value] - census1[field.value])
-          / census1[field.value];
+        if (field.unit === '%' || census1[field.value] !== 0) {
+          if (field.unit === '%') {
+            accumulator[field.value] = census2[field.value] - census1[field.value];
+          } else {
+            accumulator[field.value] = (census2[field.value] - census1[field.value])
+            / census1[field.value];
+          }
           const color = changeColorScale(accumulator[field.value] * 100);
           accumulator[`${field.value}-color`] = color;
         } else {
