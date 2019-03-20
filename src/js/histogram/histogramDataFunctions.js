@@ -4,23 +4,11 @@ const getData = ({
   getValue,
   mobile,
 }) => {
-  const roundToTen = d => Math.round(d / 10) * 10;
+  const roundTo = (d, n) => Math.round(d / n) * n;
   const changeSpan = d3.extent(records, getValue);
-  const changeSpanUse = changeSpan.map((d, i) => {
-    const num = roundToTen(d);
-    if (i === 0 && num < -295) {
-      return -300;
-    }
-
-    if (i === 1 && num > 295) {
-      return 300;
-    }
-    return num;
-  });
-
 
   const getBucketSize = () => {
-    const testSize = roundToTen((changeSpanUse[1] - changeSpanUse[0]) / bucketCount);
+    const testSize = roundTo((changeSpan[1] - changeSpan[0]) / bucketCount, 10);
     let bucketSize;
     if (testSize < 5) {
       bucketSize = 5;
@@ -36,6 +24,18 @@ const getData = ({
   };
 
   const bucketSize = getBucketSize();
+  const changeSpanUse = changeSpan.map((d, i) => {
+    const num = roundTo(d, bucketSize);
+    if (i === 0 && num < -295) {
+      return -300;
+    }
+
+    if (i === 1 && num > 295) {
+      return 300;
+    }
+    return num;
+  });
+
   const histogramData = [];
   const recordsTracker = [];
   let counter = 0;
