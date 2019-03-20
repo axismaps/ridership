@@ -94,7 +94,7 @@ const msaAtlasFunctions = {
         const html = `
           <div class="msa-probe__tract-row">Tract ${tractNum}</div>
           <div class="msa-probe__indicator-row">
-            <span class="msa-probe__indicator">${years[0]}-${years[1]} (% change):</span> ${Math.round(tractValue * 100)}%
+            <span class="msa-probe__indicator">${years[0]}-${years[1]} (% ${censusField.unit === '%' ? 'point' : ''} change):</span> ${Math.round(tractValue * 100)}%
           </div>
           `;
         dataProbe

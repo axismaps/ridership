@@ -177,9 +177,15 @@ const updateFunctions = {
     const yText = isNational
       ? `Number of ${nationalDataView === 'ta' ? 'transit agencies' : 'MSAs'}`
       : 'Number of census tracts';
-    const xText = isNational
-      ? `${currentIndicator.text} (% change, ${years[0]}-${years[1]})`
-      : `${currentCensusField.text} (% change, ${years[0]}-${years[1]})`;
+
+    let xText;
+    if (isNational) {
+      xText = `${currentIndicator.text} (% change, ${years[0]}-${years[1]})`;
+    } else if (currentCensusField.unit === '%') {
+      xText = `${currentCensusField.text} (% point change, ${years[0]}-${years[1]})`;
+    } else {
+      xText = `${currentCensusField.text} (% change, ${years[0]}-${years[1]})`;
+    }
 
     yAxisLabel
       .text(yText);
