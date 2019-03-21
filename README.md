@@ -1,4 +1,4 @@
-# Ridership Visualization
+# Transit Explorer
 
 ## Installation
 
