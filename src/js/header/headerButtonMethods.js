@@ -33,7 +33,7 @@ const headerButtonMethods = {
     ctx.drawImage(histogramImage, atlasX, atlasImage.height + graphicsY);
     ctx.drawImage(legendImage, atlasX + histogramImage.width, atlasImage.height + graphicsY);
     const link = document.createElement('a');
-    link.download = 'TransitCenterRidershipVisualization.png';
+    link.download = 'transitcenter_transitinsights.png';
     link.href = canvasNode.toDataURL('image/png;base64');
 
     // https://codepen.io/joseluisq/pen/mnkLu
