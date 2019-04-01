@@ -1,4 +1,4 @@
-# Transit Explorer
+# Transit Insights
 
 ## Installation
 

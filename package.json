@@ -1,7 +1,7 @@
 {
   "name": "ridership",
   "version": "1.0.0",
-  "description": "Transit Explorer",
+  "description": "Transit Insights",
   "main": "index.js",
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --hot --inline",

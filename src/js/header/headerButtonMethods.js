@@ -22,7 +22,7 @@ const headerButtonMethods = {
     ctx.fillStyle = '#fff';
     ctx.textBaseline = 'middle';
     ctx.font = '25px Mark, Arial, sans-serif';
-    ctx.fillText('TransitCenter Transit Explorer', margin, headerHeight / 2);
+    ctx.fillText('TransitCenter Transit Insights', margin, headerHeight / 2);
     ctx.fillStyle = '#fff';
     const whiteHeight = canvasNode.height - 2 * margin - headerHeight;
     ctx.fillRect(margin / 2, graphicsY, sidebarImage.width + margin / 2, whiteHeight);
