@@ -127,7 +127,9 @@ const getEmbedOverrideProps = ({ data }) => {
       const msaPolygons = {
         type: 'FeatureCollection',
         features: polys.map((p) => {
-          const coords = p.split(',').map(parseFloat);
+          const vals = p.split(',');
+          const color = '#'.concat(vals.shift());
+          const coords = vals.map(parseFloat);
           const polyCoords = [];
           for (let i = 0; i < coords.length; i += 2) {
             const lonlat = [coords[i + 1], coords[i]];
@@ -135,6 +137,9 @@ const getEmbedOverrideProps = ({ data }) => {
           }
           const feature = {
             type: 'Feature',
+            properties: {
+              color,
+            },
             geometry: {
               type: 'Polygon',
               coordinates: [polyCoords],
@@ -143,6 +148,7 @@ const getEmbedOverrideProps = ({ data }) => {
           return feature;
         }),
       };
+      console.log(msaPolygons);
       Object.assign(embedOverrideProps, {
         msaPolygons,
       });

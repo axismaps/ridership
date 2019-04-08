@@ -319,11 +319,11 @@ const msaAtlasFunctions = {
       });
       msaAtlas.addLayer({
         id: 'msaPolygons',
-        type: 'fill',
+        type: 'line',
         source: 'msaPolygons',
         paint: {
-          'fill-color': '#2D74ED',
-          'fill-opacity': 0.5,
+          'line-color': ['get', 'color'],
+          'line-width': 5,
         },
       });
     }
@@ -333,22 +333,12 @@ const msaAtlasFunctions = {
         data: msaLabels,
       });
       msaAtlas.addLayer({
-        id: 'msaLabels',
-        type: 'circle',
-        source: 'msaLabels',
-        paint: {
-          'circle-radius': 7,
-          'circle-color': '#2D74ED',
-        },
-      });
-      msaAtlas.addLayer({
         id: 'msaLabelsText',
         type: 'symbol',
         source: 'msaLabels',
         layout: {
           'text-field': '{label}',
-          'text-anchor': 'bottom-left',
-          'text-offset': [0.5, -0.4],
+          'text-size': 20,
         },
       });
     }
