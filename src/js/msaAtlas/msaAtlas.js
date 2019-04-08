@@ -22,6 +22,8 @@ const privateMethods = {
       atlasOuterContainer,
       mobile,
       bounds,
+      msaLabels,
+      msaPolygons,
     } = props;
 
     if (scale === 'national') return;
@@ -39,6 +41,8 @@ const privateMethods = {
       atlasOuterContainer,
       msa,
       bounds,
+      msaLabels,
+      msaPolygons,
       tractGeo,
       scaleExtent,
       currentCensusField,

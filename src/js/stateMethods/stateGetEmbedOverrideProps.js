@@ -122,6 +122,55 @@ const getEmbedOverrideProps = ({ data }) => {
         });
       }
     }
+    if (params.get('polygons')) {
+      const polys = params.get('polygons').split('|');
+      const msaPolygons = {
+        type: 'FeatureCollection',
+        features: polys.map((p) => {
+          const coords = p.split(',').map(parseFloat);
+          const polyCoords = [];
+          for (let i = 0; i < coords.length; i += 2) {
+            const lonlat = [coords[i + 1], coords[i]];
+            polyCoords.push(lonlat);
+          }
+          const feature = {
+            type: 'Feature',
+            geometry: {
+              type: 'Polygon',
+              coordinates: [polyCoords],
+            },
+          };
+          return feature;
+        }),
+      };
+      Object.assign(embedOverrideProps, {
+        msaPolygons,
+      });
+    }
+    if (params.get('labels')) {
+      const labels = params.get('labels').split('|');
+      const msaLabels = {
+        type: 'FeatureCollection',
+        features: labels.map((l) => {
+          const labelData = l.split(',');
+          const coords = [+labelData[1], +labelData[0]];
+          const feature = {
+            type: 'Feature',
+            properties: {
+              label: labelData[2],
+            },
+            geometry: {
+              type: 'Point',
+              coordinates: coords,
+            },
+          };
+          return feature;
+        }),
+      };
+      Object.assign(embedOverrideProps, {
+        msaLabels,
+      });
+    }
 
     if (params.get('bounds')) {
       const bounds = params.get('bounds').split('|').map(d => +d);

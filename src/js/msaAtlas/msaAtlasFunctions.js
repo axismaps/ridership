@@ -21,6 +21,8 @@ const msaAtlasFunctions = {
     updateStateHighlightedTracts,
     mobile,
     bounds,
+    msaLabels,
+    msaPolygons,
   }) {
     let lastFeatureId = null;
     const {
@@ -174,6 +176,8 @@ const msaAtlasFunctions = {
           currentCensusField,
           setMinScale,
           atlasOuterContainer,
+          msaLabels,
+          msaPolygons,
         });
         // const camera = getCurrentCamera();
         // setMinScale(camera.zoom);
@@ -200,10 +204,13 @@ const msaAtlasFunctions = {
     setMinScale,
     atlasOuterContainer,
     bounds,
+    msaPolygons,
+    msaLabels,
   }) {
     const {
       jumpToMSA,
       drawTracts,
+      drawAnnotations,
     } = msaAtlasFunctions;
 
     jumpToMSA({
@@ -217,6 +224,11 @@ const msaAtlasFunctions = {
       msaAtlas,
       tractGeo,
       currentCensusField,
+    });
+    drawAnnotations({
+      msaAtlas,
+      msaPolygons,
+      msaLabels,
     });
     atlasOuterContainer.select('.atlas__msa-name').text(msa.name);
   },
@@ -293,6 +305,53 @@ const msaAtlasFunctions = {
 
     msaAtlas.addLayer(tractLayer, 'aeroway-polygon');
     msaAtlas.addLayer(tractOutlineLayer, 'road-label-small');
+  },
+
+  drawAnnotations({
+    msaAtlas,
+    msaLabels,
+    msaPolygons,
+  }) {
+    if (msaPolygons) {
+      msaAtlas.addSource('msaPolygons', {
+        type: 'geojson',
+        data: msaPolygons,
+      });
+      msaAtlas.addLayer({
+        id: 'msaPolygons',
+        type: 'fill',
+        source: 'msaPolygons',
+        paint: {
+          'fill-color': '#2D74ED',
+          'fill-opacity': 0.5,
+        },
+      });
+    }
+    if (msaLabels) {
+      msaAtlas.addSource('msaLabels', {
+        type: 'geojson',
+        data: msaLabels,
+      });
+      msaAtlas.addLayer({
+        id: 'msaLabels',
+        type: 'circle',
+        source: 'msaLabels',
+        paint: {
+          'circle-radius': 7,
+          'circle-color': '#2D74ED',
+        },
+      });
+      msaAtlas.addLayer({
+        id: 'msaLabelsText',
+        type: 'symbol',
+        source: 'msaLabels',
+        layout: {
+          'text-field': '{label}',
+          'text-anchor': 'bottom-left',
+          'text-offset': [0.5, -0.4],
+        },
+      });
+    }
   },
 };
 
