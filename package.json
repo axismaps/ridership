@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --hot --inline",
     "build": "node_modules/.bin/webpack -p --config webpack.config.prod.js",
+    "postinstall": "npm run build && cd story && npm install && npm run build && cp -r dist ../dist/story",
     "data": "npm run data:meta && npm run data:clean && npm run data:tracts",
     "data:clean": "python bin/ntd.py",
     "data:meta": "python bin/meta.py",
@@ -53,7 +54,7 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.3.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^5.5.0",
