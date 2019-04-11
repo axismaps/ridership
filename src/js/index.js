@@ -88,8 +88,7 @@ const app = {
     const storyLightbox = d3.select('.story-lightbox');
     storyLightbox
       .classed('show', true)
-      .select('.lightbox__content')
-      .html('<h3>Cool story</h3><p>I am a lightbox!</p>');
+      .select('.lightbox__content');
   },
 };
 

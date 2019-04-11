@@ -46,10 +46,28 @@
 }
 
 .lightbox__inner {
-  max-width: 50%;
-  max-height: 75%;
-  padding: 20px;
+  width: 60%;
+  height: 85%;
+  min-width: 600px;
+  min-height: 600px;
+  max-width: 100%;
+  max-height: 100%;
   background-color: white;
   border-radius: 5px;
   position: relative;
+}
+
+.lightbox__content{
+  height: 100%;
+  overflow: scroll;
+}
+
+.lightbox__content iframe{
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox__content > .content{
+  padding: 30px 50px;
 }
