@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --hot --inline",
     "build": "node_modules/.bin/webpack -p --config webpack.config.prod.js && npm run build:story",
-    "build:story": "cd story && npm run build && cp -r dist ../dist/story",
+    "build:story": "cd story && npm run build && cp -r dist/ ../dist/story",
     "postinstall": "cd story && npm install",
     "data": "npm run data:meta && npm run data:clean && npm run data:tracts",
     "data:clean": "python bin/ntd.py",
