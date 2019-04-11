@@ -50,10 +50,5 @@ module.exports = {
       template: path.join(__dirname, 'src/html/index.html'),
       filename: path.join(__dirname, 'dist/index.html'),
     }),
-    new CopyWebpackPlugin([
-      {
-        from: 'src/html/story.html',
-      },
-    ]),
   ],
 };
