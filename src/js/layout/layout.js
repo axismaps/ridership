@@ -30,6 +30,14 @@ const privateMethods = {
     histogramBackButton
       .on('click', closeHistogram);
   },
+  initLightboxes() {
+    d3.selectAll('.lightbox').each(function () {
+      const lightbox = d3.select(this);
+      lightbox.selectAll('.lightbox__close, .lightbox__background').on('click', () => {
+        lightbox.classed('show', false);
+      });
+    });
+  },
   setEmbedStatus() {
     const {
       embedded,
@@ -61,6 +69,7 @@ class Layout {
       initBackButtonListener,
       initClearDistanceButton,
       initHistogramButtonListeners,
+      initLightboxes,
       setEmbedStatus,
     } = privateMethods;
     privateProps.set(this, {});
@@ -71,6 +80,7 @@ class Layout {
     initBackButtonListener.call(this);
     initClearDistanceButton.call(this);
     initHistogramButtonListeners.call(this);
+    initLightboxes.call(this);
     setEmbedStatus.call(this);
   }
 

@@ -1,0 +1,55 @@
+.lightbox {
+  display: none;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity .5s;
+}
+
+.lightbox.show {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox__background {
+  background-color: rgba(0, 0, 0, .75);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 30px;
+  color: #000;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 4px solid #000;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox__close:hover {
+  background-color: #eee;
+}
+
+.lightbox__inner {
+  max-width: 50%;
+  max-height: 75%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+}

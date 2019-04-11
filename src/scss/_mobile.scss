@@ -68,6 +68,11 @@
     margin-right: 0;
   }
 
+  .lightbox__inner {
+    max-width: calc(100% - 50px);
+    max-width: calc(100% - 50px);
+  }
+
   @import 'header-mobile';
   @import 'sidebar-mobile';
   @import 'atlas-mobile';

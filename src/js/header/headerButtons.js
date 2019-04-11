@@ -8,6 +8,7 @@ const privateMethods = {
     const {
       exportButton,
       exportComponents,
+      aboutButton,
       // exportMethods,
     } = props;
 
@@ -17,6 +18,10 @@ const privateMethods = {
 
     exportButton.on('click', () => {
       exportComponents(assembleExport);
+    });
+
+    aboutButton.on('click', () => {
+      d3.select('.about-lightbox').classed('show', true);
     });
   },
 };

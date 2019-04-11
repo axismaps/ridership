@@ -33,6 +33,7 @@ const app = {
       this.initStateUpdateListeners();
       this.initScreenResizeListener();
       this.components.state.update({ loading: false });
+      this.initStoryLightbox();
     });
   },
   initComponents() {
@@ -82,6 +83,13 @@ const app = {
         },
       });
     });
+  },
+  initStoryLightbox() {
+    const storyLightbox = d3.select('.story-lightbox');
+    storyLightbox
+      .classed('show', true)
+      .select('.lightbox__content')
+      .html('<h3>Cool story</h3><p>I am a lightbox!</p>');
   },
 };
 
