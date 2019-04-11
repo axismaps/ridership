@@ -4,3 +4,6 @@
 [submodule "bin/transitland"]
 	path = bin/transitland
 	url = https://github.com/interline-io/transitland-frequency-exports.git
+[submodule "story"]
+	path = story
+	url = https://github.com/axismaps/ridership-data-story.git
