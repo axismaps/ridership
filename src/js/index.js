@@ -33,7 +33,6 @@ const app = {
       this.initStateUpdateListeners();
       this.initScreenResizeListener();
       this.components.state.update({ loading: false });
-      this.initStoryLightbox();
     });
   },
   initComponents() {
@@ -42,9 +41,12 @@ const app = {
     components.state = state;
     components.layout = getLayout({ state, data });
     components.sidebar = getSidebar({ state, data });
-    if (state.get('embed') === 'sidebar') return;
-    components.atlas = getAtlas({ data, state });
 
+    const embed = state.get('embed');
+    if (!embed) this.initStoryLightbox();
+    else if (embed === 'sidebar') return;
+
+    components.atlas = getAtlas({ data, state });
 
     if (state.get('scale') === 'msa') {
       state.getCurrentTractGeo((tractGeo) => {
