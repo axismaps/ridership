@@ -13,11 +13,13 @@ const getUpdateHighlightedTracts = ({ components }) => function updateHighlighte
     })
     .updateHighlightedTracts();
 
-  histogram
-    .config({
-      highlightedTracts,
-    })
-    .updateHighlightedTracts();
+  if (histogram) {
+    histogram
+      .config({
+        highlightedTracts,
+      })
+      .updateHighlightedTracts();
+  }
 };
 
 export default getUpdateHighlightedTracts;
