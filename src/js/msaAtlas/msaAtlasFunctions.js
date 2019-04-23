@@ -339,6 +339,17 @@ const msaAtlasFunctions = {
         layout: {
           'text-field': '{label}',
           'text-size': 20,
+          'text-font': [
+            'Mark Offc Pro Bold',
+            'Helvetica Neue Medium',
+            'Open Sans Regular',
+            'Arial Unicode MS Regular',
+          ],
+        },
+        paint: {
+          'text-halo-color': 'white',
+          'text-halo-width': 2,
+          'text-halo-blur': 2,
         },
       });
     }
