@@ -28,6 +28,7 @@ const getHeaderButtons = ({ state, components }) => new HeaderButtons({
     });
   },
   exportMethods,
+  howtoButton: d3.select('.header__howto-button'),
   aboutButton: d3.select('.header__about-button'),
   downloadButton: d3.select('.header__download-button'),
   exportButton: d3.select('.header__export-button'),
