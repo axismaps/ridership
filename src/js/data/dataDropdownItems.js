@@ -73,7 +73,7 @@ const indicators = new Map();
       format: '.1f',
     },
     {
-      text: 'Vehicle Revenue Miles Per Trip',
+      text: 'Riders per Vehicle Revenue Mile',
       value: 'vrm_per_ride',
       summaryType: 'mean',
       format: '.1f',
