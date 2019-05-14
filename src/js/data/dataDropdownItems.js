@@ -77,7 +77,7 @@ const indicators = new Map();
       value: 'vrm_per_ride',
       summaryType: 'mean',
       format: '.1f',
-      unit: ' mi per trip',
+      unit: ' rides per mi',
     },
     {
       text: 'Average Trip Length',
