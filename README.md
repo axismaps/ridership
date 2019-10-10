@@ -23,7 +23,7 @@ In addition to the software dependencies automatically installed, the data tools
 The first is a globally installed Mapshaper binary:
 
 ```sh
-npm install -g map shaper
+npm install -g mapshaper
 ```
 
 The second is [libspatialindex](https://libspatialindex.org/install.html) (used to calculate distance buffers). 
