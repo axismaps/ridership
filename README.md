@@ -23,7 +23,7 @@ In addition to the software dependencies automatically installed, the data tools
 The first is a globally installed Mapshaper binary:
 
 ```sh
-npm install -g map shaper
+npm install -g mapshaper
 ```
 
 The second is [libspatialindex](https://libspatialindex.org/install.html) (used to calculate distance buffers). 
@@ -155,5 +155,5 @@ The map can be embedded on a webpage using a variety of configuration options ap
 | nationalDataView | ta, msa | Toggles between TA or MSA bubbles when `embed=atlas` |
 | histogramOff | true | Removes histogram from embedded atlas |
 | expanded | true | Start sparklines expanded |
-| selected | Any indicator from ntd.csv | Sets the the indicator as 'selected' in sparklines or PCP |
+| selected | Any indicator from ntd.csv | Sets the indicator as 'selected' in sparklines or PCP |
 | bounds | west\|south\|east\|north | Sets the starting bounds for an MSA map |
