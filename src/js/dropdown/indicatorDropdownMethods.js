@@ -59,7 +59,7 @@ const pureMethods = {
     indicator,
   }) {
     indicatorRows
-      .classed('indicator-dropdown__content-row--highlighted', d => (indicator === null ? false : d.value === indicator.value));
+      .classed('indicator-dropdown__content-row--highlighted', d => (indicator === null ? false : d.id === indicator.id));
     if (mobileSelect.size()) {
       const selectNode = mobileSelect.node();
       selectNode.value = indicator === null ? null : indicator.value;

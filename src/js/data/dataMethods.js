@@ -15,6 +15,7 @@ const dataMethods = {
     const {
       indicators,
       censusFields,
+      censusDropdownItems,
       distanceFilters,
     } = dropdownItems;
 
@@ -142,6 +143,7 @@ const dataMethods = {
     data.set('cachedTractGeoJSON', new Map());
     data.set('cachedTractData', new Map());
     data.set('censusFields', censusFields);
+    data.set('censusDropdownItems', censusDropdownItems);
     data.set('distanceFilters', distanceFilters);
     data.set('nationalScaleExtent', nationalScaleExtent);
     data.set('params', params);

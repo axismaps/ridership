@@ -3,6 +3,8 @@
   opacity: 0;
   transition: opacity 300ms;
   pointer-events: none;
+  max-height: calc(100% - 185px);
+  overflow: auto;
   svg line {
     pointer-events: none;
   }
