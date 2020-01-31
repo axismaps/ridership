@@ -278,7 +278,7 @@ const msaAtlasFunctions = {
       source: 'tracts',
       layout: {},
       paint: {
-        'fill-color': ['get', `${currentCensusField.value}-color`],
+        'fill-color': ['get', `${currentCensusField.id}-color`],
         'fill-opacity': 0.5,
       },
     };

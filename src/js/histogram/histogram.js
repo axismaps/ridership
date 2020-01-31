@@ -130,7 +130,6 @@ const privateMethods = {
       nationalDataView,
     });
 
-
     let nationalAverageGroup;
     let nationalAverageText;
     if (currentScale === 'national') {

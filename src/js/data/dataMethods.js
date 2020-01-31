@@ -117,6 +117,16 @@ const dataMethods = {
         '#009093',
       ]);
 
+    const valueColorScale = d3.scaleQuantile()
+      .domain([-50, -10, 0, 10, 50])
+      .range([
+        '#ccebc5',
+        '#a8ddb5',
+        '#7bccc4',
+        '#4eb3d3',
+        '#2b8cbe',
+        '#08589e',
+      ]);
 
     const nationalScaleExtent = [1, 8];
     // const nationalScaleExtentMobile = [0.5, 8];
@@ -139,6 +149,7 @@ const dataMethods = {
     data.set('yearRange', yearRange);
     data.set('msaYearRange', msaYearRange);
     data.set('changeColorScale', changeColorScale);
+    data.set('valueColorScale', valueColorScale);
     data.set('indicators', indicators);
     data.set('cachedTractGeoJSON', new Map());
     data.set('cachedTractData', new Map());
