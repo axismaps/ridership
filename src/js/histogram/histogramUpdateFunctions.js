@@ -65,7 +65,7 @@ const updateFunctions = {
     bars,
     histogramData,
     yScale,
-    changeColorScale,
+    colorScale,
     height,
     padding,
   }) {
@@ -76,7 +76,7 @@ const updateFunctions = {
       .attrs({
         height: d => yScale(d.count),
         y: d => (height - padding.bottom) - yScale(d.count),
-        fill: d => changeColorScale((d.bucket[1] + d.bucket[0]) / 2),
+        fill: d => colorScale((d.bucket[1] + d.bucket[0]) / 2),
         stroke: '#999999',
         'stroke-width': 1,
       });
@@ -103,7 +103,7 @@ const updateFunctions = {
     mobile,
   }) {
     const {
-
+      getColors,
       getScales,
       drawBars,
       addNationalBarMouseEvents,
@@ -122,6 +122,8 @@ const updateFunctions = {
       height,
     });
 
+    const colorScale = getColors({ changeColorScale });
+
     updateAxes({
       xScale,
       yScale,
@@ -134,7 +136,7 @@ const updateFunctions = {
       svg,
       xScale,
       yScale,
-      changeColorScale,
+      colorScale,
       padding,
       height,
       histogramData,
@@ -202,8 +204,10 @@ const updateFunctions = {
     // bars,
     nationalAverageGroup,
     changeColorScale,
+    valueColorScale,
     dataProbe,
     histogramData,
+    currentCensusField,
     updateHighlightedTracts,
     svg,
     barSpacing,
@@ -213,6 +217,7 @@ const updateFunctions = {
   }) {
     const {
       // getMSAHistogramData,
+      getColors,
       getScales,
       drawBars,
       hideAverageLine,
@@ -228,6 +233,13 @@ const updateFunctions = {
       histogramData,
       width,
       height,
+    });
+
+    const colorScale = getColors({
+      changeColorScale,
+      valueColorScale,
+      currentCensusField,
+      histogramData,
     });
 
     updateAxes({
@@ -252,7 +264,7 @@ const updateFunctions = {
       svg,
       xScale,
       yScale,
-      changeColorScale,
+      colorScale,
       padding,
       height,
       histogramData,
@@ -267,6 +279,7 @@ const updateFunctions = {
       dataProbe,
       updateHighlightedTracts,
       mobile,
+      currentCensusField,
     });
 
     hideAverageLine({

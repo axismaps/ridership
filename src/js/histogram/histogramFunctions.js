@@ -36,6 +36,22 @@ const histogramFunctions = {
       yScale,
     };
   },
+
+  getColors({
+    histogramData,
+    currentCensusField,
+    changeColorScale,
+    valueColorScale,
+  }) {
+    if (currentCensusField && !currentCensusField.change) {
+      const records = [].concat(
+        ...histogramData.map(b => b.records.map(r => r[currentCensusField.id])),
+      );
+      return d3.scaleQuantile().domain(records).range(valueColorScale.range());
+    }
+    return changeColorScale;
+  },
+
   drawSVG({
     container,
   }) {
@@ -52,7 +68,7 @@ const histogramFunctions = {
     mobile,
   }) {
     const {
-      getBucketText,
+      getChangeBucketText,
     } = localFunctions;
 
     const drawProbe = (d) => {
@@ -71,7 +87,7 @@ const histogramFunctions = {
       const { bucket } = d;
       const html = `
         <div class="data-probe__row"><span class="data-probe__field">${d.records.length} ${entities}</span></div>
-        <div class="data-probe__row">${getBucketText({ bucket })}</div>
+        <div class="data-probe__row">${getChangeBucketText({ bucket })}</div>
       `;
       dataProbe
         .config({
@@ -99,7 +115,7 @@ const histogramFunctions = {
     svg,
     xScale,
     yScale,
-    changeColorScale,
+    colorScale,
     padding,
     height,
     histogramData,
@@ -151,7 +167,7 @@ const histogramFunctions = {
       .attrs(Object.assign({
         height: d => yScale(d.count),
         y: d => (height - padding.bottom) - yScale(d.count),
-        fill: d => changeColorScale((d.bucket[1] + d.bucket[0]) / 2),
+        fill: d => colorScale((d.bucket[1] + d.bucket[0]) / 2),
         stroke: '#999999',
         'stroke-width': 1,
       }, positionAttrs));
@@ -244,8 +260,9 @@ const histogramFunctions = {
     dataProbe,
     updateHighlightedTracts,
     mobile,
+    currentCensusField,
   }) {
-    const { getBucketText } = localFunctions;
+    const { getChangeBucketText, getValueBucketText } = localFunctions;
 
     const addProbe = (d) => {
       dataProbe.remove();
@@ -258,9 +275,11 @@ const histogramFunctions = {
         width: 250,
       };
       const { bucket } = d;
+      const bucketText = currentCensusField.change ? getChangeBucketText({ bucket })
+        : getValueBucketText({ bucket, currentCensusField });
       const html = `
         <div class="data-probe__row"><span class="data-probe__field">${d.records.length} census tract${d.records.length !== 1 ? 's' : ''}</span></div>
-        <div class="data-probe__row">${getBucketText({ bucket })}</div>
+        <div class="data-probe__row">${bucketText}</div>
       `;
       dataProbe
         .config({

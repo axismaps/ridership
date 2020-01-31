@@ -15,6 +15,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     const {
       bars,
       changeColorScale,
+      valueColorScale,
       nationalMapData,
       bucketCount,
       padding,
@@ -126,6 +127,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
         yAxis,
         bars,
         changeColorScale,
+        valueColorScale,
         nationalAverageGroup,
         dataProbe,
         updateHighlightedTracts,
