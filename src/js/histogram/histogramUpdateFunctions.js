@@ -183,10 +183,12 @@ const updateFunctions = {
     let xText;
     if (isNational) {
       xText = `${currentIndicator.text} (% change, ${years[0]}-${years[1]})`;
-    } else if (currentCensusField.unit === '%') {
+    } else if (currentCensusField.change && currentCensusField.unit === '%') {
       xText = `${currentCensusField.text} (% point change, ${years[0]}-${years[1]})`;
-    } else {
+    } else if (currentCensusField.change) {
       xText = `${currentCensusField.text} (% change, ${years[0]}-${years[1]})`;
+    } else {
+      xText = `${currentCensusField.text} (${years[1]})`;
     }
 
     yAxisLabel

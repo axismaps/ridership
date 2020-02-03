@@ -5,7 +5,11 @@ const getCensusDropdown = ({ data, state }) => new CensusDropdown({
   indicator: state.get('censusField'),
   updateIndicator: (newIndicator) => {
     const currentIndicator = state.get('censusField');
+    const years = state.get('years');
     if (newIndicator !== currentIndicator) {
+      if (newIndicator.change && years[0] === years[1]) {
+        state.update({ years: [years[0], years[1] + 1] });
+      }
       state.update({ censusField: newIndicator });
     }
   },

@@ -1,5 +1,5 @@
 import getPrivateBase from './dropdownBase';
-import sliderPureMethods from './sliderDropdownMethods';
+import pureMethods from './yearDropdownMethods';
 import getPublicDropdownBase from './dropdownPublicBase';
 
 const privateProps = new WeakMap();
@@ -7,68 +7,73 @@ const privateProps = new WeakMap();
 const privateMethods = {
   init() {
     const props = privateProps.get(this);
-
     const {
-      yearRange,
       years,
-      updateYears,
+      yearRange,
+      currentCensusField,
       contentContainer,
       toggleButton,
+      toggleButtonText,
+      updateYear,
+      defaultText,
     } = props;
 
     const {
       setMenuToggleEvents,
-      setToggleButtonText,
       setContentVisibility,
       setContentPosition,
     } = privateMethods;
 
     const {
-      getSlider,
-      getMobileModal,
-    } = sliderPureMethods;
+      drawContent,
+      drawMobileContent,
+      setButtonText,
+      highlightCurrentYear,
+    } = pureMethods;
+
+    setMenuToggleEvents.call(this);
+    setContentVisibility.call(this);
+
+    setButtonText({
+      years,
+      toggleButtonText,
+      defaultText,
+    });
 
     setContentPosition.call(this);
 
-    setMenuToggleEvents.call(this);
-    setToggleButtonText.call(this);
-    setContentVisibility.call(this);
-
-    const slider = getSlider({
+    const yearRows = drawContent({
       yearRange,
-      years,
-      updateYears,
       contentContainer,
+      updateYear,
     });
 
-    const modal = getMobileModal({
-      toggleButton,
+    const mobileSelect = drawMobileContent({
+      years,
       yearRange,
-      years,
-      updateYears,
+      toggleButton,
+      updateYear,
     });
 
-    Object.assign(props, { slider, modal });
-  },
-  setToggleButtonText() {
-    const {
-      toggleButtonText,
+    highlightCurrentYear({
+      yearRows,
       years,
-    } = privateProps.get(this);
-    toggleButtonText
-      .text(`${years[0]} - ${years[1]}`);
+      mobileSelect,
+    });
+
+    props.yearRows = yearRows;
+    props.mobileSelect = mobileSelect;
   },
 };
 
-class SliderDropdown {
+class YearDropdown {
   constructor(config) {
     const {
       init,
     } = privateMethods;
     privateProps.set(this, {
-      dropdownOpen: false,
+      alignMenuToButton: 'left',
     });
-
     this.config(config);
 
     init.call(this);
@@ -78,64 +83,6 @@ class SliderDropdown {
 
   config(config) {
     Object.assign(privateProps.get(this), config);
-    return this;
-  }
-
-  updateYears() {
-    const {
-      years,
-      yearRange,
-      slider,
-      modal,
-    } = privateProps.get(this);
-
-    const {
-      setToggleButtonText,
-    } = privateMethods;
-
-    const {
-      updateMobileModal,
-    } = sliderPureMethods;
-
-    slider
-      .config({
-        currentValues: years,
-      })
-      .update();
-
-    updateMobileModal({
-      modal,
-      yearRange,
-      years,
-    });
-
-    setToggleButtonText.call(this);
-  }
-
-  updateYearRange() {
-    const {
-      yearRange,
-      slider,
-      years,
-      modal,
-    } = privateProps.get(this);
-
-    const {
-      updateMobileModal,
-    } = sliderPureMethods;
-
-    updateMobileModal({
-      modal,
-      yearRange,
-      years,
-    });
-
-    slider
-      .config({
-        valueRange: yearRange,
-      })
-      .updateValueRange()
-      .update();
     return this;
   }
 
@@ -155,6 +102,32 @@ class SliderDropdown {
 
     setContentPosition.call(this);
   }
+
+  update() {
+    const {
+      highlightCurrentYear,
+      setButtonText,
+    } = pureMethods;
+    const {
+      yearRows,
+      years,
+      toggleButtonText,
+      defaultText,
+      mobileSelect,
+    } = privateProps.get(this);
+
+    highlightCurrentYear({
+      yearRows,
+      years,
+      mobileSelect,
+    });
+
+    setButtonText({
+      defaultText,
+      years,
+      toggleButtonText,
+    });
+  }
 }
 
 Object.assign(
@@ -163,8 +136,8 @@ Object.assign(
 );
 
 Object.assign(
-  SliderDropdown.prototype,
+  YearDropdown.prototype,
   getPublicDropdownBase({ privateProps, privateMethods }),
 );
 
-export default SliderDropdown;
+export default YearDropdown;
