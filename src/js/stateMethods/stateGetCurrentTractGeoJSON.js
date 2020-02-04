@@ -11,8 +11,8 @@ const filterGeoByDistance = ({
 
   const tractGeoFiltered = Object.assign({}, tractGeo);
   tractGeoFiltered.features = tractGeo.features.filter((d) => {
-    const isDefined = d.properties[`${censusField.value}-color`] !== null
-      && d.properties[`${censusField.value}-color`] !== undefined;
+    const isDefined = d.properties[censusField.id] !== null
+      && d.properties[censusField.id] !== undefined;
     const inDistance = distanceFilter === null ? true
       : d.properties.dist <= distanceFilter.value;
     return isDefined && inDistance;
