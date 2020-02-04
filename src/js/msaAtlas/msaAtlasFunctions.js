@@ -100,20 +100,29 @@ const msaAtlasFunctions = {
           : firstNum;
         let valueLabel;
         let valueText;
+        let nominalValsText = '';
+        const nominalValue0 = feature.properties[`${censusField.value}0`];
+        const nominalValue1 = feature.properties[censusField.value];
+        let fmt = censusField.format;
+        if (censusField.unit !== '%' && tractValue < 1) {
+          fmt = ',.2r';
+        }
         if (censusField.change) {
+          nominalValsText = `
+            <span class="msa-probe__indicator">${years[0]}:</span> ${d3.format(fmt)(nominalValue0)}${censusField.unit || ''}<br>
+            <span class="msa-probe__indicator">${years[1]}:</span> ${d3.format(fmt)(nominalValue1)}${censusField.unit || ''}<br>
+          `;
           valueLabel = `${years[0]}-${years[1]} (% ${censusField.unit === '%' ? 'point' : ''} change):`;
           valueText = `${Math.round(tractValue * 100)}%`;
         } else {
           valueLabel = `${years[1]}:`;
-          let fmt = censusField.format;
-          if (censusField.unit !== '%' && tractValue < 1) {
-            fmt = ',.2r';
-          }
           valueText = `${d3.format(fmt)(tractValue)}${censusField.unit || ''}`;
         }
         const html = `
           <div class="msa-probe__tract-row">Tract ${tractNum}</div>
+          <div class="msa-probe__indicator-row msa-probe__indicator-title">${censusField.text.replace('Change in ', '')}</div>
           <div class="msa-probe__indicator-row">
+            ${nominalValsText}
             <span class="msa-probe__indicator">${valueLabel}</span> ${valueText}
           </div>
           `;

@@ -29,7 +29,7 @@ const getState = ({ data }) => {
     nationalDataView: 'ta', // ta or msa
     scale: 'national', // national or msa,
     censusField: {
-      text: 'Change in Population Density', value: 'density', id: 'density_change', change: true,
+      text: 'Change in Population Density', value: 'density', id: 'density_change', change: true, unit: ' per sq mi',
     },
     distanceFilter: null,
     highlightedAgencies: [], // agencies highlighted on map/histogram/chart(s) mouseover,
