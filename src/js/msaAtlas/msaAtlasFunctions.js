@@ -59,8 +59,13 @@ const msaAtlasFunctions = {
       const pos = {
         left: d.point.x + offset + containerPos.left,
         bottom: (window.innerHeight - d.point.y - containerPos.top) + offset,
+        right: 'auto',
         width: 275,
       };
+      if (pos.left > window.innerWidth - 300) {
+        pos.left = 'auto';
+        pos.right = window.innerWidth - (d.point.x - offset + containerPos.left);
+      }
       if (feature.id !== lastFeatureId && feature.layer.id === 'tract-fill') {
         // console.log('feature', feature);
         if (lastFeatureId !== null) {
@@ -83,7 +88,7 @@ const msaAtlasFunctions = {
         s.precision = d3.precisionFixed(0.01);
         const f = d3.format(s);
         const censusField = getCurrentCensusField();
-        const tractValue = feature.properties[censusField.value];
+        const tractValue = feature.properties[censusField.id];
         // updateStateHighlightedTracts(tractValue * 100);
         updateStateHighlightedTracts([feature.properties]);
         const { id } = feature.properties;
@@ -93,10 +98,23 @@ const msaAtlasFunctions = {
         const tractNum = secondNum !== 0
           ? f(firstNum + secondNum)
           : firstNum;
+        let valueLabel;
+        let valueText;
+        if (censusField.change) {
+          valueLabel = `${years[0]}-${years[1]} (% ${censusField.unit === '%' ? 'point' : ''} change):`;
+          valueText = `${Math.round(tractValue * 100)}%`;
+        } else {
+          valueLabel = `${years[1]}:`;
+          let fmt = censusField.format;
+          if (censusField.unit !== '%' && tractValue < 1) {
+            fmt = ',.2r';
+          }
+          valueText = `${d3.format(fmt)(tractValue)}${censusField.unit || ''}`;
+        }
         const html = `
           <div class="msa-probe__tract-row">Tract ${tractNum}</div>
           <div class="msa-probe__indicator-row">
-            <span class="msa-probe__indicator">${years[0]}-${years[1]} (% ${censusField.unit === '%' ? 'point' : ''} change):</span> ${Math.round(tractValue * 100)}%
+            <span class="msa-probe__indicator">${valueLabel}</span> ${valueText}
           </div>
           `;
         dataProbe

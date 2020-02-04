@@ -127,6 +127,7 @@ const censusFields = [
     id: 'density',
     upload: true,
     format: ',d',
+    unit: ' per sq mi',
   },
   {
     text: 'Percent Foreign Born',
@@ -209,14 +210,14 @@ const censusFields = [
     value: 'job_density',
     id: 'job_density',
     format: ',d',
-    unit: 'per sq mi',
+    unit: ' per sq mi',
   },
   {
     text: 'Job and Population Density',
     value: 'job_pop_density',
     id: 'job_pop_density',
     format: ',d',
-    unit: 'per sq mi',
+    unit: ' per sq mi',
   },
 ];
 
