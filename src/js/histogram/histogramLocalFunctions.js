@@ -79,8 +79,8 @@ const localFunctions = {
   },
 
   getValueBucketText({ bucket, currentCensusField }) {
-    const format = d3.format(currentCensusField.format);
-    const suffix = currentCensusField.unit || '';
+    const format = d3.format(currentCensusField.format || '');
+    const suffix = currentCensusField.unit && currentCensusField.unit !== '%' ? currentCensusField.unit : '';
     return bucket.map(val => `${format(val)}${suffix}`).join(' to ');
   },
 };

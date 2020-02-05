@@ -210,6 +210,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       yAxisLabel,
       mobile,
       mobileHistogramOpen,
+      currentCensusField,
     } = privateProps.get(this);
 
     if (mobile && !mobileHistogramOpen) return;
@@ -234,6 +235,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       height,
       padding,
       transition: 0,
+      currentCensusField,
     });
 
     resizeBars({

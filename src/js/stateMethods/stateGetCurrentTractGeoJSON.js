@@ -94,7 +94,8 @@ const processGeoJSON = ({
           accumulator[`${changeKey}-color`] = null;
         }
         accumulator[`${field.id}0`] = census1[field.value]; // nominal value of first year
-        accumulator[field.id] = census2[field.value]; // nominal value of second (considered the current) year
+        // nominal value of second (considered the current) year
+        accumulator[field.id] = census2[field.value];
         accumulator[`${field.id}-color`] = valueColorScales[field.value](census2[field.value]);
 
 

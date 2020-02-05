@@ -179,18 +179,25 @@ const histogramFunctions = {
     svg,
     padding,
     height,
+    currentCensusField,
   }) {
     const {
       getYAxisGenerator,
       getXAxisGenerator,
     } = localFunctions;
+    const xAxisGenerator = getXAxisGenerator({ xScale });
+    if (currentCensusField && !currentCensusField.change) {
+      xAxisGenerator.tickFormat(d3.format(currentCensusField.format));
+    } else {
+      xAxisGenerator.tickFormat(d3.format('d'));
+    }
     const xAxis = svg
       .append('g')
       .attrs({
         transform: `translate(${padding.left}, ${height - padding.bottom})`,
         class: 'histogram__axis',
       })
-      .call(getXAxisGenerator({ xScale }));
+      .call(xAxisGenerator);
 
     const yAxis = svg.append('g')
       .attrs({

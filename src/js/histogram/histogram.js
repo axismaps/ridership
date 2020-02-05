@@ -113,6 +113,7 @@ const privateMethods = {
       padding,
       height,
       width,
+      currentCensusField,
     });
 
     const colorScale = getColors({ changeColorScale });

@@ -39,11 +39,19 @@ const updateFunctions = {
     height,
     padding,
     transition = 500,
+    currentCensusField,
   }) {
     const {
       getYAxisGenerator,
       getXAxisGenerator,
     } = localFunctions;
+
+    const xAxisGenerator = getXAxisGenerator({ xScale });
+    if (currentCensusField && !currentCensusField.change) {
+      xAxisGenerator.tickFormat(d3.format(currentCensusField.format));
+    } else {
+      xAxisGenerator.tickFormat(d3.format('d'));
+    }
 
     yAxis
       .attrs({
@@ -59,7 +67,7 @@ const updateFunctions = {
       })
       .transition()
       .duration(transition)
-      .call(getXAxisGenerator({ xScale }));
+      .call(xAxisGenerator);
   },
   updateBars({
     bars,
@@ -251,6 +259,7 @@ const updateFunctions = {
       xAxis,
       yAxis,
       height,
+      currentCensusField,
     });
 
     // updateBars({
