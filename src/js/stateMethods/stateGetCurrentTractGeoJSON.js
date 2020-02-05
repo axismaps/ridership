@@ -57,7 +57,7 @@ const processGeoJSON = ({
   const censusFields = data.get('censusFields');
   const valueColorScales = censusFields.reduce((obj, field) => {
     const colors = data.get('valueColorScale').range();
-    const currentFieldValues = Object.values(table2).map(d => d[censusField.value]);
+    const currentFieldValues = Object.values(table2).map(d => d[field.value]);
     const scale = d3.scaleQuantile().domain(currentFieldValues).range(colors);
     return { ...obj, [field.value]: scale };
   }, {});
