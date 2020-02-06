@@ -138,45 +138,7 @@ const atlasMethods = {
     mapSVG.call(zoom);
   },
 
-  getAgenciesTable({
-    nationalMapData,
-    nationalDataView,
-  }) {
-    return nationalMapData
-      .reduce((accumulator, msa) => {
-        if (nationalDataView === 'ta') {
-          msa.ta.forEach((ta) => {
-            accumulator[ta.globalId] = ta;
-          });
-        } else {
-          accumulator[msa.globalId] = msa;
-        }
 
-        return accumulator;
-      }, {});
-  },
-  getUpdatedNodes({
-    nodes,
-    msaNodes,
-    nationalMapData,
-    nationalDataView,
-  }) {
-    const {
-      getAgenciesTable,
-    } = atlasMethods;
-
-    const agenciesTable = getAgenciesTable({ nationalMapData, nationalDataView });
-    const nodesToUse = nationalDataView === 'ta' ? nodes : msaNodes;
-    return nodesToUse
-      .map((node) => {
-        const nodeCopy = Object.assign({}, node);
-        const agency = agenciesTable[node.globalId];
-        if (agency === undefined) return nodeCopy;
-        nodeCopy.pctChange = agency.pctChange;
-        nodeCopy.firstAndLast = agency.firstAndLast;
-        return nodeCopy;
-      });
-  },
   setAgencyColors({
     agencies,
     changeColorScale,
@@ -185,18 +147,10 @@ const atlasMethods = {
     msaNodes,
     nationalDataView,
   }) {
-    const {
-      getUpdatedNodes,
-    } = atlasMethods;
-    const updatedNodes = getUpdatedNodes({
-      nodes,
-      msaNodes,
-      nationalMapData,
-      nationalDataView,
-    });
+    const nodesToUse = nationalDataView === 'ta' ? nodes : msaNodes;
 
     agencies
-      .data(updatedNodes, d => d.globalId)
+      .data(nodesToUse, d => d.globalId)
       .transition()
       .duration(500)
       .attrs({
