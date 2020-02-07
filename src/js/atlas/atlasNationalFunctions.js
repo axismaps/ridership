@@ -5,6 +5,18 @@ import atlasHelperFunctions from './atlasHelperFunctions';
 const topojson = Object.assign({}, topojsonBase, topojsonSimplify);
 
 const atlasNationalFunctions = {
+  getRadiusScale({
+    nodes,
+  }) {
+    const domain = d3.extent(nodes, d => d.firstAndLast[1]);
+
+    const scale = d3.scaleSqrt()
+      .domain(domain)
+      .range([5, 35]);
+
+    return d => (d === null ? 0 : scale(d));
+  },
+
   drawStates({
     layer,
     statesTopo,
@@ -115,18 +127,19 @@ const atlasNationalFunctions = {
       return unshiftedPos + change;
     };
 
-    agencies.attrs({
-      cx: d => getCenter({
-        d: d.x,
-        original: d.xOriginal,
-        unshiftedPos: projectionModify(d.cent)[0],
-      }),
-      cy: d => getCenter({
-        d: d.y,
-        original: d.yOriginal,
-        unshiftedPos: projectionModify(d.cent)[1],
-      }),
-    });
+    agencies
+      .attrs({
+        cx: d => getCenter({
+          d: d.x,
+          original: d.xOriginal,
+          unshiftedPos: projectionModify(d.cent)[0],
+        }),
+        cy: d => getCenter({
+          d: d.y,
+          original: d.yOriginal,
+          unshiftedPos: projectionModify(d.cent)[1],
+        }),
+      });
   },
   zoomStates({
     states,
@@ -192,7 +205,6 @@ const atlasNationalFunctions = {
         fill: d => changeColorScale(d.pctChange),
       });
 
-
     mergedMSAs
       .transition()
       .duration(500)
@@ -203,6 +215,77 @@ const atlasNationalFunctions = {
 
 
     return mergedMSAs;
+  },
+  setNodePositions({
+    nodes,
+    radiusScale,
+    logSimulationNodes,
+  }) {
+    for (let i = 0; i < nodes.length; i += 1) {
+      const node = nodes[i];
+      node.x = node.xOriginal;
+      node.y = node.yOriginal;
+      node.radius = radiusScale(node.firstAndLast[1]);
+    }
+
+    const simulation = d3.forceSimulation()
+      .force('x', d3.forceX().x(d => d.x))
+      .force('y', d3.forceY().y(d => d.y))
+      .force('collide', d3.forceCollide(d => d.radius))
+      .nodes(nodes)
+      .stop();
+
+    for (let i = 0; i < 300; i += 1) {
+      simulation.tick();
+    }
+    logSimulationNodes(nodes);
+  },
+
+  getUpdatedNodes({
+    nodes,
+    msaNodes,
+    nationalMapData,
+  }) {
+    const taTable = nationalMapData
+      .reduce((accumulator, msa) => {
+        msa.ta.forEach((ta) => {
+          accumulator[ta.globalId] = ta;
+        });
+        return accumulator;
+      }, {});
+    const msaTable = nationalMapData
+      .reduce((accumulator, msa) => {
+        accumulator[msa.globalId] = msa;
+        return accumulator;
+      }, {});
+    return {
+      nodes: nodes
+        .map((node) => {
+          const nodeCopy = Object.assign({}, node);
+          const agency = taTable[node.globalId];
+          if (agency === undefined) return nodeCopy;
+          nodeCopy.pctChange = agency.pctChange;
+          nodeCopy.firstAndLast = agency.firstAndLast;
+          return nodeCopy;
+        }),
+      msaNodes: msaNodes
+        .map((node) => {
+          const nodeCopy = Object.assign({}, node);
+          const agency = msaTable[node.globalId];
+          if (agency === undefined) return nodeCopy;
+          nodeCopy.pctChange = agency.pctChange;
+          nodeCopy.firstAndLast = agency.firstAndLast;
+          return nodeCopy;
+        }),
+    };
+  },
+  updateRadii({
+    agencies,
+  }) {
+    agencies
+      .transition('radius')
+      .duration(500)
+      .attr('r', d => d.radius);
   },
 };
 

@@ -30,6 +30,7 @@ const privateMethods = {
       onZoom,
       mobile,
       embedded,
+      radiusScale,
     } = props;
 
     const {
@@ -49,16 +50,14 @@ const privateMethods = {
       setAgencyNodes,
       drawAgencies,
       drawStates,
+      getRadiusScale,
+      setNodePositions,
+      getAgenciesTable,
     } = atlasNationalFunctions;
 
     const {
       toggleNationalLayers,
     } = privateMethods;
-
-
-    const {
-      radiusScale,
-    } = props;
 
     const {
       geoPath,
@@ -101,6 +100,13 @@ const privateMethods = {
       },
     });
 
+    setNodePositions({
+      nodes: props.nodes,
+      radiusScale,
+      logSimulationNodes: (newNodes) => {
+        props.nodes = newNodes;
+      },
+    });
 
     setMSANodes({
       nationalMapData,
@@ -111,12 +117,23 @@ const privateMethods = {
       },
     });
 
+    setNodePositions({
+      nodes: props.msaNodes,
+      radiusScale,
+      logSimulationNodes: (newNodes) => {
+        props.msaNodes = newNodes;
+      },
+    });
+
     const { nodes, msaNodes } = props;
+    props.radiusScale = getRadiusScale({
+      nodes: nationalDataView === 'ta' ? nodes : msaNodes,
+    });
     let agencies;
     if (nationalDataView === 'ta') {
       agencies = drawAgencies({
         jumpToMsa,
-        radiusScale,
+        radiusScale: props.radiusScale,
         dataProbe,
         layer: layers.agencies,
         nationalMapData,
@@ -129,7 +146,7 @@ const privateMethods = {
     } else {
       agencies = drawMSAs({
         jumpToMsa,
-        radiusScale,
+        radiusScale: props.radiusScale,
         dataProbe,
         layer: layers.agencies,
         nationalMapData,
@@ -200,7 +217,6 @@ const privateMethods = {
       projection,
       projectionModify,
       geoPath,
-      radiusScale,
       zoom,
     });
 
