@@ -6,8 +6,10 @@ const getYearDropdown = ({ data, state }) => new YearDropdown({
   currentCensusField: state.get('censusField'),
   updateYear: (newYear) => {
     const years = state.get('years');
+    const yearRange = data.get('msaYearRange');
     if (years[1] !== newYear) {
-      state.update({ years: [years[0], newYear] });
+      const newYear0 = newYear < years[0] ? yearRange[0] : years[0];
+      state.update({ years: [newYear0, newYear] });
     }
   },
   dropdownOpen: false,
