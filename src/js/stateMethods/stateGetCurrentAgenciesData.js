@@ -8,9 +8,11 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
   const indicatorSummaries = this.getCurrentIndicatorSummaries();
 
   const years = this.get('years');
+  // in case start = end wehn a nominal value indicator is selected
+  const yearsToUse = [years[0], Math.max(years[1], years[0] + 1)];
   const taFilter = this.get('taFilter');
 
-  const inYears = d => d.year >= years[0] && d.year <= years[1];
+  const inYears = d => d.year >= yearsToUse[0] && d.year <= yearsToUse[1];
   const comparedAgencies = this.get('comparedAgencies');
   const nationalDataView = this.get('nationalDataView');
   const currentScale = this.get('scale');
@@ -53,8 +55,8 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
             text,
             value,
           };
-          const firstRecord = agency.ntd.find(d => d.year === years[0])[value];
-          const lastRecord = agency.ntd.find(d => d.year === years[1])[value];
+          const firstRecord = agency.ntd.find(d => d.year === yearsToUse[0])[value];
+          const lastRecord = agency.ntd.find(d => d.year === yearsToUse[1])[value];
           const noRecord = d => [null].includes(d);
           const pctChange = noRecord(firstRecord) || noRecord(lastRecord)
             ? null
@@ -107,8 +109,8 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
           text,
           value,
         };
-        const firstRecord = msa.ntd.find(d => d.year === years[0])[value];
-        const lastRecord = msa.ntd.find(d => d.year === years[1])[value];
+        const firstRecord = msa.ntd.find(d => d.year === yearsToUse[0])[value];
+        const lastRecord = msa.ntd.find(d => d.year === yearsToUse[1])[value];
         const noRecord = d => [null].includes(d);
         const pctChange = noRecord(firstRecord) || noRecord(lastRecord)
           ? null

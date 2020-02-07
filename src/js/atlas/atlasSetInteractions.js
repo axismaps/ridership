@@ -153,6 +153,7 @@ const setInteractions = ({
       drawProbe(d);
       if (d.pctChange !== null) {
         drawMSASparkline({
+          years,
           msa,
           indicator,
           highlightedId: d.globalId,

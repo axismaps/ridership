@@ -35,7 +35,7 @@ const privateMethods = {
       margin,
     });
 
-    const yearsToUse = embedded ? years : yearRange;
+    const yearsToUse = years;
 
     const scales = getScales({
       indicatorData,
@@ -187,7 +187,7 @@ class SparkLine {
       embedded,
     } = props;
 
-    const yearsToUse = embedded ? years : yearRange;
+    const yearsToUse = years;
 
     const scales = getScales({
       indicatorData,

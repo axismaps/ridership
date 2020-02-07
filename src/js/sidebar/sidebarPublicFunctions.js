@@ -72,10 +72,13 @@ const getPublicFunctions = ({
   updateYears() {
     const {
       contentContainer,
+      sparkLineAxisContainer,
       years,
     } = privateProps.get(this);
 
     contentContainer.select('span.sidebar__pcp-years').html(`${years.join(' – ')}`);
+    sparkLineAxisContainer.select('div.sidebar__sparkline-axis-year1').html(years[0]);
+    sparkLineAxisContainer.select('div.sidebar__sparkline-axis-year2').html(Math.max(years[0] + 1, years[1]));
 
     return this;
   },
