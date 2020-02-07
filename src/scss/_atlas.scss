@@ -153,11 +153,11 @@
 }
 
 .compare .map__agency:hover {
-  cursor: url('/img/add.svg'), auto;
+  cursor: url('../img/add.svg'), auto;
 }
 
 .compare .map__agency.compared:hover {
-  cursor: url('/img/remove.svg'), auto;
+  cursor: url('../img/remove.svg'), auto;
 }
 
 .map__hidden-layer {
