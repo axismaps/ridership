@@ -1,31 +1,30 @@
 @font-face {
     font-family: 'Mark';
-    src: url('/fonts/MarkOffcPro-Book.woff2') format('woff2'),
-        url('/fonts/MarkOffcPro-Book.woff') format('woff');
+    src: url('../fonts/MarkOffcPro-Book.woff2') format('woff2');
     font-weight: 350;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Mark';
-    src: url('/fonts/MarkOffcPro-Black.woff2') format('woff2'),
-        url('/fonts/MarkOffcPro-Black.woff') format('woff');
+    src: url('../fonts/MarkOffcPro-Black.woff2') format('woff2'),
+        url('../fonts/MarkOffcPro-Black.woff') format('woff');
     font-weight: 800;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Mark';
-    src: url('/fonts/MarkOffcPro-Light.woff2') format('woff2'),
-        url('/fonts/MarkOffcPro-Light.woff') format('woff');
+    src: url('../fonts/MarkOffcPro-Light.woff2') format('woff2'),
+        url('../fonts/MarkOffcPro-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Mark';
-    src: url('/fonts/MarkOffcPro-Bold.woff2') format('woff2'),
-        url('/fonts/MarkOffcPro-Bold.woff') format('woff');
+    src: url('../fonts/MarkOffcPro-Bold.woff2') format('woff2'),
+        url('../fonts/MarkOffcPro-Bold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
 }
