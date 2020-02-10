@@ -33,7 +33,7 @@ const pureMethods = {
       indicatorRows
         .append('div')
         .attr('class', 'census-dropdown__content-row__title')
-        .text(d => d.text);
+        .text(d => `${d.text}:`);
 
       indicatorRows
         .append('div')
