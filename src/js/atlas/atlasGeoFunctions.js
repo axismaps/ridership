@@ -174,6 +174,7 @@ const atlasMethods = {
         if (agency === undefined) return nodeCopy;
         nodeCopy.pctChange = agency.pctChange;
         nodeCopy.firstAndLast = agency.firstAndLast;
+        nodeCopy.actualYearRange = agency.actualYearRange;
         return nodeCopy;
       });
   },

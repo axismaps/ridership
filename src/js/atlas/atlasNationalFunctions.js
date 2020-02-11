@@ -48,6 +48,7 @@ const atlasNationalFunctions = {
       taName: agency.taName,
       globalId: agency.globalId,
       firstAndLast: agency.firstAndLast,
+      actualYearRange: agency.actualYearRange,
     }));
 
 
@@ -156,6 +157,7 @@ const atlasNationalFunctions = {
       name: msa.name,
       globalId: msa.globalId,
       firstAndLast: msa.firstAndLast,
+      actualYearRange: msa.actualYearRange,
     }));
 
     const simulation = d3.forceSimulation()
