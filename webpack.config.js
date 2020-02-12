@@ -42,6 +42,13 @@ module.exports = {
         test: /\.scss$/,
         loaders: ['style-loader', 'css-loader?url=false', 'sass-loader'],
       },
+      {
+        test: /\.(jpg|png|woff|woff2|eot|ttf|svg)$/,
+        loader: 'file-loader',
+        options: {
+          esModule: false,
+        },
+      },
     ],
   },
   plugins: [
