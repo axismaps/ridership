@@ -101,20 +101,26 @@ const msaAtlasFunctions = {
         let valueLabel;
         let valueText;
         let nominalValsText = '';
+        const actualYears = JSON.parse(feature.properties[`${censusField.value}-actualyears`]);
         const nominalValue0 = feature.properties[`${censusField.value}0`];
         const nominalValue1 = feature.properties[censusField.value];
-        const fmt = censusField.format || 'd';
-        const displayUnit = censusField.unit && censusField.unit !== '%' ? censusField.unit : '';
+        const format = (val) => {
+          if (val === null || val === undefined) {
+            return 'N/A';
+          }
+          const displayUnit = censusField.unit && censusField.unit !== '%' ? censusField.unit : '';
+          return `${d3.format(censusField.format || 'd')(val)}${displayUnit}`;
+        };
         if (censusField.change) {
           nominalValsText = `
-            <span class="msa-probe__indicator">${years[0]}:</span> ${d3.format(fmt)(nominalValue0)}${displayUnit}<br>
-            <span class="msa-probe__indicator">${years[1]}:</span> ${d3.format(fmt)(nominalValue1)}${displayUnit}<br>
+            <span class="msa-probe__indicator">${actualYears[0]}:</span> ${format(nominalValue0)}<br>
+            <span class="msa-probe__indicator">${actualYears[1]}:</span> ${format(nominalValue1)}<br>
           `;
-          valueLabel = `${years[0]}-${years[1]} (% ${censusField.unit === '%' ? 'point' : ''} change):`;
+          valueLabel = `${actualYears[0]}-${actualYears[1]} (% ${censusField.unit === '%' ? 'point' : ''} change):`;
           valueText = `${Math.round(tractValue * 100)}%`;
         } else {
           valueLabel = `${years[1]}:`;
-          valueText = `${d3.format(fmt)(tractValue)}${displayUnit}`;
+          valueText = `${format(feature.properties[`${censusField.value}-nominal`])}`;
         }
         const html = `
           <div class="msa-probe__tract-row">Tract ${tractNum}</div>

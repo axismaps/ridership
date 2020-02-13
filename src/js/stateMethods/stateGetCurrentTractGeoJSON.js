@@ -44,6 +44,46 @@ const processGeoJSON = ({
       return accumulator;
     }, {});
 
+  const yearRange = data.get('msaYearRange');
+
+  const getNearestYearValue = (year, field, feature, tables, isFirstYear) => {
+    let table = tables[year];
+    let value = tables[year][feature.properties.id][field.value];
+    let i = 1;
+    let currentYear = year;
+    while (value === null || value === undefined) {
+      const increment = isFirstYear ? i : -i;
+      currentYear = year + increment;
+      table = tables[currentYear];
+      if (table) {
+        value = table[feature.properties.id][field.value];
+        if (value) break;
+      }
+
+      currentYear = year - increment;
+      table = tables[currentYear];
+      if (table) {
+        value = table[feature.properties.id][field.value];
+      }
+
+      if (isFirstYear && year + i >= years[1] && year - i < yearRange[0]) break;
+      if (!isFirstYear && year - i <= years[0] && year + i > yearRange[1]) break;
+      i += 1;
+    }
+    return {
+      value,
+      year: currentYear,
+    };
+  };
+
+  const tables = {};
+  for (let year = yearRange[0]; year <= yearRange[1]; year += 1) {
+    tables[year] = getCensusTable({
+      year,
+      censusData,
+    });
+  }
+
   const table1 = getCensusTable({
     year: years[0],
     censusData,
@@ -63,7 +103,7 @@ const processGeoJSON = ({
   }, {});
 
   const tractGeo = Object.assign({}, tractGeoRaw);
-  tractGeo.features = tractGeoRaw.features.map((feature) => {
+  tractGeo.features = tractGeoRaw.features.map((feature, i) => {
     const featureCopy = Object.assign({}, feature);
     featureCopy.properties = Object.assign({}, feature.properties);
 
@@ -80,12 +120,18 @@ const processGeoJSON = ({
     const censusChange = censusFields
       .reduce((accumulator, field) => {
         const changeKey = `${field.value}_change`;
-        if (field.unit === '%' || census1[field.value] !== 0) {
+        const data1 = getNearestYearValue(years[0], field, feature, tables, true);
+        const data2 = getNearestYearValue(years[1], field, feature, tables, false);
+        const value1 = data1.value;
+        const value2 = data2.value;
+        const year1 = data1.year;
+        const year2 = data2.year;
+        if (value1 && value2) {
           if (field.unit === '%') {
-            accumulator[changeKey] = census2[field.value] - census1[field.value];
+            accumulator[changeKey] = value2 - value1;
           } else {
-            accumulator[changeKey] = (census2[field.value] - census1[field.value])
-            / census1[field.value];
+            accumulator[changeKey] = (value2 - value1)
+            / value1;
           }
           const color = changeColorScale(accumulator[changeKey] * 100);
           accumulator[`${changeKey}-color`] = color;
@@ -93,12 +139,17 @@ const processGeoJSON = ({
           accumulator[changeKey] = null;
           accumulator[`${changeKey}-color`] = null;
         }
-        accumulator[`${field.id}0`] = census1[field.value]; // nominal value of first year
-        // nominal value of second (considered the current) year
-        accumulator[field.id] = census2[field.value];
-        accumulator[`${field.id}-color`] = valueColorScales[field.value](census2[field.value]);
-
-
+        // nominal values of start and end year, or nearest available
+        accumulator[`${field.id}0`] = value1; // first year
+        accumulator[field.id] = value2; // second ("current") year
+        accumulator[`${field.id}-actualyears`] = [year1, year2];
+        // actual nominal value of current year, even if null
+        accumulator[`${field.value}-nominal`] = census2[field.value];
+        if (census2[field.value] !== null) {
+          accumulator[`${field.id}-color`] = valueColorScales[field.value](value2);
+        } else {
+          accumulator[`${field.id}-color`] = null;
+        }
         return accumulator;
       }, {});
     Object.assign(featureCopy.properties, censusChange, { fill: 'red' });
