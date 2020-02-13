@@ -12,3 +12,4 @@ dist
 scratch
 bin/settings.py
 .env
+.DS_Store

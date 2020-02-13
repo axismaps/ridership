@@ -12,7 +12,7 @@ def delete_table(name):
     querystring = {'q':'DELETE FROM ' + name, 'api_key': settings.CARTO_API}
     response = requests.get(url, params=querystring)
 
-    print 'Delete result: ' + response.text
+    print('Delete result: ' + response.text)
 
 def gzip_file(filename):
     f = get_file_loc(filename)
@@ -20,7 +20,7 @@ def gzip_file(filename):
         gz = f + '.gz'
         with gzip.open(gz, 'wb') as f_out:
             shutil.copyfileobj(f_in, f_out)
-            print 'Zipped ' + gz
+            print('Zipped ' + gz)
             return gz
 
 def copy_table(name, cols, filename):
@@ -36,10 +36,10 @@ def copy_table(name, cols, filename):
     csv = open(get_file_loc(filename), mode='rb').read()
     response = requests.post(url, headers=headers, params=querystring, data=csv)
 
-    print 'Copy result: ' + response.text
+    print('Copy result: ' + response.text)
 
 def replace_data(name, cols, filename):
     gz = gzip_file(filename)
     delete_table(name)
     copy_table(name, cols, gz)
-    print 'Upload to Carto was successful'
+    print('Upload to Carto was successful')

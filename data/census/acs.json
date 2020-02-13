@@ -179,31 +179,5 @@
     "numerator": "transit",
     "denominator": "workers",
     "upload": true
-  },
-  {
-    "name": "Total Jobs",
-    "key": "jobs",
-    "var": "99999999"
-  },
-  {
-    "name": "Job Density",
-    "key": "job_density",
-    "numerator": "jobs",
-    "denominator": "ALAND",
-    "scale": 1000000,
-    "upload": true
-  },
-  {
-    "name": "Jobs + Population",
-    "key": "job_pop",
-    "sum": [ "jobs", "pop" ]
-  },
-  {
-    "name": "Job and Population Density",
-    "key": "job_pop_density",
-    "numerator": "job_pop",
-    "denominator": "ALAND",
-    "scale": 1000000,
-    "upload": true
   }
 ]
