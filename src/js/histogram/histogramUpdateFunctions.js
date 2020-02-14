@@ -204,6 +204,9 @@ const updateFunctions = {
 
     xAxisLabel
       .text(xText);
+
+    d3.select('.histogram__no-data span')
+      .html(`${isNational ? currentIndicator.text : currentCensusField.text}, ${!isNational && currentCensusField.change ? years.join('–') : years[1]}`);
   },
   updateMSA({
     padding,
@@ -296,6 +299,9 @@ const updateFunctions = {
     hideAverageLine({
       nationalAverageGroup,
     });
+
+    d3.select('.footer__histogram')
+      .classed('histogram--empty', histogramData.length === 0);
   },
 };
 
