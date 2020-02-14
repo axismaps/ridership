@@ -15,6 +15,30 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
   const nationalDataView = this.get('nationalDataView');
   const currentScale = this.get('scale');
   const currentMSA = this.get('msa');
+  const yearRange = currentScale === 'msa' ? data.get('msaYearRange') : data.get('yearRange');
+
+  const getNearestYearValue = (year, records, isFirstYear) => {
+    let value = records[year];
+    let i = 1;
+    let currentYear = year;
+    while (!value) {
+      const increment = isFirstYear ? i : -i;
+      currentYear = year + increment;
+      value = records[currentYear];
+      if (value) break;
+      currentYear = year - increment;
+      value = records[currentYear];
+      if (isFirstYear && year + i >= years[1] && year - i < yearRange[0]) break;
+      if (!isFirstYear && year - i <= years[0] && year + i > yearRange[1]) break;
+      i += 1;
+    }
+    return {
+      value,
+      year: currentYear,
+    };
+  };
+
+  const noRecord = d => [0, null, undefined].includes(d);
 
   if (nationalDataView === 'ta' || currentScale === 'msa') {
     const taIds = comparedAgencies.map(d => d.taId);
@@ -48,21 +72,39 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
           const {
             text,
             value,
+            format,
+            unit,
           } = indicator;
           const indicatorCopy = {
             text,
             value,
+            format,
+            unit,
           };
-          const firstRecord = agency.ntd.find(d => d.year === years[0])[value];
-          const lastRecord = agency.ntd.find(d => d.year === years[1])[value];
-          const noRecord = d => [null].includes(d);
-          const pctChange = noRecord(firstRecord) || noRecord(lastRecord)
+
+          const records = {};
+          for (let year = yearRange[0]; year <= yearRange[1]; year += 1) {
+            records[year] = agency.ntd.find(d => d.year === year)[indicator.value];
+          }
+
+          const firstYearData = getNearestYearValue(years[0], records, true);
+          const lastYearData = getNearestYearValue(years[1], records, false);
+          const firstRecord = firstYearData.value;
+          const lastRecord = lastYearData.value;
+          const firstYear = firstYearData.value ? firstYearData.year : years[0];
+          const lastYear = lastYearData.value ? lastYearData.year : years[1];
+
+          console.log(firstRecord, lastRecord);
+
+          const pctChange = noRecord(firstRecord) || noRecord(lastRecord) || firstYear === lastYear
             ? null
             : ((lastRecord - firstRecord)
-                  / firstRecord) * 100;
+              / firstRecord) * 100;
 
           Object.assign(indicatorCopy, {
             pctChange,
+            actualYearRange: [firstYear, lastYear],
+            firstAndLast: [firstRecord, lastRecord],
           });
 
           return indicatorCopy;
@@ -102,21 +144,37 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
         const {
           text,
           value,
+          format,
+          unit,
         } = indicator;
         const indicatorCopy = {
           text,
           value,
+          format,
+          unit,
         };
-        const firstRecord = msa.ntd.find(d => d.year === years[0])[value];
-        const lastRecord = msa.ntd.find(d => d.year === years[1])[value];
-        const noRecord = d => [null].includes(d);
-        const pctChange = noRecord(firstRecord) || noRecord(lastRecord)
-          ? null
-          : ((lastRecord - firstRecord)
-                / firstRecord) * 100;
+        const records = {};
+        for (let year = yearRange[0]; year <= yearRange[1]; year += 1) {
+          records[year] = msa.ntd.find(d => d.year === year)[indicator.value];
+        }
+        const firstYearData = getNearestYearValue(years[0], records, true);
+        const lastYearData = getNearestYearValue(years[1], records, false);
+
+        const firstRecord = firstYearData.value;
+        const lastRecord = lastYearData.value;
+        const firstYear = firstYearData.value ? firstYearData.year : years[0];
+        const lastYear = lastYearData.value ? lastYearData.year : years[1];
+
+
+        if (!noRecord(firstRecord) && !noRecord(lastRecord) && firstYear !== lastYear) {
+          indicatorCopy.pctChange = 100 * (lastRecord - firstRecord) / firstRecord;
+        } else {
+          indicatorCopy.pctChange = null;
+        }
 
         Object.assign(indicatorCopy, {
-          pctChange,
+          actualYearRange: [firstYear, lastYear],
+          firstAndLast: [firstRecord, lastRecord],
         });
 
         return indicatorCopy;

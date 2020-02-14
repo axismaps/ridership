@@ -67,7 +67,7 @@ const getGetCurrentNationalMapData = ({ data }) => function getCurrentNationalMa
         const firstYear = firstYearData.value ? firstYearData.year : years[0];
         const lastYear = lastYearData.value ? lastYearData.year : years[1];
 
-        const pctChange = noRecord(firstRecord) || noRecord(lastRecord)
+        const pctChange = noRecord(firstRecord) || noRecord(lastRecord) || firstYear === lastYear
           ? null
           : ((lastRecord - firstRecord)
             / firstRecord) * 100;
@@ -102,7 +102,7 @@ const getGetCurrentNationalMapData = ({ data }) => function getCurrentNationalMa
     const lastYear = lastYearData.value ? lastYearData.year : years[1];
 
     msaCopy.upt2017 = msa.ntd.find(d => d.year === 2017).upt;
-    if (![msaFirstRecord, msaLastRecord].includes(null)) {
+    if (![msaFirstRecord, msaLastRecord].includes(null) && firstYear !== lastYear) {
       msaCopy.pctChange = 100 * (msaLastRecord - msaFirstRecord) / msaFirstRecord;
     } else {
       msaCopy.pctChange = null;

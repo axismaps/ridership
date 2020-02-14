@@ -148,7 +148,10 @@ const parallelCoordinatePlotFunctions = {
         };
         const svgTop = svg.select('g.pcp-lines').node().getBoundingClientRect().top;
         const closest = Math.round((clientY - svgTop) / indicatorHeight);
-        const displayValue = d.indicators[closest].pctChange === null ? 'N/A' : (`${Math.round(d.indicators[closest].pctChange)}%`);
+        const closestIndicator = d.indicators[closest];
+        const format = number => ([null, undefined].includes(number) ? 'N/A'
+          : (d3.format(closestIndicator.format)(number) + (closestIndicator.unit || '')));
+        const displayValue = closestIndicator.pctChange === null ? 'N/A' : (`${Math.round(closestIndicator.pctChange)}%`);
         let clickText;
         if (mobile) {
           clickText = 'Jump to this MSA';
@@ -157,7 +160,10 @@ const parallelCoordinatePlotFunctions = {
         }
         const html = `
           <div class="data-probe__row"><span class="data-probe__field">${d.taName || d.name}</span></div>
-          <div class="data-probe__row">${d.indicators[closest].text}: ${displayValue}</div>
+          <div class="data-probe__row">${closestIndicator.text}</div>
+          <div class="data-probe__row"><span class="data-probe__field">${closestIndicator.actualYearRange[0]}:</span> ${format(closestIndicator.firstAndLast[0])}</div>
+        <div class="data-probe__row"><span class="data-probe__field">${closestIndicator.actualYearRange[1]}:</span> ${format(closestIndicator.firstAndLast[1])}</div>
+          <div class="data-probe__row"><span class="data-probe__field">${closestIndicator.actualYearRange.join('–')} (% change):</span> ${displayValue}</div>
           ${!msaScale ? `<div class="data-probe__row data-probe__msa-text">${clickText}</div>` : ''}
         `;
         dataProbe
