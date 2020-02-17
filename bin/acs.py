@@ -27,7 +27,7 @@ def process_result(i, y, var, indexes, frames):
 
 def combine_files(frame, geo, cols, index):
     return pd.concat(frame, axis=1).reset_index().merge(
-            geo, on='GEOID', how='inner'
+        geo, on='GEOID', how='inner'
         ).drop(
             columns=cols
         ).dropna(
@@ -153,7 +153,10 @@ def download_census():
                         msa_combo[d['key']] = msa_combo[d['key']] * d['scale']
 
         export_msa = msa_combo.reset_index()
-        export_msa[indexes].to_csv('data/output/census_msa.csv', index=False)
+        export_msa_filtered = export_msa[
+            export_msa.GEOID.isin([str(i) for i in combined.msaid.unique().tolist()])
+        ]
+        export_msa_filtered[indexes].to_csv('data/output/census_msa.csv', index=False)
         replace_data('census_msa', indexes, 'census_msa.csv')
 
         indexes.append('msaid')
