@@ -8,6 +8,8 @@ const updateFunctions = {
     xScale,
     padding,
     nationalAverageText,
+    currentCensusField,
+    msa,
   }) {
     const {
       getNationalAverageText,
@@ -15,7 +17,7 @@ const updateFunctions = {
     } = localFunctions;
 
     nationalAverageText
-      .text(getNationalAverageText({ nationalAverage }));
+      .text(getNationalAverageText({ nationalAverage, currentCensusField, msa }));
 
     nationalAverageGroup
       .style('opacity', 1)
@@ -27,9 +29,16 @@ const updateFunctions = {
         nationalAverage,
       }));
 
-    nationalAverageGroup
-      .select('text')
-      .attr('x', Math.max(0, 70 - xScale(nationalAverage)));
+    if (msa) {
+      nationalAverageGroup
+        .select('text')
+        .attr('x', '0')
+        .attr('text-anchor', xScale(nationalAverage) > (xScale.range()[1] - xScale.range()[0]) / 2 ? 'end' : 'start');
+    } else {
+      nationalAverageGroup
+        .select('text')
+        .attr('x', Math.max(0, 70 - xScale(nationalAverage)));
+    }
   },
   updateAxes({
     xScale,
@@ -215,6 +224,8 @@ const updateFunctions = {
     xAxis,
     yAxis,
     // bars,
+    nationalAverage,
+    nationalAverageText,
     nationalAverageGroup,
     changeColorScale,
     valueColorScale,
@@ -227,18 +238,19 @@ const updateFunctions = {
     updateHighlightedAgencies,
     nationalDataView,
     mobile,
+    msa,
   }) {
     const {
       // getMSAHistogramData,
       getColors,
       getScales,
       drawBars,
-      hideAverageLine,
       addMSABarMouseEvents,
     } = histogramFunctions;
 
     const {
       updateAxes,
+      updateAverageLine,
     } = updateFunctions;
 
     const { yScale, xScale } = getScales({
@@ -296,9 +308,19 @@ const updateFunctions = {
       currentCensusField,
     });
 
-    hideAverageLine({
+    updateAverageLine({
       nationalAverageGroup,
+      nationalAverage,
+      nationalAverageText,
+      xScale,
+      padding,
+      currentCensusField,
+      msa,
     });
+
+    // hideAverageLine({
+    //   nationalAverageGroup,
+    // });
 
     d3.select('.footer__histogram')
       .classed('histogram--empty', histogramData.length === 0);

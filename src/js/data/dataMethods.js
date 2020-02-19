@@ -151,6 +151,7 @@ const dataMethods = {
     data.set('changeColorScale', changeColorScale);
     data.set('valueColorScale', valueColorScale);
     data.set('indicators', indicators);
+    data.set('cachedMSACensus', new Map());
     data.set('cachedTractGeoJSON', new Map());
     data.set('cachedTractData', new Map());
     data.set('censusFields', censusFields);

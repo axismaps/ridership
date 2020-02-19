@@ -30,14 +30,15 @@ const processGeoJSON = ({
   censusField,
 }) => {
   const cachedTractData = data.get('cachedTractData');
-  const { censusData, tractTopo } = cachedTractData.get(msa.msaId);
+  const { censusData, tractTopo, regionData } = cachedTractData.get(msa.msaId);
   const tractGeoRaw = topojson.feature(
     tractTopo,
     tractTopo.objects[`tract-${msa.msaId}`],
   );
 
   const cachedTractGeoJSON = data.get('cachedTractGeoJSON');
-  const getCensusTable = ({ year }) => censusData.rows
+  const cachedMSACensus = data.get('cachedMSACensus');
+  const getCensusTable = ({ year, dataObj }) => dataObj.rows
     .filter(d => d.year === year)
     .reduce((accumulator, census) => {
       accumulator[String(census.geoid)] = census;
@@ -76,25 +77,62 @@ const processGeoJSON = ({
     };
   };
 
+  const censusFields = data.get('censusFields');
+
   const tables = {};
   for (let year = yearRange[0]; year <= yearRange[1]; year += 1) {
     tables[year] = getCensusTable({
       year,
-      censusData,
+      dataObj: censusData,
     });
   }
 
+  const regionTables = {};
+  for (let year = yearRange[0]; year <= yearRange[1]; year += 1) {
+    regionTables[year] = getCensusTable({
+      year,
+      dataObj: regionData,
+    });
+  }
+
+  const regionCensusChange = censusFields
+    .reduce((accumulator, field) => {
+      const changeKey = `${field.value}_change`;
+      const data1 = getNearestYearValue(years[0], field, { properties: { id: msa.msaId } }, regionTables, true);
+      const data2 = getNearestYearValue(years[1], field, { properties: { id: msa.msaId } }, regionTables, false);
+      const value1 = data1.value;
+      const value2 = data2.value;
+      const year1 = data1.year;
+      const year2 = data2.year;
+      if (value1 && value2) {
+        if (field.unit === '%') {
+          accumulator[changeKey] = value2 - value1;
+        } else {
+          accumulator[changeKey] = (value2 - value1)
+          / value1;
+        }
+      } else {
+        accumulator[changeKey] = null;
+      }
+      // nominal values of start and end year, or nearest available
+      accumulator[`${field.id}0`] = value1; // first year
+      accumulator[field.id] = value2; // second ("current") year
+      accumulator[`${field.id}-actualyears`] = [year1, year2];
+      // actual nominal value of current year, even if null
+      accumulator[`${field.value}-nominal`] = regionTables[years[1]][msa.msaId][field.value];
+      return accumulator;
+    }, {});
+
   const table1 = getCensusTable({
     year: years[0],
-    censusData,
+    dataObj: censusData,
   });
 
   const table2 = getCensusTable({
     year: years[1],
-    censusData,
+    dataObj: censusData,
   });
 
-  const censusFields = data.get('censusFields');
   const valueColorScales = censusFields.reduce((obj, field) => {
     const colors = data.get('valueColorScale').range();
     const currentFieldValues = Object.values(table2).map(d => d[field.value]);
@@ -155,7 +193,9 @@ const processGeoJSON = ({
     Object.assign(featureCopy.properties, censusChange, { fill: 'red' });
     return featureCopy;
   });
+
   cachedTractGeoJSON.set(`${msa.msaId}-${years[0]}-${years[1]}`, tractGeo);
+  cachedMSACensus.set(`${msa.msaId}-${years[0]}-${years[1]}`, regionCensusChange);
 
   const tractGeoFiltered = filterGeoByDistance({
     cachedTractGeoJSON,
@@ -165,7 +205,7 @@ const processGeoJSON = ({
     censusField,
   });
 
-  updateComponents(tractGeoFiltered);
+  updateComponents(tractGeoFiltered, regionCensusChange);
 };
 
 const loadTractData = ({
@@ -179,10 +219,11 @@ const loadTractData = ({
   Promise.all([
     d3.json(`data/tracts/tract-${msa.msaId}.json`),
     d3.json(`https://ridership.carto.com/api/v2/sql?q=${encodeURIComponent(`SELECT * FROM census WHERE msaid = ${msa.msaId}`)}`),
+    d3.json(`https://ridership.carto.com/api/v2/sql?q=${encodeURIComponent(`SELECT * FROM census_msa WHERE geoid = ${msa.msaId}`)}`),
   ]).then((rawData) => {
-    const [tractTopo, censusData] = rawData;
+    const [tractTopo, censusData, regionData] = rawData;
     const cachedTractData = data.get('cachedTractData');
-    cachedTractData.set(msa.msaId, { tractTopo, censusData });
+    cachedTractData.set(msa.msaId, { tractTopo, censusData, regionData });
     processGeoJSON({
       distanceFilter,
       years,
@@ -203,6 +244,7 @@ const getCurrentTractData = ({
   distanceFilter,
 }) => {
   const cachedTractGeoJSON = data.get('cachedTractGeoJSON');
+  const cachedMSACensus = data.get('cachedMSACensus');
   const cachedTractData = data.get('cachedTractData');
   if (cachedTractGeoJSON.has(`${msa.msaId}-${years[0]}-${years[1]}`)) {
     const tractGeoFiltered = filterGeoByDistance({
@@ -212,7 +254,8 @@ const getCurrentTractData = ({
       years,
       distanceFilter,
     });
-    updateComponents(tractGeoFiltered);
+    const regionCensus = cachedMSACensus.get(`${msa.msaId}-${years[0]}-${years[1]}`);
+    updateComponents(tractGeoFiltered, regionCensus);
   } else if (cachedTractData.has(msa.msaId)) {
     processGeoJSON({
       years,

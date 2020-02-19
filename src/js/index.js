@@ -50,8 +50,13 @@ const app = {
     components.atlas = getAtlas({ data, state });
 
     if (state.get('scale') === 'msa') {
-      state.getCurrentTractGeo((tractGeo) => {
-        components.histogram = getHistogram({ state, data, tractGeo });
+      state.getCurrentTractGeo((tractGeo, regionCensus) => {
+        components.histogram = getHistogram({
+          state,
+          data,
+          tractGeo,
+          regionCensus,
+        });
         components.msaAtlas = getMSAAtlas({ state, data, tractGeo });
       });
     } else {

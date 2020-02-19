@@ -50,7 +50,7 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
     })
     .updateData();
   this.update({ loading: true });
-  this.getCurrentTractGeo((tractGeo) => {
+  this.getCurrentTractGeo((tractGeo, regionCensus) => {
     msaAtlas
       .config({
         msa,
@@ -65,6 +65,7 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
         distanceFilter,
         msa,
         tractGeo,
+        regionCensus,
       })
       .updateData();
 

@@ -29,6 +29,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       nationalDataView,
       currentScale,
       tractGeo,
+      regionCensus,
       currentCensusField,
       dataProbe,
       currentIndicator,
@@ -43,6 +44,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       mobileHistogramOpen,
       svg,
       barSpacing,
+      msa,
     } = props;
 
     if (mobile && !mobileHistogramOpen) return this;
@@ -108,8 +110,9 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       });
       Object.assign(props, { histogramData, nationalAverage });
     } else if (currentScale === 'msa') {
-      const histogramData = getMSAHistogramData({
+      const { histogramData, nationalAverage } = getMSAHistogramData({
         tractGeo,
+        regionCensus,
         bucketCount,
         currentCensusField,
         distanceFilter,
@@ -128,13 +131,16 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
         bars,
         changeColorScale,
         valueColorScale,
+        nationalAverage,
+        nationalAverageText,
         nationalAverageGroup,
         dataProbe,
         updateHighlightedTracts,
         svg,
         barSpacing,
+        msa,
       });
-      Object.assign(props, { histogramData });
+      Object.assign(props, { histogramData, nationalAverage });
     }
 
     return this;

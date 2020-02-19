@@ -103,6 +103,7 @@ const dataFunctions = {
   },
   getMSAHistogramData({
     tractGeo,
+    regionCensus,
     bucketCount,
     currentCensusField,
     distanceFilter,
@@ -117,7 +118,7 @@ const dataFunctions = {
         return true;
       })
       .filter(d => Number.isFinite(d[currentCensusField.id]));
-    const msaHistogramData = getData({
+    const histogramData = getData({
       bucketCount,
       records: tracts,
       mobile,
@@ -125,35 +126,11 @@ const dataFunctions = {
       getValue: d => (currentCensusField.change
         ? (d[currentCensusField.id] * 100) : d[currentCensusField.id]),
     });
-    // const span = d3.extent(tracts, d => d[currentCensusField.value] * 100);
 
-    // const bucketSize = (span[1] - span[0]) / bucketCount;
-    // const msaHistogramData = new Array(bucketCount)
-    //   .fill(null)
-    //   .map((d, i) => {
-    //     const bucket = [
-    //       span[0] + (i * bucketSize),
-    //       span[0] + (i * bucketSize) + bucketSize,
-    //     ];
-    //     const records = tracts
-    //       .filter((tract) => {
-    //         if (i === 0) {
-    //           return tract[currentCensusField.value] * 100 >= bucket[0]
-    //             && tract[currentCensusField.value] * 100 - bucket[1] <= 0.00001;
-    //         }
-    //         return tract[currentCensusField.value] * 100 > bucket[0]
-    //           && tract[currentCensusField.value] * 100 - bucket[1] <= 0.00001;
-    //       });
+    // not national but keeping variable name consistent is easier
+    const nationalAverage = regionCensus[currentCensusField.id] * (currentCensusField.change ? 100 : 1);
 
-    //     return {
-    //       bucket,
-    //       records,
-    //       count: records.length,
-    //       index: i,
-    //     };
-    //   });
-
-    return msaHistogramData;
+    return { histogramData, nationalAverage };
   },
 };
 

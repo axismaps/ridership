@@ -14,9 +14,14 @@ const localFunctions = {
       .ticks(4);
   },
   getNationalAverageText({
-    // nationalAverageText,
     nationalAverage,
+    currentCensusField,
+    msa,
   }) {
+    if (currentCensusField) {
+      const value = currentCensusField.change ? d3.format('.1%')(nationalAverage / 100) : d3.format(currentCensusField.format)(nationalAverage);
+      return `${msa.name}: ${value}`;
+    }
     const formatPercent = d3.format('.1%');
     return `National Change: ${formatPercent(nationalAverage / 100)}`;
     // nationalAverageText
@@ -45,8 +50,10 @@ const localFunctions = {
     xScale,
     nationalAverage,
   }) {
+    const scaledX = xScale(nationalAverage);
+    const x = Math.min(Math.max(scaledX, xScale.range()[0]), xScale.range()[1]);
     return {
-      transform: `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`,
+      transform: `translate(${padding.left + x}, ${padding.top})`,
     };
   },
   getXAxisLabelPosition({
