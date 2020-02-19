@@ -94,8 +94,6 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
           const firstYear = firstYearData.value ? firstYearData.year : years[0];
           const lastYear = lastYearData.value ? lastYearData.year : years[1];
 
-          console.log(firstRecord, lastRecord);
-
           const pctChange = noRecord(firstRecord) || noRecord(lastRecord) || firstYear === lastYear
             ? null
             : ((lastRecord - firstRecord)
