@@ -49,9 +49,16 @@ const resizeFunctions = {
         xScale,
         nationalAverage,
       }));
+    let anchor = 'middle';
+    if (xScale(nationalAverage) < (3 * xScale.range()[0] + xScale.range()[1]) / 4) {
+      anchor = 'start';
+    } else if (xScale(nationalAverage) > (3 * xScale.range()[1] + xScale.range()[0]) / 4) {
+      anchor = 'end';
+    }
     nationalAverageGroup
       .select('text')
-      .attr('x', Math.max(0, 70 - xScale(nationalAverage)));
+      .attr('x', '0')
+      .attr('text-anchor', anchor);
     nationalAverageGroup.select('line')
       .attr('y2', height - padding.bottom - padding.top);
   },
