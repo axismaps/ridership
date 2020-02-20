@@ -1,6 +1,7 @@
 import getPrivateBase from './dropdownBase';
 import pureMethods from './indicatorDropdownMethods';
 import getPublicDropdownBase from './dropdownPublicBase';
+import DataProbe from '../dataProbe/dataProbe';
 
 const privateProps = new WeakMap();
 
@@ -15,6 +16,7 @@ const privateMethods = {
       toggleButtonText,
       updateIndicator,
       defaultText,
+      dataProbe,
     } = props;
 
     const {
@@ -45,6 +47,7 @@ const privateMethods = {
       indicators,
       contentContainer,
       updateIndicator,
+      dataProbe,
     });
 
     const mobileSelect = drawMobileContent({
@@ -72,6 +75,9 @@ class IndicatorDropdown {
     } = privateMethods;
     privateProps.set(this, {
       alignMenuToButton: 'left',
+      dataProbe: new DataProbe({
+        container: d3.select('.outer-container'),
+      }),
     });
     this.config(config);
 

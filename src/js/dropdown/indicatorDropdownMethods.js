@@ -3,6 +3,7 @@ const pureMethods = {
     indicators,
     contentContainer,
     updateIndicator,
+    dataProbe,
   }) {
     const indicatorList = Array.from(indicators.values());
 
@@ -15,6 +16,26 @@ const pureMethods = {
         class: 'indicator-dropdown__content-row',
       })
       .text(d => d.text)
+      .on('mouseover', function showProbe(d) {
+        dataProbe.remove();
+        if (!d.meta) return;
+        const rect = this.getBoundingClientRect();
+        const pos = {
+          right: window.innerWidth - rect.x + 25,
+          bottom: window.innerHeight - rect.bottom,
+          width: 250,
+        };
+        const html = d.meta;
+        dataProbe
+          .config({
+            pos,
+            html,
+          })
+          .draw();
+      })
+      .on('mouseout', () => {
+        dataProbe.remove();
+      })
       .on('click', updateIndicator);
 
     return indicatorRows;
