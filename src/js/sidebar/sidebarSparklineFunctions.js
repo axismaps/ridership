@@ -54,6 +54,7 @@ const sidebarSparkLineFunctions = {
       .each(function drawSparkline(d) {
         const container = d3.select(this);
 
+
         const sparkLine = new SparkLine({
           width: width * 0.4,
           container,
@@ -64,7 +65,7 @@ const sidebarSparkLineFunctions = {
           embedded,
           currentScale,
           expanded: (expandedSparklines === true),
-          color: currentScale === 'msa',
+          color: true,
         });
         sparkLines.push(sparkLine);
       });

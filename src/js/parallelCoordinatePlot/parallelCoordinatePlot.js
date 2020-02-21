@@ -97,7 +97,7 @@ class ParallelCoordinatePlot {
       maxValue: 100,
       highlightedAgencies: [],
       searchResult: null,
-      color: () => 'rgb(0,0,0)',
+      color: d => (d.compareColor || 'rgb(0,0,0)'),
     });
 
     const {

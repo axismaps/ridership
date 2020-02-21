@@ -1,6 +1,20 @@
 import DataProbe from '../dataProbe/dataProbe';
 import atlasHelperFunctions from './atlasHelperFunctions';
 
+const maxCompared = 10;
+const compareColors = [
+  '#0f8fff',
+  '#ff5e4d',
+  '#8c6112',
+  '#ff9d2e',
+  '#c2ab00',
+  '#33a02c',
+  '#eb52d6',
+  '#707070',
+  '#00ad91',
+  '#bc80bd',
+];
+
 const setInteractions = ({
   agencies,
   dataProbe,
@@ -46,6 +60,13 @@ const setInteractions = ({
       clickText = compareMode === false
         ? 'Click the point to jump to this MSA'
         : `Click the point to ${ids.includes(d.globalId) ? 'remove from' : 'add to'} comparison`;
+      if (compareMode && comparedAgencies.length === 10 && !ids.includes(d.globalId)) {
+        const oldest = comparedAgencies[maxCompared - 1];
+        clickText = `${clickText}<br><br><i class="fa fa-exclamation-triangle"></i> 
+          A maximum of 10 ${nationalDataView === 'msa' ? 'MSAs' : 'agencies'} may be compared. 
+          Adding this ${nationalDataView === 'msa' ? 'MSA' : 'agency'} will remove
+          <strong>${nationalDataView === 'msa' ? oldest.name : oldest.taName}</strong> from the comparison.`;
+      }
     }
     const html = nationalDataView === 'msa' ? `
         <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.name}</span></div>
@@ -86,7 +107,14 @@ const setInteractions = ({
           bottom: window.innerHeight - clientY + 10,
           width: 300,
         };
-        const html = `Select a${nationalDataView === 'msa' ? 'n MSA' : ' transit agency'} to compare.`;
+        let html = `Select a${nationalDataView === 'msa' ? 'n MSA' : ' transit agency'} to compare.`;
+        if (comparedAgencies.length === maxCompared) {
+          const oldest = comparedAgencies[maxCompared - 1];
+          html = `${html}<br><br><i class="fa fa-exclamation-triangle"></i> 
+          A maximum of 10 ${nationalDataView === 'msa' ? 'MSAs' : 'agencies'} may be compared. 
+          Selecting a new ${nationalDataView === 'msa' ? 'MSA' : 'agency'} will remove
+          <strong>${nationalDataView === 'msa' ? oldest.name : oldest.taName}</strong> from the comparison.`;
+        }
         tooltip
           .config({
             pos,
@@ -137,7 +165,13 @@ const setInteractions = ({
           const newCompare = comparedAgencies.filter(a => a.globalId !== d.globalId);
           updateComparedAgencies(newCompare);
         } else {
-          updateComparedAgencies([d, ...comparedAgencies]);
+          const comparedCopy = [...comparedAgencies];
+          if (comparedAgencies.length === maxCompared) {
+            comparedCopy.pop();
+          }
+          const currentColors = comparedAgencies.map(a => a.compareColor);
+          const newColor = compareColors.find(c => !currentColors.includes(c));
+          updateComparedAgencies([{ compareColor: newColor, ...d }, ...comparedCopy]);
         }
         dataProbe.remove();
       }
