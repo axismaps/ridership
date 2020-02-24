@@ -17,6 +17,7 @@ const privateMethods = {
       updateIndicator,
       defaultText,
       dataProbe,
+      infoButton,
     } = props;
 
     const {
@@ -39,6 +40,8 @@ const privateMethods = {
       indicator,
       toggleButtonText,
       defaultText,
+      infoButton,
+      dataProbe,
     });
 
     setContentPosition.call(this);
@@ -100,6 +103,8 @@ class IndicatorDropdown {
       toggleButtonText,
       defaultText,
       mobileSelect,
+      infoButton,
+      dataProbe,
     } = privateProps.get(this);
 
     highlightCurrentIndicator({
@@ -112,6 +117,8 @@ class IndicatorDropdown {
       defaultText,
       indicator,
       toggleButtonText,
+      infoButton,
+      dataProbe,
     });
   }
 }

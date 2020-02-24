@@ -39,7 +39,8 @@
   display: block;
   opacity: 0;
   position: absolute;
-  width: 100%;
+  width: calc(100% - 30px);
+  left: 30px;
   height: 100%;
 }
 
@@ -94,6 +95,17 @@
   position: relative;
   height: 100%;
   padding: 0 10px;
+}
+
+.atlas__census-dropdown-button,
+.atlas__indicator-dropdown-button {
+  padding-left: 30px;
+}
+
+.atlas__top-button i.fa-info-circle {
+  position: absolute;
+  left: 5px;
+  z-index: 20;
 }
 
 .atlas__census-dropdown-button-text,

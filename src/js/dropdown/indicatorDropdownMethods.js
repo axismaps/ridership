@@ -71,8 +71,31 @@ const pureMethods = {
     indicator,
     toggleButtonText,
     defaultText,
+    infoButton,
+    dataProbe,
   }) {
     toggleButtonText.text(indicator !== null ? indicator.text : defaultText);
+    if (!infoButton) return;
+    infoButton.on('mouseover', function showProbe() {
+      dataProbe.remove();
+      if (!indicator.meta) return;
+      const rect = this.getBoundingClientRect();
+      const pos = {
+        right: window.innerWidth - rect.x + 25,
+        bottom: window.innerHeight - rect.bottom,
+        width: 250,
+      };
+      const html = indicator.meta;
+      dataProbe
+        .config({
+          pos,
+          html,
+        })
+        .draw();
+    })
+      .on('mouseout', () => {
+        dataProbe.remove();
+      });
   },
   highlightCurrentIndicator({
     indicatorRows,
