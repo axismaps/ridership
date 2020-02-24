@@ -142,7 +142,7 @@ const sparkLineFunctions = {
         if (color) {
           d3.select(this)
             .styles({
-              stroke: d.color,
+              stroke: d.compareColor || d.color,
               'stroke-width': 1,
             });
         }

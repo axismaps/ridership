@@ -46,6 +46,10 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
           globalId,
           color,
         };
+        if (comparedAgencies.length) {
+          const compared = comparedAgencies.find(a => a.globalId === agency.globalId);
+          agencyCopy.compareColor = compared.compareColor;
+        }
         const agencyIndicators = indicatorSummaries.map((indicator) => {
           const {
             text,
@@ -99,6 +103,11 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
         globalId,
         name,
       };
+
+      if (comparedAgencies.length) {
+        const compared = comparedAgencies.find(a => a.globalId === msa.globalId);
+        msaCopy.compareColor = compared.compareColor;
+      }
 
       msaCopy.indicators = indicatorSummaries.map((indicator) => {
         const {
