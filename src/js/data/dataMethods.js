@@ -120,12 +120,14 @@ const dataMethods = {
     const valueColorScale = d3.scaleQuantile()
       .domain([-50, -10, 0, 10, 50])
       .range([
-        '#ccebc5',
-        '#a8ddb5',
-        '#7bccc4',
-        '#4eb3d3',
-        '#2b8cbe',
-        '#08589e',
+        '#E2F1FD',
+        '#c5e8f0',
+        '#a9dfe3',
+        '#8BD5D5',
+        '#5dbdbf',
+        '#2fa7a9',
+        '#009093',
+
       ]);
 
     const nationalScaleExtent = [1, 8];
