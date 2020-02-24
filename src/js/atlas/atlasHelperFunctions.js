@@ -22,6 +22,7 @@ const atlasHelperFunctions = {
     indicator,
     container,
     highlightedId,
+    years,
   }) {
     const indicatorData = Object.assign({}, indicator);
     if (msa.globalId === highlightedId) {
@@ -77,6 +78,7 @@ const atlasHelperFunctions = {
       yearRange: [2006, 2017],
       color: true,
       interactive: false,
+      years,
     });
   },
 };

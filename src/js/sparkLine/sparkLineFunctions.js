@@ -19,10 +19,13 @@ const sparkLineFunctions = {
     width,
     height,
   }) {
+    // when nominal value is selected, end year could be the same as start year
+    const years = [yearRange[0], Math.max(yearRange[1], yearRange[0] + 1)];
     const { agencies } = indicatorData;
     const values = agencies.map(d => d.summaries)
-      .reduce((accumulator, d) => [...accumulator, ...d], []);
-    const xDomain = yearRange;
+      .reduce((accumulator, d) => [...accumulator, ...d], [])
+      .filter(d => d.year >= years[0] && d.year <= years[1]);
+    const xDomain = years;
     const yDomain = agencies.length > 1 ? [-2, 2] : d3.extent(values, d => d.indicatorSummary);
 
     return {
