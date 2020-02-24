@@ -87,7 +87,8 @@
 
 .atlas__census-dropdown-button,
 .atlas__indicator-dropdown-button,
-.atlas__year-slider-button {
+.atlas__year-slider-button,
+.atlas__year-dropdown-button {
   margin: 0;
   flex: 1;
   justify-content: center;
@@ -106,7 +107,8 @@
   display: none;
 }
 
-.atlas__year-slider-button {
+.atlas__year-slider-button,
+.atlas__year-dropdown-button {
   border-left: 1px solid #ccc;
 }
 

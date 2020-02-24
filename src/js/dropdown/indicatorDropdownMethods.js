@@ -39,7 +39,7 @@ const pureMethods = {
         .append('div')
         .datum((d, i) => indicators[i * 2])
         .attr('class', 'census-dropdown__content-row__indicator')
-        .text('Nominal')
+        .text('Single year')
         .on('click', updateIndicator);
 
       indicatorRows
@@ -68,13 +68,14 @@ const pureMethods = {
       .enter()
       .append('option')
       .html(d => d.text)
-      .attr('value', d => d.value)
-      .attr('selected', d => (indicator === null ? false : d.value === indicator.value));
+      .attr('value', d => d.id)
+      .attr('selected', d => (indicator === null ? false : d.id === indicator.id));
 
     return dropdown
       .on('change', function dropdownChange() {
         const { value } = this;
-        const selectedIndicator = indicatorList.find(i => i.value === value);
+        const selectedIndicator = indicatorList.find(i => i.id === value);
+        console.log(indicatorList, value);
         updateIndicator(selectedIndicator);
       });
   },
@@ -103,10 +104,10 @@ const pureMethods = {
     }
     if (mobileSelect.size()) {
       const selectNode = mobileSelect.node();
-      selectNode.value = indicator === null ? null : indicator.value;
+      selectNode.value = indicator === null ? null : indicator.id;
       mobileSelect
         .selectAll('option')
-        .attr('selected', d => (indicator === null ? false : d.value === indicator.value));
+        .attr('selected', d => (indicator === null ? false : d.id === indicator.id));
     }
   },
 };

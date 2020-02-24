@@ -26,7 +26,7 @@ const pureMethods = {
     toggleButton,
     updateYear,
   }) {
-    const yearList = d3.range(yearRange[0], yearRange[1]);
+    const yearList = d3.range(yearRange[0], yearRange[1] + 1);
 
     const dropdown = toggleButton.select('select');
 
@@ -41,7 +41,7 @@ const pureMethods = {
     return dropdown
       .on('change', function dropdownChange() {
         const { value } = this;
-        updateYear(value);
+        updateYear(+value);
       });
   },
 
