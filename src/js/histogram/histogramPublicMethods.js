@@ -15,6 +15,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     const {
       bars,
       changeColorScale,
+      valueColorScale,
       nationalMapData,
       bucketCount,
       padding,
@@ -126,6 +127,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
         yAxis,
         bars,
         changeColorScale,
+        valueColorScale,
         nationalAverageGroup,
         dataProbe,
         updateHighlightedTracts,
@@ -208,6 +210,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       yAxisLabel,
       mobile,
       mobileHistogramOpen,
+      currentCensusField,
     } = privateProps.get(this);
 
     if (mobile && !mobileHistogramOpen) return;
@@ -232,6 +235,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       height,
       padding,
       transition: 0,
+      currentCensusField,
     });
 
     resizeBars({

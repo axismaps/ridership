@@ -11,8 +11,8 @@ const filterGeoByDistance = ({
 
   const tractGeoFiltered = Object.assign({}, tractGeo);
   tractGeoFiltered.features = tractGeo.features.filter((d) => {
-    const isDefined = d.properties[`${censusField.value}-color`] !== null
-      && d.properties[`${censusField.value}-color`] !== undefined;
+    const isDefined = d.properties[censusField.id] !== null
+      && d.properties[censusField.id] !== undefined;
     const inDistance = distanceFilter === null ? true
       : d.properties.dist <= distanceFilter.value;
     return isDefined && inDistance;
@@ -54,6 +54,14 @@ const processGeoJSON = ({
     censusData,
   });
 
+  const censusFields = data.get('censusFields');
+  const valueColorScales = censusFields.reduce((obj, field) => {
+    const colors = data.get('valueColorScale').range();
+    const currentFieldValues = Object.values(table2).map(d => d[field.value]);
+    const scale = d3.scaleQuantile().domain(currentFieldValues).range(colors);
+    return { ...obj, [field.value]: scale };
+  }, {});
+
   const tractGeo = Object.assign({}, tractGeoRaw);
   tractGeo.features = tractGeoRaw.features.map((feature) => {
     const featureCopy = Object.assign({}, feature);
@@ -68,23 +76,28 @@ const processGeoJSON = ({
       return featureCopy;
     }
     const changeColorScale = data.get('changeColorScale');
-    const censusFields = data.get('censusFields');
 
     const censusChange = censusFields
       .reduce((accumulator, field) => {
+        const changeKey = `${field.value}_change`;
         if (field.unit === '%' || census1[field.value] !== 0) {
           if (field.unit === '%') {
-            accumulator[field.value] = census2[field.value] - census1[field.value];
+            accumulator[changeKey] = census2[field.value] - census1[field.value];
           } else {
-            accumulator[field.value] = (census2[field.value] - census1[field.value])
+            accumulator[changeKey] = (census2[field.value] - census1[field.value])
             / census1[field.value];
           }
-          const color = changeColorScale(accumulator[field.value] * 100);
-          accumulator[`${field.value}-color`] = color;
+          const color = changeColorScale(accumulator[changeKey] * 100);
+          accumulator[`${changeKey}-color`] = color;
         } else {
-          accumulator[field.value] = null;
-          accumulator[`${field.value}-color`] = null;
+          accumulator[changeKey] = null;
+          accumulator[`${changeKey}-color`] = null;
         }
+        accumulator[`${field.id}0`] = census1[field.value]; // nominal value of first year
+        // nominal value of second (considered the current) year
+        accumulator[field.id] = census2[field.value];
+        accumulator[`${field.id}-color`] = valueColorScales[field.value](census2[field.value]);
+
 
         return accumulator;
       }, {});

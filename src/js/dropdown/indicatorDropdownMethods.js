@@ -3,19 +3,52 @@ const pureMethods = {
     indicators,
     contentContainer,
     updateIndicator,
+    censusFields,
   }) {
     const indicatorList = Array.from(indicators.values());
 
-    const indicatorRows = contentContainer
-      .selectAll('.indicator-dropdown__content-row')
-      .data(indicatorList)
-      .enter()
-      .append('div')
-      .attrs({
-        class: 'indicator-dropdown__content-row',
-      })
-      .text(d => d.text)
-      .on('click', updateIndicator);
+    let indicatorRows;
+
+    if (!censusFields) {
+      indicatorRows = contentContainer
+        .selectAll('.indicator-dropdown__content-row')
+        .data(indicatorList)
+        .enter()
+        .append('div')
+        .attrs({
+          class: 'indicator-dropdown__content-row',
+        })
+        .text(d => d.text)
+        .on('click', updateIndicator);
+    } else {
+      indicatorRows = contentContainer
+        .selectAll('.census-dropdown__content-row')
+        .data(censusFields)
+        .enter()
+        .append('div')
+        .attrs({
+          class: 'census-dropdown__content-row',
+        });
+
+      indicatorRows
+        .append('div')
+        .attr('class', 'census-dropdown__content-row__title')
+        .text(d => `${d.text}:`);
+
+      indicatorRows
+        .append('div')
+        .datum((d, i) => indicators[i * 2])
+        .attr('class', 'census-dropdown__content-row__indicator')
+        .text('Single year')
+        .on('click', updateIndicator);
+
+      indicatorRows
+        .append('div')
+        .datum((d, i) => indicators[i * 2 + 1])
+        .attr('class', 'census-dropdown__content-row__indicator')
+        .text('Change')
+        .on('click', updateIndicator);
+    }
 
     return indicatorRows;
   },
@@ -35,13 +68,14 @@ const pureMethods = {
       .enter()
       .append('option')
       .html(d => d.text)
-      .attr('value', d => d.value)
-      .attr('selected', d => (indicator === null ? false : d.value === indicator.value));
+      .attr('value', d => d.id)
+      .attr('selected', d => (indicator === null ? false : d.id === indicator.id));
 
     return dropdown
       .on('change', function dropdownChange() {
         const { value } = this;
-        const selectedIndicator = indicatorList.find(i => i.value === value);
+        const selectedIndicator = indicatorList.find(i => i.id === value);
+        console.log(indicatorList, value);
         updateIndicator(selectedIndicator);
       });
   },
@@ -57,15 +91,23 @@ const pureMethods = {
     indicatorRows,
     mobileSelect,
     indicator,
+    censusFields,
   }) {
-    indicatorRows
-      .classed('indicator-dropdown__content-row--highlighted', d => (indicator === null ? false : d.value === indicator.value));
+    if (!censusFields) {
+      indicatorRows
+        .classed('indicator-dropdown__content-row--highlighted', d => (indicator === null ? false : d.id === indicator.id));
+    } else {
+      indicatorRows
+        .classed('census-dropdown__content-row--highlighted', d => (indicator === null ? false : d.value === indicator.value));
+      indicatorRows.selectAll('.census-dropdown__content-row__indicator')
+        .classed('census-dropdown__content-row__indicator--highlighted', d => (indicator === null ? false : d.id === indicator.id));
+    }
     if (mobileSelect.size()) {
       const selectNode = mobileSelect.node();
-      selectNode.value = indicator === null ? null : indicator.value;
+      selectNode.value = indicator === null ? null : indicator.id;
       mobileSelect
         .selectAll('option')
-        .attr('selected', d => (indicator === null ? false : d.value === indicator.value));
+        .attr('selected', d => (indicator === null ? false : d.id === indicator.id));
     }
   },
 };

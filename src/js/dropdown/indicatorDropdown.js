@@ -9,6 +9,7 @@ const privateMethods = {
     const props = privateProps.get(this);
     const {
       indicators,
+      censusFields,
       contentContainer,
       indicator,
       toggleButton,
@@ -45,6 +46,7 @@ const privateMethods = {
       indicators,
       contentContainer,
       updateIndicator,
+      censusFields,
     });
 
     const mobileSelect = drawMobileContent({
@@ -58,6 +60,7 @@ const privateMethods = {
       indicatorRows,
       mobileSelect,
       indicator,
+      censusFields,
     });
 
     props.indicatorRows = indicatorRows;
@@ -94,12 +97,14 @@ class IndicatorDropdown {
       toggleButtonText,
       defaultText,
       mobileSelect,
+      censusFields,
     } = privateProps.get(this);
 
     highlightCurrentIndicator({
       indicatorRows,
       indicator,
       mobileSelect,
+      censusFields,
     });
 
     setButtonText({

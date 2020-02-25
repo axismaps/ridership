@@ -11,6 +11,7 @@ const getHistogram = ({ data, state, tractGeo }) => {
     tractGeo,
     mobileHistogramOpen: state.get('mobileHistogramOpen'),
     changeColorScale: data.get('changeColorScale'),
+    valueColorScale: data.get('valueColorScale'),
     container: d3.select('.histogram'),
     nationalMapData: state.getCurrentNationalMapData(),
     nationalData: state.getCurrentNationalData(),

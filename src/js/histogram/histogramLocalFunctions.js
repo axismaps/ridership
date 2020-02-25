@@ -66,7 +66,7 @@ const localFunctions = {
       'font-weight': 350,
     };
   },
-  getBucketText({ bucket }) {
+  getChangeBucketText({ bucket }) {
     let bucketText;
     if (bucket[0] < -100) {
       bucketText = `-100% to ${Math.round(bucket[1])}%`;
@@ -76,6 +76,12 @@ const localFunctions = {
       bucketText = bucket.map(val => `${Math.round(val)}%`).join(' to ');
     }
     return bucketText;
+  },
+
+  getValueBucketText({ bucket, currentCensusField }) {
+    const format = d3.format(currentCensusField.format || '');
+    const suffix = currentCensusField.unit && currentCensusField.unit !== '%' ? currentCensusField.unit : '';
+    return bucket.map(val => `${format(val)}${suffix}`).join(' to ');
   },
 };
 

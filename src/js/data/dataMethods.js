@@ -15,6 +15,7 @@ const dataMethods = {
     const {
       indicators,
       censusFields,
+      censusDropdownItems,
       distanceFilters,
     } = dropdownItems;
 
@@ -116,6 +117,16 @@ const dataMethods = {
         '#009093',
       ]);
 
+    const valueColorScale = d3.scaleQuantile()
+      .domain([-50, -10, 0, 10, 50])
+      .range([
+        'rgb(226, 241, 253)',
+        'rgb(181, 222, 232)',
+        'rgb(136, 202, 211)',
+        'rgb(90, 183, 189)',
+        'rgb(45, 163, 168)',
+        'rgb(0, 144, 147)',
+      ]);
 
     const nationalScaleExtent = [1, 8];
     // const nationalScaleExtentMobile = [0.5, 8];
@@ -138,10 +149,12 @@ const dataMethods = {
     data.set('yearRange', yearRange);
     data.set('msaYearRange', msaYearRange);
     data.set('changeColorScale', changeColorScale);
+    data.set('valueColorScale', valueColorScale);
     data.set('indicators', indicators);
     data.set('cachedTractGeoJSON', new Map());
     data.set('cachedTractData', new Map());
     data.set('censusFields', censusFields);
+    data.set('censusDropdownItems', censusDropdownItems);
     data.set('distanceFilters', distanceFilters);
     data.set('nationalScaleExtent', nationalScaleExtent);
     data.set('params', params);

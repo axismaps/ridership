@@ -39,11 +39,19 @@ const updateFunctions = {
     height,
     padding,
     transition = 500,
+    currentCensusField,
   }) {
     const {
       getYAxisGenerator,
       getXAxisGenerator,
     } = localFunctions;
+
+    const xAxisGenerator = getXAxisGenerator({ xScale });
+    if (currentCensusField && !currentCensusField.change) {
+      xAxisGenerator.tickFormat(d3.format(currentCensusField.format));
+    } else {
+      xAxisGenerator.tickFormat(d3.format('d'));
+    }
 
     yAxis
       .attrs({
@@ -59,13 +67,13 @@ const updateFunctions = {
       })
       .transition()
       .duration(transition)
-      .call(getXAxisGenerator({ xScale }));
+      .call(xAxisGenerator);
   },
   updateBars({
     bars,
     histogramData,
     yScale,
-    changeColorScale,
+    colorScale,
     height,
     padding,
   }) {
@@ -76,7 +84,7 @@ const updateFunctions = {
       .attrs({
         height: d => yScale(d.count),
         y: d => (height - padding.bottom) - yScale(d.count),
-        fill: d => changeColorScale((d.bucket[1] + d.bucket[0]) / 2),
+        fill: d => colorScale((d.bucket[1] + d.bucket[0]) / 2),
         stroke: '#999999',
         'stroke-width': 1,
       });
@@ -103,7 +111,7 @@ const updateFunctions = {
     mobile,
   }) {
     const {
-
+      getColors,
       getScales,
       drawBars,
       addNationalBarMouseEvents,
@@ -122,6 +130,8 @@ const updateFunctions = {
       height,
     });
 
+    const colorScale = getColors({ changeColorScale });
+
     updateAxes({
       xScale,
       yScale,
@@ -134,7 +144,7 @@ const updateFunctions = {
       svg,
       xScale,
       yScale,
-      changeColorScale,
+      colorScale,
       padding,
       height,
       histogramData,
@@ -181,10 +191,12 @@ const updateFunctions = {
     let xText;
     if (isNational) {
       xText = `${currentIndicator.text} (% change, ${years[0]}-${years[1]})`;
-    } else if (currentCensusField.unit === '%') {
+    } else if (currentCensusField.change && currentCensusField.unit === '%') {
       xText = `${currentCensusField.text} (% point change, ${years[0]}-${years[1]})`;
-    } else {
+    } else if (currentCensusField.change) {
       xText = `${currentCensusField.text} (% change, ${years[0]}-${years[1]})`;
+    } else {
+      xText = `${currentCensusField.text} (${years[1]})`;
     }
 
     yAxisLabel
@@ -202,8 +214,10 @@ const updateFunctions = {
     // bars,
     nationalAverageGroup,
     changeColorScale,
+    valueColorScale,
     dataProbe,
     histogramData,
+    currentCensusField,
     updateHighlightedTracts,
     svg,
     barSpacing,
@@ -213,6 +227,7 @@ const updateFunctions = {
   }) {
     const {
       // getMSAHistogramData,
+      getColors,
       getScales,
       drawBars,
       hideAverageLine,
@@ -230,6 +245,13 @@ const updateFunctions = {
       height,
     });
 
+    const colorScale = getColors({
+      changeColorScale,
+      valueColorScale,
+      currentCensusField,
+      histogramData,
+    });
+
     updateAxes({
       padding,
       xScale,
@@ -237,6 +259,7 @@ const updateFunctions = {
       xAxis,
       yAxis,
       height,
+      currentCensusField,
     });
 
     // updateBars({
@@ -252,7 +275,7 @@ const updateFunctions = {
       svg,
       xScale,
       yScale,
-      changeColorScale,
+      colorScale,
       padding,
       height,
       histogramData,
@@ -267,6 +290,7 @@ const updateFunctions = {
       dataProbe,
       updateHighlightedTracts,
       mobile,
+      currentCensusField,
     });
 
     hideAverageLine({

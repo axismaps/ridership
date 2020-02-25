@@ -12,6 +12,7 @@ const privateMethods = {
     const props = privateProps.get(this);
     const {
       changeColorScale,
+      valueColorScale,
       barSpacing,
       width,
       height,
@@ -35,7 +36,7 @@ const privateMethods = {
     } = props;
 
     const {
-
+      getColors,
       getScales,
       drawSVG,
       drawBars,
@@ -112,13 +113,16 @@ const privateMethods = {
       padding,
       height,
       width,
+      currentCensusField,
     });
+
+    const colorScale = getColors({ changeColorScale });
 
     const bars = drawBars({
       svg,
       xScale,
       yScale,
-      changeColorScale,
+      colorScale,
       histogramData,
       padding,
       height,
@@ -129,7 +133,6 @@ const privateMethods = {
       dataProbe,
       nationalDataView,
     });
-
 
     let nationalAverageGroup;
     let nationalAverageText;
@@ -157,6 +160,7 @@ const privateMethods = {
         dataProbe,
         updateHighlightedTracts,
         mobile,
+        currentCensusField,
       });
     }
 

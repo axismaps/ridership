@@ -3,12 +3,17 @@ const getData = ({
   bucketCount,
   getValue,
   mobile,
+  currentCensusField,
 }) => {
   const roundTo = (d, n) => Math.round(d / n) * n;
-  const changeSpan = d3.extent(records, getValue);
+  const span = d3.extent(records, getValue);
+  const ticks = d3.ticks(span[0], span[1], bucketCount);
 
   const getBucketSize = () => {
-    const testSize = roundTo((changeSpan[1] - changeSpan[0]) / bucketCount, 10);
+    if (currentCensusField && !currentCensusField.change) {
+      return ticks[1] - ticks[0];
+    }
+    const testSize = roundTo((span[1] - span[0]) / bucketCount, 10);
     let bucketSize;
     if (testSize < 5) {
       bucketSize = 5;
@@ -24,22 +29,24 @@ const getData = ({
   };
 
   const bucketSize = getBucketSize();
-  const changeSpanUse = changeSpan.map((d, i) => {
-    const num = roundTo(d, bucketSize);
-    if (i === 0 && num < -295) {
-      return -300;
-    }
+  const spanUse = currentCensusField && !currentCensusField.change
+    ? [ticks[0], ticks[ticks.length - 1]]
+    : span.map((d, i) => {
+      const num = roundTo(d, bucketSize);
+      if (i === 0 && num < -295) {
+        return -300;
+      }
 
-    if (i === 1 && num > 295) {
-      return 300;
-    }
-    return num;
-  });
+      if (i === 1 && num > 295) {
+        return 300;
+      }
+      return num;
+    });
 
   const histogramData = [];
   const recordsTracker = [];
   let counter = 0;
-  for (let i = changeSpanUse[0]; i < changeSpanUse[1]; i += bucketSize) {
+  for (let i = spanUse[0]; i < spanUse[1]; i += bucketSize) {
     const bucket = [
       i,
       i + bucketSize,
@@ -49,10 +56,10 @@ const getData = ({
         const value = getValue(record);
         if (value === null) return false;
         if (recordsTracker.includes(record)) return false;
-        if (bucket[0] === changeSpanUse[0]) {
+        if (bucket[0] === spanUse[0]) {
           return value - bucket[1] <= 0.00001;
         }
-        if (bucket[1] === changeSpanUse[1]) {
+        if (bucket[1] === spanUse[1]) {
           return value - bucket[0] >= 0.00001;
         }
         return value > bucket[0]
@@ -109,22 +116,24 @@ const dataFunctions = {
         }
         return true;
       })
-      .filter(d => Number.isFinite(d[currentCensusField.value]));
+      .filter(d => Number.isFinite(d[currentCensusField.id]));
     const msaHistogramData = getData({
       bucketCount,
       records: tracts,
       mobile,
-      getValue: d => d[currentCensusField.value] * 100,
+      currentCensusField,
+      getValue: d => (currentCensusField.change
+        ? (d[currentCensusField.id] * 100) : d[currentCensusField.id]),
     });
-    // const changeSpan = d3.extent(tracts, d => d[currentCensusField.value] * 100);
+    // const span = d3.extent(tracts, d => d[currentCensusField.value] * 100);
 
-    // const bucketSize = (changeSpan[1] - changeSpan[0]) / bucketCount;
+    // const bucketSize = (span[1] - span[0]) / bucketCount;
     // const msaHistogramData = new Array(bucketCount)
     //   .fill(null)
     //   .map((d, i) => {
     //     const bucket = [
-    //       changeSpan[0] + (i * bucketSize),
-    //       changeSpan[0] + (i * bucketSize) + bucketSize,
+    //       span[0] + (i * bucketSize),
+    //       span[0] + (i * bucketSize) + bucketSize,
     //     ];
     //     const records = tracts
     //       .filter((tract) => {
