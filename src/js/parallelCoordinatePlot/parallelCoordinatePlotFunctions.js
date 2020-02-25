@@ -108,7 +108,7 @@ const parallelCoordinatePlotFunctions = {
       .enter()
       .append('path')
       .style('fill', 'none')
-      .style('stroke', d => (msaScale ? d.color : color()))
+      .style('stroke', d => (msaScale ? d.color : color(d)))
       .style('opacity', 0)
       .attr('class', 'pcp-line')
       .attr('d', d => lineGenerator(d.indicators))
@@ -183,7 +183,7 @@ const parallelCoordinatePlotFunctions = {
       })
       .transition()
       .attr('d', d => lineGenerator(d.indicators))
-      .style('stroke', d => (msaScale ? d.color : color()))
+      .style('stroke', d => (msaScale ? d.color : color(d)))
       .style('opacity', agenciesData.length < 15 ? 0.75 : 0.1);
 
     return mergedLines;

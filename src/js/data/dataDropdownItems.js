@@ -5,6 +5,7 @@ const indicators = new Map();
     {
       text: 'Transit Ridership',
       value: 'upt',
+      id: 'upt',
       summaryType: 'sum',
       format: ',d',
       meta: 'Total unlinked passenger trips (UPTs) taken, on any public transit mode. Legs of a trip with transfers are counted as individual trips.',
@@ -13,6 +14,7 @@ const indicators = new Map();
     {
       text: 'Bus Ridership',
       value: 'bus',
+      id: 'bus',
       summaryType: 'sum',
       format: ',d',
       meta: 'Unlinked passenger trips on any bus mode, which include local, rapid, commuter, and trolley bus.',
@@ -21,6 +23,7 @@ const indicators = new Map();
     {
       text: 'Rail Ridership',
       value: 'rail',
+      id: 'rail',
       summaryType: 'sum',
       format: ',d',
       meta: 'Unlinked passenger trips on any rail mode, which include light, heavy, commuter, hybrid, and streetcar rail; monorail; &amp; cable car.',
@@ -29,6 +32,7 @@ const indicators = new Map();
     {
       text: 'Vehicle Revenue Miles',
       value: 'vrm',
+      id: 'vrm',
       summaryType: 'sum',
       format: ',d',
       unit: ' mi',
@@ -38,6 +42,7 @@ const indicators = new Map();
     {
       text: 'Minimum Headway',
       value: 'headways',
+      id: 'headways',
       summaryType: 'mean',
       format: '.1f',
       unit: ' min',
@@ -46,6 +51,7 @@ const indicators = new Map();
     {
       text: 'Average Vehicle Speed',
       value: 'speed',
+      id: 'speed',
       summaryType: 'mean',
       format: '.1f',
       unit: ' mph',
@@ -54,6 +60,7 @@ const indicators = new Map();
     {
       text: 'Operating Expenses',
       value: 'opexp_total',
+      id: 'opexp_total',
       summaryType: 'sum',
       format: '$,d',
       meta: 'Total transit agency expenses for operating service, for all modes (e.g. daily expenses of running & maintaining vehicles and facilities). Operating expenses are a measure of service provision.',
@@ -62,6 +69,7 @@ const indicators = new Map();
     {
       text: 'Average Fare',
       value: 'avg_fare',
+      id: 'avg_fare',
       summaryType: 'mean',
       format: '$.2f',
       meta: 'Total revenue from collected fares divided by total trips (UPTs). Fares are a measure of transit’s cost competitiveness with other modes and how accessible it is to riders with low incomes.<br><br>Averages include all rides, whose fares vary according to time of day, zones, and programs to which a rider belongs. Calculated averages will not represent the fare that most riders pay for a single ride, but they are useful for making modal or cross-agency comparisons or examing trends.',
@@ -69,6 +77,7 @@ const indicators = new Map();
     {
       text: 'Farebox Recovery',
       value: 'recovery',
+      id: 'recovery',
       summaryType: 'mean',
       format: '.1%',
       meta: 'Share of operating expenses covered by fares. It measures how much an agency depends on riders to fund operations.',
@@ -77,6 +86,7 @@ const indicators = new Map();
     {
       text: 'Miles Between Failures',
       value: 'failures',
+      id: 'failures',
       summaryType: 'mean',
       format: ',d',
       unit: ' mi',
@@ -84,12 +94,14 @@ const indicators = new Map();
     {
       text: 'Trips Per Person',
       value: 'capita',
+      id: 'capita',
       summaryType: 'mean',
       format: '.1f',
     },
     {
       text: 'Riders per Vehicle Revenue Mile',
       value: 'vrm_per_ride',
+      id: 'vrm_per_ride',
       summaryType: 'mean',
       format: '.1f',
       unit: ' rides per mi',
@@ -99,6 +111,7 @@ const indicators = new Map();
     {
       text: 'Average Trip Length',
       value: 'trip_length',
+      id: 'trip_length',
       summaryType: 'mean',
       format: '.1f',
       unit: ' mi',
@@ -107,6 +120,7 @@ const indicators = new Map();
     {
       text: 'Statewide Gas Price',
       value: 'gas',
+      id: 'gas',
       summaryType: 'mean',
       format: '$.2f',
       unit: ' per gallon',
@@ -123,6 +137,7 @@ const censusFields = [
   {
     text: 'Total Population',
     value: 'pop',
+    id: 'pop',
     format: ',d',
     meta: 'Total population living in area.',
     verified: true,
@@ -130,6 +145,7 @@ const censusFields = [
   {
     text: 'Population Density',
     value: 'density',
+    id: 'density',
     upload: true,
     format: ',d',
     unit: ' per sq mi',
@@ -139,7 +155,8 @@ const censusFields = [
   {
     text: 'Percent Foreign Born',
     value: 'foreign_pct',
-    format: '.1f',
+    id: 'foreign_pct',
+    format: '.0%',
     unit: '%',
     meta: 'Share of population born outside the U.S., including naturalized citizens and non-citizens of the U.S.<br><br>In census tracts with small foreign-born populations, margin of error may be high.',
     verified: true,
@@ -147,7 +164,8 @@ const censusFields = [
   {
     text: 'Percent White',
     value: 'white_pct',
-    format: '.1f',
+    id: 'white_pct',
+    format: '.0%',
     unit: '%',
     meta: 'Share of population identifying as white or caucasian.',
     verified: true,
@@ -155,7 +173,8 @@ const censusFields = [
   {
     text: 'Percent Black',
     value: 'black_pct',
-    format: '.1f',
+    id: 'black_pct',
+    format: '.0%',
     unit: '%',
     meta: 'Share of population identifying as black or African American.',
     verified: true,
@@ -163,7 +182,8 @@ const censusFields = [
   {
     text: 'Percent Asian',
     value: 'asian_pct',
-    format: '.1f',
+    id: 'asian_pct',
+    format: '.0%',
     unit: '%',
     meta: 'Share of population identifying as Asian or Asian American.',
     verified: true,
@@ -171,7 +191,8 @@ const censusFields = [
   {
     text: 'Percent Hispanic/Latino',
     value: 'latino_pct',
-    format: '.1f',
+    id: 'latino_pct',
+    format: '.0%',
     unit: '%',
     meta: 'Share of population identifying as Hispanic or Latino.',
     verified: true,
@@ -179,7 +200,8 @@ const censusFields = [
   {
     text: 'Percent Population Age 75+',
     value: 'over75_pct',
-    format: '.1f',
+    id: 'over75_pct',
+    format: '.0%',
     unit: '%',
     meta: 'Share of population aged 75 years or older.',
     verified: true,
@@ -187,6 +209,7 @@ const censusFields = [
   {
     text: 'Median Household Income',
     value: 'income',
+    id: 'income',
     format: '$,d',
     meta: 'Median income of households, adjusted to 2018 dollars.',
     verified: true,
@@ -194,7 +217,8 @@ const censusFields = [
   {
     text: 'Percent Households with No Vehicle',
     value: 'no_vehicle_pct',
-    format: '.1f',
+    id: 'no_vehicle_pct',
+    format: '.0%',
     unit: '%',
     meta: 'Share of households that do not own a vehicle.',
     verified: true,
@@ -202,7 +226,8 @@ const censusFields = [
   {
     text: 'Percent Commute by Driving',
     value: 'drive_pct',
-    format: '.1f',
+    id: 'drive_pct',
+    format: '.0%',
     unit: '%',
     meta: 'Share of workers ages 16 or older who commute to work in a single-occupancy vehicle.',
     verified: true,
@@ -210,19 +235,22 @@ const censusFields = [
   {
     text: 'Percent Commute by Carpooling',
     value: 'carpool_pct',
-    format: '.1f',
+    id: 'carpool_pct',
+    format: '.0%',
     unit: '%',
   },
   {
     text: 'Percent Commute by Public Transit',
     value: 'transit_pct',
-    format: '.1f',
+    id: 'transit_pct',
+    format: '.0%',
     unit: '%',
     meta: 'Share of workers ages 16 or older who commute to work on public transit.<br><br>In census tracts with small populations of public transit commuters, margin of error may be high.',
   },
   {
     text: 'Job Density',
     value: 'job_density',
+    id: 'job_density',
     format: ',d',
     unit: ' per sq mi',
     meta: 'Total jobs per square mile.<br><br>Data reported do not include federal government jobs.',
@@ -230,11 +258,21 @@ const censusFields = [
   {
     text: 'Job and Population Density',
     value: 'job_pop_density',
+    id: 'job_pop_density',
     format: ',d',
     unit: ' per sq mi',
     meta: 'Total jobs and residential population per square mile.<br><br>Data reported do not include federal government jobs.',
   },
 ];
+
+const censusDropdownItems = censusFields.reduce((items, currentField) => (
+  items.concat([currentField, {
+    ...currentField,
+    text: `Change in ${currentField.text}`,
+    id: `${currentField.id}_change`,
+    change: true,
+  }])
+), []);
 
 const distanceFilters = [
   {
@@ -256,4 +294,5 @@ export default {
   indicators,
   censusFields,
   distanceFilters,
+  censusDropdownItems,
 };

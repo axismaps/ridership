@@ -6,6 +6,8 @@ const getStateUpdateCensusField = ({ components }) => function updateCensusField
     censusDropdown,
     msaAtlas,
     histogram,
+    sliderDropdown,
+    yearDropdown,
   } = components;
 
   censusDropdown
@@ -13,6 +15,14 @@ const getStateUpdateCensusField = ({ components }) => function updateCensusField
       indicator: censusField,
     })
     .update();
+
+  sliderDropdown.config({
+    currentCensusField: censusField,
+  }).updateCensusField();
+
+  yearDropdown.config({
+    currentCensusField: censusField,
+  }).updateCensusField();
 
   this.getCurrentTractGeo((tractGeo) => {
     msaAtlas

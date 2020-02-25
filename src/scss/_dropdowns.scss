@@ -3,6 +3,8 @@
   opacity: 0;
   transition: opacity 300ms;
   pointer-events: none;
+  max-height: calc(100% - 185px);
+  overflow: auto;
   svg line {
     pointer-events: none;
   }
@@ -29,11 +31,31 @@
 
 .msa-dropdown__content-row,
 .indicator-dropdown__content-row,
+.census-dropdown__content-row,
 .compare-dropdown__content-row,
 .search-dropdown__content-row {
   margin-top: 15px;
   cursor: pointer;
 }
+
+.census-dropdown__content-row {
+  display: flex;
+}
+
+.census-dropdown__content-row__title {
+  flex: 1;
+  margin-right: 10px;
+  font-weight: 300;
+}
+
+.census-dropdown__content-row__indicator {
+  padding: 0 5px;
+}
+
+.census-dropdown__content-row__indicator:last-child {
+  border-left: 1px solid #666;
+}
+
 
 .search-dropdown__content-row {
   padding-left: 10px;
@@ -51,7 +73,8 @@
 
 .msa-dropdown__content-row:hover,
 .indicator-dropdown__content-row:hover,
-
+.census-dropdown__content-row:hover .census-dropdown__content-row__title,
+.census-dropdown__content-row__indicator:hover,
 .compare-dropdown__content-row:hover,
 .search-dropdown__content-row:hover,
 .compare .atlas__compare-dropdown-button,
@@ -61,6 +84,9 @@
 
 .msa-dropdown__content-row--highlighted,
 .indicator-dropdown__content-row--highlighted,
+.census-dropdown__content-row--highlighted .census-dropdown__content-row__title,
+.census-dropdown__content-row__indicator--highlighted,
+.year-dropdown__content-row--highlighted
 .compare-dropdown__content-row--highlighted {
   font-weight: 600;
   color: $header__title-row--background;

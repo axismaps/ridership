@@ -6,6 +6,7 @@ const sliderDropdown = ({ data, state }) => new SliderDropdown({
   contentOuterContainer: d3.select('.year-slider__content-container'),
   contentContainer: d3.select('.year-slider__content'),
   years: state.get('years'),
+  currentCensusField: state.get('censusField'),
   updateYears: (newYears) => {
     const yearIntegers = newYears.map(d => Math.round(d));
     state.update({ years: yearIntegers });

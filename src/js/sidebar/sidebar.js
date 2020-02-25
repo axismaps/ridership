@@ -86,6 +86,7 @@ const privateMethods = {
       updateComparedAgencies,
       compareContainer,
       updateHighlightedAgencies,
+      compareColors,
     } = props;
 
     const rows = compareContainer.select('.sidebar__compare-rows')
@@ -96,12 +97,17 @@ const privateMethods = {
       .append('div')
       .attr('class', 'sidebar__compare-row')
       .on('mouseover', d => updateHighlightedAgencies([d]))
-      .on('mouseout', () => updateHighlightedAgencies([]))
+      .on('mouseout', () => updateHighlightedAgencies([]));
+    newRows.append('div');
+    newRows.append('span')
       .text(d => d.taName || d.name);
     newRows.append('i')
       .attr('class', 'fa fa-times');
 
-    newRows.merge(rows)
+    const allRows = newRows.merge(rows);
+    allRows.select('div')
+      .style('background-color', d => d.compareColor);
+    allRows
       .select('i')
       .on('click', (d) => {
         const others = comparedAgencies.slice()

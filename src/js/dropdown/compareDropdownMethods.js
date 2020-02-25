@@ -1,3 +1,16 @@
+const compareColors = [
+  '#0f8fff',
+  '#ff5e4d',
+  '#8c6112',
+  '#ff9d2e',
+  '#c2ab00',
+  '#33a02c',
+  '#eb52d6',
+  '#707070',
+  '#00ad91',
+  '#bc80bd',
+];
+
 const pureMethods = {
   drawContent({
     nationalMapData,
@@ -9,7 +22,8 @@ const pureMethods = {
     const agenciesByRidership = nationalMapData.map(msa => msa.ta)
       .reduce((accumulator, ta) => [...accumulator, ...ta], [])
       .sort((a, b) => b.ntd[b.ntd.length - 1].upt - a.ntd[a.ntd.length - 1].upt)
-      .slice(0, 10);
+      .slice(0, 10)
+      .map((ta, i) => ({ compareColor: compareColors[i], ...ta }));
 
     // for the moment, this is actually MSAs by ridership
     const msaByPop = nationalMapData.map((msa) => {
@@ -18,7 +32,8 @@ const pureMethods = {
       return msaCopy;
     })
       .sort((a, b) => b.population - a.population)
-      .slice(0, 10);
+      .slice(0, 10)
+      .map((msa, i) => ({ compareColor: compareColors[i], ...msa }));
 
     const compareList = [
       {

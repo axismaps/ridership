@@ -5,6 +5,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
     histogram,
     sidebar,
     msaAtlas,
+    yearDropdown,
   } = components;
   const years = this.get('years');
   const msa = this.get('msa');
@@ -41,6 +42,12 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
       years,
     })
     .updateYears();
+
+  yearDropdown
+    .config({
+      years,
+    })
+    .update();
 
   sidebar
     .config({

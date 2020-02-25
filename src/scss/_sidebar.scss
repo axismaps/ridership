@@ -308,7 +308,7 @@ path.pcp-line:hover, path.pcp-line.highlight, path.pcp-line.search-result {
 
 .sidebar__compare-row {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   margin: 0 20px;
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
@@ -320,6 +320,16 @@ path.pcp-line:hover, path.pcp-line.highlight, path.pcp-line.search-result {
 
 .sidebar__compare-list.visible {
   display: block;
+}
+
+.sidebar__compare-row div {
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+}
+
+.sidebar__compare-row span {
+  flex: 1;
 }
 
 .sidebar__compare-row .fa-times {
