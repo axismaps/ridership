@@ -8,6 +8,7 @@ const indicators = new Map();
       summaryType: 'sum',
       format: ',d',
       meta: 'Total unlinked passenger trips (UPTs) taken, on any public transit mode. Legs of a trip with transfers are counted as individual trips.',
+      verified: true,
     },
     {
       text: 'Bus Ridership',
@@ -15,6 +16,7 @@ const indicators = new Map();
       summaryType: 'sum',
       format: ',d',
       meta: 'Unlinked passenger trips on any bus mode, which include local, rapid, commuter, and trolley bus.',
+      verified: true,
     },
     {
       text: 'Rail Ridership',
@@ -22,6 +24,7 @@ const indicators = new Map();
       summaryType: 'sum',
       format: ',d',
       meta: 'Unlinked passenger trips on any rail mode, which include light, heavy, commuter, hybrid, and streetcar rail; monorail; &amp; cable car.',
+      verified: true,
     },
     {
       text: 'Vehicle Revenue Miles',
@@ -30,6 +33,7 @@ const indicators = new Map();
       format: ',d',
       unit: ' mi',
       meta: 'Total miles that vehicles of any mode travel in revenue service (or, serving customers). VRM is a measure of service provision.',
+      verified: true,
     },
     {
       text: 'Minimum Headway',
@@ -53,6 +57,7 @@ const indicators = new Map();
       summaryType: 'sum',
       format: '$,d',
       meta: 'Total transit agency expenses for operating service, for all modes (e.g. daily expenses of running & maintaining vehicles and facilities). Operating expenses are a measure of service provision.',
+      verified: true,
     },
     {
       text: 'Average Fare',
@@ -67,6 +72,7 @@ const indicators = new Map();
       summaryType: 'mean',
       format: '.1%',
       meta: 'Share of operating expenses covered by fares. It measures how much an agency depends on riders to fund operations.',
+      verified: true,
     },
     {
       text: 'Miles Between Failures',
@@ -88,6 +94,7 @@ const indicators = new Map();
       format: '.1f',
       unit: ' rides per mi',
       meta: 'Unlinked passenger trips divided by VRM. It standardizes ridership by service provision & suggests the efficiency of service provision.',
+      verified: true,
     },
     {
       text: 'Average Trip Length',
@@ -118,6 +125,7 @@ const censusFields = [
     value: 'pop',
     format: ',d',
     meta: 'Total population living in area.',
+    verified: true,
   },
   {
     text: 'Population Density',
@@ -126,6 +134,7 @@ const censusFields = [
     format: ',d',
     unit: ' per sq mi',
     meta: 'Population per square mile',
+    verified: true,
   },
   {
     text: 'Percent Foreign Born',
@@ -133,6 +142,7 @@ const censusFields = [
     format: '.1f',
     unit: '%',
     meta: 'Share of population born outside the U.S., including naturalized citizens and non-citizens of the U.S.<br><br>In census tracts with small foreign-born populations, margin of error may be high.',
+    verified: true,
   },
   {
     text: 'Percent White',
@@ -140,6 +150,7 @@ const censusFields = [
     format: '.1f',
     unit: '%',
     meta: 'Share of population identifying as white or caucasian.',
+    verified: true,
   },
   {
     text: 'Percent Black',
@@ -147,6 +158,7 @@ const censusFields = [
     format: '.1f',
     unit: '%',
     meta: 'Share of population identifying as black or African American.',
+    verified: true,
   },
   {
     text: 'Percent Asian',
@@ -154,6 +166,7 @@ const censusFields = [
     format: '.1f',
     unit: '%',
     meta: 'Share of population identifying as Asian or Asian American.',
+    verified: true,
   },
   {
     text: 'Percent Hispanic/Latino',
@@ -161,6 +174,7 @@ const censusFields = [
     format: '.1f',
     unit: '%',
     meta: 'Share of population identifying as Hispanic or Latino.',
+    verified: true,
   },
   {
     text: 'Percent Population Age 75+',
@@ -168,12 +182,14 @@ const censusFields = [
     format: '.1f',
     unit: '%',
     meta: 'Share of population aged 75 years or older.',
+    verified: true,
   },
   {
     text: 'Median Household Income',
     value: 'income',
     format: '$,d',
     meta: 'Median income of households, adjusted to 2018 dollars.',
+    verified: true,
   },
   {
     text: 'Percent Households with No Vehicle',
@@ -181,6 +197,7 @@ const censusFields = [
     format: '.1f',
     unit: '%',
     meta: 'Share of households that do not own a vehicle.',
+    verified: true,
   },
   {
     text: 'Percent Commute by Driving',
@@ -188,6 +205,7 @@ const censusFields = [
     format: '.1f',
     unit: '%',
     meta: 'Share of workers ages 16 or older who commute to work in a single-occupancy vehicle.',
+    verified: true,
   },
   {
     text: 'Percent Commute by Carpooling',

@@ -15,7 +15,6 @@ const pureMethods = {
       .attrs({
         class: 'indicator-dropdown__content-row',
       })
-      .text(d => d.text)
       .on('mouseover', function showProbe(d) {
         dataProbe.remove();
         if (!d.meta) return;
@@ -25,7 +24,7 @@ const pureMethods = {
           bottom: window.innerHeight - rect.bottom,
           width: 250,
         };
-        const html = d.meta;
+        const html = `${d.meta}${d.verified ? '<br><br><i class="fa fa-badge-check"></i> High confidence' : ''}`;
         dataProbe
           .config({
             pos,
@@ -37,6 +36,18 @@ const pureMethods = {
         dataProbe.remove();
       })
       .on('click', updateIndicator);
+
+    indicatorRows
+      .append('span')
+      .html(d => d.text);
+
+    indicatorRows.each(function addBadge(d) {
+      if (d.verified) {
+        d3.select(this)
+          .append('i')
+          .attr('class', 'fa fa-badge-check');
+      }
+    });
 
     return indicatorRows;
   },
