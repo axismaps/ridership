@@ -128,6 +128,8 @@ const dataMethods = {
         '#08589e',
       ]);
 
+    const noDataColor = '#ccc';
+
     const nationalScaleExtent = [1, 8];
     // const nationalScaleExtentMobile = [0.5, 8];
 
@@ -148,6 +150,7 @@ const dataMethods = {
     data.set('allNationalMapData', allNationalMapData);
     data.set('yearRange', yearRange);
     data.set('msaYearRange', msaYearRange);
+    data.set('noDataColor', noDataColor);
     data.set('changeColorScale', changeColorScale);
     data.set('valueColorScale', valueColorScale);
     data.set('indicators', indicators);

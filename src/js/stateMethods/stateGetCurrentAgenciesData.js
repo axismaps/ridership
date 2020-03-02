@@ -89,10 +89,10 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
 
           const firstYearData = getNearestYearValue(years[0], records, true);
           const lastYearData = getNearestYearValue(years[1], records, false);
-          const firstRecord = firstYearData.value;
-          const lastRecord = lastYearData.value;
-          const firstYear = firstYearData.value ? firstYearData.year : years[0];
-          const lastYear = lastYearData.value ? lastYearData.year : years[1];
+          const firstRecord = records[years[0]];
+          const lastRecord = records[years[1]];
+          const firstYear = years[0];
+          const lastYear = years[1];
 
           const pctChange = noRecord(firstRecord) || noRecord(lastRecord) || firstYear === lastYear
             ? null
@@ -158,10 +158,10 @@ const getGetCurrentAgenciesData = ({ data }) => function getCurrentAgenciesData(
         const firstYearData = getNearestYearValue(years[0], records, true);
         const lastYearData = getNearestYearValue(years[1], records, false);
 
-        const firstRecord = firstYearData.value;
-        const lastRecord = lastYearData.value;
-        const firstYear = firstYearData.value ? firstYearData.year : years[0];
-        const lastYear = lastYearData.value ? lastYearData.year : years[1];
+        const firstRecord = records[years[0]];
+        const lastRecord = records[years[1]];
+        const firstYear = years[0];
+        const lastYear = years[1];
 
 
         if (!noRecord(firstRecord) && !noRecord(lastRecord) && firstYear !== lastYear) {

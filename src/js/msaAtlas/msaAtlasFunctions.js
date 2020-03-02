@@ -1,5 +1,3 @@
-
-
 const msaAtlasFunctions = {
   drawAtlas({
     msaMapContainer,
@@ -101,15 +99,15 @@ const msaAtlasFunctions = {
         let valueLabel;
         let valueText;
         let nominalValsText = '';
-        const actualYears = JSON.parse(feature.properties[`${censusField.value}-actualyears`]);
+        const actualYears = tractValue === null ? years : JSON.parse(feature.properties[`${censusField.value}-actualyears`]);
         const nominalValue0 = feature.properties[`${censusField.value}0`];
         const nominalValue1 = feature.properties[censusField.value];
         const format = (val) => {
-          if (val === null || val === undefined) {
+          if (val === null || val === undefined || Number.isNaN(+val)) {
             return 'N/A';
           }
           const displayUnit = censusField.unit && censusField.unit !== '%' ? censusField.unit : '';
-          return `${d3.format(censusField.format || 'd')(val)}${displayUnit}`;
+          return `${d3.format(censusField.format || ',d')(val)}${displayUnit}`;
         };
         if (censusField.change) {
           nominalValsText = `
@@ -117,7 +115,7 @@ const msaAtlasFunctions = {
             <span class="msa-probe__indicator">${actualYears[1]}:</span> ${format(nominalValue1)}<br>
           `;
           valueLabel = `${actualYears[0]}-${actualYears[1]} (% ${censusField.unit === '%' ? 'point' : ''} change):`;
-          valueText = `${Math.round(tractValue * 100)}%`;
+          valueText = `${Number.isNaN(tractValue * 100) ? 'N/A' : `${Math.round(tractValue * 100)}%`}`;
         } else {
           valueLabel = `${years[1]}:`;
           valueText = `${format(feature.properties[`${censusField.value}-nominal`])}`;

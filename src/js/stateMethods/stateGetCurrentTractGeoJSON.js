@@ -11,11 +11,9 @@ const filterGeoByDistance = ({
 
   const tractGeoFiltered = Object.assign({}, tractGeo);
   tractGeoFiltered.features = tractGeo.features.filter((d) => {
-    const isDefined = d.properties[censusField.id] !== null
-      && d.properties[censusField.id] !== undefined;
     const inDistance = distanceFilter === null ? true
       : d.properties.dist <= distanceFilter.value;
-    return isDefined && inDistance;
+    return inDistance;
   });
 
   return tractGeoFiltered;
@@ -98,12 +96,8 @@ const processGeoJSON = ({
   const regionCensusChange = censusFields
     .reduce((accumulator, field) => {
       const changeKey = `${field.value}_change`;
-      const data1 = getNearestYearValue(years[0], field, { properties: { id: msa.msaId } }, regionTables, true);
-      const data2 = getNearestYearValue(years[1], field, { properties: { id: msa.msaId } }, regionTables, false);
-      const value1 = data1.value;
-      const value2 = data2.value;
-      const year1 = data1.year;
-      const year2 = data2.year;
+      const value1 = regionTables[years[0]][msa.msaId][field.value];
+      const value2 = regionTables[years[1]][msa.msaId][field.value];
       if (value1 && value2) {
         if (field.unit === '%') {
           accumulator[changeKey] = value2 - value1;
@@ -114,10 +108,10 @@ const processGeoJSON = ({
       } else {
         accumulator[changeKey] = null;
       }
-      // nominal values of start and end year, or nearest available
+      // nominal values of start and end year
       accumulator[`${field.id}0`] = value1; // first year
       accumulator[field.id] = value2; // second ("current") year
-      accumulator[`${field.id}-actualyears`] = [year1, year2];
+      accumulator[`${field.id}-actualyears`] = years;
       // actual nominal value of current year, even if null
       accumulator[`${field.value}-nominal`] = regionTables[years[1]][msa.msaId][field.value];
       return accumulator;
@@ -155,15 +149,13 @@ const processGeoJSON = ({
     }
     const changeColorScale = data.get('changeColorScale');
 
+    const noDataColor = data.get('noDataColor');
+
     const censusChange = censusFields
       .reduce((accumulator, field) => {
         const changeKey = `${field.value}_change`;
-        const data1 = getNearestYearValue(years[0], field, feature, tables, true);
-        const data2 = getNearestYearValue(years[1], field, feature, tables, false);
-        const value1 = data1.value;
-        const value2 = data2.value;
-        const year1 = data1.year;
-        const year2 = data2.year;
+        const value1 = census1[field.value];
+        const value2 = census2[field.value];
         if (value1 && value2) {
           if (field.unit === '%') {
             accumulator[changeKey] = value2 - value1;
@@ -175,18 +167,18 @@ const processGeoJSON = ({
           accumulator[`${changeKey}-color`] = color;
         } else {
           accumulator[changeKey] = null;
-          accumulator[`${changeKey}-color`] = null;
+          accumulator[`${changeKey}-color`] = noDataColor;
         }
-        // nominal values of start and end year, or nearest available
+        // nominal values of start and end year
         accumulator[`${field.id}0`] = value1; // first year
         accumulator[field.id] = value2; // second ("current") year
-        accumulator[`${field.id}-actualyears`] = [year1, year2];
+        accumulator[`${field.id}-actualyears`] = years;
         // actual nominal value of current year, even if null
         accumulator[`${field.value}-nominal`] = census2[field.value];
         if (census2[field.value] !== null) {
           accumulator[`${field.id}-color`] = valueColorScales[field.value](value2);
         } else {
-          accumulator[`${field.id}-color`] = null;
+          accumulator[`${field.id}-color`] = noDataColor;
         }
         return accumulator;
       }, {});
