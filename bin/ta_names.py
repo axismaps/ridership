@@ -8,7 +8,7 @@ routes = gp.read_file('data/output/routes.geojson')
 TA = pd.read_excel('data/meta/Transit_Agencies_for_Visualization.xlsx',
                    sheet_name='TC AgencyList')
 tas = clean_ta(TA, ['ShowIndividual', '"Other" primary Project ID', 'Primary UZA', 'UZA Name'])
-print 'Data loaded'
+print('Data loaded')
 
 #%%
 def lookup_table(value, df):
@@ -27,16 +27,16 @@ def lookup_table(value, df):
     return out
 
 routes['taid'] = routes['operated_by_name'].apply(lambda x: lookup_table(x, tas))
-print 'Joined with TA data'
+print('Joined with TA data')
 
 #%%
 ta2 = pd.read_csv('data/output/ta.csv')
 routes = routes.merge(ta2, how='left', on='taid')
 export = routes[['taid', 'msa_color', 'high_frequency', 'operated_by_name', 'vehicle_type', 'geometry']]
-print 'Joined with color data'
+print('Joined with color data')
 
 #%%
 with open('data/output/routes.geojson', 'w') as gj:
     gj.write(export.to_json())
     gj.close()
-print 'File written'
+print('File written')
