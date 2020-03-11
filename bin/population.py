@@ -1,3 +1,7 @@
+"""
+Script to load population from NTD Agency Info spreadsheet
+"""
+
 import pandas as pd
 from maintenance import convert_ntd_id
 from meta import clean_ta
@@ -86,10 +90,18 @@ FILES = {
         'legacy': False,
         'ind': 'Service Area Pop',
         'sheet': None
+    },
+    2018: {
+        'file': 'data/meta/2018 Agency Info.xlsx',
+        'id': 'NTD ID',
+        'legacy': False,
+        'ind': 'Service Area Pop',
+        'sheet': None
     }
 }
 
 def load_population_year(pfile, nid, ind, legacy, sheet):
+    """Load population for a given year"""
     if sheet:
         pop_raw = pd.read_excel(pfile, sheet_name=sheet)[[nid, ind]]
     else:
@@ -113,8 +125,9 @@ def load_population_year(pfile, nid, ind, legacy, sheet):
     return pop.groupby('Project ID').max().stack()
 
 def get_population():
+    """Load population across all years defined in dict"""
     population = pd.DataFrame()
-    for year, f in FILES.iteritems():
+    for year, f in FILES.items():
         population[str(year)] = load_population_year(
             f['file'], f['id'], f['ind'], f['legacy'], f['sheet']
         )

@@ -56,7 +56,7 @@ if __name__ == "__main__":
     NTD22_RAW = pd.read_excel('data/ntd/TS2.2TimeSeriesSysWideOpexpSvc_2.xlsx',
                               sheet_name=['UPT', 'VRM', 'VRH',
                                           'DRM', 'VOMS', 'PMT'])
-    NTD21_RAW = pd.read_excel('data/ntd/TS2.1TimeSeriesOpExpSvcModeTOS_3.xlsx',
+    NTD21_RAW = pd.read_excel('data/ntd/TS2.1TimeSeriesOpExpSvcModeTOS_2.xlsx',
                               sheet_name=['UPT', 'FARES', 'OpExp Total'])
 
     print('Data successfully loaded from Excel')
@@ -82,10 +82,10 @@ if __name__ == "__main__":
     # Drop unused columns
     col22 = ['Last Report Year', 'Legacy NTD ID', 'Agency Name', 'Agency Status',
              'Reporter Type', 'City', 'State', 'Census Year', 'Primary UZA Name',
-             'UZA', 'UZA Area SQ Miles', 'UZA Population', '2017 Status']
+             'UZA', 'UZA Area SQ Miles', 'UZA Population', '2018 Status']
     col21 = ['Last Report Year', 'Legacy NTD ID', 'Agency Name', 'Agency Status',
              'Reporter Type', 'City', 'State', 'Census Year', 'UZA Name', 'Mode', 'Service',
-             'Mode Status', 'UZA', 'UZA Area SQ Miles', 'UZA Population', '2017 Status']
+             'Mode Status', 'UZA', 'UZA Area SQ Miles', 'UZA Population', '2018 Status']
 
     TA_DROP = ['ShowIndividual', 'Primary UZA', 'UZA Name', 'Agency Name',
                'Reporter Acronym', 'display']
