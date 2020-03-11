@@ -1,5 +1,5 @@
 """Primary script for loading and parsing NTD data"""
-#%%
+
 import pandas as pd
 from numpy import inf
 from numpy import nan
@@ -41,6 +41,7 @@ INFLATION = {
 }
 
 def update_dollars(s):
+    """Update series based on INFLATION figures"""
     for rowname, row in s.iteritems():
         y = rowname[1] if isinstance(rowname, tuple) else rowname
         s[rowname] = row * INFLATION[str(y)]
@@ -49,19 +50,17 @@ def update_dollars(s):
 if __name__ == "__main__":
     print('All modules loaded')
 
-    #%%
     # Load the excel data:
     TA = pd.read_excel('data/meta/Transit_Agencies_for_Visualization.xlsx',
-                    sheet_name='TC AgencyList')
+                       sheet_name='TC AgencyList')
     NTD22_RAW = pd.read_excel('data/ntd/TS2.2TimeSeriesSysWideOpexpSvc_2.xlsx',
-                            sheet_name=['UPT', 'VRM', 'VRH',
-                                        'DRM', 'VOMS', 'PMT'])
+                              sheet_name=['UPT', 'VRM', 'VRH',
+                                          'DRM', 'VOMS', 'PMT'])
     NTD21_RAW = pd.read_excel('data/ntd/TS2.1TimeSeriesOpExpSvcModeTOS_3.xlsx',
-                            sheet_name=['UPT', 'FARES', 'OpExp Total'])
+                              sheet_name=['UPT', 'FARES', 'OpExp Total'])
 
     print('Data successfully loaded from Excel')
 
-    #%%
     ntd21 = {}
     ntd22 = {}
 
@@ -82,14 +81,14 @@ if __name__ == "__main__":
 
     # Drop unused columns
     col22 = ['Last Report Year', 'Legacy NTD ID', 'Agency Name', 'Agency Status',
-            'Reporter Type', 'City', 'State', 'Census Year', 'Primary UZA Name',
-            'UZA', 'UZA Area SQ Miles', 'UZA Population', '2017 Status']
+             'Reporter Type', 'City', 'State', 'Census Year', 'Primary UZA Name',
+             'UZA', 'UZA Area SQ Miles', 'UZA Population', '2017 Status']
     col21 = ['Last Report Year', 'Legacy NTD ID', 'Agency Name', 'Agency Status',
-            'Reporter Type', 'City', 'State', 'Census Year', 'UZA Name', 'Mode', 'Service',
-            'Mode Status', 'UZA', 'UZA Area SQ Miles', 'UZA Population', '2017 Status']
+             'Reporter Type', 'City', 'State', 'Census Year', 'UZA Name', 'Mode', 'Service',
+             'Mode Status', 'UZA', 'UZA Area SQ Miles', 'UZA Population', '2017 Status']
 
     TA_DROP = ['ShowIndividual', 'Primary UZA', 'UZA Name', 'Agency Name',
-            'Reporter Acronym', 'display']
+               'Reporter Acronym', 'display']
     ta_clean = clean_ta(TA, TA_DROP)
 
     # Creating list of combined TAs and removing big ones
@@ -120,8 +119,7 @@ if __name__ == "__main__":
         stack = ntd_merge(df, n)
         years = pd.Series(stack.index.levels[1])
         stacks[n] = stack.drop(years[years.astype(int) <= 2005], level=1)
-
-    print ('Created stacks for ' + str(stacks.keys()))
+    print('Created stacks for ' + str(stacks.keys()))
 
     # Create MSA stacks
     msa_stacks = {}
@@ -154,7 +152,10 @@ if __name__ == "__main__":
     # Average speed
     stacks['speed'] = pd.Series(stacks['vrm'] / stacks['vrh'], name='speed')
     national_values['speed'] = national_values['vrm'] / national_values['vrh']
-    msa_stacks['speed'] = pd.Series(msa_stacks['vrm']['vrm'] / msa_stacks['vrh']['vrh'], name='speed')
+    msa_stacks['speed'] = pd.Series(
+        msa_stacks['vrm']['vrm'] / msa_stacks['vrh']['vrh'],
+        name='speed'
+    )
     stacks['speed'].drop(labels=other_ta, inplace=True)
 
     # Farebox recovery
@@ -204,8 +205,6 @@ if __name__ == "__main__":
         name='failures'
     )
 
-    #%%
-
     # Ridership per capita
     stacks['capita'] = pd.Series(stacks['upt'] / stacks['population'], name='capita')
     msa_stacks['capita'] = pd.Series(
@@ -220,7 +219,6 @@ if __name__ == "__main__":
     national_gas['year'] = national_gas['Year'].astype(int)
     national_values['gas'] = national_gas[['year', 'gas']].groupby('year').mean()
 
-    #%%
     # Delete extra indicators
     del stacks['vrh']
     del stacks['drm']
@@ -243,7 +241,6 @@ if __name__ == "__main__":
 
     print('Calculated values for ' + str(stacks.keys()))
 
-    #%%
     # Removing zeroes and Infinities
     indexes = ['id', 'year']
     export = pd.concat(stacks.values(), axis=1).replace([inf, 0], nan)
@@ -259,13 +256,13 @@ if __name__ == "__main__":
         ta_export[ta_export['display']], on='taid'
     )
     col_order = ['taname', 'msaid', 'year', 'upt', 'bus', 'rail', 'vrm',
-                'headways', 'speed', 'opexp_total',
-                'fares', 'avg_fare', 'recovery', 'failures',
-                'gas', 'capita', 'vrm_per_ride', 'trip_length']
+                 'headways', 'speed', 'opexp_total',
+                 'fares', 'avg_fare', 'recovery', 'failures',
+                 'gas', 'capita', 'vrm_per_ride', 'trip_length']
     col_names = ['taname', 'msaid', 'year', 'upt', 'bus_upt', 'rail_upt', 'vrm',
-                'minimum_headways', 'avg_speed', 'operating_expenses_total',
-                'fare_revenue', 'avg_fare', 'farebox_recovery', 'miles_between_failures',
-                'state_gas_price_per_gal', 'trips_per_capita', 'upt_per_vrm', 'avg_trip_length_mi']
+                 'minimum_headways', 'avg_speed', 'operating_expenses_total',
+                 'fare_revenue', 'avg_fare', 'farebox_recovery', 'miles_between_failures',
+                 'state_gas_price_per_gal', 'trips_per_capita', 'upt_per_vrm', 'avg_trip_length_mi']
     download[col_order].to_csv('data/output/transit_data.csv', header=col_names, index=False)
 
     print('Data exported to CSV')
