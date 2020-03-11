@@ -40,7 +40,7 @@ const pureMethods = {
 
       indicatorRows
         .append('span')
-        .html(d => d.text);
+        .html(d => `${d.text}${d.verified ? ' <i class="fa fa-badge-check"></i>' : ''}`);
     } else {
       indicatorRows = contentContainer
         .selectAll('.census-dropdown__content-row')
@@ -54,7 +54,7 @@ const pureMethods = {
       indicatorRows
         .append('div')
         .attr('class', 'census-dropdown__content-row__title')
-        .text(d => `${d.text}:`)
+        .html(d => `${d.text}${d.verified ? ' <i class="fa fa-badge-check"></i>' : ''}:`)
         .on('mouseover', function showProbe(d) {
           dataProbe.remove();
           if (!d.meta) return;

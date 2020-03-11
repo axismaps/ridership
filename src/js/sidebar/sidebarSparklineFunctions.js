@@ -27,7 +27,7 @@ const sidebarSparkLineFunctions = {
     return sparkRows
       .append('div')
       .attr('class', 'sidebar__sparkline-title')
-      .text(d => d.text)
+      .html(d => `${d.text}${d.verified ? ' <i class="fa fa-badge-check" title="High confidence"></i>' : ''}`)
       .on('click', updateIndicator);
   },
   drawSparkLines({
