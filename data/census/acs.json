@@ -141,13 +141,22 @@
     "key": "income",
     "var": "B19013_001E",
     "upload": true,
-    "msa": true
+    "msa": true,
+    "inflation": true
   },
   {
     "name": "Households",
     "key": "households",
     "var": "B11001_001E",
     "msa": true
+  },
+  {
+    "name": "Median Housing Rent",
+    "key": "rent",
+    "var": "B25113_001E",
+    "upload": true,
+    "msa": true,
+    "inflation": true
   },
   {
     "name": "Households with No Vehicle",

@@ -6,6 +6,7 @@ import os.path
 import json
 import grequests
 import pandas as pd
+from ntd import update_dollars
 from carto import replace_data
 import settings
 
@@ -142,6 +143,9 @@ def download_census():
                 indexes.append(d['key'])
                 if 'msa' in d and d['msa']:
                     msa_indexes.append(d['key'])
+            if 'inflation' in d:
+                combined[d['key']] = update_dollars(pd.Series(combined[d['key']], name=d['key']))
+                msa_combo[d['key']] = update_dollars(pd.Series(msa_combo[d['key']], name=d['key']))
             if 'var' not in d:
                 if 'sum' in d:
                     combined[d['key']] = 0

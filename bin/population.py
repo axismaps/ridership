@@ -122,4 +122,4 @@ def get_population():
     return p.rename('population')
 
 if __name__ == "__main__":
-    print get_population()
+    print(get_population())

@@ -110,4 +110,4 @@ def load_maintenance():
     return load_excel(ta_clean)
 
 if __name__ == "__main__":
-    print load_maintenance()
+    print(load_maintenance())
