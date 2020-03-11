@@ -1,3 +1,7 @@
+"""
+Download ACS data and parse for uploading
+"""
+
 import os.path
 import json
 import grequests
@@ -6,6 +10,7 @@ from carto import replace_data
 import settings
 
 def process_result(i, y, var, indexes, frames):
+    """Transform downloaded result to data frame by year"""
     result = pd.DataFrame(i.json())
     result.columns = result.iloc[0]
     result = result.reindex(result.index.drop(0))
@@ -26,6 +31,7 @@ def process_result(i, y, var, indexes, frames):
     return frames
 
 def combine_files(frame, geo, cols, index):
+    """Merge downloaded ACS data with geo file"""
     return pd.concat(frame, axis=1).reset_index().merge(
         geo, on='GEOID', how='inner'
         ).drop(
@@ -35,6 +41,7 @@ def combine_files(frame, geo, cols, index):
         ).set_index(index)
 
 def download_census():
+    """Download and parse ACS data as defined in acs.json"""
     geo = pd.read_csv('data/geojson/tracts/cbsa_crosswalk.csv', dtype={'GEOID': object})
     counties = geo.drop_duplicates(
         ['STATEFP', 'COUNTYFP', 'msaid']
@@ -45,6 +52,7 @@ def download_census():
     msa_geo = pd.read_csv('data/geojson/cbsa/cb_2017_us_cbsa_500k.csv', dtype={'GEOID': object})
 
     indexes = ['GEOID', 'year']
+    msa_indexes = ['GEOID', 'year']
 
     with open('data/census/acs.json', "r") as read_file:
         meta = json.load(read_file)
@@ -62,7 +70,7 @@ def download_census():
                 elif r['var'] != '99999999':
                     frames = []
                     errors = []
-                    for y in range(2010, 2017):
+                    for y in range(2010, 2018):
                         for s in counties:
                             urls = errors
                             errors = []
@@ -125,39 +133,45 @@ def download_census():
             msa,
             msa_geo,
             ['AFFGEOID', 'NAME', 'AWATER', 'LSAD', 'CBSAFP'],
-            indexes
+            msa_indexes
         )
 
         for d in meta:
             print(d['name'])
             if 'upload' in d and d['upload']:
                 indexes.append(d['key'])
+                if 'msa' in d and d['msa']:
+                    msa_indexes.append(d['key'])
             if 'var' not in d:
                 if 'sum' in d:
                     combined[d['key']] = 0
-                    msa_combo[d['key']] = 0
+                    if 'msa' in d and d['msa']:
+                        msa_combo[d['key']] = 0
                     for s in d['sum']:
                         combined[d['key']] = combined[d['key']] + combined[s]
-                        msa_combo[d['key']] = msa_combo[d['key']] + msa_combo[s]
+                        if 'msa' in d and d['msa']:
+                            msa_combo[d['key']] = msa_combo[d['key']] + msa_combo[s]
                 else:
                     combined[d['key']] = combined[d['numerator']].divide(
                         combined[d['denominator']],
                         fill_value=0
                     )
-                    msa_combo[d['key']] = msa_combo[d['numerator']].divide(
-                        msa_combo[d['denominator']],
-                        fill_value=0
-                    )
+                    if 'msa' in d and d['msa']:
+                        msa_combo[d['key']] = msa_combo[d['numerator']].divide(
+                            msa_combo[d['denominator']],
+                            fill_value=0
+                        )
                     if 'scale' in d:
                         combined[d['key']] = combined[d['key']] * d['scale']
-                        msa_combo[d['key']] = msa_combo[d['key']] * d['scale']
+                        if 'msa' in d and d['msa']:
+                            msa_combo[d['key']] = msa_combo[d['key']] * d['scale']
 
         export_msa = msa_combo.reset_index()
         export_msa_filtered = export_msa[
             export_msa.GEOID.isin([str(i) for i in combined.msaid.unique().tolist()])
         ]
-        export_msa_filtered[indexes].to_csv('data/output/census_msa.csv', index=False)
-        replace_data('census_msa', indexes, 'census_msa.csv')
+        export_msa_filtered[msa_indexes].to_csv('data/output/census_msa.csv', index=False)
+        replace_data('census_msa', msa_indexes, 'census_msa.csv')
 
         indexes.append('msaid')
         export = combined.reset_index()
