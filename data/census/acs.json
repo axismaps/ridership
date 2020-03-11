@@ -176,12 +176,6 @@
     "msa": true
   },
   {
-    "name": "Commute by Carpool",
-    "key": "carpool",
-    "var": "B08101_017E",
-    "msa": true
-  },
-  {
     "name": "Commute by Public Transit",
     "key": "transit",
     "var": "B08101_025E",
@@ -191,14 +185,6 @@
     "name": "Percent Commute by Driving",
     "key": "drive_pct",
     "numerator": "drive",
-    "denominator": "workers",
-    "upload": true,
-    "msa": true
-  },
-  {
-    "name": "Percent Commute by Carpooling",
-    "key": "carpool_pct",
-    "numerator": "carpool",
     "denominator": "workers",
     "upload": true,
     "msa": true
