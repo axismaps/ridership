@@ -1,3 +1,7 @@
+"""
+Download and parse private primary jobs (JT03) from LEHD
+"""
+
 #%%
 import os
 from string import Template
@@ -6,28 +10,27 @@ import pandas as pd
 import requests
 import us
 
-CW = Template('https://lehd.ces.census.gov/data/lodes/LODES7/${state}/${state}_xwalk.csv.gz')
-CW_FILE = Template('data/census/lodes/crosswalks/${state}.csv.gz')
+CW = Template('https://lehd.ces.census.gov/data/lodes/LODES7/${st}/${st}_xwalk.csv.gz')
+CW_FILE = Template('data/census/lodes/crosswalks/${st}.csv.gz')
 
 WAC = Template(
-    'https://lehd.ces.census.gov/data/lodes/LODES7/\
-    ${state}/wac/${state}_wac_S000_JT00_${year}.csv.gz'
+    'https://lehd.ces.census.gov/data/lodes/LODES7/${st}/wac/${st}_wac_S000_JT03_${yr}.csv.gz'
 )
-WAC_FILE = Template('data/census/lodes/wac/${state}_${year}.csv.gz')
+WAC_FILE = Template('data/census/lodes/wac/${st}_${yr}.csv.gz')
 
 fips = us.states.mapping('fips', 'abbr')
 states = pd.read_csv('data/geojson/tracts/cbsa_crosswalk.csv')['STATEFP'].unique().tolist()
 
-print 'Imported libraries and set constants'
+print('Imported libraries and set constants')
 
 #%%
 groups = []
 for s in states:
     abbr = fips[str(s).zfill(2)].lower()
-    gz = CW_FILE.substitute(state=abbr)
+    gz = CW_FILE.substitute(st=abbr)
     csv = gz[:-3]
     if not os.path.isfile(gz) and not os.path.isfile(csv):
-        cw = requests.get(CW.substitute(state=abbr))
+        cw = requests.get(CW.substitute(st=abbr))
         with open(gz, 'wb') as f:
             f.write(cw.content)
             f.close()
@@ -40,11 +43,11 @@ for s in states:
                 os.remove(gz)
 
     frames = []
-    for y in range(2010, 2016):
-        wac = WAC_FILE.substitute(state=abbr, year=y)
+    for y in range(2010, 2018):
+        wac = WAC_FILE.substitute(st=abbr, yr=y)
         wcsv = wac[:-3]
         if not os.path.isfile(wac) and not os.path.isfile(wcsv):
-            wc = requests.get(WAC.substitute(state=abbr, year=y))
+            wc = requests.get(WAC.substitute(st=abbr, yr=y))
             if wc.status_code == 200:
                 with open(wac, 'wb') as f:
                     f.write(wc.content)
@@ -52,7 +55,7 @@ for s in states:
 
         if not os.path.isfile(wcsv) and os.path.isfile(wac):
             with gzip.open(wac, 'rb') as f:
-                with open(wcsv, 'w') as c:
+                with open(wcsv, 'wb') as c:
                     c.write(f.read())
                     c.close()
                     os.remove(wac)
@@ -81,7 +84,7 @@ for s in states:
     )
     groups.append(combined.groupby(['trct', 'year']).sum())
 
-print 'Loaded and parsed state data'
+print('Loaded and parsed state data')
 #%%
 tracts = pd.read_csv(
     'data/geojson/tracts/cbsa_crosswalk.csv',
@@ -95,4 +98,4 @@ full.to_csv(
     header=['GEOID', 'year', 'jobs']
 )
 
-print 'Wrote jobs.csv'
+print('Wrote jobs.csv')
