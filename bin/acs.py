@@ -112,7 +112,7 @@ def download_census():
                     msa.append(df)
                 elif r['var'] != '99999999':
                     frames = []
-                    for y in range(2010, 2017):
+                    for y in range(2010, 2018):
                         urls = ['https://api.census.gov/data/' + str(y) + \
                             '/acs/acs5?get=' + r['var'] + \
                             '&for=metropolitan statistical area/micropolitan statistical area:*' + \
