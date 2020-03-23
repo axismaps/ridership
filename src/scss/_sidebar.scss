@@ -58,9 +58,9 @@ $sidebar-content--margin-top: 20px;
   flex: 1;
 }
 
-.sidebar__sparkline-title .fa-badge-check,
-.sidebar__pcp-row .fa-badge-check {
-  margin-left: 10px;
+.sidebar__sparkline-title .fa,
+.sidebar__pcp-row .fa {
+  margin-right: 10px;
 }
 
 .sidebar__sparkline-title, .sidebar__pcp-row p {
@@ -73,7 +73,6 @@ $sidebar-content--margin-top: 20px;
 
 .sidebar__pcp-row p {
   width: 100%;
-  justify-content: space-between;
 }
 
 .sidebar__sparkline-title--selected, .sidebar__pcp-row--selected {

@@ -40,7 +40,7 @@ const pureMethods = {
 
       indicatorRows
         .append('span')
-        .html(d => `${d.text}${d.verified ? ' <i class="fa fa-badge-check"></i>' : ''}`);
+        .html(d => `${d.verified ? ' <i class="fa fa-badge-check" title="High confidence"></i>' : ' <i class="fa fa-fw"></i>'}${d.text}`);
     } else {
       indicatorRows = contentContainer
         .selectAll('.census-dropdown__content-row')

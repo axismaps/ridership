@@ -21,7 +21,7 @@ const parallelCoordinatePlotFunctions = {
         updateIndicator(indicator);
       })
       .append('p')
-      .html(d => `${d.text}${d.verified ? ' <i class="fa fa-badge-check" title="High confidence"></i>' : ''}`);
+      .html(d => `${d.verified ? ' <i class="fa fa-badge-check" title="High confidence"></i>' : ' <i class="fa fa-fw"></i>'}${d.text}`);
 
     return indicatorsContainer;
   },
