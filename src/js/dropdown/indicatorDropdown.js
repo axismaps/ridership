@@ -1,6 +1,7 @@
 import getPrivateBase from './dropdownBase';
 import pureMethods from './indicatorDropdownMethods';
 import getPublicDropdownBase from './dropdownPublicBase';
+import DataProbe from '../dataProbe/dataProbe';
 
 const privateProps = new WeakMap();
 
@@ -16,6 +17,8 @@ const privateMethods = {
       toggleButtonText,
       updateIndicator,
       defaultText,
+      dataProbe,
+      infoButton,
     } = props;
 
     const {
@@ -38,6 +41,8 @@ const privateMethods = {
       indicator,
       toggleButtonText,
       defaultText,
+      infoButton,
+      dataProbe,
     });
 
     setContentPosition.call(this);
@@ -46,6 +51,7 @@ const privateMethods = {
       indicators,
       contentContainer,
       updateIndicator,
+      dataProbe,
       censusFields,
     });
 
@@ -75,6 +81,9 @@ class IndicatorDropdown {
     } = privateMethods;
     privateProps.set(this, {
       alignMenuToButton: 'left',
+      dataProbe: new DataProbe({
+        container: d3.select('.outer-container'),
+      }),
     });
     this.config(config);
 
@@ -97,6 +106,8 @@ class IndicatorDropdown {
       toggleButtonText,
       defaultText,
       mobileSelect,
+      infoButton,
+      dataProbe,
       censusFields,
     } = privateProps.get(this);
 
@@ -111,6 +122,8 @@ class IndicatorDropdown {
       defaultText,
       indicator,
       toggleButtonText,
+      infoButton,
+      dataProbe,
     });
   }
 }

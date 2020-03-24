@@ -56,6 +56,10 @@
   margin-left: 10px;
 }
 
+.atlas__top-button i.fa-info-circle {
+  display: none;
+}
+
 .atlas__top-button:hover {
   color: $main-blue;
 }

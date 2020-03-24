@@ -16,6 +16,7 @@ const getCensusDropdown = ({ data, state }) => new CensusDropdown({
   dropdownOpen: false,
   toggleButton: d3.select('.atlas__census-dropdown-button'),
   toggleButtonText: d3.select('.atlas__census-dropdown-button-text'),
+  infoButton: d3.select('.atlas__census-dropdown-button .fa-info-circle'),
   contentOuterContainer: d3.select('.census-dropdown__content-container'),
   contentContainer: d3.select('.census-dropdown__content'),
   censusFields: data.get('censusFields'),

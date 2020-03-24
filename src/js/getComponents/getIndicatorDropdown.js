@@ -11,6 +11,7 @@ const getIndicatorDropdown = ({ data, state }) => new IndicatorDropdown({
   dropdownOpen: false,
   toggleButton: d3.select('.atlas__indicator-dropdown-button'),
   toggleButtonText: d3.select('.atlas__indicator-dropdown-button-text'),
+  infoButton: d3.select('.atlas__indicator-dropdown-button .fa-info-circle'),
   contentOuterContainer: d3.select('.indicator-dropdown__content-container'),
   contentContainer: d3.select('.indicator-dropdown__content'),
   indicators: data.get('indicators'),

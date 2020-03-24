@@ -3,10 +3,10 @@ const pureMethods = {
     indicators,
     contentContainer,
     updateIndicator,
+    dataProbe,
     censusFields,
   }) {
     const indicatorList = Array.from(indicators.values());
-
     let indicatorRows;
 
     if (!censusFields) {
@@ -18,8 +18,29 @@ const pureMethods = {
         .attrs({
           class: 'indicator-dropdown__content-row',
         })
-        .text(d => d.text)
-        .on('click', updateIndicator);
+        .on('mouseover', function showProbe(d) {
+          dataProbe.remove();
+          if (!d.meta) return;
+          const rect = this.getBoundingClientRect();
+          const pos = {
+            right: window.innerWidth - rect.x + 25,
+            bottom: window.innerHeight - rect.bottom,
+            width: 250,
+          };
+          const html = `${d.meta}${d.verified ? '<br><br><i class="fa fa-badge-check"></i> High confidence' : ''}`;
+          dataProbe
+            .config({
+              pos,
+              html,
+            })
+            .draw();
+        })
+        .on('click', updateIndicator)
+        .on('mouseout', () => { dataProbe.remove(); });
+
+      indicatorRows
+        .append('span')
+        .html(d => `${d.verified ? ' <i class="fa fa-badge-check" title="High confidence"></i>' : ' <i class="fa fa-fw"></i>'}${d.text}`);
     } else {
       indicatorRows = contentContainer
         .selectAll('.census-dropdown__content-row')
@@ -33,7 +54,25 @@ const pureMethods = {
       indicatorRows
         .append('div')
         .attr('class', 'census-dropdown__content-row__title')
-        .text(d => `${d.text}:`);
+        .html(d => `${d.text}${d.verified ? ' <i class="fa fa-badge-check"></i>' : ''}:`)
+        .on('mouseover', function showProbe(d) {
+          dataProbe.remove();
+          if (!d.meta) return;
+          const rect = this.getBoundingClientRect();
+          const pos = {
+            right: window.innerWidth - rect.x + 25,
+            bottom: window.innerHeight - rect.bottom,
+            width: 250,
+          };
+          const html = `${d.meta}${d.verified ? '<br><br><i class="fa fa-badge-check"></i> High confidence' : ''}`;
+          dataProbe
+            .config({
+              pos,
+              html,
+            })
+            .draw();
+        })
+        .on('mouseout', () => { dataProbe.remove(); });
 
       indicatorRows
         .append('div')
@@ -84,8 +123,31 @@ const pureMethods = {
     indicator,
     toggleButtonText,
     defaultText,
+    infoButton,
+    dataProbe,
   }) {
     toggleButtonText.text(indicator !== null ? indicator.text : defaultText);
+    if (!infoButton) return;
+    infoButton.on('mouseover', function showProbe() {
+      dataProbe.remove();
+      if (!indicator.meta) return;
+      const rect = this.getBoundingClientRect();
+      const pos = {
+        right: window.innerWidth - rect.x + 25,
+        bottom: window.innerHeight - rect.bottom,
+        width: 250,
+      };
+      const html = indicator.meta;
+      dataProbe
+        .config({
+          pos,
+          html,
+        })
+        .draw();
+    })
+      .on('mouseout', () => {
+        dataProbe.remove();
+      });
   },
   highlightCurrentIndicator({
     indicatorRows,
