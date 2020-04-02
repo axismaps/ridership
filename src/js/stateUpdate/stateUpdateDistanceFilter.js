@@ -26,7 +26,7 @@ const getStateUpdateDistanceFilter = ({ components }) => function updateDistance
   //     distanceFilter,
   //   })
   //   .updateData();
-  this.getCurrentTractGeo((tractGeo) => {
+  this.getCurrentTractGeo((tractGeo, regionCensus) => {
     msaAtlas
       .config({
         tractGeo,
@@ -37,6 +37,7 @@ const getStateUpdateDistanceFilter = ({ components }) => function updateDistance
       .config({
         distanceFilter,
         tractGeo,
+        regionCensus,
       })
       .updateData();
   });

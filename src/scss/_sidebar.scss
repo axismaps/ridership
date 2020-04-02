@@ -312,6 +312,14 @@ path.pcp-line {
   cursor: pointer;
 }
 
+circle.pcp-dot {
+  cursor: pointer;
+  fill: black;
+  stroke: black;
+  stroke-opacity: 0;
+  stroke-width: 2px;
+}
+
 path.pcp-line:hover, path.pcp-line.highlight, path.pcp-line.search-result {
   opacity: 1 !important;
   stroke-width: 3;

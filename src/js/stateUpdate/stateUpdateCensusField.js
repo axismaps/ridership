@@ -24,7 +24,7 @@ const getStateUpdateCensusField = ({ components }) => function updateCensusField
     currentCensusField: censusField,
   }).updateCensusField();
 
-  this.getCurrentTractGeo((tractGeo) => {
+  this.getCurrentTractGeo((tractGeo, regionCensus) => {
     msaAtlas
       .config({
         currentCensusField: censusField,
@@ -36,6 +36,7 @@ const getStateUpdateCensusField = ({ components }) => function updateCensusField
         .config({
           currentCensusField: censusField,
           tractGeo,
+          regionCensus,
         })
         .updateData();
     }

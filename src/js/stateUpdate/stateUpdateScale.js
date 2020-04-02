@@ -45,6 +45,7 @@ const getStateUpdateScale = ({ components, data }) => function updateScale() {
   histogram
     .config({
       currentScale: scale,
+      msa: null,
       // legendOn,
     })
     // .setLegendStatus()

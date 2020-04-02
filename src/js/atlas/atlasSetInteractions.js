@@ -25,7 +25,6 @@ const setInteractions = ({
   jumpToMsa,
   updateComparedAgencies,
   mapContainer,
-  years,
   allNationalMapData,
   indicator,
   mobile,
@@ -38,7 +37,7 @@ const setInteractions = ({
   const tooltip = new DataProbe({
     container: d3.select('.outer-container'),
   });
-  const formatPct = number => (number === null ? 'N/A' : `${d3.format(',d')(number)}%`);
+  const formatPct = number => ([null, undefined].includes(number) ? 'N/A' : `${d3.format(',d')(number)}%`);
   const drawProbe = (d) => {
     d3.event.stopPropagation();
     const { clientX, clientY } = d3.event;
@@ -51,7 +50,7 @@ const setInteractions = ({
     const ids = comparedAgencies.map(a => a.globalId);
 
 
-    const format = number => (number === null ? 'N/A'
+    const format = number => ([null, undefined].includes(number) ? 'N/A'
       : (d3.format(indicator.format)(number) + (indicator.unit || '')));
     let clickText;
     if (mobile) {
@@ -70,17 +69,17 @@ const setInteractions = ({
     }
     const html = nationalDataView === 'msa' ? `
         <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.name}</span></div>
-        <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
-        <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
-        <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
+        <div class="data-probe__row"><span class="data-probe__field">${d.actualYearRange[0]}:</span> ${format(d.firstAndLast[0])}</div>
+        <div class="data-probe__row"><span class="data-probe__field">${d.actualYearRange[1]}:</span> ${format(d.firstAndLast[1])}</div>
+        <div class="data-probe__row"><span class="data-probe__field">${d.actualYearRange.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
         <div class="data-probe__sparkline-container expanded"></div>
         <div class="data-probe__row data-probe__msa-text">${clickText}</div>
       ` : `
         <div class="data-probe__row"><span class="data-probe__field data-probe__name">${d.taName}</span></div>
         <div class="data-probe__row">${d.msaName}</div>            
-        <div class="data-probe__row"><span class="data-probe__field">${years[0]}:</span> ${format(d.firstAndLast[0])}</div>
-        <div class="data-probe__row"><span class="data-probe__field">${years[1]}:</span> ${format(d.firstAndLast[1])}</div>
-        <div class="data-probe__row"><span class="data-probe__field">${years.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
+        <div class="data-probe__row"><span class="data-probe__field">${d.actualYearRange[0]}:</span> ${format(d.firstAndLast[0])}</div>
+        <div class="data-probe__row"><span class="data-probe__field">${d.actualYearRange[1]}:</span> ${format(d.firstAndLast[1])}</div>
+        <div class="data-probe__row"><span class="data-probe__field">${d.actualYearRange.join('–')} (% change):</span> ${formatPct(d.pctChange)}</div>
         <div class="data-probe__sparkline-container expanded"></div>
         <div class="data-probe__row data-probe__msa-text">${clickText}</div>
       `;

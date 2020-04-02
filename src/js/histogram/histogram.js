@@ -30,9 +30,11 @@ const privateMethods = {
       nationalData,
       updateHighlightedTracts,
       tractGeo,
+      regionCensus,
       currentCensusField,
       distanceFilter,
       mobile,
+      msa,
     } = props;
 
     const {
@@ -77,13 +79,17 @@ const privateMethods = {
       }));
     } else {
       if (tractGeo === undefined || tractGeo === null) return;
-      histogramData = getMSAHistogramData({
+      ({
+        histogramData,
+        nationalAverage,
+      } = getMSAHistogramData({
         tractGeo,
+        regionCensus,
         bucketCount,
         currentCensusField,
         distanceFilter,
         mobile,
-      });
+      }));
     }
 
 
@@ -134,8 +140,6 @@ const privateMethods = {
       nationalDataView,
     });
 
-    let nationalAverageGroup;
-    let nationalAverageText;
     if (currentScale === 'national') {
       addNationalBarMouseEvents({
         bars,
@@ -144,16 +148,6 @@ const privateMethods = {
         nationalDataView,
         mobile,
       });
-      ({
-        nationalAverageGroup,
-        nationalAverageText,
-      } = drawAverageLine({
-        svg,
-        nationalAverage,
-        xScale,
-        padding,
-        height,
-      }));
     } else {
       addMSABarMouseEvents({
         bars,
@@ -163,6 +157,18 @@ const privateMethods = {
         currentCensusField,
       });
     }
+
+    const {
+      nationalAverageGroup,
+      nationalAverageText,
+    } = drawAverageLine({
+      svg,
+      nationalAverage,
+      xScale,
+      padding,
+      height,
+      msa,
+    });
 
 
     const {

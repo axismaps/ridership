@@ -8,6 +8,8 @@ const updateFunctions = {
     xScale,
     padding,
     nationalAverageText,
+    currentCensusField,
+    msa,
   }) {
     const {
       getNationalAverageText,
@@ -15,7 +17,7 @@ const updateFunctions = {
     } = localFunctions;
 
     nationalAverageText
-      .text(getNationalAverageText({ nationalAverage }));
+      .text(getNationalAverageText({ nationalAverage, currentCensusField, msa }));
 
     nationalAverageGroup
       .style('opacity', 1)
@@ -27,9 +29,16 @@ const updateFunctions = {
         nationalAverage,
       }));
 
+    let anchor = 'middle';
+    if (xScale(nationalAverage) < (3 * xScale.range()[0] + xScale.range()[1]) / 4) {
+      anchor = 'start';
+    } else if (xScale(nationalAverage) > (3 * xScale.range()[1] + xScale.range()[0]) / 4) {
+      anchor = 'end';
+    }
     nationalAverageGroup
       .select('text')
-      .attr('x', Math.max(0, 70 - xScale(nationalAverage)));
+      .attr('x', '0')
+      .attr('text-anchor', anchor);
   },
   updateAxes({
     xScale,
@@ -204,6 +213,9 @@ const updateFunctions = {
 
     xAxisLabel
       .text(xText);
+
+    d3.select('.histogram__no-data span')
+      .html(`${isNational ? currentIndicator.text : currentCensusField.text}, ${!isNational && currentCensusField.change ? years.join('–') : years[1]}`);
   },
   updateMSA({
     padding,
@@ -212,6 +224,8 @@ const updateFunctions = {
     xAxis,
     yAxis,
     // bars,
+    nationalAverage,
+    nationalAverageText,
     nationalAverageGroup,
     changeColorScale,
     valueColorScale,
@@ -224,18 +238,19 @@ const updateFunctions = {
     updateHighlightedAgencies,
     nationalDataView,
     mobile,
+    msa,
   }) {
     const {
       // getMSAHistogramData,
       getColors,
       getScales,
       drawBars,
-      hideAverageLine,
       addMSABarMouseEvents,
     } = histogramFunctions;
 
     const {
       updateAxes,
+      updateAverageLine,
     } = updateFunctions;
 
     const { yScale, xScale } = getScales({
@@ -293,9 +308,22 @@ const updateFunctions = {
       currentCensusField,
     });
 
-    hideAverageLine({
+    updateAverageLine({
       nationalAverageGroup,
+      nationalAverage,
+      nationalAverageText,
+      xScale,
+      padding,
+      currentCensusField,
+      msa,
     });
+
+    // hideAverageLine({
+    //   nationalAverageGroup,
+    // });
+
+    d3.select('.footer__histogram')
+      .classed('histogram--empty', histogramData.length === 0);
   },
 };
 

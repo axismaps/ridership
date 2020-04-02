@@ -21,7 +21,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
       nationalMapData,
       years,
     })
-    .updateNationalMapData()
+    .updateYears()
     .updateInteractions();
 
   if (histogram !== null) {
@@ -64,7 +64,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
 
   if (msa === null || scale === 'national') return;
 
-  this.getCurrentTractGeo((tractGeo) => {
+  this.getCurrentTractGeo((tractGeo, regionCensus) => {
     msaAtlas
       .config({
         tractGeo,
@@ -74,6 +74,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
       histogram
         .config({
           tractGeo,
+          regionCensus,
         })
         .updateData();
     }

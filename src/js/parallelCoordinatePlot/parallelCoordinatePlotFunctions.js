@@ -54,6 +54,10 @@ const parallelCoordinatePlotFunctions = {
       .attr('transform', `translate(${margins[1]},${margins[0]})`);
 
     svg.append('g')
+      .attr('class', 'pcp-dots')
+      .attr('transform', `translate(${margins[1]},${margins[0]})`);
+
+    svg.append('g')
       .attr('class', 'axis')
       .attr('transform', `translate(${margins[1]},${margins[0]})`);
 
@@ -96,10 +100,89 @@ const parallelCoordinatePlotFunctions = {
     updateMSA,
     mobile,
   }) {
+    const getProbeText = (agency, indicator) => {
+      const format = number => ([null, undefined].includes(number) ? 'N/A'
+        : (d3.format(indicator.format)(number) + (indicator.unit || '')));
+      const displayValue = indicator.pctChange === null ? 'N/A' : (`${Math.round(indicator.pctChange)}%`);
+      let clickText;
+      if (mobile) {
+        clickText = 'Jump to this MSA';
+      } else {
+        clickText = 'Click to jump to this MSA';
+      }
+      return `
+        <div class="data-probe__row"><span class="data-probe__field">${agency.taName || agency.name}</span></div>
+        <div class="data-probe__row">${indicator.text}</div>
+        <div class="data-probe__row"><span class="data-probe__field">${indicator.actualYearRange[0]}:</span> ${format(indicator.firstAndLast[0])}</div>
+      <div class="data-probe__row"><span class="data-probe__field">${indicator.actualYearRange[1]}:</span> ${format(indicator.firstAndLast[1])}</div>
+        <div class="data-probe__row"><span class="data-probe__field">${indicator.actualYearRange.join('–')} (% change):</span> ${displayValue}</div>
+        ${!msaScale ? `<div class="data-probe__row data-probe__msa-text">${clickText}</div>` : ''}
+      `;
+    };
     const lineGenerator = d3.line()
       .x(d => xScale(d.pctChange))
       .y((d, i) => i * indicatorHeight)
       .defined(d => d.pctChange !== null);
+
+    svg.select('g.pcp-dots').selectAll('g')
+      .remove();
+
+    // dots to make indicators visible if they're between two missing values
+    if (agenciesData.length <= 10) { // but only if there aren't a ton of agencies on the chart
+      svg.select('g.pcp-dots').selectAll('g')
+        .data(agenciesData, d => d.globalId)
+        .enter()
+        .append('g')
+        .each(function addDots(agency) {
+          const { indicators } = agency;
+          indicators.forEach((indicator, i) => {
+            if (indicator.pctChange !== null) {
+              if ((i === 0 || indicators[i - 1].pctChange === null)
+              && (i === indicators.length - 1 || indicators[i + 1].pctChange === null)) {
+                d3.select(this)
+                  .append('circle')
+                  .attr('class', 'pcp-dot')
+                  .attr('r', 2)
+                  .attr('cx', xScale(indicator.pctChange))
+                  .attr('cy', i * indicatorHeight)
+                  .on('mouseover', () => {
+                    if (mobile) return;
+                    updateHighlightedAgencies([agency]);
+                    dataProbe.remove();
+                    d3.select(this).raise();
+                    const { clientX, clientY } = d3.event;
+                    const pos = {
+                      left: clientX + 10,
+                      bottom: window.innerHeight - clientY + 10,
+                      width: 250,
+                    };
+                    const html = getProbeText(agency, indicator);
+                    dataProbe
+                      .config({
+                        pos,
+                        html,
+                      })
+                      .draw();
+                    if (mobile) {
+                      d3.select('.data-probe__msa-text')
+                        .on('click', () => {
+                          updateMSA(agency);
+                          dataProbe.remove();
+                        });
+                    }
+                  })
+                  .on('mouseout', () => {
+                    if (mobile) return;
+                    dataProbe.remove();
+                    svg.select('.probe-dot circle')
+                      .style('display', 'none');
+                    updateHighlightedAgencies([]);
+                  });
+              }
+            }
+          });
+        });
+    }
 
     const lines = svg.select('g.pcp-lines').selectAll('path.pcp-line')
       .data(agenciesData, d => d.globalId);
@@ -148,18 +231,8 @@ const parallelCoordinatePlotFunctions = {
         };
         const svgTop = svg.select('g.pcp-lines').node().getBoundingClientRect().top;
         const closest = Math.round((clientY - svgTop) / indicatorHeight);
-        const displayValue = d.indicators[closest].pctChange === null ? 'N/A' : (`${Math.round(d.indicators[closest].pctChange)}%`);
-        let clickText;
-        if (mobile) {
-          clickText = 'Jump to this MSA';
-        } else {
-          clickText = 'Click to jump to this MSA';
-        }
-        const html = `
-          <div class="data-probe__row"><span class="data-probe__field">${d.taName || d.name}</span></div>
-          <div class="data-probe__row">${d.indicators[closest].text}: ${displayValue}</div>
-          ${!msaScale ? `<div class="data-probe__row data-probe__msa-text">${clickText}</div>` : ''}
-        `;
+        const closestIndicator = d.indicators[closest];
+        const html = getProbeText(d, closestIndicator);
         dataProbe
           .config({
             pos,

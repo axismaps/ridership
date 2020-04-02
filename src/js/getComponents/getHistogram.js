@@ -1,7 +1,12 @@
 import Histogram from '../histogram/histogram';
 import exportMethods from '../export/exportMethods';
 
-const getHistogram = ({ data, state, tractGeo }) => {
+const getHistogram = ({
+  data,
+  state,
+  tractGeo,
+  regionCensus,
+}) => {
   const params = data.get('params');
 
   const embed = params.get('embed');
@@ -9,6 +14,8 @@ const getHistogram = ({ data, state, tractGeo }) => {
   || (embed !== 'histogram' && embed !== 'atlas' && embed !== 'msaAtlas' && state.get('embedded'))) return null;
   return new Histogram({
     tractGeo,
+    regionCensus,
+    msa: null,
     mobileHistogramOpen: state.get('mobileHistogramOpen'),
     changeColorScale: data.get('changeColorScale'),
     valueColorScale: data.get('valueColorScale'),

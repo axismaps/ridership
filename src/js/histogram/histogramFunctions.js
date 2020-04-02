@@ -215,6 +215,8 @@ const histogramFunctions = {
     xScale,
     padding,
     height,
+    currentCensusField,
+    msa,
   }) {
     const {
       getNationalAverageText,
@@ -235,7 +237,7 @@ const histogramFunctions = {
       });
 
     nationalAverageText
-      .text(getNationalAverageText({ nationalAverage }));
+      .text(getNationalAverageText({ nationalAverage, currentCensusField, msa }));
 
     nationalAverageGroup
       .append('line')
