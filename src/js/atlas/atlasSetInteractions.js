@@ -29,6 +29,7 @@ const setInteractions = ({
   indicator,
   mobile,
   embedded,
+  years,
 }) => {
   const {
     getMSAData,
