@@ -43,4 +43,10 @@ mapshaper data/geojson/transit/**/stops.geojson combine-files \
   -join data/meta/ta_names.csv keys=op3,name8 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
   -join data/meta/ta_names.csv keys=op4,name8 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
   -filter-fields high_frequency,name,taid \
+  -each 'this.properties.taid = this.properties.taid || 9999' \
   -o data/output/stops.geojson
+
+mapshaper data/output/stops.geojson \
+  -filter "high_frequency === true" \
+  -proj EPSG:3395 \
+  -o data/output/stops_high_frequency.geojson
