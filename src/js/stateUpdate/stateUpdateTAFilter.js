@@ -2,10 +2,12 @@ const getStateUpdateTAFilter = ({ components }) => function updateTAFilter() {
   const {
     sidebar,
     msaAtlas,
+    histogram,
   } = components;
   const taFilter = this.get('taFilter');
   const indicatorSummaries = this.getCurrentIndicatorSummaries();
   const agenciesData = this.getCurrentAgenciesData();
+  const msa = this.get('msa');
 
   // console.log('taFilter', taFilter);
   // console.log('agenciesData', agenciesData);
@@ -24,12 +26,30 @@ const getStateUpdateTAFilter = ({ components }) => function updateTAFilter() {
     })
     .updateData();
 
-  msaAtlas
-    .config({
+  if (!msa) {
+    // when exiting msa mode and clearing the filter
+    msaAtlas
+      .config({
+        taFilter,
+      })
+      .updateAgencyLayers();
+  } else {
+    this.getCurrentTractGeo((tractGeo) => {
+      msaAtlas
+        .config({
+          tractGeo,
+          taFilter,
+        })
+        .updateData()
+        .updateAgencyLayers();
 
-      taFilter,
-    })
-    .updateAgencyLayers();
+      histogram
+        .config({
+          tractGeo,
+        })
+        .updateData();
+    });
+  }
 };
 
 export default getStateUpdateTAFilter;
