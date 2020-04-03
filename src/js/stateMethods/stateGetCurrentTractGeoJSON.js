@@ -16,10 +16,12 @@ const filterGeoByDistance = ({
       && d.properties[censusField.id] !== undefined;
     let inDistance = true;
     if (distanceFilter) {
-      const tas = d.properties[`i${distanceFilter.value * 1000}`].filter(ta => +ta !== 9999);
-      if (!taFilter.size) {
-        if (!tas.length) inDistance = false;
-      } else if (tas.every(ta => taFilter.has(ta))) {
+      const tas = d.properties[`i${distanceFilter.value * 1000}`];
+      if (!tas || !tas.filter(ta => +ta !== 9999).length) {
+        // not within distance of any stops
+        inDistance = false;
+      } else if (taFilter.size && tas.filter(ta => +ta !== 9999).every(ta => taFilter.has(`${ta}`))) {
+        // only within distance of filtered-out stops
         inDistance = false;
       }
     }

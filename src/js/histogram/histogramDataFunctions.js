@@ -105,17 +105,10 @@ const dataFunctions = {
     tractGeo,
     bucketCount,
     currentCensusField,
-    distanceFilter,
     mobile,
   }) {
     const tracts = tractGeo.features
       .map(d => d.properties)
-      .filter((d) => {
-        if (distanceFilter !== null) {
-          return d.dist <= distanceFilter.value;
-        }
-        return true;
-      })
       .filter(d => Number.isFinite(d[currentCensusField.id]));
     const msaHistogramData = getData({
       bucketCount,

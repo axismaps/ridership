@@ -31,7 +31,6 @@ const privateMethods = {
       updateHighlightedTracts,
       tractGeo,
       currentCensusField,
-      distanceFilter,
       mobile,
     } = props;
 
@@ -81,7 +80,6 @@ const privateMethods = {
         tractGeo,
         bucketCount,
         currentCensusField,
-        distanceFilter,
         mobile,
       });
     }

@@ -35,7 +35,6 @@ const getStateUpdateDistanceFilter = ({ components }) => function updateDistance
 
     histogram
       .config({
-        distanceFilter,
         tractGeo,
       })
       .updateData();
