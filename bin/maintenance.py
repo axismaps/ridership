@@ -46,6 +46,7 @@ VALID_TIME_KEYS = [
 ]
 
 def convert_ntd_id(series):
+    """Convert old NTD ID into new format"""
     return series.apply(
         lambda x: str(x).zfill(4)[:1] + '0' + str(x).zfill(4)[1:]
     ).astype(int)
@@ -77,7 +78,7 @@ def format_maintenance_data(df, keys, col, y):
 def load_excel(tas):
     """Creates maintenance data by looping through directory and formatting excel data"""
     failures = {}
-    for m, d in DIRS.iteritems():
+    for m, d in DIRS.items():
         df = pd.DataFrame()
         files = os.listdir(d['dir'])
         for i in files:
@@ -110,4 +111,4 @@ def load_maintenance():
     return load_excel(ta_clean)
 
 if __name__ == "__main__":
-    print load_maintenance()
+    print(load_maintenance())

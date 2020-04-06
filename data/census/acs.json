@@ -3,7 +3,8 @@
     "name": "Total Population",
     "key": "pop",
     "var": "B01001_001E",
-    "upload": true
+    "upload": true,
+    "msa": true
   },
   {
     "name": "Population Density",
@@ -11,46 +12,54 @@
     "numerator": "pop",
     "denominator": "ALAND",
     "scale": 1000000,
-    "upload": true
+    "upload": true,
+    "msa": true
   },
   {
     "name": "Total Population Foreign Born",
     "key": "foreign",
-    "var": "B05002_013E"
+    "var": "B05002_013E",
+    "msa": true
   },
   {
     "name": "Percent Foreign Born",
     "key": "foreign_pct",
     "numerator": "foreign",
     "denominator": "pop",
-    "upload": true
+    "upload": true,
+    "msa": true
   },
   {
     "name": "White",
     "key": "white",
-    "var": "B01001H_001E"
+    "var": "B01001H_001E",
+    "msa": true
   },
   {
     "name": "Black",
     "key": "black",
-    "var": "B01001B_001E"
+    "var": "B01001B_001E",
+    "msa": true
   },
   {
     "name": "Asian",
     "key": "asian",
-    "var": "B01001D_001E"
+    "var": "B01001D_001E",
+    "msa": true
   },
   {
     "name": "Hispanic/Latino",
     "key": "latino",
-    "var": "B01001I_001E"
+    "var": "B01001I_001E",
+    "msa": true
   },
   {
     "name": "Percent White",
     "key": "white_pct",
     "numerator": "white",
     "denominator": "pop",
-    "upload": true
+    "upload": true,
+    "msa": true
   }
   ,
   {
@@ -58,127 +67,144 @@
     "key": "black_pct",
     "numerator": "black",
     "denominator": "pop",
-    "upload": true
+    "upload": true,
+    "msa": true
   },
   {
     "name": "Percent Asian",
     "key": "asian_pct",
     "numerator": "asian",
     "denominator": "pop",
-    "upload": true
+    "upload": true,
+    "msa": true
   },
   {
     "name": "Percent Hispanic/Latino",
     "key": "latino_pct",
     "numerator": "latino",
     "denominator": "pop",
-    "upload": true
+    "upload": true,
+    "msa": true
   },
   {
     "name": "Male: 75 - 79 years",
     "key": "m75",
-    "var": "B01001_023E"
+    "var": "B01001_023E",
+    "msa": true
   },
   {
     "name": "Male: 80 - 84 years",
     "key": "m80",
-    "var": "B01001_024E"
+    "var": "B01001_024E",
+    "msa": true
   },
   {
     "name": "Male: 85 years and over",
     "key": "m85",
-    "var": "B01001_025E"
+    "var": "B01001_025E",
+    "msa": true
   },
   {
     "name": "Female: 75 - 79 years",
     "key": "f75",
-    "var": "B01001_047E"
+    "var": "B01001_047E",
+    "msa": true
   },
   {
     "name": "Female: 80 - 84 years",
     "key": "f80",
-    "var": "B01001_048E"
+    "var": "B01001_048E",
+    "msa": true
   },
   {
     "name": "Female: 85 years and over",
     "key": "f85",
-    "var": "B01001_049E"
+    "var": "B01001_049E",
+    "msa": true
   },
   {
     "name": "Population Age 75+",
     "key": "over75",
-    "sum": [ "m75", "m80", "m85", "f75", "f80", "f85" ]
+    "sum": [ "m75", "m80", "m85", "f75", "f80", "f85" ],
+    "msa": true
   },
   {
     "name": "Percent Population Over 75",
     "key": "over75_pct",
     "numerator": "over75",
     "denominator": "pop",
-    "upload": true
+    "upload": true,
+    "msa": true
   },
   {
     "name": "Median Household Income",
     "key": "income",
     "var": "B19013_001E",
-    "upload": true
+    "upload": true,
+    "msa": true,
+    "inflation": true
   },
   {
     "name": "Households",
     "key": "households",
-    "var": "B11001_001E"
+    "var": "B11001_001E",
+    "msa": true
+  },
+  {
+    "name": "Median Housing Rent",
+    "key": "rent",
+    "var": "B25113_001E",
+    "upload": true,
+    "msa": true,
+    "inflation": true
   },
   {
     "name": "Households with No Vehicle",
     "key": "no_vehicle",
-    "var": "B08201_002E"
+    "var": "B08201_002E",
+    "msa": true
   },
   {
     "name": "Percent Households with No Vehicle",
     "key": "no_vehicle_pct",
     "numerator": "no_vehicle",
     "denominator": "households",
-    "upload": true
+    "upload": true,
+    "msa": true
   },
   {
     "name": "Workers 16 years and over",
     "key": "workers",
-    "var": "B08101_001E"
+    "var": "B08101_001E",
+    "msa": true
   },
   {
     "name": "Commute by Driving Alone",
     "key": "drive",
-    "var": "B08101_009E"
-  },
-  {
-    "name": "Commute by Carpool",
-    "key": "carpool",
-    "var": "B08101_017E"
+    "var": "B08101_009E",
+    "msa": true
   },
   {
     "name": "Commute by Public Transit",
     "key": "transit",
-    "var": "B08101_025E"
+    "var": "B08101_025E",
+    "msa": true
   },
   {
     "name": "Percent Commute by Driving",
     "key": "drive_pct",
     "numerator": "drive",
     "denominator": "workers",
-    "upload": true
-  },
-  {
-    "name": "Percent Commute by Carpooling",
-    "key": "carpool_pct",
-    "numerator": "carpool",
-    "denominator": "workers",
-    "upload": true
+    "upload": true,
+    "msa": true
   },
   {
     "name": "Percent Commute by Public Transit",
     "key": "transit_pct",
     "numerator": "transit",
     "denominator": "workers",
-    "upload": true
+    "upload": true,
+    "msa": true
   },
   {
     "name": "Total Jobs",

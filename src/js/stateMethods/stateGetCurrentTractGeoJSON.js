@@ -6,14 +6,28 @@ const filterGeoByDistance = ({
   years,
   distanceFilter,
   censusField,
+  taFilter,
 }) => {
   const tractGeo = cachedTractGeoJSON.get(`${msa.msaId}-${years[0]}-${years[1]}`);
 
   const tractGeoFiltered = Object.assign({}, tractGeo);
   tractGeoFiltered.features = tractGeo.features.filter((d) => {
-    const inDistance = distanceFilter === null ? true
-      : d.properties.dist <= distanceFilter.value;
-    return inDistance;
+    const isDefined = d.properties[censusField.id] !== null
+      && d.properties[censusField.id] !== undefined;
+    let inDistance = true;
+    if (distanceFilter) {
+      const tas = d.properties[`i${distanceFilter.value * 1000}`];
+      if (!tas) {
+        // not in distance of any TA's stop
+        inDistance = false;
+      } else if (taFilter.size) {
+        // only within distance of a stop with unknown TA
+        if (tas.length === 1 && +tas[0] === 9999) inDistance = false;
+        // only within distance of filtered-out stops
+        if (tas.filter(ta => +ta !== 9999).every(ta => taFilter.has(`${ta}`))) inDistance = false;
+      }
+    }
+    return isDefined && inDistance;
   });
 
   return tractGeoFiltered;
@@ -26,6 +40,7 @@ const processGeoJSON = ({
   distanceFilter,
   data,
   censusField,
+  taFilter,
 }) => {
   const cachedTractData = data.get('cachedTractData');
   const { censusData, tractTopo, regionData } = cachedTractData.get(msa.msaId);
@@ -195,6 +210,7 @@ const processGeoJSON = ({
     years,
     distanceFilter,
     censusField,
+    taFilter,
   });
 
   updateComponents(tractGeoFiltered, regionCensusChange);
@@ -207,6 +223,7 @@ const loadTractData = ({
   censusField,
   data,
   years,
+  taFilter,
 }) => {
   Promise.all([
     d3.json(`data/tracts/tract-${msa.msaId}.json`),
@@ -223,6 +240,7 @@ const loadTractData = ({
       updateComponents,
       censusField,
       data,
+      taFilter,
     });
   });
 };
@@ -234,6 +252,7 @@ const getCurrentTractData = ({
   censusField,
   data,
   distanceFilter,
+  taFilter,
 }) => {
   const cachedTractGeoJSON = data.get('cachedTractGeoJSON');
   const cachedMSACensus = data.get('cachedMSACensus');
@@ -245,6 +264,7 @@ const getCurrentTractData = ({
       censusField,
       years,
       distanceFilter,
+      taFilter,
     });
     const regionCensus = cachedMSACensus.get(`${msa.msaId}-${years[0]}-${years[1]}`);
     updateComponents(tractGeoFiltered, regionCensus);
@@ -256,6 +276,7 @@ const getCurrentTractData = ({
       censusField,
       data,
       distanceFilter,
+      taFilter,
     });
   } else {
     loadTractData({
@@ -265,6 +286,7 @@ const getCurrentTractData = ({
       data,
       years,
       distanceFilter,
+      taFilter,
     });
   }
 };
@@ -274,6 +296,7 @@ const getGetCurrentTractGeo = ({ data }) => function getCurrentTractGeo(updateCo
   const years = this.get('years');
   const censusField = this.get('censusField');
   const distanceFilter = this.get('distanceFilter');
+  const taFilter = this.get('taFilter');
   getCurrentTractData({
     msa,
     years,
@@ -281,6 +304,7 @@ const getGetCurrentTractGeo = ({ data }) => function getCurrentTractGeo(updateCo
     censusField,
     data,
     distanceFilter,
+    taFilter,
   });
 };
 

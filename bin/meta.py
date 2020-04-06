@@ -58,7 +58,7 @@ def main():
     TA = pd.read_excel('data/meta/Transit_Agencies_for_Visualization.xlsx',
                        sheet_name='TC AgencyList')
 
-    print 'Data successfully loaded from Excel'
+    print('Data successfully loaded from Excel')
 
     DROP = ['ShowIndividual', '"Other" primary Project ID', 'Primary UZA']
     agencies = clean_ta(TA, DROP)

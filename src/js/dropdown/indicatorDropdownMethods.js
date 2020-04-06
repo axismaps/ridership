@@ -157,7 +157,14 @@ const pureMethods = {
   }) {
     if (!censusFields) {
       indicatorRows
-        .classed('indicator-dropdown__content-row--highlighted', d => (indicator === null ? false : d.id === indicator.id));
+        .classed('indicator-dropdown__content-row--highlighted', (d) => {
+          if (d.id !== undefined) {
+            // 'id' prop for indicators
+            return (indicator === null ? false : d.id === indicator.id);
+          }
+          // 'value' prop for other things, like distance dropdown
+          return (indicator === null ? false : d.value === indicator.value);
+        });
     } else {
       indicatorRows
         .classed('census-dropdown__content-row--highlighted', d => (indicator === null ? false : d.value === indicator.value));

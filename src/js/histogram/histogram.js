@@ -32,7 +32,6 @@ const privateMethods = {
       tractGeo,
       regionCensus,
       currentCensusField,
-      distanceFilter,
       mobile,
       msa,
     } = props;
@@ -87,7 +86,6 @@ const privateMethods = {
         regionCensus,
         bucketCount,
         currentCensusField,
-        distanceFilter,
         mobile,
       }));
     }

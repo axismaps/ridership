@@ -1,4 +1,52 @@
 mapshaper data/geojson/transit/**/stops.geojson combine-files \
   -merge-layers force \
-  -filter-fields high_frequency,name,tags \
+  -filter-fields high_frequency,name,operators_serving_stop \
+  -each 'operators_serving_stop.forEach((o, i) => { this.properties[`op${i}`] = o.operator_name })' \
+  -join data/meta/ta_names.csv keys=op0,name1 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op1,name1 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op2,name1 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op3,name1 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op4,name1 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op0,name2 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op1,name2 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op2,name2 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op3,name2 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op4,name2 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op0,name3 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op1,name3 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op2,name3 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op3,name3 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op4,name3 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op0,name4 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op1,name4 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op2,name4 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op3,name4 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op4,name4 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op0,name5 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op1,name5 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op2,name5 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op3,name5 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op4,name5 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op0,name6 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op1,name6 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op2,name6 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op3,name6 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op4,name6 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op0,name7 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op1,name7 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op2,name7 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op3,name7 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op4,name7 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op0,name8 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op1,name8 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op2,name8 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op3,name8 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -join data/meta/ta_names.csv keys=op4,name8 fields=high_frequency,name,taid,op0,op1,op2,op3,op4 \
+  -filter-fields high_frequency,name,taid \
+  -each 'this.properties.taid = this.properties.taid || 9999' \
   -o data/output/stops.geojson
+
+mapshaper data/output/stops.geojson \
+  -filter "high_frequency === true" \
+  -proj EPSG:3395 \
+  -o data/output/stops_high_frequency.geojson

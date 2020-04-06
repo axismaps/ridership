@@ -32,7 +32,7 @@ def gas_prices(msa_level=False):
                 ]
     ).drop_duplicates(subset=[id_keep])
 
-    print merge2.columns
+    print(merge2.columns)
 
     stack = pd.DataFrame(
         merge2.groupby(id_keep).sum().stack()
@@ -46,4 +46,4 @@ def gas_prices(msa_level=False):
     return df['gas']
 
 if __name__ == "__main__":
-    print gas_prices()
+    print(gas_prices())
