@@ -17,12 +17,14 @@ const filterGeoByDistance = ({
     let inDistance = true;
     if (distanceFilter) {
       const tas = d.properties[`i${distanceFilter.value * 1000}`];
-      if (!tas || !tas.filter(ta => +ta !== 9999).length) {
-        // not within distance of any stops
+      if (!tas) {
+        // not in distance of any TA's stop
         inDistance = false;
-      } else if (taFilter.size && tas.filter(ta => +ta !== 9999).every(ta => taFilter.has(`${ta}`))) {
+      } else if (taFilter.size) {
+        // only within distance of a stop with unknown TA
+        if (tas.length === 1 && +tas[0] === 9999) inDistance = false;
         // only within distance of filtered-out stops
-        inDistance = false;
+        if (tas.filter(ta => +ta !== 9999).every(ta => taFilter.has(`${ta}`))) inDistance = false;
       }
     }
     return isDefined && inDistance;
