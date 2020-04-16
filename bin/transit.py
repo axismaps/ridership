@@ -26,4 +26,4 @@ for index, row in msa.iterrows():
     for f in os.listdir(path + name):
         if (not f == 'routes.geojson' and not f == 'stops.geojson'):
             os.remove(path + name + f)
-    print '******', name, '******'
+    print('******', name, '******')
