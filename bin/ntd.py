@@ -57,7 +57,7 @@ if __name__ == "__main__":
                               sheet_name=['UPT', 'VRM', 'VRH',
                                           'DRM', 'VOMS', 'PMT'])
     NTD21_RAW = pd.read_excel('data/ntd/TS2.1TimeSeriesOpExpSvcModeTOS_2.xlsx',
-                              sheet_name=['UPT', 'FARES', 'OpExp Total'])
+                              sheet_name=['UPT', 'FARES', 'OpExp Total', 'VRM', 'VRH'])
 
     print('Data successfully loaded from Excel')
 
@@ -72,10 +72,18 @@ if __name__ == "__main__":
 
     # Filter bus data by required modes
     BUS_MODES = ['MB', 'RB', 'CB', 'TB']
-    ntd21['bus'] = filterByMode(ntd21['UPT'], BUS_MODES)
+    ntd21['bus_upt'] = filterByMode(ntd21['UPT'], BUS_MODES)
+    ntd21['bus_vrm'] = filterByMode(ntd21['VRM'], BUS_MODES)
+    ntd21['bus_vrh'] = filterByMode(ntd21['VRH'], BUS_MODES)
+    ntd21['bus_fares'] = filterByMode(ntd21['FARES'], BUS_MODES)
+    ntd21['bus_opexp'] = filterByMode(ntd21['OpExp Total'], BUS_MODES)
 
     RAIL_MODES = ['CC', 'CR', 'HR', 'LR', 'MG', 'SR', 'YR']
-    ntd21['rail'] = filterByMode(ntd21['UPT'], RAIL_MODES)
+    ntd21['rail_upt'] = filterByMode(ntd21['UPT'], RAIL_MODES)
+    ntd21['rail_vrm'] = filterByMode(ntd21['VRM'], RAIL_MODES)
+    ntd21['rail_vrh'] = filterByMode(ntd21['VRH'], RAIL_MODES)
+    ntd21['rail_fares'] = filterByMode(ntd21['FARES'], RAIL_MODES)
+    ntd21['rail_opexp'] = filterByMode(ntd21['OpExp Total'], RAIL_MODES)
 
     del ntd21['UPT']
 
@@ -149,6 +157,29 @@ if __name__ == "__main__":
     ))
     stacks['avg_fare'].drop(labels=other_ta, inplace=True)
 
+    stacks['bus_avg_fare'] = update_dollars(
+        pd.Series(stacks['bus_fares'] / stacks['bus_upt'], name='bus_avg_fare')
+    )
+    national_values['bus_avg_fare'] = update_dollars(
+        national_values['bus_fares'] / national_values['bus_upt']
+    )
+    msa_stacks['bus_avg_fare'] = update_dollars(pd.Series(
+        msa_stacks['bus_fares']['bus_fares'] / msa_stacks['bus_upt']['bus_upt'], name='bus_avg_fare'
+    ))
+    stacks['bus_avg_fare'].drop(labels=other_ta, inplace=True)
+
+    stacks['rail_avg_fare'] = update_dollars(
+        pd.Series(stacks['rail_fares'] / stacks['rail_upt'], name='rail_avg_fare')
+    )
+    national_values['rail_avg_fare'] = update_dollars(
+        national_values['rail_fares'] / national_values['rail_upt']
+    )
+    msa_stacks['rail_avg_fare'] = update_dollars(pd.Series(
+        msa_stacks['rail_fares']['rail_fares'] / msa_stacks['rail_upt']['rail_upt'],
+        name='rail_avg_fare'
+    ))
+    stacks['rail_avg_fare'].drop(labels=other_ta, inplace=True)
+
     # Average speed
     stacks['speed'] = pd.Series(stacks['vrm'] / stacks['vrh'], name='speed')
     national_values['speed'] = national_values['vrm'] / national_values['vrh']
@@ -158,6 +189,22 @@ if __name__ == "__main__":
     )
     stacks['speed'].drop(labels=other_ta, inplace=True)
 
+    stacks['bus_speed'] = pd.Series(stacks['bus_vrm'] / stacks['bus_vrh'], name='bus_speed')
+    national_values['bus_speed'] = national_values['bus_vrm'] / national_values['bus_vrh']
+    msa_stacks['bus_speed'] = pd.Series(
+        msa_stacks['bus_vrm']['bus_vrm'] / msa_stacks['bus_vrh']['bus_vrh'],
+        name='bus_speed'
+    )
+    stacks['bus_speed'].drop(labels=other_ta, inplace=True)
+
+    stacks['rail_speed'] = pd.Series(stacks['rail_vrm'] / stacks['rail_vrh'], name='rail_speed')
+    national_values['rail_speed'] = national_values['rail_vrm'] / national_values['rail_vrh']
+    msa_stacks['rail_speed'] = pd.Series(
+        msa_stacks['rail_vrm']['rail_vrm'] / msa_stacks['rail_vrh']['rail_vrh'],
+        name='rail_speed'
+    )
+    stacks['rail_speed'].drop(labels=other_ta, inplace=True)
+
     # Farebox recovery
     stacks['recovery'] = pd.Series(stacks['fares'] / stacks['opexp_total'], name='recovery')
     national_values['recovery'] = national_values['fares'] / national_values['opexp_total']
@@ -165,6 +212,26 @@ if __name__ == "__main__":
         msa_stacks['fares']['fares'] / msa_stacks['opexp_total']['opexp_total'], name='recovery'
     )
     stacks['recovery'].drop(labels=other_ta, inplace=True)
+
+    stacks['bus_recovery'] = pd.Series(
+        stacks['bus_fares'] / stacks['bus_opexp'], name='bus_recovery'
+    )
+    national_values['bus_recovery'] = national_values['bus_fares'] / national_values['bus_opexp']
+    msa_stacks['bus_recovery'] = pd.Series(
+        msa_stacks['bus_fares']['bus_fares'] / msa_stacks['bus_opexp']['bus_opexp'],
+        name='bus_recovery'
+    )
+    stacks['bus_recovery'].drop(labels=other_ta, inplace=True)
+
+    stacks['rail_recovery'] = pd.Series(
+        stacks['rail_fares'] / stacks['rail_opexp'], name='rail_recovery'
+    )
+    national_values['rail_recovery'] = national_values['rail_fares'] / national_values['rail_opexp']
+    msa_stacks['rail_recovery'] = pd.Series(
+        msa_stacks['rail_fares']['rail_fares'] / msa_stacks['rail_opexp']['rail_opexp'],
+        name='rail_recovery'
+    )
+    stacks['rail_recovery'].drop(labels=other_ta, inplace=True)
 
     # Vehicle revenue miles per ride
     stacks['vrm_per_ride'] = pd.Series(stacks['upt'] / stacks['vrm'], name='vrm_per_ride')
@@ -255,14 +322,17 @@ if __name__ == "__main__":
     download = export.rename_axis(['taid', 'year']).reset_index().merge(
         ta_export[ta_export['display']], on='taid'
     )
-    col_order = ['taname', 'msaid', 'year', 'upt', 'bus', 'rail', 'vrm',
-                 'headways', 'speed', 'opexp_total',
-                 'fares', 'avg_fare', 'recovery', 'failures',
-                 'gas', 'capita', 'vrm_per_ride', 'trip_length']
+    col_order = ['taname', 'msaid', 'year', 'upt', 'bus_upt', 'rail_upt', 'vrm',
+                 'bus_vrm', 'rail_vrm', 'headways', 'speed', 'bus_speed', 'rail_speed',
+                 'opexp_total', 'fares', 'avg_fare', 'bus_avg_fare', 'rail_avg_fare', 'recovery',
+                 'bus_recovery', 'rail_recovery', 'failures', 'gas', 'capita', 'vrm_per_ride',
+                 'trip_length']
     col_names = ['taname', 'msaid', 'year', 'upt', 'bus_upt', 'rail_upt', 'vrm',
-                 'minimum_headways', 'avg_speed', 'operating_expenses_total',
-                 'fare_revenue', 'avg_fare', 'farebox_recovery', 'miles_between_failures',
-                 'state_gas_price_per_gal', 'trips_per_capita', 'upt_per_vrm', 'avg_trip_length_mi']
+                 'bus_vrm', 'rail_vrm', 'minimum_headways', 'avg_speed', 'bus_speed', 'rail_speed',
+                 'operating_expenses_total', 'fare_revenue', 'avg_fare', 'bus_avg_fare',
+                 'rail_avg_fare', 'farebox_recovery', 'bus_recovery', 'rail_recovery',
+                 'miles_between_failures', 'state_gas_price_per_gal', 'trips_per_capita',
+                 'upt_per_vrm', 'avg_trip_length_mi']
     download[col_order].to_csv('data/output/transit_data.csv', header=col_names, index=False)
 
     print('Data exported to CSV')
