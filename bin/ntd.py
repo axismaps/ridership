@@ -242,6 +242,27 @@ if __name__ == "__main__":
     stacks['vrm_per_ride'].drop(labels=other_ta, inplace=True)
 
     # Minimum headways
+    stacks['bus_vrm_per_ride'] = pd.Series(
+        stacks['bus_upt'] / stacks['bus_vrm'], name='bus_vrm_per_ride'
+    )
+    national_values['bus_vrm_per_ride'] = national_values['bus_upt'] / national_values['bus_vrm']
+    msa_stacks['bus_vrm_per_ride'] = pd.Series(
+        msa_stacks['bus_upt']['bus_upt'] / msa_stacks['bus_vrm']['bus_vrm'], name='bus_vrm_per_ride'
+    )
+    stacks['bus_vrm_per_ride'].drop(labels=other_ta, inplace=True)
+
+    # Minimum headways
+    stacks['rail_vrm_per_ride'] = pd.Series(
+        stacks['rail_upt'] / stacks['rail_vrm'], name='rail_vrm_per_ride'
+    )
+    national_values['rail_vrm_per_ride'] = national_values['rail_upt'] / national_values['rail_vrm']
+    msa_stacks['rail_vrm_per_ride'] = pd.Series(
+        msa_stacks['rail_upt']['rail_upt'] / msa_stacks['rail_vrm']['rail_vrm'],
+        name='rail_vrm_per_ride'
+    )
+    stacks['rail_vrm_per_ride'].drop(labels=other_ta, inplace=True)
+
+    # Minimum headways
     stacks['headways'] = pd.Series(
         ((stacks['drm'] / stacks['speed']) / stacks['voms']) * 60, name='headways'
     )
@@ -326,13 +347,13 @@ if __name__ == "__main__":
                  'bus_vrm', 'rail_vrm', 'headways', 'speed', 'bus_speed', 'rail_speed',
                  'opexp_total', 'fares', 'avg_fare', 'bus_avg_fare', 'rail_avg_fare', 'recovery',
                  'bus_recovery', 'rail_recovery', 'failures', 'gas', 'capita', 'vrm_per_ride',
-                 'trip_length']
+                 'bus_vrm_per_ride', 'rail_vrm_per_ride', 'trip_length']
     col_names = ['taname', 'msaid', 'year', 'upt', 'bus_upt', 'rail_upt', 'vrm',
                  'bus_vrm', 'rail_vrm', 'minimum_headways', 'avg_speed', 'bus_speed', 'rail_speed',
                  'operating_expenses_total', 'fare_revenue', 'avg_fare', 'bus_avg_fare',
                  'rail_avg_fare', 'farebox_recovery', 'bus_recovery', 'rail_recovery',
                  'miles_between_failures', 'state_gas_price_per_gal', 'trips_per_capita',
-                 'upt_per_vrm', 'avg_trip_length_mi']
+                 'upt_per_vrm', 'bus_vrm_per_ride', 'rail_vrm_per_ride', 'avg_trip_length_mi']
     download[col_order].to_csv('data/output/transit_data.csv', header=col_names, index=False)
 
     print('Data exported to CSV')
