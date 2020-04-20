@@ -24,6 +24,13 @@ const indicators = new Map();
       format: ',d',
     },
     {
+      text: 'Paratransit Ridership',
+      value: 'para_upt',
+      id: 'para_upt',
+      summaryType: 'sum',
+      format: ',d',
+    },
+    {
       text: 'Vehicle Revenue Miles',
       value: 'vrm',
       id: 'vrm',

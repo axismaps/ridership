@@ -85,6 +85,9 @@ if __name__ == "__main__":
     ntd21['rail_fares'] = filterByMode(ntd21['FARES'], RAIL_MODES)
     ntd21['rail_opexp'] = filterByMode(ntd21['OpExp Total'], RAIL_MODES)
 
+    PARA_MODES = ['DR']
+    ntd21['para_upt'] = filterByMode(ntd21['UPT'], PARA_MODES)
+
     del ntd21['UPT']
 
     # Drop unused columns
@@ -343,12 +346,12 @@ if __name__ == "__main__":
     download = export.rename_axis(['taid', 'year']).reset_index().merge(
         ta_export[ta_export['display']], on='taid'
     )
-    col_order = ['taname', 'msaid', 'year', 'upt', 'bus_upt', 'rail_upt', 'vrm',
+    col_order = ['taname', 'msaid', 'year', 'upt', 'bus_upt', 'rail_upt', 'para_upt', 'vrm',
                  'bus_vrm', 'rail_vrm', 'headways', 'speed', 'bus_speed', 'rail_speed',
                  'opexp_total', 'fares', 'avg_fare', 'bus_avg_fare', 'rail_avg_fare', 'recovery',
                  'bus_recovery', 'rail_recovery', 'failures', 'gas', 'capita', 'vrm_per_ride',
                  'bus_vrm_per_ride', 'rail_vrm_per_ride', 'trip_length']
-    col_names = ['taname', 'msaid', 'year', 'upt', 'bus_upt', 'rail_upt', 'vrm',
+    col_names = ['taname', 'msaid', 'year', 'upt', 'bus_upt', 'rail_upt', 'para_upt', 'vrm',
                  'bus_vrm', 'rail_vrm', 'minimum_headways', 'avg_speed', 'bus_speed', 'rail_speed',
                  'operating_expenses_total', 'fare_revenue', 'avg_fare', 'bus_avg_fare',
                  'rail_avg_fare', 'farebox_recovery', 'bus_recovery', 'rail_recovery',
