@@ -46,7 +46,6 @@ const legendFunctions = {
     const {
       getCircleDistanceFromBottom,
     } = localFunctions;
-    console.log(radiusScale.ticks(3));
     const circleData = radiusScale.ticks(3);
     const fromBottom = getCircleDistanceFromBottom({ height });
     svg.selectAll('.legend__circle-group').remove();
@@ -106,7 +105,6 @@ const legendFunctions = {
     width,
     indicator,
   }) {
-    console.log(indicator);
     const {
       getCircleDistanceFromBottom,
     } = localFunctions;
