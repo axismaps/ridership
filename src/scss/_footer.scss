@@ -26,12 +26,15 @@
   font-weight: 350;
 }
 
+.legend__line {
+  stroke: #666;
+}
+
 .legend__description {
   font-size: 12px;
-  padding-left: 20px;
+  padding-left: 5px;
   padding-right: 20px;
   margin-top: 10px;
-  text-align: center;
 }
 
 .footer__msa-legend {

@@ -5,6 +5,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
     histogram,
     sidebar,
     msaAtlas,
+    legend,
   } = components;
   const years = this.get('years');
   const msa = this.get('msa');
@@ -22,6 +23,10 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
     })
     .updateNationalMapData()
     .updateInteractions();
+
+  legend.config({
+    nationalMapData,
+  }).update();
 
   if (histogram !== null) {
     histogram

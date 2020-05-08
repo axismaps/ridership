@@ -7,6 +7,15 @@ const localFunctions = {
 };
 
 const legendFunctions = {
+  getRadiusScale({ nationalMapData }) {
+    const domain = d3.extent(nationalMapData, d => d.firstAndLast[1]);
+
+    const scale = d3.scaleSqrt()
+      .domain(domain)
+      .range([5, 35]);
+
+    return scale;
+  },
   drawSVG({
     container,
     width,
@@ -24,24 +33,31 @@ const legendFunctions = {
     width,
     height,
     radiusScale,
+    indicator,
   }) {
+    const format = (val) => {
+      const indicatorFormat = indicator.format;
+      if (indicatorFormat === ',d') {
+        if (val >= 1000000) return `${d3.format(',d')(val / 1000000)}M`;
+        return d3.format(',d')(val);
+      }
+      return `${d3.format(indicatorFormat)(val)}${indicator.unit || ''}`;
+    };
     const {
       getCircleDistanceFromBottom,
     } = localFunctions;
-    const circleData = [
-      // 25000,
-      500000000,
-      2000000000,
-      5000000000,
-    ];
+    console.log(radiusScale.ticks(3));
+    const circleData = radiusScale.ticks(3);
     const fromBottom = getCircleDistanceFromBottom({ height });
+    svg.selectAll('.legend__circle-group').remove();
+    const widest = radiusScale(circleData[circleData.length - 1]);
     const circleGroups = svg.selectAll('.legend__circle-group')
       .data(circleData)
       .enter()
       .append('g')
       .attrs({
         class: 'legend__circle-group',
-        transform: d => `translate(${width / 2},${height - radiusScale(d) - fromBottom})`,
+        transform: d => `translate(${2 + widest},${height - radiusScale(d) - fromBottom})`,
       });
 
     circleGroups
@@ -52,30 +68,50 @@ const legendFunctions = {
         cy: 0,
         r: d => radiusScale(d),
       });
-    const format = d3.format(',');
     circleGroups
       .append('text')
       .attrs({
         class: 'legend__label',
-        x: 0,
+        x: widest + 4,
         y: (d, i) => {
-          const offset = 8;
+          const offset = 4;
           if (i === 0) return offset;
-          return offset - radiusScale(circleData[i - 1]);
+          return offset - radiusScale(d);
         },
-        'text-anchor': 'middle',
+        'text-anchor': 'left',
       })
-      .text(d => `${format(d / 1000000)}M`);
+      .text(d => format(d));
+
+    circleGroups
+      .append('line')
+      .attrs({
+        class: 'legend__line',
+        x1: 0,
+        x2: widest + 2,
+        y1: (d, i) => {
+          const offset = 0;
+          if (i === 0) return offset;
+          return offset - radiusScale(d);
+        },
+        y2: (d, i) => {
+          const offset = 0;
+          if (i === 0) return offset;
+          return offset - radiusScale(d);
+        },
+      });
   },
   drawDescription({
     container,
     height,
     width,
+    indicator,
   }) {
+    console.log(indicator);
     const {
       getCircleDistanceFromBottom,
     } = localFunctions;
     const fromTop = height - getCircleDistanceFromBottom({ height });
+    container.select('.legend__description-container').remove();
     container
       .append('div')
       .attr('class', 'legend__description-container')
@@ -88,7 +124,7 @@ const legendFunctions = {
       })
       .append('div')
       .attr('class', 'legend__description')
-      .text('Millions of unlinked passenger trips (UPT)');
+      .text(indicator.text);
   },
 };
 

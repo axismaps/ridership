@@ -9,14 +9,18 @@ const privateMethods = {
 
     const {
       container,
-      radiusScale,
+      nationalMapData,
+      indicator,
     } = props;
 
     const {
+      getRadiusScale,
       drawSVG,
       drawCircles,
       drawDescription,
     } = legendFunctions;
+
+    const radiusScale = getRadiusScale({ nationalMapData });
 
     const setDimension = (dim) => {
       const currentValue = props[dim];
@@ -51,12 +55,14 @@ const privateMethods = {
       width,
       height,
       radiusScale,
+      indicator,
     });
 
     drawDescription({
       container,
       height,
       width,
+      indicator,
     });
 
     Object.assign(props, {
@@ -97,6 +103,40 @@ class Legend {
 
     container
       .classed('footer__atlas-legend--hidden', !legendOn);
+  }
+
+  update() {
+    const {
+      nationalMapData,
+      svg,
+      width,
+      height,
+      container,
+      indicator,
+    } = privateProps.get(this);
+
+    const {
+      getRadiusScale,
+      drawCircles,
+      drawDescription,
+    } = legendFunctions;
+
+    const radiusScale = getRadiusScale({ nationalMapData });
+
+    drawCircles({
+      svg,
+      width,
+      height,
+      radiusScale,
+      indicator,
+    });
+
+    drawDescription({
+      container,
+      height,
+      width,
+      indicator,
+    });
   }
 
   export() {
