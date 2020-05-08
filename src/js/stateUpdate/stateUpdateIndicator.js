@@ -6,16 +6,23 @@ const getStateUpdateIndicator = ({ components }) => function updateIndicator() {
     atlas,
     sidebar,
     histogram,
+    legend,
   } = components;
   const indicator = this.get('indicator');
   const nationalMapData = this.getCurrentNationalMapData();
   const nationalData = this.getCurrentNationalData();
+  console.log(nationalMapData);
 
   indicatorDropdown
     .config({
       indicator,
     })
     .update();
+
+  legend.config({
+    nationalMapData,
+    indicator,
+  }).update();
 
   atlas
     .config({
