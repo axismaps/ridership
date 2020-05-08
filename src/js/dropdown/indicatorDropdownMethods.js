@@ -114,7 +114,6 @@ const pureMethods = {
       .on('change', function dropdownChange() {
         const { value } = this;
         const selectedIndicator = indicatorList.find(i => i.id === value);
-        console.log(indicatorList, value);
         updateIndicator(selectedIndicator);
       });
   },

@@ -4,11 +4,14 @@ const getGetCurrentNationalData = ({ data }) => function getCurrentNationalData(
   const indicator = this.get('indicator');
 
 
-  const firstRecord = nationalNtd.find(d => d.year === years[0])[indicator.value];
-  const lastRecord = nationalNtd.find(d => d.year === years[1])[indicator.value];
-  const pctChange = [firstRecord, lastRecord].includes(null) ? null
-    : 100 * (lastRecord - firstRecord) / firstRecord;
-  const firstAndLast = [firstRecord, lastRecord];
+  const firstRecord = nationalNtd.find(d => d.year === years[0]);
+  const lastRecord = nationalNtd.find(d => d.year === years[1]);
+  const firstValue = firstRecord ? firstRecord[indicator.value] : null;
+  const lastValue = lastRecord ? lastRecord[indicator.value] : null;
+
+  const pctChange = [firstValue, lastValue].includes(null) ? null
+    : 100 * (lastValue - firstValue) / firstValue;
+  const firstAndLast = [firstValue, lastValue];
 
   return {
     pctChange,

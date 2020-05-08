@@ -267,6 +267,7 @@ const atlasNationalFunctions = {
           if (agency === undefined) return nodeCopy;
           nodeCopy.pctChange = agency.pctChange;
           nodeCopy.firstAndLast = agency.firstAndLast;
+          nodeCopy.actualYearRange = agency.actualYearRange;
           return nodeCopy;
         }),
       msaNodes: msaNodes
@@ -276,6 +277,7 @@ const atlasNationalFunctions = {
           if (agency === undefined) return nodeCopy;
           nodeCopy.pctChange = agency.pctChange;
           nodeCopy.firstAndLast = agency.firstAndLast;
+          nodeCopy.actualYearRange = agency.actualYearRange;
           return nodeCopy;
         }),
     };

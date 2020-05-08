@@ -20,7 +20,7 @@ const updateFunctions = {
       .text(getNationalAverageText({ nationalAverage, currentCensusField, msa }));
 
     nationalAverageGroup
-      .style('opacity', 1)
+      .style('opacity', nationalAverage === null ? 0 : 1)
       .transition()
       .duration(500)
       .attrs(getAverageLinePosition({
