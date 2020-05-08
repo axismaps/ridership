@@ -8,39 +8,6 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
     return this;
   },
 
-  updateYears() {
-    const props = privateProps.get(this);
-    // const {
-    //   setRadiusScale,
-    // } = privateMethods;
-
-    // setRadiusScale.call(this);
-
-    const {
-      nationalMapData,
-      agencies,
-      nodes,
-      msaNodes,
-      changeColorScale,
-      nationalDataView,
-    } = props;
-    const {
-      setAgencyColors,
-    } = atlasGeoFunctions;
-
-
-    setAgencyColors({
-      agencies,
-      changeColorScale,
-      nationalMapData,
-      nodes,
-      msaNodes,
-      nationalDataView,
-    });
-
-    return this;
-  },
-
   updateNationalMapData() {
     const props = privateProps.get(this);
     const {
@@ -50,19 +17,69 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
       nodes,
       msaNodes,
       nationalDataView,
+      projectionModify,
     } = props;
     const {
       // drawAgencies,
       setAgencyColors,
     } = atlasGeoFunctions;
 
+    const {
+      getRadiusScale,
+      setNodePositions,
+      zoomAgencies,
+      updateRadii,
+      getUpdatedNodes,
+    } = atlasNationalFunctions;
+
+    const updatedNodes = getUpdatedNodes({
+      nodes,
+      msaNodes,
+      nationalMapData,
+      nationalDataView,
+    });
+
+    Object.assign(props, {
+      nodes: updatedNodes.nodes,
+      msaNodes: updatedNodes.msaNodes,
+    });
+
+    const radiusScale = getRadiusScale({
+      nodes: nationalDataView === 'ta' ? props.nodes : props.msaNodes,
+    });
+
+    setNodePositions({
+      nodes: props.nodes,
+      radiusScale,
+      logSimulationNodes: (newNodes) => {
+        props.nodes = newNodes;
+      },
+    });
+
+    setNodePositions({
+      nodes: props.msaNodes,
+      radiusScale,
+      logSimulationNodes: (newNodes) => {
+        props.msaNodes = newNodes;
+      },
+    });
+
     setAgencyColors({
       agencies,
       changeColorScale,
       nationalMapData,
-      nodes,
-      msaNodes,
+      nodes: props.nodes,
+      msaNodes: props.msaNodes,
       nationalDataView,
+    });
+
+    updateRadii({
+      agencies,
+    });
+
+    zoomAgencies({
+      agencies,
+      projectionModify,
     });
 
     return this;
@@ -78,7 +95,6 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
       updateHighlightedAgencies,
       mapFeatures,
       nationalDataView,
-      radiusScale,
       layers,
       projection,
       projectionModify,
@@ -92,16 +108,24 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
       drawAgencies,
       drawMSAs,
       zoomAgencies,
-    } = atlasNationalFunctions;
-    const {
+      getRadiusScale,
+      updateRadii,
       getUpdatedNodes,
-    } = atlasGeoFunctions;
+    } = atlasNationalFunctions;
+
+    const radiusScale = getRadiusScale({
+      nodes: nationalDataView === 'ta' ? props.nodes : props.msaNodes,
+    });
 
     const updatedNodes = getUpdatedNodes({
       nodes,
       msaNodes,
       nationalMapData,
       nationalDataView,
+    });
+    Object.assign(props, {
+      nodes: updatedNodes.nodes,
+      msaNodes: updatedNodes.msaNodes,
     });
     let agencies;
     if (nationalDataView === 'ta') {
@@ -115,7 +139,7 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
         changeColorScale,
         projectionModify,
         updateHighlightedAgencies,
-        nodes: updatedNodes,
+        nodes: props.nodes,
         logSimulationNodes: (newNodes) => {
           props.nodes = newNodes;
         },
@@ -140,7 +164,7 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
         changeColorScale,
         projectionModify,
         updateHighlightedAgencies,
-        msaNodes: updatedNodes,
+        msaNodes: props.msaNodes,
         logSimulationNodes: (newNodes) => {
           props.msaNodes = newNodes;
         },
@@ -154,6 +178,10 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
         agencies,
       });
     }
+
+    updateRadii({
+      agencies,
+    });
 
     return this;
   },

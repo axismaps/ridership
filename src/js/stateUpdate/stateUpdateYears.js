@@ -22,7 +22,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
       nationalMapData,
       years,
     })
-    .updateYears()
+    .updateNationalMapData()
     .updateInteractions();
 
   legend.config({
