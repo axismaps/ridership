@@ -80,6 +80,25 @@ $sidebar-content--margin-top: 20px;
   font-weight: 600;
 }
 
+.sidebar__sparkline-legend-show-all {
+  margin: 0 0 15px 40px;
+}
+
+.sidebar__sparkline-legend-show-all-button {
+  border: 1px solid $main-blue;
+  outline: none;
+  font-size: 15px;
+  background: white;
+  color: $main-blue;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sidebar__sparkline-legend-show-all-button:hover {
+  text-decoration: underline;
+}
+
 .sidebar__sparkline-legend-row {
   margin: 0px 40px 0px 20px;
   display: flex;

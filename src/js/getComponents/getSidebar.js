@@ -71,15 +71,20 @@ const getSidebar = ({ data, state }) => new Sidebar({
      * Make copy of current taFilter, add/remove new filter
      * @private
      */
-    if (currentTAFilter.has(newAgency)) {
-      const filterCopy = new Set(currentTAFilter);
+    let filterCopy;
+    if (!newAgency) { // clear filter
+      filterCopy = new Set();
+    } else if (Array.isArray(newAgency)) { // set a whole list at once
+      filterCopy = new Set(newAgency);
+    } else if (currentTAFilter.has(newAgency)) {
+      filterCopy = new Set(currentTAFilter);
       filterCopy.delete(newAgency);
       state.update({ taFilter: filterCopy });
     } else {
-      const filterCopy = new Set(currentTAFilter);
+      filterCopy = new Set(currentTAFilter);
       filterCopy.add(newAgency);
-      state.update({ taFilter: filterCopy });
     }
+    state.update({ taFilter: filterCopy });
   },
   updateMSA: (pcpLine) => {
     const currentMSA = state.get('msa');

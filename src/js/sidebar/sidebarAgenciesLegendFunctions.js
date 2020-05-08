@@ -13,6 +13,21 @@ const sidebarLegendFunctions = {
       setSparkLineLegendChecks,
     } = sidebarLegendFunctions;
 
+    const showAllContainer = legendContainer.append('div')
+      .attr('class', 'sidebar__sparkline-legend-show-all');
+
+    const showAllButton = showAllContainer.append('button')
+      .attr('class', 'sidebar__sparkline-legend-show-all-button')
+      .html(taFilter.size ? 'Show all agencies' : 'Hide all agencies')
+      .on('click', () => {
+        if (taFilter.size) {
+          updateTAFilter(null);
+          showAllButton.html('Hide all agencies');
+        } else {
+          updateTAFilter(currentAgencies.map(d => d.taId));
+          showAllButton.html('Show all agencies');
+        }
+      });
 
     const rowContainers = legendContainer
       .selectAll('.sidebar__sparkline-legend-row-outer')
@@ -129,7 +144,7 @@ const sidebarLegendFunctions = {
     resetOpenDropdowns,
   }) {
     legendContainer
-      .selectAll('.sidebar__sparkline-legend-row-outer')
+      .selectAll('*')
       .remove();
 
     resetOpenDropdowns([]);
