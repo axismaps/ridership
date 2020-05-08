@@ -6,12 +6,12 @@ mapshaper data/geojson/transit/**/routes.geojson combine-files \
   -simplify 10% no-repair \
   -o data/output/routes.geojson
 
-python bin/ta_names.py
-
 ./bin/stops.sh
+
+python bin/ta_names.py
 
 tippecanoe data/output/*.geojson -aD -aG -ab -ai -f -o data/output/transit.mbtiles
 
 source .env
 
-mapbox upload axismaps.axj75ry4 data/output/transit.mbtiles
+# mapbox upload axismaps.axj75ry4 data/output/transit.mbtiles

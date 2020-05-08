@@ -204,8 +204,15 @@ class MSAAtlas {
     taLayers.forEach((layerId) => {
       const filterCopy = [
         ...initialFilters[layerId],
-        ['in', 'taid', ...agenciesToShow],
       ];
+      if (taFilter.size) {
+        filterCopy.push(['in', 'taid', ...agenciesToShow]);
+      } else {
+        filterCopy.push(['any',
+          ['in', 'taid', ...agenciesToShow],
+          ['!has', 'taid'], // null TA allowed if no filter
+        ]);
+      }
       msaAtlas.setFilter(layerId, filterCopy);
     });
   }

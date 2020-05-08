@@ -211,10 +211,10 @@ const dataMethods = {
     Promise.all([
       d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20ta%20WHERE%20display%20%3D%20true'),
       d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20msa'),
-      d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd'),
+      d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd_dev'),
       d3.json('data/states.json'),
-      d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd_msa'),
-      d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd_national'),
+      d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd_msa_dev'),
+      d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20ntd_national_dev'),
       d3.json('https://ridership.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20ta%20WHERE%20display%20%3D%20false'),
     ])
       .then((rawData) => {
