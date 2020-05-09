@@ -71,7 +71,7 @@ def download_census():
                 elif r['var'] != '99999999':
                     frames = []
                     errors = []
-                    for y in range(2010, 2018):
+                    for y in range(2010, 2019):
                         for s in counties:
                             urls = errors
                             errors = []
