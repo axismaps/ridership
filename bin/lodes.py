@@ -6,8 +6,8 @@ Download and parse private primary jobs (JT03) from LEHD
 import os
 from string import Template
 import gzip
-import pandas as pd
 import requests
+import pandas as pd
 import us
 
 CW = Template('https://lehd.ces.census.gov/data/lodes/LODES7/${st}/${st}_xwalk.csv.gz')
@@ -43,7 +43,7 @@ for s in states:
                 os.remove(gz)
 
     frames = []
-    for y in range(2010, 2018):
+    for y in range(2010, 2019):
         wac = WAC_FILE.substitute(st=abbr, yr=y)
         wcsv = wac[:-3]
         if not os.path.isfile(wac) and not os.path.isfile(wcsv):
