@@ -62,8 +62,8 @@ const getEmbedOverrideProps = ({ data }) => {
       });
     } else if (embed === 'msaAtlas' || (embed === 'histogram' && scale === 'msa')) {
       Object.assign(embedOverrideProps, {
-        censusField: data.get('censusFields')
-          .find(d => d.value === indicatorValue),
+        censusField: data.get('censusDropdownItems')
+          .find(d => d.id === indicatorValue),
       });
     }
   }
