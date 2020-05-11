@@ -60,36 +60,6 @@ const processGeoJSON = ({
 
   const yearRange = data.get('msaYearRange');
 
-  const getNearestYearValue = (year, field, feature, tables, isFirstYear) => {
-    let table = tables[year];
-    let value = tables[year][feature.properties.id][field.value];
-    let i = 1;
-    let currentYear = year;
-    while (value === null || value === undefined) {
-      const increment = isFirstYear ? i : -i;
-      currentYear = year + increment;
-      table = tables[currentYear];
-      if (table) {
-        value = table[feature.properties.id][field.value];
-        if (value) break;
-      }
-
-      currentYear = year - increment;
-      table = tables[currentYear];
-      if (table) {
-        value = table[feature.properties.id][field.value];
-      }
-
-      if (isFirstYear && year + i >= years[1] && year - i < yearRange[0]) break;
-      if (!isFirstYear && year - i <= years[0] && year + i > yearRange[1]) break;
-      i += 1;
-    }
-    return {
-      value,
-      year: currentYear,
-    };
-  };
-
   const censusFields = data.get('censusFields');
 
   const tables = {};
@@ -111,8 +81,9 @@ const processGeoJSON = ({
   const regionCensusChange = censusFields
     .reduce((accumulator, field) => {
       const changeKey = `${field.value}_change`;
-      const value1 = regionTables[years[0]][msa.msaId][field.value];
-      const value2 = regionTables[years[1]][msa.msaId][field.value];
+      const value1 = regionTables[years[0]][msa.msaId] ? regionTables[years[0]][msa.msaId][field.value] : null;
+      const value2 = regionTables[years[1]][msa.msaId] ? regionTables[years[1]][msa.msaId][field.value] : null;
+
       if (value1 && value2) {
         if (field.unit === '%') {
           accumulator[changeKey] = value2 - value1;
@@ -128,7 +99,7 @@ const processGeoJSON = ({
       accumulator[field.id] = value2; // second ("current") year
       accumulator[`${field.id}-actualyears`] = years;
       // actual nominal value of current year, even if null
-      accumulator[`${field.value}-nominal`] = regionTables[years[1]][msa.msaId][field.value];
+      accumulator[`${field.value}-nominal`] = regionTables[years[1]][msa.msaId] ? regionTables[years[1]][msa.msaId][field.value] : null;
       return accumulator;
     }, {});
 
@@ -227,8 +198,8 @@ const loadTractData = ({
 }) => {
   Promise.all([
     d3.json(`data/tracts/tract-${msa.msaId}.json`),
-    d3.json(`https://ridership.carto.com/api/v2/sql?q=${encodeURIComponent(`SELECT * FROM census WHERE msaid = ${msa.msaId}`)}`),
-    d3.json(`https://ridership.carto.com/api/v2/sql?q=${encodeURIComponent(`SELECT * FROM census_msa WHERE geoid = ${msa.msaId}`)}`),
+    d3.json(`https://ridership.carto.com/api/v2/sql?q=${encodeURIComponent(`SELECT * FROM census_dev WHERE msaid = ${msa.msaId}`)}`),
+    d3.json(`https://ridership.carto.com/api/v2/sql?q=${encodeURIComponent(`SELECT * FROM census_msa_dev WHERE geoid = ${msa.msaId}`)}`),
   ]).then((rawData) => {
     const [tractTopo, censusData, regionData] = rawData;
     const cachedTractData = data.get('cachedTractData');

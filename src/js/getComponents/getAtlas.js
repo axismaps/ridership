@@ -21,11 +21,12 @@ const getAtlas = ({ data, state }) => new Atlas({
   radiusScale: state.get('mobile') ? data.get('mobileRadiusScale') : data.get('radiusScale'),
   exportMethods,
   jumpToMsa: (agency) => {
+    const msaYearRange = data.get('msaYearRange');
     const msa = data.get('msa')
       .find(d => d.msaId === agency.msaId);
     const years = state.get('years');
-    if (years[0] < 2010 || years[1] > 2016) {
-      state.update({ years: [d3.max([2010, years[0]]), d3.min([2016, years[1]])] });
+    if (years[0] < msaYearRange[0] || years[1] > msaYearRange[1]) {
+      state.update({ years: [d3.max([msaYearRange[0], years[0]]), d3.min([msaYearRange[1], years[1]])] });
     }
 
     state.update({

@@ -225,6 +225,7 @@ const histogramFunctions = {
     const nationalAverageGroup = svg
       .append('g')
       .style('pointer-events', 'none')
+      .style('opacity', nationalAverage === null ? 0 : 1)
       .attr('transform', `translate(${padding.left + xScale(nationalAverage)}, ${padding.top})`);
 
     const nationalAverageText = nationalAverageGroup

@@ -90,12 +90,13 @@ const getSidebar = ({ data, state }) => new Sidebar({
     const currentMSA = state.get('msa');
     const newMSA = data.get('msa')
       .find(d => pcpLine.msaId === d.msaId);
+    const msaYearRange = data.get('msaYearRange');
 
     if (currentMSA === null || currentMSA.msaId !== newMSA.msaId) {
       if (state.get('scale') === 'national') {
         const years = state.get('years');
-        if (years[0] < 2010 || years[1] > 2016) {
-          state.update({ years: [d3.max([2010, years[0]]), d3.min([2016, years[1]])] });
+        if (years[0] < msaYearRange[0] || years[1] > msaYearRange[1]) {
+          state.update({ years: [d3.max([msaYearRange[0], years[0]]), d3.min([msaYearRange[1], years[1]])] });
         }
         state.update({
           scale: 'msa',

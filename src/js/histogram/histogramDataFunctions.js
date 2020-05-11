@@ -90,6 +90,7 @@ const dataFunctions = {
         .reduce((accumulator, msa) => [...accumulator, ...msa.ta], [])
         .filter(d => d.pctChange < 500);
 
+
     const nationalAverage = nationalData.pctChange;
 
     const histogramData = getData({
@@ -121,7 +122,7 @@ const dataFunctions = {
     });
 
     // not national but keeping variable name consistent is easier
-    const nationalAverage = regionCensus[currentCensusField.id] * (currentCensusField.change ? 100 : 1);
+    const nationalAverage = !regionCensus[currentCensusField.id] ? null : (regionCensus[currentCensusField.id] * (currentCensusField.change ? 100 : 1));
 
     return { histogramData, nationalAverage };
   },

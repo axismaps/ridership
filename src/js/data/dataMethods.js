@@ -104,7 +104,7 @@ const dataMethods = {
 
 
     const yearRange = d3.extent(ntd, d => d.year);
-    const msaYearRange = [2010, 2016];
+    const msaYearRange = [2010, yearRange[1]];
 
     const changeColorScale = d3.scaleThreshold()
       .domain([-50, -10, 0, 10, 50])
@@ -135,7 +135,7 @@ const dataMethods = {
 
     const params = new URLSearchParams(window.location.search);
 
-    const defaultYears = [2006, 2017];
+    const defaultYears = yearRange;
 
     const data = new Map();
 
