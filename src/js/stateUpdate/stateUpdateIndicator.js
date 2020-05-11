@@ -11,7 +11,9 @@ const getStateUpdateIndicator = ({ components }) => function updateIndicator() {
   const indicator = this.get('indicator');
   const nationalMapData = this.getCurrentNationalMapData();
   const nationalData = this.getCurrentNationalData();
-  console.log(nationalMapData);
+  if (indicator) {
+    ga('send', 'event', 'data', 'indicator', indicator.value);
+  }
 
   indicatorDropdown
     .config({

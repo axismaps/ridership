@@ -14,6 +14,9 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
   this.set('distanceFilter', null);
   const distanceFilter = this.get('distanceFilter');
 
+  if (msa) {
+    ga('send', 'event', 'data', 'msa', msa.msaId);
+  }
 
   msaDropdown
     .config({

@@ -11,11 +11,20 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
   const years = this.get('years');
   const msa = this.get('msa');
   const scale = this.get('scale');
+  const censusField = this.get('censusField');
   // const nationalMapData = data.get('nationalMapData');
   // console.log('update years', years);
   const nationalMapData = this.getCurrentNationalMapData();
   const nationalData = this.getCurrentNationalData();
   const agenciesData = this.getCurrentAgenciesData();
+
+  if (scale === 'msa' && !censusField.change) {
+    // send single year for single year census data
+    ga('send', 'event', 'data', 'years', years[1]);
+  } else {
+    ga('send', 'event', 'data', 'years', years.join('-'));
+  }
+
 
   atlas
     .config({

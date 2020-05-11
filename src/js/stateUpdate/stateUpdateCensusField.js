@@ -10,6 +10,10 @@ const getStateUpdateCensusField = ({ components }) => function updateCensusField
     yearDropdown,
   } = components;
 
+  if (censusField) {
+    ga('send', 'event', 'data', 'indicator', censusField.id);
+  }
+
   censusDropdown
     .config({
       indicator: censusField,
