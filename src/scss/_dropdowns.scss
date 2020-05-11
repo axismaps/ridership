@@ -31,31 +31,35 @@
 
 .msa-dropdown__content-row,
 .indicator-dropdown__content-row,
-.census-dropdown__content-row,
+.grouped-dropdown__content-row,
 .compare-dropdown__content-row,
 .search-dropdown__content-row {
   margin-top: 15px;
   cursor: pointer;
 }
 
-.census-dropdown__content-row {
+.grouped-dropdown__content-row {
   display: flex;
 }
 
-.census-dropdown__content-row__title {
+.grouped-dropdown__content-row__title {
   flex: 1;
   margin-right: 10px;
   font-weight: 300;
 }
 
-.census-dropdown__content-row__indicator {
+.grouped-dropdown__content-row__indicator {
   padding: 0 5px;
+  border-right: 1px solid #666;
 }
 
-.census-dropdown__content-row__indicator:last-child {
-  border-left: 1px solid #666;
+.grouped-dropdown__content-row__indicator:last-child {
+  border-right: none;
 }
 
+.grouped-dropdown__content-row__indicator.hidden {
+  display: none
+}
 
 .search-dropdown__content-row {
   padding-left: 10px;
@@ -73,8 +77,8 @@
 
 .msa-dropdown__content-row:hover,
 .indicator-dropdown__content-row:hover,
-.census-dropdown__content-row:hover .census-dropdown__content-row__title,
-.census-dropdown__content-row__indicator:hover,
+.grouped-dropdown__content-row:hover .grouped-dropdown__content-row__title,
+.grouped-dropdown__content-row__indicator:hover,
 .compare-dropdown__content-row:hover,
 .search-dropdown__content-row:hover,
 .compare .atlas__compare-dropdown-button,
@@ -84,8 +88,8 @@
 
 .msa-dropdown__content-row--highlighted,
 .indicator-dropdown__content-row--highlighted,
-.census-dropdown__content-row--highlighted .census-dropdown__content-row__title,
-.census-dropdown__content-row__indicator--highlighted,
+.grouped-dropdown__content-row--highlighted .grouped-dropdown__content-row__title,
+.grouped-dropdown__content-row__indicator--highlighted,
 .year-dropdown__content-row--highlighted
 .compare-dropdown__content-row--highlighted {
   font-weight: 600;

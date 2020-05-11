@@ -10,6 +10,8 @@ const indicators = new Map();
       format: ',d',
       meta: 'Total unlinked passenger trips (UPTs) taken, on any public transit mode. Legs of a trip with transfers are counted as individual trips.',
       verified: true,
+      parent: 'Ridership',
+      mode: 'All',
     },
     {
       text: 'Bus Ridership',
@@ -19,6 +21,8 @@ const indicators = new Map();
       format: ',d',
       meta: 'Unlinked passenger trips on any bus mode, which include local, rapid, commuter, and trolley bus.',
       verified: true,
+      parent: 'Ridership',
+      mode: 'Bus',
     },
     {
       text: 'Rail Ridership',
@@ -26,6 +30,8 @@ const indicators = new Map();
       id: 'rail_upt',
       summaryType: 'sum',
       format: ',d',
+      parent: 'Ridership',
+      mode: 'Rail',
     },
     {
       text: 'Paratransit Ridership',
@@ -35,6 +41,8 @@ const indicators = new Map();
       format: ',d',
       meta: 'Unlinked passenger trips on any rail mode, which include light, heavy, commuter, hybrid, and streetcar rail; monorail; &amp; cable car.',
       verified: true,
+      parent: 'Ridership',
+      mode: 'Paratransit',
     },
     {
       text: 'Vehicle Revenue Miles',
@@ -45,6 +53,8 @@ const indicators = new Map();
       unit: ' mi',
       meta: 'Total miles that vehicles of any mode travel in revenue service (or, serving customers). VRM is a measure of service provision.',
       verified: true,
+      parent: 'Vehicle Revenue Miles',
+      mode: 'All',
     },
     {
       text: 'Bus Vehicle Revenue Miles',
@@ -53,6 +63,8 @@ const indicators = new Map();
       summaryType: 'sum',
       format: ',d',
       unit: ' mi',
+      parent: 'Vehicle Revenue Miles',
+      mode: 'Bus',
     },
     {
       text: 'Rail Vehicle Revenue Miles',
@@ -61,6 +73,8 @@ const indicators = new Map();
       summaryType: 'sum',
       format: ',d',
       unit: ' mi',
+      parent: 'Vehicle Revenue Miles',
+      mode: 'Rail',
     },
     {
       text: 'Minimum Headway',
@@ -79,6 +93,8 @@ const indicators = new Map();
       format: '.1f',
       unit: ' mph',
       meta: 'Total vehicle revenue miles divided by total vehicle revenue hours, for all modes. It relates to transit’s time competitiveness with other modes.<br><br>Averages include all rides, whose speeds  may vary widely according to time of day or mode. Calculated averages are most useful for modal or cross-agency comparisons.',
+      parent: 'Average Vehicle Speed',
+      mode: 'All',
     },
     {
       text: 'Bus Average Vehicle Speed',
@@ -87,6 +103,8 @@ const indicators = new Map();
       summaryType: 'mean',
       format: '.1f',
       unit: ' mph',
+      parent: 'Average Vehicle Speed',
+      mode: 'Bus',
     },
     {
       text: 'Rail Average Vehicle Speed',
@@ -95,6 +113,8 @@ const indicators = new Map();
       summaryType: 'mean',
       format: '.1f',
       unit: ' mph',
+      parent: 'Average Vehicle Speed',
+      mode: 'Rail',
     },
     {
       text: 'Operating Expenses',
@@ -104,6 +124,8 @@ const indicators = new Map();
       format: '$,d',
       meta: 'Total transit agency expenses for operating service, for all modes (e.g. daily expenses of running & maintaining vehicles and facilities). Operating expenses are a measure of service provision.',
       verified: true,
+      parent: 'Operating Expenses',
+      mode: 'All',
     },
     {
       text: 'Bus Operating Expenses',
@@ -111,6 +133,8 @@ const indicators = new Map();
       id: 'bus_opexp',
       summaryType: 'sum',
       format: '$,d',
+      parent: 'Operating Expenses',
+      mode: 'Bus',
     },
     {
       text: 'Rail Operating Expenses',
@@ -118,6 +142,8 @@ const indicators = new Map();
       id: 'rail_opexp',
       summaryType: 'sum',
       format: '$,d',
+      parent: 'Operating Expenses',
+      mode: 'Rail',
     },
     {
       text: 'Average Fare',
@@ -126,6 +152,8 @@ const indicators = new Map();
       summaryType: 'mean',
       format: '$.2f',
       meta: 'Total revenue from collected fares divided by total trips (UPTs). Fares are a measure of transit’s cost competitiveness with other modes and how accessible it is to riders with low incomes.<br><br>Averages include all rides, whose fares vary according to time of day, zones, and programs to which a rider belongs. Calculated averages will not represent the fare that most riders pay for a single ride, but they are useful for making modal or cross-agency comparisons or examing trends.',
+      parent: 'Average Fare',
+      mode: 'All',
     },
     {
       text: 'Bus Average Fare',
@@ -133,6 +161,8 @@ const indicators = new Map();
       id: 'bus_avg_fare',
       summaryType: 'mean',
       format: '$.2f',
+      parent: 'Average Fare',
+      mode: 'Bus',
     },
     {
       text: 'Rail Average Fare',
@@ -140,6 +170,8 @@ const indicators = new Map();
       id: 'rail_avg_fare',
       summaryType: 'mean',
       format: '$.2f',
+      parent: 'Average Fare',
+      mode: 'Rail',
     },
     {
       text: 'Farebox Recovery',
@@ -149,6 +181,8 @@ const indicators = new Map();
       format: '.1%',
       meta: 'Share of operating expenses covered by fares. It measures how much an agency depends on riders to fund operations.',
       verified: true,
+      parent: 'Farebox Recovery',
+      mode: 'All',
     },
     {
       text: 'Bus Farebox Recovery',
@@ -156,6 +190,8 @@ const indicators = new Map();
       id: 'bus_recovery',
       summaryType: 'mean',
       format: '.1%',
+      parent: 'Farebox Recovery',
+      mode: 'Bus',
     },
     {
       text: 'Rail Farebox Recovery',
@@ -163,6 +199,8 @@ const indicators = new Map();
       id: 'rail_recovery',
       summaryType: 'mean',
       format: '.1%',
+      parent: 'Farebox Recovery',
+      mode: 'Rail',
     },
     {
       text: 'Miles Between Failures',
@@ -188,6 +226,8 @@ const indicators = new Map();
       unit: ' rides per mi',
       meta: 'Unlinked passenger trips divided by VRM. It standardizes ridership by service provision & suggests the efficiency of service provision.',
       verified: true,
+      parent: 'Riders per Vehicle Revenue Mile',
+      mode: 'All',
     },
     {
       text: 'Bus Riders per Vehicle Revenue Mile',
@@ -196,6 +236,8 @@ const indicators = new Map();
       summaryType: 'mean',
       format: '.1f',
       unit: ' rides per mi',
+      parent: 'Riders per Vehicle Revenue Mile',
+      mode: 'Bus',
     },
     {
       text: 'Rail Riders per Vehicle Revenue Mile',
@@ -204,6 +246,8 @@ const indicators = new Map();
       summaryType: 'mean',
       format: '.1f',
       unit: ' rides per mi',
+      parent: 'Riders per Vehicle Revenue Mile',
+      mode: 'Rail',
     },
     {
       text: 'Average Trip Length',
