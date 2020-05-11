@@ -48,6 +48,10 @@
   font-weight: 300;
 }
 
+.indicator-dropdown__content-row--highlighted .grouped-dropdown__content-row__title {
+  font-weight: 600;
+}
+
 .grouped-dropdown__content-row__indicator {
   padding: 0 5px;
   border-right: 1px solid #666;

@@ -209,24 +209,21 @@ const pureMethods = {
     indicatorRows,
     mobileSelect,
     indicator,
-    censusFields,
   }) {
-    if (!censusFields) {
-      indicatorRows
-        .classed('indicator-dropdown__content-row--highlighted', (d) => {
-          if (d.id !== undefined) {
-            // 'id' prop for indicators
-            return (indicator === null ? false : d.id === indicator.id);
-          }
-          // 'value' prop for other things, like distance dropdown
-          return (indicator === null ? false : d.value === indicator.value);
-        });
-    } else {
-      indicatorRows
-        .classed('grouped-dropdown__content-row--highlighted', d => (indicator === null ? false : d.value === indicator.value));
-      indicatorRows.selectAll('.grouped-dropdown__content-row__indicator')
-        .classed('grouped-dropdown__content-row__indicator--highlighted', d => (indicator === null ? false : d.id === indicator.id));
-    }
+    indicatorRows
+      .classed('indicator-dropdown__content-row--highlighted', (d) => {
+        const ind = d[1] && d[1].length === 1 ? d[1][0] : d; // gets single-member grouped indicators
+        if (ind.id !== undefined) {
+          // 'id' prop for indicators
+          return (indicator === null ? false : ind.id === indicator.id);
+        }
+        // 'value' prop for other things, like distance dropdown
+        return (indicator === null ? false : ind.value === indicator.value);
+      });
+    indicatorRows
+      .classed('grouped-dropdown__content-row--highlighted', d => (indicator === null ? false : d.value === indicator.value));
+    indicatorRows.selectAll('.grouped-dropdown__content-row__indicator')
+      .classed('grouped-dropdown__content-row__indicator--highlighted', d => (indicator === null ? false : d.id === indicator.id));
     if (mobileSelect.size()) {
       const selectNode = mobileSelect.node();
       selectNode.value = indicator === null ? null : indicator.id;
