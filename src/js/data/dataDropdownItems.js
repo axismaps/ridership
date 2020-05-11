@@ -312,6 +312,14 @@ const censusFields = [
     verified: true,
   },
   {
+    text: 'Average monthly housing rent',
+    value: 'rent',
+    id: 'rent',
+    format: '$,d',
+    meta: 'Average monthly housing rent.',
+    verified: true,
+  },
+  {
     text: 'Percent Households with No Vehicle',
     value: 'no_vehicle_pct',
     id: 'no_vehicle_pct',
@@ -328,13 +336,6 @@ const censusFields = [
     unit: '%',
     meta: 'Share of workers ages 16 or older who commute to work in a single-occupancy vehicle.',
     verified: true,
-  },
-  {
-    text: 'Percent Commute by Carpooling',
-    value: 'carpool_pct',
-    id: 'carpool_pct',
-    format: '.0%',
-    unit: '%',
   },
   {
     text: 'Percent Commute by Public Transit',
