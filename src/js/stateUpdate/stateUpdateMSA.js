@@ -14,7 +14,7 @@ const getStateUpdateMSA = ({ components }) => function updateMSA() {
   this.set('distanceFilter', null);
   const distanceFilter = this.get('distanceFilter');
 
-  if (msa) {
+  if (msa && typeof ga !== 'undefined') {
     ga('send', 'event', 'data', 'msa', msa.msaId);
   }
 

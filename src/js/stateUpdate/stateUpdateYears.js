@@ -18,10 +18,10 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
   const nationalData = this.getCurrentNationalData();
   const agenciesData = this.getCurrentAgenciesData();
 
-  if (scale === 'msa' && !censusField.change) {
+  if (scale === 'msa' && !censusField.change && typeof ga !== 'undefined') {
     // send single year for single year census data
     ga('send', 'event', 'data', 'years', years[1]);
-  } else {
+  } else if (typeof ga !== 'undefined') {
     ga('send', 'event', 'data', 'years', years.join('-'));
   }
 

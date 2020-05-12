@@ -10,7 +10,7 @@ const getStateUpdateCensusField = ({ components }) => function updateCensusField
     yearDropdown,
   } = components;
 
-  if (censusField) {
+  if (censusField && typeof ga !== 'undefined') {
     ga('send', 'event', 'data', 'indicator', censusField.id);
   }
 
