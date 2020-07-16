@@ -45,7 +45,7 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
     });
 
     const radiusScale = getRadiusScale({
-      nodes: nationalDataView === 'ta' ? props.nodes : props.msaNodes,
+      nationalMapData,
     });
 
     setNodePositions({
@@ -114,7 +114,7 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
     } = atlasNationalFunctions;
 
     const radiusScale = getRadiusScale({
-      nodes: nationalDataView === 'ta' ? props.nodes : props.msaNodes,
+      nationalMapData,
     });
 
     const updatedNodes = getUpdatedNodes({

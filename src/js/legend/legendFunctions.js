@@ -8,11 +8,12 @@ const localFunctions = {
 
 const legendFunctions = {
   getRadiusScale({ nationalMapData }) {
-    const domain = d3.extent(nationalMapData, d => d.firstAndLast[1]);
+    const min = d3.min(nationalMapData, d => d.firstAndLast[1]);
+    const mean = d3.mean(nationalMapData, d => d.firstAndLast[1]);
 
     const scale = d3.scaleSqrt()
-      .domain(domain)
-      .range([5, 35]);
+      .domain([min, mean])
+      .range([5, 12]);
 
     return scale;
   },
@@ -34,6 +35,7 @@ const legendFunctions = {
     height,
     radiusScale,
     indicator,
+    nationalMapData,
   }) {
     const format = (val) => {
       const indicatorFormat = indicator.format;
@@ -46,7 +48,7 @@ const legendFunctions = {
     const {
       getCircleDistanceFromBottom,
     } = localFunctions;
-    const circleData = radiusScale.ticks(3);
+    const circleData = d3.ticks(...d3.extent(nationalMapData, d => d.firstAndLast[1]), 3);
     const fromBottom = getCircleDistanceFromBottom({ height });
     svg.selectAll('.legend__circle-group').remove();
     const widest = radiusScale(circleData[circleData.length - 1]);

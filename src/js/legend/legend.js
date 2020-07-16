@@ -56,6 +56,7 @@ const privateMethods = {
       height,
       radiusScale,
       indicator,
+      nationalMapData,
     });
 
     drawDescription({
@@ -129,6 +130,7 @@ class Legend {
       height,
       radiusScale,
       indicator,
+      nationalMapData,
     });
 
     drawDescription({
