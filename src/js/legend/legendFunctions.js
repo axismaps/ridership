@@ -58,7 +58,7 @@ const legendFunctions = {
       .append('g')
       .attrs({
         class: 'legend__circle-group',
-        transform: d => `translate(${2 + widest},${height - radiusScale(d) - fromBottom})`,
+        transform: d => `translate(${2 + widest},${height - radiusScale(d) - fromBottom + radiusScale(circleData[0])})`,
       });
 
     circleGroups
@@ -106,18 +106,20 @@ const legendFunctions = {
     height,
     width,
     indicator,
+    nationalMapData,
+    radiusScale,
   }) {
+    const circleData = d3.ticks(...d3.extent(nationalMapData, d => d.firstAndLast[1]), 3);
     const {
       getCircleDistanceFromBottom,
     } = localFunctions;
-    const fromTop = height - getCircleDistanceFromBottom({ height });
+    const fromTop = height - getCircleDistanceFromBottom({ height }) + radiusScale(circleData[0]);
     container.select('.legend__description-container').remove();
     container
       .append('div')
       .attr('class', 'legend__description-container')
       .styles({
         width: `${width}px`,
-        height: `${height}px`,
         position: 'absolute',
         left: '0px',
         top: `${fromTop}px`,

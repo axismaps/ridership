@@ -64,6 +64,8 @@ const privateMethods = {
       height,
       width,
       indicator,
+      nationalMapData,
+      radiusScale,
     });
 
     Object.assign(props, {
@@ -138,6 +140,8 @@ class Legend {
       height,
       width,
       indicator,
+      nationalMapData,
+      radiusScale,
     });
   }
 
