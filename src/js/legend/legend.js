@@ -11,6 +11,7 @@ const privateMethods = {
       container,
       nationalMapData,
       indicator,
+      years,
     } = props;
 
     const {
@@ -66,6 +67,7 @@ const privateMethods = {
       indicator,
       nationalMapData,
       radiusScale,
+      years,
     });
 
     Object.assign(props, {
@@ -85,6 +87,7 @@ class Legend {
       width: null,
       height: null,
       radiusScale: null,
+      years: [0, 0],
     });
 
     this.config(config);
@@ -116,6 +119,7 @@ class Legend {
       height,
       container,
       indicator,
+      years,
     } = privateProps.get(this);
 
     const {
@@ -142,6 +146,7 @@ class Legend {
       indicator,
       nationalMapData,
       radiusScale,
+      years,
     });
   }
 

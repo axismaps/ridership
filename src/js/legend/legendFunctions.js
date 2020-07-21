@@ -108,6 +108,7 @@ const legendFunctions = {
     indicator,
     nationalMapData,
     radiusScale,
+    years,
   }) {
     const circleData = d3.ticks(...d3.extent(nationalMapData, d => d.firstAndLast[1]), 3);
     const {
@@ -126,7 +127,7 @@ const legendFunctions = {
       })
       .append('div')
       .attr('class', 'legend__description')
-      .text(indicator.text);
+      .text(`${indicator.text} (${years[1]})`);
   },
 };
 
