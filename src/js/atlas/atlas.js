@@ -127,7 +127,7 @@ const privateMethods = {
 
     const { nodes, msaNodes } = props;
     props.radiusScale = getRadiusScale({
-      nodes: nationalDataView === 'ta' ? nodes : msaNodes,
+      nationalMapData,
     });
     let agencies;
     if (nationalDataView === 'ta') {

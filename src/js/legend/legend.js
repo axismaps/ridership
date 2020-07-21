@@ -56,6 +56,7 @@ const privateMethods = {
       height,
       radiusScale,
       indicator,
+      nationalMapData,
     });
 
     drawDescription({
@@ -63,6 +64,8 @@ const privateMethods = {
       height,
       width,
       indicator,
+      nationalMapData,
+      radiusScale,
     });
 
     Object.assign(props, {
@@ -129,6 +132,7 @@ class Legend {
       height,
       radiusScale,
       indicator,
+      nationalMapData,
     });
 
     drawDescription({
@@ -136,6 +140,8 @@ class Legend {
       height,
       width,
       indicator,
+      nationalMapData,
+      radiusScale,
     });
   }
 
