@@ -266,6 +266,8 @@ const indicators = new Map();
       format: '$.2f',
       unit: ' per gallon',
       meta: 'Average annual cost per gallon of gas, in dollars per gallon, at the state-wide level. It measures driving’s cost competitiveness.',
+      fixedRadius: false,
+      maxRadius: 10,
     },
   ];
 
