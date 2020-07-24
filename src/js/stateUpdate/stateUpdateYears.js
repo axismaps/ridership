@@ -36,6 +36,7 @@ const getStateUpdateYear = ({ components }) => function updateYears() {
 
   legend.config({
     nationalMapData,
+    years,
   }).update();
 
   if (histogram !== null) {

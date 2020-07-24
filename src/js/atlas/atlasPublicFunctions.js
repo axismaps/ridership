@@ -18,6 +18,7 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
       msaNodes,
       nationalDataView,
       projectionModify,
+      indicator,
     } = props;
     const {
       // drawAgencies,
@@ -45,7 +46,8 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
     });
 
     const radiusScale = getRadiusScale({
-      nodes: nationalDataView === 'ta' ? props.nodes : props.msaNodes,
+      nationalMapData,
+      indicator,
     });
 
     setNodePositions({
@@ -102,6 +104,7 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
       // compareMode,
       nodes,
       msaNodes,
+      indicator,
     } = props;
 
     const {
@@ -114,7 +117,8 @@ const getPublicFunctions = ({ privateProps, privateMethods }) => ({
     } = atlasNationalFunctions;
 
     const radiusScale = getRadiusScale({
-      nodes: nationalDataView === 'ta' ? props.nodes : props.msaNodes,
+      nationalMapData,
+      indicator,
     });
 
     const updatedNodes = getUpdatedNodes({

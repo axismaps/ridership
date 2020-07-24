@@ -230,7 +230,7 @@ const sparkLineFunctions = {
             cx: xScale(year),
             cy: (circleData, i) => {
               if (summaries[i] === undefined) return 0;
-              return d.agencies.length > 1
+              return d.agencies.length > 1 && d.agencies[i].scale !== undefined
                 ? yScale(d.agencies[i].scale(summaries[i].indicatorSummary))
                 : yScale(summaries[i].indicatorSummary);
             },
@@ -279,6 +279,7 @@ const sparkLineFunctions = {
       .transition()
       .attr('d', (d) => {
         if (indicatorData.agencies.length > 1) {
+          if (d.scale === undefined) return '';
           lineGenerator.y(s => yScale(d.scale(s.indicatorSummary)));
         }
         return lineGenerator(d.summaries);

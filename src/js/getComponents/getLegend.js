@@ -7,6 +7,7 @@ const getLegend = ({ state, data }) => new Legend({
   exportMethods,
   nationalMapData: state.getCurrentNationalMapData(),
   indicator: state.get('indicator'),
+  years: state.get('years'),
 });
 
 export default getLegend;

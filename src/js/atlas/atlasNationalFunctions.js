@@ -6,15 +6,23 @@ const topojson = Object.assign({}, topojsonBase, topojsonSimplify);
 
 const atlasNationalFunctions = {
   getRadiusScale({
-    nodes,
+    nationalMapData,
+    indicator,
   }) {
-    const domain = d3.extent(nodes, d => d.firstAndLast[1]);
+    if (indicator.fixedRadius) {
+      return d => (d === null ? 0 : 5);
+    }
+    const min = d3.min(nationalMapData, d => d.firstAndLast[1]);
+    const mean = d3.mean(nationalMapData, d => d.firstAndLast[1]);
 
+    // scale based on min and some size roughly in the middle,
+    // trying to cut down on maps full of high values and big circles
     const scale = d3.scaleSqrt()
-      .domain(domain)
-      .range([5, 35]);
+      .domain([min, mean])
+      .range([5, 12]);
 
-    return d => (d === null ? 0 : scale(d));
+    // handle missing data; cap radius at 35
+    return d => (d === null ? 0 : Math.min(scale(d), indicator.maxRadius || 35));
   },
   drawStates({
     layer,

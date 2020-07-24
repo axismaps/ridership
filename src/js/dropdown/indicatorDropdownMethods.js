@@ -69,7 +69,7 @@ const pureMethods = {
           .html(d => `${d[1][0].text}${d[1][0].verified ? ' <i class="fa fa-badge-check"></i>' : ''}${d[1].length > 1 ? ':' : ''}`)
           .on('mouseover', function showProbe(d) {
             dataProbe.remove();
-            if (!d.meta) return;
+            if (!d[1][0].meta) return;
             const rect = this.getBoundingClientRect();
             const pos = {
               right: window.innerWidth - rect.x + 25,
