@@ -134,7 +134,7 @@ if __name__ == "__main__":
 
     # Create MSA stacks
     msa_stacks = {}
-    national_values = pd.DataFrame(pd.Series(list(range(2006, 2018)), name='year'))
+    national_values = pd.DataFrame(pd.Series(list(range(2006, 2019)), name='year'))
     ta_export = pd.read_csv('data/output/ta.csv', usecols=['taid', 'msaid', 'taname', 'display'])
     ta_msa = ta_export[['taid', 'msaid']].drop_duplicates()
     for i in stacks:
@@ -361,7 +361,6 @@ if __name__ == "__main__":
 
     print('Data exported to CSV')
 
-    #%%
     # Upload to Carto
     indexes.extend(export.columns.values)
     replace_data('ntd', indexes, 'ntd.csv')
