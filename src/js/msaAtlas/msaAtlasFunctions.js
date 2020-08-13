@@ -241,6 +241,7 @@ const msaAtlasFunctions = {
       drawTracts,
       drawAnnotations,
     } = msaAtlasFunctions;
+    msaAtlas.resize();
 
     jumpToMSA({
       msaAtlas,

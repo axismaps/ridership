@@ -69,6 +69,7 @@ const getStateUpdateScale = ({ components, data }) => function updateScale() {
       .updateData();
 
     atlas.setZoom();
+    atlas.updateSize();
 
     this.update({
       taFilter: new Set(),
