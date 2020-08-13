@@ -159,6 +159,7 @@ const indicators = new Map();
       meta: 'Total revenue from collected fares divided by total trips (UPTs). Fares are a measure of transit’s cost competitiveness with other modes and how accessible it is to riders with low incomes.<br><br>Averages include all rides, whose fares vary according to time of day, zones, and programs to which a rider belongs. Calculated averages will not represent the fare that most riders pay for a single ride, but they are useful for making modal or cross-agency comparisons or examing trends.',
       parent: 'Average Fare',
       mode: 'All',
+      maxRadius: 20,
     },
     {
       text: 'Bus Average Fare',
@@ -168,6 +169,7 @@ const indicators = new Map();
       format: '$.2f',
       parent: 'Average Fare',
       mode: 'Bus',
+      maxRadius: 20,
     },
     {
       text: 'Rail Average Fare',
@@ -177,6 +179,7 @@ const indicators = new Map();
       format: '$.2f',
       parent: 'Average Fare',
       mode: 'Rail',
+      maxRadius: 20,
     },
     {
       text: 'Farebox Recovery',
@@ -217,6 +220,7 @@ const indicators = new Map();
       format: ',d',
       unit: ' mi',
       meta: 'Average miles vehicles of any mode travel between major mechanical failures. It relates to service reliability and vehicles state-of-good-repair.',
+      maxRadius: 20,
     },
     {
       text: 'Trips Per Person',
