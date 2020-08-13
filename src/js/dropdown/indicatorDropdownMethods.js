@@ -212,16 +212,30 @@ const pureMethods = {
   }) {
     indicatorRows
       .classed('indicator-dropdown__content-row--highlighted', (d) => {
-        const ind = d[1] && d[1].length === 1 ? d[1][0] : d; // gets single-member grouped indicators
+        // for non-indicators
+        const ind = d[1] && d[1].length === 1 ? d[1][0] : d; // gets single-member grouped indicators (obsolete?)
+
         if (ind.id !== undefined) {
-          // 'id' prop for indicators
-          return (indicator === null ? false : ind.id === indicator.id);
+          // 'id' prop for indicators. these are covered by the other classes below
+          return false;
         }
         // 'value' prop for other things, like distance dropdown
         return (indicator === null ? false : ind.value === indicator.value);
       });
     indicatorRows
-      .classed('grouped-dropdown__content-row--highlighted', d => (indicator === null ? false : d.value === indicator.value));
+      .classed('grouped-dropdown__content-row--highlighted', (d) => {
+        // for indicators and census fields
+        if (d[1] && d[1].length && indicator !== null) {
+          // grouped rows for national indicators
+          return d[1].some(i => i.id === indicator.id);
+        }
+        if (d.id !== undefined && indicator !== null && indicator.id.match(d.value)) {
+          // grouped rows for census fields
+          return true;
+        }
+        return false;
+      });
+    // for the sub-row items (e.g. "single year" and "change")
     indicatorRows.selectAll('.grouped-dropdown__content-row__indicator')
       .classed('grouped-dropdown__content-row__indicator--highlighted', d => (indicator === null ? false : d.id === indicator.id));
     if (mobileSelect.size()) {
