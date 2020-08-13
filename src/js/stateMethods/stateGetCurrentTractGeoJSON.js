@@ -198,8 +198,8 @@ const loadTractData = ({
 }) => {
   Promise.all([
     d3.json(`data/tracts/tract-${msa.msaId}.json`),
-    d3.json(`https://ridership.carto.com/api/v2/sql?q=${encodeURIComponent(`SELECT * FROM census_dev WHERE msaid = ${msa.msaId}`)}`),
-    d3.json(`https://ridership.carto.com/api/v2/sql?q=${encodeURIComponent(`SELECT * FROM census_msa_dev WHERE geoid = ${msa.msaId}`)}`),
+    d3.json(`https://transitcenter-admin.carto.com/api/v2/sql?q=${encodeURIComponent(`SELECT * FROM census_dev WHERE msaid = ${msa.msaId}`)}`),
+    d3.json(`https://transitcenter-admin.carto.com/api/v2/sql?q=${encodeURIComponent(`SELECT * FROM census_msa_dev WHERE geoid = ${msa.msaId}`)}`),
   ]).then((rawData) => {
     const [tractTopo, censusData, regionData] = rawData;
     const cachedTractData = data.get('cachedTractData');
