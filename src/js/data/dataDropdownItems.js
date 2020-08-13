@@ -32,6 +32,7 @@ const indicators = new Map();
       format: ',d',
       parent: 'Ridership',
       mode: 'Rail',
+      verified: true,
     },
     {
       text: 'Paratransit Ridership',
@@ -65,6 +66,7 @@ const indicators = new Map();
       unit: ' mi',
       parent: 'Vehicle Revenue Miles',
       mode: 'Bus',
+      verified: true,
     },
     {
       text: 'Rail Vehicle Revenue Miles',
@@ -75,6 +77,7 @@ const indicators = new Map();
       unit: ' mi',
       parent: 'Vehicle Revenue Miles',
       mode: 'Rail',
+      verified: true,
     },
     {
       text: 'Minimum Headway',
@@ -135,6 +138,7 @@ const indicators = new Map();
       format: '$,d',
       parent: 'Operating Expenses',
       mode: 'Bus',
+      verified: true,
     },
     {
       text: 'Rail Operating Expenses',
@@ -144,6 +148,7 @@ const indicators = new Map();
       format: '$,d',
       parent: 'Operating Expenses',
       mode: 'Rail',
+      verified: true,
     },
     {
       text: 'Average Fare',
@@ -192,6 +197,7 @@ const indicators = new Map();
       format: '.1%',
       parent: 'Farebox Recovery',
       mode: 'Bus',
+      verified: true,
     },
     {
       text: 'Rail Farebox Recovery',
@@ -201,6 +207,7 @@ const indicators = new Map();
       format: '.1%',
       parent: 'Farebox Recovery',
       mode: 'Rail',
+      verified: true,
     },
     {
       text: 'Miles Between Failures',
@@ -209,6 +216,7 @@ const indicators = new Map();
       summaryType: 'mean',
       format: ',d',
       unit: ' mi',
+      meta: 'Average miles vehicles of any mode travel between major mechanical failures. It relates to service reliability and vehicles state-of-good-repair.',
     },
     {
       text: 'Trips Per Person',
@@ -216,6 +224,7 @@ const indicators = new Map();
       id: 'capita',
       summaryType: 'mean',
       format: '.1f',
+      meta: 'Transit ridership divided by service area population. It standardizes transit ridership by region size. Service area definitions and population data sources used change from year to year, so changes over time may be inaccurate.',
     },
     {
       text: 'Riders per Vehicle Revenue Mile',
@@ -238,6 +247,7 @@ const indicators = new Map();
       unit: ' rides per mi',
       parent: 'Riders per Vehicle Revenue Mile',
       mode: 'Bus',
+      verified: true,
     },
     {
       text: 'Rail Riders per Vehicle Revenue Mile',
@@ -248,6 +258,7 @@ const indicators = new Map();
       unit: ' rides per mi',
       parent: 'Riders per Vehicle Revenue Mile',
       mode: 'Rail',
+      verified: true,
     },
     {
       text: 'Average Trip Length',
