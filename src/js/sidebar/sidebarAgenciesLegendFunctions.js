@@ -18,11 +18,11 @@ const sidebarLegendFunctions = {
 
     const showAllButton = showAllContainer.append('button')
       .attr('class', 'sidebar__sparkline-legend-show-all-button')
-      .html(taFilter.size ? 'Show all agencies' : 'Hide all agencies')
+      .html(taFilter.size ? 'Show all agencies' : 'Deselect all agencies')
       .on('click', () => {
         if (taFilter.size) {
           updateTAFilter(null);
-          showAllButton.html('Hide all agencies');
+          showAllButton.html('Deselect all agencies');
         } else {
           updateTAFilter(currentAgencies.map(d => d.taId));
           showAllButton.html('Show all agencies');
