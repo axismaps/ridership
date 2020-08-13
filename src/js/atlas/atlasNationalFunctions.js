@@ -22,7 +22,7 @@ const atlasNationalFunctions = {
       .range([5, 12]);
 
     // handle missing data; cap radius at 35
-    return d => (d === null ? 0 : Math.min(scale(d), indicator.maxRadius || 35));
+    return d => (d === null ? 5 : Math.min(scale(d), indicator.maxRadius || 35));
   },
   drawStates({
     layer,
