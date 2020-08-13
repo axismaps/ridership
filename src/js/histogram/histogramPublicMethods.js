@@ -17,7 +17,6 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
       changeColorScale,
       valueColorScale,
       nationalMapData,
-      bucketCount,
       padding,
       width,
       height,
@@ -48,6 +47,9 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
     } = props;
 
     if (mobile && !mobileHistogramOpen) return this;
+
+    const bucketCount = mobile || (currentCensusField && !currentCensusField.change) ? 16 : 32;
+    console.log(bucketCount);
 
     const {
 
@@ -108,7 +110,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
           props.bars = newBars;
         },
       });
-      Object.assign(props, { histogramData, nationalAverage });
+      Object.assign(props, { histogramData, nationalAverage, bucketCount });
     } else if (currentScale === 'msa') {
       const { histogramData, nationalAverage } = getMSAHistogramData({
         tractGeo,
@@ -140,7 +142,7 @@ const getPublicMethods = ({ privateMethods, privateProps }) => ({
         barSpacing,
         msa,
       });
-      Object.assign(props, { histogramData, nationalAverage });
+      Object.assign(props, { histogramData, nationalAverage, bucketCount });
     }
 
     return this;

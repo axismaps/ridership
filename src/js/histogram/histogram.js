@@ -16,7 +16,6 @@ const privateMethods = {
       barSpacing,
       width,
       height,
-      bucketCount,
       nationalMapData,
       padding,
       container,
@@ -60,6 +59,8 @@ const privateMethods = {
     const {
       setSVGSize,
     } = resizeFunctions;
+
+    const bucketCount = mobile || (currentCensusField && !currentCensusField.change) ? 16 : 32;
 
     let histogramData;
     let nationalAverage;
@@ -202,6 +203,7 @@ const privateMethods = {
       yAxisLabel,
       histogramData,
       nationalAverage,
+      bucketCount,
     });
 
     d3.select('.footer__histogram')
