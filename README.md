@@ -10,7 +10,7 @@ To install all the application dependencies for the project, run:
 npm install
 ```
 
-The data processing tools are written in Python and use pip to manage dependencies. Once Python 2.7 and pip are installed, install the other dependencies with:
+The data processing tools are written in Python and use pip to manage dependencies. Once Python 3.7 and pip are installed, install the other dependencies with:
 
 ```sh
 pip install -r requirements.txt 
