@@ -80,12 +80,25 @@ const getEmbedOverrideProps = ({ data }) => {
   }
 
   if (params.get('compared')) {
+    const compareColors = [
+      '#0f8fff',
+      '#ff5e4d',
+      '#8c6112',
+      '#ff9d2e',
+      '#c2ab00',
+      '#33a02c',
+      '#eb52d6',
+      '#707070',
+      '#00ad91',
+      '#bc80bd',
+    ];
     const ids = params.get('compared').split('|');
     const nationalMapData = data.get('allNationalMapData');
     const tas = nationalMapData.map(msa => msa.ta)
       .reduce((accumulator, ta) => [...accumulator, ...ta], [])
-      .filter(ta => ids.includes(ta.taId));
-    const msas = nationalMapData.filter(ta => ids.includes(ta.msaId));
+      .filter(ta => ids.includes(ta.taId))
+      .map((ta, i) => ({ ...ta, compareColor: compareColors[i % 10] }));
+    const msas = nationalMapData.filter(ta => ids.includes(ta.msaId)).map((msa, i) => ({ ...msa, compareColor: compareColors[i % 10] }));
     const comparedAgencies = tas.length ? tas : msas;
     Object.assign(embedOverrideProps, {
       comparedAgencies,
