@@ -74,6 +74,13 @@ class DataProbe {
         .append('div')
         .attr('class', 'data-probe__down-leader');
     }
+
+    requestAnimationFrame(() => {
+      const rect = props.probe.node().getBoundingClientRect();
+      console.log(rect);
+      if (rect.y < 0) props.probe.style('top', '0');
+      props.probe.style('height', `${rect.height}px`);
+    });
   }
 
   remove() {

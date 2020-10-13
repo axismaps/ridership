@@ -77,7 +77,7 @@ const histogramFunctions = {
 
       const { clientX, clientY } = d3.event;
       const pos = {
-        left: clientX < window.innerWidth - 260 ? (clientX + 10) : clientX - 260,
+        left: clientX < window.innerWidth / 2 ? (clientX + 10) : clientX - 260,
         bottom: window.innerHeight - clientY + 10,
         width: 250,
       };

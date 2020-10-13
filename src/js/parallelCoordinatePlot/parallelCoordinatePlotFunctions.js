@@ -152,7 +152,7 @@ const parallelCoordinatePlotFunctions = {
                     d3.select(this).raise();
                     const { clientX, clientY } = d3.event;
                     const pos = {
-                      left: clientX + 10,
+                      left: clientX < window.innerWidth / 2 ? clientX + 10 : clientX - 260,
                       bottom: window.innerHeight - clientY + 10,
                       width: 250,
                     };

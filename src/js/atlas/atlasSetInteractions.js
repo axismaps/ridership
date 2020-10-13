@@ -43,7 +43,7 @@ const setInteractions = ({
     d3.event.stopPropagation();
     const { clientX, clientY } = d3.event;
     const pos = {
-      left: clientX < window.innerWidth - 310 ? (clientX + 10) : clientX - 310,
+      left: clientX < window.innerWidth / 2 ? (clientX + 10) : clientX - 310,
       bottom: window.innerHeight - clientY + 10,
       width: 300,
     };
