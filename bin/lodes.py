@@ -98,4 +98,11 @@ full.to_csv(
     header=['GEOID', 'year', 'jobs']
 )
 
+msa = full.groupby(by=["msaid","year"]).sum()
+msa.to_csv('data/output/msa/jobs.csv',
+    columns=['C000'],
+    header=['jobs'],
+    index_label=['GEOID', 'year']
+)
+
 print('Wrote jobs.csv')

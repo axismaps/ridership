@@ -209,7 +209,8 @@
   {
     "name": "Total Jobs",
     "key": "jobs",
-    "var": "99999999"
+    "var": "99999999",
+    "msa": true
   },
   {
     "name": "Job Density",
@@ -217,12 +218,14 @@
     "numerator": "jobs",
     "denominator": "ALAND",
     "scale": 1000000,
-    "upload": true
+    "upload": true,
+    "msa": true
   },
   {
     "name": "Jobs + Population",
     "key": "job_pop",
-    "sum": [ "jobs", "pop" ]
+    "sum": [ "jobs", "pop" ],
+    "msa": true
   },
   {
     "name": "Job and Population Density",
@@ -230,6 +233,7 @@
     "numerator": "job_pop",
     "denominator": "ALAND",
     "scale": 1000000,
-    "upload": true
+    "upload": true,
+    "msa": true
   }
 ]
