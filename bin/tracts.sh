@@ -19,6 +19,7 @@ mapshaper data/geojson/tracts/us_tracts.shp \
   -split msaid \
   -filter-fields GEOID \
   -rename-fields id=GEOID \
+  -each "id=parseInt(id, 10)" \
   -proj EPSG:3395 \
   -o data/geojson/msa_tracts format=geojson singles force
 
