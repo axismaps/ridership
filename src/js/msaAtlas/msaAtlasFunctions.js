@@ -91,8 +91,8 @@ const msaAtlasFunctions = {
         updateStateHighlightedTracts([feature.properties]);
         const { id } = feature.properties;
         const years = getYears();
-        const firstNum = Number(id.slice(-5, -2));
-        const secondNum = Number(id.slice(-2)) / 100;
+        const firstNum = Number(id.toString().slice(-5, -2));
+        const secondNum = Number(id.toString().slice(-2)) / 100;
         const tractNum = secondNum !== 0
           ? f(firstNum + secondNum)
           : firstNum;
