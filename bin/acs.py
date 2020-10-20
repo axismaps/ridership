@@ -174,7 +174,9 @@ def download_census():
         export_msa_filtered = export_msa[
             export_msa.GEOID.isin([str(i) for i in combined.msaid.unique().tolist()])
         ]
-        export_msa_filtered[msa_indexes].to_csv('data/output/census_msa.csv', index=False)
+        export_msa_filtered[msa_indexes].astype({'pop': 'int32'}).to_csv(
+            'data/output/census_msa.csv', index=False
+        )
         replace_data('census_msa', msa_indexes, 'census_msa.csv')
 
         indexes.append('msaid')
